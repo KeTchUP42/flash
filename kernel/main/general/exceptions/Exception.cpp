@@ -9,6 +9,6 @@ const char *KernelExceptions::Exception::what() const _GLIBCXX_TXN_SAFE_DYN _GLI
     return std::strcat(_message, exception::what());
 }
 
-char *KernelExceptions::Exception::getMessage() const {
+[[maybe_unused]] char *KernelExceptions::Exception::getMessage() const {
     return _message;
 }

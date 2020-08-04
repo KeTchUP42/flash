@@ -12,15 +12,15 @@ namespace KernelExceptions {
 
     class Exception : public std::exception {
     public:
-        explicit Exception(const char *message = "") noexcept
-                : std::exception(), _message(const_cast<char *>(message)) {}
+        explicit
+        Exception(const char *message = "") noexcept: std::exception(), _message(const_cast<char *>(message)) {}
 
         const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;
 
-        char *getMessage() const;
+        [[maybe_unused]] char *getMessage() const;
 
     protected:
-        char *_message{};
+        char *_message;
     };
 }
 

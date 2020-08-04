@@ -6,8 +6,6 @@
 #define FLASH_WRITER_H
 
 #include <string>
-#include <iostream>
-#include <fstream>
 
 namespace LoggerUtil {
 
@@ -15,7 +13,9 @@ namespace LoggerUtil {
     public:
         Writer() = default;
 
-        virtual bool write(const std::string &) const = 0;
+        virtual bool write(const std::string &) const noexcept = 0;
+
+        virtual bool write(const char *) const noexcept = 0;
 
         virtual ~Writer() = default;
     };

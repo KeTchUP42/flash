@@ -8,7 +8,6 @@
 namespace Engine {
 
     class Kernel {
-
     public:
         typedef int KERNEL_LOG;
 

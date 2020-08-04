@@ -5,9 +5,9 @@
 #ifndef FLASH_FILEWRITER_H
 #define FLASH_FILEWRITER_H
 
-#include "Writer.h"
 
 #include "../../../main/general/exceptions/KernelRuntimeException.h"
+#include "Writer.h"
 
 namespace LoggerUtil {
 
@@ -19,14 +19,20 @@ namespace LoggerUtil {
             explicit FileIsNotOpen(const char *message) : KernelRuntimeException(message) {}
         };
 
-        explicit FileWriter(const std::string &);
+        explicit FileWriter(const std::string &filepath);
 
-        bool write(const std::string &) const override;
+        explicit FileWriter(const char *filepath);
+
+        bool write(const char *) const noexcept override;
+
+        bool write(const std::string &) const noexcept override;
 
         ~FileWriter() override;
 
     protected:
-        std::ofstream *_out;
+        void checkFile() const;
+
+        const char *_path;
     };
 
 }
