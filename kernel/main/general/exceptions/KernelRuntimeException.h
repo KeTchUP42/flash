@@ -14,7 +14,7 @@ namespace KernelExceptions {
     class KernelRuntimeException : public KernelExceptions::Exception {
     public:
         explicit
-        KernelRuntimeException(const char *message = "") noexcept: Exception(message) {}
+        KernelRuntimeException(const char *message) noexcept: Exception(message) {}
     };
 
 }

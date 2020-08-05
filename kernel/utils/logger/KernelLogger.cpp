@@ -37,12 +37,10 @@ void LoggerUtil::KernelLogger::debug(const std::string &message) const noexcept 
 }
 
 std::string LoggerUtil::KernelLogger::dateTimeNow() const noexcept {
-    const unsigned int buffchars = 20;
+    const unsigned buffchars = 20;
     char buffer[buffchars];
     time_t seconds = time(nullptr);
     tm *timeinfo = localtime(&seconds);
     strftime(buffer, buffchars, "%Y-%I-%d %H:%M", timeinfo);
-
-    std::string datetime = std::string(buffer);
-    return datetime;
+    return std::string(buffer);
 }

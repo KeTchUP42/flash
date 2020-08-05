@@ -14,21 +14,21 @@ namespace LoggerUtil {
         explicit
         KernelLogger(Writer *writer) : Logger(writer) {}
 
-        void emergency(const std::string &) const noexcept override;
+        void emergency(const std::string &message) const noexcept override;
 
-        void alert(const std::string &) const noexcept override;
+        void alert(const std::string &message) const noexcept override;
 
-        void critical(const std::string &) const noexcept override;
+        void critical(const std::string &message) const noexcept override;
 
-        void error(const std::string &) const noexcept override;
+        void error(const std::string &message) const noexcept override;
 
-        void warning(const std::string &) const noexcept override;
+        void warning(const std::string &message) const noexcept override;
 
-        void notice(const std::string &) const noexcept override;
+        void notice(const std::string &message) const noexcept override;
 
-        void info(const std::string &) const noexcept override;
+        void info(const std::string &message) const noexcept override;
 
-        void debug(const std::string &) const noexcept override;
+        void debug(const std::string &message) const noexcept override;
 
     protected:
         std::string dateTimeNow() const noexcept;

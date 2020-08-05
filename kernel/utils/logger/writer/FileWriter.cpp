@@ -4,17 +4,18 @@
 
 #include "FileWriter.h"
 #include <fstream>
+#include <cstring>
 
-LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath.c_str()), Writer() {
-    checkFile();
+LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(std::move(filepath)), Writer() {
+    this->checkPath();
 }
 
-LoggerUtil::FileWriter::FileWriter(const char *filepath) : _path(filepath), Writer() {
-    checkFile();
+LoggerUtil::FileWriter::FileWriter(const char *filepath) : _path(std::string(filepath)), Writer() {
+    this->checkPath();
 }
 
 bool LoggerUtil::FileWriter::write(const char *message) const noexcept {
-    std::ofstream out(_path, std::ios::app);
+    std::ofstream out(_path.c_str(), std::ios::app);
     bool isOpen = out.is_open();
     if (isOpen) {
         out << message;
@@ -27,15 +28,12 @@ bool LoggerUtil::FileWriter::write(const std::string &message) const noexcept {
     return write(message.c_str());
 }
 
-void LoggerUtil::FileWriter::checkFile() const {
+void LoggerUtil::FileWriter::checkPath() const {
     std::ofstream out(_path, std::ios::app);
     if (!out.is_open()) {
         out.close();
-        throw FileIsNotOpen("The file cannot be opened.");
+        throw FileCanNotBeOpened(std::strcat(const_cast<char *>(_path.c_str()), " cannot be opened."));
     }
     out.close();
 }
 
-LoggerUtil::FileWriter::~FileWriter() {
-    delete _path;
-}
