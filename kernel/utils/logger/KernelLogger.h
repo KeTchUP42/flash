@@ -6,13 +6,15 @@
 #define FLASH_KERNELLOGGER_H
 
 #include "Logger.h"
+#include "formatter/KernelLoggerFormatter.h"
 
 namespace LoggerUtil {
 
     class KernelLogger : public Logger {
     public:
         explicit
-        KernelLogger(Writer *writer) : Logger(writer) {}
+        KernelLogger(Writer *writer, Formatter<std::string> *formatter = new KernelLoggerFormatter()) : Logger(writer,
+                                                                                                               formatter) {}
 
         void emergency(const std::string &message) const noexcept override;
 
@@ -29,9 +31,6 @@ namespace LoggerUtil {
         void info(const std::string &message) const noexcept override;
 
         void debug(const std::string &message) const noexcept override;
-
-    protected:
-        std::string dateTimeNow() const noexcept;
     };
 }
 #endif //FLASH_KERNELLOGGER_H

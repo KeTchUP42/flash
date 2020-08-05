@@ -7,6 +7,7 @@
 
 #include <string>
 #include "writer/Writer.h"
+#include "formatter/Formatter.h"
 
 namespace LoggerUtil {
 
@@ -14,7 +15,7 @@ namespace LoggerUtil {
     public:
 
         explicit
-        Logger(Writer *writer);
+        Logger(Writer *writer, Formatter<std::string> *formatter);
 
         /**
          * System is unusable.
@@ -60,6 +61,7 @@ namespace LoggerUtil {
 
     protected:
         Writer *_writer;
+        Formatter<std::string> *_formatter;
     };
 
 }

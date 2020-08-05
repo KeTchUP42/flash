@@ -5,42 +5,33 @@
 #include "KernelLogger.h"
 
 void LoggerUtil::KernelLogger::emergency(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" EMERGENCY: ") + message + '\n');
+    _writer->write(_formatter->format(std::string(" EMERGENCY: ") + message));
 }
 
 void LoggerUtil::KernelLogger::alert(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" ALERT: ") + message + '\n');
+    _writer->write(_formatter->format(std::string(" ALERT: ") + message));
 }
 
 void LoggerUtil::KernelLogger::critical(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" CRITICAL: ") + message + '\n');
+    _writer->write(_formatter->format(std::string(" CRITICAL: ") + message));
 }
 
 void LoggerUtil::KernelLogger::error(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" ERROR: ") + message + '\n');
+    _writer->write(_formatter->format(std::string(" ERROR: ") + message));
 }
 
 void LoggerUtil::KernelLogger::warning(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" WARNING: ") + message + '\n');
+    _writer->write(_formatter->format(std::string(" WARNING: ") + message));
 }
 
 void LoggerUtil::KernelLogger::notice(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" NOTICE: ") + message + '\n');
+    _writer->write(_formatter->format(std::string(" NOTICE: ") + message));
 }
 
 void LoggerUtil::KernelLogger::info(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" INFO: ") + message + '\n');
+    _writer->write(_formatter->format(std::string(" INFO: ") + message));
 }
 
 void LoggerUtil::KernelLogger::debug(const std::string &message) const noexcept {
-    _writer->write(dateTimeNow() + std::string(" DEBUG: ") + message + '\n');
-}
-
-std::string LoggerUtil::KernelLogger::dateTimeNow() const noexcept {
-    const unsigned buffchars = 20;
-    char buffer[buffchars];
-    time_t seconds = time(nullptr);
-    tm *timeinfo = localtime(&seconds);
-    strftime(buffer, buffchars, "%Y-%I-%d %H:%M", timeinfo);
-    return std::string(buffer);
+    _writer->write(_formatter->format(std::string(" DEBUG: ") + message));
 }

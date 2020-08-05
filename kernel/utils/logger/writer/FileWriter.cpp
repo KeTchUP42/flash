@@ -6,7 +6,7 @@
 #include <fstream>
 #include <cstring>
 
-LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(std::move(filepath)), Writer() {
+LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath), Writer() {
     this->checkPath();
 }
 
