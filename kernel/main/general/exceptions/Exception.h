@@ -6,13 +6,15 @@
 #define FLASH_EXCEPTION_H
 
 #include <exception>
+#include <string>
 
 namespace KernelExceptions {
 
     class Exception : public std::exception {
     public:
-        explicit
-        Exception(const char *message) noexcept: _message(message), std::exception() {}
+        explicit Exception(const char *message) noexcept: _message(message), std::exception() {}
+
+        explicit Exception(const std::string &message) noexcept: _message(message.c_str()), std::exception() {}
 
         const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;
 

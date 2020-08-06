@@ -3,16 +3,16 @@
 //
 
 #include "Logger.h"
-#include "../../main/general/exceptions/KernelRuntimeException.h"
+#include "../../main/general/exceptions/InvalidArgument.h"
 
 LoggerUtil::Logger::Logger(LoggerUtil::Writer *writer, LoggerUtil::Formatter<std::string> *formatter) {
     if (writer == nullptr) {
         delete formatter;
-        throw KernelExceptions::KernelRuntimeException("Writer cannot be nullptr.");
+        throw KernelExceptions::InvalidArgument("Writer cannot be nullptr.");
     }
     if (formatter == nullptr) {
         delete writer;
-        throw KernelExceptions::KernelRuntimeException("Formatter cannot be nullptr.");
+        throw KernelExceptions::InvalidArgument("Formatter cannot be nullptr.");
     }
     _writer = writer;
     _formatter = formatter;
