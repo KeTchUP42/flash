@@ -5,8 +5,6 @@
 #ifndef FLASH_KERNELRUNTIMEEXCEPTION_H
 #define FLASH_KERNELRUNTIMEEXCEPTION_H
 
-#include <exception>
-#include <utility>
 #include "Exception.h"
 
 namespace KernelExceptions {

@@ -6,7 +6,6 @@
 #define FLASH_EXCEPTION_H
 
 #include <exception>
-#include <ostream>
 
 namespace KernelExceptions {
 
