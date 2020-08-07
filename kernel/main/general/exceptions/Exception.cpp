@@ -12,6 +12,11 @@ const char *KernelExceptions::Exception::getMessage() const noexcept {
     return _message;
 }
 
+const int KernelExceptions::Exception::getCode() const noexcept {
+    return _code;
+}
+
 KernelExceptions::Exception::~Exception() {
     delete[] _message;
 }
+

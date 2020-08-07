@@ -6,16 +6,19 @@
 #define FLASH_RUNTIMEEXCEPTION_H
 
 #include "Exception.h"
+#include "ExceptionCodes.h"
 
 namespace KernelExceptions {
 
     class RuntimeException : public KernelExceptions::Exception {
     public:
         explicit
-        RuntimeException(const char *message) noexcept: Exception(message) {}
+        RuntimeException(const char *message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
+                : Exception(message, code) {}
 
         explicit
-        RuntimeException(const std::string &message) noexcept: Exception(message) {}
+        RuntimeException(const std::string &message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
+                : Exception(message, code) {}
     };
 
 }

@@ -6,16 +6,18 @@
 #define FLASH_LOGICERROR_H
 
 #include "Exception.h"
+#include "ExceptionCodes.h"
 
 namespace KernelExceptions {
 
     class LogicError : public Exception {
     public:
         explicit
-        LogicError(const char *message) : Exception(message) {}
+        LogicError(const char *message, const int &code = ExceptionCodes::LOGIC_ERROR) : Exception(message, code) {}
 
         explicit
-        LogicError(const std::string &message) : Exception(message) {}
+        LogicError(const std::string &message, const int &code = ExceptionCodes::LOGIC_ERROR)
+                : Exception(message, code) {}
     };
 
 }

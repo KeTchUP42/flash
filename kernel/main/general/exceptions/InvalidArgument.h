@@ -12,10 +12,12 @@ namespace KernelExceptions {
     class InvalidArgument : public LogicError {
     public:
         explicit
-        InvalidArgument(const char *message) : LogicError(message) {}
+        InvalidArgument(const char *message, const int &code = ExceptionCodes::INVALID_ARGUMENT) : LogicError(message,
+                                                                                                              code) {}
 
         explicit
-        InvalidArgument(const std::string &message) : LogicError(message) {}
+        InvalidArgument(const std::string &message, const int &code = ExceptionCodes::INVALID_ARGUMENT)
+                : LogicError(message, code) {}
     };
 
 }

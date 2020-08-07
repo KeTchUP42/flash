@@ -6,3 +6,4 @@
  ## Docs:
  * [Setup information.](docs/AppStart.md)
  * [General recommendations.](docs/GeneralInform.md)
+ * [General code info.](docs/codeInfo/CodeInfo.md)
