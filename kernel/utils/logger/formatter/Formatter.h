@@ -14,6 +14,8 @@ namespace LoggerUtil {
     public:
         Formatter() = default;
 
+        Formatter<DataType> &operator=(const Formatter<DataType> &) = delete;
+
         virtual DataType format(const DataType &) const noexcept = 0;
 
         virtual ~Formatter() = default;

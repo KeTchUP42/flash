@@ -12,7 +12,6 @@
 namespace LoggerUtil {
     class MultiWriter : public Writer {
     public:
-
         MultiWriter() = default;
 
         explicit MultiWriter(const std::list<std::string> &paths);

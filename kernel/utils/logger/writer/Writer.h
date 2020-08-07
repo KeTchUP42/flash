@@ -13,6 +13,8 @@ namespace LoggerUtil {
     public:
         Writer() = default;
 
+        Writer &operator=(const Writer &) = delete;
+
         /**
          * Writer main method wich writes a strign to file or files
          */

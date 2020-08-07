@@ -17,6 +17,8 @@ namespace LoggerUtil {
         explicit
         Logger(Writer *writer, Formatter<std::string> *formatter);
 
+        Logger &operator=(const Logger &) = delete;
+
         /**
          * System is unusable.
          */
