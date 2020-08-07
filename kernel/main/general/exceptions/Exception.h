@@ -18,7 +18,7 @@ namespace KernelExceptions {
 
         const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;
 
-        [[maybe_unused]] const char *getMessage() const noexcept;
+        const char *getMessage() const noexcept;
 
     protected:
         const char *_message;

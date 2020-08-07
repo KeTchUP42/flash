@@ -2,9 +2,11 @@
 // Created by roman on 04.08.2020.
 //
 
-#include "FileWriter.h"
 #include <fstream>
 #include <cstring>
+
+#include "FileWriter.h"
+#include "../exceptions/FileCanNotBeOpened.h"
 
 LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath), Writer() {
     this->checkPath();
