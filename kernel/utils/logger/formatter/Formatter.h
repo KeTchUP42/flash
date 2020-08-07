@@ -18,7 +18,7 @@ namespace LoggerUtil {
 
         virtual DataType format(const DataType &) const noexcept = 0;
 
-        virtual ~Formatter() = default;
+        virtual ~Formatter() noexcept = default;
     };
 }
 #endif //FLASH_FORMATTER_H

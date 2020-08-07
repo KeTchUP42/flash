@@ -8,11 +8,11 @@
 #include "FileWriter.h"
 #include "../exceptions/FileCanNotBeOpened.h"
 
-LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath), Writer() {
+LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath) {
     this->checkPath();
 }
 
-LoggerUtil::FileWriter::FileWriter(const char *filepath) : _path(std::string(filepath)), Writer() {
+LoggerUtil::FileWriter::FileWriter(const char *filepath) : _path(std::string(filepath)) {
     this->checkPath();
 }
 

@@ -25,7 +25,7 @@ namespace LoggerUtil {
          */
         virtual bool write(const char *) const noexcept = 0;
 
-        virtual ~Writer() = default;
+        virtual ~Writer() noexcept = default;
     };
 
 }

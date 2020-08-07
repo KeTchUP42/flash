@@ -18,7 +18,7 @@ LoggerUtil::Logger::Logger(LoggerUtil::Writer *writer, LoggerUtil::Formatter<std
     _formatter = formatter;
 }
 
-LoggerUtil::Logger::~Logger() {
+LoggerUtil::Logger::~Logger() noexcept{
     delete _writer;
     delete _formatter;
 }

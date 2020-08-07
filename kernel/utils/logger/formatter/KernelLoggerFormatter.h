@@ -11,8 +11,6 @@ namespace LoggerUtil {
 
     class KernelLoggerFormatter : public Formatter<std::string> {
     public:
-        KernelLoggerFormatter() : Formatter() {}
-
         std::string format(const std::string &data) const noexcept override;
 
     private:

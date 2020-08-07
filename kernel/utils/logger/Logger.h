@@ -59,7 +59,7 @@ namespace LoggerUtil {
          */
         virtual void debug(const std::string &) const noexcept = 0;
 
-        virtual ~Logger();
+        virtual ~Logger() noexcept;
 
     protected:
         Writer *_writer;
