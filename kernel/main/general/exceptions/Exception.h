@@ -20,6 +20,8 @@ namespace KernelExceptions {
 
         const char *getMessage() const noexcept;
 
+        virtual ~Exception();
+
     protected:
         const char *_message;
     };

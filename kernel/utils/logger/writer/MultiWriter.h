@@ -15,13 +15,15 @@ namespace LoggerUtil {
 
         MultiWriter() = default;
 
-        explicit
-        MultiWriter(const std::list<std::string> &paths);
+        explicit MultiWriter(const std::list<std::string> &paths);
 
-        explicit
-        MultiWriter(const std::vector<std::string> &paths);
+        explicit MultiWriter(const std::vector<std::string> &paths);
 
         void add(const std::string &filepath);
+
+        void add(const std::list<std::string> &paths);
+
+        void add(const std::vector<std::string> &paths);
 
         void remove(const std::string &filepath) noexcept;
 

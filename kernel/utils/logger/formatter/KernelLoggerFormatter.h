@@ -15,6 +15,7 @@ namespace LoggerUtil {
 
         std::string format(const std::string &data) const noexcept override;
 
+    private:
         std::string dateTimeNow() const noexcept;
     };
 }

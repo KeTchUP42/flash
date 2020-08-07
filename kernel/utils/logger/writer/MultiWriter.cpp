@@ -9,15 +9,11 @@
 #include "MultiWriter.h"
 
 LoggerUtil::MultiWriter::MultiWriter(const std::list<std::string> &paths) {
-    for (auto &path : paths) {
-        this->add(path);
-    }
+    this->add(paths);
 }
 
 LoggerUtil::MultiWriter::MultiWriter(const std::vector<std::string> &paths) {
-    for (auto &path : paths) {
-        this->add(path);
-    }
+    this->add(paths);
 }
 
 bool LoggerUtil::MultiWriter::write(const char *message) const noexcept {
@@ -38,6 +34,18 @@ bool LoggerUtil::MultiWriter::write(const std::string &message) const noexcept {
     return write(message.c_str());
 }
 
+void LoggerUtil::MultiWriter::add(const std::list<std::string> &paths) {
+    for (auto &path : paths) {
+        this->add(path);
+    }
+}
+
+void LoggerUtil::MultiWriter::add(const std::vector<std::string> &paths) {
+    for (auto &path : paths) {
+        this->add(path);
+    }
+}
+
 void LoggerUtil::MultiWriter::add(const std::string &filepath) {
     if (this->checkPath(filepath)) {
         _paths.push_back(filepath);
@@ -56,4 +64,5 @@ bool LoggerUtil::MultiWriter::checkPath(const std::string &filepath) const noexc
     out.close();
     return isOpen;
 }
+
 

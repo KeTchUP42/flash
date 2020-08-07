@@ -8,6 +8,10 @@ const char *KernelExceptions::Exception::what() const _GLIBCXX_TXN_SAFE_DYN _GLI
     return _message;
 }
 
-[[maybe_unused]] const char *KernelExceptions::Exception::getMessage() const noexcept {
+const char *KernelExceptions::Exception::getMessage() const noexcept {
     return _message;
+}
+
+KernelExceptions::Exception::~Exception() {
+    delete[] _message;
 }
