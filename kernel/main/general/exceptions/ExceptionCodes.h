@@ -7,13 +7,13 @@
 
 namespace KernelExceptions {
 
-    class ExceptionCodes {
-        ExceptionCodes() = delete;
-
-    public:
-        static constexpr int RUNTIME_EXCEPTION = 1;
-        static constexpr int LOGIC_ERROR = 2;
-        static constexpr int INVALID_ARGUMENT = 3;
+    /**
+     * Enume with program exception default codes.
+     */
+    enum ExceptionCodes {
+        RUNTIME_EXCEPTION = 1,
+        LOGIC_ERROR = 2,
+        INVALID_ARGUMENT = 3,
         //..
     };
 }
