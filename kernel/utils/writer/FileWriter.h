@@ -7,7 +7,7 @@
 
 #include "Writer.h"
 
-namespace LoggerUtil {
+namespace WriterUtil {
 
     class FileWriter : public Writer {
     public:

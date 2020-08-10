@@ -13,11 +13,11 @@ namespace LoggerUtil {
     class KernelLogger : public Logger {
     public:
         explicit
-        KernelLogger(Writer *writer, Formatter<std::string> *formatter = new KernelLoggerFormatter())
+        KernelLogger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new KernelLoggerFormatter())
                 : Logger(writer, formatter) {}
 
         explicit
-        KernelLogger(const std::shared_ptr<Writer> &writer,
+        KernelLogger(const std::shared_ptr<WriterUtil::Writer> &writer,
                      const std::shared_ptr<Formatter<std::string>> &formatter =
                      std::shared_ptr<Formatter<std::string>>(new KernelLoggerFormatter()))
                 : Logger(writer, formatter) {}

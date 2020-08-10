@@ -9,7 +9,7 @@
 #include <vector>
 #include "Writer.h"
 
-namespace LoggerUtil {
+namespace WriterUtil {
     class MultiWriter : public Writer {
     public:
         MultiWriter() = default;

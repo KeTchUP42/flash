@@ -7,7 +7,7 @@
 
 #include "Reader.h"
 
-namespace IniParseUtil {
+namespace ReaderUtil {
 
     class FileReader : public Reader {
     public:

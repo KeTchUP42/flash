@@ -6,17 +6,17 @@
 #include <cstring>
 
 #include "FileWriter.h"
-#include "../../../main/general/exceptions/custom/FileCanNotBeOpened.h"
+#include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
 
-LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath) {
+WriterUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath) {
     this->checkPath();
 }
 
-LoggerUtil::FileWriter::FileWriter(const char *filepath) : _path(filepath) {
+WriterUtil::FileWriter::FileWriter(const char *filepath) : _path(filepath) {
     this->checkPath();
 }
 
-bool LoggerUtil::FileWriter::write(const char *message) const noexcept {
+bool WriterUtil::FileWriter::write(const char *message) const noexcept {
     std::ofstream out(_path.c_str(), std::ios::app);
     bool isOpen = out.is_open();
     if (isOpen) {
@@ -26,11 +26,11 @@ bool LoggerUtil::FileWriter::write(const char *message) const noexcept {
     return isOpen;
 }
 
-bool LoggerUtil::FileWriter::write(const std::string &message) const noexcept {
+bool WriterUtil::FileWriter::write(const std::string &message) const noexcept {
     return write(message.c_str());
 }
 
-void LoggerUtil::FileWriter::checkPath() const {
+void WriterUtil::FileWriter::checkPath() const {
     std::ofstream out(_path, std::ios::app);
     if (!out.is_open()) {
         out.close();

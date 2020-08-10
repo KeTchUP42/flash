@@ -6,6 +6,7 @@
 #define FLASH_ANALYZER_H
 
 #include <map>
+#include <vector>
 #include <string>
 
 namespace IniParseUtil {
@@ -18,11 +19,11 @@ namespace IniParseUtil {
 
         /**
          * Method returns full ini config data in IniData type.
-         * Configs without own block name will bee in "" field
+         * Configs without block will bee in "" field
          *
          * @return Analyzer::IniData
          */
-        virtual IniData fullparse(const std::string &) const noexcept = 0;
+        virtual IniData fullparse(const std::vector<std::string> &data) const noexcept = 0;
 
         //..
     };

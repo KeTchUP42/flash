@@ -7,7 +7,7 @@
 
 #include <string>
 
-namespace LoggerUtil {
+namespace WriterUtil {
 
     class Writer {
     public:
