@@ -5,7 +5,7 @@
 #include <fstream>
 #include <cstring>
 
-#include "../exceptions/FileCanNotBeOpened.h"
+#include "../../../main/general/exceptions/custom/FileCanNotBeOpened.h"
 #include "MultiWriter.h"
 
 LoggerUtil::MultiWriter::MultiWriter(const std::list<std::string> &paths) {
@@ -50,7 +50,8 @@ void LoggerUtil::MultiWriter::add(const std::string &filepath) {
     if (this->checkPath(filepath)) {
         _paths.push_back(filepath);
     } else {
-        throw FileCanNotBeOpened(std::strcat(const_cast<char *>(filepath.c_str()), " cannot be opened."));
+        throw KernelExceptions::FileCanNotBeOpened(
+                std::strcat(const_cast<char *>(filepath.c_str()), " cannot be opened."));
     }
 }
 

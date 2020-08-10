@@ -11,9 +11,9 @@ namespace KernelExceptions {
      * Enume with program exception default codes.
      */
     enum ExceptionCodes {
-        RUNTIME_EXCEPTION = 1,
-        LOGIC_ERROR = 2,
-        INVALID_ARGUMENT = 3,
+        RUNTIME_EXCEPTION = 100,
+        LOGIC_ERROR = 200,
+        INVALID_ARGUMENT = 300,
         //..
     };
 }

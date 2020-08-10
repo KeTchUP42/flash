@@ -6,13 +6,13 @@
 #include <cstring>
 
 #include "FileWriter.h"
-#include "../exceptions/FileCanNotBeOpened.h"
+#include "../../../main/general/exceptions/custom/FileCanNotBeOpened.h"
 
 LoggerUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath) {
     this->checkPath();
 }
 
-LoggerUtil::FileWriter::FileWriter(const char *filepath) : _path(std::string(filepath)) {
+LoggerUtil::FileWriter::FileWriter(const char *filepath) : _path(filepath) {
     this->checkPath();
 }
 
@@ -34,7 +34,8 @@ void LoggerUtil::FileWriter::checkPath() const {
     std::ofstream out(_path, std::ios::app);
     if (!out.is_open()) {
         out.close();
-        throw FileCanNotBeOpened(std::strcat(const_cast<char *>(_path.c_str()), " cannot be opened."));
+        throw KernelExceptions::FileCanNotBeOpened(
+                std::strcat(const_cast<char *>(_path.c_str()), " cannot be opened."));
     }
     out.close();
 }

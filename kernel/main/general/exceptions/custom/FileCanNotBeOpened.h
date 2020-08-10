@@ -5,9 +5,9 @@
 #ifndef FLASH_FILECANNOTBEOPENED_H
 #define FLASH_FILECANNOTBEOPENED_H
 
-#include "../../../main/general/exceptions/RuntimeException.h"
+#include "../RuntimeException.h"
 
-namespace LoggerUtil {
+namespace KernelExceptions {
     class FileCanNotBeOpened : public KernelExceptions::RuntimeException {
     public:
         explicit FileCanNotBeOpened(const char *message) : RuntimeException(message) {}
