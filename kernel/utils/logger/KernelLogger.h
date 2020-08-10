@@ -13,8 +13,14 @@ namespace LoggerUtil {
     class KernelLogger : public Logger {
     public:
         explicit
-        KernelLogger(Writer *writer, Formatter<std::string> *formatter = new KernelLoggerFormatter()) : Logger(writer,
-                                                                                                               formatter) {}
+        KernelLogger(Writer *writer, Formatter<std::string> *formatter = new KernelLoggerFormatter())
+                : Logger(writer, formatter) {}
+
+        explicit
+        KernelLogger(const std::shared_ptr<Writer> &writer,
+                     const std::shared_ptr<Formatter<std::string>> &formatter =
+                     std::shared_ptr<Formatter<std::string>>(new KernelLoggerFormatter()))
+                : Logger(writer, formatter) {}
 
         void emergency(const std::string &message) const noexcept override;
 

@@ -5,17 +5,21 @@
 #ifndef FLASH_LOGGER_H
 #define FLASH_LOGGER_H
 
-#include <string>
 #include "writer/Writer.h"
 #include "formatter/Formatter.h"
+
+#include <string>
+#include <memory>
 
 namespace LoggerUtil {
 
     class Logger {
     public:
 
-        explicit
-        Logger(Writer *writer, Formatter<std::string> *formatter);
+        explicit Logger(Writer *writer, Formatter<std::string> *formatter) : _writer(writer), _formatter(formatter) {}
+
+        explicit Logger(const std::shared_ptr<Writer> &writer, const std::shared_ptr<Formatter<std::string>> &formatter)
+                : _writer(writer), _formatter(formatter) {}
 
         Logger &operator=(const Logger &) = delete;
 
@@ -59,11 +63,11 @@ namespace LoggerUtil {
          */
         virtual void debug(const std::string &) const noexcept = 0;
 
-        virtual ~Logger() noexcept;
+        virtual ~Logger() noexcept = default;
 
     protected:
-        Writer *_writer;
-        Formatter<std::string> *_formatter;
+        std::shared_ptr<Writer> _writer;
+        std::shared_ptr<Formatter<std::string>> _formatter;
     };
 
 }
