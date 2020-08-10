@@ -2,38 +2,38 @@
 // Created by roman on 10.08.2020.
 //
 
-#ifndef FLASH_INIPARSER_H
-#define FLASH_INIPARSER_H
+#ifndef FLASH_INIPROCESSOR_H
+#define FLASH_INIPROCESSOR_H
 
 #include "../reader/FileReader.h"
-#include "analyzer/Analyzer.h"
 #include "../writer/Writer.h"
 #include "../reader/Reader.h"
+#include "analyzer/Analyzer.h"
 
 #include <memory>
 
 namespace IniParseUtil {
 
-    class IniParser {
+    class IniProcessor {
     public:
-        explicit IniParser(ReaderUtil::Reader *reader, Analyzer *analyzer)
+        explicit IniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer)
                 : _reader(reader), _analyzer(analyzer) {}
 
-        explicit IniParser(const std::string &filepath, Analyzer *analyzer)
+        explicit IniProcessor(const std::string &filepath, Analyzer *analyzer)
                 : _reader(new ReaderUtil::FileReader(filepath)), _analyzer(analyzer) {}
 
-        explicit IniParser(const std::string &filepath, const std::shared_ptr<Analyzer> &analyzer)
+        explicit IniProcessor(const std::string &filepath, const std::shared_ptr<Analyzer> &analyzer)
                 : _reader(new ReaderUtil::FileReader(filepath)), _analyzer(analyzer) {}
 
-        explicit IniParser(const std::shared_ptr<ReaderUtil::Reader> &reader, const std::shared_ptr<Analyzer> &analyzer)
+        explicit IniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader, const std::shared_ptr<Analyzer> &analyzer)
                 : _reader(reader), _analyzer(analyzer) {}
 
-        IniParser &operator=(const IniParser &) = delete;
+        IniProcessor &operator=(const IniProcessor &) = delete;
 
         /**
          * Default no blocks configs field name.
          */
-        std::string NO_BLOCK_CONFIG_LINES = "";
+        const std::string NO_BLOCK_CONFIG_LINES = "";
 
         /**
          * Method returns full ini config data in IniData type.
@@ -88,4 +88,4 @@ namespace IniParseUtil {
         std::shared_ptr<Analyzer> _analyzer;
     };
 }
-#endif //FLASH_INIPARSER_H
+#endif //FLASH_INIPROCESSOR_H
