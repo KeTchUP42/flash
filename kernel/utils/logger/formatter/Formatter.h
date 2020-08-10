@@ -9,14 +9,14 @@
 
 namespace LoggerUtil {
 
-    template<typename DataType = std::string>
+    template<typename T = std::string>
     class Formatter {
     public:
         Formatter() = default;
 
-        Formatter<DataType> &operator=(const Formatter<DataType> &) = delete;
+        Formatter<T> &operator=(const Formatter<T> &) = delete;
 
-        virtual DataType format(const DataType &) const noexcept = 0;
+        virtual T format(const T &) const noexcept = 0;
 
         virtual ~Formatter() noexcept = default;
     };
