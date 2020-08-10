@@ -16,8 +16,8 @@ WriterUtil::FileWriter::FileWriter(const char *filepath) : _path(filepath) {
     this->checkPath();
 }
 
-bool WriterUtil::FileWriter::write(const char *message) const noexcept {
-    std::ofstream out(_path.c_str(), std::ios::app);
+bool WriterUtil::FileWriter::write(const char *message, const std::ios::openmode &mode) const noexcept {
+    std::ofstream out(_path.c_str(), mode);
     bool isOpen = out.is_open();
     if (isOpen) {
         out << message;
@@ -26,8 +26,8 @@ bool WriterUtil::FileWriter::write(const char *message) const noexcept {
     return isOpen;
 }
 
-bool WriterUtil::FileWriter::write(const std::string &message) const noexcept {
-    return write(message.c_str());
+bool WriterUtil::FileWriter::write(const std::string &message, const std::ios::openmode &mode) const noexcept {
+    return write(message.c_str(), mode);
 }
 
 void WriterUtil::FileWriter::checkPath() const {

@@ -16,10 +16,10 @@ WriterUtil::MultiFileWriter::MultiFileWriter(const std::vector<std::string> &pat
     this->add(paths);
 }
 
-bool WriterUtil::MultiFileWriter::write(const char *message) const noexcept {
+bool WriterUtil::MultiFileWriter::write(const char *message, const std::ios::openmode &mode) const noexcept {
     bool result = true;
     for (auto &path : _paths) {
-        std::ofstream out(path.c_str(), std::ios::app);
+        std::ofstream out(path.c_str(), mode);
         bool isOpen = out.is_open();
         if (isOpen) {
             out << message;
@@ -30,8 +30,8 @@ bool WriterUtil::MultiFileWriter::write(const char *message) const noexcept {
     return result;
 }
 
-bool WriterUtil::MultiFileWriter::write(const std::string &message) const noexcept {
-    return write(message.c_str());
+bool WriterUtil::MultiFileWriter::write(const std::string &message, const std::ios::openmode &mode) const noexcept {
+    return write(message.c_str(), mode);
 }
 
 void WriterUtil::MultiFileWriter::add(const std::list<std::string> &paths) {

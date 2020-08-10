@@ -7,6 +7,7 @@
 
 #include <list>
 #include <vector>
+
 #include "Writer.h"
 
 namespace WriterUtil {
@@ -26,9 +27,9 @@ namespace WriterUtil {
 
         void remove(const std::string &filepath) noexcept;
 
-        bool write(const std::string &message) const noexcept override;
+        bool write(const std::string &message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
 
-        bool write(const char *message) const noexcept override;
+        bool write(const char *message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
 
     protected:
         bool checkPath(const std::string &filepath) const noexcept;

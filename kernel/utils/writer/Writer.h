@@ -6,6 +6,7 @@
 #define FLASH_WRITER_H
 
 #include <string>
+#include <iostream>
 
 namespace WriterUtil {
 
@@ -16,14 +17,14 @@ namespace WriterUtil {
         Writer &operator=(const Writer &) = delete;
 
         /**
-         * Writer main method wich writes a strign to file or files
+         * Writer main method wich writes std::string to file or files
          */
-        virtual bool write(const std::string &) const noexcept = 0;
+        virtual bool write(const std::string &, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
 
         /**
-         * Writer main method wich writes a 'C' string to file or files
+         * Writer main method wich writes 'C' string to file or files
          */
-        virtual bool write(const char *) const noexcept = 0;
+        virtual bool write(const char *, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
 
         virtual ~Writer() noexcept = default;
     };
