@@ -17,12 +17,12 @@ namespace ReaderUtil {
         Reader &operator=(const Reader &) = delete;
 
         /**
-         * Reader method wich returns std::string from target file or ect.
+         * Reader method wich returns std::string from stream.
          */
         virtual std::string read() const noexcept = 0;
 
         /**
-         * Reader method wich returns a std::vector<std::string> of lines from targer file or ect.
+         * Reader method wich returns a std::vector<std::string> of lines from stream.
           */
         virtual std::vector<std::string> readlines() const noexcept = 0;
 

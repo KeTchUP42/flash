@@ -8,12 +8,9 @@
 #include "IniProcessor.h"
 #include "analyzer/IniAnalyzer.h"
 
-namespace IniParseUtil {
+namespace IniProcessorUtil {
     class BaseIniProcessor : public IniProcessor {
     public:
-        Analyzer::IniData fullparse(ReaderUtil::Reader *reader) const noexcept override;
-
-        Analyzer::IniData fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept override;
 
         explicit BaseIniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer = new IniAnalyzer())
                 : IniProcessor(reader, analyzer) {}
@@ -31,6 +28,10 @@ namespace IniParseUtil {
 
 
         Analyzer::IniData fullparse() const noexcept override;
+
+        Analyzer::IniData fullparse(ReaderUtil::Reader *reader) const noexcept override;
+
+        Analyzer::IniData fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept override;
 
         void createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer) const noexcept override;
 

@@ -16,6 +16,12 @@ namespace LoggerUtil {
 
         Formatter<T> &operator=(const Formatter<T> &) = delete;
 
+        /**
+         * Main formatter template handle method.
+         * Uses to generate output line witch logger writes to the stream.
+         * @param T const type ref.
+         * @return
+         */
         virtual T format(const T &) const noexcept = 0;
 
         virtual ~Formatter() noexcept = default;

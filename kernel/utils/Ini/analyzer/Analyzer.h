@@ -9,7 +9,7 @@
 #include <vector>
 #include <string>
 
-namespace IniParseUtil {
+namespace IniProcessorUtil {
 
     class Analyzer {
     public:
@@ -19,13 +19,12 @@ namespace IniParseUtil {
 
         /**
          * Method returns full ini config data in IniData type.
-         * Configs without block will bee in "" field
+         * Configs without block will bee in "" field.
          *
-         * @return Analyzer::IniData
+          * @param data
+          * @return Analyzer::IniData
          */
         virtual IniData fullparse(const std::vector<std::string> &data) const noexcept = 0;
-
-        //..
     };
 }
 

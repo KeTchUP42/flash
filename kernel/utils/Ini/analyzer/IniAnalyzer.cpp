@@ -4,9 +4,11 @@
 
 #include "IniAnalyzer.h"
 
-IniParseUtil::Analyzer::IniData IniParseUtil::IniAnalyzer::fullparse(const std::vector<std::string> &data) const noexcept {
+IniProcessorUtil::Analyzer::IniData
+IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &data) const noexcept {
+    std::string blockName = "";
 
     //todo: write analyzer alg!!
 
-    return IniParseUtil::Analyzer::IniData();
+    return IniProcessorUtil::Analyzer::IniData();
 }

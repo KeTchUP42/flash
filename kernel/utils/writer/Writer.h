@@ -17,12 +17,12 @@ namespace WriterUtil {
         Writer &operator=(const Writer &) = delete;
 
         /**
-         * Writer main method wich writes std::string to file or files
+         * Writer main method wich writes std::string to stream.
          */
         virtual bool write(const std::string &, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
 
         /**
-         * Writer main method wich writes 'C' string to file or files
+         * Writer main method wich writes 'C' string to stream.
          */
         virtual bool write(const char *, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
 

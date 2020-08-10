@@ -12,7 +12,7 @@
 
 #include <memory>
 
-namespace IniParseUtil {
+namespace IniProcessorUtil {
 
     class IniProcessor {
     public:
@@ -37,7 +37,7 @@ namespace IniParseUtil {
 
         /**
          * Method returns full ini config data in IniData type.
-         * Configs without block will bee in NO_BLOCK_CONFIG_LINES field.
+         * Configs without block will be in NO_BLOCK_CONFIG_LINES field.
          *
          * @return Analyzer::IniData
          */
@@ -45,8 +45,8 @@ namespace IniParseUtil {
 
         /**
           * Method returns full ini config data in IniData type.
-          * Configs without block will bee in NO_BLOCK_CONFIG_LINES field.
-          * This method uses custom reader from param.
+          * Configs without block will be in NO_BLOCK_CONFIG_LINES field.
+          * This method uses custom reader.
           * Reader WILL BE DELETED!
           *
           * @param reader
@@ -56,8 +56,8 @@ namespace IniParseUtil {
 
         /**
           * Method returns full ini config data in IniData type.
-          * Configs without block will bee in NO_BLOCK_CONFIG_LINES field.
-          * This method uses custom reader from param.
+          * Configs without block will be in NO_BLOCK_CONFIG_LINES field.
+          * This method uses custom reader.
           *
           * @param reader
           * @return Analyzer::IniData
