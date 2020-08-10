@@ -21,10 +21,13 @@ IniParseUtil::BaseIniParser::fullparse(const std::shared_ptr<ReaderUtil::Reader>
 
 void IniParseUtil::BaseIniParser::createIni(const IniParseUtil::Analyzer::IniData &data,
                                             const std::shared_ptr<WriterUtil::Writer> &writer) const noexcept {
-    // todo: write code func NO DELETE
+    // todo: write code func
 }
 
 void
 IniParseUtil::BaseIniParser::createIni(const IniParseUtil::Analyzer::IniData &data, WriterUtil::Writer *writer) const noexcept {
-    // todo: write code func
+    std::string inidata;
+    for (Analyzer::IniData::const_iterator i = data.cbegin(); i != data.cend(); ++i) {
+        // todo:!!! NO_BLOCK_CONFIG_LINES !!
+    }
 }
