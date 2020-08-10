@@ -6,17 +6,17 @@
 #include <cstring>
 
 #include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
-#include "MultiWriter.h"
+#include "MultiFileWriter.h"
 
-WriterUtil::MultiWriter::MultiWriter(const std::list<std::string> &paths) {
+WriterUtil::MultiFileWriter::MultiFileWriter(const std::list<std::string> &paths) {
     this->add(paths);
 }
 
-WriterUtil::MultiWriter::MultiWriter(const std::vector<std::string> &paths) {
+WriterUtil::MultiFileWriter::MultiFileWriter(const std::vector<std::string> &paths) {
     this->add(paths);
 }
 
-bool WriterUtil::MultiWriter::write(const char *message) const noexcept {
+bool WriterUtil::MultiFileWriter::write(const char *message) const noexcept {
     bool result = true;
     for (auto &path : _paths) {
         std::ofstream out(path.c_str(), std::ios::app);
@@ -30,23 +30,23 @@ bool WriterUtil::MultiWriter::write(const char *message) const noexcept {
     return result;
 }
 
-bool WriterUtil::MultiWriter::write(const std::string &message) const noexcept {
+bool WriterUtil::MultiFileWriter::write(const std::string &message) const noexcept {
     return write(message.c_str());
 }
 
-void WriterUtil::MultiWriter::add(const std::list<std::string> &paths) {
+void WriterUtil::MultiFileWriter::add(const std::list<std::string> &paths) {
     for (auto &path : paths) {
         this->add(path);
     }
 }
 
-void WriterUtil::MultiWriter::add(const std::vector<std::string> &paths) {
+void WriterUtil::MultiFileWriter::add(const std::vector<std::string> &paths) {
     for (auto &path : paths) {
         this->add(path);
     }
 }
 
-void WriterUtil::MultiWriter::add(const std::string &filepath) {
+void WriterUtil::MultiFileWriter::add(const std::string &filepath) {
     if (this->checkPath(filepath)) {
         _paths.push_back(filepath);
     } else {
@@ -55,11 +55,11 @@ void WriterUtil::MultiWriter::add(const std::string &filepath) {
     }
 }
 
-void WriterUtil::MultiWriter::remove(const std::string &filepath) noexcept {
+void WriterUtil::MultiFileWriter::remove(const std::string &filepath) noexcept {
     _paths.remove(filepath);
 }
 
-bool WriterUtil::MultiWriter::checkPath(const std::string &filepath) const noexcept {
+bool WriterUtil::MultiFileWriter::checkPath(const std::string &filepath) const noexcept {
     std::ofstream out(filepath, std::ios::app);
     bool isOpen = out.is_open();
     out.close();

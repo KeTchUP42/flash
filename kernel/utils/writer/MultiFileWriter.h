@@ -2,21 +2,21 @@
 // Created by roman on 07.08.2020.
 //
 
-#ifndef FLASH_MULTIWRITER_H
-#define FLASH_MULTIWRITER_H
+#ifndef FLASH_MULTIFILEWRITER_H
+#define FLASH_MULTIFILEWRITER_H
 
 #include <list>
 #include <vector>
 #include "Writer.h"
 
 namespace WriterUtil {
-    class MultiWriter : public Writer {
+    class MultiFileWriter : public Writer {
     public:
-        MultiWriter() = default;
+        MultiFileWriter() = default;
 
-        explicit MultiWriter(const std::list<std::string> &paths);
+        explicit MultiFileWriter(const std::list<std::string> &paths);
 
-        explicit MultiWriter(const std::vector<std::string> &paths);
+        explicit MultiFileWriter(const std::vector<std::string> &paths);
 
         void add(const std::string &filepath);
 
@@ -37,4 +37,4 @@ namespace WriterUtil {
     };
 }
 
-#endif //FLASH_MULTIWRITER_H
+#endif //FLASH_MULTIFILEWRITER_H
