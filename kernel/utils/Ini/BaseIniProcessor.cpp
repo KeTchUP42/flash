@@ -22,7 +22,7 @@ IniProcessorUtil::BaseIniProcessor::fullparse(const std::shared_ptr<ReaderUtil::
 void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
                                                    const std::shared_ptr<WriterUtil::Writer> &writer,
                                                    const std::ios::openmode &mode) const noexcept {
-    this->createIni(data, writer.get(), mode); //todo: think and fix if needs.
+    this->createIni(data, writer.get(), mode);
 }
 
 void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
@@ -35,7 +35,7 @@ void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analy
 
         for (std::map<std::string, std::string>::const_iterator line = section->second.cbegin();
              line != section->second.cend(); ++line) {
-            inidata.append(line->first + "=" + line->second + "\n");
+            inidata.append(line->first + " = " + line->second + "\n");
         }
     }
     writer->write(inidata, mode);

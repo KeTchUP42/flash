@@ -39,7 +39,7 @@ namespace IniProcessorUtil {
         /**
          * Default no blocks configs field name.
          */
-        const std::string NO_BLOCK_CONFIG_LINES = "";
+        static constexpr const char *NO_BLOCK_CONFIG_LINES = "";
 
         /**
          * Method returns full ini config data in IniData type.
