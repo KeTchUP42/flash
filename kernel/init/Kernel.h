@@ -7,6 +7,12 @@
 
 namespace Engine {
 
+    /**
+     *  @brief  App main class and entry point.
+     *  @namespace Engine
+     *
+     *  This class has app entry point method.
+    */
     class Kernel {
     public:
         typedef int KERNEL_LOG;
