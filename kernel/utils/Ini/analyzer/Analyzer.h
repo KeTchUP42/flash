@@ -25,7 +25,7 @@ namespace IniProcessorUtil {
 
         /**
          * Method returns full ini config data in IniData type.
-         * Configs without block will bee in "" field.
+         * Configs without block will be in CONFIG_LINES_WITHOUT_BLOCK section.
          *
           * @param data std::vector<std::string>
           * @return Analyzer::IniData

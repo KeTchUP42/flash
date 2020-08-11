@@ -30,7 +30,7 @@ void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analy
     std::string inidata;
     for (Analyzer::IniData::const_iterator section = data.cbegin(); section != data.cend(); ++section) {
 
-        if (section->first != NO_BLOCK_CONFIG_LINES)
+        if (section->first != CONFIG_LINES_WITHOUT_BLOCK)
             inidata.append("[" + section->first + "]\n");
 
         for (std::map<std::string, std::string>::const_iterator line = section->second.cbegin();

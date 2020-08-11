@@ -37,13 +37,13 @@ namespace IniProcessorUtil {
         IniProcessor &operator=(const IniProcessor &) = delete;
 
         /**
-         * Default no blocks configs field name.
+         * Default configs without block section name.
          */
-        static constexpr const char *NO_BLOCK_CONFIG_LINES = "";
+        static constexpr const char *CONFIG_LINES_WITHOUT_BLOCK = "";
 
         /**
          * Method returns full ini config data in IniData type.
-         * Configs without block will be in NO_BLOCK_CONFIG_LINES field.
+         * Configs without block will be in CONFIG_LINES_WITHOUT_BLOCK section.
          *
          * @return Analyzer::IniData
          */
@@ -51,7 +51,7 @@ namespace IniProcessorUtil {
 
         /**
           * Method returns full ini config data in IniData type.
-          * Configs without block will be in NO_BLOCK_CONFIG_LINES field.
+          * Configs without block will be in CONFIG_LINES_WITHOUT_BLOCK section.
           * This method uses custom reader.
           * Reader WILL BE DELETED!
           *
@@ -62,7 +62,7 @@ namespace IniProcessorUtil {
 
         /**
           * Method returns full ini config data in IniData type.
-          * Configs without block will be in NO_BLOCK_CONFIG_LINES field.
+          * Configs without block will be in CONFIG_LINES_WITHOUT_BLOCK section.
           * This method uses custom reader.
           *
           * @param reader Reader

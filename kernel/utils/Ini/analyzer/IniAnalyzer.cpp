@@ -7,7 +7,7 @@
 
 IniProcessorUtil::Analyzer::IniData
 IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &data) const noexcept {
-    std::string blockName = IniProcessor::NO_BLOCK_CONFIG_LINES;
+    std::string blockName = IniProcessor::CONFIG_LINES_WITHOUT_BLOCK;
 
     //todo: write analyzer alg!!
 
