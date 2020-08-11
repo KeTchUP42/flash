@@ -33,9 +33,11 @@ namespace IniProcessorUtil {
 
         Analyzer::IniData fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept override;
 
-        void createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer) const noexcept override;
+        void createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
+                       const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept override;
 
-        void createIni(const Analyzer::IniData &data, WriterUtil::Writer *writer) const noexcept override;
+        void createIni(const Analyzer::IniData &data, WriterUtil::Writer *writer,
+                       const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept override;
     };
 }
 

@@ -77,7 +77,8 @@ namespace IniProcessorUtil {
          * @param writer Writer
          */
         virtual void
-        createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer) const noexcept = 0;
+        createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
+                  const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
 
         /**
          * Method creates new ini or append new data with standard writer and IniData.
@@ -87,7 +88,8 @@ namespace IniProcessorUtil {
          * @param writer Writer
          **/
         virtual void
-        createIni(const Analyzer::IniData &data, WriterUtil::Writer *writer) const noexcept = 0;
+        createIni(const Analyzer::IniData &data, WriterUtil::Writer *writer,
+                  const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
 
     protected:
         std::shared_ptr<ReaderUtil::Reader> _reader;

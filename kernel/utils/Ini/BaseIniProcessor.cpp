@@ -20,15 +20,23 @@ IniProcessorUtil::BaseIniProcessor::fullparse(const std::shared_ptr<ReaderUtil::
 }
 
 void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
-                                                   const std::shared_ptr<WriterUtil::Writer> &writer) const noexcept {
-    // todo: write code func
+                                                   const std::shared_ptr<WriterUtil::Writer> &writer,
+                                                   const std::ios::openmode &mode) const noexcept {
+    this->createIni(data, writer.get(), mode); //todo: think and fix if needs.
 }
 
-void
-IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
-                                              WriterUtil::Writer *writer) const noexcept {
+void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
+                                                   WriterUtil::Writer *writer, const std::ios::openmode &mode) const noexcept {
     std::string inidata;
-    for (Analyzer::IniData::const_iterator i = data.cbegin(); i != data.cend(); ++i) {
-        // todo:!!! NO_BLOCK_CONFIG_LINES !!
+    for (Analyzer::IniData::const_iterator section = data.cbegin(); section != data.cend(); ++section) {
+
+        if (section->first != NO_BLOCK_CONFIG_LINES)
+            inidata.append("[" + section->first + "]\n");
+
+        for (std::map<std::string, std::string>::const_iterator line = section->second.cbegin();
+             line != section->second.cend(); ++line) {
+            inidata.append(line->first + "=" + line->second + "\n");
+        }
     }
+    writer->write(inidata, mode);
 }
