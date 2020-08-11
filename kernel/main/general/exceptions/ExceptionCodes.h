@@ -8,7 +8,7 @@
 namespace KernelExceptions {
 
     /**
-     * Enume with program exception default codes.
+     * Enume with program exceptions default codes.
      */
     enum ExceptionCodes {
         RUNTIME_EXCEPTION = 100,

@@ -10,6 +10,12 @@
 
 namespace WriterUtil {
 
+    /**
+     *  @brief  The base class of the Writer class hierarchy.
+     *  @namespace WriterUtil
+     *
+     *  This class defines base Writer interface and fields.
+    */
     class Writer {
     public:
         Writer() = default;
@@ -17,12 +23,12 @@ namespace WriterUtil {
         Writer &operator=(const Writer &) = delete;
 
         /**
-         * Writer main method wich writes std::string to stream.
+         * Writer main method which writes std::string to stream.
          */
         virtual bool write(const std::string &, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
 
         /**
-         * Writer main method wich writes 'C' string to stream.
+         * Writer main method which writes 'C' string to stream.
          */
         virtual bool write(const char *, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
 

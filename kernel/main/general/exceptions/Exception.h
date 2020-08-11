@@ -12,7 +12,7 @@ namespace KernelExceptions {
 
     class Exception : public std::exception {
     public:
-        explicit Exception(const char *message, const int &code) noexcept: _message(std::string(message)), _code(code),
+        explicit Exception(const char *message, const int &code) noexcept: _message(message), _code(code),
                                                                            std::exception() {}
 
         explicit Exception(const std::string &message, const int &code) noexcept: _message(message),

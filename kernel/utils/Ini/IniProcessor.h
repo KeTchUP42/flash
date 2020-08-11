@@ -14,6 +14,12 @@
 
 namespace IniProcessorUtil {
 
+    /**
+     *  @brief  The base class of the IniProcessor class hierarchy.
+     *  @namespace IniProcessorUtil
+     *
+     *  This class defines base interface and fields of IniProcessor classes.
+    */
     class IniProcessor {
     public:
         explicit IniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer)
@@ -49,7 +55,7 @@ namespace IniProcessorUtil {
           * This method uses custom reader.
           * Reader WILL BE DELETED!
           *
-          * @param reader
+          * @param reader Reader
           * @return Analyzer::IniData
           */
         virtual Analyzer::IniData fullparse(ReaderUtil::Reader *reader) const noexcept = 0;
@@ -59,7 +65,7 @@ namespace IniProcessorUtil {
           * Configs without block will be in NO_BLOCK_CONFIG_LINES field.
           * This method uses custom reader.
           *
-          * @param reader
+          * @param reader Reader
           * @return Analyzer::IniData
           */
         virtual Analyzer::IniData fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept = 0;
@@ -67,8 +73,8 @@ namespace IniProcessorUtil {
         /**
          * Method creates new ini or append new data with standard writer and IniData.
          *
-         * @param data
-         * @param writer
+         * @param data Analyzer::IniData
+         * @param writer Writer
          */
         virtual void
         createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer) const noexcept = 0;
@@ -77,8 +83,8 @@ namespace IniProcessorUtil {
          * Method creates new ini or append new data with standard writer and IniData.
          * This method WILL NOT delete writer, so be careful!
          *
-         * @param data
-         * @param writer
+         * @param data Analyzer::IniData
+         * @param writer Writer
          **/
         virtual void
         createIni(const Analyzer::IniData &data, WriterUtil::Writer *writer) const noexcept = 0;

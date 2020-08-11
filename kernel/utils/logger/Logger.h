@@ -13,6 +13,12 @@
 
 namespace LoggerUtil {
 
+    /**
+     *  @brief  The base class of the Logger class hierarchy.
+     *  @namespace LoggerUtil
+     *
+     *  This class defines base Logger interface and fields.
+    */
     class Logger {
     public:
 
