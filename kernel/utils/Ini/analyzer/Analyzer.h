@@ -20,6 +20,7 @@ namespace IniProcessorUtil {
     class Analyzer {
     public:
         using IniData = std::map<std::string, std::map<std::string, std::string>>;
+        using IniLine = std::map<std::string, std::string>;
 
         Analyzer &operator=(const Analyzer &) = delete;
 

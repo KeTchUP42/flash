@@ -30,13 +30,18 @@ void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analy
     std::string inidata;
     for (Analyzer::IniData::const_iterator section = data.cbegin(); section != data.cend(); ++section) {
 
-        if (section->first != CONFIG_LINES_WITHOUT_BLOCK)
-            inidata.append("[" + section->first + "]\n");
+        if (section->first == CONFIG_LINES_WITHOUT_BLOCK) {
+            for (Analyzer::IniLine::const_reverse_iterator line = section->second.rbegin();
+                 line != section->second.rend(); ++line) {
+                inidata = line->first + " = " + line->second + "\n" + inidata;
+            }
+            continue;
+        }
 
-        for (std::map<std::string, std::string>::const_iterator line = section->second.cbegin();
-             line != section->second.cend(); ++line) {
+        inidata.append("\n[" + section->first + "]\n");
+        for (Analyzer::IniLine::const_iterator line = section->second.cbegin(); line != section->second.cend(); ++line) {
             inidata.append(line->first + " = " + line->second + "\n");
         }
     }
-    writer->write(inidata, mode);
+    writer->write(std::move(inidata), mode);
 }
