@@ -14,7 +14,8 @@ set(EXCEPTIONS kernel/main/general/exceptions/RuntimeException.h kernel/main/gen
 set(LOGGER kernel/utils/logger/Logger.h kernel/utils/logger/KernelLogger.cpp kernel/utils/logger/KernelLogger.h kernel/utils/logger/formatter/Formatter.h kernel/utils/logger/formatter/KernelLoggerFormatter.cpp kernel/utils/logger/formatter/KernelLoggerFormatter.h)
 set(WRITER kernel/utils/writer/Writer.h kernel/utils/writer/FileWriter.cpp kernel/utils/writer/FileWriter.h kernel/utils/writer/MultiFileWriter.cpp kernel/utils/writer/MultiFileWriter.h)
 set(READER kernel/utils/reader/Reader.h kernel/utils/reader/FileReader.cpp kernel/utils/reader/FileReader.h)
+set(TRIM kernel/utils/trim/trim.h)
 
-add_executable(Flash ${MAIN} ${KERNEL} ${EXCEPTIONS} ${LOGGER} ${WRITER} ${READER} kernel/utils/Ini/IniProcessor.h kernel/utils/Ini/analyzer/Analyzer.h kernel/utils/Ini/BaseIniProcessor.cpp kernel/utils/Ini/BaseIniProcessor.h kernel/utils/Ini/analyzer/IniAnalyzer.cpp kernel/utils/Ini/analyzer/IniAnalyzer.h)
+add_executable(Flash ${MAIN} ${KERNEL} ${EXCEPTIONS} ${LOGGER} ${WRITER} ${READER} ${TRIM} kernel/utils/Ini/IniProcessor.h kernel/utils/Ini/analyzer/Analyzer.h kernel/utils/Ini/BaseIniProcessor.cpp kernel/utils/Ini/BaseIniProcessor.h kernel/utils/Ini/analyzer/IniAnalyzer.cpp kernel/utils/Ini/analyzer/IniAnalyzer.h)
 
 target_link_libraries(Flash sfml-window sfml-graphics sfml-audio)
