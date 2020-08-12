@@ -25,6 +25,7 @@ namespace LoggerUtil {
         /**
          * Main formatter template handle method.
          * Uses to generate output line which logger writes to the stream.
+         *
          * @param T const type ref.
          * @return T type
          */
