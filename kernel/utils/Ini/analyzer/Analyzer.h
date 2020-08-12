@@ -32,6 +32,14 @@ namespace IniProcessorUtil {
           * @return Analyzer::IniData
          */
         virtual IniData fullparse(const std::vector<std::string> &data) const noexcept = 0;
+
+        /**
+         * Method clears data from comments and other.
+         * Mostly used in other Analyzer methods.
+         *
+         * @param data
+         */
+        virtual void clear(std::string &data) const noexcept = 0;
     };
 }
 
