@@ -9,12 +9,12 @@
 #include <regex>
 
 IniProcessorUtil::Analyzer::IniData
-IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &data) const noexcept {
+IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noexcept {
     std::string sectionName = IniProcessor::CONFIG_LINES_WITHOUT_BLOCK;
     IniData result = IniData();
     result[sectionName] = IniLine();
 
-    for (std::string line : data) {
+    for (std::string line : lines) {
         this->clear(line);
         if (line == "") continue;
 

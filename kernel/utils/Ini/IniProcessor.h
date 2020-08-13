@@ -91,6 +91,9 @@ namespace IniProcessorUtil {
         createIni(const Analyzer::IniData &data, WriterUtil::Writer *writer,
                   const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
 
+
+        virtual ~IniProcessor() = default;
+
     protected:
         std::shared_ptr<ReaderUtil::Reader> _reader;
         std::shared_ptr<Analyzer> _analyzer;

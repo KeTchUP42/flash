@@ -28,10 +28,10 @@ namespace IniProcessorUtil {
          * Method returns full ini config data in IniData type.
          * Configs without block will be in CONFIG_LINES_WITHOUT_BLOCK section.
          *
-          * @param data std::vector<std::string>
+          * @param lines std::vector<std::string>
           * @return Analyzer::IniData
          */
-        virtual IniData fullparse(const std::vector<std::string> &data) const noexcept = 0;
+        virtual IniData fullparse(const std::vector<std::string> &lines) const noexcept = 0;
 
         /**
          * Method clears data from comments and other.
@@ -40,6 +40,8 @@ namespace IniProcessorUtil {
          * @param data
          */
         virtual void clear(std::string &data) const noexcept = 0;
+
+        virtual ~Analyzer() = default;
     };
 }
 
