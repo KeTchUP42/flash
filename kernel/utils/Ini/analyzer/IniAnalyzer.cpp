@@ -30,7 +30,7 @@ IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) 
         //if (std::regex_match(line, std::regex("[^\\ \\=\n][^\\ \\=\n]* *\\= *.*"))) {
         if (std::regex_match(line, std::regex("[^\\ \\=\n][^\\=\n]* *\\= *.*"))) {
 
-            // Searching for key
+            // Searching for key:
             std::smatch match;
             //std::regex_search(line, match, std::regex{"[^\\ \\=\n][^\\ \\=\n]*"});
             std::regex_search(line, match, std::regex{"[^\\ \\=\n][^\\=\n]*[^\\ \\=\n]"});
