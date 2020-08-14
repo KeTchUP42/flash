@@ -27,16 +27,13 @@ IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) 
             continue;
         }
 
-        //if (std::regex_match(line, std::regex("[^\\ \\=\n][^\\ \\=\n]* *\\= *.*"))) {
-        if (std::regex_match(line, std::regex("[^\\ \\=\n][^\\=\n]* *\\= *.*"))) {
+        if (std::regex_match(line, std::regex("[^\\ \\=\n][^\\=\n]*\\= *.*"))) {
+            long pos = line.find('=');
 
-            // Searching for key:
-            std::smatch match;
-            //std::regex_search(line, match, std::regex{"[^\\ \\=\n][^\\ \\=\n]*"});
-            std::regex_search(line, match, std::regex{"[^\\ \\=\n][^\\=\n]*[^\\ \\=\n]"});
-            std::string key = match.str();
-            //
-            std::string value = std::move(line.replace(0, line.find('=') + 1, ""));
+            std::string key = line.substr(0, pos);
+            Trim::trim(key);
+
+            std::string value = line.substr(pos + 1);
             Trim::trim(value);
 
             result[sectionName][key] = value;
