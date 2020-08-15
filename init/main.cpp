@@ -1,7 +1,6 @@
-#include "../kernel/init/Kernel.h"
+#include "../kernel/init/Engine.h"
 
 int main() {
-    Engine::Kernel kernel;
-    kernel.run();
-    return 0;
+    ProgramEngine::Engine engine;
+    return engine.start();
 }

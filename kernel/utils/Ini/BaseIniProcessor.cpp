@@ -28,18 +28,18 @@ void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analy
 void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
                                                    WriterUtil::Writer *writer, const std::ios::openmode &mode) const noexcept {
     std::string inidata;
-    for (Analyzer::IniData::const_iterator section = data.cbegin(); section != data.cend(); ++section) {
+    for (Analyzer::IniData::const_iterator block = data.cbegin(); block != data.cend(); ++block) {
 
-        if (section->first == CONFIG_LINES_WITHOUT_BLOCK) {
-            for (Analyzer::IniLine::const_reverse_iterator line = section->second.rbegin();
-                 line != section->second.rend(); ++line) {
+        if (block->first == NONAME_BLOCK) {
+            for (Analyzer::IniBlock::const_reverse_iterator line = block->second.rbegin();
+                 line != block->second.rend(); ++line) {
                 inidata = line->first + " = " + line->second + "\n" + inidata;
             }
             continue;
         }
 
-        inidata.append("\n[" + section->first + "]\n");
-        for (Analyzer::IniLine::const_iterator line = section->second.cbegin(); line != section->second.cend(); ++line) {
+        inidata.append("\n[" + block->first + "]\n");
+        for (Analyzer::IniBlock::const_iterator line = block->second.cbegin(); line != block->second.cend(); ++line) {
             inidata.append(line->first + " = " + line->second + "\n");
         }
     }

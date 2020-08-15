@@ -10,9 +10,9 @@
 
 IniProcessorUtil::Analyzer::IniData
 IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noexcept {
-    std::string sectionName = IniProcessor::CONFIG_LINES_WITHOUT_BLOCK;
+    std::string blockName = IniProcessor::NONAME_BLOCK;
     IniData result = IniData();
-    result[sectionName] = IniLine();
+    result[blockName] = IniBlock();
 
     for (std::string line : lines) {
         this->clear(line);
@@ -22,8 +22,8 @@ IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) 
             std::smatch match;
             std::regex_search(line, match, std::regex{"\\[[^\\]\\[]*\\]"});
 
-            sectionName = std::regex_replace(match.str(), std::regex{"\\[|\\]"}, "");
-            result[sectionName] = IniLine();
+            blockName = std::regex_replace(match.str(), std::regex{"\\[|\\]"}, "");
+            result[blockName] = IniBlock();
             continue;
         }
 
@@ -36,7 +36,7 @@ IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) 
             std::string value = line.substr(pos + 1);
             Trim::trim(value);
 
-            result[sectionName][key] = value;
+            result[blockName][key] = value;
         }
     }
     return std::move(result);

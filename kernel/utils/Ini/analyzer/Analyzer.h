@@ -19,14 +19,14 @@ namespace IniProcessorUtil {
     */
     class Analyzer {
     public:
-        using IniData = std::map<std::string, std::map<std::string, std::string>>;
-        using IniLine = std::map<std::string, std::string>;
+        using IniBlock = std::map<std::string, std::string>;
+        using IniData = std::map<std::string, Analyzer::IniBlock>;
 
         Analyzer &operator=(const Analyzer &) = delete;
 
         /**
          * Method returns full ini config data in IniData type.
-         * Configs without block will be in CONFIG_LINES_WITHOUT_BLOCK section.
+         * Configs without block will be in NONAME_BLOCK section.
          *
           * @param lines std::vector<std::string>
           * @return Analyzer::IniData

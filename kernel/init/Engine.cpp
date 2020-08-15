@@ -2,9 +2,9 @@
 // Created by roman on 02.08.2020.
 //
 
-#include "Kernel.h"
+#include "Engine.h"
 
-Engine::Kernel::KERNEL_LOG Engine::Kernel::run() const noexcept {
+ProgramEngine::Engine::LOG ProgramEngine::Engine::start() const noexcept {
     // todo: Add exceptions checker
     return 0;
 }
