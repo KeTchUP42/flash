@@ -8,9 +8,9 @@
 #include "Exception.h"
 #include "ExceptionCodes.h"
 
-namespace KernelExceptions {
+namespace PreferredExceptions {
 
-    class RuntimeException : public KernelExceptions::Exception {
+    class RuntimeException : public PreferredExceptions::Exception {
     public:
         explicit
         RuntimeException(const char *message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept

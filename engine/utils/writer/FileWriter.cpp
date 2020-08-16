@@ -34,7 +34,7 @@ void WriterUtil::FileWriter::checkPath() const {
     std::ofstream out(_path, std::ios::app);
     if (!out.is_open()) {
         out.close();
-        throw KernelExceptions::FileCanNotBeOpened(
+        throw PreferredExceptions::FileCanNotBeOpened(
                 std::strcat(const_cast<char *>(_path.c_str()), " cannot be opened."));
     }
     out.close();

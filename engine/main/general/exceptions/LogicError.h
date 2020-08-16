@@ -8,7 +8,7 @@
 #include "Exception.h"
 #include "ExceptionCodes.h"
 
-namespace KernelExceptions {
+namespace PreferredExceptions {
 
     class LogicError : public Exception {
     public:

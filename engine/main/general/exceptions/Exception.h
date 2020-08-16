@@ -8,7 +8,7 @@
 #include <exception>
 #include <string>
 
-namespace KernelExceptions {
+namespace PreferredExceptions {
 
     class Exception : public std::exception {
     public:

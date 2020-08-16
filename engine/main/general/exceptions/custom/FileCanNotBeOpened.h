@@ -7,8 +7,8 @@
 
 #include "../RuntimeException.h"
 
-namespace KernelExceptions {
-    class FileCanNotBeOpened : public KernelExceptions::RuntimeException {
+namespace PreferredExceptions {
+    class FileCanNotBeOpened : public PreferredExceptions::RuntimeException {
     public:
         explicit FileCanNotBeOpened(const char *message) : RuntimeException(message) {}
 

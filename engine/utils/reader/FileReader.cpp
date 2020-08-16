@@ -45,7 +45,7 @@ void ReaderUtil::FileReader::checkPath(const std::string &path) const {
     std::ifstream in(path);
     if (!in.is_open()) {
         in.close();
-        throw KernelExceptions::FileCanNotBeOpened(
+        throw PreferredExceptions::FileCanNotBeOpened(
                 std::strcat(const_cast<char *>(_path.c_str()), " cannot be opened."));
     }
     in.close();
