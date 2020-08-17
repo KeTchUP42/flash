@@ -2,24 +2,24 @@
 // Created by roman on 04.08.2020.
 //
 
-#ifndef FLASH_KERNELLOGGER_H
-#define FLASH_KERNELLOGGER_H
+#ifndef FLASH_BASELOGGER_H
+#define FLASH_BASELOGGER_H
 
 #include "Logger.h"
-#include "formatter/KernelLoggerFormatter.h"
+#include "formatter/BaseLoggerFormatter.h"
 
 namespace LoggerUtil {
 
-    class KernelLogger : public Logger {
+    class BaseLogger : public Logger {
     public:
         explicit
-        KernelLogger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new KernelLoggerFormatter())
+        BaseLogger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new BaseLoggerFormatter())
                 : Logger(writer, formatter) {}
 
         explicit
-        KernelLogger(const std::shared_ptr<WriterUtil::Writer> &writer,
-                     const std::shared_ptr<Formatter<std::string>> &formatter =
-                     std::shared_ptr<Formatter<std::string>>(new KernelLoggerFormatter()))
+        BaseLogger(const std::shared_ptr<WriterUtil::Writer> &writer,
+                   const std::shared_ptr<Formatter<std::string>> &formatter =
+                   std::shared_ptr<Formatter<std::string>>(new BaseLoggerFormatter()))
                 : Logger(writer, formatter) {}
 
         void emergency(const std::string &message) const noexcept override;
@@ -39,4 +39,4 @@ namespace LoggerUtil {
         void debug(const std::string &message) const noexcept override;
     };
 }
-#endif //FLASH_KERNELLOGGER_H
+#endif //FLASH_BASELOGGER_H

@@ -2,13 +2,13 @@
 // Created by roman on 05.08.2020.
 //
 
-#include "KernelLoggerFormatter.h"
+#include "BaseLoggerFormatter.h"
 
-std::string LoggerUtil::KernelLoggerFormatter::format(const std::string &data) const noexcept {
+std::string LoggerUtil::BaseLoggerFormatter::format(const std::string &data) const noexcept {
     return dateTimeNow() + data + '\n';
 }
 
-std::string LoggerUtil::KernelLoggerFormatter::dateTimeNow() const noexcept {
+std::string LoggerUtil::BaseLoggerFormatter::dateTimeNow() const noexcept {
     const unsigned buffchars = 20;
     char buffer[buffchars];
     time_t seconds = time(nullptr);
