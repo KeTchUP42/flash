@@ -30,7 +30,6 @@ void Audio::MusicPlayer::playAsync() {
 
 void Audio::MusicPlayer::stop() {
     _soundSource->stop();
-
 }
 
 void Audio::MusicPlayer::pause() {

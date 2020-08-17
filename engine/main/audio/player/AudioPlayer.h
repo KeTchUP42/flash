@@ -49,7 +49,7 @@ namespace Audio {
          * @brief Method returns origin SoundSource.
          * @return sf::SoundSource
          */
-        sf::SoundSource *getSoundSource() const noexcept {
+        sf::SoundSource *const getSoundSource() const noexcept {
             return _soundSource.get();
         }
 

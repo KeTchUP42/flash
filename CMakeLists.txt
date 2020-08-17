@@ -9,7 +9,7 @@ find_package(SFML 2.5.1 COMPONENTS window graphics audio)
 
 set(MAIN init/main.cpp)
 set(START engine/init/Engine.cpp engine/init/Engine.h)
-set(SOUND engine/main/audio/player/AudioPlayer.h engine/main/audio/player/MusicPlayer.cpp engine/main/audio/player/MusicPlayer.h engine/main/audio/player/SoundPlayer.cpp engine/main/audio/player/SoundPlayer.h engine/main/audio/simple-audio/AudioPlayback.h engine/main/audio/simple-audio/AudioPlayback.cpp)
+set(AUDIO engine/main/audio/player/AudioPlayer.h engine/main/audio/player/MusicPlayer.cpp engine/main/audio/player/MusicPlayer.h engine/main/audio/player/SoundPlayer.cpp engine/main/audio/player/SoundPlayer.h engine/main/audio/simple-audio/AudioPlayback.h engine/main/audio/simple-audio/AudioPlayback.cpp)
 set(EXCEPTIONS engine/main/general/exceptions/RuntimeException.h engine/main/general/exceptions/Exception.cpp engine/main/general/exceptions/Exception.h engine/main/general/exceptions/LogicError.h engine/main/general/exceptions/InvalidArgument.h engine/main/general/exceptions/custom/FileCanNotBeOpened.h engine/main/general/exceptions/ExceptionCodes.h)
 set(LOGGER engine/utils/logger/Logger.h engine/utils/logger/BaseLogger.cpp engine/utils/logger/BaseLogger.h engine/utils/logger/formatter/Formatter.h engine/utils/logger/formatter/BaseLoggerFormatter.cpp engine/utils/logger/formatter/BaseLoggerFormatter.h)
 set(WRITER engine/utils/writer/Writer.h engine/utils/writer/FileWriter.cpp engine/utils/writer/FileWriter.h engine/utils/writer/MultiFileWriter.cpp engine/utils/writer/MultiFileWriter.h)
@@ -17,6 +17,6 @@ set(READER engine/utils/reader/Reader.h engine/utils/reader/FileReader.cpp engin
 set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h engine/utils/Ini/BaseIniProcessor.cpp engine/utils/Ini/BaseIniProcessor.h engine/utils/Ini/analyzer/IniAnalyzer.cpp engine/utils/Ini/analyzer/IniAnalyzer.h)
 set(TRIM engine/utils/trim/trim.h)
 
-add_executable(Flash ${MAIN} ${START} ${SOUND} ${EXCEPTIONS} ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM})
+add_executable(Flash ${MAIN} ${START} ${AUDIO} ${EXCEPTIONS} ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM})
 
 target_link_libraries(Flash sfml-window sfml-graphics sfml-audio)
