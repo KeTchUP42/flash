@@ -8,14 +8,18 @@
 #include "AudioPlayer.h"
 
 namespace Audio {
+
     class SoundPlayer : public AudioPlayer {
     public:
-        explicit SoundPlayer(const std::shared_ptr<sf::Sound> &sound) : AudioPlayer(sound) {}
+
+        explicit SoundPlayer(const std::shared_ptr<sf::Sound> &sound)
+                : AudioPlayer(sound) {}
 
         explicit SoundPlayer(const sf::SoundBuffer &soundBuffer)
                 : AudioPlayer(std::shared_ptr<sf::SoundSource>(new sf::Sound(soundBuffer))) {}
 
-        explicit SoundPlayer(sf::Sound *sound) : AudioPlayer(sound) {}
+        explicit SoundPlayer(sf::Sound *sound)
+                : AudioPlayer(sound) {}
 
         void play() override;
 

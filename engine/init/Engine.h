@@ -8,10 +8,10 @@
 namespace ProgramEngine {
 
     /**
-     *  @brief  App main class and entry point.
-     *  @namespace Engine
+     * @brief  App main class and entry point.
+     * @namespace Engine
      *
-     *  This class has app entry point method.
+     * This class has app entry point method.
     */
     class Engine {
     public:

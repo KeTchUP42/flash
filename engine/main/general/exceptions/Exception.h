@@ -12,12 +12,11 @@ namespace PreferredExceptions {
 
     class Exception : public std::exception {
     public:
-        explicit Exception(const char *message, const int &code) noexcept: _message(message), _code(code),
-                                                                           std::exception() {}
+        explicit Exception(const char *message, const int &code) noexcept
+                : _message(message), _code(code), std::exception() {}
 
-        explicit Exception(const std::string &message, const int &code) noexcept: _message(message),
-                                                                                  _code(code),
-                                                                                  std::exception() {}
+        explicit Exception(const std::string &message, const int &code) noexcept
+                : _message(message), _code(code), std::exception() {}
 
         const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;
 

@@ -1,2 +1,2 @@
 # Code info:
- * [Exceptions codes.](ExceptionCodes.md)
+ * [Exception codes.](ExceptionCodes.md)

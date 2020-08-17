@@ -15,10 +15,10 @@
 namespace IniProcessorUtil {
 
     /**
-     *  @brief  The base class of the IniProcessor class hierarchy.
-     *  @namespace IniProcessorUtil
+     * @brief The base class of the IniProcessor class hierarchy.
+     * @namespace IniProcessorUtil
      *
-     *  This class defines base interface and fields of IniProcessor classes.
+     * This class defines base interface and fields of IniProcessor classes.
     */
     class IniProcessor {
     public:

@@ -5,12 +5,13 @@
 #ifndef FLASH_MULTIFILEWRITER_H
 #define FLASH_MULTIFILEWRITER_H
 
+#include "Writer.h"
+
 #include <list>
 #include <vector>
 
-#include "Writer.h"
-
 namespace WriterUtil {
+
     class MultiFileWriter : public Writer {
     public:
         MultiFileWriter() = default;

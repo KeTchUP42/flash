@@ -10,10 +10,10 @@
 namespace LoggerUtil {
 
     /**
-    *  @brief  The base class of the Formatter strategy class hierarchy. Uses in Logger hierarchy.
-    *  @namespace LoggerUtil
-     *
-    *  This class defines base interface of Formatter classes.
+    * @brief The base class of the Formatter strategy class hierarchy. Uses in Logger hierarchy.
+    * @namespace LoggerUtil
+    *
+    * This class defines base interface of Formatter classes.
     */
     template<typename T = std::string>
     class Formatter {

@@ -5,9 +5,9 @@
 
 #include <SFML/Audio.hpp>
 
-void Audio::playMusic(const std::string &audiofile) noexcept {
+void Audio::playMusic(const std::string &filename) noexcept {
     sf::Music music;
-    if (!music.openFromFile(audiofile))
+    if (!music.openFromFile(filename))
         return;
 
     music.play();
@@ -17,17 +17,17 @@ void Audio::playMusic(const std::string &audiofile) noexcept {
     }
 }
 
-void Audio::playMusicAsync(const std::string &audiofile) noexcept {
+void Audio::playMusicAsync(const std::string &filename) noexcept {
     sf::Music music;
-    if (!music.openFromFile(audiofile))
+    if (!music.openFromFile(filename))
         return;
 
     music.play();
 }
 
-void Audio::playSound(const std::string &audiofile) noexcept {
+void Audio::playSound(const std::string &filename) noexcept {
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile(audiofile))
+    if (!buffer.loadFromFile(filename))
         return;
 
     sf::Sound sound(buffer);
@@ -38,9 +38,9 @@ void Audio::playSound(const std::string &audiofile) noexcept {
     }
 }
 
-void Audio::playSoundAsync(const std::string &audiofile) noexcept {
+void Audio::playSoundAsync(const std::string &filename) noexcept {
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile(audiofile))
+    if (!buffer.loadFromFile(filename))
         return;
 
     sf::Sound sound(buffer);

@@ -10,9 +10,11 @@
 namespace PreferredExceptions {
     class FileCanNotBeOpened : public PreferredExceptions::RuntimeException {
     public:
-        explicit FileCanNotBeOpened(const char *message) : RuntimeException(message) {}
+        explicit FileCanNotBeOpened(const char *message)
+                : RuntimeException(message) {}
 
-        explicit FileCanNotBeOpened(const std::string &message) : RuntimeException(message) {}
+        explicit FileCanNotBeOpened(const std::string &message)
+                : RuntimeException(message) {}
     };
 }
 #endif //FLASH_FILECANNOTBEOPENED_H

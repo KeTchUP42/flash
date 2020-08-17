@@ -12,18 +12,23 @@
 namespace Audio {
 
     /**
-     *  @brief  The base class of the AudioPlayer class hierarchy.
-     *  @namespace Audio
+     * @brief The base class of the AudioPlayer class hierarchy.
+     * @namespace Audio
      *
-     *  This class defines base AudioPlayer interface and fields.
+     * This class defines base AudioPlayer interface and fields.
     */
     class AudioPlayer {
     public:
+
         AudioPlayer() = default;
 
-        explicit AudioPlayer(const std::shared_ptr<sf::SoundSource> &soundSource) : _soundSource(soundSource) {}
+        explicit AudioPlayer(const std::shared_ptr<sf::SoundSource> &soundSource)
+                : _soundSource(soundSource) {}
 
-        explicit AudioPlayer(sf::SoundSource *soundSource) : _soundSource(soundSource) {}
+        explicit AudioPlayer(sf::SoundSource *soundSource)
+                : _soundSource(soundSource) {}
+
+        AudioPlayer &operator=(const AudioPlayer &) = delete;
 
         /**
          * @brief Method plays audio file.
@@ -54,8 +59,6 @@ namespace Audio {
         }
 
         virtual ~AudioPlayer() noexcept = default;
-
-        AudioPlayer &operator=(const AudioPlayer &) = delete;
 
     protected:
         std::shared_ptr<sf::SoundSource> _soundSource;

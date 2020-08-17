@@ -9,13 +9,13 @@
 
 namespace Audio {
 
-    void playMusic(const std::string &audiofile) noexcept;
+    void playMusic(const std::string &filename) noexcept;
 
-    void playMusicAsync(const std::string &audiofile) noexcept;
+    void playMusicAsync(const std::string &filename) noexcept;
 
-    void playSound(const std::string &audiofile) noexcept;
+    void playSound(const std::string &filename) noexcept;
 
-    void playSoundAsync(const std::string &audiofile) noexcept;
+    void playSoundAsync(const std::string &filename) noexcept;
 }
 
 #endif //FLASH_AUDIOPLAYBACK_H

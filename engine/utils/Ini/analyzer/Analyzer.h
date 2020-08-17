@@ -12,10 +12,10 @@
 namespace IniProcessorUtil {
 
     /**
-     *  @brief  The base class of the Analyzer strategy class hierarchy. Uses in IniProcessor hierarchy.
-     *  @namespace IniProcessorUtil
+     * @brief The base class of the Analyzer strategy class hierarchy. Uses in IniProcessor hierarchy.
+     * @namespace IniProcessorUtil
      *
-     *  This class defines base interface of Analyzer classes.
+     * This class defines base interface of Analyzer classes.
     */
     class Analyzer {
     public:
