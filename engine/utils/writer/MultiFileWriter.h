@@ -35,6 +35,7 @@ namespace WriterUtil {
     protected:
         bool checkPath(const std::string &filepath) const noexcept;
 
+    protected:
         std::list<std::string> _paths;
     };
 }

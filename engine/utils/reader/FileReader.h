@@ -22,6 +22,7 @@ namespace ReaderUtil {
     protected:
         void checkPath(const std::string &path) const;
 
+    protected:
         std::string _path;
     };
 }

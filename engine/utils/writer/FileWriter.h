@@ -22,6 +22,7 @@ namespace WriterUtil {
     protected:
         void checkPath() const;
 
+    protected:
         const std::string _path;
     };
 

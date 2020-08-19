@@ -71,7 +71,7 @@ namespace IniProcessorUtil {
         virtual Analyzer::IniData fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept = 0;
 
         /**
-         * Method creates new ini or append new data with standard writer and IniData.
+         * Method creates new ini file or append new data with standard writer.
          *
          * @param data Analyzer::IniData
          * @param writer Writer
@@ -81,7 +81,7 @@ namespace IniProcessorUtil {
                   const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
 
         /**
-         * Method creates new ini or append new data with standard writer and IniData.
+         * Method creates new ini file or append new data with standard writer.
          * This method WILL NOT delete writer, so be careful!
          *
          * @param data Analyzer::IniData

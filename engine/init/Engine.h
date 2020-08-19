@@ -5,11 +5,11 @@
 #ifndef FLASH_ENGINE_H
 #define FLASH_ENGINE_H
 
-namespace ProgramEngine {
+namespace Program {
 
     /**
-     * @brief  App main class and entry point.
-     * @namespace Engine
+     * @brief App main class and entry point.
+     * @namespace Program
      *
      * This class has app entry point method.
     */
