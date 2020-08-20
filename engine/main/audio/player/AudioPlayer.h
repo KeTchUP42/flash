@@ -22,9 +22,17 @@ namespace Audio {
 
         AudioPlayer() = default;
 
+        /**
+         * @brief Constructor.
+         * @param soundSource const std::shared_ptr<sf::SoundSource>&
+         */
         explicit AudioPlayer(const std::shared_ptr<sf::SoundSource> &soundSource)
                 : _soundSource(soundSource) {}
 
+        /**
+         * @brief Constructor.
+         * @param soundSource sf::SoundSource*
+         */
         explicit AudioPlayer(sf::SoundSource *soundSource)
                 : _soundSource(soundSource) {}
 
