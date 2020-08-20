@@ -5,12 +5,12 @@
 #ifndef FLASH_WINDOWCLOSEOBSERVER_H
 #define FLASH_WINDOWCLOSEOBSERVER_H
 
-#include "../base/observer/Observer.h"
+#include "../observer/Observer.h"
 
 namespace Windows {
     class WindowCloseObserver : public Observer<sf::Window, sf::Event> {
     public:
-        void update(const sf::Event &event, sf::Window &window) const noexcept override;
+        void update(const sf::Event &event, sf::Window &window) noexcept override;
     };
 }
 

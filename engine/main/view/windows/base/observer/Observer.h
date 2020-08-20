@@ -25,7 +25,7 @@ namespace Windows {
          * @param event Event
          * @param window Sender
          */
-        virtual void update(const Event &event, Sender &sender) const noexcept = 0;
+        virtual void update(const Event &event, Sender &sender) noexcept = 0;
 
         virtual ~Observer() = default;
     };
