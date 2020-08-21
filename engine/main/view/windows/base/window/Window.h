@@ -7,6 +7,7 @@
 
 #include <list>
 #include <memory>
+#include <thread>
 
 #include "../observer/Observer.h"
 
@@ -61,15 +62,25 @@ namespace Windows {
         void addObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
         /**
-         * @brief Method removes new observer.
+         * @brief Method removes observer.
          * @param observer const std::shared_ptr<Window::Observer> &
          */
         void removeObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
         /**
-         * @brief Method starts main window circle.
+         * @brief Method starts listening circle.
          */
         void start() noexcept;
+
+        /**
+         * @brief Method starts listening circle in thread.
+         */
+        std::thread startAsync() noexcept;
+
+        /**
+         * @brief Method notifies all observers with event.
+         */
+        void notify(const sf::Event &event) noexcept;
 
     protected:
 

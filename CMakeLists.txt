@@ -18,6 +18,8 @@ set(READER engine/utils/reader/Reader.h engine/utils/reader/FileReader.cpp engin
 set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h engine/utils/Ini/BaseIniProcessor.cpp engine/utils/Ini/BaseIniProcessor.h engine/utils/Ini/analyzer/IniAnalyzer.cpp engine/utils/Ini/analyzer/IniAnalyzer.h)
 set(TRIM engine/utils/trim/trim.h)
 
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
+
 add_executable(Flash ${MAIN} ${START} ${AUDIO} ${EXCEPTIONS} ${WINDOWS} ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM})
 
 target_link_libraries(Flash sfml-window sfml-graphics sfml-audio)

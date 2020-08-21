@@ -4,7 +4,6 @@
 
 #include "Window.h"
 
-
 Windows::Window::Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings)
         : _window(mode, title, style, settings) {
 }
@@ -14,15 +13,22 @@ Windows::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &sett
 }
 
 void Windows::Window::start() noexcept {
-
     while (_window.isOpen()) {
         sf::Event event;
         while (_window.pollEvent(event)) {
-            for (std::shared_ptr<Window::Observer> observer : _observers) {
-                observer->update(event, _window);
-            }
+            this->notify(event);
         }
         this->update();
+    }
+}
+
+std::thread Windows::Window::startAsync() noexcept {
+    return std::thread([this] { this->start(); });
+}
+
+void Windows::Window::notify(const sf::Event &event) noexcept {
+    for (std::shared_ptr<Window::Observer> observer : _observers) {
+        observer->update(event, _window);
     }
 }
 
