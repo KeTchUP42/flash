@@ -8,6 +8,7 @@
 #include <list>
 #include <memory>
 #include <thread>
+#include <SFML/Graphics.hpp>
 
 #include "../observer/Observer.h"
 
@@ -99,7 +100,7 @@ namespace Windows {
 
     protected:
         std::list<std::shared_ptr<Observer>> _observers;
-        sf::Window _window;
+        sf::RenderWindow _window;
     };
 }
 
