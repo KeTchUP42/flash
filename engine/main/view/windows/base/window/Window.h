@@ -58,13 +58,13 @@ namespace Windows {
 
         /**
          * @brief Method adds new observer.
-         * @param observer const std::shared_ptr<Window::Observer> &
+         * @param observer const std::shared_ptr<Window::Observer>&
          */
         void addObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
         /**
          * @brief Method removes observer.
-         * @param observer const std::shared_ptr<Window::Observer> &
+         * @param observer const std::shared_ptr<Window::Observer>&
          */
         void removeObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
