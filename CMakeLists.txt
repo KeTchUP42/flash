@@ -28,7 +28,7 @@ set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h eng
 set(TRIM engine/utils/trim/trim.h)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM})
 
-set(EXCEPTIONS engine/main/general/exceptions/RuntimeException.h engine/main/general/exceptions/Exception.cpp engine/main/general/exceptions/Exception.h engine/main/general/exceptions/LogicError.h engine/main/general/exceptions/InvalidArgument.h engine/main/general/exceptions/custom/FileCanNotBeOpened.h engine/main/general/exceptions/ExceptionCodes.h)
+set(EXCEPTIONS engine/main/general/exceptions/RuntimeException.h engine/main/general/exceptions/Exception.cpp engine/main/general/exceptions/Exception.h engine/main/general/exceptions/LogicError.h engine/main/general/exceptions/InvalidArgument.h engine/main/general/exceptions/custom/FileCanNotBeOpened.h engine/main/general/exceptions/ExceptionCodes.h engine/main/general/exceptions/custom/AudioFileCanNotBeOpened.h)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++${CMAKE_CXX_STANDARD} -pthread")
 

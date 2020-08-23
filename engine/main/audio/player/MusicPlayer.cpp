@@ -4,13 +4,14 @@
 #include <cstring>
 
 #include "MusicPlayer.h"
-#include "../../general/exceptions/custom/FileCanNotBeOpened.h"
+#include "../../general/exceptions/custom/AudioFileCanNotBeOpened.h"
 
 Audio::MusicPlayer::MusicPlayer(const std::string &filename, bool loop) {
     std::shared_ptr<sf::Music> musicSource(new sf::Music());
 
     if (!musicSource->openFromFile(filename)) {
-        throw PreferredExceptions::FileCanNotBeOpened(std::strcat(const_cast<char *>(filename.c_str()), " cannot be opened."));
+        throw PreferredExceptions::AudioFileCanNotBeOpened(
+                std::strcat(const_cast<char *>(filename.c_str()), " cannot be opened."));
     }
     musicSource->setLoop(loop);
     _soundSource = std::move(musicSource);

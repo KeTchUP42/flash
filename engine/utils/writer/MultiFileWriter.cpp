@@ -5,8 +5,8 @@
 #include <fstream>
 #include <cstring>
 
-#include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
 #include "MultiFileWriter.h"
+#include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
 
 WriterUtil::MultiFileWriter::MultiFileWriter(const std::list<std::string> &paths) {
     this->add(paths);
