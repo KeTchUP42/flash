@@ -3,7 +3,6 @@
 //
 
 #include "PrimaryWindow.h"
-#include "../../base/observers/WindowCloseObserver.h"
 
 Windows::PrimaryWindow::PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
                                       const sf::ContextSettings &settings) : Window(mode, title, style, settings) {
@@ -19,7 +18,7 @@ void Windows::PrimaryWindow::configure() noexcept {
 }
 
 void Windows::PrimaryWindow::initialization() noexcept {
-    this->addObserver(new WindowCloseObserver());
+    //..
 }
 
 void Windows::PrimaryWindow::update() noexcept {
