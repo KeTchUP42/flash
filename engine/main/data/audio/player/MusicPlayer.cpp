@@ -4,7 +4,7 @@
 #include <cstring>
 
 #include "MusicPlayer.h"
-#include "../../general/exceptions/custom/AudioFileCanNotBeOpened.h"
+#include "../../../general/exceptions/custom/AudioFileCanNotBeOpened.h"
 
 Audio::MusicPlayer::MusicPlayer(const std::string &filename, bool loop) {
     std::shared_ptr<sf::Music> musicSource(new sf::Music());
