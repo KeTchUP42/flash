@@ -17,9 +17,8 @@ namespace LoggerUtil {
                 : Logger(writer, formatter) {}
 
         explicit
-        BaseLogger(const std::shared_ptr<WriterUtil::Writer> &writer,
-                   const std::shared_ptr<Formatter<std::string>> &formatter =
-                   std::shared_ptr<Formatter<std::string>>(new BaseLoggerFormatter()))
+        BaseLogger(const std::shared_ptr<WriterUtil::Writer> &writer, const std::shared_ptr<Formatter<std::string>> &formatter =
+        std::shared_ptr<Formatter<std::string>>(new BaseLoggerFormatter()))
                 : Logger(writer, formatter) {}
 
         void emergency(const std::string &message) const noexcept override;

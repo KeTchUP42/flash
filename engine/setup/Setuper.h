@@ -26,7 +26,7 @@ namespace Setup {
                 : _configPath(filename) {}
 
         /**
-         * @brief Method converts config data to DataManager.
+         * @brief Method reads config and returns data managers in DataManager.
          * @return Managers::DataManager*
          */
         virtual DataManagers::DataManager *load() const = 0;

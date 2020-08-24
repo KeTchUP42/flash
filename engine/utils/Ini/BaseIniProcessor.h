@@ -9,6 +9,7 @@
 #include "analyzer/IniAnalyzer.h"
 
 namespace IniProcessorUtil {
+
     class BaseIniProcessor : public IniProcessor {
     public:
 
@@ -18,8 +19,7 @@ namespace IniProcessorUtil {
         explicit BaseIniProcessor(const std::string &filepath, Analyzer *analyzer = new IniAnalyzer())
                 : IniProcessor(filepath, analyzer) {}
 
-        explicit BaseIniProcessor(const std::string &filepath,
-                                  const std::shared_ptr<Analyzer> &analyzer = std::shared_ptr<Analyzer>(new IniAnalyzer()))
+        explicit BaseIniProcessor(const std::string &filepath, const std::shared_ptr<Analyzer> &analyzer)
                 : IniProcessor(filepath, analyzer) {}
 
         explicit BaseIniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader,
