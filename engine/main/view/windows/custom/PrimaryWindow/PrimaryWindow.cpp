@@ -30,6 +30,6 @@ void Windows::PrimaryWindow::initialization() noexcept {
     //..
 }
 
-void Windows::PrimaryWindow::update() noexcept {
+void Windows::PrimaryWindow::update() {
     //_window.display();
 }

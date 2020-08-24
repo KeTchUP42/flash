@@ -12,7 +12,7 @@ Windows::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &sett
         : _window(handle, settings) {
 }
 
-void Windows::Window::start() noexcept {
+void Windows::Window::start() {
     while (_window.isOpen()) {
         sf::Event event;
         while (_window.pollEvent(event)) {

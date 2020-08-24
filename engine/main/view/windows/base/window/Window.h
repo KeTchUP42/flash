@@ -71,7 +71,7 @@ namespace Windows {
         /**
          * @brief Method starts listening circle.
          */
-        void start() noexcept;
+        void start();
 
         /**
          * @brief Method starts listening circle in thread.
@@ -93,7 +93,7 @@ namespace Windows {
         /**
          * @brief Method updates all window components.
          */
-        virtual void update() noexcept = 0;
+        virtual void update() = 0;
 
     public:
         virtual ~Window() = default;

@@ -27,7 +27,7 @@ namespace Windows {
     protected:
         void initialization() noexcept override;
 
-        void update() noexcept override;
+        void update() override;
 
     private:
         std::shared_ptr<DataManagers::DataManager> _dataManager;

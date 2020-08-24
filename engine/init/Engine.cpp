@@ -24,7 +24,7 @@ Program::Engine::LOG Program::Engine::start() const noexcept {
     }
     catch (...) {
         LoggerUtil::BaseLogger logger(new WriterUtil::FileWriter("./crash.log"));
-        logger.critical("Ini config is invalid!");
+        logger.critical("Ini config is not valid!");
         return EXCEPTION;
     }
     std::shared_ptr<LoggerUtil::Logger> logger = dataManager->getLogManager()->createLoggerForFile("crash.log");
@@ -33,7 +33,7 @@ Program::Engine::LOG Program::Engine::start() const noexcept {
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
-        logger->critical(std::to_string(exception.getCode()) + " : " + exception.getMessage());
+        logger->critical("Code " + std::to_string(exception.getCode()) + " => " + exception.getMessage());
         return EXCEPTION;
     }
 
