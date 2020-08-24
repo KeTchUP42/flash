@@ -29,7 +29,7 @@ set(VIEW ${WINDOWS} ${VIEWCREATE})
 set(CAPABILITIES engine/main/objects/capabilities/Drawable.h)
 set(OBJECTS ${CAPABILITIES})
 
-set(SETUP engine/setup/Setuper.h)
+set(SETUP engine/setup/Setuper.h engine/setup/EngineSetuper.cpp engine/setup/EngineSetuper.h)
 
 set(LOGGER engine/utils/logger/Logger.h engine/utils/logger/BaseLogger.cpp engine/utils/logger/BaseLogger.h engine/utils/logger/formatter/Formatter.h engine/utils/logger/formatter/BaseLoggerFormatter.cpp engine/utils/logger/formatter/BaseLoggerFormatter.h)
 set(WRITER engine/utils/writer/Writer.h engine/utils/writer/FileWriter.cpp engine/utils/writer/FileWriter.h engine/utils/writer/MultiFileWriter.cpp engine/utils/writer/MultiFileWriter.h)

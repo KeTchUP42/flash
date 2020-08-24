@@ -20,13 +20,10 @@ namespace Setup {
     class Setuper {
     public:
         explicit Setuper(const std::string &filename)
-                : _configPath(filename) {}
-
-        explicit Setuper(const char *filename)
-                : _configPath(filename) {}
+                : _config(filename) {}
 
         /**
-         * @brief Method reads config and returns data managers in DataManager.
+         * @brief Method reads config and returns data managers in DataManager facade class.
          * @return Managers::DataManager*
          */
         virtual DataManagers::DataManager *load() const = 0;
@@ -34,7 +31,7 @@ namespace Setup {
         virtual ~Setuper() = default;
 
     protected:
-        const std::string _configPath;
+        const std::string _config;
     };
 }
 
