@@ -10,7 +10,7 @@
 
 namespace PreferredExceptions {
 
-    class RuntimeException : public PreferredExceptions::Exception {
+    class RuntimeException : public Exception {
     public:
         explicit
         RuntimeException(const char *message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
