@@ -15,11 +15,12 @@ set(AUDIOPLAYBACK engine/main/data/audio/simple-audio/AudioPlayback.h engine/mai
 set(AUDIO ${PLAYER} ${AUDIOPLAYBACK})
 
 set(AUDIOMANAGER engine/main/data/manager/audio-manager/AudioManager.h engine/main/data/manager/audio-manager/MusicManager.cpp engine/main/data/manager/audio-manager/MusicManager.h)
+set(CONFIGMANAGER engine/main/data/manager/config-manager/ConfigManager.h engine/main/data/manager/config-manager/IniConfigManager.cpp engine/main/data/manager/config-manager/IniConfigManager.h)
 set(FONTMANAGER engine/main/data/manager/font-manager/FontManager.h engine/main/data/manager/font-manager/BaseFontManager.cpp engine/main/data/manager/font-manager/BaseFontManager.h)
 set(LOGMANAGER engine/main/data/manager/log-manager/BaseLogManager.cpp engine/main/data/manager/log-manager/BaseLogManager.h)
 set(TEXTUREMANAGER engine/main/data/manager/texture-manager/TextureManager.h engine/main/data/manager/texture-manager/BaseTextureManager.cpp engine/main/data/manager/texture-manager/BaseTextureManager.h)
 set(DATAMANAGER engine/main/data/manager/DataManager.h engine/main/data/manager/StandardDataManager.cpp engine/main/data/manager/StandardDataManager.h)
-set(MANAGERS ${AUDIOMANAGER} ${FONTMANAGER} ${LOGMANAGER} ${TEXTUREMANAGER} ${DATAMANAGER})
+set(MANAGERS ${AUDIOMANAGER} ${CONFIGMANAGER} ${FONTMANAGER} ${LOGMANAGER} ${TEXTUREMANAGER} ${DATAMANAGER})
 set(DATA ${AUDIO} ${MANAGERS})
 
 set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)

@@ -11,15 +11,16 @@ namespace DataManagers {
 
     class StandardDataManager : public DataManager {
     public:
+        explicit StandardDataManager(AudioManager *audioManager, ConfigManager *configManager,
+                                     FontManager *fontManager, LogManager *logManager, TextureManager *textureManager)
+                : _audioManager(audioManager), _configManager(configManager), _fontManager(fontManager),
+                  _logManager(logManager), _textureManager(textureManager) {}
 
-        explicit StandardDataManager(AudioManager *audioManager, FontManager *fontManager,
-                                     LogManager *logManager, TextureManager *textureManager) :
-                _audioManager(audioManager), _fontManager(fontManager),
-                _logManager(logManager), _textureManager(textureManager) {}
-
-        explicit StandardDataManager(std::shared_ptr<AudioManager> audioManager, std::shared_ptr<FontManager> fontManager,
-                                     std::shared_ptr<LogManager> logManager, std::shared_ptr<TextureManager> textureManager) :
-                _audioManager(audioManager), _fontManager(fontManager),
+        explicit StandardDataManager(std::shared_ptr<AudioManager> audioManager,
+                                     std::shared_ptr<ConfigManager> configManager,
+                                     std::shared_ptr<FontManager> fontManager, std::shared_ptr<LogManager> logManager,
+                                     std::shared_ptr<TextureManager> textureManager) :
+                _audioManager(audioManager), _configManager(configManager), _fontManager(fontManager),
                 _logManager(logManager), _textureManager(textureManager) {}
 
         std::shared_ptr<AudioManager> getAudioManager() const noexcept override;
@@ -30,8 +31,11 @@ namespace DataManagers {
 
         std::shared_ptr<TextureManager> getTextureManager() const noexcept override;
 
+        std::shared_ptr<ConfigManager> getConfigManager() const noexcept override;
+
     private:
         std::shared_ptr<AudioManager> _audioManager;
+        std::shared_ptr<ConfigManager> _configManager;
         std::shared_ptr<FontManager> _fontManager;
         std::shared_ptr<LogManager> _logManager;
         std::shared_ptr<TextureManager> _textureManager;

@@ -9,6 +9,7 @@
 
 #include "log-manager/LogManager.h"
 #include "audio-manager/AudioManager.h"
+#include "config-manager/ConfigManager.h"
 #include "texture-manager/TextureManager.h"
 #include "font-manager/FontManager.h"
 
@@ -29,6 +30,13 @@ namespace DataManagers {
          * @return std::shared_ptr<AudioManager>
          */
         virtual std::shared_ptr<AudioManager> getAudioManager() const noexcept = 0;
+
+        /**
+         * @brief Method returns ConfigManager.
+         * @return std::shared_ptr<ConfigManager>
+         */
+        virtual std::shared_ptr<ConfigManager> getConfigManager() const noexcept = 0;
+
 
         /**
          * @brief Method returns FontManager.

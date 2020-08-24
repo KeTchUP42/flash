@@ -8,6 +8,10 @@ std::shared_ptr<DataManagers::AudioManager> DataManagers::StandardDataManager::g
     return _audioManager;
 }
 
+std::shared_ptr<DataManagers::ConfigManager<>> DataManagers::StandardDataManager::getConfigManager() const noexcept {
+    return _configManager;
+}
+
 std::shared_ptr<DataManagers::FontManager> DataManagers::StandardDataManager::getFontManager() const noexcept {
     return _fontManager;
 }
