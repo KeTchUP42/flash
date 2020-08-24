@@ -12,11 +12,10 @@ namespace ViewCreate {
     class PrimaryWindowFactory : public WindowFactory {
     public:
         std::shared_ptr<Windows::Window>
-        createWindow(sf::VideoMode mode, const sf::String &title, sf::Uint32 style,
-                     const sf::ContextSettings &settings) const noexcept override;
+        createWindow(DataManagers::DataManager *dataManager, const std::string &filename) const override;
 
         std::shared_ptr<Windows::Window>
-        createWindow(sf::WindowHandle handle, const sf::ContextSettings &settings) const noexcept override;
+        createWindow(sf::WindowHandle handle, DataManagers::DataManager *dataManager) const override;
     };
 }
 #endif //FLASH_PRIMARYWINDOWFACTORY_H

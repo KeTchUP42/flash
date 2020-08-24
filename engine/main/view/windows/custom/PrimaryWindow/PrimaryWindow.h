@@ -6,18 +6,20 @@
 #define FLASH_PRIMARYWINDOW_H
 
 #include "../../base/window/Window.h"
+#include "../../../../data/manager/DataManager.h"
 
 namespace Windows {
 
     class PrimaryWindow : public Window {
     public:
 
-        explicit PrimaryWindow(const sf::VideoMode &mode, const sf::String &title,
-                               sf::Uint32 style = sf::Style::Default,
-                               const sf::ContextSettings &settings = sf::ContextSettings());
+        explicit PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
+                               const sf::ContextSettings &settings, DataManagers::DataManager *dataManager);
 
-        explicit PrimaryWindow(sf::WindowHandle handle,
-                               const sf::ContextSettings &settings = sf::ContextSettings());
+        explicit PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
+                               DataManagers::DataManager *dataManager);
+
+        void setDataManager(DataManagers::DataManager *dataManager);
 
     private:
         void configure() noexcept;
@@ -26,6 +28,9 @@ namespace Windows {
         void initialization() noexcept override;
 
         void update() noexcept override;
+
+    private:
+        std::shared_ptr<DataManagers::DataManager> _dataManager;
     };
 }
 

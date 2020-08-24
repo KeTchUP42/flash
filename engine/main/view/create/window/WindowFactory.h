@@ -8,6 +8,7 @@
 #include <memory>
 
 #include "../../windows/base/window/Window.h"
+#include "../../../data/manager/DataManager.h"
 
 namespace ViewCreate {
 
@@ -23,24 +24,24 @@ namespace ViewCreate {
 
         /**
          * @brief Base factory method. You can add any additional logic to it.
-         * @param mode sf::VideoMode
-         * @param title const sf::String&
-         * @param style sf::Uint32
-         * @param settings const sf::ContextSettings&
+         * This method WILL NOT delete DataManager!
+         *
+         * @param dataManager Resource data manager.
+         * @param filename Window config filename.
          * @return new Window std::shared_pt<Windows::Window>
          */
         virtual std::shared_ptr<Windows::Window>
-        createWindow(sf::VideoMode mode, const sf::String &title, sf::Uint32 style,
-                     const sf::ContextSettings &settings) const noexcept = 0;
+        createWindow(DataManagers::DataManager *dataManager, const std::string &filename) const = 0;
 
         /**
          * @brief Base factory method. You can add any additional logic to it.
+         *
          * @param handle sf::WindowHandle
-         * @param settings const sf::ContextSettings&
+         * @param dataManager Resource data manager.
          * @return new Window std::shared_pt<Windows::Window>
          */
         virtual std::shared_ptr<Windows::Window>
-        createWindow(sf::WindowHandle handle, const sf::ContextSettings &settings) const noexcept = 0;
+        createWindow(sf::WindowHandle handle, DataManagers::DataManager *dataManager) const = 0;
 
         virtual ~WindowFactory() = default;
     };
