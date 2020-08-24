@@ -15,7 +15,7 @@ set(AUDIOPLAYBACK engine/main/data/audio/simple-audio/AudioPlayback.h engine/mai
 set(AUDIO ${PLAYER} ${AUDIOPLAYBACK})
 
 set(AUDIOMANAGER engine/main/data/manager/audio-manager/AudioManager.h engine/main/data/manager/audio-manager/MusicManager.cpp engine/main/data/manager/audio-manager/MusicManager.h)
-set(FONTMANAGER)
+set(FONTMANAGER engine/main/data/manager/font-manager/FontManager.h engine/main/data/manager/font-manager/BaseFontManager.cpp engine/main/data/manager/font-manager/BaseFontManager.h)
 set(LOGMANAGER engine/main/data/manager/log-manager/BaseLogManager.cpp engine/main/data/manager/log-manager/BaseLogManager.h)
 set(TEXTUREMANAGER engine/main/data/manager/texture-manager/TextureManager.h engine/main/data/manager/texture-manager/BaseTextureManager.cpp engine/main/data/manager/texture-manager/BaseTextureManager.h)
 set(DATAMANAGER engine/main/data/manager/DataManager.h engine/main/data/manager/StandardDataManager.cpp engine/main/data/manager/StandardDataManager.h)
