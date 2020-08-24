@@ -27,7 +27,7 @@ namespace DataManagers {
                 : _audioDirectory(audioDirectory) {}
 
         /**
-         * @brief Manager main factory mathod.
+         * @brief Method loads file from Audio directory.
          * @param filename File in audio directory.
          * @param Is loop? Can be useless.
          * @return std::shared_ptr<Audio::AudioPlayer>

@@ -11,7 +11,6 @@ namespace Audio {
 
     class SoundPlayer : public AudioPlayer {
     public:
-
         explicit SoundPlayer(const sf::SoundBuffer &soundBuffer)
                 : AudioPlayer(std::shared_ptr<sf::SoundSource>(new sf::Sound(soundBuffer))) {}
 

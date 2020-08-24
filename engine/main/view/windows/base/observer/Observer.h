@@ -21,7 +21,7 @@ namespace Windows {
         Observer() = default;
 
         /**
-         * @brief Sender calls this method every time any event was.
+         * @brief Sender calls this method every time any Event was.
          * @param event Event
          * @param window Sender
          */

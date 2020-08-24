@@ -17,6 +17,10 @@ namespace Program {
     public:
         typedef int LOG;
 
+        /**
+         * @brief Main program entry point method.
+         * @return LOG
+         */
         LOG start() const noexcept;
 
         virtual ~Engine() = default;

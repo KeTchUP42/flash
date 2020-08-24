@@ -11,7 +11,6 @@ namespace Audio {
 
     class MusicPlayer : public AudioPlayer {
     public:
-
         explicit MusicPlayer(const std::string &filename, bool loop = false);
 
         explicit MusicPlayer(const std::shared_ptr<sf::Music> &soundSource)

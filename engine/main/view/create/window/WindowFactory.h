@@ -22,7 +22,7 @@ namespace ViewCreate {
         WindowFactory() = default;
 
         /**
-         * @brief Base factory method. You can add any logic to methods.
+         * @brief Base factory method. You can add any additional logic to it.
          * @param mode sf::VideoMode
          * @param title const sf::String&
          * @param style sf::Uint32
@@ -34,7 +34,7 @@ namespace ViewCreate {
                      const sf::ContextSettings &settings) const noexcept = 0;
 
         /**
-         * @brief Base factory method. You can add any logic to methods.
+         * @brief Base factory method. You can add any additional logic to it.
          * @param handle sf::WindowHandle
          * @param settings const sf::ContextSettings&
          * @return new Window std::shared_pt<Windows::Window>

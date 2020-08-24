@@ -28,7 +28,7 @@ namespace DataManagers {
                 : _logDirectory(logDirectory) {}
 
         /**
-         * @brief Manager main factory mathod.
+         * @brief Method creates Logger for file in Log directory.
          * @param filename File in Log directory.
          * @return std::shared_ptr<LoggerUtil::Logger>
          */
@@ -36,7 +36,7 @@ namespace DataManagers {
         createLoggerForFile(const std::string &filename) const = 0;
 
         /**
-         * @brief Manager main factory mathod.
+         * @brief Method creates Logger for files in Log directory.
          * @param filenames Files in Log directory.
          * @return std::shared_ptr<LoggerUtil::Logger>
          */

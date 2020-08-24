@@ -19,7 +19,6 @@ namespace Audio {
     */
     class AudioPlayer {
     public:
-
         AudioPlayer() = default;
 
         /**
