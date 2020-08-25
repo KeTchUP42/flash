@@ -9,7 +9,7 @@ std::shared_ptr<sf::Font> DataManagers::BaseFontManager::load(const std::string 
     std::shared_ptr<sf::Font> font(new sf::Font());
 
     if (!font->loadFromFile(_fontDirectory + "/" + filename))
-        throw PreferredExceptions::FontCanNotBeLoaded(filename.c_str());
+        throw PreferredExceptions::FontCanNotBeLoaded("Font " + filename + " cannot be loaded.");
 
     return std::move(font);
 }

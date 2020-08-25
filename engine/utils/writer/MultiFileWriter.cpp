@@ -3,7 +3,6 @@
 //
 
 #include <fstream>
-#include <cstring>
 
 #include "MultiFileWriter.h"
 #include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
@@ -50,8 +49,7 @@ void WriterUtil::MultiFileWriter::add(const std::string &filepath) {
     if (this->checkPath(filepath)) {
         _paths.push_back(filepath);
     } else {
-        throw PreferredExceptions::FileCanNotBeOpened(
-                std::strcat(const_cast<char *>(filepath.c_str()), " cannot be opened."));
+        throw PreferredExceptions::FileCanNotBeOpened("File " + filepath + " cannot be opened.");
     }
 }
 

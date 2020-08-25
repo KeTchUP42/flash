@@ -9,7 +9,7 @@ std::shared_ptr<sf::Texture> DataManagers::BaseTextureManager::load(const std::s
     std::shared_ptr<sf::Texture> texture(new sf::Texture());
 
     if (!texture->loadFromFile(_textureDirectory + "/" + filename))
-        throw PreferredExceptions::TextureCanNotBeLoaded(filename.c_str());
+        throw PreferredExceptions::TextureCanNotBeLoaded("Texture " + filename + " cannot be loaded.");
 
     return std::move(texture);
 }

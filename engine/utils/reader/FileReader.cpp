@@ -2,7 +2,6 @@
 // Created by roman on 10.08.2020.
 //
 #include <fstream>
-#include <cstring>
 #include <iterator>
 
 #include "FileReader.h"
@@ -45,8 +44,7 @@ void ReaderUtil::FileReader::checkPath(const std::string &path) const {
     std::ifstream in(path);
     if (!in.is_open()) {
         in.close();
-        throw PreferredExceptions::FileCanNotBeOpened(
-                std::strcat(const_cast<char *>(_path.c_str()), " cannot be opened."));
+        throw PreferredExceptions::FileCanNotBeOpened("File " + _path + " cannot be opened.");
     }
     in.close();
 }

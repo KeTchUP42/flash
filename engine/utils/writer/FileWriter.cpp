@@ -3,7 +3,6 @@
 //
 
 #include <fstream>
-#include <cstring>
 
 #include "FileWriter.h"
 #include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
@@ -34,8 +33,7 @@ void WriterUtil::FileWriter::checkPath() const {
     std::ofstream out(_path, std::ios::app);
     if (!out.is_open()) {
         out.close();
-        throw PreferredExceptions::FileCanNotBeOpened(
-                std::strcat(const_cast<char *>(_path.c_str()), " cannot be opened."));
+        throw PreferredExceptions::FileCanNotBeOpened("File " + _path + " cannot be opened.");
     }
     out.close();
 }
