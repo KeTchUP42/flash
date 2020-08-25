@@ -8,7 +8,7 @@
 #include <list>
 #include <memory>
 #include <thread>
-#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "../observer/Observer.h"
 
