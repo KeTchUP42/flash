@@ -88,7 +88,7 @@ namespace WindowView {
         /**
          * @brief Method initializes all window components.
          */
-        virtual void initialization() noexcept = 0;
+        virtual void initialization() = 0;
 
         /**
          * @brief Method updates all window components.

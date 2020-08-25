@@ -18,11 +18,11 @@ WindowView::PrimaryWindow::PrimaryWindow(sf::WindowHandle handle, const sf::Cont
     this->configure();
 }
 
-void WindowView::PrimaryWindow::configure() noexcept {
+void WindowView::PrimaryWindow::configure() {
     this->initialization();
 }
 
-void WindowView::PrimaryWindow::initialization() noexcept {
+void WindowView::PrimaryWindow::initialization() {
     //..
 }
 

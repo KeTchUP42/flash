@@ -19,10 +19,10 @@ namespace WindowView {
                                DataManagers::DataManager *dataManager);
 
     private:
-        void configure() noexcept;
+        void configure();
 
     protected:
-        void initialization() noexcept override;
+        void initialization() override;
 
         void update() override;
 
