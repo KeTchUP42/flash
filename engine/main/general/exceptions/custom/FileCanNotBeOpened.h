@@ -8,6 +8,7 @@
 #include "../RuntimeException.h"
 
 namespace PreferredExceptions {
+
     class FileCanNotBeOpened : public RuntimeException {
     public:
         explicit FileCanNotBeOpened(const char *message)

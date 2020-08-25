@@ -8,6 +8,7 @@
 #include "../RuntimeException.h"
 
 namespace PreferredExceptions {
+
     class AudioFileCanNotBeOpened : public RuntimeException {
     public:
         explicit AudioFileCanNotBeOpened(const char *message)

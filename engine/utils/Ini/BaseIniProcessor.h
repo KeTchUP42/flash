@@ -12,7 +12,6 @@ namespace IniProcessorUtil {
 
     class BaseIniProcessor : public IniProcessor {
     public:
-
         explicit BaseIniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer = new IniAnalyzer())
                 : IniProcessor(reader, analyzer) {}
 

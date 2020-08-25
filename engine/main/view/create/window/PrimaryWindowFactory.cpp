@@ -26,6 +26,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
 
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"],
                                        sf::Style::Default, contextSettings, dataManager);
+
     window->addObserver(new WindowCloseObserver());
     //..
     return std::shared_ptr<Windows::Window>(window);

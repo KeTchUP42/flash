@@ -12,7 +12,6 @@ namespace Windows {
 
     class PrimaryWindow : public Window {
     public:
-
         explicit PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
                                const sf::ContextSettings &settings, DataManagers::DataManager *dataManager);
 
@@ -30,7 +29,7 @@ namespace Windows {
         void update() override;
 
     private:
-        std::shared_ptr<DataManagers::DataManager> _dataManager;
+        std::shared_ptr<DataManagers::DataManager> _dataManager; //todo: Think to make _dataManager general ptr.
     };
 }
 

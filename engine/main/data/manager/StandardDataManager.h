@@ -16,12 +16,11 @@ namespace DataManagers {
                 : _audioManager(audioManager), _configManager(configManager), _fontManager(fontManager),
                   _logManager(logManager), _textureManager(textureManager) {}
 
-        explicit StandardDataManager(std::shared_ptr<AudioManager> audioManager,
-                                     std::shared_ptr<ConfigManager> configManager,
+        explicit StandardDataManager(std::shared_ptr<AudioManager> audioManager, std::shared_ptr<ConfigManager> configManager,
                                      std::shared_ptr<FontManager> fontManager, std::shared_ptr<LogManager> logManager,
-                                     std::shared_ptr<TextureManager> textureManager) :
-                _audioManager(audioManager), _configManager(configManager), _fontManager(fontManager),
-                _logManager(logManager), _textureManager(textureManager) {}
+                                     std::shared_ptr<TextureManager> textureManager)
+                : _audioManager(audioManager), _configManager(configManager), _fontManager(fontManager),
+                  _logManager(logManager), _textureManager(textureManager) {}
 
         std::shared_ptr<AudioManager> getAudioManager() const noexcept override;
 

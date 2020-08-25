@@ -21,7 +21,6 @@ namespace LoggerUtil {
     */
     class Logger {
     public:
-
         explicit Logger(WriterUtil::Writer *writer, Formatter<std::string> *formatter)
                 : _writer(writer), _formatter(formatter) {}
 

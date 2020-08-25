@@ -8,6 +8,7 @@
 #include "../RuntimeException.h"
 
 namespace PreferredExceptions {
+
     class FontCanNotBeLoaded : public RuntimeException {
     public:
         explicit FontCanNotBeLoaded(const char *message)

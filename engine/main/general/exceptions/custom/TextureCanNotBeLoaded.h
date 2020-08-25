@@ -8,6 +8,7 @@
 #include "../RuntimeException.h"
 
 namespace PreferredExceptions {
+
     class TextureCanNotBeLoaded : public RuntimeException {
     public:
         explicit TextureCanNotBeLoaded(const char *message)

@@ -10,7 +10,7 @@
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
 #define OK         0
-#define EXCEPTION -1
+#define EXCEPTION 255
 
 Program::Engine::LOG Program::Engine::start() const noexcept {
     using namespace DataManagers;
