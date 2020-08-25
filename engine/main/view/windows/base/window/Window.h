@@ -8,7 +8,7 @@
 #include <list>
 #include <memory>
 #include <thread>
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 #include "../observer/Observer.h"
 
@@ -26,7 +26,7 @@ namespace WindowView {
         /**
          * @brief Window observer type alias.
          */
-        using Observer = WindowView::Observer<sf::Window, sf::Event>;
+        using Observer = WindowView::Observer<sf::RenderWindow, sf::Event>;
 
         /**
          * @brief Constructor.
