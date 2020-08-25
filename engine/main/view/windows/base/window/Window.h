@@ -12,11 +12,11 @@
 
 #include "../observer/Observer.h"
 
-namespace Windows {
+namespace WindowView {
 
     /**
      * @brief The base class of the Window class hierarchy.
-     * @namespace Windows
+     * @namespace WindowView
      *
      * This class defines base Window interface.
     */
@@ -26,7 +26,7 @@ namespace Windows {
         /**
          * @brief Window observer type alias.
          */
-        using Observer = Windows::Observer<sf::Window, sf::Event>;
+        using Observer = WindowView::Observer<sf::Window, sf::Event>;
 
         /**
          * @brief Constructor.

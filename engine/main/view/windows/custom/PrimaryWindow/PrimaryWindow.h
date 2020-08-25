@@ -8,7 +8,7 @@
 #include "../../base/window/Window.h"
 #include "../../../../data/manager/DataManager.h"
 
-namespace Windows {
+namespace WindowView {
 
     class PrimaryWindow : public Window {
     public:
@@ -17,8 +17,6 @@ namespace Windows {
 
         explicit PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
                                DataManagers::DataManager *dataManager);
-
-        void setDataManager(DataManagers::DataManager *dataManager);
 
     private:
         void configure() noexcept;

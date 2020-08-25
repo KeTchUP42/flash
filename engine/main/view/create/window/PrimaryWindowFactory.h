@@ -11,10 +11,10 @@ namespace ViewCreate {
 
     class PrimaryWindowFactory : public WindowFactory {
     public:
-        std::shared_ptr<Windows::Window>
+        std::shared_ptr<WindowView::Window>
         createWindow(DataManagers::DataManager *dataManager, const std::string &filename) const override;
 
-        std::shared_ptr<Windows::Window>
+        std::shared_ptr<WindowView::Window>
         createWindow(sf::WindowHandle handle, DataManagers::DataManager *dataManager) const override;
     };
 }

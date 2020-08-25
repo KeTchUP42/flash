@@ -4,15 +4,15 @@
 
 #include "Window.h"
 
-Windows::Window::Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings)
+WindowView::Window::Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings)
         : _window(mode, title, style, settings) {
 }
 
-Windows::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &settings)
+WindowView::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &settings)
         : _window(handle, settings) {
 }
 
-void Windows::Window::start() {
+void WindowView::Window::start() {
     while (_window.isOpen()) {
         sf::Event event;
         while (_window.pollEvent(event)) {
@@ -22,24 +22,24 @@ void Windows::Window::start() {
     }
 }
 
-std::thread Windows::Window::startAsync() noexcept {
+std::thread WindowView::Window::startAsync() noexcept {
     return std::thread([this] { this->start(); });
 }
 
-void Windows::Window::notify(const sf::Event &event) noexcept {
+void WindowView::Window::notify(const sf::Event &event) noexcept {
     for (std::shared_ptr<Window::Observer> &observer : _observers) {
         observer->update(event, _window);
     }
 }
 
-void Windows::Window::addObserver(Window::Observer *observer) noexcept {
+void WindowView::Window::addObserver(Window::Observer *observer) noexcept {
     _observers.push_back(std::shared_ptr<Window::Observer>(observer));
 }
 
-void Windows::Window::addObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
+void WindowView::Window::addObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
     _observers.push_back(observer);
 }
 
-void Windows::Window::removeObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
+void WindowView::Window::removeObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
     _observers.remove(observer);
 }

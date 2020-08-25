@@ -8,7 +8,7 @@
 
 #include <cstdlib>
 
-std::shared_ptr<Windows::Window>
+std::shared_ptr<WindowView::Window>
 ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataManager, const std::string &filename) const {
     IniProcessorUtil::Analyzer::IniData iniData = dataManager->getConfigManager()->load(filename);
 
@@ -20,7 +20,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
     contextSettings.minorVersion = std::atoi(iniData["ContextSettings"]["minorVersion"].c_str());
     contextSettings.attributeFlags = std::atoi(iniData["ContextSettings"]["attributeFlags"].c_str());
 
-    using namespace Windows;
+    using namespace WindowView;
     int width = std::atoi(iniData["Window"]["width"].c_str());
     int height = std::atoi(iniData["Window"]["height"].c_str());
 
@@ -29,17 +29,17 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
 
     window->addObserver(new WindowCloseObserver());
     //..
-    return std::shared_ptr<Windows::Window>(window);
+    return std::shared_ptr<WindowView::Window>(window);
 }
 
-std::shared_ptr<Windows::Window>
+std::shared_ptr<WindowView::Window>
 ViewCreate::PrimaryWindowFactory::createWindow(sf::WindowHandle handle, DataManagers::DataManager *dataManager) const {
     sf::ContextSettings contextSettings;
     contextSettings.depthBits = 24;
 
-    using namespace Windows;
+    using namespace WindowView;
     Window *window = new PrimaryWindow(handle, contextSettings, dataManager);
     window->addObserver(new WindowCloseObserver());
     //..
-    return std::shared_ptr<Windows::Window>(window);
+    return std::shared_ptr<WindowView::Window>(window);
 }

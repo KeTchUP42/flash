@@ -7,7 +7,7 @@
 
 #include "../observer/Observer.h"
 
-namespace Windows {
+namespace WindowView {
     class WindowCloseObserver : public Observer<sf::Window, sf::Event> {
     public:
         void update(const sf::Event &event, sf::Window &window) noexcept override;

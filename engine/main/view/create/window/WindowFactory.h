@@ -28,9 +28,9 @@ namespace ViewCreate {
          *
          * @param dataManager Resource data manager.
          * @param filename Window config filename.
-         * @return new Window std::shared_pt<Windows::Window>
+         * @return new Window std::shared_pt<WindowView::Window>
          */
-        virtual std::shared_ptr<Windows::Window>
+        virtual std::shared_ptr<WindowView::Window>
         createWindow(DataManagers::DataManager *dataManager, const std::string &filename) const = 0;
 
         /**
@@ -38,9 +38,9 @@ namespace ViewCreate {
          *
          * @param handle sf::WindowHandle
          * @param dataManager Resource data manager.
-         * @return new Window std::shared_pt<Windows::Window>
+         * @return new Window std::shared_pt<WindowView::Window>
          */
-        virtual std::shared_ptr<Windows::Window>
+        virtual std::shared_ptr<WindowView::Window>
         createWindow(sf::WindowHandle handle, DataManagers::DataManager *dataManager) const = 0;
 
         virtual ~WindowFactory() = default;

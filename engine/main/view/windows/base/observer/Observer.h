@@ -7,11 +7,11 @@
 
 #include <SFML/Window.hpp>
 
-namespace Windows {
+namespace WindowView {
 
     /**
      * @brief The base class of the Observer class hierarchy.
-     * @namespace Windows
+     * @namespace WindowView
      *
      * This class defines base Observer interface.
     */
@@ -23,7 +23,7 @@ namespace Windows {
         /**
          * @brief Sender calls this method every time any Event was.
          * @param event Event
-         * @param window Sender
+         * @param sender Sender
          */
         virtual void update(const Event &event, Sender &sender) noexcept = 0;
 

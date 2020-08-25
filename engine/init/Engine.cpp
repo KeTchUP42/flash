@@ -13,9 +13,8 @@
 #define EXCEPTION 255
 
 Program::Engine::LOG Program::Engine::start() const noexcept {
-    using namespace DataManagers;
-    DataManager *dataManager;
-    std::shared_ptr<Windows::Window> window;
+    DataManagers::DataManager *dataManager;
+    std::shared_ptr<WindowView::Window> window;
     try {
         Setup::EngineSetuper setuper("./config/flash.ini");
         dataManager = setuper.load();

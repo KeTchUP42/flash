@@ -23,9 +23,9 @@ set(DATAMANAGER engine/main/data/manager/DataManager.h engine/main/data/manager/
 set(MANAGERS ${AUDIOMANAGER} ${CONFIGMANAGER} ${FONTMANAGER} ${LOGMANAGER} ${TEXTUREMANAGER} ${DATAMANAGER})
 set(DATA ${AUDIO} ${MANAGERS})
 
-set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
+set(WINDOWVIEW engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
-set(VIEW ${WINDOWS} ${VIEWCREATE})
+set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
 set(CAPABILITIES engine/main/objects/capabilities/Drawable.h)
 set(OBJECTS ${CAPABILITIES})
