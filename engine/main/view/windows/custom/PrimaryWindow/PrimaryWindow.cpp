@@ -3,6 +3,7 @@
 //
 
 #include "PrimaryWindow.h"
+#include "../../base/observers/WindowCloseObserver.h"
 
 WindowView::PrimaryWindow::PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
                                          const sf::ContextSettings &settings, DataManagers::DataManager *dataManager)
@@ -23,6 +24,7 @@ void WindowView::PrimaryWindow::configure() {
 }
 
 void WindowView::PrimaryWindow::initialization() {
+    this->addObserver(new WindowCloseObserver());
     //..
 }
 

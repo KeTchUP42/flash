@@ -15,7 +15,7 @@ namespace Setup {
      * @brief The base class of the Setuper class hierarchy.
      * @namespace Setup
      *
-     * This class defines base Setuper interface.
+     * This class defines base Setuper interface and fields.
     */
     class Setuper {
     public:

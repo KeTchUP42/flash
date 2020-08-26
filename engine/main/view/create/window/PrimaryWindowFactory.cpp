@@ -25,9 +25,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
     int height = std::atoi(iniData["Window"]["height"].c_str());
 
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"],
-                                       sf::Style::Default, contextSettings, dataManager);
-
-    window->addObserver(new WindowCloseObserver());
+                                       sf::Style::Default, contextSettings, dataManager); // If you need you can change sf::Style.
     //..
     return std::shared_ptr<WindowView::Window>(window);
 }
@@ -39,7 +37,6 @@ ViewCreate::PrimaryWindowFactory::createWindow(sf::WindowHandle handle, DataMana
 
     using namespace WindowView;
     Window *window = new PrimaryWindow(handle, contextSettings, dataManager);
-    window->addObserver(new WindowCloseObserver());
     //..
     return std::shared_ptr<WindowView::Window>(window);
 }

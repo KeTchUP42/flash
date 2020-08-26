@@ -29,6 +29,7 @@ Program::Engine::LOG Program::Engine::start() const noexcept {
     catch (...) {
         return EXCEPTION;
     }
+    //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
     std::shared_ptr<LoggerUtil::Logger> logger = dataManager->getLogManager()->createLoggerForFile("crash.log");
 
     try {
