@@ -10,7 +10,7 @@
 
 std::shared_ptr<WindowView::Window>
 ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataManager, const std::string &filename) const {
-    IniProcessorUtil::Analyzer::IniData iniData = dataManager->getConfigManager()->load(filename);
+    IniProcessorUtil::Analyzer::IniData iniData = dataManager->getConfigManager()->loadIni(filename);
 
     sf::ContextSettings contextSettings;
     contextSettings.depthBits = std::atoi(iniData["ContextSettings"]["depthBits"].c_str());

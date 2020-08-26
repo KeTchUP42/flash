@@ -15,7 +15,7 @@ namespace DataManagers {
      * @brief The base class of the ConfigManager class hierarchy.
      * @namespace DataManagers
      *
-     * This class defines base ConfigManager interface.
+     * This class defines base ConfigManager interface and fields.
      */
     class ConfigManager {
     public:
@@ -25,14 +25,12 @@ namespace DataManagers {
         explicit ConfigManager(const char *configDirectory)
                 : _configDirectory(configDirectory) {}
 
-        using ConfigDataType = IniProcessorUtil::Analyzer::IniData;
-
         /**
          * @brief Method loads and analize config file.
          * @param filename File in config directory.
-         * @return ConfigDataType
+         * @return IniProcessorUtil::Analyzer::IniData
          */
-        virtual ConfigDataType load(const std::string &filename) const = 0;
+        virtual IniProcessorUtil::Analyzer::IniData loadIni(const std::string &filename) const = 0;
 
         virtual ~ConfigManager() = default;
 

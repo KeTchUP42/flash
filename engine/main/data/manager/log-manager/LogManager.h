@@ -17,7 +17,7 @@ namespace DataManagers {
      * @brief The base class of the LogManager class hierarchy.
      * @namespace DataManagers
      *
-     * This class defines base LogManager interface.
+     * This class defines base LogManager interface and fields.
      */
     class LogManager {
     public:

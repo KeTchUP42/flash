@@ -16,7 +16,7 @@ namespace DataManagers {
      * @brief The base class of the AudioManager class hierarchy.
      * @namespace DataManagers
      *
-     * This class defines base AudioManager interface.
+     * This class defines base AudioManager interface and fields.
      */
     class AudioManager {
     public:

@@ -18,7 +18,7 @@ namespace WindowView {
      * @brief The base class of the Window class hierarchy.
      * @namespace WindowView
      *
-     * This class defines base Window interface.
+     * This class defines base Window interface and fields.
     */
     class Window {
     public:

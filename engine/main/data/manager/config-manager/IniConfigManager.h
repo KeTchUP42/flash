@@ -17,7 +17,7 @@ namespace DataManagers {
         explicit IniConfigManager(const char *configDirectory)
                 : ConfigManager(configDirectory) {}
 
-        IniProcessorUtil::Analyzer::IniData load(const std::string &filename) const override;
+        IniProcessorUtil::Analyzer::IniData loadIni(const std::string &filename) const override;
     };
 }
 

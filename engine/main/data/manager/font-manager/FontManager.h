@@ -15,7 +15,7 @@ namespace DataManagers {
      * @brief The base class of the FontManager class hierarchy.
      * @namespace DataManagers
      *
-     * This class defines base FontManager interface.
+     * This class defines base FontManager interface and fields.
      */
     class FontManager {
     public:
