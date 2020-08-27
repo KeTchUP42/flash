@@ -5,33 +5,30 @@
 #include "Engine.h"
 #include "../setup/EngineSetuper.h"
 #include "../main/general/exceptions/Exception.h"
-#include "../utils/logger/BaseLogger.h"
-#include "../utils/writer/FileWriter.h"
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
 #define OK         0
 #define EXCEPTION 255
 
-Program::Engine::LOG Program::Engine::start() const noexcept {
-    DataManagers::DataManager *dataManager;
+
+Program::Engine::Engine(const std::string &filename) {
+    Setup::EngineSetuper setuper(filename);
+    _dataManager = std::unique_ptr<DataManagers::DataManager>(setuper.load());
+}
+
+int Program::Engine::start() const {
+    std::shared_ptr<LoggerUtil::Logger> logger = _dataManager->getLogManager()->createLoggerForFile("crash.log");
     std::shared_ptr<WindowView::Window> window;
     try {
-        Setup::EngineSetuper setuper("./config/flash.ini");
-        dataManager = setuper.load();
         ViewCreate::PrimaryWindowFactory factory;
-        window = factory.createWindow(dataManager, "primary.ini");
+        window = factory.createWindow(_dataManager.get(), "primary.ini");
     }
     catch (PreferredExceptions::Exception &exception) {
-        LoggerUtil::BaseLogger logger(new WriterUtil::FileWriter("./crash.log"));
-        logger.critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
+        logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
         return EXCEPTION;
     }
-    catch (...) {
-        return EXCEPTION;
-    }
-    //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
-    std::shared_ptr<LoggerUtil::Logger> logger = dataManager->getLogManager()->createLoggerForFile("crash.log");
 
+    //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
     try {
         window->start();
     }

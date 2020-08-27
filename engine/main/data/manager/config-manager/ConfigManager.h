@@ -26,7 +26,7 @@ namespace DataManagers {
                 : _configDirectory(configDirectory) {}
 
         /**
-         * @brief Method loads and analize config file.
+         * @brief Method loads and analizes ini config file.
          * @param filename File in config directory.
          * @return IniProcessorUtil::Analyzer::IniData
          */

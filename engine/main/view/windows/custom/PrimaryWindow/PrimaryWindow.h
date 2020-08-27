@@ -27,7 +27,7 @@ namespace WindowView {
         void update() override;
 
     private:
-        std::shared_ptr<DataManagers::DataManager> _dataManager; //todo: Think to make _dataManager general ptr.
+        DataManagers::DataManager *_dataManager;
     };
 }
 

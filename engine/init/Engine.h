@@ -5,6 +5,11 @@
 #ifndef FLASH_ENGINE_H
 #define FLASH_ENGINE_H
 
+#include "../main/data/manager/DataManager.h"
+
+#include <string>
+#include <memory>
+
 namespace Program {
 
     /**
@@ -15,15 +20,23 @@ namespace Program {
     */
     class Engine {
     public:
-        typedef int LOG;
+
+        /**
+         * @brief Main app constructor.
+         * @param filename - path to main ini config.
+         */
+        explicit Engine(const std::string &filename);
 
         /**
          * @brief Main program entry point method.
          * @return LOG
          */
-        LOG start() const noexcept;
+        int start() const;
 
         virtual ~Engine() = default;
+
+    private:
+        std::unique_ptr<DataManagers::DataManager> _dataManager;
     };
 }
 
