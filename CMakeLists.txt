@@ -29,7 +29,7 @@ set(WINDOWVIEW ${WINDOWS} ${OBSERVERS})
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
-set(CAPABILITIES engine/main/objects/capabilities/Drawable.h)
+set(CAPABILITIES engine/main/objects/capabilities/Drawable.h engine/main/objects/capabilities/Movable.h)
 set(OBJECTS ${CAPABILITIES})
 
 set(SETUP engine/setup/Setuper.h engine/setup/EngineSetuper.cpp engine/setup/EngineSetuper.h)
