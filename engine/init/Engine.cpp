@@ -8,7 +8,7 @@
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
 #define OK         0
-#define EXCEPTION 255
+#define EXCEPTION  1
 
 
 Program::Engine::Engine(const std::string &filename) {
@@ -17,25 +17,16 @@ Program::Engine::Engine(const std::string &filename) {
 }
 
 int Program::Engine::start() const {
-    std::shared_ptr<LoggerUtil::Logger> logger = _dataManager->getLogManager()->createLoggerForFile("crash.log");
-    std::shared_ptr<WindowView::Window> window;
     try {
         ViewCreate::PrimaryWindowFactory factory;
-        window = factory.createWindow(_dataManager.get(), "primary.ini");
-    }
-    catch (PreferredExceptions::Exception &exception) {
-        logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
-        return EXCEPTION;
-    }
-
-    //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
-    try {
+        std::shared_ptr<WindowView::Window> window = factory.createWindow(_dataManager.get(), "primary.ini");
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
+        std::shared_ptr<LoggerUtil::Logger> logger = _dataManager->getLogManager()->createLoggerForFile("crash.log");
         logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
         return EXCEPTION;
     }
-
+    //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
     return OK;
 }
