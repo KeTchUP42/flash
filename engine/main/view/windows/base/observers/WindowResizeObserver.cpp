@@ -7,5 +7,6 @@
 void WindowView::WindowResizeObserver::update(const sf::Event &event, sf::RenderWindow &window) noexcept {
     if (event.type == sf::Event::Resized) {
         //..
+        window.display();
     }
 }
