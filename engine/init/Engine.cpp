@@ -8,8 +8,6 @@
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
 #define OK         0
-#define EXCEPTION  1
-
 
 Program::Engine::Engine(const std::string &filename) {
     Setup::EngineSetuper setuper(filename);
@@ -25,7 +23,7 @@ int Program::Engine::start() const {
     catch (PreferredExceptions::Exception &exception) {
         std::shared_ptr<LoggerUtil::Logger> logger = _dataManager->getLogManager()->createLoggerForFile("crash.log");
         logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
-        return EXCEPTION;
+        return exception.getCode();
     }
     //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
     return OK;

@@ -26,7 +26,7 @@ namespace WindowView {
 
         void update() override;
 
-    private:
+    protected:
         DataManagers::DataManager *_dataManager;
     };
 }
