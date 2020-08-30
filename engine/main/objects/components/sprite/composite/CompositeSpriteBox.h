@@ -15,7 +15,7 @@ namespace Components {
     public:
         void draw(sf::RenderTarget &target) const noexcept override;
 
-        void move(int x, int y) noexcept override;
+        void move(int xlength, int ylength) noexcept override;
 
         bool collision(int x, int y) const noexcept override;
 

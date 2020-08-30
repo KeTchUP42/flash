@@ -19,11 +19,15 @@ namespace Components {
 
         void draw(sf::RenderTarget &target) const noexcept override;
 
-        void move(int x, int y) noexcept override;
+        void move(int xlength, int ylength) noexcept override;
 
         bool collision(int x, int y) const noexcept override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
+
+        const Point &getPoint() const noexcept override;
+
+        const Size &getSize() const noexcept override;
 
     protected:
         Components::Point _point;

@@ -6,10 +6,11 @@
 #define FLASH_ISPRITEBOX_H
 
 #include "../../../../view/windows/base/observer/Observer.h"
-
 #include "../../../capabilities/Drawable.h"
 #include "../../../capabilities/Movable.h"
 #include "../../../capabilities/CollisionProne.h"
+#include "../../simple/Point.h"
+#include "../../simple/Size.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -34,6 +35,18 @@ namespace Components {
          * @return ISpriteBox&
          */
         ISpriteBox &operator=(const ISpriteBox &) = delete;
+
+        /**
+         * @brief Method returns SpriteBox Point.
+         * @return const Point&
+         */
+        virtual const Point &getPoint() const noexcept = 0;
+
+        /**
+         * @brief Method returns SpriteBox Size.
+         * @return const Size&
+         */
+        virtual const Size &getSize() const noexcept = 0;
 
         virtual ~ISpriteBox() = default;
     };

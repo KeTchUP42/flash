@@ -17,9 +17,9 @@ void Components::SpriteBox::draw(sf::RenderTarget &target) const noexcept {
     target.draw(*_sprite.get(), sf::RenderStates::Default);
 }
 
-void Components::SpriteBox::move(int x, int y) noexcept {
-    _point.x += x;
-    _point.y += y;
+void Components::SpriteBox::move(int xlength, int ylength) noexcept {
+    _point.x += xlength;
+    _point.y += ylength;
     _sprite->setPosition(_point.x, _point.y);
 }
 
@@ -29,5 +29,13 @@ bool Components::SpriteBox::collision(int x, int y) const noexcept {
 
 void Components::SpriteBox::update(const sf::Event &event, sf::RenderWindow &sender) noexcept {
     //..
+}
+
+const Components::Point &Components::SpriteBox::getPoint() const noexcept {
+    return _point;
+}
+
+const Components::Size &Components::SpriteBox::getSize() const noexcept {
+    return _size;
 }
 

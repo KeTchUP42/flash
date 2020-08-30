@@ -10,9 +10,9 @@ void Components::CompositeSpriteBox::draw(sf::RenderTarget &target) const noexce
     }
 }
 
-void Components::CompositeSpriteBox::move(int x, int y) noexcept {
+void Components::CompositeSpriteBox::move(int xlength, int ylength) noexcept {
     for (const std::shared_ptr<ISpriteBox> &spriteBox : _spriteBoxes) {
-        spriteBox->move(x, y);
+        spriteBox->move(xlength, ylength);
     }
 }
 
