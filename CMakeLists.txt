@@ -30,7 +30,8 @@ set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/c
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
 set(CAPABILITIES engine/main/objects/capabilities/Drawable.h engine/main/objects/capabilities/Movable.h engine/main/objects/capabilities/CollisionProne.h)
-set(COMPONENTS engine/main/objects/components/simple/Point.h engine/main/objects/components/simple/Size.h engine/main/objects/components/composite/sprite/spriteBox/SpriteBox.cpp engine/main/objects/components/composite/sprite/spriteBox/SpriteBox.h engine/main/objects/components/composite/sprite/spriteBox/ISpriteBox.h)
+set(SIMPLE engine/main/objects/components/simple/Point.h engine/main/objects/components/simple/Size.h)
+set(COMPONENTS ${SIMPLE} engine/main/objects/components/sprite/sprite-box/SpriteBox.cpp engine/main/objects/components/sprite/sprite-box/SpriteBox.h engine/main/objects/components/sprite/sprite-box/ISpriteBox.h engine/main/objects/components/sprite/composite/ICompositeSpriteBox.h engine/main/objects/components/sprite/composite/CompositeSpriteBox.cpp engine/main/objects/components/sprite/composite/CompositeSpriteBox.h)
 set(MOBS)
 set(OBJECTS ${CAPABILITIES} ${COMPONENTS} ${MOBS})
 

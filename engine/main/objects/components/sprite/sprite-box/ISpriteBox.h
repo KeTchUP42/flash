@@ -5,22 +5,21 @@
 #ifndef FLASH_ISPRITEBOX_H
 #define FLASH_ISPRITEBOX_H
 
-#include "../../../../../view/windows/base/observer/Observer.h"
+#include "../../../../view/windows/base/observer/Observer.h"
 
-#include "../../../../capabilities/Drawable.h"
-#include "../../../../capabilities/Movable.h"
-#include "../../../../capabilities/CollisionProne.h"
-
+#include "../../../capabilities/Drawable.h"
+#include "../../../capabilities/Movable.h"
+#include "../../../capabilities/CollisionProne.h"
 
 #include <SFML/Graphics.hpp>
 
 namespace Components {
 
     /**
-     * @brief The base leaf of composite sprite.
+     * @brief The base class of the ISpriteBox class hierarchy.
      * @namespace Components
      *
-     * This class is a base leaf component.
+     * This class is a base leaf component interface.
     */
     class ISpriteBox
             : public Capabilities::Drawable,

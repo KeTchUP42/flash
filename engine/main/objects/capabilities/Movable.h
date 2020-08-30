@@ -19,8 +19,8 @@ namespace Capabilities {
 
         /**
          * @brief Simple interface method to move object to current coordinates.
-         * @param x coordinate.
-         * @param y coordinate.
+         * @param x coordinates to move on X.
+         * @param y coordinates to move on Y.
          */
         virtual void move(int x, int y) noexcept = 0;
 
