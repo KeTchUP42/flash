@@ -29,8 +29,10 @@ set(WINDOWVIEW ${WINDOWS} ${OBSERVERS})
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
-set(CAPABILITIES engine/main/objects/capabilities/Drawable.h engine/main/objects/capabilities/Movable.h)
-set(OBJECTS ${CAPABILITIES})
+set(CAPABILITIES engine/main/objects/capabilities/Drawable.h engine/main/objects/capabilities/Movable.h engine/main/objects/capabilities/CollisionProne.h)
+set(COMPONENTS engine/main/objects/components/simple/Point.h engine/main/objects/components/simple/Size.h engine/main/objects/components/composite/sprite/spriteBox/SpriteBox.cpp engine/main/objects/components/composite/sprite/spriteBox/SpriteBox.h engine/main/objects/components/composite/sprite/spriteBox/ISpriteBox.h)
+set(MOBS)
+set(OBJECTS ${CAPABILITIES} ${COMPONENTS} ${MOBS})
 
 set(SETUP engine/setup/Setuper.h engine/setup/EngineSetuper.cpp engine/setup/EngineSetuper.h)
 
