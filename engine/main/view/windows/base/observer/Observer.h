@@ -5,8 +5,6 @@
 #ifndef FLASH_OBSERVER_H
 #define FLASH_OBSERVER_H
 
-#include <SFML/Window/Event.hpp>
-
 namespace WindowView {
 
     /**

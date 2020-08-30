@@ -6,6 +6,7 @@
 #define FLASH_WINDOWRESIZEOBSERVER_H
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "../observer/Observer.h"
 

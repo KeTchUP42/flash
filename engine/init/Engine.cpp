@@ -7,7 +7,7 @@
 #include "../main/general/exceptions/Exception.h"
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
-#define OK         0
+#define OK 0
 
 Program::Engine::Engine(const std::string &filename) {
     Setup::EngineSetuper setuper(filename);
