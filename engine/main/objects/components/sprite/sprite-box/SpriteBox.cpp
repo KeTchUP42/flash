@@ -4,8 +4,10 @@
 
 #include "SpriteBox.h"
 
-Components::SpriteBox::SpriteBox(Components::Point point, Components::Size size, std::shared_ptr<sf::Texture> texture)
+Components::SpriteBox::SpriteBox(const Components::Point &point, const Components::Size &size,
+                                 const std::shared_ptr<sf::Texture> &texture)
         : _point(point), _size(size), _texture(texture) {
+
     _sprite = std::shared_ptr<sf::Sprite>(new sf::Sprite());
     _sprite->setTexture(*texture.get(), true);
     _sprite->setPosition(_point.x, _point.y);

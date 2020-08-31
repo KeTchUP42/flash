@@ -15,7 +15,8 @@ namespace Components {
 
     class SpriteBox : public IConcreteSpriteBox {
     public:
-        explicit SpriteBox(Components::Point point, Components::Size size, std::shared_ptr<sf::Texture> texture);
+        explicit SpriteBox(const Components::Point &point, const Components::Size &size,
+                           const std::shared_ptr<sf::Texture> &texture);
 
         void draw(sf::RenderTarget &target) const noexcept override;
 
