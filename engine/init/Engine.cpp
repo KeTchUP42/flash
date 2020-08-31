@@ -7,8 +7,6 @@
 #include "../main/general/exceptions/Exception.h"
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
-#define OK 0
-
 Program::Engine::Engine(const std::string &filename) {
     Setup::EngineSetuper setuper(filename);
     _dataManager = std::unique_ptr<DataManagers::DataManager>(setuper.load());
@@ -26,5 +24,5 @@ int Program::Engine::start() const {
         return exception.getCode();
     }
     //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
-    return OK;
+    return EXIT_SUCCESS;
 }
