@@ -31,7 +31,8 @@ set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
 set(CAPABILITIES engine/main/objects/capabilities/Drawable.h engine/main/objects/capabilities/Movable.h engine/main/objects/capabilities/CollisionProne.h)
 set(SIMPLE engine/main/objects/components/simple/Point.h engine/main/objects/components/simple/Size.h)
-set(COMPONENTS ${SIMPLE} engine/main/objects/components/sprite/sprite-box/SpriteBox.cpp engine/main/objects/components/sprite/sprite-box/SpriteBox.h engine/main/objects/components/sprite/sprite-box/base/ISpriteBox.h engine/main/objects/components/sprite/composite/ICompositeSpriteBox.h engine/main/objects/components/sprite/composite/CompositeSpriteBox.cpp engine/main/objects/components/sprite/composite/CompositeSpriteBox.h engine/main/objects/components/sprite/sprite-box/IConcreteSpriteBox.h)
+set(FACTORY engine/main/objects/components/sprite/factory/background/BackGroundSpriteBoxFactory.h engine/main/objects/components/sprite/factory/background/PrimaryBackGroundFactory.cpp engine/main/objects/components/sprite/factory/background/PrimaryBackGroundFactory.h)
+set(COMPONENTS ${SIMPLE} ${FACTORY} engine/main/objects/components/sprite/sprite-box/SpriteBox.cpp engine/main/objects/components/sprite/sprite-box/SpriteBox.h engine/main/objects/components/sprite/sprite-box/base/ISpriteBox.h engine/main/objects/components/sprite/composite/ICompositeSpriteBox.h engine/main/objects/components/sprite/composite/CompositeSpriteBox.cpp engine/main/objects/components/sprite/composite/CompositeSpriteBox.h engine/main/objects/components/sprite/sprite-box/IConcreteSpriteBox.h)
 set(MOBS)
 set(OBJECTS ${CAPABILITIES} ${COMPONENTS} ${MOBS})
 

@@ -7,6 +7,7 @@
 
 #include "../../base/window/Window.h"
 #include "../../../../data/manager/DataManager.h"
+#include "../../../../objects/components/sprite/sprite-box/base/ISpriteBox.h"
 
 namespace WindowView {
 
@@ -27,6 +28,7 @@ namespace WindowView {
         void update() override;
 
     protected:
+        std::shared_ptr<Components::ISpriteBox> _background;
         DataManagers::DataManager *_dataManager;
     };
 }
