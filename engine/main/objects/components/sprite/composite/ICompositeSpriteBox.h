@@ -5,7 +5,7 @@
 #ifndef FLASH_ICOMPOSITESPRITEBOX_H
 #define FLASH_ICOMPOSITESPRITEBOX_H
 
-#include "../sprite-box/ISpriteBox.h"
+#include "../sprite-box/base/ISpriteBox.h"
 
 #include <memory>
 
@@ -17,19 +17,9 @@ namespace Components {
      *
      * This class is a base composite component interface.
     */
-    class ICompositeSpriteBox
-            : public Capabilities::Drawable,
-              public Capabilities::Movable,
-              public Capabilities::CollisionProne,
-              public WindowView::Observer<sf::RenderWindow, sf::Event> {
+    class ICompositeSpriteBox : public ISpriteBox {
     public:
         ICompositeSpriteBox() = default;
-
-        /**
-         * @brief Method deletes operator= method.
-         * @return ICompositeSpriteBox&
-         */
-        ICompositeSpriteBox &operator=(const ICompositeSpriteBox &) = delete;
 
         /**
          * @brief Method adds new sprite box.
