@@ -7,16 +7,19 @@
 
 #include "../../base/window/Window.h"
 #include "../../../../data/manager/DataManager.h"
-#include "../../../../objects/components/sprite/sprite-box/base/ISpriteBox.h"
+#include "../../../../objects/screen/state/ScreenState.h"
+#include "../../../../objects/screen/window-abilities/StateChangeable.h"
 
 namespace WindowView {
 
-    class PrimaryWindow : public Window {
+    class PrimaryWindow : public Window, public Screen::StateChangeable {
     public:
         explicit PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
-                               const sf::ContextSettings &settings, DataManagers::DataManager *dataManager);
+                               const sf::ContextSettings &settings, Screen::ScreenState *screenState,
+                               DataManagers::DataManager *dataManager);
 
         explicit PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
+                               Screen::ScreenState *screenState,
                                DataManagers::DataManager *dataManager);
 
     private:
@@ -27,8 +30,14 @@ namespace WindowView {
 
         void update() override;
 
+    public:
+        void setScreenState(Screen::ScreenState *state) noexcept override;
+
     protected:
-        std::shared_ptr<Components::ISpriteBox> _background;
+        /**
+         * @brief
+         */
+        std::shared_ptr<Screen::ScreenState> _screen;
         DataManagers::DataManager *_dataManager;
     };
 }

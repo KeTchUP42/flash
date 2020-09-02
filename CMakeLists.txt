@@ -34,7 +34,8 @@ set(SIMPLE engine/main/objects/components/simple/Point.h engine/main/objects/com
 set(FACTORY engine/main/objects/components/sprite/factory/background/BackGroundSpriteBoxFactory.h engine/main/objects/components/sprite/factory/background/PrimaryBackGroundFactory.cpp engine/main/objects/components/sprite/factory/background/PrimaryBackGroundFactory.h)
 set(COMPONENTS ${SIMPLE} ${FACTORY} engine/main/objects/components/sprite/sprite-box/SpriteBox.cpp engine/main/objects/components/sprite/sprite-box/SpriteBox.h engine/main/objects/components/sprite/sprite-box/base/ISpriteBox.h engine/main/objects/components/sprite/composite/ICompositeSpriteBox.h engine/main/objects/components/sprite/composite/CompositeSpriteBox.cpp engine/main/objects/components/sprite/composite/CompositeSpriteBox.h engine/main/objects/components/sprite/sprite-box/IConcreteSpriteBox.h)
 set(MOBS)
-set(OBJECTS ${CAPABILITIES} ${COMPONENTS} ${MOBS})
+set(SCREEN engine/main/objects/screen/window-abilities/StateChangeable.h engine/main/objects/screen/state/ScreenState.h engine/main/objects/screen/state/ScreenState.cpp engine/main/objects/screen/state/BaseScreenState.cpp engine/main/objects/screen/state/BaseScreenState.h)
+set(OBJECTS ${CAPABILITIES} ${COMPONENTS} ${MOBS} ${SCREEN})
 
 set(SETUP engine/setup/Setuper.h engine/setup/EngineSetuper.cpp engine/setup/EngineSetuper.h)
 

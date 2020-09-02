@@ -1,0 +1,26 @@
+//
+// Created by roman on 01.09.2020.
+//
+
+#ifndef FLASH_BASESCREENSTATE_H
+#define FLASH_BASESCREENSTATE_H
+
+#include "ScreenState.h"
+#include "../../components/sprite/sprite-box/base/ISpriteBox.h"
+
+namespace Screen {
+
+    class BaseScreenState : public ScreenState {
+    public:
+        void draw(sf::RenderTarget &target) const noexcept override;
+
+        void load(StateChangeable *window, DataManagers::DataManager *dataManager, sf::RenderTarget &target) override;
+
+        void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
+
+    protected:
+        std::shared_ptr<Components::ISpriteBox> _background;
+    };
+}
+
+#endif //FLASH_BASESCREENSTATE_H

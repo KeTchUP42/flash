@@ -5,6 +5,7 @@
 #include "PrimaryWindowFactory.h"
 #include "../../windows/custom/PrimaryWindow/PrimaryWindow.h"
 #include "../../windows/base/observers/WindowCloseObserver.h"
+#include "../../../objects/screen/state/BaseScreenState.h"
 
 #include <cstdlib>
 
@@ -20,12 +21,15 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
     contextSettings.minorVersion = std::atoi(iniData["ContextSettings"]["minorVersion"].c_str());
     contextSettings.attributeFlags = std::atoi(iniData["ContextSettings"]["attributeFlags"].c_str());
 
-    using namespace WindowView;
     int width = std::atoi(iniData["Window"]["width"].c_str());
     int height = std::atoi(iniData["Window"]["height"].c_str());
 
+    using namespace WindowView;
+    //todo: Make ScreenState choosing with config.
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"],
-                                       sf::Style::Default, contextSettings, dataManager); // If you need you can change sf::Style.
+                                       sf::Style::Default, contextSettings, new Screen::BaseScreenState(),
+                                       dataManager); // If you need you can change sf::Style.
+    window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
     //..
     return std::shared_ptr<WindowView::Window>(window);
 }
@@ -36,7 +40,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(sf::WindowHandle handle, DataMana
     contextSettings.depthBits = 24;
 
     using namespace WindowView;
-    Window *window = new PrimaryWindow(handle, contextSettings, dataManager);
+    Window *window = new PrimaryWindow(handle, contextSettings, new Screen::BaseScreenState(), dataManager);
     //..
     return std::shared_ptr<WindowView::Window>(window);
 }
