@@ -43,3 +43,7 @@ void WindowView::Window::addObserver(const std::shared_ptr<Window::Observer> &ob
 void WindowView::Window::removeObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
     _observers.remove(observer);
 }
+
+void WindowView::Window::setFramerateLimit(unsigned int limit) noexcept {
+    _window.setFramerateLimit(limit);
+}

@@ -69,6 +69,12 @@ namespace WindowView {
         void removeObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
         /**
+         * @brief Method sets window FPS, for more info look SFML docs.
+         * @param limit FramerateLimit
+         */
+        void setFramerateLimit(unsigned int limit) noexcept;
+
+        /**
          * @brief Method starts listening circle.
          */
         void start();
