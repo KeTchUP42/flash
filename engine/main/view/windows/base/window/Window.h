@@ -52,25 +52,25 @@ namespace WindowView {
 
         /**
          * @brief Method adds new observer.
-         * @param observer Window::Observer*
+         * @param observer New window observer.
          */
         void addObserver(Observer *observer) noexcept;
 
         /**
          * @brief Method adds new observer.
-         * @param observer const std::shared_ptr<Window::Observer>&
+         * @param observer New window observer.
          */
         void addObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
         /**
          * @brief Method removes observer.
-         * @param observer const std::shared_ptr<Window::Observer>&
+         * @param observer Existing window observer.
          */
         void removeObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
         /**
          * @brief Method sets window FPS, for more info look SFML docs.
-         * @param limit FramerateLimit
+         * @param limit Framerate limit.
          */
         void setFramerateLimit(unsigned int limit) noexcept;
 

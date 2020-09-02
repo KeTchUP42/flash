@@ -21,7 +21,7 @@ namespace Capabilities {
 
         /**
          * @brief Simple interface method to draw object on sf::RenderTarget.
-         * @param target const sf::RenderTarget&
+         * @param target Render-target reference.
          */
         virtual void draw(sf::RenderTarget &target) const noexcept = 0;
 

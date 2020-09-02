@@ -24,7 +24,7 @@ namespace Setup {
 
         /**
          * @brief Method reads config and returns data managers in DataManager facade class.
-         * @return Managers::DataManager*
+         * @return Created data manager.
          */
         virtual DataManagers::DataManager *load() const = 0;
 

@@ -2,29 +2,29 @@
 // Created by roman on 31.08.2020.
 //
 
-#ifndef FLASH_ICONCRETESPRITEBOX_H
-#define FLASH_ICONCRETESPRITEBOX_H
+#ifndef FLASH_PLAINSPRITEBOX_H
+#define FLASH_PLAINSPRITEBOX_H
 
 #include "base/ISpriteBox.h"
 
 namespace Components {
 
-    class IConcreteSpriteBox : public ISpriteBox {
+    class PlainSpriteBox : public ISpriteBox {
     public:
-        IConcreteSpriteBox() = default;
+        PlainSpriteBox() = default;
 
         /**
          * @brief Method returns SpriteBox Point.
-         * @return const Point&
+         * @return Sprite point.
          */
         virtual const Point &getPoint() const noexcept = 0;
 
         /**
          * @brief Method returns SpriteBox Size.
-         * @return const Size&
+         * @return Sprite size.
          */
         virtual const Size &getSize() const noexcept = 0;
     };
 }
 
-#endif //FLASH_ICONCRETESPRITEBOX_H
+#endif //FLASH_PLAINSPRITEBOX_H

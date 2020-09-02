@@ -36,7 +36,6 @@ namespace Components {
          */
         ISpriteBox &operator=(const ISpriteBox &) = delete;
 
-
         virtual ~ISpriteBox() = default;
     };
 }

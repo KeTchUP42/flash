@@ -23,7 +23,6 @@ namespace Screen {
     */
     class ScreenState : public Capabilities::Drawable, public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
-
         /**
          * @brief Constructors may have transit data.
          */

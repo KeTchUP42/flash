@@ -35,7 +35,7 @@ namespace WindowView {
 
     protected:
         /**
-         * @brief
+         * @brief Current window screen state.
          */
         std::shared_ptr<Screen::ScreenState> _screen;
         DataManagers::DataManager *_dataManager;

@@ -27,8 +27,8 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
     using namespace WindowView;
     //todo: Make ScreenState choosing with config.
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"],
-                                       sf::Style::Default, contextSettings, new Screen::BaseScreenState(),
-                                       dataManager); // If you need you can change sf::Style.
+                                       sf::Style::Default, contextSettings,
+                                       new Screen::BaseScreenState(), dataManager); // If you need you can change sf::Style.
     window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
     //..
     return std::shared_ptr<WindowView::Window>(window);

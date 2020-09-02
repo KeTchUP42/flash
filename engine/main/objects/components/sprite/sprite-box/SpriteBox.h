@@ -5,7 +5,7 @@
 #ifndef FLASH_SPRITEBOX_H
 #define FLASH_SPRITEBOX_H
 
-#include "IConcreteSpriteBox.h"
+#include "PlainSpriteBox.h"
 #include "../../simple/Point.h"
 #include "../../simple/Size.h"
 
@@ -13,7 +13,7 @@
 
 namespace Components {
 
-    class SpriteBox : public IConcreteSpriteBox {
+    class SpriteBox : public PlainSpriteBox {
     public:
         explicit SpriteBox(const Components::Point &point, const Components::Size &size,
                            const std::shared_ptr<sf::Texture> &texture);

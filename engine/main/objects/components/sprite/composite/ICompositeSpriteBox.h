@@ -23,19 +23,19 @@ namespace Components {
 
         /**
          * @brief Method adds new sprite box.
-         * @param spriteBox ISpriteBox*
+         * @param spriteBox New sprite box.
          */
         virtual void addSpriteBox(ISpriteBox *spriteBox) noexcept = 0;
 
         /**
          * @brief Method adds new sprite box.
-         * @param spriteBox const std::shared_ptr<ISpriteBox>&
+         * @param spriteBox New sprite box.
          */
         virtual void addSpriteBox(const std::shared_ptr<ISpriteBox> &spriteBox) noexcept = 0;
 
         /**
          * @brief Method removes sprite box.
-         * @param spriteBox const std::shared_ptr<ISpriteBox>&
+         * @param spriteBox Existing sprite box.
          */
         virtual void removeSpriteBox(const std::shared_ptr<ISpriteBox> &spriteBox) noexcept = 0;
 
