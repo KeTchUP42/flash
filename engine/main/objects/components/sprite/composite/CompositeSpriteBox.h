@@ -29,6 +29,7 @@ namespace Components {
 
     protected:
         std::list<std::shared_ptr<ISpriteBox>> _spriteBoxes;
+        //todo: Think to make own lists for concrete "leafs" and composite sprites. Do not forget to change methods!
     };
 }
 

@@ -12,9 +12,6 @@ namespace LoggerUtil {
     class BaseLoggerFormatter : public Formatter<std::string> {
     public:
         std::string format(const std::string &data) const noexcept override;
-
-    private:
-        std::string dateTimeNow() const noexcept;
     };
 }
 

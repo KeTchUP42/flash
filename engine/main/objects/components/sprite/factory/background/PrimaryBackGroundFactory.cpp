@@ -12,7 +12,7 @@ Components::PrimaryBackGroundFactory::createSpriteBox(DataManagers::DataManager 
     using namespace Components;
     CompositeSpriteBox *spriteBox = new CompositeSpriteBox();
     auto texture = dataManager->getTextureManager()->load("background/dungeon_back_1.jpg");
-    texture->setSmooth(true);
+    //texture->setSmooth(true); //Resource-intensive option.
     spriteBox->addSpriteBox(new SpriteBox(Point(0, 0), size, texture));
     return std::shared_ptr<Components::ISpriteBox>(spriteBox);
 }
