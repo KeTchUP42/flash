@@ -31,6 +31,7 @@ void WindowView::PrimaryWindow::initialization() {
 }
 
 void WindowView::PrimaryWindow::update() {
+    _screen->refresh();
     _screen->draw(_window);
     _window.display();
 }

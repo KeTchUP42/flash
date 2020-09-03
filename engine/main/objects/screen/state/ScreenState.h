@@ -6,6 +6,7 @@
 #define FLASH_SCREENSTATE_H
 
 #include "../../capabilities/Drawable.h"
+#include "../../capabilities/Refreshable.h"
 #include "../../../data/manager/DataManager.h"
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../view/windows/base/window/Window.h"
@@ -21,7 +22,10 @@ namespace Screen {
      *
      * This class defines base ScreenState interface and fields.
     */
-    class ScreenState : public Capabilities::Drawable, public WindowView::Observer<sf::RenderWindow, sf::Event> {
+    class ScreenState
+            : public Capabilities::Drawable,
+              public Capabilities::Refreshable,
+              public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         /**
          * @brief Constructors may have transit data.

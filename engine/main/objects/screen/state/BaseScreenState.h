@@ -12,9 +12,11 @@ namespace Screen {
 
     class BaseScreenState : public ScreenState {
     public:
-        void draw(sf::RenderTarget &target) const noexcept override;
-
         void load(StateChangeable *window, DataManagers::DataManager *dataManager, sf::RenderTarget &target) override;
+
+        void refresh() override;
+
+        void draw(sf::RenderTarget &target) const noexcept override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
 
