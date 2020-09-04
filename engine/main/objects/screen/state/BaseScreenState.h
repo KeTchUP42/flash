@@ -12,7 +12,7 @@ namespace Screen {
 
     class BaseScreenState : public ScreenState {
     public:
-        void load(StateChangeable *window, DataManagers::DataManager *dataManager, sf::RenderTarget &target) override;
+        void load(StateChangeable *context, DataManagers::DataManager *dataManager, sf::RenderTarget &target) override;
 
         void refresh() override;
 

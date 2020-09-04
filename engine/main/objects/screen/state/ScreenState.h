@@ -10,7 +10,7 @@
 #include "../../../data/manager/DataManager.h"
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../view/windows/base/window/Window.h"
-#include "../window-abilities/StateChangeable.h"
+#include "../context-abilities/StateChangeable.h"
 
 namespace Screen {
 
@@ -34,11 +34,11 @@ namespace Screen {
 
         /**
          * @brief Method inits all screen components. ALL overrides MUST call base method.
-         * @param window StateChangeable window.
+         * @param context StateChangeable context.
          * @param dataManager Manager for data searching.
          * @param target Draw target.
          */
-        virtual void load(StateChangeable *window, DataManagers::DataManager *dataManager, sf::RenderTarget &target);
+        virtual void load(StateChangeable *context, DataManagers::DataManager *dataManager, sf::RenderTarget &target);
 
         virtual ~ScreenState() = default;
 
@@ -46,7 +46,7 @@ namespace Screen {
         /**
          * @brief Do not call "delete" for this ptr.
          */
-        StateChangeable *_window;
+        StateChangeable *_context;
         /**
          * @brief Do not call "delete" for this ptr.
          */
