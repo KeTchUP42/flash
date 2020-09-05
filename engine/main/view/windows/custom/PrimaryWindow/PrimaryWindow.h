@@ -33,7 +33,7 @@ namespace WindowView {
     public:
         void setScreenState(Screen::ScreenState *state) noexcept override;
 
-    protected:
+    private:
         /**
          * @brief Current window screen state.
          */

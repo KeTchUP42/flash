@@ -25,7 +25,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
     int height = std::atoi(iniData["Window"]["height"].c_str());
 
     using namespace WindowView;
-    //todo: Make ScreenState choosing with config.
+    //todo: Think to make ScreenState choosing with config.
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"],
                                        sf::Style::Default, contextSettings,
                                        new Screen::BaseScreenState(), dataManager); // If you need you can change sf::Style.
