@@ -7,7 +7,7 @@
 
 #include "LogManager.h"
 
-namespace DataManagers {
+namespace Managers {
 
     class BaseLogManager : public LogManager {
     public:

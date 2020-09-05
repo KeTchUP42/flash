@@ -26,10 +26,10 @@ namespace Components {
          * @brief Main factory function which creates new background sprite box.
          * @param dataManager Manager which uses to get some data resources.
          * @param size Screen size.
-         * @return std::shared_ptr<Components::ISpriteBox>
+         * @return SpriteBox.
          */
         virtual std::shared_ptr<Components::ISpriteBox>
-        createSpriteBox(DataManagers::DataManager *dataManager, const Size &size) const = 0;
+        createSpriteBox(Managers::DataManager *dataManager, const Size &size) const = 0;
 
         virtual ~BackGroundSpriteBoxFactory() = default;
     };

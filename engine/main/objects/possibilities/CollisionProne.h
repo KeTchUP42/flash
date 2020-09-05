@@ -5,11 +5,11 @@
 #ifndef FLASH_COLLISIONPRONE_H
 #define FLASH_COLLISIONPRONE_H
 
-namespace Capabilities {
+namespace Possibilities {
 
     /**
      * @brief The base class of the CollisionProne class hierarchy.
-     * @namespace Capabilities
+     * @namespace Possibilities
      *
      * This class defines base CollisionProne interface.
     */

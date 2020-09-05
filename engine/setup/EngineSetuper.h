@@ -14,7 +14,7 @@ namespace Setup {
         explicit EngineSetuper(const std::string &filename)
                 : Setuper(filename) {}
 
-        DataManagers::DataManager *load() const override;
+        Managers::DataManager *load() const override;
     };
 }
 #endif //FLASH_ENGINESETUPER_H

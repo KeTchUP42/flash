@@ -13,11 +13,11 @@
 #include "texture-manager/TextureManager.h"
 #include "font-manager/FontManager.h"
 
-namespace DataManagers {
+namespace Managers {
 
     /**
      * @brief The base class of the DataManager class hierarchy. Facade class interface.
-     * @namespace DataManagers
+     * @namespace Managers
      *
      * This class defines base DataManager interface. DataManager contains all other managers for ease of use.
     */
@@ -27,32 +27,32 @@ namespace DataManagers {
 
         /**
          * @brief Method returns AudioManager.
-         * @return std::shared_ptr<AudioManager>
+         * @return AudioManager
          */
         virtual std::shared_ptr<AudioManager> getAudioManager() const noexcept = 0;
 
         /**
          * @brief Method returns ConfigManager.
-         * @return std::shared_ptr<ConfigManager>
+         * @return ConfigManager
          */
         virtual std::shared_ptr<ConfigManager> getConfigManager() const noexcept = 0;
 
 
         /**
          * @brief Method returns FontManager.
-         * @return std::shared_ptr<FontManager>
+         * @return FontManager
          */
         virtual std::shared_ptr<FontManager> getFontManager() const noexcept = 0;
 
         /**
          * @brief Method returns LogManager.
-         * @return std::shared_ptr<LogManager>
+         * @return LogManager
          */
         virtual std::shared_ptr<LogManager> getLogManager() const noexcept = 0;
 
         /**
          * @brief Method returns TextureManager.
-         * @return std::shared_ptr<TextureManager>
+         * @return TextureManager
          */
         virtual std::shared_ptr<TextureManager> getTextureManager() const noexcept = 0;
 

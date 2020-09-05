@@ -7,7 +7,7 @@
 
 #include "DataManager.h"
 
-namespace DataManagers {
+namespace Managers {
 
     class StandardDataManager : public DataManager {
     public:
@@ -16,9 +16,11 @@ namespace DataManagers {
                 : _audioManager(audioManager), _configManager(configManager), _fontManager(fontManager),
                   _logManager(logManager), _textureManager(textureManager) {}
 
-        explicit StandardDataManager(std::shared_ptr<AudioManager> audioManager, std::shared_ptr<ConfigManager> configManager,
-                                     std::shared_ptr<FontManager> fontManager, std::shared_ptr<LogManager> logManager,
-                                     std::shared_ptr<TextureManager> textureManager)
+        explicit StandardDataManager(const std::shared_ptr<AudioManager> &audioManager,
+                                     const std::shared_ptr<ConfigManager> &configManager,
+                                     const std::shared_ptr<FontManager> &fontManager,
+                                     const std::shared_ptr<LogManager> &logManager,
+                                     const std::shared_ptr<TextureManager> &textureManager)
                 : _audioManager(audioManager), _configManager(configManager), _fontManager(fontManager),
                   _logManager(logManager), _textureManager(textureManager) {}
 

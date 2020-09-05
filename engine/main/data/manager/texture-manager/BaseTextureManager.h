@@ -7,7 +7,7 @@
 
 #include "TextureManager.h"
 
-namespace DataManagers {
+namespace Managers {
 
     class BaseTextureManager : public TextureManager {
     public:

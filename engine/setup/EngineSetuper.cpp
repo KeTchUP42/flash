@@ -11,12 +11,12 @@
 #include "../main/data/manager/log-manager/BaseLogManager.h"
 #include "../main/data/manager/texture-manager/BaseTextureManager.h"
 
-DataManagers::DataManager *Setup::EngineSetuper::load() const {
+Managers::DataManager *Setup::EngineSetuper::load() const {
     using namespace IniProcessorUtil;
     BaseIniProcessor iniProcessor(_config);
     Analyzer::IniData iniData = iniProcessor.fullparse();
 
-    using namespace DataManagers;
+    using namespace Managers;
     AudioManager *audioManager = new MusicManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["audio"]);
     ConfigManager *configManager = new IniConfigManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["configs"]);
     FontManager *fontManager = new BaseFontManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["fonts"]);

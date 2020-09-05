@@ -9,13 +9,13 @@
 
 Program::Engine::Engine(const std::string &filename) {
     Setup::EngineSetuper setuper(filename);
-    _dataManager = std::unique_ptr<DataManagers::DataManager>(setuper.load());
+    _dataManager = std::unique_ptr<Managers::DataManager>(setuper.load());
 }
 
 int Program::Engine::start() const {
     try {
         ViewCreate::PrimaryWindowFactory factory;
-        std::shared_ptr<WindowView::Window> window = factory.createWindow(_dataManager.get(), "primary.ini");
+        std::shared_ptr<WindowView::Window> window = factory.createWindow("primary.ini", _dataManager.get());
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
@@ -23,6 +23,6 @@ int Program::Engine::start() const {
         logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
         return exception.getCode();
     }
-    //todo: Split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
+    //Think to split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
     return EXIT_SUCCESS;
 }

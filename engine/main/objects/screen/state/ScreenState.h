@@ -5,8 +5,8 @@
 #ifndef FLASH_SCREENSTATE_H
 #define FLASH_SCREENSTATE_H
 
-#include "../../capabilities/Drawable.h"
-#include "../../capabilities/Refreshable.h"
+#include "../../possibilities/Drawable.h"
+#include "../../possibilities/Refreshable.h"
 #include "../../../data/manager/DataManager.h"
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../view/windows/base/window/Window.h"
@@ -23,8 +23,8 @@ namespace Screen {
      * This class defines base ScreenState interface and fields.
     */
     class ScreenState
-            : public Capabilities::Drawable,
-              public Capabilities::Refreshable,
+            : public Possibilities::Drawable,
+              public Possibilities::Refreshable,
               public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         /**
@@ -36,9 +36,9 @@ namespace Screen {
          * @brief Method inits all screen components. ALL overrides MUST call base method.
          * @param context StateChangeable context.
          * @param dataManager Manager for data searching.
-         * @param target Draw target.
+         * @param target Render target.
          */
-        virtual void load(StateChangeable *context, DataManagers::DataManager *dataManager, sf::RenderTarget &target);
+        virtual void load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderTarget &target);
 
         virtual ~ScreenState() = default;
 
@@ -50,7 +50,7 @@ namespace Screen {
         /**
          * @brief Do not call "delete" for this ptr.
          */
-        DataManagers::DataManager *_dataManager;
+        Managers::DataManager *_dataManager;
     };
 }
 

@@ -7,7 +7,7 @@
 
 #include "FontManager.h"
 
-namespace DataManagers {
+namespace Managers {
 
     class BaseFontManager : public FontManager {
     public:

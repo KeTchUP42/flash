@@ -11,11 +11,11 @@
 
 #include "../../../../utils/logger/Logger.h"
 
-namespace DataManagers {
+namespace Managers {
 
     /**
      * @brief The base class of the LogManager class hierarchy.
-     * @namespace DataManagers
+     * @namespace Managers
      *
      * This class defines base LogManager interface and fields.
      */

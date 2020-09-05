@@ -7,11 +7,11 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace Capabilities {
+namespace Possibilities {
 
     /**
      * @brief The base class of the Drawable class hierarchy.
-     * @namespace Capabilities
+     * @namespace Possibilities
      *
      * This class defines base Drawable interface.
     */

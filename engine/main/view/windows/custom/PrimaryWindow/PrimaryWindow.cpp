@@ -7,14 +7,13 @@
 
 WindowView::PrimaryWindow::PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
                                          const sf::ContextSettings &settings, Screen::ScreenState *screenState,
-                                         DataManagers::DataManager *dataManager)
+                                         Managers::DataManager *dataManager)
         : _dataManager(dataManager), _screen(screenState), Window(mode, title, style, settings) {
     this->configure();
 }
 
 WindowView::PrimaryWindow::PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
-                                         Screen::ScreenState *screenState,
-                                         DataManagers::DataManager *dataManager)
+                                         Screen::ScreenState *screenState, Managers::DataManager *dataManager)
         : _dataManager(dataManager), _screen(screenState), Window(handle, settings) {
     this->configure();
 }

@@ -9,11 +9,11 @@
 
 #include "../../../../utils/Ini/analyzer/Analyzer.h"
 
-namespace DataManagers {
+namespace Managers {
 
     /**
      * @brief The base class of the ConfigManager class hierarchy.
-     * @namespace DataManagers
+     * @namespace Managers
      *
      * This class defines base ConfigManager interface and fields.
      */

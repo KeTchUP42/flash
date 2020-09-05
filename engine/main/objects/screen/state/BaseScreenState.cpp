@@ -5,8 +5,7 @@
 #include "BaseScreenState.h"
 #include "../../components/sprite/factory/background/PrimaryBackGroundFactory.h"
 
-void Screen::BaseScreenState::load(StateChangeable *context, DataManagers::DataManager *dataManager,
-                                   sf::RenderTarget &target) {
+void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderTarget &target) {
     ScreenState::load(context, dataManager, target);
 
     using namespace Components;

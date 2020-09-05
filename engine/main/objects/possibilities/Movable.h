@@ -5,11 +5,11 @@
 #ifndef FLASH_MOVABLE_H
 #define FLASH_MOVABLE_H
 
-namespace Capabilities {
+namespace Possibilities {
 
     /**
      * @brief The base class of the Movable class hierarchy.
-     * @namespace Capabilities
+     * @namespace Possibilities
      *
      * This class defines base Movable interface.
     */

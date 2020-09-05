@@ -7,7 +7,7 @@
 
 #include "ConfigManager.h"
 
-namespace DataManagers {
+namespace Managers {
 
     class IniConfigManager : public ConfigManager {
     public:

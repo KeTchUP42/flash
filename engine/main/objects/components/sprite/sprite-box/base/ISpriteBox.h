@@ -6,9 +6,9 @@
 #define FLASH_ISPRITEBOX_H
 
 #include "../../../../../view/windows/base/observer/Observer.h"
-#include "../../../../capabilities/Drawable.h"
-#include "../../../../capabilities/Movable.h"
-#include "../../../../capabilities/CollisionProne.h"
+#include "../../../../possibilities/Drawable.h"
+#include "../../../../possibilities/Movable.h"
+#include "../../../../possibilities/CollisionProne.h"
 #include "../../../simple/Point.h"
 #include "../../../simple/Size.h"
 
@@ -23,9 +23,9 @@ namespace Components {
      * This class is a base leaf component interface.
     */
     class ISpriteBox
-            : public Capabilities::Drawable,
-              public Capabilities::Movable,
-              public Capabilities::CollisionProne,
+            : public Possibilities::Drawable,
+              public Possibilities::Movable,
+              public Possibilities::CollisionProne,
               public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         ISpriteBox() = default;

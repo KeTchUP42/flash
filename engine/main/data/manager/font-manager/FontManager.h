@@ -9,11 +9,11 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 
-namespace DataManagers {
+namespace Managers {
 
     /**
      * @brief The base class of the FontManager class hierarchy.
-     * @namespace DataManagers
+     * @namespace Managers
      *
      * This class defines base FontManager interface and fields.
      */

@@ -10,7 +10,7 @@
 #include <cstdlib>
 
 std::shared_ptr<WindowView::Window>
-ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataManager, const std::string &filename) const {
+ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Managers::DataManager *dataManager) const {
     IniProcessorUtil::Analyzer::IniData iniData = dataManager->getConfigManager()->loadIni(filename);
 
     sf::ContextSettings contextSettings;
@@ -35,7 +35,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(DataManagers::DataManager *dataMa
 }
 
 std::shared_ptr<WindowView::Window>
-ViewCreate::PrimaryWindowFactory::createWindow(sf::WindowHandle handle, DataManagers::DataManager *dataManager) const {
+ViewCreate::PrimaryWindowFactory::createWindow(sf::WindowHandle handle, Managers::DataManager *dataManager) const {
     sf::ContextSettings contextSettings;
     contextSettings.depthBits = 24;
 

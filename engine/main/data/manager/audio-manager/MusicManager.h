@@ -7,7 +7,7 @@
 
 #include "AudioManager.h"
 
-namespace DataManagers {
+namespace Managers {
 
     class MusicManager : public AudioManager {
     public:

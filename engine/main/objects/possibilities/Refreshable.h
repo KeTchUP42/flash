@@ -5,11 +5,11 @@
 #ifndef FLASH_REFRESHABLE_H
 #define FLASH_REFRESHABLE_H
 
-namespace Capabilities {
+namespace Possibilities {
 
     /**
      * @brief The base class of the Refreshable class hierarchy.
-     * @namespace Capabilities
+     * @namespace Possibilities
      *
      * This class defines base Refreshable interface.
     */

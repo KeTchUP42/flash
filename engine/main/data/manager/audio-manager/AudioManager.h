@@ -10,11 +10,11 @@
 
 #include "../../audio/player/AudioPlayer.h"
 
-namespace DataManagers {
+namespace Managers {
 
     /**
      * @brief The base class of the AudioManager class hierarchy.
-     * @namespace DataManagers
+     * @namespace Managers
      *
      * This class defines base AudioManager interface and fields.
      */

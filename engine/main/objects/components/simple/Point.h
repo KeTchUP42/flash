@@ -8,10 +8,10 @@
 namespace Components {
 
     /**
-     * @brief The base component struct.
+     * @brief Base component.
      * @namespace Components
      *
-     * This struct is a base objects component.
+     * This struct is the base component.
     */
     struct Point {
         explicit Point(int x, int y)

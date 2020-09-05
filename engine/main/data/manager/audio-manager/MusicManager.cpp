@@ -6,6 +6,6 @@
 #include "../../audio/player/MusicPlayer.h"
 
 std::shared_ptr<Audio::AudioPlayer>
-DataManagers::MusicManager::createAudioPlayerForFile(const std::string &filename, bool loop) const {
+Managers::MusicManager::createAudioPlayerForFile(const std::string &filename, bool loop) const {
     return std::shared_ptr<Audio::AudioPlayer>(new Audio::MusicPlayer(_audioDirectory + "/" + filename, loop));
 }
