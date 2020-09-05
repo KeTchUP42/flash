@@ -5,5 +5,5 @@
 
  ## Docs:
  * [Setup information.](docs/AppStart.md)
- * [General recommendations.](docs/GeneralInform.md)
- * [Code info.](docs/code-hints/CodeHints.md)
+ * [Project information.](docs/ProjectInfo.md)
+ * [Code hints.](docs/code-hints/CodeHints.md)
