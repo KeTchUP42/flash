@@ -3,13 +3,13 @@
 //
 
 #include "Engine.h"
-#include "../setup/EngineSetuper.h"
+#include "../setup/EngineConfigurator.h"
 #include "../main/general/exceptions/Exception.h"
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
 Program::Engine::Engine(const std::string &filename) {
-    Setup::EngineSetuper setuper(filename);
-    _dataManager = std::unique_ptr<Managers::DataManager>(setuper.load());
+    Setup::EngineConfigurator configurator(filename);
+    _dataManager = std::unique_ptr<Managers::DataManager>(configurator.load());
 }
 
 int Program::Engine::start() const {

@@ -2,8 +2,8 @@
 // Created by roman on 23.08.2020.
 //
 
-#ifndef FLASH_SETUPER_H
-#define FLASH_SETUPER_H
+#ifndef FLASH_CONFIGURATOR_H
+#define FLASH_CONFIGURATOR_H
 
 #include <string>
 
@@ -12,14 +12,14 @@
 namespace Setup {
 
     /**
-     * @brief The base class of the Setuper class hierarchy.
+     * @brief The base class of the Configurator class hierarchy.
      * @namespace Setup
      *
-     * This class defines base Setuper interface and fields.
+     * This class defines base Configurator interface and fields.
     */
-    class Setuper {
+    class Configurator {
     public:
-        explicit Setuper(const std::string &filename)
+        explicit Configurator(const std::string &filename)
                 : _config(filename) {}
 
         /**
@@ -28,11 +28,11 @@ namespace Setup {
          */
         virtual Managers::DataManager *load() const = 0;
 
-        virtual ~Setuper() = default;
+        virtual ~Configurator() = default;
 
     protected:
         const std::string _config;
     };
 }
 
-#endif //FLASH_SETUPER_H
+#endif //FLASH_CONFIGURATOR_H

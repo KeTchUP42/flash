@@ -2,7 +2,7 @@
 // Created by roman on 24.08.2020.
 //
 
-#include "EngineSetuper.h"
+#include "EngineConfigurator.h"
 #include "../utils/Ini/BaseIniProcessor.h"
 #include "../main/data/manager/StandardDataManager.h"
 #include "../main/data/manager/audio-manager/MusicManager.h"
@@ -11,7 +11,7 @@
 #include "../main/data/manager/log-manager/BaseLogManager.h"
 #include "../main/data/manager/texture-manager/BaseTextureManager.h"
 
-Managers::DataManager *Setup::EngineSetuper::load() const {
+Managers::DataManager *Setup::EngineConfigurator::load() const {
     using namespace IniProcessorUtil;
     BaseIniProcessor iniProcessor(_config);
     Analyzer::IniData iniData = iniProcessor.fullparse();

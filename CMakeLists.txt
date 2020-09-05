@@ -37,7 +37,7 @@ set(MOBS)
 set(SCREEN engine/main/objects/screen/context-abilities/StateChangeable.h engine/main/objects/screen/state/ScreenState.h engine/main/objects/screen/state/ScreenState.cpp engine/main/objects/screen/state/BaseScreenState.cpp engine/main/objects/screen/state/BaseScreenState.h)
 set(OBJECTS ${CAPABILITIES} ${COMPONENTS} ${MOBS} ${SCREEN})
 
-set(SETUP engine/setup/Setuper.h engine/setup/EngineSetuper.cpp engine/setup/EngineSetuper.h)
+set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 
 set(LOGGER engine/utils/logger/Logger.h engine/utils/logger/BaseLogger.cpp engine/utils/logger/BaseLogger.h engine/utils/logger/formatter/Formatter.h engine/utils/logger/formatter/BaseLoggerFormatter.cpp engine/utils/logger/formatter/BaseLoggerFormatter.h)
 set(WRITER engine/utils/writer/Writer.h engine/utils/writer/FileWriter.cpp engine/utils/writer/FileWriter.h engine/utils/writer/MultiFileWriter.cpp engine/utils/writer/MultiFileWriter.h)
