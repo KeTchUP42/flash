@@ -8,7 +8,7 @@
 namespace PreferredExceptions {
 
     /**
-     * Enume with program exceptions default codes.
+     * Enum with program default exceptions codes.
      */
     enum ExceptionCodes {
         RUNTIME_EXCEPTION = 100,

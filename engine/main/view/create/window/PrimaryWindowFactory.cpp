@@ -7,12 +7,15 @@
 #include "../../windows/base/observers/WindowCloseObserver.h"
 #include "../../../objects/screen/state/BaseScreenState.h"
 
+#include <algorithm>
+#include <cctype>
 #include <cstdlib>
 
 std::shared_ptr<WindowView::Window>
 ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Managers::DataManager *dataManager) const {
     IniProcessorUtil::Analyzer::IniData iniData = dataManager->getConfigManager()->loadIni(filename);
 
+    //context settings
     sf::ContextSettings contextSettings;
     contextSettings.depthBits = std::atoi(iniData["ContextSettings"]["depthBits"].c_str());
     contextSettings.stencilBits = std::atoi(iniData["ContextSettings"]["stencilBits"].c_str());
@@ -21,14 +24,26 @@ ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Mana
     contextSettings.minorVersion = std::atoi(iniData["ContextSettings"]["minorVersion"].c_str());
     contextSettings.attributeFlags = std::atoi(iniData["ContextSettings"]["attributeFlags"].c_str());
 
+    //size
     int width = std::atoi(iniData["Window"]["width"].c_str());
     int height = std::atoi(iniData["Window"]["height"].c_str());
 
-    using namespace WindowView;
+    //style
+    sf::Uint32 style = sf::Style::Default;
+    std::string styleName = iniData["Window"]["style"];
+    std::transform(styleName.begin(), styleName.end(), styleName.begin(),
+                   [](unsigned char ch) { return std::tolower(ch); });
+
+    if (styleName == "fullscreen")
+        style = sf::Style::Fullscreen;
+
+    //screen state
     //todo: Think to make ScreenState choosing with config.
-    Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"],
-                                       sf::Style::Default, contextSettings,
-                                       new Screen::BaseScreenState(), dataManager); // If you need you can change sf::Style.
+
+    //window
+    using namespace WindowView;
+    Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"], style, contextSettings,
+                                       new Screen::BaseScreenState(), dataManager);
     window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
     //..
     return std::shared_ptr<WindowView::Window>(window);
