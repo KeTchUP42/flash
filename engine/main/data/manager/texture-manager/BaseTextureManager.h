@@ -17,7 +17,7 @@ namespace Managers {
         explicit BaseTextureManager(const char *textureDirectory)
                 : TextureManager(textureDirectory) {}
 
-        std::shared_ptr<sf::Texture> load(const std::string &filename) const override;
+        std::shared_ptr<sf::Texture> load(const std::string &filename, const sf::Rect<int> &area = sf::IntRect()) const override;
     };
 }
 
