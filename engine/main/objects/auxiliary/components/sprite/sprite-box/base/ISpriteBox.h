@@ -8,6 +8,7 @@
 #include "../../../../../../view/windows/base/observer/Observer.h"
 #include "../../../../possibilities/Drawable.h"
 #include "../../../../possibilities/Movable.h"
+#include "../../../../possibilities/Rotatable.h"
 #include "../../../../possibilities/CollisionProne.h"
 #include "../../../simple/Point.h"
 #include "../../../simple/Size.h"
@@ -25,6 +26,7 @@ namespace Components {
     class ISpriteBox
             : public Possibilities::Drawable,
               public Possibilities::Movable,
+              public Possibilities::Rotatable,
               public Possibilities::CollisionProne,
               public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:

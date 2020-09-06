@@ -25,6 +25,10 @@ void Components::SpriteBox::move(int xlength, int ylength) noexcept {
     _sprite->setPosition(_point.x, _point.y);
 }
 
+void Components::SpriteBox::rotate(float angle) {
+    _sprite->rotate(angle);
+}
+
 bool Components::SpriteBox::collision(int x, int y) const noexcept {
     return ((x >= _point.x) && (x <= _point.x + _size.width)) && ((y >= _point.y) && (y <= _point.y + _size.height));
 }

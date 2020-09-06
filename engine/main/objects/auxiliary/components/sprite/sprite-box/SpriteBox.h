@@ -22,6 +22,8 @@ namespace Components {
 
         void move(int xlength, int ylength) noexcept override;
 
+        void rotate(float angle) override;
+
         bool collision(int x, int y) const noexcept override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;

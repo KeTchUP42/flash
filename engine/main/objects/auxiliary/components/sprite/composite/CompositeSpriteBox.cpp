@@ -16,6 +16,12 @@ void Components::CompositeSpriteBox::move(int xlength, int ylength) noexcept {
     }
 }
 
+void Components::CompositeSpriteBox::rotate(float angle) {
+    for (const std::shared_ptr<ISpriteBox> &spriteBox : _spriteBoxes) {
+        spriteBox->rotate(angle);
+    }
+}
+
 bool Components::CompositeSpriteBox::collision(int x, int y) const noexcept {
     for (const std::shared_ptr<ISpriteBox> &spriteBox : _spriteBoxes) {
         if (spriteBox->collision(x, y)) return true;

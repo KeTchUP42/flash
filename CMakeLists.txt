@@ -32,7 +32,7 @@ set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/c
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
-set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Refreshable.h)
+set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Refreshable.h engine/main/objects/auxiliary/possibilities/Rotatable.h)
 set(SIMPLE engine/main/objects/auxiliary/components/simple/Point.h engine/main/objects/auxiliary/components/simple/Size.h)
 set(FACTORY engine/main/objects/auxiliary/components/sprite/factory/background/BackGroundSpriteBoxFactory.h engine/main/objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.cpp engine/main/objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.h engine/main/objects/auxiliary/components/sprite/factory/sprite-box/SpriteBoxFactory.h)
 set(SPRITE engine/main/objects/auxiliary/components/sprite/sprite-box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/sprite-box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/sprite-box/base/ISpriteBox.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSpriteBox.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSpriteBox.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSpriteBox.h engine/main/objects/auxiliary/components/sprite/sprite-box/PlainSpriteBox.h)
