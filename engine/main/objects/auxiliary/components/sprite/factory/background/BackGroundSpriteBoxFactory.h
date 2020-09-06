@@ -12,27 +12,29 @@
 
 namespace Components {
 
-    /**
-     * @brief The base class of the BackGroundSpriteBoxFactory class hierarchy.
-     * @namespace Components
-     *
-     * This class is a sprite-factory interface. 
-    */
-    class BackGroundSpriteBoxFactory {
-    public:
-        BackGroundSpriteBoxFactory() = default;
+    namespace Factory {
 
         /**
-         * @brief Main factory function which creates new background sprite box.
-         * @param dataManager Manager which uses to get some data resources.
-         * @param size Screen size.
-         * @return SpriteBox.
-         */
-        virtual std::shared_ptr<Components::ISpriteBox>
-        createSpriteBox(Managers::DataManager *dataManager, const Size &size) const = 0;
+         * @brief The base class of the BackGroundSpriteBoxFactory class hierarchy.
+         * @namespace Components::Factory
+         *
+         * This class is a sprite-factory interface.
+        */
+        class BackGroundSpriteBoxFactory {
+        public:
+            BackGroundSpriteBoxFactory() = default;
 
-        virtual ~BackGroundSpriteBoxFactory() = default;
-    };
+            /**
+             * @brief Main factory function which creates new background sprite box.
+             * @param size Screen size.
+             * @param dataManager Manager which uses to get some data resources.
+             * @return SpriteBox.
+             */
+            virtual std::shared_ptr<Components::ISpriteBox>
+            createSpriteBox(const Size &size, Managers::DataManager *dataManager) const = 0;
+
+            virtual ~BackGroundSpriteBoxFactory() = default;
+        };
+    }
 }
-
 #endif //FLASH_BACKGROUNDSPRITEBOXFACTORY_H

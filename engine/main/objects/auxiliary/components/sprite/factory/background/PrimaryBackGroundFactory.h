@@ -9,11 +9,14 @@
 
 namespace Components {
 
-    class PrimaryBackGroundFactory : public BackGroundSpriteBoxFactory {
-    public:
-        std::shared_ptr<Components::ISpriteBox>
-        createSpriteBox(Managers::DataManager *dataManager, const Size &size) const override;
-    };
+    namespace Factory {
+
+        class PrimaryBackGroundFactory : public BackGroundSpriteBoxFactory {
+        public:
+            std::shared_ptr<Components::ISpriteBox>
+            createSpriteBox(const Size &size, Managers::DataManager *dataManager) const override;
+        };
+    }
 }
 
 #endif //FLASH_PRIMARYBACKGROUNDFACTORY_H
