@@ -27,15 +27,18 @@ set(OBSERVERS engine/main/view/windows/base/observer/Observer.h engine/main/view
 set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
 set(WINDOWVIEW ${WINDOWS} ${OBSERVERS})
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
-set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
+set(SCREEN engine/main/view/windows/screen/context-abilities/StateChangeable.h engine/main/view/windows/screen/state/ScreenState.h engine/main/view/windows/screen/state/ScreenState.cpp engine/main/view/windows/screen/state/BaseScreenState.cpp engine/main/view/windows/screen/state/BaseScreenState.h)
+set(VIEW ${WINDOWVIEW} ${VIEWCREATE} ${SCREEN})
 
-set(CAPABILITIES engine/main/objects/possibilities/Drawable.h engine/main/objects/possibilities/Movable.h engine/main/objects/possibilities/CollisionProne.h engine/main/objects/possibilities/Refreshable.h)
-set(SIMPLE engine/main/objects/components/simple/Point.h engine/main/objects/components/simple/Size.h)
-set(FACTORY engine/main/objects/components/sprite/factory/background/BackGroundSpriteBoxFactory.h engine/main/objects/components/sprite/factory/background/PrimaryBackGroundFactory.cpp engine/main/objects/components/sprite/factory/background/PrimaryBackGroundFactory.h)
-set(COMPONENTS ${SIMPLE} ${FACTORY} engine/main/objects/components/sprite/sprite-box/SpriteBox.cpp engine/main/objects/components/sprite/sprite-box/SpriteBox.h engine/main/objects/components/sprite/sprite-box/base/ISpriteBox.h engine/main/objects/components/sprite/composite/ICompositeSpriteBox.h engine/main/objects/components/sprite/composite/CompositeSpriteBox.cpp engine/main/objects/components/sprite/composite/CompositeSpriteBox.h engine/main/objects/components/sprite/sprite-box/PlainSpriteBox.h)
+set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Refreshable.h)
+set(SIMPLE engine/main/objects/auxiliary/components/simple/Point.h engine/main/objects/auxiliary/components/simple/Size.h)
+set(FACTORY engine/main/objects/auxiliary/components/sprite/factory/background/BackGroundSpriteBoxFactory.h engine/main/objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.cpp engine/main/objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.h)
+set(SPRITE engine/main/objects/auxiliary/components/sprite/sprite-box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/sprite-box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/sprite-box/base/ISpriteBox.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSpriteBox.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSpriteBox.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSpriteBox.h engine/main/objects/auxiliary/components/sprite/sprite-box/PlainSpriteBox.h)
+set(COMPONENTS ${SIMPLE} ${FACTORY} ${SPRITE})
+set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
+
 set(MOBS)
-set(SCREEN engine/main/objects/screen/context-abilities/StateChangeable.h engine/main/objects/screen/state/ScreenState.h engine/main/objects/screen/state/ScreenState.cpp engine/main/objects/screen/state/BaseScreenState.cpp engine/main/objects/screen/state/BaseScreenState.h)
-set(OBJECTS ${CAPABILITIES} ${COMPONENTS} ${MOBS} ${SCREEN})
+set(OBJECTS ${AUXILIARY} ${MOBS})
 
 set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 

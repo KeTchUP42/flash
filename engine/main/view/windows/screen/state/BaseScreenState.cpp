@@ -3,14 +3,13 @@
 //
 
 #include "BaseScreenState.h"
-#include "../../components/sprite/factory/background/PrimaryBackGroundFactory.h"
+#include "../../../../objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.h"
 
 void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderTarget &target) {
     ScreenState::load(context, dataManager, target);
 
-    using namespace Components;
-    PrimaryBackGroundFactory factory;
-    _background = factory.createSpriteBox(_dataManager, Size(target.getSize().x, target.getSize().y));
+    Components::PrimaryBackGroundFactory factory;
+    _background = factory.createSpriteBox(_dataManager, Components::Size(target.getSize().x, target.getSize().y));
 }
 
 void Screen::BaseScreenState::refresh() {

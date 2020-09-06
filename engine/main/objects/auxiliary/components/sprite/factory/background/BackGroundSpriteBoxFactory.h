@@ -6,7 +6,7 @@
 #define FLASH_BACKGROUNDSPRITEBOXFACTORY_H
 
 #include "../../sprite-box/base/ISpriteBox.h"
-#include "../../../../../data/manager/DataManager.h"
+#include "../../../../../../data/manager/DataManager.h"
 
 #include <memory>
 

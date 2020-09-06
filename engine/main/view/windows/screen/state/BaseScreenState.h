@@ -6,7 +6,7 @@
 #define FLASH_BASESCREENSTATE_H
 
 #include "ScreenState.h"
-#include "../../components/sprite/sprite-box/base/ISpriteBox.h"
+#include "../../../../objects/auxiliary/components/sprite/sprite-box/base/ISpriteBox.h"
 
 namespace Screen {
 

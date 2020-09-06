@@ -5,7 +5,7 @@
 #ifndef FLASH_ISPRITEBOX_H
 #define FLASH_ISPRITEBOX_H
 
-#include "../../../../../view/windows/base/observer/Observer.h"
+#include "../../../../../../view/windows/base/observer/Observer.h"
 #include "../../../../possibilities/Drawable.h"
 #include "../../../../possibilities/Movable.h"
 #include "../../../../possibilities/CollisionProne.h"

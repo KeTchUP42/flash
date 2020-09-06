@@ -5,7 +5,7 @@
 #include "PrimaryWindowFactory.h"
 #include "../../windows/custom/PrimaryWindow/PrimaryWindow.h"
 #include "../../windows/base/observers/WindowCloseObserver.h"
-#include "../../../objects/screen/state/BaseScreenState.h"
+#include "../../windows/screen/state/BaseScreenState.h"
 
 #include <algorithm>
 #include <cctype>
