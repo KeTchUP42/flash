@@ -5,7 +5,7 @@
 #ifndef FLASH_SPRITEBOX_H
 #define FLASH_SPRITEBOX_H
 
-#include "PlainSpriteBox.h"
+#include "BaseSpriteBox.h"
 #include "../../simple/Point.h"
 #include "../../simple/Size.h"
 
@@ -13,7 +13,7 @@
 
 namespace Components {
 
-    class SpriteBox : public PlainSpriteBox {
+    class SpriteBox : public BaseSpriteBox {
     public:
         explicit SpriteBox(const Components::Point &point, const Components::Size &size,
                            const std::shared_ptr<sf::Texture> &texture);
@@ -27,6 +27,10 @@ namespace Components {
         bool collision(int x, int y) const noexcept override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
+
+        void setPosition(const Point &point) noexcept override;
+
+        void setRotation(float angle) noexcept override;
 
         const Point &getPoint() const noexcept override;
 
