@@ -5,11 +5,11 @@
 #ifndef FLASH_SCREENSTATE_H
 #define FLASH_SCREENSTATE_H
 
-#include "../../../../objects/auxiliary/possibilities/Drawable.h"
-#include "../../../../objects/auxiliary/possibilities/Refreshable.h"
-#include "../../../../data/manager/DataManager.h"
-#include "../../base/observer/Observer.h"
-#include "../../base/window/Window.h"
+#include "../../../../../objects/auxiliary/possibilities/Drawable.h"
+#include "../../../../../objects/auxiliary/possibilities/Refreshable.h"
+#include "../../../../../data/manager/DataManager.h"
+#include "../../../base/observer/Observer.h"
+#include "../../../base/window/Window.h"
 #include "../context-abilities/StateChangeable.h"
 
 namespace Screen {
