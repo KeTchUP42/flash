@@ -2,8 +2,8 @@
 // Created by roman on 30.08.2020.
 //
 
-#ifndef FLASH_ISPRITEBOX_H
-#define FLASH_ISPRITEBOX_H
+#ifndef FLASH_ISPRITE_H
+#define FLASH_ISPRITE_H
 
 #include "../../../../../../view/windows/base/observer/Observer.h"
 #include "../../../../possibilities/Drawable.h"
@@ -18,28 +18,28 @@
 namespace Components {
 
     /**
-     * @brief The base class of the ISpriteBox class hierarchy.
+     * @brief The base class of the ISprite class hierarchy.
      * @namespace Components
      *
      * This class is a base leaf component interface.
     */
-    class ISpriteBox
+    class ISprite
             : public Possibilities::Drawable,
               public Possibilities::Movable,
               public Possibilities::Rotatable,
               public Possibilities::CollisionProne,
               public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
-        ISpriteBox() = default;
+        ISprite() = default;
 
         /**
          * @brief Method deletes operator= method.
-         * @return ISpriteBox&
+         * @return ISprite&
          */
-        ISpriteBox &operator=(const ISpriteBox &) = delete;
+        ISprite &operator=(const ISprite &) = delete;
 
-        virtual ~ISpriteBox() = default;
+        virtual ~ISprite() = default;
     };
 }
 
-#endif //FLASH_ISPRITEBOX_H
+#endif //FLASH_ISPRITE_H

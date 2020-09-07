@@ -6,7 +6,7 @@
 #define FLASH_BASESCREENSTATE_H
 
 #include "ScreenState.h"
-#include "../../../../../objects/auxiliary/components/sprite/sprite-box/base/ISpriteBox.h"
+#include "../../../../../objects/auxiliary/components/sprite/simple/base/ISprite.h"
 
 namespace Screen {
 
@@ -21,7 +21,8 @@ namespace Screen {
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
 
     protected:
-        std::shared_ptr<Components::ISpriteBox> _background;
+        std::shared_ptr<Components::ISprite> _background;
+        std::shared_ptr<Components::ISprite> _block;
     };
 }
 

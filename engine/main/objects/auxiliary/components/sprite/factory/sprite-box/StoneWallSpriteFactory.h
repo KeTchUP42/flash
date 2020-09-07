@@ -5,16 +5,16 @@
 #ifndef FLASH_STONEWALLSPRITEFACTORY_H
 #define FLASH_STONEWALLSPRITEFACTORY_H
 
-#include "SpriteBoxFactory.h"
+#include "SpriteFactory.h"
 
 namespace Components {
 
     namespace Factory {
 
-        class StoneWallSpriteFactory : public SpriteBoxFactory {
+        class StoneWallSpriteFactory : public SpriteFactory {
         public:
-            std::shared_ptr<Components::ISpriteBox>
-            createSpriteBox(const Point &point, const Size &size, Managers::DataManager *dataManager) const override;
+            std::shared_ptr<Components::ISprite>
+            createSprite(const Point &point, const Size &size, Managers::DataManager *dataManager) const override;
         };
     }
 }

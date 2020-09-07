@@ -5,11 +5,11 @@
 #ifndef FLASH_BASESPRITEBOX_H
 #define FLASH_BASESPRITEBOX_H
 
-#include "base/ISpriteBox.h"
+#include "../base/ISprite.h"
 
 namespace Components {
 
-    class BaseSpriteBox : public ISpriteBox {
+    class BaseSpriteBox : public ISprite {
     public:
         BaseSpriteBox() = default;
 

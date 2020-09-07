@@ -5,7 +5,7 @@
 #ifndef FLASH_BACKGROUNDSPRITEBOXFACTORY_H
 #define FLASH_BACKGROUNDSPRITEBOXFACTORY_H
 
-#include "../../sprite-box/base/ISpriteBox.h"
+#include "../../simple/base/ISprite.h"
 #include "../../../../../../data/manager/DataManager.h"
 
 #include <memory>
@@ -30,7 +30,7 @@ namespace Components {
              * @param dataManager Manager which uses to get some data resources.
              * @return SpriteBox.
              */
-            virtual std::shared_ptr<Components::ISpriteBox>
+            virtual std::shared_ptr<Components::ISprite>
             createSpriteBox(const Size &size, Managers::DataManager *dataManager) const = 0;
 
             virtual ~BackGroundSpriteBoxFactory() = default;
