@@ -27,7 +27,7 @@ namespace Components {
             /**
              * @brief Main factory function which creates new sprite.
              * @param point Sprite coordinates.
-             * @param size Screen size.
+             * @param size Sprite size.
              * @param dataManager Manager which uses to get some data resources.
              * @return Sprite.
             */

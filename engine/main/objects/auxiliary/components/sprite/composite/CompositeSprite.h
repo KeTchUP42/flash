@@ -15,9 +15,15 @@ namespace Components {
     public:
         void draw(sf::RenderTarget &target) const noexcept override;
 
-        void move(int xlength, int ylength) noexcept override;
+        void move(int offsetX, int offsetY) noexcept override;
 
-        void rotate(float angle) override;
+        /**
+         * @brief Method rotates ALL leaf sprites around their coordinates.
+         * @param angle Rotate angle.
+         */
+        void rotate(float angle) noexcept override;
+
+        void rotate(float angle, int x, int y) noexcept override;
 
         bool collision(int x, int y) const noexcept override;
 

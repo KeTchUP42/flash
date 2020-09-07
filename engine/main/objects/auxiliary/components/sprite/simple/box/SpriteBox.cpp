@@ -4,6 +4,7 @@
 
 #include "SpriteBox.h"
 
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 Components::SpriteBox::SpriteBox(const Components::Point &point, const Components::Size &size,
@@ -21,14 +22,18 @@ void Components::SpriteBox::draw(sf::RenderTarget &target) const noexcept {
     target.draw(*_sprite.get(), sf::RenderStates::Default);
 }
 
-void Components::SpriteBox::move(int xlength, int ylength) noexcept {
-    _point.x += xlength;
-    _point.y += ylength;
+void Components::SpriteBox::move(int offsetX, int offsetY) noexcept {
+    _point.x += offsetX;
+    _point.y += offsetY;
     _sprite->setPosition(_point.x, _point.y);
 }
 
-void Components::SpriteBox::rotate(float angle) {
+void Components::SpriteBox::rotate(float angle) noexcept {
     _sprite->rotate(angle);
+}
+
+void Components::SpriteBox::rotate(float angle, int x, int y) noexcept {
+    //todo: !!!
 }
 
 /**

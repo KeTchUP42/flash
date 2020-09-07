@@ -19,10 +19,10 @@ namespace Possibilities {
 
         /**
          * @brief Simple interface method to move object to current coordinates.
-         * @param xlength Coordinates to move on X.
-         * @param ylength Coordinates to move on Y.
+         * @param offsetX X offset.
+         * @param offsetY Y offset.
          */
-        virtual void move(int xlength, int ylength) noexcept = 0;
+        virtual void move(int offsetX, int offsetY) noexcept = 0;
 
         virtual ~Movable() = default;
     };

@@ -36,9 +36,9 @@ namespace Screen {
          * @brief Method inits all screen components. ALL overrides MUST call base method.
          * @param context StateChangeable context.
          * @param dataManager Manager for data searching.
-         * @param target Draw target.
+         * @param target Render target.
          */
-        virtual void load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderTarget &target);
+        virtual void load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderWindow &target);
 
         virtual ~ScreenState() = default;
 

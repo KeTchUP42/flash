@@ -18,9 +18,17 @@ namespace Possibilities {
         Rotatable() = default;
 
         /**
-         * @brief Method rotate object.
+         * @brief Method rotates object around its coordinates.
          */
-        virtual void rotate(float angle) = 0;
+        virtual void rotate(float angle) noexcept = 0;
+
+        /**
+         * @brief Method rotates object around given coordinates.
+         * @param angle Rotate angle.
+         * @param x coordinate.
+         * @param y coordinate.
+         */
+        virtual void rotate(float angle, int x, int y) noexcept = 0;
 
         virtual ~Rotatable() = default;
     };

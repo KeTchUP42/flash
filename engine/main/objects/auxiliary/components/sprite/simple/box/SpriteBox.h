@@ -20,9 +20,11 @@ namespace Components {
 
         void draw(sf::RenderTarget &target) const noexcept override;
 
-        void move(int xlength, int ylength) noexcept override;
+        void move(int offsetX, int offsetY) noexcept override;
 
-        void rotate(float angle) override;
+        void rotate(float angle) noexcept override;
+
+        void rotate(float angle, int x, int y) noexcept override;
 
         bool collision(int x, int y) const noexcept override;
 

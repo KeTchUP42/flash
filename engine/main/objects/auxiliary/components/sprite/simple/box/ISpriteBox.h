@@ -21,7 +21,7 @@ namespace Components {
 
         /**
          * @brief Method sets new rotation value.
-         * @param angle Rotation value.
+         * @param angle Rotation angle.
          */
         virtual void setRotation(float angle) noexcept = 0;
 
