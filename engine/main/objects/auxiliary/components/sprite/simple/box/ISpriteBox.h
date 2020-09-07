@@ -2,16 +2,16 @@
 // Created by roman on 31.08.2020.
 //
 
-#ifndef FLASH_BASESPRITEBOX_H
-#define FLASH_BASESPRITEBOX_H
+#ifndef FLASH_ISPRITEBOX_H
+#define FLASH_ISPRITEBOX_H
 
 #include "../base/ISprite.h"
 
 namespace Components {
 
-    class BaseSpriteBox : public ISprite {
+    class ISpriteBox : public ISprite {
     public:
-        BaseSpriteBox() = default;
+        ISpriteBox() = default;
 
         /**
          * @brief Method sets new position point.
@@ -39,4 +39,4 @@ namespace Components {
     };
 }
 
-#endif //FLASH_BASESPRITEBOX_H
+#endif //FLASH_ISPRITEBOX_H
