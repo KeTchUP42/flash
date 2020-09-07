@@ -15,15 +15,18 @@ namespace Possibilities {
      *
      * This class defines base Drawable interface.
     */
+    template<class DrawableType = sf::RenderTarget>
     class Drawable {
     public:
         Drawable() = default;
 
         /**
-         * @brief Simple interface method to draw object on sf::RenderTarget.
-         * @param target Render-target reference.
+         * Simple interface method to draw object on T.
+         * DrawableType class should have "draw" method.
+         *
+         * @param target DrawableType reference.
          */
-        virtual void draw(sf::RenderTarget &target) const noexcept = 0;
+        virtual void draw(DrawableType &target) const noexcept = 0;
 
         virtual ~Drawable() = default;
     };

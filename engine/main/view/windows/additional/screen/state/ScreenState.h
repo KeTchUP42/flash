@@ -23,8 +23,8 @@ namespace Screen {
      * This class defines base ScreenState interface and fields.
     */
     class ScreenState
-            : public Possibilities::Drawable,
-              public Possibilities::Refreshable,
+            : public Possibilities::Refreshable,
+              public Possibilities::Drawable<sf::RenderWindow>,
               public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         /**
@@ -36,7 +36,7 @@ namespace Screen {
          * @brief Method inits all screen components. ALL overrides MUST call base method.
          * @param context StateChangeable context.
          * @param dataManager Manager for data searching.
-         * @param target Render target.
+         * @param target Draw target.
          */
         virtual void load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderTarget &target);
 

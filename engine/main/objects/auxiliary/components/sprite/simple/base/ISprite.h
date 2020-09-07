@@ -24,10 +24,10 @@ namespace Components {
      * This class is a base leaf component interface.
     */
     class ISprite
-            : public Possibilities::Drawable,
-              public Possibilities::Movable,
+            : public Possibilities::Movable,
               public Possibilities::Rotatable,
               public Possibilities::CollisionProne,
+              public Possibilities::Drawable<sf::RenderTarget>,
               public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         ISprite() = default;
