@@ -24,7 +24,7 @@ namespace WindowView {
     public:
 
         /**
-         * @brief Window observer type alias.
+         * @brief Window observer alias.
          */
         using Observer = WindowView::Observer<sf::RenderWindow, sf::Event>;
 
@@ -75,19 +75,19 @@ namespace WindowView {
         void setFramerateLimit(unsigned int limit) noexcept;
 
         /**
-         * @brief Method starts listening circle.
+         * @brief Method starts window "life" cycle.
          */
         void start();
 
         /**
-         * @brief Method starts listening circle in thread.
+         * @brief Method starts window "life" cycle in thread.
          */
         std::thread startAsync() noexcept;
 
         /**
          * @brief Method notifies all observers with event.
          */
-        void notify(const sf::Event &event) noexcept;
+        void notify(const sf::Event &event);
 
     protected:
 

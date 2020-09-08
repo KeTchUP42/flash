@@ -18,7 +18,7 @@ namespace Screen {
 
         void draw(sf::RenderWindow &target) const noexcept override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
+        void update(const sf::Event &event, sf::RenderWindow &sender) override;
 
     protected:
         std::shared_ptr<Components::ISprite> _background;

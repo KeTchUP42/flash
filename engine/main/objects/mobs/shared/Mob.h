@@ -26,7 +26,16 @@ namespace Mobs {
                 public Possibilities::Rotatable,
                 public Possibilities::Drawable<sf::RenderTarget>,
                 public WindowView::Observer<sf::RenderWindow, sf::Event> {
+    public:
+        Mob() = default;
 
+        /**
+         * @brief Method deletes "operator=".
+         * @return Mob
+         */
+        Mob &operator=(const Mob &) = delete;
+
+        virtual ~Mob() = default;
     };
 }
 

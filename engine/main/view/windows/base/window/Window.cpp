@@ -26,7 +26,7 @@ std::thread WindowView::Window::startAsync() noexcept {
     return std::thread([this] { this->start(); });
 }
 
-void WindowView::Window::notify(const sf::Event &event) noexcept {
+void WindowView::Window::notify(const sf::Event &event) {
     for (std::shared_ptr<Window::Observer> &observer : _observers) {
         observer->update(event, _window);
     }
