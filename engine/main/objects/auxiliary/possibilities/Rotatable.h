@@ -5,6 +5,8 @@
 #ifndef FLASH_ROTATABLE_H
 #define FLASH_ROTATABLE_H
 
+#include "../components/simple/Point.h"
+
 namespace Possibilities {
 
     /**
@@ -28,7 +30,14 @@ namespace Possibilities {
          * @param x coordinate.
          * @param y coordinate.
          */
-        virtual void rotate(float angle, int x, int y) noexcept = 0;
+        virtual void rotate(float angle, float x, float y) noexcept = 0;
+
+        /**
+         * @brief Method rotates object around given coordinates.
+         * @param angle Rotate angle.
+         * @param point Coordinates.
+         */
+        virtual void rotate(float angle, const Components::Point &point) noexcept = 0;
 
         virtual ~Rotatable() = default;
     };

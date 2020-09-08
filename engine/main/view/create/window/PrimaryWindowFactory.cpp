@@ -44,6 +44,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Mana
     using namespace WindowView;
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"], style, contextSettings,
                                        new Screen::BaseScreenState(), dataManager);
+    //fps
     window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
     //..
     return std::shared_ptr<WindowView::Window>(window);

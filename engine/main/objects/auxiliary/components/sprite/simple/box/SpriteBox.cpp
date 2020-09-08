@@ -32,8 +32,16 @@ void Components::SpriteBox::rotate(float angle) noexcept {
     _sprite->rotate(angle);
 }
 
-void Components::SpriteBox::rotate(float angle, int x, int y) noexcept {
-    //todo: !!!
+void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
+    this->rotate(angle, Point(x, y));
+}
+
+void Components::SpriteBox::rotate(float angle, const Components::Point &point) noexcept {
+    float angleInRadians = angle * M_PI / 180;
+    float newX = point.x + (point.y - _point.y) * std::sin(angleInRadians) + (_point.x - point.x) * std::cos(angleInRadians);
+    float newY = point.y + (_point.y - point.y) * std::cos(angleInRadians) + (_point.x - point.x) * std::sin(angleInRadians);
+    this->setPosition(Point(newX, newY));
+    this->rotate(angle);
 }
 
 /**
@@ -51,6 +59,7 @@ int product(int Px, int Py, int Ax, int Ay, int Bx, int By) {
 }
 
 bool Components::SpriteBox::collision(int x, int y) const noexcept {
+    //If it will not work correct, change coordinates type.
     float angle = _sprite->getRotation() * M_PI / 180;
     int xp2 = -std::sin(angle) + std::cos(angle) * _size.width + _point.x;
     int yp2 = std::cos(angle) + std::sin(angle) * _size.width + _point.y;

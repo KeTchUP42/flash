@@ -14,11 +14,11 @@ namespace Components {
      * This struct is the base component.
     */
     struct Point {
-        explicit Point(int x, int y)
+        explicit Point(float x, float y)
                 : x(x), y(y) {}
 
-        int x;
-        int y;
+        float x;
+        float y;
     };
 }
 

@@ -22,9 +22,13 @@ void Components::CompositeSprite::rotate(float angle) noexcept {
     }
 }
 
-void Components::CompositeSprite::rotate(float angle, int x, int y) noexcept {
+void Components::CompositeSprite::rotate(float angle, float x, float y) noexcept {
+    this->rotate(angle, Point(x, y));
+}
+
+void Components::CompositeSprite::rotate(float angle, const Components::Point &point) noexcept {
     for (const std::shared_ptr<ISprite> &sprite : _sprites) {
-        sprite->rotate(angle, x, y);
+        sprite->rotate(angle, point);
     }
 }
 
