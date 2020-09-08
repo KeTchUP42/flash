@@ -6,7 +6,6 @@
 #define FLASH_SCREENSTATE_H
 
 #include "../../../../../objects/auxiliary/possibilities/Drawable.h"
-#include "../../../../../objects/auxiliary/possibilities/Refreshable.h"
 #include "../../../../../data/manager/DataManager.h"
 #include "../../../base/observer/Observer.h"
 #include "../../../base/window/Window.h"
@@ -23,8 +22,7 @@ namespace Screen {
      * This class defines base ScreenState interface and fields.
     */
     class ScreenState
-            : public Possibilities::Refreshable,
-              public Possibilities::Drawable<sf::RenderWindow>,
+            : public Possibilities::Drawable<sf::RenderWindow>,
               public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         /**
@@ -39,6 +37,11 @@ namespace Screen {
          * @param target Render target.
          */
         virtual void load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderWindow &target);
+
+        /**
+         * @brief Method uses for components refresh logic.
+         */
+        virtual void refresh() = 0;
 
         virtual ~ScreenState() = default;
 

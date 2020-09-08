@@ -3,11 +3,12 @@
 //
 
 #include "PrimaryBackGroundFactory.h"
-#include "../../auxiliary/components/sprite/composite/CompositeSprite.h"
-#include "../../auxiliary/components/sprite/common/box/SpriteBox.h"
+#include "../../../auxiliary/components/sprite/composite/CompositeSprite.h"
+#include "../../../auxiliary/components/sprite/common/box/SpriteBox.h"
 
 std::shared_ptr<Components::ISprite>
-Components::Factory::PrimaryBackGroundFactory::createSpriteBox(const Size &size, Managers::DataManager *dataManager) const {
+ComponentsGenerating::PrimaryBackGroundFactory::createSpriteBox(const Components::Size &size,
+                                                                Managers::DataManager *dataManager) const {
     using namespace Components;
     CompositeSprite *sprite = new CompositeSprite();
     auto texture = dataManager->getTextureManager()->load("background/dungeon_back_1.jpg");

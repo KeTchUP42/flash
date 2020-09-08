@@ -31,17 +31,26 @@ set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/c
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
-set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Refreshable.h engine/main/objects/auxiliary/possibilities/Rotatable.h)
+set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Rotatable.h)
 set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/Point.h engine/main/objects/auxiliary/components/elementary/Point.cpp engine/main/objects/auxiliary/components/elementary/Size.h)
 set(SPRITE engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h engine/main/objects/auxiliary/components/sprite/common/box/ISpriteBox.h)
 set(COMPONENTS ${ELEMENTARY} ${SPRITE})
 set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
 
-set(GENERATING engine/main/objects/generating/background/BackGroundSpriteBoxFactory.h engine/main/objects/generating/background/PrimaryBackGroundFactory.cpp engine/main/objects/generating/background/PrimaryBackGroundFactory.h engine/main/objects/generating/sprite/SpriteFactory.h engine/main/objects/generating/sprite/StoneWallSpriteFactory.cpp engine/main/objects/generating/sprite/StoneWallSpriteFactory.h)
+set(BACK engine/main/objects/generating/components/background/BackGroundSpriteBoxFactory.h engine/main/objects/generating/components/background/PrimaryBackGroundFactory.cpp engine/main/objects/generating/components/background/PrimaryBackGroundFactory.h)
+set(SPRITES engine/main/objects/generating/components/sprites/SpriteFactory.h engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.cpp engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.h)
+set(COMPONENTS ${BACK} ${SPRITES})
+set(LEVEL)
+set(GENERATING ${COMPONENTS} ${LEVEL})
 
-set(MOBS)
+set(PLAYER)
+set(SHARED engine/main/objects/mobs/shared/Mob.h)
+set(MOBS ${PLAYER} ${SHARED})
 
-set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS})
+
+set(STATIC)
+
+set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${STATIC})
 
 set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 

@@ -3,35 +3,29 @@
 //
 
 #include "BaseScreenState.h"
-#include "../../../../objects/generating/background/PrimaryBackGroundFactory.h"
-#include "../../../../objects/generating/sprite/StoneWallSpriteFactory.h"
+#include "../../../../objects/generating/components/background/PrimaryBackGroundFactory.h"
+#include "../../../../objects/generating/components/sprites/StoneWallSpriteFactory.h"
 
 void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderWindow &target) {
     ScreenState::load(context, dataManager, target);
 
     using namespace Components;
-    using namespace Components::Factory;
+    using namespace ComponentsGenerating;
 
     PrimaryBackGroundFactory factory;
     _background = factory.createSpriteBox(Size(target.getSize().x, target.getSize().y), _dataManager);
 
     StoneWallSpriteFactory wall_factory;
-    _block = wall_factory.createSprite(Point(300, 300), Size(100, 100), _dataManager);
-    //_block->rotate(360);
-    //_block->collision(300, 300);
+    _block = wall_factory.createSprite(Point(540, 360), Size(50, 50), _dataManager);
 }
 
 void Screen::BaseScreenState::refresh() {
-    _block->rotate(1);
-    // Some components logic.
-    // Example: _background->move(1, 0);
+    _block->rotate(1, 640, 385);
 }
 
 void Screen::BaseScreenState::draw(sf::RenderWindow &target) const noexcept {
-    target.clear(sf::Color(50, 50, 50));
     _background->draw(target);
     _block->draw(target);
-    //..
 }
 
 void Screen::BaseScreenState::update(const sf::Event &event, sf::RenderWindow &sender) noexcept {

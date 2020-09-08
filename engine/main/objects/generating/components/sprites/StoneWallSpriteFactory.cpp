@@ -3,12 +3,12 @@
 //
 
 #include "StoneWallSpriteFactory.h"
-#include "../../auxiliary/components/sprite/composite/CompositeSprite.h"
-#include "../../auxiliary/components/sprite/common/box/SpriteBox.h"
+#include "../../../auxiliary/components/sprite/composite/CompositeSprite.h"
+#include "../../../auxiliary/components/sprite/common/box/SpriteBox.h"
 
 std::shared_ptr<Components::ISprite>
-Components::Factory::StoneWallSpriteFactory::createSprite(const Components::Point &point, const Components::Size &size,
-                                                          Managers::DataManager *dataManager) const {
+ComponentsGenerating::StoneWallSpriteFactory::createSprite(const Components::Point &point, const Components::Size &size,
+                                                           Managers::DataManager *dataManager) const {
     using namespace Components;
     CompositeSprite *sprite = new CompositeSprite();
     auto texture = dataManager->getTextureManager()->load("structure/walls/stone/stone_wall_1.jpg");
