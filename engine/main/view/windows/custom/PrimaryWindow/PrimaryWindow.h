@@ -7,8 +7,8 @@
 
 #include "../../base/window/Window.h"
 #include "../../../../data/manager/DataManager.h"
-#include "../../additional/screen/state/base/ScreenState.h"
-#include "../../additional/screen/context-abilities/StateChangeable.h"
+#include "../../screen/states/base/ScreenState.h"
+#include "../../screen/context-abilities/StateChangeable.h"
 
 namespace WindowView {
 

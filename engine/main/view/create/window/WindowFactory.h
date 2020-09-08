@@ -33,17 +33,6 @@ namespace ViewCreate {
         virtual std::shared_ptr<WindowView::Window>
         createWindow(const std::string &filename, Managers::DataManager *dataManager) const = 0;
 
-        /**
-         * @brief Base factory method. You can add any additional logic to it.
-         * This method WILL NOT delete DataManager!
-         *
-         * @param handle sf::WindowHandle
-         * @param dataManager Resource data manager.
-         * @return New Window.
-         */
-        virtual std::shared_ptr<WindowView::Window>
-        createWindow(sf::WindowHandle handle, Managers::DataManager *dataManager) const = 0;
-
         virtual ~WindowFactory() = default;
     };
 }

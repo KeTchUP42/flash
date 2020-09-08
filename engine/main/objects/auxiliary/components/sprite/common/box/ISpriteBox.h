@@ -20,6 +20,13 @@ namespace Components {
         virtual void setPosition(const Components::Point &point) noexcept = 0;
 
         /**
+         * @brief Method sets new position point.
+         * @param x coordinate.
+         * @param y coordinate.
+         */
+        virtual void setPosition(float x, float y) noexcept = 0;
+
+        /**
          * @brief Method sets new rotation value.
          * @param angle Rotation angle.
          */

@@ -25,22 +25,23 @@ set(DATA ${AUDIO} ${MANAGERS})
 
 set(OBSERVERS engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/base/observers/WindowResizeObserver.cpp engine/main/view/windows/base/observers/WindowResizeObserver.h)
 set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
-set(SCREEN engine/main/view/windows/additional/screen/context-abilities/StateChangeable.h engine/main/view/windows/additional/screen/state/base/ScreenState.h engine/main/view/windows/additional/screen/state/base/ScreenState.cpp engine/main/view/windows/additional/screen/state/BaseScreenState.cpp engine/main/view/windows/additional/screen/state/BaseScreenState.h)
-set(ADDITIONAL ${SCREEN})
-set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${ADDITIONAL})
+set(SCREEN engine/main/view/windows/screen/context-abilities/StateChangeable.h engine/main/view/windows/screen/states/base/ScreenState.h engine/main/view/windows/screen/states/base/ScreenState.cpp engine/main/view/windows/screen/states/BaseScreenState.cpp engine/main/view/windows/screen/states/BaseScreenState.h)
+set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
 set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Refreshable.h engine/main/objects/auxiliary/possibilities/Rotatable.h)
-set(SIMPLE engine/main/objects/auxiliary/components/simple/Point.h engine/main/objects/auxiliary/components/simple/Size.h)
-set(FACTORY engine/main/objects/auxiliary/components/sprite/factory/background/BackGroundSpriteBoxFactory.h engine/main/objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.cpp engine/main/objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.h engine/main/objects/auxiliary/components/sprite/factory/sprite/SpriteFactory.h engine/main/objects/auxiliary/components/sprite/factory/sprite/StoneWallSpriteFactory.cpp engine/main/objects/auxiliary/components/sprite/factory/sprite/StoneWallSpriteFactory.h)
-set(SPRITE engine/main/objects/auxiliary/components/sprite/simple/box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/simple/box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/simple/base/ISprite.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h engine/main/objects/auxiliary/components/sprite/simple/box/ISpriteBox.h)
-set(COMPONENTS ${SIMPLE} ${FACTORY} ${SPRITE})
+set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/Point.h engine/main/objects/auxiliary/components/elementary/Point.cpp engine/main/objects/auxiliary/components/elementary/Size.h)
+set(SPRITE engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h engine/main/objects/auxiliary/components/sprite/common/box/ISpriteBox.h)
+set(COMPONENTS ${ELEMENTARY} ${SPRITE})
 set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
 
+set(GENERATING engine/main/objects/generating/background/BackGroundSpriteBoxFactory.h engine/main/objects/generating/background/PrimaryBackGroundFactory.cpp engine/main/objects/generating/background/PrimaryBackGroundFactory.h engine/main/objects/generating/sprite/SpriteFactory.h engine/main/objects/generating/sprite/StoneWallSpriteFactory.cpp engine/main/objects/generating/sprite/StoneWallSpriteFactory.h)
+
 set(MOBS)
-set(OBJECTS ${AUXILIARY} ${MOBS})
+
+set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS})
 
 set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 

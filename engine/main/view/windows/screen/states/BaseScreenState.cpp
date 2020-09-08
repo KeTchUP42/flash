@@ -3,8 +3,8 @@
 //
 
 #include "BaseScreenState.h"
-#include "../../../../../objects/auxiliary/components/sprite/factory/background/PrimaryBackGroundFactory.h"
-#include "../../../../../objects/auxiliary/components/sprite/factory/sprite/StoneWallSpriteFactory.h"
+#include "../../../../objects/generating/background/PrimaryBackGroundFactory.h"
+#include "../../../../objects/generating/sprite/StoneWallSpriteFactory.h"
 
 void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderWindow &target) {
     ScreenState::load(context, dataManager, target);

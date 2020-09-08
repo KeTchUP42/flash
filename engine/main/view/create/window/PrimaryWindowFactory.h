@@ -13,9 +13,6 @@ namespace ViewCreate {
     public:
         std::shared_ptr<WindowView::Window>
         createWindow(const std::string &filename, Managers::DataManager *dataManager) const override;
-
-        std::shared_ptr<WindowView::Window>
-        createWindow(sf::WindowHandle handle, Managers::DataManager *dataManager) const override;
     };
 }
 #endif //FLASH_PRIMARYWINDOWFACTORY_H

@@ -5,8 +5,8 @@
 #ifndef FLASH_BACKGROUNDSPRITEBOXFACTORY_H
 #define FLASH_BACKGROUNDSPRITEBOXFACTORY_H
 
-#include "../../simple/base/ISprite.h"
-#include "../../../../../../data/manager/DataManager.h"
+#include "../../auxiliary/components/sprite/common/base/ISprite.h"
+#include "../../../data/manager/DataManager.h"
 
 #include <memory>
 

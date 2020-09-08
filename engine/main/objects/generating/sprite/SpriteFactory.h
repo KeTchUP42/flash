@@ -5,8 +5,8 @@
 #ifndef FLASH_SPRITEFACTORY_H
 #define FLASH_SPRITEFACTORY_H
 
-#include "../../simple/base/ISprite.h"
-#include "../../../../../../data/manager/DataManager.h"
+#include "../../auxiliary/components/sprite/common/base/ISprite.h"
+#include "../../../data/manager/DataManager.h"
 
 #include <memory>
 

@@ -10,8 +10,8 @@
 #include "../../../../possibilities/Movable.h"
 #include "../../../../possibilities/Rotatable.h"
 #include "../../../../possibilities/CollisionProne.h"
-#include "../../../simple/Point.h"
-#include "../../../simple/Size.h"
+#include "../../../elementary/Point.h"
+#include "../../../elementary/Size.h"
 
 #include <SFML/Graphics.hpp>
 

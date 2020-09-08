@@ -6,8 +6,8 @@
 #define FLASH_SPRITEBOX_H
 
 #include "ISpriteBox.h"
-#include "../../../simple/Point.h"
-#include "../../../simple/Size.h"
+#include "../../../elementary/Point.h"
+#include "../../../elementary/Size.h"
 
 #include <memory>
 
@@ -33,6 +33,8 @@ namespace Components {
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
 
         void setPosition(const Point &point) noexcept override;
+
+        void setPosition(float x, float y) noexcept override;
 
         void setRotation(float angle) noexcept override;
 

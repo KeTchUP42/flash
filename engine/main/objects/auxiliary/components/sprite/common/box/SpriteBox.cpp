@@ -40,7 +40,7 @@ void Components::SpriteBox::rotate(float angle, const Components::Point &point) 
     float angleInRadians = angle * M_PI / 180;
     float newX = point.x + (point.y - _point.y) * std::sin(angleInRadians) + (_point.x - point.x) * std::cos(angleInRadians);
     float newY = point.y + (_point.y - point.y) * std::cos(angleInRadians) + (_point.x - point.x) * std::sin(angleInRadians);
-    this->setPosition(Point(newX, newY));
+    this->setPosition(newX, newY);
     this->rotate(angle);
 }
 
@@ -83,7 +83,11 @@ void Components::SpriteBox::update(const sf::Event &event, sf::RenderWindow &sen
 }
 
 void Components::SpriteBox::setPosition(const Components::Point &point) noexcept {
-    _point = point;
+    this->setPosition(point.x, point.y);
+}
+
+void Components::SpriteBox::setPosition(float x, float y) noexcept {
+    _point = Point(x, y);
     _sprite->setPosition(_point.x, _point.y);
 }
 

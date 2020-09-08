@@ -3,8 +3,8 @@
 //
 
 #include "PrimaryBackGroundFactory.h"
-#include "../../composite/CompositeSprite.h"
-#include "../../simple/box/SpriteBox.h"
+#include "../../auxiliary/components/sprite/composite/CompositeSprite.h"
+#include "../../auxiliary/components/sprite/common/box/SpriteBox.h"
 
 std::shared_ptr<Components::ISprite>
 Components::Factory::PrimaryBackGroundFactory::createSpriteBox(const Size &size, Managers::DataManager *dataManager) const {
