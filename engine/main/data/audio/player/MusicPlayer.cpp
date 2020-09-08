@@ -11,26 +11,26 @@ Audio::MusicPlayer::MusicPlayer(const std::string &filename, bool loop) {
         throw PreferredExceptions::AudioFileCanNotBeOpened("File " + filename + " cannot be opened.");
     }
     musicSource->setLoop(loop);
-    _soundSource = std::move(musicSource);
+    _sound = std::move(musicSource);
 }
 
 void Audio::MusicPlayer::play() {
-    _soundSource->play();
+    _sound->play();
 
-    while (_soundSource->getStatus() == sf::Music::Playing) {
+    while (_sound->getStatus() == sf::Music::Playing) {
         sf::sleep(sf::milliseconds(100));
     }
 }
 
 void Audio::MusicPlayer::playAsync() {
-    _soundSource->play();
+    _sound->play();
 }
 
 void Audio::MusicPlayer::stop() {
-    _soundSource->stop();
+    _sound->stop();
 }
 
 void Audio::MusicPlayer::pause() {
-    _soundSource->pause();
+    _sound->pause();
 }
 

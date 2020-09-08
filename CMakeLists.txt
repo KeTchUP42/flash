@@ -43,7 +43,7 @@ set(COMPONENTS ${BACK} ${SPRITES})
 set(LEVEL)
 set(GENERATING ${COMPONENTS} ${LEVEL})
 
-set(PLAYER)
+set(PLAYER engine/main/objects/mobs/player/base/Player.h engine/main/objects/mobs/player/base/Player.cpp)
 set(SHARED engine/main/objects/mobs/shared/Mob.h)
 set(MOBS ${PLAYER} ${SHARED})
 

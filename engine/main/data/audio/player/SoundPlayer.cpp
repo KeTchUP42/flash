@@ -4,21 +4,21 @@
 #include "SoundPlayer.h"
 
 void Audio::SoundPlayer::play() {
-    _soundSource->play();
+    _sound->play();
 
-    while (_soundSource->getStatus() == sf::Sound::Playing) {
+    while (_sound->getStatus() == sf::Sound::Playing) {
         sf::sleep(sf::milliseconds(100));
     }
 }
 
 void Audio::SoundPlayer::playAsync() {
-    _soundSource->play();
+    _sound->play();
 }
 
 void Audio::SoundPlayer::stop() {
-    _soundSource->stop();
+    _sound->stop();
 }
 
 void Audio::SoundPlayer::pause() {
-    _soundSource->pause();
+    _sound->pause();
 }
