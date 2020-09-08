@@ -5,7 +5,7 @@
 #ifndef FLASH_STATECHANGEABLE_H
 #define FLASH_STATECHANGEABLE_H
 
-#include "../state/ScreenState.h"
+#include "../state/base/ScreenState.h"
 
 namespace Screen {
 

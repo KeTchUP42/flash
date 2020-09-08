@@ -25,7 +25,7 @@ set(DATA ${AUDIO} ${MANAGERS})
 
 set(OBSERVERS engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/base/observers/WindowResizeObserver.cpp engine/main/view/windows/base/observers/WindowResizeObserver.h)
 set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
-set(SCREEN engine/main/view/windows/additional/screen/context-abilities/StateChangeable.h engine/main/view/windows/additional/screen/state/ScreenState.h engine/main/view/windows/additional/screen/state/ScreenState.cpp engine/main/view/windows/additional/screen/state/BaseScreenState.cpp engine/main/view/windows/additional/screen/state/BaseScreenState.h)
+set(SCREEN engine/main/view/windows/additional/screen/context-abilities/StateChangeable.h engine/main/view/windows/additional/screen/state/base/ScreenState.h engine/main/view/windows/additional/screen/state/base/ScreenState.cpp engine/main/view/windows/additional/screen/state/BaseScreenState.cpp engine/main/view/windows/additional/screen/state/BaseScreenState.h)
 set(ADDITIONAL ${SCREEN})
 set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${ADDITIONAL})
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
