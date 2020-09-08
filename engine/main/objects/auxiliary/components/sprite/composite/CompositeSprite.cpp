@@ -10,7 +10,7 @@ void Components::CompositeSprite::draw(sf::RenderTarget &target) const noexcept 
     }
 }
 
-void Components::CompositeSprite::move(int offsetX, int offsetY) noexcept {
+void Components::CompositeSprite::move(float offsetX, float offsetY) noexcept {
     for (const std::shared_ptr<ISprite> &sprite : _sprites) {
         sprite->move(offsetX, offsetY);
     }

@@ -22,7 +22,7 @@ void Components::SpriteBox::draw(sf::RenderTarget &target) const noexcept {
     target.draw(*_sprite.get(), sf::RenderStates::Default);
 }
 
-void Components::SpriteBox::move(int offsetX, int offsetY) noexcept {
+void Components::SpriteBox::move(float offsetX, float offsetY) noexcept {
     _point.x += offsetX;
     _point.y += offsetY;
     _sprite->setPosition(_point.x, _point.y);

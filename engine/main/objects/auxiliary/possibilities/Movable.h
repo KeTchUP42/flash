@@ -22,7 +22,7 @@ namespace Possibilities {
          * @param offsetX X offset.
          * @param offsetY Y offset.
          */
-        virtual void move(int offsetX, int offsetY) noexcept = 0;
+        virtual void move(float offsetX, float offsetY) noexcept = 0;
 
         virtual ~Movable() = default;
     };
