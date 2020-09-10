@@ -16,10 +16,10 @@ namespace WindowView {
     public:
         explicit PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
                                const sf::ContextSettings &settings, Screen::ScreenState *screenState,
-                               Managers::DataManager *dataManager);
+                               Managers::DataManager *manager);
 
         explicit PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
-                               Screen::ScreenState *screenState, Managers::DataManager *dataManager);
+                               Screen::ScreenState *screenState, Managers::DataManager *manager);
 
     private:
         void configure();
@@ -37,7 +37,7 @@ namespace WindowView {
          * @brief Current window screen state.
          */
         std::shared_ptr<Screen::ScreenState> _screen;
-        Managers::DataManager *_dataManager;
+        Managers::DataManager *_manager;
     };
 }
 

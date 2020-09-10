@@ -12,8 +12,8 @@
 #include <cstdlib>
 
 std::shared_ptr<WindowView::Window>
-ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Managers::DataManager *dataManager) const {
-    IniProcessorUtil::Analyzer::IniData iniData = dataManager->getConfigManager()->loadIni(filename);
+ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Managers::DataManager *manager) const {
+    IniProcessorUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
 
     //context settings
     sf::ContextSettings contextSettings;
@@ -40,7 +40,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Mana
     //window
     using namespace WindowView;
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"], style,
-                                       contextSettings, new Screen::BaseScreenState(), dataManager);
+                                       contextSettings, new Screen::BaseScreenState(), manager);
     //fps
     window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
     //..

@@ -27,11 +27,11 @@ namespace ViewCreate {
          * This method WILL NOT delete DataManager!
          *
          * @param filename Window config filename.
-         * @param dataManager Resource data manager.
+         * @param manager Resource data manager.
          * @return New Window.
          */
         virtual std::shared_ptr<WindowView::Window>
-        createWindow(const std::string &filename, Managers::DataManager *dataManager) const = 0;
+        createWindow(const std::string &filename, Managers::DataManager *manager) const = 0;
 
         virtual ~WindowFactory() = default;
     };

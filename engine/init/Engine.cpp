@@ -15,7 +15,7 @@ Program::Engine::Engine(const std::string &filename) {
 int Program::Engine::start() const {
     try {
         ViewCreate::PrimaryWindowFactory factory;
-        std::shared_ptr<WindowView::Window> window = factory.createWindow("primary.ini", _manager.get());
+        std::shared_ptr<WindowView::Window> window = factory.createWindow("win/primary.ini", _manager.get());
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
