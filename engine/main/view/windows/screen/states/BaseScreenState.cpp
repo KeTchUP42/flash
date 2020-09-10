@@ -4,7 +4,7 @@
 
 #include "BaseScreenState.h"
 #include "../../../../objects/generating/components/background/PrimaryBackGroundFactory.h"
-#include "../../../../objects/generating/components/sprites/StoneWallSpriteFactory.h"
+#include "../../../../objects/generating/level/StartLevelFactory.h"
 
 void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
     ScreenState::load(context, manager, target);
@@ -15,20 +15,19 @@ void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManag
     PrimaryBackGroundFactory factory;
     _background = factory.createSpriteBox(target.getSize(), _manager);
 
-    StoneWallSpriteFactory wall_factory;
-    _block = wall_factory.createSprite(Point(540, 360), Size(50, 50), _dataManager);
+    LevelGenerating::StartLevelFactory lvl_factory;
+    _unifier = lvl_factory.loadLevel(target.getSize(), _context, _manager);
 }
 
 void Screen::BaseScreenState::refresh() {
-    _block->rotate(1, 640, 385);
+    _unifier->refresh();
 }
 
 void Screen::BaseScreenState::draw(sf::RenderWindow &target) const noexcept {
     _background->draw(target);
-    _block->draw(target);
+    _unifier->draw(target);
 }
 
-void Screen::BaseScreenState::update(const sf::Event &event, sf::RenderWindow &sender) noexcept {
-    // todo: If I call _window->setScreenState(new BaseScreenState()); here,
-    // todo: I will have error signal in Window->notify() because "observer == nullptr". Think how to fix.
+void Screen::BaseScreenState::update(const sf::Event &event, sf::RenderWindow &sender) {
+    _unifier->update(event, sender);
 }

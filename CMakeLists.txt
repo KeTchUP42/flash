@@ -40,17 +40,18 @@ set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
 set(BACK engine/main/objects/generating/components/background/BackGroundSpriteBoxFactory.h engine/main/objects/generating/components/background/PrimaryBackGroundFactory.cpp engine/main/objects/generating/components/background/PrimaryBackGroundFactory.h)
 set(SPRITES engine/main/objects/generating/components/sprites/SpriteFactory.h engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.cpp engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.h)
 set(COMPONENTS ${BACK} ${SPRITES})
-set(LEVEL)
+set(LEVEL engine/main/objects/generating/level/LevelUnifierFactory.h engine/main/objects/generating/level/StartLevelFactory.cpp engine/main/objects/generating/level/StartLevelFactory.h)
 set(GENERATING ${COMPONENTS} ${LEVEL})
 
-set(PLAYER engine/main/objects/mobs/player/base/Player.h engine/main/objects/mobs/player/base/Player.cpp)
+set(PLAYER engine/main/objects/mobs/player/base/Player.h engine/main/objects/mobs/player/base/Player.cpp engine/main/objects/mobs/player/control/KeyAlias.h engine/main/objects/mobs/player/custom/CommonPlayer.cpp engine/main/objects/mobs/player/custom/CommonPlayer.h)
 set(SHARED engine/main/objects/mobs/shared/Mob.h)
 set(MOBS ${PLAYER} ${SHARED})
 
+set(UNIFIER engine/main/objects/unifier/base/Unifier.h engine/main/objects/unifier/base/Unifier.cpp engine/main/objects/unifier/CommonUnifier.cpp engine/main/objects/unifier/CommonUnifier.h)
 
 set(STATIC)
 
-set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${STATIC})
+set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${UNIFIER} ${STATIC})
 
 set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 

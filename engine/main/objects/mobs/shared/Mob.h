@@ -9,9 +9,16 @@
 #include "../../auxiliary/possibilities/Movable.h"
 #include "../../auxiliary/possibilities/CollisionProne.h"
 #include "../../auxiliary/possibilities/Rotatable.h"
+#include "../../auxiliary/possibilities/SelfActionable.h"
+#include "../../auxiliary/possibilities/SelfMovable.h"
 #include "../../../view/windows/base/observer/Observer.h"
+#include "../../unifier/base/Unifier.h"
 
 #include <SFML/Graphics.hpp>
+
+namespace Unite {
+    class Unifier;
+}
 
 namespace Mobs {
 
@@ -21,11 +28,14 @@ namespace Mobs {
      *
      * This class defines base Mob interface.
     */
-    class Mob : public Possibilities::Movable,
-                public Possibilities::CollisionProne,
-                public Possibilities::Rotatable,
-                public Possibilities::Drawable<sf::RenderTarget>,
-                public WindowView::Observer<sf::RenderWindow, sf::Event> {
+    class Mob :
+            public Possibilities::SelfActionable<Unite::Unifier>,
+            public Possibilities::SelfMovable<Unite::Unifier>,
+            public Possibilities::Movable,
+            public Possibilities::CollisionProne,
+            public Possibilities::Rotatable,
+            public Possibilities::Drawable<sf::RenderTarget>,
+            public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         Mob() = default;
 
@@ -34,6 +44,14 @@ namespace Mobs {
          * @return Mob
          */
         Mob &operator=(const Mob &) = delete;
+
+        /**
+         * @brief Method returns mob's position.
+         * @return Mob's position.
+         */
+        virtual const Components::Point &getPosition() const noexcept = 0;
+
+        //Think about size getter.
 
         virtual ~Mob() = default;
     };

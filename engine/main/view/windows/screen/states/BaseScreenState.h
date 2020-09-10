@@ -7,6 +7,7 @@
 
 #include "base/ScreenState.h"
 #include "../../../../objects/auxiliary/components/sprite/common/base/ISprite.h"
+#include "../../../../objects/unifier/base/Unifier.h"
 
 namespace Screen {
 
@@ -22,7 +23,7 @@ namespace Screen {
 
     protected:
         std::shared_ptr<Components::ISprite> _background;
-        std::shared_ptr<Components::ISprite> _block;
+        std::shared_ptr<Unite::Unifier> _unifier;
     };
 }
 
