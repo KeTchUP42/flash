@@ -13,7 +13,7 @@ namespace ComponentsGenerating {
     public:
         std::shared_ptr<Components::ISprite>
         createSprite(const Components::Point &point, const Components::Size &size,
-                     Managers::DataManager *dataManager) const override;
+                     Managers::DataManager *manager) const override;
     };
 }
 

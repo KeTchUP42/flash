@@ -8,10 +8,10 @@
 
 std::shared_ptr<Components::ISprite>
 ComponentsGenerating::StoneWallSpriteFactory::createSprite(const Components::Point &point, const Components::Size &size,
-                                                           Managers::DataManager *dataManager) const {
+                                                           Managers::DataManager *manager) const {
     using namespace Components;
     CompositeSprite *sprite = new CompositeSprite();
-    auto texture = dataManager->getTextureManager()->load("structure/walls/stone/stone_wall_1.jpg");
+    auto texture = manager->getTextureManager()->load("structure/walls/stone/stone_wall_1.jpg");
     sprite->addSprite(new SpriteBox(point, size, texture));
     return std::shared_ptr<Components::ISprite>(sprite);
 }

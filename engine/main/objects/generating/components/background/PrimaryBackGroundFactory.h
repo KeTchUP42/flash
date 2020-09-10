@@ -12,7 +12,7 @@ namespace ComponentsGenerating {
     class PrimaryBackGroundFactory : public BackGroundSpriteBoxFactory {
     public:
         std::shared_ptr<Components::ISprite>
-        createSpriteBox(const Components::Size &size, Managers::DataManager *dataManager) const override;
+        createSpriteBox(const sf::Vector2u &size, Managers::DataManager *manager) const override;
     };
 }
 

@@ -29,7 +29,7 @@ namespace ComponentsGenerating {
          * @return SpriteBox.
          */
         virtual std::shared_ptr<Components::ISprite>
-        createSpriteBox(const Components::Size &size, Managers::DataManager *dataManager) const = 0;
+        createSpriteBox(const sf::Vector2u &size, Managers::DataManager *manager) const = 0;
 
         virtual ~BackGroundSpriteBoxFactory() = default;
     };
