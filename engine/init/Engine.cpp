@@ -9,17 +9,17 @@
 
 Program::Engine::Engine(const std::string &filename) {
     Setup::EngineConfigurator configurator(filename);
-    _dataManager = std::unique_ptr<Managers::DataManager>(configurator.load());
+    _manager = std::unique_ptr<Managers::DataManager>(configurator.load());
 }
 
 int Program::Engine::start() const {
     try {
         ViewCreate::PrimaryWindowFactory factory;
-        std::shared_ptr<WindowView::Window> window = factory.createWindow("primary.ini", _dataManager.get());
+        std::shared_ptr<WindowView::Window> window = factory.createWindow("primary.ini", _manager.get());
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
-        std::shared_ptr<LoggerUtil::Logger> logger = _dataManager->getLogManager()->createLoggerForFile("crash.log");
+        std::shared_ptr<LoggerUtil::Logger> logger = _manager->getLogManager()->createLoggerForFile("crash.log");
         logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
         return exception.getCode();
     }

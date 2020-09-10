@@ -7,6 +7,8 @@
 
 #include "../base/ISprite.h"
 
+#include <memory>
+
 namespace Components {
 
     class ISpriteBox : public ISprite {
@@ -33,13 +35,43 @@ namespace Components {
         virtual void setRotation(float angle) noexcept = 0;
 
         /**
-         * @brief Method returns SpriteBox Point.
-         * @return Sprite point.
+         * @brief Method returns origin sprite.
+         * @return Sprite.
          */
-        virtual const Point &getPoint() const noexcept = 0;
+        virtual const std::shared_ptr<sf::Sprite> &getSprite() const noexcept = 0;
 
         /**
-         * @brief Method returns SpriteBox Size.
+         * @brief Method returns sprite texture.
+         * @return Texture ptr.
+         */
+        virtual const sf::Texture *const getTexture() const noexcept = 0;
+
+        /**
+         * @brief Method returns texture rect.
+         * @return Texture rect.
+         */
+        virtual const sf::IntRect &getTextureRect() const noexcept = 0;
+
+        /**
+         * @brief Method return sprite color.
+         * @return Color.
+         */
+        virtual sf::Color getColor() const noexcept = 0;
+
+        /**
+         * @brief Method sets sprite color.
+         * @param color Color.
+         */
+        virtual void setColor(const sf::Color &color) noexcept = 0;
+
+        /**
+         * @brief Method returns SpriteBox position.
+         * @return Sprite point.
+         */
+        virtual const Point &getPosition() const noexcept = 0;
+
+        /**
+         * @brief Method returns SpriteBox size.
          * @return Sprite size.
          */
         virtual const Size &getSize() const noexcept = 0;

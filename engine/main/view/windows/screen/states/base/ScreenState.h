@@ -33,10 +33,10 @@ namespace Screen {
         /**
          * @brief Method inits all screen components. ALL overrides MUST call base method.
          * @param context StateChangeable context.
-         * @param dataManager Manager for data searching.
+         * @param manager Manager for data searching.
          * @param target Render target.
          */
-        virtual void load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderWindow &target);
+        virtual void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target);
 
         /**
          * @brief Method uses for components refresh logic.
@@ -53,7 +53,7 @@ namespace Screen {
         /**
          * @brief Do not call "delete" for this ptr.
          */
-        Managers::DataManager *_dataManager;
+        Managers::DataManager *_manager;
     };
 }
 

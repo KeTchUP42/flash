@@ -5,7 +5,7 @@
 #ifndef FLASH_ROTATABLE_H
 #define FLASH_ROTATABLE_H
 
-#include "../components/elementary/Point.h"
+#include "../components/elementary/point/Point.h"
 
 namespace Possibilities {
 

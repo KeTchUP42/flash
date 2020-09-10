@@ -6,14 +6,14 @@
 #include "../../../../objects/generating/components/background/PrimaryBackGroundFactory.h"
 #include "../../../../objects/generating/components/sprites/StoneWallSpriteFactory.h"
 
-void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderWindow &target) {
-    ScreenState::load(context, dataManager, target);
+void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
+    ScreenState::load(context, manager, target);
 
     using namespace Components;
     using namespace ComponentsGenerating;
 
     PrimaryBackGroundFactory factory;
-    _background = factory.createSpriteBox(Size(target.getSize().x, target.getSize().y), _dataManager);
+    _background = factory.createSpriteBox(target.getSize(), _manager);
 
     StoneWallSpriteFactory wall_factory;
     _block = wall_factory.createSprite(Point(540, 360), Size(50, 50), _dataManager);

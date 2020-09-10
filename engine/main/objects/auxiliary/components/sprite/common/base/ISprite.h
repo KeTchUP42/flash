@@ -5,12 +5,12 @@
 #ifndef FLASH_ISPRITE_H
 #define FLASH_ISPRITE_H
 
-#include "../../../../../../view/windows/base/observer/Observer.h"
 #include "../../../../possibilities/Drawable.h"
 #include "../../../../possibilities/Movable.h"
 #include "../../../../possibilities/Rotatable.h"
 #include "../../../../possibilities/CollisionProne.h"
-#include "../../../elementary/Point.h"
+#include "../../../../../../view/windows/base/observer/Observer.h"
+#include "../../../elementary/point/Point.h"
 #include "../../../elementary/Size.h"
 
 #include <SFML/Graphics.hpp>

@@ -31,8 +31,8 @@ set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/c
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
-set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Rotatable.h)
-set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/Point.h engine/main/objects/auxiliary/components/elementary/Point.cpp engine/main/objects/auxiliary/components/elementary/Size.h)
+set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Rotatable.h engine/main/objects/auxiliary/possibilities/SelfMovable.h engine/main/objects/auxiliary/possibilities/SelfActionable.h)
+set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/point/Point.h engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/Size.h engine/main/objects/auxiliary/components/elementary/Speed.h)
 set(SPRITE engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h engine/main/objects/auxiliary/components/sprite/common/box/ISpriteBox.h)
 set(COMPONENTS ${ELEMENTARY} ${SPRITE})
 set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})

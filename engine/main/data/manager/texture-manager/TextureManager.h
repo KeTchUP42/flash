@@ -20,10 +20,10 @@ namespace Managers {
     class TextureManager {
     public:
         explicit TextureManager(const std::string &textureDirectory)
-                : _textureDirectory(textureDirectory) {}
+                : _textures(textureDirectory) {}
 
         explicit TextureManager(const char *textureDirectory)
-                : _textureDirectory(textureDirectory) {}
+                : _textures(textureDirectory) {}
 
         /**
          * @brief Method loads texture from Texture directory.
@@ -37,7 +37,7 @@ namespace Managers {
         virtual ~TextureManager() = default;
 
     protected:
-        const std::string _textureDirectory;
+        const std::string _textures;
     };
 }
 

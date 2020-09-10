@@ -4,7 +4,7 @@
 
 #include "ScreenState.h"
 
-void Screen::ScreenState::load(StateChangeable *context, Managers::DataManager *dataManager, sf::RenderWindow &target) {
+void Screen::ScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
     _context = context;
-    _dataManager = dataManager;
+    _manager = manager;
 }

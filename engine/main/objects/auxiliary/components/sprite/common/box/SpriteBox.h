@@ -6,10 +6,8 @@
 #define FLASH_SPRITEBOX_H
 
 #include "ISpriteBox.h"
-#include "../../../elementary/Point.h"
+#include "../../../elementary/point/Point.h"
 #include "../../../elementary/Size.h"
-
-#include <memory>
 
 namespace Components {
 
@@ -38,7 +36,17 @@ namespace Components {
 
         void setRotation(float angle) noexcept override;
 
-        const Point &getPoint() const noexcept override;
+        const std::shared_ptr<sf::Sprite> &getSprite() const noexcept override;
+
+        const sf::Texture *const getTexture() const noexcept override;
+
+        const sf::IntRect &getTextureRect() const noexcept override;
+
+        sf::Color getColor() const noexcept override;
+
+        void setColor(const sf::Color &color) noexcept override;
+
+        const Point &getPosition() const noexcept override;
 
         const Size &getSize() const noexcept override;
 

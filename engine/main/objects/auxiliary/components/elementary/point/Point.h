@@ -27,14 +27,14 @@ namespace Components {
          * @param rhs Compared object.
          * @return
          */
-        bool operator==(const Point &rhs) const;
+        bool operator==(const Point &rhs) const noexcept;
 
         /**
          * @brief Method overload comparison operator.
          * @param rhs Compared object.
          * @return
          */
-        bool operator!=(const Point &rhs) const;
+        bool operator!=(const Point &rhs) const noexcept;
 
         float x;
         float y;

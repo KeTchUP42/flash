@@ -38,9 +38,10 @@ void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
 
 void Components::SpriteBox::rotate(float angle, const Components::Point &point) noexcept {
     float angleInRadians = angle * M_PI / 180;
-    float newX = point.x + (point.y - _point.y) * std::sin(angleInRadians) + (_point.x - point.x) * std::cos(angleInRadians);
-    float newY = point.y + (_point.y - point.y) * std::cos(angleInRadians) + (_point.x - point.x) * std::sin(angleInRadians);
-    this->setPosition(newX, newY);
+    this->setPosition(
+            point.x + (point.y - _point.y) * std::sin(angleInRadians) + (_point.x - point.x) * std::cos(angleInRadians),
+            point.y + (_point.y - point.y) * std::cos(angleInRadians) + (_point.x - point.x) * std::sin(angleInRadians)
+    );
     this->rotate(angle);
 }
 
@@ -95,11 +96,32 @@ void Components::SpriteBox::setRotation(float angle) noexcept {
     _sprite->setRotation(angle);
 }
 
-const Components::Point &Components::SpriteBox::getPoint() const noexcept {
+const std::shared_ptr<sf::Sprite> &Components::SpriteBox::getSprite() const noexcept {
+    return _sprite;
+}
+
+const sf::Texture *const Components::SpriteBox::getTexture() const noexcept {
+    return _sprite->getTexture();
+}
+
+const sf::IntRect &Components::SpriteBox::getTextureRect() const noexcept {
+    return _sprite->getTextureRect();
+}
+
+sf::Color Components::SpriteBox::getColor() const noexcept {
+    return _sprite->getColor();
+}
+
+void Components::SpriteBox::setColor(const sf::Color &color) noexcept {
+    _sprite->setColor(color);
+}
+
+const Components::Point &Components::SpriteBox::getPosition() const noexcept {
     return _point;
 }
 
 const Components::Size &Components::SpriteBox::getSize() const noexcept {
     return _size;
 }
+
 

@@ -10,7 +10,7 @@
 std::shared_ptr<LoggerUtil::Logger>
 Managers::BaseLogManager::createLoggerForFile(const std::string &filename) const {
     return std::shared_ptr<LoggerUtil::Logger>(
-            new LoggerUtil::BaseLogger(new WriterUtil::FileWriter(_logDirectory + "/" + filename)));
+            new LoggerUtil::BaseLogger(new WriterUtil::FileWriter(_logs + "/" + filename)));
 }
 
 std::shared_ptr<LoggerUtil::Logger>
@@ -18,7 +18,7 @@ Managers::BaseLogManager::createLoggerForSomeFiles(const std::vector<std::string
     std::vector<std::string> paths = filenames;
 
     for (std::string &path : paths) {
-        path = _logDirectory + "/" + path;
+        path = _logs + "/" + path;
     }
     return std::shared_ptr<LoggerUtil::Logger>(new LoggerUtil::BaseLogger(new WriterUtil::MultiFileWriter(paths)));
 }

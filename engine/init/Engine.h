@@ -36,7 +36,7 @@ namespace Program {
         virtual ~Engine() = default;
 
     private:
-        std::unique_ptr<Managers::DataManager> _dataManager;
+        std::unique_ptr<Managers::DataManager> _manager;
     };
 }
 
