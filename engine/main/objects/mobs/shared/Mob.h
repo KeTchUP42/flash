@@ -12,6 +12,7 @@
 #include "../../auxiliary/possibilities/SelfActionable.h"
 #include "../../auxiliary/possibilities/SelfMovable.h"
 #include "../../../view/windows/base/observer/Observer.h"
+#include "../../auxiliary/components/elementary/Size.h"
 #include "../../unifier/base/Unifier.h"
 
 #include <SFML/Graphics.hpp>
@@ -51,7 +52,11 @@ namespace Mobs {
          */
         virtual const Components::Point &getPosition() const noexcept = 0;
 
-        //Think about size getter.
+        /**
+         * @brief Method returns mob's size.
+         * @return Mob's position.
+         */
+        virtual const Components::Size &getSize() const noexcept = 0;
 
         virtual ~Mob() = default;
     };

@@ -21,3 +21,19 @@ void Unite::Unifier::removePlayer(const std::shared_ptr<Mobs::Player> &player) n
 const std::list<std::shared_ptr<Mobs::Player>> &Unite::Unifier::getPlayers() const noexcept {
     return _players;
 }
+
+void Unite::Unifier::addEffect(Effects::Effect *effect) noexcept {
+    _effects.push_back(std::shared_ptr<Effects::Effect>(effect));
+}
+
+void Unite::Unifier::addEffect(const std::shared_ptr<Effects::Effect> &effect) noexcept {
+    _effects.push_back(effect);
+}
+
+void Unite::Unifier::removeEffect(const std::shared_ptr<Effects::Effect> &effect) noexcept {
+    _effects.remove(effect);
+}
+
+const std::list<std::shared_ptr<Effects::Effect>> &Unite::Unifier::getEffects() const noexcept {
+    return _effects;
+}

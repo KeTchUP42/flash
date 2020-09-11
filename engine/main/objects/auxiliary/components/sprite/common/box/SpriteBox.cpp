@@ -104,6 +104,12 @@ const sf::Texture *const Components::SpriteBox::getTexture() const noexcept {
     return _sprite->getTexture();
 }
 
+void Components::SpriteBox::setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
+    _texture.reset(); // Safe delete.
+    _texture = texture;
+    _sprite->setTexture(*_texture.get(), true);
+}
+
 const sf::IntRect &Components::SpriteBox::getTextureRect() const noexcept {
     return _sprite->getTextureRect();
 }
@@ -123,5 +129,3 @@ const Components::Point &Components::SpriteBox::getPosition() const noexcept {
 const Components::Size &Components::SpriteBox::getSize() const noexcept {
     return _size;
 }
-
-

@@ -3,7 +3,6 @@
 //
 
 #include "Player.h"
-#include "../../../auxiliary/components/sprite/common/box/SpriteBox.h"
 
 Mobs::Player::Player(const std::shared_ptr<Components::ISpriteBox> &sprite)
         : _sprite(sprite), _speed() {}
@@ -12,12 +11,8 @@ void Mobs::Player::loadKeyMap(const std::map<Mobs::KeyAlias, sf::Keyboard::Key> 
     _keyMap = keyMap;
 }
 
-void Mobs::Player::loadNewSprite(const std::shared_ptr<sf::Texture> &texture) noexcept {
-    Components::Point point = _sprite->getPosition();
-    Components::Size size = _sprite->getSize();
-
-    _sprite.reset(); //Method deletes an old one ptr.
-    _sprite = std::make_shared<Components::SpriteBox>(point, size, texture);
+void Mobs::Player::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
+    _sprite->setTexture(texture);
 }
 
 const Components::Point &Mobs::Player::getPosition() const noexcept {
@@ -59,4 +54,8 @@ void Mobs::Player::setMoveSpeed(const Components::Speed &speed) noexcept {
 
 const Components::Speed &Mobs::Player::getMoveSpeed() const noexcept {
     return _speed;
+}
+
+const Components::Size &Mobs::Player::getSize() const noexcept {
+    return _sprite->getSize();
 }

@@ -40,6 +40,8 @@ namespace Components {
 
         const sf::Texture *const getTexture() const noexcept override;
 
+        void setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept override;
+
         const sf::IntRect &getTextureRect() const noexcept override;
 
         sf::Color getColor() const noexcept override;

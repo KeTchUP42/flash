@@ -9,9 +9,14 @@
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../../mobs/player/base/Player.h"
+#include "../../static/effects/Effect.h"
 
 namespace Mobs {
     class Player;
+}
+
+namespace Effects {
+    class Effect;
 }
 
 namespace Unite {
@@ -62,6 +67,30 @@ namespace Unite {
 
         //..
 
+        /**
+         * @brief Method adds new effect.
+         * @param effect New effect.
+         */
+        void addEffect(Effects::Effect *effect) noexcept;
+
+        /**
+         * @brief Method adds new effect.
+         * @param effect New effect.
+         */
+        void addEffect(const std::shared_ptr<Effects::Effect> &effect) noexcept;
+
+        /**
+         * @brief Method removes effect.
+         * @param effect Existing effect.
+         */
+        void removeEffect(const std::shared_ptr<Effects::Effect> &effect) noexcept;
+
+        /**
+         * @brief Method returns const reference on effects collection.
+         * @return Const reference on effects collection.
+         */
+        const std::list<std::shared_ptr<Effects::Effect>> &getEffects() const noexcept;
+
         virtual ~Unifier() = default;
 
     protected:
@@ -76,6 +105,11 @@ namespace Unite {
         std::list<std::shared_ptr<Mobs::Player>> _players;
 
         //..
+
+        /**
+         * @brief Effects.
+         */
+        std::list<std::shared_ptr<Effects::Effect>> _effects;
     };
 }
 

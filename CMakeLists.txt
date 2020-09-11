@@ -49,7 +49,8 @@ set(MOBS ${PLAYER} ${SHARED})
 
 set(UNIFIER engine/main/objects/unifier/base/Unifier.h engine/main/objects/unifier/base/Unifier.cpp engine/main/objects/unifier/CommonUnifier.cpp engine/main/objects/unifier/CommonUnifier.h)
 
-set(STATIC)
+set(EFFECTS engine/main/objects/static/effects/Effect.h engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityEffect.h)
+set(STATIC ${EFFECTS})
 
 set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${UNIFIER} ${STATIC})
 

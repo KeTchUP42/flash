@@ -46,7 +46,7 @@ namespace Mobs {
          * @brief Method changes player's sprite.
          * @param texture New sprite.
          */
-        void loadNewSprite(const std::shared_ptr<sf::Texture> &texture) noexcept;
+        void loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
 
         bool collision(int x, int y) const noexcept override;
 
@@ -67,6 +67,8 @@ namespace Mobs {
         const Components::Speed &getMoveSpeed() const noexcept override;
 
         const Components::Point &getPosition() const noexcept override;
+
+        const Components::Size &getSize() const noexcept override;
 
         virtual ~Player() = default;
 
