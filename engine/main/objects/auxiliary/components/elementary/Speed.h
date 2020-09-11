@@ -17,7 +17,7 @@ namespace Components {
         Speed(float xSpeed, float ySpeed)
                 : xSpeed(xSpeed), ySpeed(ySpeed) {}
 
-        Speed() : xSpeed(0), ySpeed(0) {}
+        Speed() : xSpeed(), ySpeed() {}
 
         float xSpeed;
         float ySpeed;

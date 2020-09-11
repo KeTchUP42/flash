@@ -28,9 +28,9 @@ namespace Managers {
         /**
          * @brief Method loads font from Font directory.
          * @param filename Font file name in Font directory.
-         * @return std::shared_ptr<sf::Font>
+         * @return New Font.
          */
-        virtual std::shared_ptr<sf::Font> load(const std::string &filename) const = 0;
+        virtual std::shared_ptr<sf::Font> loadFont(const std::string &filename) const = 0;
 
         virtual ~FontManager() = default;
 

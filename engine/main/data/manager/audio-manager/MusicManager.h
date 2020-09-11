@@ -18,7 +18,7 @@ namespace Managers {
                 : AudioManager(audioDirectory) {}
 
         std::shared_ptr<Audio::AudioPlayer>
-        createAudioPlayerForFile(const std::string &filename, bool loop) const override;
+        loadAudioFile(const std::string &filename, bool loop) const override;
     };
 }
 

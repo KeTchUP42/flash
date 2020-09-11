@@ -30,10 +30,10 @@ namespace Managers {
          * @brief Method loads file from Audio directory.
          * @param filename File in audio directory.
          * @param Is loop? Can be useless.
-         * @return std::shared_ptr<Audio::AudioPlayer>
+         * @return New audio player.
          */
         virtual std::shared_ptr<Audio::AudioPlayer>
-        createAudioPlayerForFile(const std::string &filename, bool loop) const = 0;
+        loadAudioFile(const std::string &filename, bool loop) const = 0;
 
         virtual ~AudioManager() = default;
 

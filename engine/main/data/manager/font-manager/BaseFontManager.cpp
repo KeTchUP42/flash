@@ -5,7 +5,7 @@
 #include "BaseFontManager.h"
 #include "../../../general/exceptions/custom/FontCanNotBeLoaded.h"
 
-std::shared_ptr<sf::Font> Managers::BaseFontManager::load(const std::string &filename) const {
+std::shared_ptr<sf::Font> Managers::BaseFontManager::loadFont(const std::string &filename) const {
     std::shared_ptr<sf::Font> font(new sf::Font());
 
     if (!font->loadFromFile(_fonts + "/" + filename))

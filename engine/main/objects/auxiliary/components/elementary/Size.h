@@ -17,6 +17,8 @@ namespace Components {
         explicit Size(unsigned int width, unsigned int height)
                 : width(width), height(height) {}
 
+        Size() : width(), height() {}
+
         unsigned int width;
         unsigned int height;
     };

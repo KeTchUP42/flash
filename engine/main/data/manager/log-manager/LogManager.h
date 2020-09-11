@@ -30,7 +30,7 @@ namespace Managers {
         /**
          * @brief Method creates Logger for file in Log directory.
          * @param filename File in Log directory.
-         * @return std::shared_ptr<LoggerUtil::Logger>
+         * @return New Logger.
          */
         virtual std::shared_ptr<LoggerUtil::Logger>
         createLoggerForFile(const std::string &filename) const = 0;
@@ -38,7 +38,7 @@ namespace Managers {
         /**
          * @brief Method creates Logger for files in Log directory.
          * @param filenames Files in Log directory.
-         * @return std::shared_ptr<LoggerUtil::Logger>
+         * @return New Logger.
          */
         virtual std::shared_ptr<LoggerUtil::Logger>
         createLoggerForSomeFiles(const std::vector<std::string> &filenames) const = 0;

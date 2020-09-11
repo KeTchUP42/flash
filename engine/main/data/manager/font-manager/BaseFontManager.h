@@ -17,7 +17,7 @@ namespace Managers {
         explicit BaseFontManager(const char *fontDirectory)
                 : FontManager(fontDirectory) {}
 
-        std::shared_ptr<sf::Font> load(const std::string &filename) const override;
+        std::shared_ptr<sf::Font> loadFont(const std::string &filename) const override;
     };
 }
 
