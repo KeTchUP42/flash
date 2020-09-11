@@ -25,13 +25,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
                             Size(70, 50),
                             manager->getTextureManager()->load("mobs/player/mush.png"))));
 
-    //In future load from file!
-    std::map<KeyAlias, sf::Keyboard::Key> keys;
-    keys[KeyAlias::Right] = sf::Keyboard::Key::D;
-    keys[KeyAlias::Left] = sf::Keyboard::Key::A;
-    keys[KeyAlias::Jump] = sf::Keyboard::Key::Space;
-    player->loadKeyMap(keys);
-
+    player->loadKeyMap("keys/keymap.ini", manager);
     unifier->addPlayer(player);
 
     return std::shared_ptr<Unite::Unifier>(unifier);

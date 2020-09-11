@@ -15,7 +15,8 @@ namespace Mobs {
         Left,
         Jump,
         Use,
-        Shoot,
+        ShootR,
+        ShootL,
     };
 }
 

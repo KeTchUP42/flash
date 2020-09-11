@@ -36,6 +36,13 @@ namespace Mobs {
         void loadKeyMap(const std::map<KeyAlias, sf::Keyboard::Key> &keyMap) noexcept;
 
         /**
+         * @brief Method loads key map from config file.
+         * @param filename Config file name.
+         * @param manager Manager for data search.
+         */
+        virtual void loadKeyMap(const std::string &filename, Managers::DataManager *manager) = 0;
+
+        /**
          * @brief Method changes player's sprite.
          * @param texture New sprite.
          */
