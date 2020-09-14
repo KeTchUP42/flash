@@ -10,6 +10,11 @@
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../../mobs/player/base/Player.h"
 #include "../../static/effects/Effect.h"
+#include "../../static/obstacles/shared/Obstacle.h"
+
+namespace Obstacles {
+    class Obstacle;
+}
 
 namespace Mobs {
     class Player;
@@ -40,6 +45,32 @@ namespace Unite {
          * @brief Method uses for components refresh logic.
          */
         virtual void refresh() = 0;
+
+        /**
+         * @brief Method adds new obstacle.
+         * @param obstacle New obstacle.
+         */
+        void addObstacle(Obstacles::Obstacle *obstacle) noexcept;
+
+        /**
+         * @brief Method adds new obstacle.
+         * @param obstacle New obstacle.
+         */
+        void addObstacle(const std::shared_ptr<Obstacles::Obstacle> &obstacle) noexcept;
+
+        /**
+         * @brief Method removes obstacle.
+         * @param obstacle Existing obstacle.
+         */
+        void removeObstacle(const std::shared_ptr<Obstacles::Obstacle> &obstacle) noexcept;
+
+        /**
+         * @brief Method returns const reference on obstacles collection.
+         * @return Const reference on obstacles collection.
+         */
+        const std::list<std::shared_ptr<Obstacles::Obstacle>> &getObstacles() const noexcept;
+
+        //..
 
         /**
          * @brief Method adds new player.
@@ -98,6 +129,10 @@ namespace Unite {
          * @brief Do not call "delete" for this ptr. Uses in triggers.
          */
         Screen::StateChangeable *_context;
+        /**
+         * @brief Obstacles.
+         */
+        std::list<std::shared_ptr<Obstacles::Obstacle>> _obstacles;
 
         /**
          * @brief Players.

@@ -2,11 +2,11 @@
 // Created by roman on 01.09.2020.
 //
 
-#include "BaseScreenState.h"
+#include "InitialScreenState.h"
 #include "../../../../objects/generating/components/background/PrimaryBackGroundFactory.h"
 #include "../../../../objects/generating/level/StartLevelFactory.h"
 
-void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
+void Screen::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
     ScreenState::load(context, manager, target);
 
     using namespace Components;
@@ -19,15 +19,15 @@ void Screen::BaseScreenState::load(StateChangeable *context, Managers::DataManag
     _unifier = lvl_factory.loadLevel(target.getSize(), _context, _manager);
 }
 
-void Screen::BaseScreenState::refresh() {
+void Screen::InitialScreenState::refresh() {
     _unifier->refresh();
 }
 
-void Screen::BaseScreenState::draw(sf::RenderWindow &target) const noexcept {
+void Screen::InitialScreenState::draw(sf::RenderWindow &target) const noexcept {
     _background->draw(target);
     _unifier->draw(target);
 }
 
-void Screen::BaseScreenState::update(const sf::Event &event, sf::RenderWindow &sender) {
+void Screen::InitialScreenState::update(const sf::Event &event, sf::RenderWindow &sender) {
     _unifier->update(event, sender);
 }

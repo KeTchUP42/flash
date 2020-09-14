@@ -2,16 +2,16 @@
 // Created by roman on 01.09.2020.
 //
 
-#ifndef FLASH_BASESCREENSTATE_H
-#define FLASH_BASESCREENSTATE_H
+#ifndef FLASH_INITIALSCREENSTATE_H
+#define FLASH_INITIALSCREENSTATE_H
 
-#include "base/ScreenState.h"
+#include "common-base/ScreenState.h"
 #include "../../../../objects/auxiliary/components/sprite/common/base/ISprite.h"
 #include "../../../../objects/unifier/base/Unifier.h"
 
 namespace Screen {
 
-    class BaseScreenState : public ScreenState {
+    class InitialScreenState : public ScreenState {
     public:
         void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) override;
 
@@ -27,4 +27,4 @@ namespace Screen {
     };
 }
 
-#endif //FLASH_BASESCREENSTATE_H
+#endif //FLASH_INITIALSCREENSTATE_H

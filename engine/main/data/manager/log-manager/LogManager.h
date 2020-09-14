@@ -22,10 +22,10 @@ namespace Managers {
     class LogManager {
     public:
         explicit LogManager(const std::string &logDirectory)
-                : _logs(logDirectory) {}
+                : LOG_DIRECTORY(logDirectory) {}
 
         explicit LogManager(const char *logDirectory)
-                : _logs(logDirectory) {}
+                : LOG_DIRECTORY(logDirectory) {}
 
         /**
          * @brief Method creates Logger for file in Log directory.
@@ -46,7 +46,7 @@ namespace Managers {
         virtual ~LogManager() = default;
 
     protected:
-        const std::string _logs;
+        const std::string LOG_DIRECTORY;
     };
 }
 #endif //FLASH_LOGMANAGER_H

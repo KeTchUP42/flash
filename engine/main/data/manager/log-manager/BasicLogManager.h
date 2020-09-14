@@ -2,19 +2,19 @@
 // Created by roman on 23.08.2020.
 //
 
-#ifndef FLASH_BASELOGMANAGER_H
-#define FLASH_BASELOGMANAGER_H
+#ifndef FLASH_BASICLOGMANAGER_H
+#define FLASH_BASICLOGMANAGER_H
 
 #include "LogManager.h"
 
 namespace Managers {
 
-    class BaseLogManager : public LogManager {
+    class BasicLogManager : public LogManager {
     public:
-        explicit BaseLogManager(const std::string &logDirectory)
+        explicit BasicLogManager(const std::string &logDirectory)
                 : LogManager(logDirectory) {}
 
-        explicit BaseLogManager(const char *logDirectory)
+        explicit BasicLogManager(const char *logDirectory)
                 : LogManager(logDirectory) {}
 
         std::shared_ptr<LoggerUtil::Logger> createLoggerForFile(const std::string &filename) const override;
@@ -24,4 +24,4 @@ namespace Managers {
     };
 }
 
-#endif //FLASH_BASELOGMANAGER_H
+#endif //FLASH_BASICLOGMANAGER_H

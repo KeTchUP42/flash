@@ -36,6 +36,10 @@ namespace Program {
         virtual ~Engine() = default;
 
     private:
+
+        /**
+         * @brief Pointer with unique data manager object. Uses to search app data.
+         */
         std::unique_ptr<Managers::DataManager> _manager;
     };
 }

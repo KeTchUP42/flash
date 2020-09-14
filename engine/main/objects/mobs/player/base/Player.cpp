@@ -15,11 +15,7 @@ void Mobs::Player::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) n
     _sprite->setTexture(texture);
 }
 
-const Components::Point &Mobs::Player::getPosition() const noexcept {
-    return _sprite->getPosition();
-}
-
-bool Mobs::Player::collision(int x, int y) const noexcept {
+bool Mobs::Player::collision(float x, float y) const noexcept {
     return _sprite->collision(x, y);
 }
 
@@ -56,6 +52,14 @@ const Components::Speed &Mobs::Player::getMoveSpeed() const noexcept {
     return _speed;
 }
 
+const Components::Point &Mobs::Player::getPosition() const noexcept {
+    return _sprite->getPosition();
+}
+
 const Components::Size &Mobs::Player::getSize() const noexcept {
     return _sprite->getSize();
+}
+
+float Mobs::Player::getRotation() const noexcept {
+    return _sprite->getRotation();
 }

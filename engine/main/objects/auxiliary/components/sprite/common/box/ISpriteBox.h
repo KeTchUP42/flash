@@ -35,6 +35,11 @@ namespace Components {
         virtual void setRotation(float angle) noexcept = 0;
 
         /**
+         * @brief Method gets rotation value.
+         */
+        virtual float getRotation() const noexcept = 0;
+
+        /**
          * @brief Method returns origin sprite.
          * @return Sprite.
          */

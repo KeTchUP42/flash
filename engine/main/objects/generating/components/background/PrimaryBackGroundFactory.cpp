@@ -11,7 +11,7 @@ ComponentsGenerating::PrimaryBackGroundFactory::createSpriteBox(const sf::Vector
                                                                 Managers::DataManager *manager) const {
     using namespace Components;
     CompositeSprite *sprite = new CompositeSprite();
-    auto texture = manager->getTextureManager()->load("background/dungeon_back_1.jpg");
+    auto texture = manager->getTextureManager()->loadTexture("background/dungeon_back_1.jpg");
     //texture->setSmooth(true); //Resource-intensive option.
     sprite->addSprite(new SpriteBox(Point(0, 0), Size(size.x, size.y), texture));
     return std::shared_ptr<Components::ISprite>(sprite);

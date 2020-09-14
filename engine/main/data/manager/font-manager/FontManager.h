@@ -20,10 +20,10 @@ namespace Managers {
     class FontManager {
     public:
         explicit FontManager(const std::string &fontDirectory)
-                : _fonts(fontDirectory) {}
+                : FONTS_DIRECTORY(fontDirectory) {}
 
         explicit FontManager(const char *fontDirectory)
-                : _fonts(fontDirectory) {}
+                : FONTS_DIRECTORY(fontDirectory) {}
 
         /**
          * @brief Method loads font from Font directory.
@@ -35,7 +35,7 @@ namespace Managers {
         virtual ~FontManager() = default;
 
     protected:
-        const std::string _fonts;
+        const std::string FONTS_DIRECTORY;
     };
 }
 

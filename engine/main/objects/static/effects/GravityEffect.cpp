@@ -4,11 +4,11 @@
 
 #include "GravityEffect.h"
 
-Effects::GravityEffect::GravityEffect(float acceleration) : _acceleration(acceleration) {}
+Effects::GravityEffect::GravityEffect(float acceleration) : ACCELERATION(acceleration) {}
 
 void Effects::GravityEffect::applyEffect(Unite::Unifier *unifier) {
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
-        player->addSpeed(0, _acceleration);
+        player->addSpeed(0, ACCELERATION);
     }
     //todo: Add other mobs.
 }

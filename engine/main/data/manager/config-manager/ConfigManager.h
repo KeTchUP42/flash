@@ -20,10 +20,10 @@ namespace Managers {
     class ConfigManager {
     public:
         explicit ConfigManager(const std::string &configDirectory)
-                : _configs(configDirectory) {}
+                : CONFIG_DIRECTORY(configDirectory) {}
 
         explicit ConfigManager(const char *configDirectory)
-                : _configs(configDirectory) {}
+                : CONFIG_DIRECTORY(configDirectory) {}
 
         /**
          * @brief Method loads and analizes ini config file.
@@ -35,7 +35,7 @@ namespace Managers {
         virtual ~ConfigManager() = default;
 
     protected:
-        const std::string _configs;
+        const std::string CONFIG_DIRECTORY;
     };
 }
 

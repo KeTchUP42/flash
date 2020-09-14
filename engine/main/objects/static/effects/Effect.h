@@ -25,7 +25,7 @@ namespace Effects {
 
         /**
          * @brief Method applies needed effect.
-         * @param unifier Screen objects "pool".
+         * @param unifier Screen objects unifier.
          */
         virtual void applyEffect(Unite::Unifier *unifier) = 0;
 

@@ -2,27 +2,27 @@
 // Created by roman on 10.08.2020.
 //
 
-#ifndef FLASH_BASEINIPROCESSOR_H
-#define FLASH_BASEINIPROCESSOR_H
+#ifndef FLASH_BASICINIPROCESSOR_H
+#define FLASH_BASICINIPROCESSOR_H
 
 #include "IniProcessor.h"
 #include "analyzer/IniAnalyzer.h"
 
 namespace IniProcessorUtil {
 
-    class BaseIniProcessor : public IniProcessor {
+    class BasicIniProcessor : public IniProcessor {
     public:
-        explicit BaseIniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer = new IniAnalyzer())
+        explicit BasicIniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer = new IniAnalyzer())
                 : IniProcessor(reader, analyzer) {}
 
-        explicit BaseIniProcessor(const std::string &filepath, Analyzer *analyzer = new IniAnalyzer())
+        explicit BasicIniProcessor(const std::string &filepath, Analyzer *analyzer = new IniAnalyzer())
                 : IniProcessor(filepath, analyzer) {}
 
-        explicit BaseIniProcessor(const std::string &filepath, const std::shared_ptr<Analyzer> &analyzer)
+        explicit BasicIniProcessor(const std::string &filepath, const std::shared_ptr<Analyzer> &analyzer)
                 : IniProcessor(filepath, analyzer) {}
 
-        explicit BaseIniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader,
-                                  const std::shared_ptr<Analyzer> &analyzer = std::shared_ptr<Analyzer>(new IniAnalyzer()))
+        explicit BasicIniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader,
+                                   const std::shared_ptr<Analyzer> &analyzer = std::shared_ptr<Analyzer>(new IniAnalyzer()))
                 : IniProcessor(reader, analyzer) {}
 
 
@@ -40,4 +40,4 @@ namespace IniProcessorUtil {
     };
 }
 
-#endif //FLASH_BASEINIPROCESSOR_H
+#endif //FLASH_BASICINIPROCESSOR_H

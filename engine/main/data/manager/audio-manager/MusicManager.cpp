@@ -7,5 +7,5 @@
 
 std::shared_ptr<Audio::AudioPlayer>
 Managers::MusicManager::loadAudioFile(const std::string &filename, bool loop) const {
-    return std::shared_ptr<Audio::AudioPlayer>(new Audio::MusicPlayer(_audiofiles + "/" + filename, loop));
+    return std::shared_ptr<Audio::AudioPlayer>(new Audio::MusicPlayer(AUDIO_DIRECTORY + "/" + filename, loop));
 }

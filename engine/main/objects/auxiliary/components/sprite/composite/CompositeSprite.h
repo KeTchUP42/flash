@@ -27,7 +27,7 @@ namespace Components {
 
         void rotate(float angle, const Point &point) noexcept override;
 
-        bool collision(int x, int y) const noexcept override;
+        bool collision(float x, float y) const noexcept override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
 

@@ -47,34 +47,27 @@ void Components::SpriteBox::rotate(float angle, const Components::Point &point) 
 
 /**
  * @brief This is help function for Components::SpriteBox::collision method.
- * @param Px Searching X.
- * @param Py Searching Y.
- * @param Ax First vector X.
- * @param Ay First vector Y.
- * @param Bx Second vector X.
- * @param By Second vector Y.
  * @return The value responsible for the position of the point relative to the vector.
  */
-int product(int Px, int Py, int Ax, int Ay, int Bx, int By) {
+static inline int product(float Px, float Py, float Ax, float Ay, float Bx, float By) {
     return (Bx - Ax) * (Py - Ay) - (By - Ay) * (Px - Ax);
 }
 
-bool Components::SpriteBox::collision(int x, int y) const noexcept {
-    //If it will not work correct, change coordinates type.
+bool Components::SpriteBox::collision(float x, float y) const noexcept {
     float angle = _sprite->getRotation() * M_PI / 180;
-    int xp2 = -std::sin(angle) + std::cos(angle) * _size.width + _point.x;
-    int yp2 = std::cos(angle) + std::sin(angle) * _size.width + _point.y;
+    float xp2 = -std::sin(angle) + std::cos(angle) * _size.width + _point.x;
+    float yp2 = std::cos(angle) + std::sin(angle) * _size.width + _point.y;
 
-    int xp3 = -std::sin(angle) * _size.height + std::cos(angle) * _size.width + _point.x;
-    int yp3 = std::cos(angle) * _size.height + std::sin(angle) * _size.width + _point.y;
+    float xp3 = -std::sin(angle) * _size.height + std::cos(angle) * _size.width + _point.x;
+    float yp3 = std::cos(angle) * _size.height + std::sin(angle) * _size.width + _point.y;
 
-    int xp4 = -std::sin(angle) * _size.height + std::cos(angle) + _point.x;
-    int yp4 = std::cos(angle) * _size.height + std::sin(angle) + _point.y;
+    float xp4 = -std::sin(angle) * _size.height + std::cos(angle) + _point.x;
+    float yp4 = std::cos(angle) * _size.height + std::sin(angle) + _point.y;
 
-    int p1 = product(x, y, _point.x, _point.y, xp2, yp2);
-    int p2 = product(x, y, xp2, yp2, xp3, yp3);
-    int p3 = product(x, y, xp3, yp3, xp4, yp4);
-    int p4 = product(x, y, xp4, yp4, _point.x, _point.y);
+    float p1 = product(x, y, _point.x, _point.y, xp2, yp2);
+    float p2 = product(x, y, xp2, yp2, xp3, yp3);
+    float p3 = product(x, y, xp3, yp3, xp4, yp4);
+    float p4 = product(x, y, xp4, yp4, _point.x, _point.y);
 
     return ((p1 >= 0) && (p2 >= 0) && (p3 >= 0) && (p4 >= 0));
 }
@@ -94,6 +87,10 @@ void Components::SpriteBox::setPosition(float x, float y) noexcept {
 
 void Components::SpriteBox::setRotation(float angle) noexcept {
     _sprite->setRotation(angle);
+}
+
+float Components::SpriteBox::getRotation() const noexcept {
+    return _sprite->getRotation();
 }
 
 const std::shared_ptr<sf::Sprite> &Components::SpriteBox::getSprite() const noexcept {

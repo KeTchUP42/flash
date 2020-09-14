@@ -20,24 +20,32 @@ namespace Managers {
     class TextureManager {
     public:
         explicit TextureManager(const std::string &textureDirectory)
-                : _textures(textureDirectory) {}
+                : TEXTURES_DIRECTORY(textureDirectory) {}
 
         explicit TextureManager(const char *textureDirectory)
-                : _textures(textureDirectory) {}
+                : TEXTURES_DIRECTORY(textureDirectory) {}
 
         /**
          * @brief Method loads texture from Texture directory.
          * @param filename Texture file name in Texture directory.
-         * @param area Area of the texture to load.
+         * @param area Area of the texture to loadTexture.
          * @return New Texture.
          */
         virtual std::shared_ptr<sf::Texture>
-        load(const std::string &filename, const sf::Rect<int> &area = sf::IntRect()) const = 0;
+        loadTexture(const std::string &filename, const sf::Rect<int> &area = sf::IntRect()) const = 0;
+
+        /**
+         * @brief Method loads image from file.
+         * @param filename Image file name.
+         * @return New Image.
+         */
+        virtual std::shared_ptr<sf::Image>
+        loadImage(const std::string &filename) const = 0;
 
         virtual ~TextureManager() = default;
 
     protected:
-        const std::string _textures;
+        const std::string TEXTURES_DIRECTORY;
     };
 }
 

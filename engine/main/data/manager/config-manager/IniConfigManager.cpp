@@ -3,9 +3,9 @@
 //
 
 #include "IniConfigManager.h"
-#include "../../../../utils/Ini/BaseIniProcessor.h"
+#include "../../../../utils/Ini/BasicIniProcessor.h"
 
 IniProcessorUtil::Analyzer::IniData Managers::IniConfigManager::loadIni(const std::string &filename) const {
-    IniProcessorUtil::BaseIniProcessor processor(_configs + "/" + filename);
+    IniProcessorUtil::BasicIniProcessor processor(CONFIG_DIRECTORY + "/" + filename);
     return processor.fullparse();
 }

@@ -2,16 +2,16 @@
 // Created by roman on 09.09.2020.
 //
 
-#ifndef FLASH_COMMONUNIFIER_H
-#define FLASH_COMMONUNIFIER_H
+#ifndef FLASH_GENERALUNIFIER_H
+#define FLASH_GENERALUNIFIER_H
 
 #include "base/Unifier.h"
 
 namespace Unite {
 
-    class CommonUnifier : public Unifier {
+    class GeneralUnifier : public Unifier {
     public:
-        explicit CommonUnifier(Screen::StateChangeable *context);
+        explicit GeneralUnifier(Screen::StateChangeable *context);
 
         void draw(sf::RenderWindow &target) const noexcept override;
 
@@ -21,4 +21,4 @@ namespace Unite {
     };
 }
 
-#endif //FLASH_COMMONUNIFIER_H
+#endif //FLASH_GENERALUNIFIER_H

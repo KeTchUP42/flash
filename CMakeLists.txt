@@ -16,16 +16,16 @@ set(AUDIO ${PLAYER} ${AUDIOPLAYBACK})
 
 set(AUDIOMANAGER engine/main/data/manager/audio-manager/AudioManager.h engine/main/data/manager/audio-manager/MusicManager.cpp engine/main/data/manager/audio-manager/MusicManager.h)
 set(CONFIGMANAGER engine/main/data/manager/config-manager/ConfigManager.h engine/main/data/manager/config-manager/IniConfigManager.cpp engine/main/data/manager/config-manager/IniConfigManager.h)
-set(FONTMANAGER engine/main/data/manager/font-manager/FontManager.h engine/main/data/manager/font-manager/BaseFontManager.cpp engine/main/data/manager/font-manager/BaseFontManager.h)
-set(LOGMANAGER engine/main/data/manager/log-manager/BaseLogManager.cpp engine/main/data/manager/log-manager/BaseLogManager.h)
-set(TEXTUREMANAGER engine/main/data/manager/texture-manager/TextureManager.h engine/main/data/manager/texture-manager/BaseTextureManager.cpp engine/main/data/manager/texture-manager/BaseTextureManager.h)
+set(FONTMANAGER engine/main/data/manager/font-manager/FontManager.h engine/main/data/manager/font-manager/BasicFontManager.cpp engine/main/data/manager/font-manager/BasicFontManager.h)
+set(LOGMANAGER engine/main/data/manager/log-manager/BasicLogManager.cpp engine/main/data/manager/log-manager/BasicLogManager.h)
+set(TEXTUREMANAGER engine/main/data/manager/texture-manager/TextureManager.h engine/main/data/manager/texture-manager/BasicTextureManager.cpp engine/main/data/manager/texture-manager/BasicTextureManager.h)
 set(DATAMANAGER engine/main/data/manager/DataManager.h engine/main/data/manager/StandardDataManager.cpp engine/main/data/manager/StandardDataManager.h)
 set(MANAGERS ${AUDIOMANAGER} ${CONFIGMANAGER} ${FONTMANAGER} ${LOGMANAGER} ${TEXTUREMANAGER} ${DATAMANAGER})
 set(DATA ${AUDIO} ${MANAGERS})
 
 set(OBSERVERS engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/base/observers/WindowResizeObserver.cpp engine/main/view/windows/base/observers/WindowResizeObserver.h)
 set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
-set(SCREEN engine/main/view/windows/screen/context-abilities/StateChangeable.h engine/main/view/windows/screen/states/base/ScreenState.h engine/main/view/windows/screen/states/base/ScreenState.cpp engine/main/view/windows/screen/states/BaseScreenState.cpp engine/main/view/windows/screen/states/BaseScreenState.h)
+set(SCREEN engine/main/view/windows/screen/context-abilities/StateChangeable.h engine/main/view/windows/screen/states/common-base/ScreenState.h engine/main/view/windows/screen/states/common-base/ScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.h)
 set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
 
@@ -47,19 +47,20 @@ set(PLAYER engine/main/objects/mobs/player/base/Player.h engine/main/objects/mob
 set(SHARED engine/main/objects/mobs/shared/Mob.h)
 set(MOBS ${PLAYER} ${SHARED})
 
-set(UNIFIER engine/main/objects/unifier/base/Unifier.h engine/main/objects/unifier/base/Unifier.cpp engine/main/objects/unifier/CommonUnifier.cpp engine/main/objects/unifier/CommonUnifier.h)
+set(UNIFIER engine/main/objects/unifier/base/Unifier.h engine/main/objects/unifier/base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
 
 set(EFFECTS engine/main/objects/static/effects/Effect.h engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityEffect.h)
-set(STATIC ${EFFECTS})
+set(OBSTACLES engine/main/objects/static/obstacles/shared/Obstacle.h engine/main/objects/static/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/static/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/static/obstacles/blocks/single/DullBlock.cpp engine/main/objects/static/obstacles/blocks/single/DullBlock.h engine/main/objects/static/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/static/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/static/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/static/obstacles/blocks/composite/DullCompositeBlock.h)
+set(STATIC ${EFFECTS} ${OBSTACLES})
 
 set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${UNIFIER} ${STATIC})
 
 set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 
-set(LOGGER engine/utils/logger/Logger.h engine/utils/logger/BaseLogger.cpp engine/utils/logger/BaseLogger.h engine/utils/logger/formatter/Formatter.h engine/utils/logger/formatter/BaseLoggerFormatter.cpp engine/utils/logger/formatter/BaseLoggerFormatter.h)
+set(LOGGER engine/utils/logger/Logger.h engine/utils/logger/BasicLogger.cpp engine/utils/logger/BasicLogger.h engine/utils/logger/formatter/Formatter.h engine/utils/logger/formatter/BaseLoggerFormatter.cpp engine/utils/logger/formatter/BaseLoggerFormatter.h)
 set(WRITER engine/utils/writer/Writer.h engine/utils/writer/FileWriter.cpp engine/utils/writer/FileWriter.h engine/utils/writer/MultiFileWriter.cpp engine/utils/writer/MultiFileWriter.h)
 set(READER engine/utils/reader/Reader.h engine/utils/reader/FileReader.cpp engine/utils/reader/FileReader.h)
-set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h engine/utils/Ini/BaseIniProcessor.cpp engine/utils/Ini/BaseIniProcessor.h engine/utils/Ini/analyzer/IniAnalyzer.cpp engine/utils/Ini/analyzer/IniAnalyzer.h)
+set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h engine/utils/Ini/BasicIniProcessor.cpp engine/utils/Ini/BasicIniProcessor.h engine/utils/Ini/analyzer/IniAnalyzer.cpp engine/utils/Ini/analyzer/IniAnalyzer.h)
 set(TRIM engine/utils/trim/trim.h)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM})
 

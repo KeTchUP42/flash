@@ -20,10 +20,10 @@ namespace Setup {
     class Configurator {
     public:
         explicit Configurator(const std::string &filename)
-                : _config(filename) {}
+                : CONFIG_FILE_NAME(filename) {}
 
         /**
-         * @brief Method reads config and returns data managers in DataManager facade class.
+         * @brief Method reads config and returns data managers in DataManager facade class object.
          * @return Created data manager.
          */
         virtual Managers::DataManager *load() const = 0;
@@ -31,7 +31,7 @@ namespace Setup {
         virtual ~Configurator() = default;
 
     protected:
-        const std::string _config;
+        const std::string CONFIG_FILE_NAME;
     };
 }
 

@@ -11,7 +11,7 @@ ComponentsGenerating::StoneWallSpriteFactory::createSprite(const Components::Poi
                                                            Managers::DataManager *manager) const {
     using namespace Components;
     CompositeSprite *sprite = new CompositeSprite();
-    auto texture = manager->getTextureManager()->load("structure/walls/stone/stone_wall_1.jpg");
+    auto texture = manager->getTextureManager()->loadTexture("structure/walls/stone/stone_wall_1.jpg");
     sprite->addSprite(new SpriteBox(point, size, texture));
     return std::shared_ptr<Components::ISprite>(sprite);
 }

@@ -22,7 +22,7 @@ namespace Possibilities {
          * @param x coordinate.
          * @param y coordinate.
          */
-        virtual bool collision(int x, int y) const noexcept = 0;
+        virtual bool collision(float x, float y) const noexcept = 0;
 
         virtual ~CollisionProne() = default;
     };

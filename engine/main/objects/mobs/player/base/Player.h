@@ -48,7 +48,7 @@ namespace Mobs {
          */
         void loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
 
-        bool collision(int x, int y) const noexcept override;
+        bool collision(float x, float y) const noexcept override;
 
         void draw(sf::RenderTarget &target) const noexcept override;
 
@@ -69,6 +69,8 @@ namespace Mobs {
         const Components::Point &getPosition() const noexcept override;
 
         const Components::Size &getSize() const noexcept override;
+
+        float getRotation() const noexcept override;
 
         virtual ~Player() = default;
 

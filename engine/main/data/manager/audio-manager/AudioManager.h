@@ -21,10 +21,10 @@ namespace Managers {
     class AudioManager {
     public:
         explicit AudioManager(const std::string &audioDirectory)
-                : _audiofiles(audioDirectory) {}
+                : AUDIO_DIRECTORY(audioDirectory) {}
 
         explicit AudioManager(const char *audioDirectory)
-                : _audiofiles(audioDirectory) {}
+                : AUDIO_DIRECTORY(audioDirectory) {}
 
         /**
          * @brief Method loads file from Audio directory.
@@ -38,7 +38,7 @@ namespace Managers {
         virtual ~AudioManager() = default;
 
     protected:
-        const std::string _audiofiles;
+        const std::string AUDIO_DIRECTORY;
     };
 }
 #endif //FLASH_AUDIOMANAGER_H

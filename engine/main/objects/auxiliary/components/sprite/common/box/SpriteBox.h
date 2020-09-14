@@ -26,7 +26,7 @@ namespace Components {
 
         void rotate(float angle, const Point &point) noexcept override;
 
-        bool collision(int x, int y) const noexcept override;
+        bool collision(float x, float y) const noexcept override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
 
@@ -35,6 +35,8 @@ namespace Components {
         void setPosition(float x, float y) noexcept override;
 
         void setRotation(float angle) noexcept override;
+
+        float getRotation() const noexcept override;
 
         const std::shared_ptr<sf::Sprite> &getSprite() const noexcept override;
 

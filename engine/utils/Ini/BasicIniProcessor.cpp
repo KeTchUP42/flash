@@ -2,31 +2,31 @@
 // Created by roman on 10.08.2020.
 //
 
-#include "BaseIniProcessor.h"
+#include "BasicIniProcessor.h"
 
-IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BaseIniProcessor::fullparse() const noexcept {
+IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BasicIniProcessor::fullparse() const noexcept {
     return _analyzer->fullparse(_reader->readlines());
 }
 
-IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BaseIniProcessor::fullparse(ReaderUtil::Reader *reader) const noexcept {
+IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BasicIniProcessor::fullparse(ReaderUtil::Reader *reader) const noexcept {
     Analyzer::IniData result = _analyzer->fullparse(reader->readlines());
     delete reader;
     return std::move(result);
 }
 
 IniProcessorUtil::Analyzer::IniData
-IniProcessorUtil::BaseIniProcessor::fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept {
+IniProcessorUtil::BasicIniProcessor::fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept {
     return _analyzer->fullparse(reader->readlines());
 }
 
-void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
-                                                   const std::shared_ptr<WriterUtil::Writer> &writer,
-                                                   const std::ios::openmode &mode) const noexcept {
+void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
+                                                    const std::shared_ptr<WriterUtil::Writer> &writer,
+                                                    const std::ios::openmode &mode) const noexcept {
     this->createIni(data, writer.get(), mode);
 }
 
-void IniProcessorUtil::BaseIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
-                                                   WriterUtil::Writer *writer, const std::ios::openmode &mode) const noexcept {
+void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
+                                                    WriterUtil::Writer *writer, const std::ios::openmode &mode) const noexcept {
     std::string inidata;
     for (Analyzer::IniData::const_iterator block = data.cbegin(); block != data.cend(); ++block) {
 

@@ -32,7 +32,7 @@ void Components::CompositeSprite::rotate(float angle, const Components::Point &p
     }
 }
 
-bool Components::CompositeSprite::collision(int x, int y) const noexcept {
+bool Components::CompositeSprite::collision(float x, float y) const noexcept {
     for (const std::shared_ptr<ISprite> &sprite : _sprites) {
         if (sprite->collision(x, y)) return true;
     }

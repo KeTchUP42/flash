@@ -37,7 +37,6 @@ namespace Managers {
          */
         virtual std::shared_ptr<ConfigManager> getConfigManager() const noexcept = 0;
 
-
         /**
          * @brief Method returns FontManager.
          * @return FontManager

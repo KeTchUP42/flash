@@ -5,7 +5,7 @@
 #include "PrimaryWindowFactory.h"
 #include "../../windows/custom/PrimaryWindow/PrimaryWindow.h"
 #include "../../windows/base/observers/WindowCloseObserver.h"
-#include "../../windows/screen/states/BaseScreenState.h"
+#include "../../windows/screen/states/InitialScreenState.h"
 
 #include <algorithm>
 #include <cctype>
@@ -23,6 +23,7 @@ ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Mana
     contextSettings.majorVersion = std::atoi(iniData["ContextSettings"]["majorVersion"].c_str());
     contextSettings.minorVersion = std::atoi(iniData["ContextSettings"]["minorVersion"].c_str());
     contextSettings.attributeFlags = std::atoi(iniData["ContextSettings"]["attributeFlags"].c_str());
+    contextSettings.sRgbCapable = std::atoi(iniData["ContextSettings"]["sRgbCapable"].c_str());
 
     //size
     int width = std::atoi(iniData["Window"]["width"].c_str());
@@ -40,9 +41,9 @@ ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Mana
     //window
     using namespace WindowView;
     Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"], style,
-                                       contextSettings, new Screen::BaseScreenState(), manager);
+                                       contextSettings, new Screen::InitialScreenState(), manager);
     //fps
     window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
-    //..
+
     return std::shared_ptr<WindowView::Window>(window);
 }

@@ -2,23 +2,23 @@
 // Created by roman on 24.08.2020.
 //
 
-#ifndef FLASH_BASEFONTMANAGER_H
-#define FLASH_BASEFONTMANAGER_H
+#ifndef FLASH_BASICFONTMANAGER_H
+#define FLASH_BASICFONTMANAGER_H
 
 #include "FontManager.h"
 
 namespace Managers {
 
-    class BaseFontManager : public FontManager {
+    class BasicFontManager : public FontManager {
     public:
-        explicit BaseFontManager(const std::string &fontDirectory)
+        explicit BasicFontManager(const std::string &fontDirectory)
                 : FontManager(fontDirectory) {}
 
-        explicit BaseFontManager(const char *fontDirectory)
+        explicit BasicFontManager(const char *fontDirectory)
                 : FontManager(fontDirectory) {}
 
         std::shared_ptr<sf::Font> loadFont(const std::string &filename) const override;
     };
 }
 
-#endif //FLASH_BASEFONTMANAGER_H
+#endif //FLASH_BASICFONTMANAGER_H
