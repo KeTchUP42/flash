@@ -12,9 +12,8 @@
 #include "../main/data/manager/texture-manager/BasicTextureManager.h"
 
 Managers::DataManager *Setup::EngineConfigurator::load() const {
-    using namespace IniProcessorUtil;
-    BasicIniProcessor iniProcessor(CONFIG_FILE_NAME);
-    Analyzer::IniData iniData = iniProcessor.fullparse();
+    IniProcessorUtil::BasicIniProcessor iniProcessor(CONFIG_FILE_NAME);
+    IniProcessorUtil::Analyzer::IniData iniData = iniProcessor.fullparse();
 
     using namespace Managers;
     AudioManager *audioManager = new MusicManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["audio"]);

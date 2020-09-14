@@ -14,6 +14,10 @@ namespace Components {
      * This struct is the base component.
     */
     struct Point {
+        /**
+         * @brief Base constructor. Inits "x" and "y" by zero.
+         */
+        Point();
 
         /**
          * @brief Inits "x" and "y".
@@ -23,16 +27,38 @@ namespace Components {
         Point(float x, float y);
 
         /**
+         * @brief Method overloads operator "+".
+         * @param right Right operand.
+         */
+        Point operator+(const Point &right);
+
+        /**
+         * @brief Method overloads operator "-".
+         * @param right Right operand.
+         */
+        Point operator-(const Point &right);
+
+        /**
+         * @brief Method overloads operator "+=".
+         * @param right Right operand.
+         */
+        Point &operator+=(Point &right);
+
+        /**
+         * @brief Method overloads operator "-=".
+         * @param right Right operand.
+         */
+        Point &operator-=(Point &right);
+
+        /**
          * @brief Method overload comparison operator.
          * @param rhs Compared object.
-         * @return
          */
         bool operator==(const Point &rhs) const noexcept;
 
         /**
          * @brief Method overload comparison operator.
          * @param rhs Compared object.
-         * @return
          */
         bool operator!=(const Point &rhs) const noexcept;
 
