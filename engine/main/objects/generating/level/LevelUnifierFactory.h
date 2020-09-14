@@ -5,7 +5,7 @@
 #ifndef FLASH_LEVELUNIFIERFACTORY_H
 #define FLASH_LEVELUNIFIERFACTORY_H
 
-#include "../../unifier/base/Unifier.h"
+#include "../../unifier/common-base/Unifier.h"
 #include "../../../data/manager/DataManager.h"
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
 

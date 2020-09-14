@@ -47,7 +47,7 @@ set(PLAYER engine/main/objects/mobs/player/base/Player.h engine/main/objects/mob
 set(SHARED engine/main/objects/mobs/shared/Mob.h engine/main/objects/mobs/shared/collision/CollisionStrategy.h engine/main/objects/mobs/shared/collision/BasicMobCollision.cpp engine/main/objects/mobs/shared/collision/BasicMobCollision.h)
 set(MOBS ${PLAYER} ${SHARED})
 
-set(UNIFIER engine/main/objects/unifier/base/Unifier.h engine/main/objects/unifier/base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
+set(UNIFIER engine/main/objects/unifier/common-base/Unifier.h engine/main/objects/unifier/common-base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
 
 set(EFFECTS engine/main/objects/static/effects/Effect.h engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityEffect.h)
 set(OBSTACLES engine/main/objects/static/obstacles/shared/Obstacle.h engine/main/objects/static/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/static/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/static/obstacles/blocks/single/DullBlock.cpp engine/main/objects/static/obstacles/blocks/single/DullBlock.h engine/main/objects/static/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/static/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/static/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/static/obstacles/blocks/composite/DullCompositeBlock.h)
@@ -64,7 +64,7 @@ set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h eng
 set(TRIM engine/utils/trim/trim.h)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM})
 
-set(EXCEPTIONS engine/main/general/exceptions/RuntimeException.h engine/main/general/exceptions/Exception.cpp engine/main/general/exceptions/Exception.h engine/main/general/exceptions/LogicError.h engine/main/general/exceptions/InvalidArgument.h engine/main/general/exceptions/custom/FileCanNotBeOpened.h engine/main/general/exceptions/ExceptionCodes.h engine/main/general/exceptions/custom/AudioFileCanNotBeOpened.h engine/main/general/exceptions/custom/TextureCanNotBeLoaded.h engine/main/general/exceptions/custom/FontCanNotBeLoaded.h)
+set(EXCEPTIONS engine/main/other/exceptions/RuntimeException.h engine/main/other/exceptions/Exception.cpp engine/main/other/exceptions/Exception.h engine/main/other/exceptions/LogicError.h engine/main/other/exceptions/InvalidArgument.h engine/main/other/exceptions/custom/FileCanNotBeOpened.h engine/main/other/exceptions/ExceptionCodes.h engine/main/other/exceptions/custom/AudioFileCanNotBeOpened.h engine/main/other/exceptions/custom/TextureCanNotBeLoaded.h engine/main/other/exceptions/custom/FontCanNotBeLoaded.h)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++${CMAKE_CXX_STANDARD} -pthread")
 

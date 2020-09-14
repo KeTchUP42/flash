@@ -14,7 +14,7 @@
 #include "../../../auxiliary/possibilities/RectangleGetters.h"
 #include "../../../../view/windows/base/observer/Observer.h"
 #include "../../../auxiliary/components/elementary/Size.h"
-#include "../../../unifier/base/Unifier.h"
+#include "../../../unifier/common-base/Unifier.h"
 
 #include <SFML/Graphics.hpp>
 

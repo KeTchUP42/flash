@@ -20,9 +20,6 @@ namespace WriterUtil {
         bool write(const std::string &message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
 
     protected:
-        void checkPath() const;
-
-    protected:
         const std::string _path;
     };
 

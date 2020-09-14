@@ -17,9 +17,9 @@ namespace Mobs {
 
         std::shared_ptr<Obstacles::Obstacle> ordinateMoveAble(Mob *mob) const noexcept override;
 
-        void setAnalysisStepX(float analysisStepX);
+        void setAnalysisStepX(float analysisStepX) noexcept;
 
-        void setAnalysisStepY(float analysisStepY);
+        void setAnalysisStepY(float analysisStepY) noexcept;
 
     protected:
         float ANALYSIS_STEP_X;

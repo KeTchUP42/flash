@@ -4,7 +4,7 @@
 
 #include "Engine.h"
 #include "../setup/EngineConfigurator.h"
-#include "../main/general/exceptions/Exception.h"
+#include "../main/other/exceptions/Exception.h"
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
 Program::Engine::Engine(const std::string &filename) {

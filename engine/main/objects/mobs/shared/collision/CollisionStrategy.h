@@ -5,7 +5,7 @@
 #ifndef FLASH_COLLISIONSTRATEGY_H
 #define FLASH_COLLISIONSTRATEGY_H
 
-#include "../../../unifier/base/Unifier.h"
+#include "../../../unifier/common-base/Unifier.h"
 #include "../Mob.h"
 
 namespace Mobs {

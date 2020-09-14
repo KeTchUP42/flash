@@ -33,9 +33,6 @@ namespace WriterUtil {
         bool write(const char *message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
 
     protected:
-        bool checkPath(const std::string &filepath) const noexcept;
-
-    protected:
         std::list<std::string> _paths;
     };
 }

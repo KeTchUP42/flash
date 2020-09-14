@@ -2,4 +2,4 @@
 
 **DataManager is a global unique object!**  
 
-If you want to keep ptr on it in your object you need to keep it like **general** ptr - without clean up or just copy it.
+If you want to keep it in your class you need to keep it like a **general** ptr - without clean up.

@@ -115,10 +115,10 @@ std::shared_ptr<Obstacles::Obstacle> Mobs::BasicMobCollision::ordinateMoveAble(M
     return nullptr;
 }
 
-void Mobs::BasicMobCollision::setAnalysisStepX(float analysisStepX) {
+void Mobs::BasicMobCollision::setAnalysisStepX(float analysisStepX) noexcept {
     BasicMobCollision::ANALYSIS_STEP_X = analysisStepX;
 }
 
-void Mobs::BasicMobCollision::setAnalysisStepY(float analysisStepY) {
+void Mobs::BasicMobCollision::setAnalysisStepY(float analysisStepY) noexcept {
     BasicMobCollision::ANALYSIS_STEP_Y = analysisStepY;
 }

@@ -12,13 +12,12 @@ namespace LoggerUtil {
 
     class BasicLogger : public Logger {
     public:
-        explicit
-        BasicLogger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new BaseLoggerFormatter())
+        explicit BasicLogger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new BaseLoggerFormatter())
                 : Logger(writer, formatter) {}
 
-        explicit
-        BasicLogger(const std::shared_ptr<WriterUtil::Writer> &writer, const std::shared_ptr<Formatter<std::string>> &formatter =
-        std::shared_ptr<Formatter<std::string>>(new BaseLoggerFormatter()))
+        explicit BasicLogger(const std::shared_ptr<WriterUtil::Writer> &writer,
+                             const std::shared_ptr<Formatter<std::string>> &formatter =
+                             std::shared_ptr<Formatter<std::string>>(new BaseLoggerFormatter()))
                 : Logger(writer, formatter) {}
 
         void emergency(const std::string &message) const noexcept override;

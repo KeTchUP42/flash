@@ -5,14 +5,16 @@
 #include <fstream>
 
 #include "FileWriter.h"
-#include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
+#include "../../main/other/exceptions/custom/FileCanNotBeOpened.h"
+
+static inline void checkFileToOpen(const std::string &path);
 
 WriterUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath) {
-    this->checkPath();
+    checkFileToOpen(filepath);
 }
 
 WriterUtil::FileWriter::FileWriter(const char *filepath) : _path(filepath) {
-    this->checkPath();
+    checkFileToOpen(filepath);
 }
 
 bool WriterUtil::FileWriter::write(const char *message, const std::ios::openmode &mode) const noexcept {
@@ -29,11 +31,11 @@ bool WriterUtil::FileWriter::write(const std::string &message, const std::ios::o
     return write(message.c_str(), mode);
 }
 
-void WriterUtil::FileWriter::checkPath() const {
-    std::ofstream out(_path, std::ios::app);
+static inline void checkFileToOpen(const std::string &path) {
+    std::ofstream out(path, std::ios::app);
     if (!out.is_open()) {
         out.close();
-        throw PreferredExceptions::FileCanNotBeOpened("File " + _path + " cannot be opened.");
+        throw PreferredExceptions::FileCanNotBeOpened("File " + path + " cannot be opened.");
     }
     out.close();
 }

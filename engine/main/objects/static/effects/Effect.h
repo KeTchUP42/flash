@@ -5,7 +5,7 @@
 #ifndef FLASH_EFFECT_H
 #define FLASH_EFFECT_H
 
-#include "../../unifier/base/Unifier.h"
+#include "../../unifier/common-base/Unifier.h"
 
 namespace Unite {
     class Unifier;

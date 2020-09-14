@@ -18,7 +18,7 @@ namespace Obstacles {
         explicit SingleSpriteBlock(const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
-         * @brief Method changes block's sprite.
+         * @brief Method changes block's sprite texture.
          * @param texture New texture.
          */
         void loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;

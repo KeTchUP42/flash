@@ -20,9 +20,6 @@ namespace ReaderUtil {
         std::vector<std::string> readlines() const noexcept override;
 
     protected:
-        void checkPath(const std::string &path) const;
-
-    protected:
         std::string _path;
     };
 }

@@ -5,15 +5,16 @@
 #include <iterator>
 
 #include "FileReader.h"
-#include "../../main/general/exceptions/custom/FileCanNotBeOpened.h"
+#include "../../main/other/exceptions/custom/FileCanNotBeOpened.h"
 
+static inline void checkFileToOpen(const std::string &path);
 
 ReaderUtil::FileReader::FileReader(const std::string &filepath) : _path(filepath) {
-    this->checkPath(_path);
+    checkFileToOpen(filepath);
 }
 
 ReaderUtil::FileReader::FileReader(const char *filepath) : _path(filepath) {
-    this->checkPath(_path);
+    checkFileToOpen(filepath);
 }
 
 std::string ReaderUtil::FileReader::read() const noexcept {
@@ -37,14 +38,14 @@ std::vector<std::string> ReaderUtil::FileReader::readlines() const noexcept {
         }
     }
     in.close();
-    return result;
+    return std::move(result);
 }
 
-void ReaderUtil::FileReader::checkPath(const std::string &path) const {
+static inline void checkFileToOpen(const std::string &path) {
     std::ifstream in(path);
     if (!in.is_open()) {
         in.close();
-        throw PreferredExceptions::FileCanNotBeOpened("File " + _path + " cannot be opened.");
+        throw PreferredExceptions::FileCanNotBeOpened("File " + path + " cannot be opened.");
     }
     in.close();
 }

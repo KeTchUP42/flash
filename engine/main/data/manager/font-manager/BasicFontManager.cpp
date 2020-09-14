@@ -3,7 +3,7 @@
 //
 
 #include "BasicFontManager.h"
-#include "../../../general/exceptions/custom/FontCanNotBeLoaded.h"
+#include "../../../other/exceptions/custom/FontCanNotBeLoaded.h"
 
 std::shared_ptr<sf::Font> Managers::BasicFontManager::loadFont(const std::string &filename) const {
     std::shared_ptr<sf::Font> font(new sf::Font());
