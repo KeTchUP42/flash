@@ -64,12 +64,10 @@ bool Components::SpriteBox::collision(float x, float y) const noexcept {
     float xp4 = -std::sin(angle) * _size.height + std::cos(angle) + _point.x;
     float yp4 = std::cos(angle) * _size.height + std::sin(angle) + _point.y;
 
-    float p1 = product(x, y, _point.x, _point.y, xp2, yp2);
-    float p2 = product(x, y, xp2, yp2, xp3, yp3);
-    float p3 = product(x, y, xp3, yp3, xp4, yp4);
-    float p4 = product(x, y, xp4, yp4, _point.x, _point.y);
-
-    return ((p1 >= 0) && (p2 >= 0) && (p3 >= 0) && (p4 >= 0));
+    return ((product(x, y, _point.x, _point.y, xp2, yp2) >= 0) &&
+            (product(x, y, xp2, yp2, xp3, yp3) >= 0) &&
+            (product(x, y, xp3, yp3, xp4, yp4) >= 0) &&
+            (product(x, y, xp4, yp4, _point.x, _point.y) >= 0));
 }
 
 void Components::SpriteBox::update(const sf::Event &event, sf::RenderWindow &sender) noexcept {

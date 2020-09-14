@@ -11,6 +11,7 @@
 #include "../../../auxiliary/possibilities/Rotatable.h"
 #include "../../../auxiliary/possibilities/SelfActionable.h"
 #include "../../../auxiliary/possibilities/SelfMovable.h"
+#include "../../../auxiliary/possibilities/RectangleGetters.h"
 #include "../../../../view/windows/base/observer/Observer.h"
 #include "../../../auxiliary/components/elementary/Size.h"
 #include "../../../unifier/base/Unifier.h"
@@ -35,6 +36,7 @@ namespace Obstacles {
             public Possibilities::Movable,
             public Possibilities::CollisionProne,
             public Possibilities::Rotatable,
+            public Possibilities::RectangleGetters,
             public Possibilities::Drawable<sf::RenderTarget>,
             public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
@@ -45,26 +47,6 @@ namespace Obstacles {
          * @return Obstacle
          */
         Obstacle &operator=(const Obstacle &) = delete;
-
-        /**
-         * @brief Method returns mob's position.
-         * @return Mob's position.
-         */
-        virtual const Components::Point &getPosition() const noexcept = 0;
-
-        /**
-         * @brief Method returns mob's size.
-         * @return Mob's position.
-         */
-        virtual const Components::Size &getSize() const noexcept = 0;
-
-        /**
-         * @brief Method returns object rotation in degrees.
-         * The rotation is always in the range [0, 360].
-         *
-         * @return Current rotation, in degrees
-        */
-        virtual float getRotation() const noexcept = 0;
 
         virtual ~Obstacle() = default;
     };

@@ -6,12 +6,13 @@
 #define FLASH_ISPRITEBOX_H
 
 #include "../base/ISprite.h"
+#include "../.././../../possibilities/RectangleGetters.h"
 
 #include <memory>
 
 namespace Components {
 
-    class ISpriteBox : public ISprite {
+    class ISpriteBox : public Possibilities::RectangleGetters, public ISprite {
     public:
         ISpriteBox() = default;
 
@@ -33,11 +34,6 @@ namespace Components {
          * @param angle Rotation angle.
          */
         virtual void setRotation(float angle) noexcept = 0;
-
-        /**
-         * @brief Method gets rotation value.
-         */
-        virtual float getRotation() const noexcept = 0;
 
         /**
          * @brief Method returns origin sprite.
@@ -73,18 +69,6 @@ namespace Components {
          * @param color Color.
          */
         virtual void setColor(const sf::Color &color) noexcept = 0;
-
-        /**
-         * @brief Method returns SpriteBox position.
-         * @return Sprite point.
-         */
-        virtual const Point &getPosition() const noexcept = 0;
-
-        /**
-         * @brief Method returns SpriteBox size.
-         * @return Sprite size.
-         */
-        virtual const Size &getSize() const noexcept = 0;
     };
 }
 
