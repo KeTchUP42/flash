@@ -205,7 +205,6 @@ namespace Unite {
         virtual ~Unifier() = default;
 
     protected:
-
         /**
          * @brief Back sprites.
          */

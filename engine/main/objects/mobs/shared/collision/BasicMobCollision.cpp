@@ -13,23 +13,20 @@ Mobs::BasicMobCollision::BasicMobCollision(Unite::Unifier *unifier, float analys
 
 Components::Point Mobs::maxCoordinates(const Possibilities::RectangleGetters &rectangle) {
     const float rectangleAngleInRadians = rectangle.getRotation() * M_PI / 180;
+    const float sinAngle = std::sin(rectangleAngleInRadians);
+    const float cosAngle = std::cos(rectangleAngleInRadians);
+
     const float rectangleXStart = rectangle.getPosition().x;
 
-    float rectangleX2 = -std::sin(rectangleAngleInRadians) +
-                        std::cos(rectangleAngleInRadians) * rectangle.getSize().width + rectangleXStart;
-    float rectangleX3 = -std::sin(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::cos(rectangleAngleInRadians) * rectangle.getSize().width + rectangleXStart;
-    float rectangleX4 = -std::sin(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::cos(rectangleAngleInRadians) + rectangleXStart;
+    float rectangleX2 = -sinAngle + cosAngle * rectangle.getSize().width + rectangleXStart;
+    float rectangleX3 = -sinAngle * rectangle.getSize().height + cosAngle * rectangle.getSize().width + rectangleXStart;
+    float rectangleX4 = -sinAngle * rectangle.getSize().height + cosAngle + rectangleXStart;
 
     const float rectangleYStart = rectangle.getPosition().y;
 
-    float rectangleY2 = std::cos(rectangleAngleInRadians) +
-                        std::sin(rectangleAngleInRadians) * rectangle.getSize().width + rectangleYStart;
-    float rectangleY3 = std::cos(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::sin(rectangleAngleInRadians) * rectangle.getSize().width + rectangleYStart;
-    float rectangleY4 = std::cos(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::sin(rectangleAngleInRadians) + rectangleYStart;
+    float rectangleY2 = cosAngle + sinAngle * rectangle.getSize().width + rectangleYStart;
+    float rectangleY3 = cosAngle * rectangle.getSize().height + sinAngle * rectangle.getSize().width + rectangleYStart;
+    float rectangleY4 = cosAngle * rectangle.getSize().height + sinAngle + rectangleYStart;
 
     return Components::Point(std::max(std::max(rectangleX2, rectangleX3), std::max(rectangleX4, rectangleXStart)),
                              std::max(std::max(rectangleY2, rectangleY3), std::max(rectangleY4, rectangleYStart)));
@@ -37,23 +34,20 @@ Components::Point Mobs::maxCoordinates(const Possibilities::RectangleGetters &re
 
 Components::Point Mobs::minCoordinates(const Possibilities::RectangleGetters &rectangle) {
     const float rectangleAngleInRadians = rectangle.getRotation() * M_PI / 180;
+    const float sinAngle = std::sin(rectangleAngleInRadians);
+    const float cosAngle = std::cos(rectangleAngleInRadians);
+
     const float rectangleXStart = rectangle.getPosition().x;
 
-    float rectangleX2 = -std::sin(rectangleAngleInRadians) +
-                        std::cos(rectangleAngleInRadians) * rectangle.getSize().width + rectangleXStart;
-    float rectangleX3 = -std::sin(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::cos(rectangleAngleInRadians) * rectangle.getSize().width + rectangleXStart;
-    float rectangleX4 = -std::sin(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::cos(rectangleAngleInRadians) + rectangleXStart;
+    float rectangleX2 = -sinAngle + cosAngle * rectangle.getSize().width + rectangleXStart;
+    float rectangleX3 = -sinAngle * rectangle.getSize().height + cosAngle * rectangle.getSize().width + rectangleXStart;
+    float rectangleX4 = -sinAngle * rectangle.getSize().height + cosAngle + rectangleXStart;
 
     const float rectangleYStart = rectangle.getPosition().y;
 
-    float rectangleY2 = std::cos(rectangleAngleInRadians) +
-                        std::sin(rectangleAngleInRadians) * rectangle.getSize().width + rectangleYStart;
-    float rectangleY3 = std::cos(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::sin(rectangleAngleInRadians) * rectangle.getSize().width + rectangleYStart;
-    float rectangleY4 = std::cos(rectangleAngleInRadians) * rectangle.getSize().height +
-                        std::sin(rectangleAngleInRadians) + rectangleYStart;
+    float rectangleY2 = cosAngle + sinAngle * rectangle.getSize().width + rectangleYStart;
+    float rectangleY3 = cosAngle * rectangle.getSize().height + sinAngle * rectangle.getSize().width + rectangleYStart;
+    float rectangleY4 = cosAngle * rectangle.getSize().height + sinAngle + rectangleYStart;
 
     return Components::Point(std::min(std::min(rectangleX2, rectangleX3), std::min(rectangleX4, rectangleXStart)),
                              std::min(std::min(rectangleY2, rectangleY3), std::min(rectangleY4, rectangleYStart)));

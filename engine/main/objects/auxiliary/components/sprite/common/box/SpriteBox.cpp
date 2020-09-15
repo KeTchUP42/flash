@@ -38,7 +38,7 @@ void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
 }
 
 void Components::SpriteBox::rotate(float angle, const Components::Point &point) noexcept {
-    float angleInRadians = angle * M_PI / 180;
+    const float angleInRadians = angle * M_PI / 180;
     this->setPosition(
             point.x + (point.y - _point.y) * std::sin(angleInRadians) + (_point.x - point.x) * std::cos(angleInRadians),
             point.y + (_point.y - point.y) * std::cos(angleInRadians) + (_point.x - point.x) * std::sin(angleInRadians)
@@ -55,15 +55,18 @@ static inline int product(float Px, float Py, float Ax, float Ay, float Bx, floa
 }
 
 bool Components::SpriteBox::collision(float x, float y) const noexcept {
-    float angle = _sprite->getRotation() * M_PI / 180;
-    float xp2 = -std::sin(angle) + std::cos(angle) * _size.width + _point.x;
-    float yp2 = std::cos(angle) + std::sin(angle) * _size.width + _point.y;
+    const float angle = _sprite->getRotation() * M_PI / 180;
+    const float sinAngle = std::sin(angle);
+    const float cosAngle = std::cos(angle);
 
-    float xp3 = -std::sin(angle) * _size.height + std::cos(angle) * _size.width + _point.x;
-    float yp3 = std::cos(angle) * _size.height + std::sin(angle) * _size.width + _point.y;
+    float xp2 = -sinAngle + cosAngle * _size.width + _point.x;
+    float yp2 = cosAngle + sinAngle * _size.width + _point.y;
 
-    float xp4 = -std::sin(angle) * _size.height + std::cos(angle) + _point.x;
-    float yp4 = std::cos(angle) * _size.height + std::sin(angle) + _point.y;
+    float xp3 = -sinAngle * _size.height + cosAngle * _size.width + _point.x;
+    float yp3 = cosAngle * _size.height + sinAngle * _size.width + _point.y;
+
+    float xp4 = -sinAngle * _size.height + cosAngle + _point.x;
+    float yp4 = cosAngle * _size.height + sinAngle + _point.y;
 
     return ((product(x, y, _point.x, _point.y, xp2, yp2) >= 0) &&
             (product(x, y, xp2, yp2, xp3, yp3) >= 0) &&

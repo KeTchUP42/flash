@@ -25,9 +25,9 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
             std::shared_ptr<ISpriteBox>(
                     new SpriteBox(
                             Point(600, 100),
-                            Size(40, 40),  //10 - min
+                            Size(20, 20),  //10 - min
                             manager->getTextureManager()->loadTexture("mobs/player/mush.png"))),
-            new BasicMobCollision(unifier, 5, 5));
+            new BasicMobCollision(unifier, 4, 4));
 
     player->loadKeyMap("keys/keymap.ini", manager);
     unifier->addPlayer(player);
