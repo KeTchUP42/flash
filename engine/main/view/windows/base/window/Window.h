@@ -66,6 +66,12 @@ namespace WindowView {
          * @brief Method removes observer.
          * @param observer Existing window observer.
          */
+        void removeObserver(Observer *observer) noexcept;
+
+        /**
+         * @brief Method removes observer.
+         * @param observer Existing window observer.
+         */
         void removeObserver(const std::shared_ptr<Observer> &observer) noexcept;
 
         /**

@@ -5,7 +5,10 @@
 #include "GeneralUnifier.h"
 
 void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
-    //Back sprites
+
+    for (const std::shared_ptr<Components::ISprite> &sprite: _backSprites) {
+        sprite->draw(target);
+    }
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
         obstacle->draw(target);
@@ -17,7 +20,9 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
         player->draw(target);
     }
 
-    // front sprites.
+    for (const std::shared_ptr<Components::ISprite> &sprite: _frontSprites) {
+        sprite->draw(target);
+    }
 }
 
 void Unite::GeneralUnifier::refresh() {
@@ -42,6 +47,11 @@ void Unite::GeneralUnifier::refresh() {
 }
 
 void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
+
+    for (const std::shared_ptr<Components::ISprite> &sprite: _backSprites) {
+        sprite->update(event, sender);
+    }
+
     for (const std::shared_ptr<Mobs::Player> &player: _players) {
         player->update(event, sender);
     }
@@ -50,6 +60,10 @@ void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sen
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
         obstacle->update(event, sender);
+    }
+
+    for (const std::shared_ptr<Components::ISprite> &sprite: _frontSprites) {
+        sprite->update(event, sender);
     }
 
     //all observers

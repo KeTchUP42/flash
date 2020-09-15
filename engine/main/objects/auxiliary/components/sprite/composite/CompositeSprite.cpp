@@ -53,6 +53,12 @@ void Components::CompositeSprite::addSprite(const std::shared_ptr<ISprite> &spri
     _sprites.push_back(sprite);
 }
 
+void Components::CompositeSprite::removeSprite(Components::ISprite *sprite) noexcept {
+    _sprites.remove_if([sprite](const std::shared_ptr<Components::ISprite> &sprt) -> bool {
+        return sprt.get() == sprite;
+    });
+}
+
 void Components::CompositeSprite::removeSprite(const std::shared_ptr<ISprite> &sprite) noexcept {
     _sprites.remove(sprite);
 }

@@ -37,6 +37,12 @@ namespace Components {
          * @brief Method removes sprite.
          * @param sprite Existing sprite.
          */
+        virtual void removeSprite(ISprite *sprite) noexcept = 0;
+
+        /**
+         * @brief Method removes sprite.
+         * @param sprite Existing sprite.
+         */
         virtual void removeSprite(const std::shared_ptr<ISprite> &sprite) noexcept = 0;
 
         virtual ~ICompositeSprite() = default;

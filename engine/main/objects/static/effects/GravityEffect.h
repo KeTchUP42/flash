@@ -14,12 +14,13 @@ namespace Effects {
         /**
          * @brief Configures gravity power.
          */
-        GravityEffect(float acceleration);
+        explicit GravityEffect(float accelerationX, float accelerationY);
 
         void applyEffect(Unite::Unifier *unifier) override;
 
     protected:
-        const float ACCELERATION;
+        const float X_ACCELERATION;
+        const float Y_ACCELERATION;
     };
 }
 

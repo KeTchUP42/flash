@@ -40,6 +40,12 @@ void WindowView::Window::addObserver(const std::shared_ptr<Window::Observer> &ob
     _observers.push_back(observer);
 }
 
+void WindowView::Window::removeObserver(Window::Observer *observer) noexcept {
+    _observers.remove_if([observer](const std::shared_ptr<Window::Observer> &obs) -> bool {
+        return obs.get() == observer;
+    });
+}
+
 void WindowView::Window::removeObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
     _observers.remove(observer);
 }

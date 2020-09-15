@@ -47,13 +47,14 @@ set(PLAYER engine/main/objects/mobs/player/common-base/Player.h engine/main/obje
 set(SHARED engine/main/objects/mobs/shared/Mob.h engine/main/objects/mobs/shared/collision/CollisionStrategy.h engine/main/objects/mobs/shared/collision/BasicMobCollision.cpp engine/main/objects/mobs/shared/collision/BasicMobCollision.h)
 set(MOBS ${PLAYER} ${SHARED})
 
-set(UNIFIER engine/main/objects/unifier/common-base/Unifier.h engine/main/objects/unifier/common-base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
+set(OBSTACLES engine/main/objects/obstacles/shared/Obstacle.h engine/main/objects/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/obstacles/blocks/single/DullBlock.cpp engine/main/objects/obstacles/blocks/single/DullBlock.h engine/main/objects/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/obstacles/blocks/composite/DullCompositeBlock.h)
 
 set(EFFECTS engine/main/objects/static/effects/Effect.h engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityEffect.h)
-set(OBSTACLES engine/main/objects/static/obstacles/shared/Obstacle.h engine/main/objects/static/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/static/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/static/obstacles/blocks/single/DullBlock.cpp engine/main/objects/static/obstacles/blocks/single/DullBlock.h engine/main/objects/static/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/static/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/static/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/static/obstacles/blocks/composite/DullCompositeBlock.h)
-set(STATIC ${EFFECTS} ${OBSTACLES})
+set(STATIC ${EFFECTS})
 
-set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${UNIFIER} ${STATIC})
+set(UNIFIER engine/main/objects/unifier/common-base/Unifier.h engine/main/objects/unifier/common-base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
+
+set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${OBSTACLES} ${STATIC} ${UNIFIER})
 
 set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 

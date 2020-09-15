@@ -32,7 +32,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     player->loadKeyMap("keys/keymap.ini", manager);
     unifier->addPlayer(player);
 
-    unifier->addEffect(new Effects::GravityEffect(1));
+    unifier->addEffect(new Effects::GravityEffect(0, 1));
 
     auto wall_texture = manager->getTextureManager()->loadTexture("structure/walls/stone/stone_wall_1.jpg");
 

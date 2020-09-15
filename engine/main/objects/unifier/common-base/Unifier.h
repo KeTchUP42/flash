@@ -20,6 +20,10 @@ namespace Mobs {
     class Player;
 }
 
+namespace Components {
+    class ISprite;
+}
+
 namespace Effects {
     class Effect;
 }
@@ -41,6 +45,70 @@ namespace Unite {
         virtual void refresh() = 0;
 
         /**
+         * @brief Method adds new back sprite.
+         * @param sprite New back sprite.
+         */
+        void addBackSprite(Components::ISprite *sprite) noexcept;
+
+        /**
+         * @brief Method adds new back sprite.
+         * @param sprite New back sprite.
+         */
+        void addBackSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept;
+
+        /**
+         * @brief Method removes sprite.
+         * @param sprite Existing sprite.
+         */
+        void removeBackSprite(Components::ISprite *sprite) noexcept;
+
+        /**
+         * @brief Method removes back sprite.
+         * @param sprite Existing sprite.
+         */
+        void removeBackSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept;
+
+        /**
+         * @brief Method returns const reference on sprites collection.
+         * @return Const reference on sprites collection.
+         */
+        const std::list<std::shared_ptr<Components::ISprite>> &getBackSprites() const noexcept;
+
+        //..
+
+        /**
+         * @brief Method adds new front sprite.
+         * @param sprite New front sprite.
+         */
+        void addFrontSprite(Components::ISprite *sprite) noexcept;
+
+        /**
+         * @brief Method adds new front sprite.
+         * @param sprite New front sprite.
+         */
+        void addFrontSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept;
+
+        /**
+         * @brief Method removes sprite.
+         * @param sprite Existing sprite.
+         */
+        void removeFrontSprite(Components::ISprite *sprite) noexcept;
+
+        /**
+         * @brief Method removes front sprite.
+         * @param sprite Existing sprite.
+         */
+        void removeFrontSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept;
+
+        /**
+         * @brief Method returns const reference on sprites collection.
+         * @return Const reference on sprites collection.
+         */
+        const std::list<std::shared_ptr<Components::ISprite>> &getFrontSprites() const noexcept;
+
+        //..
+
+        /**
          * @brief Method adds new obstacle.
          * @param obstacle New obstacle.
          */
@@ -51,6 +119,12 @@ namespace Unite {
          * @param obstacle New obstacle.
          */
         void addObstacle(const std::shared_ptr<Obstacles::Obstacle> &obstacle) noexcept;
+
+        /**
+         * @brief Method removes obstacle.
+         * @param obstacle Existing obstacle.
+         */
+        void removeObstacle(Obstacles::Obstacle *obstacle) noexcept;
 
         /**
          * @brief Method removes obstacle.
@@ -82,6 +156,12 @@ namespace Unite {
          * @brief Method removes player.
          * @param player Existing player.
          */
+        void removePlayer(Mobs::Player *player) noexcept;
+
+        /**
+         * @brief Method removes player.
+         * @param player Existing player.
+         */
         void removePlayer(const std::shared_ptr<Mobs::Player> &player) noexcept;
 
         /**
@@ -108,6 +188,12 @@ namespace Unite {
          * @brief Method removes effect.
          * @param effect Existing effect.
          */
+        void removeEffect(Effects::Effect *effect) noexcept;
+
+        /**
+         * @brief Method removes effect.
+         * @param effect Existing effect.
+         */
         void removeEffect(const std::shared_ptr<Effects::Effect> &effect) noexcept;
 
         /**
@@ -119,10 +205,17 @@ namespace Unite {
         virtual ~Unifier() = default;
 
     protected:
+
         /**
-         * @brief Do not call "delete" for this ptr. Uses in triggers.
+         * @brief Back sprites.
          */
-        Screen::StateChangeable *_context;
+        std::list<std::shared_ptr<Components::ISprite>> _backSprites;
+
+        /**
+         * @brief Front sprites.
+        */
+        std::list<std::shared_ptr<Components::ISprite>> _frontSprites;
+
         /**
          * @brief Obstacles.
          */

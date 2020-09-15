@@ -35,6 +35,8 @@ namespace Components {
 
         void addSprite(const std::shared_ptr<ISprite> &sprite) noexcept override;
 
+        void removeSprite(ISprite *sprite) noexcept override;
+
         void removeSprite(const std::shared_ptr<ISprite> &sprite) noexcept override;
 
     protected:
