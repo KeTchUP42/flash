@@ -28,7 +28,7 @@ namespace Possibilities {
 
         /**
          * @brief Method returns objects's size.
-         * @return Objects's position.
+         * @return Objects's size.
          */
         virtual const Components::Size &getSize() const noexcept = 0;
 

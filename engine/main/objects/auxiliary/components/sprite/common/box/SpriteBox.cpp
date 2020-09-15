@@ -5,6 +5,7 @@
 #include "SpriteBox.h"
 
 #define _USE_MATH_DEFINES
+
 #include <math.h>
 
 Components::SpriteBox::SpriteBox(const Components::Point &point, const Components::Size &size,

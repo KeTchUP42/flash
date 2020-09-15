@@ -25,6 +25,18 @@ namespace Mobs {
         float ANALYSIS_STEP_X;
         float ANALYSIS_STEP_Y;
     };
+
+    /**
+     * @brief Analysis helper function.
+     * @return Pair of coordinates, max "X" and max "Y".
+     */
+    Components::Point maxCoordinates(const Possibilities::RectangleGetters &rectangle);
+
+    /**
+     * @brief Analysis helper function.
+     * @return Pair of coordinates, min "X" and min "Y".
+     */
+    Components::Point minCoordinates(const Possibilities::RectangleGetters &rectangle);
 }
 
 #endif //FLASH_BASICMOBCOLLISION_H

@@ -11,7 +11,7 @@
 Mobs::BasicMobCollision::BasicMobCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY)
         : ANALYSIS_STEP_X(analysisStepX), ANALYSIS_STEP_Y(analysisStepY), CollisionStrategy(unifier) {}
 
-Components::Point maxCoordinates(const Possibilities::RectangleGetters &rectangle) {
+Components::Point Mobs::maxCoordinates(const Possibilities::RectangleGetters &rectangle) {
     const float rectangleAngleInRadians = rectangle.getRotation() * M_PI / 180;
     const float rectangleXStart = rectangle.getPosition().x;
 
@@ -35,7 +35,7 @@ Components::Point maxCoordinates(const Possibilities::RectangleGetters &rectangl
                              std::max(std::max(rectangleY2, rectangleY3), std::max(rectangleY4, rectangleYStart)));
 }
 
-Components::Point minCoordinates(const Possibilities::RectangleGetters &rectangle) {
+Components::Point Mobs::minCoordinates(const Possibilities::RectangleGetters &rectangle) {
     const float rectangleAngleInRadians = rectangle.getRotation() * M_PI / 180;
     const float rectangleXStart = rectangle.getPosition().x;
 
@@ -60,7 +60,6 @@ Components::Point minCoordinates(const Possibilities::RectangleGetters &rectangl
 }
 
 std::shared_ptr<Obstacles::Obstacle> Mobs::BasicMobCollision::abscissaMoveAble(Mobs::Mob *mob) const noexcept {
-
     if (mob->getMoveSpeed().xSpeed == 0) return nullptr;
 
     Components::Point mobMinCoordinates = minCoordinates(*mob);
@@ -106,6 +105,7 @@ std::shared_ptr<Obstacles::Obstacle> Mobs::BasicMobCollision::ordinateMoveAble(M
             continue; //Takes only obstacle with valid position.
 
         for (float x = mobMinCoordinates.x + ANALYSIS_STEP_X; x < mobMaxCoordinates.x; x += ANALYSIS_STEP_X) {
+
             if (obstacle->collision(x, (mob->getMoveSpeed().ySpeed > 0 ? mobMaxCoordinates.y : mobMinCoordinates.y)
                                        + mob->getMoveSpeed().ySpeed)) {
                 return obstacle;
