@@ -5,11 +5,11 @@
 #include "BasicPlayer.h"
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               const std::shared_ptr<CollisionStrategy<std::shared_ptr<Obstacles::Obstacle>>> &collision)
+                               const std::shared_ptr<CollisionStrategy<Obstacles::Obstacle *>> &collision)
         : _collision(collision), Player(sprite) {}
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               Mobs::CollisionStrategy<std::shared_ptr<Obstacles::Obstacle>> *collision)
+                               Mobs::CollisionStrategy<Obstacles::Obstacle *> *collision)
         : _collision(collision), Player(sprite) {}
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
@@ -18,7 +18,7 @@ void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
 
 void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
-    std::shared_ptr<Obstacles::Obstacle> obstacle;
+    Obstacles::Obstacle *obstacle;
 
     if ((obstacle = _collision->abscissaMoveAble(this)) != nullptr) {
         _speed.xSpeed = static_cast<int>(-1 * _speed.xSpeed * 0.49);  // You can use coefficient of elasticity.

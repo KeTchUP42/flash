@@ -19,7 +19,7 @@ namespace Effects {
         void applyEffect(Unite::Unifier *unifier) override;
 
     protected:
-       const float ACCELERATION;
+        const float ACCELERATION;
     };
 }
 

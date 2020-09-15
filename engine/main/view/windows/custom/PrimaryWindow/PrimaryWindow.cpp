@@ -24,7 +24,7 @@ void WindowView::PrimaryWindow::configure() {
 
 void WindowView::PrimaryWindow::initialization() {
     this->addObserver(new WindowCloseObserver());
-    // Place, where you can add more std observers.
+    //Place, where you can add more std observers.
     _screen->load(this, _manager, _window);
     this->addObserver(_screen);
 }

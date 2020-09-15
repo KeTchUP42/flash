@@ -8,9 +8,9 @@
 #include "../../auxiliary/possibilities/Drawable.h"
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
-#include "../../mobs/player/base/Player.h"
+#include "../../mobs/player/common-base/Player.h"
 #include "../../static/effects/Effect.h"
-#include "../../static/obstacles/shared/Obstacle.h"
+#include "../../obstacles/shared/Obstacle.h"
 
 namespace Obstacles {
     class Obstacle;
@@ -29,12 +29,6 @@ namespace Unite {
     class Unifier : public Possibilities::Drawable<sf::RenderWindow>,
                     public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
-        /**
-         * @brief Base objects unifier constructor.
-         * @param context Ptr for screen state context for triggers.
-         */
-        explicit Unifier(Screen::StateChangeable *context);
-
         /**
          * @brief Method deletes operator= method.
          * @return Unifier&
@@ -139,7 +133,7 @@ namespace Unite {
          */
         std::list<std::shared_ptr<Mobs::Player>> _players;
 
-        //..
+        //Mobs and other..
 
         /**
          * @brief Effects.

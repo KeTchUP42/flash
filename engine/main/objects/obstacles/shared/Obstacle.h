@@ -5,16 +5,16 @@
 #ifndef FLASH_OBSTACLE_H
 #define FLASH_OBSTACLE_H
 
-#include "../../../auxiliary/possibilities/Drawable.h"
-#include "../../../auxiliary/possibilities/Movable.h"
-#include "../../../auxiliary/possibilities/CollisionProne.h"
-#include "../../../auxiliary/possibilities/Rotatable.h"
-#include "../../../auxiliary/possibilities/SelfActionable.h"
-#include "../../../auxiliary/possibilities/SelfMovable.h"
-#include "../../../auxiliary/possibilities/RectangleGetters.h"
-#include "../../../../view/windows/base/observer/Observer.h"
-#include "../../../auxiliary/components/elementary/Size.h"
-#include "../../../unifier/common-base/Unifier.h"
+#include "../../auxiliary/possibilities/Drawable.h"
+#include "../../auxiliary/possibilities/Movable.h"
+#include "../../auxiliary/possibilities/CollisionProne.h"
+#include "../../auxiliary/possibilities/Rotatable.h"
+#include "../../auxiliary/possibilities/SelfActionable.h"
+#include "../../auxiliary/possibilities/SelfMovable.h"
+#include "../../auxiliary/possibilities/RectangleGetters.h"
+#include "../../../view/windows/base/observer/Observer.h"
+#include "../../auxiliary/components/elementary/Size.h"
+#include "../../unifier/common-base/Unifier.h"
 
 #include <SFML/Graphics.hpp>
 

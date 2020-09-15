@@ -11,7 +11,7 @@
 namespace Possibilities {
 
     /**
-     * @brief The base class of the RectangleGetters class hierarchy.
+     * @brief The interface describes methods that give access to data allowing to describe a rectangle.
      * @namespace Possibilities
      *
      * This class defines base RectangleGetters interface.

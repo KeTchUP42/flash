@@ -9,7 +9,7 @@
 #include <math.h>
 
 Mobs::BasicMobCollision::BasicMobCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY)
-        : ANALYSIS_STEP_X(analysisStepX), ANALYSIS_STEP_Y(analysisStepY), CollisionStrategy(unifier) {}
+        : CollisionStrategy(unifier), ANALYSIS_STEP_X(analysisStepX), ANALYSIS_STEP_Y(analysisStepY) {}
 
 Components::Point Mobs::maxCoordinates(const Possibilities::RectangleGetters &rectangle) {
     const float rectangleAngleInRadians = rectangle.getRotation() * M_PI / 180;
@@ -59,7 +59,7 @@ Components::Point Mobs::minCoordinates(const Possibilities::RectangleGetters &re
                              std::min(std::min(rectangleY2, rectangleY3), std::min(rectangleY4, rectangleYStart)));
 }
 
-std::shared_ptr<Obstacles::Obstacle> Mobs::BasicMobCollision::abscissaMoveAble(Mobs::Mob *mob) const noexcept {
+Obstacles::Obstacle *Mobs::BasicMobCollision::abscissaMoveAble(Mobs::Mob *mob) const noexcept {
     if (mob->getMoveSpeed().xSpeed == 0) return nullptr;
 
     Components::Point mobMinCoordinates = minCoordinates(*mob);
@@ -80,14 +80,14 @@ std::shared_ptr<Obstacles::Obstacle> Mobs::BasicMobCollision::abscissaMoveAble(M
 
             if (obstacle->collision((mob->getMoveSpeed().xSpeed > 0 ? mobMaxCoordinates.x : mobMinCoordinates.x)
                                     + mob->getMoveSpeed().xSpeed, y)) {
-                return obstacle;
+                return obstacle.get();
             }
         }
     }
     return nullptr;
 }
 
-std::shared_ptr<Obstacles::Obstacle> Mobs::BasicMobCollision::ordinateMoveAble(Mobs::Mob *mob) const noexcept {
+Obstacles::Obstacle *Mobs::BasicMobCollision::ordinateMoveAble(Mobs::Mob *mob) const noexcept {
     if (mob->getMoveSpeed().ySpeed == 0) return nullptr;
 
     Components::Point mobMinCoordinates = minCoordinates(*mob);
@@ -108,7 +108,7 @@ std::shared_ptr<Obstacles::Obstacle> Mobs::BasicMobCollision::ordinateMoveAble(M
 
             if (obstacle->collision(x, (mob->getMoveSpeed().ySpeed > 0 ? mobMaxCoordinates.y : mobMinCoordinates.y)
                                        + mob->getMoveSpeed().ySpeed)) {
-                return obstacle;
+                return obstacle.get();
             }
         }
     }

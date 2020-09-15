@@ -43,7 +43,7 @@ set(COMPONENTS ${BACK} ${SPRITES})
 set(LEVEL engine/main/objects/generating/level/LevelUnifierFactory.h engine/main/objects/generating/level/StartLevelFactory.cpp engine/main/objects/generating/level/StartLevelFactory.h)
 set(GENERATING ${COMPONENTS} ${LEVEL})
 
-set(PLAYER engine/main/objects/mobs/player/base/Player.h engine/main/objects/mobs/player/base/Player.cpp engine/main/objects/mobs/player/control/KeyAlias.h engine/main/objects/mobs/player/custom/BasicPlayer.cpp engine/main/objects/mobs/player/custom/BasicPlayer.h)
+set(PLAYER engine/main/objects/mobs/player/common-base/Player.h engine/main/objects/mobs/player/common-base/Player.cpp engine/main/objects/mobs/player/control/KeyAlias.h engine/main/objects/mobs/player/custom/BasicPlayer.cpp engine/main/objects/mobs/player/custom/BasicPlayer.h)
 set(SHARED engine/main/objects/mobs/shared/Mob.h engine/main/objects/mobs/shared/collision/CollisionStrategy.h engine/main/objects/mobs/shared/collision/BasicMobCollision.cpp engine/main/objects/mobs/shared/collision/BasicMobCollision.h)
 set(MOBS ${PLAYER} ${SHARED})
 

@@ -7,7 +7,7 @@
 #include "../../mobs/player/custom/BasicPlayer.h"
 #include "../../auxiliary/components/sprite/common/box/SpriteBox.h"
 #include "../../static/effects/GravityEffect.h"
-#include "../../static/obstacles/blocks/single/DullBlock.h"
+#include "../../obstacles/blocks/single/DullBlock.h"
 #include "../../mobs/shared/collision/BasicMobCollision.h"
 
 #include <memory>
@@ -19,15 +19,15 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     using namespace Unite;
     using namespace Mobs;
     using namespace Components;
-    Unifier *unifier = new GeneralUnifier(context);
+    Unifier *unifier = new GeneralUnifier();
 
     Player *player = new BasicPlayer(
             std::shared_ptr<ISpriteBox>(
                     new SpriteBox(
                             Point(600, 100),
-                            Size(20, 20),  //10 - min
+                            Size(40, 40),  //10 - min
                             manager->getTextureManager()->loadTexture("mobs/player/mush.png"))),
-            new BasicMobCollision(unifier, 3, 3));
+            new BasicMobCollision(unifier, 5, 5));
 
     player->loadKeyMap("keys/keymap.ini", manager);
     unifier->addPlayer(player);

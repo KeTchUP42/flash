@@ -10,7 +10,7 @@
 namespace Possibilities {
 
     /**
-     * @brief The base class of the SelfMovable class hierarchy. Interface of mobs.
+     * @brief The base class of the SelfMovable class hierarchy.
      * @namespace Possibilities
      *
      * This class defines base SelfMovable interface.

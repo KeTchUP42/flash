@@ -4,8 +4,6 @@
 
 #include "GeneralUnifier.h"
 
-Unite::GeneralUnifier::GeneralUnifier(Screen::StateChangeable *context) : Unifier(context) {}
-
 void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
     //Back sprites
 
@@ -24,12 +22,12 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
 
 void Unite::GeneralUnifier::refresh() {
 
-    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
-        obstacle->selfAction(this);
-    }
-
     for (const std::shared_ptr<Effects::Effect> &effect: _effects) {
         effect->applyEffect(this);
+    }
+
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
+        obstacle->selfAction(this);
     }
 
     for (const std::shared_ptr<Mobs::Player> &player: _players) {
@@ -41,13 +39,13 @@ void Unite::GeneralUnifier::refresh() {
     //..
 
     //trigers
-
 }
 
 void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
     for (const std::shared_ptr<Mobs::Player> &player: _players) {
         player->update(event, sender);
     }
+
     //mobs
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {

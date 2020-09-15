@@ -9,13 +9,13 @@
 
 namespace Mobs {
 
-    class BasicMobCollision : public CollisionStrategy<std::shared_ptr<Obstacles::Obstacle>> {
+    class BasicMobCollision : public CollisionStrategy<Obstacles::Obstacle *> {
     public:
         explicit BasicMobCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY);
 
-        std::shared_ptr<Obstacles::Obstacle> abscissaMoveAble(Mob *mob) const noexcept override;
+        Obstacles::Obstacle *abscissaMoveAble(Mob *mob) const noexcept override;
 
-        std::shared_ptr<Obstacles::Obstacle> ordinateMoveAble(Mob *mob) const noexcept override;
+        Obstacles::Obstacle *ordinateMoveAble(Mob *mob) const noexcept override;
 
         void setAnalysisStepX(float analysisStepX) noexcept;
 

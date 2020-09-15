@@ -11,8 +11,6 @@ namespace Unite {
 
     class GeneralUnifier : public Unifier {
     public:
-        explicit GeneralUnifier(Screen::StateChangeable *context);
-
         void draw(sf::RenderWindow &target) const noexcept override;
 
         void refresh() override;

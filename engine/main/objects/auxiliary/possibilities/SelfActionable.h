@@ -8,7 +8,7 @@
 namespace Possibilities {
 
     /**
-     * @brief The base class of the SelfActionable class hierarchy. Interface of mobs.
+     * @brief The base class of the SelfActionable class hierarchy.
      * @namespace Possibilities
      *
      * This class defines base SelfActionable interface.

@@ -12,7 +12,7 @@ namespace ViewCreate {
     class PrimaryWindowFactory : public WindowFactory {
     public:
         std::shared_ptr<WindowView::Window>
-        createWindow(const std::string &filename, Managers::DataManager *manager) const override;
+        create(const std::string &filename, Managers::DataManager *manager) const override;
     };
 }
 #endif //FLASH_PRIMARYWINDOWFACTORY_H

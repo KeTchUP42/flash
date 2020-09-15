@@ -12,7 +12,7 @@
 #include <cstdlib>
 
 std::shared_ptr<WindowView::Window>
-ViewCreate::PrimaryWindowFactory::createWindow(const std::string &filename, Managers::DataManager *manager) const {
+ViewCreate::PrimaryWindowFactory::create(const std::string &filename, Managers::DataManager *manager) const {
     IniProcessorUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
 
     //context settings

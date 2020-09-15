@@ -31,7 +31,7 @@ namespace ViewCreate {
          * @return New Window.
          */
         virtual std::shared_ptr<WindowView::Window>
-        createWindow(const std::string &filename, Managers::DataManager *manager) const = 0;
+        create(const std::string &filename, Managers::DataManager *manager) const = 0;
 
         virtual ~WindowFactory() = default;
     };
