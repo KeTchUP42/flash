@@ -7,33 +7,17 @@
 
 #include "../base/ISprite.h"
 #include "../.././../../possibilities/RectangleGetters.h"
+#include "../../../../possibilities/RectangleSetters.h"
 
 #include <memory>
 
 namespace Components {
 
-    class ISpriteBox : public Possibilities::RectangleGetters, public ISprite {
+    class ISpriteBox : public Possibilities::RectangleGetters,
+                       public Possibilities::RectangleSetters,
+                       public ISprite {
     public:
         ISpriteBox() = default;
-
-        /**
-         * @brief Method sets new position point.
-         * @param point New Point.
-         */
-        virtual void setPosition(const Components::Point &point) noexcept = 0;
-
-        /**
-         * @brief Method sets new position point.
-         * @param x coordinate.
-         * @param y coordinate.
-         */
-        virtual void setPosition(float x, float y) noexcept = 0;
-
-        /**
-         * @brief Method sets new rotation value.
-         * @param angle Rotation angle.
-         */
-        virtual void setRotation(float angle) noexcept = 0;
 
         /**
          * @brief Method returns origin sprite.

@@ -59,3 +59,19 @@ const Components::Size &Obstacles::SingleSpriteBlock::getSize() const noexcept {
 float Obstacles::SingleSpriteBlock::getRotation() const noexcept {
     return _sprite->getRotation();
 }
+
+void Obstacles::SingleSpriteBlock::setPosition(const Components::Point &point) noexcept {
+    _sprite->setPosition(point);
+}
+
+void Obstacles::SingleSpriteBlock::setPosition(float x, float y) noexcept {
+    _sprite->setPosition(Components::Point(x, y));
+}
+
+void Obstacles::SingleSpriteBlock::setSize(const Components::Size &size) noexcept {
+    _sprite->setSize(size);
+}
+
+void Obstacles::SingleSpriteBlock::setRotation(float angle) noexcept {
+    _sprite->setRotation(angle);
+}

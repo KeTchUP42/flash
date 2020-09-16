@@ -3,10 +3,7 @@
 //
 
 #include "SpriteBox.h"
-
-#define _USE_MATH_DEFINES
-
-#include <math.h>
+#include "../../../../../../../utils/other/Calculations.h"
 
 Components::SpriteBox::SpriteBox(const Components::Point &point, const Components::Size &size,
                                  const std::shared_ptr<sf::Texture> &texture)
@@ -38,40 +35,12 @@ void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
 }
 
 void Components::SpriteBox::rotate(float angle, const Components::Point &point) noexcept {
-    const float angleInRadians = angle * M_PI / 180;
-    this->setPosition(
-            point.x + (point.y - _point.y) * std::sin(angleInRadians) + (_point.x - point.x) * std::cos(angleInRadians),
-            point.y + (_point.y - point.y) * std::cos(angleInRadians) + (_point.x - point.x) * std::sin(angleInRadians)
-    );
+    this->setPosition(OtherUtils::pointToPointRotation(this->getPosition(), angle, point));
     this->rotate(angle);
 }
 
-/**
- * @brief This is help function for Components::SpriteBox::collision method.
- * @return The value responsible for the position of the point relative to the vector.
- */
-static inline int product(float Px, float Py, float Ax, float Ay, float Bx, float By) {
-    return (Bx - Ax) * (Py - Ay) - (By - Ay) * (Px - Ax);
-}
-
 bool Components::SpriteBox::collision(float x, float y) const noexcept {
-    const float angle = _sprite->getRotation() * M_PI / 180;
-    const float sinAngle = std::sin(angle);
-    const float cosAngle = std::cos(angle);
-
-    float xp2 = -sinAngle + cosAngle * _size.width + _point.x;
-    float yp2 = cosAngle + sinAngle * _size.width + _point.y;
-
-    float xp3 = -sinAngle * _size.height + cosAngle * _size.width + _point.x;
-    float yp3 = cosAngle * _size.height + sinAngle * _size.width + _point.y;
-
-    float xp4 = -sinAngle * _size.height + cosAngle + _point.x;
-    float yp4 = cosAngle * _size.height + sinAngle + _point.y;
-
-    return ((product(x, y, _point.x, _point.y, xp2, yp2) >= 0) &&
-            (product(x, y, xp2, yp2, xp3, yp3) >= 0) &&
-            (product(x, y, xp3, yp3, xp4, yp4) >= 0) &&
-            (product(x, y, xp4, yp4, _point.x, _point.y) >= 0));
+    return OtherUtils::collision(Point(x, y), *this);
 }
 
 void Components::SpriteBox::update(const sf::Event &event, sf::RenderWindow &sender) noexcept {
@@ -85,6 +54,12 @@ void Components::SpriteBox::setPosition(const Components::Point &point) noexcept
 void Components::SpriteBox::setPosition(float x, float y) noexcept {
     _point = Point(x, y);
     _sprite->setPosition(_point.x, _point.y);
+}
+
+void Components::SpriteBox::setSize(const Components::Size &size) noexcept {
+    _size = size;
+    _sprite->setScale(static_cast<float>(_size.width) / _texture->getSize().x,
+                      static_cast<float>(_size.height) / _texture->getSize().y);
 }
 
 void Components::SpriteBox::setRotation(float angle) noexcept {

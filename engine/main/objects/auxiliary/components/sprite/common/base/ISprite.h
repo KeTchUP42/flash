@@ -38,7 +38,25 @@ namespace Components {
          */
         ISprite &operator=(const ISprite &) = delete;
 
+        /**
+         * @brief Method sets new tree parent for sprite.
+         * @param sprite New parent.
+         */
+        void setParent(Components::ISprite *sprite) noexcept;
+
+        /**
+         * @brief Method returns sprites parent.
+         * @return Sprite's parent.
+         */
+        Components::ISprite *getParent() const noexcept;
+
         virtual ~ISprite() = default;
+
+    protected:
+        /**
+         * @brief Sprite's tree parent. Base sprite will not have parent, so it will be "nullptr".
+         */
+        Components::ISprite *_parent;
     };
 }
 

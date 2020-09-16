@@ -34,6 +34,8 @@ namespace Components {
 
         void setPosition(float x, float y) noexcept override;
 
+        void setSize(const Size &size) noexcept override;
+
         void setRotation(float angle) noexcept override;
 
         float getRotation() const noexcept override;

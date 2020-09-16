@@ -31,14 +31,14 @@ set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/c
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
-set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Rotatable.h engine/main/objects/auxiliary/possibilities/SelfMovable.h engine/main/objects/auxiliary/possibilities/SelfActionable.h engine/main/objects/auxiliary/possibilities/RectangleGetters.h)
+set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Rotatable.h engine/main/objects/auxiliary/possibilities/SelfMovable.h engine/main/objects/auxiliary/possibilities/SelfActionable.h engine/main/objects/auxiliary/possibilities/RectangleGetters.h engine/main/objects/auxiliary/possibilities/Elastic.h engine/main/objects/auxiliary/possibilities/ProgramObserver.h engine/main/objects/auxiliary/possibilities/RectangleSetters.h)
 set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/point/Point.h engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/Size.h engine/main/objects/auxiliary/components/elementary/Speed.h)
 set(SPRITE engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h engine/main/objects/auxiliary/components/sprite/common/box/ISpriteBox.h)
 set(COMPONENTS ${ELEMENTARY} ${SPRITE})
 set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
 
 set(BACK engine/main/objects/generating/components/background/BackGroundSpriteBoxFactory.h engine/main/objects/generating/components/background/PrimaryBackGroundFactory.cpp engine/main/objects/generating/components/background/PrimaryBackGroundFactory.h)
-set(SPRITES engine/main/objects/generating/components/sprites/SpriteFactory.h engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.cpp engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.h)
+set(SPRITES engine/main/objects/generating/components/sprites/SpriteFactory.h engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.cpp engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.cpp)
 set(COMPONENTS ${BACK} ${SPRITES})
 set(LEVEL engine/main/objects/generating/level/LevelUnifierFactory.h engine/main/objects/generating/level/StartLevelFactory.cpp engine/main/objects/generating/level/StartLevelFactory.h)
 set(GENERATING ${COMPONENTS} ${LEVEL})
@@ -63,7 +63,8 @@ set(WRITER engine/utils/writer/Writer.h engine/utils/writer/FileWriter.cpp engin
 set(READER engine/utils/reader/Reader.h engine/utils/reader/FileReader.cpp engine/utils/reader/FileReader.h)
 set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h engine/utils/Ini/BasicIniProcessor.cpp engine/utils/Ini/BasicIniProcessor.h engine/utils/Ini/analyzer/IniAnalyzer.cpp engine/utils/Ini/analyzer/IniAnalyzer.h)
 set(TRIM engine/utils/trim/trim.h)
-set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM})
+set(OTHER engine/utils/other/Calculations.cpp engine/utils/other/Calculations.h)
+set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM} ${OTHER})
 
 set(EXCEPTIONS engine/main/other/exceptions/RuntimeException.h engine/main/other/exceptions/Exception.cpp engine/main/other/exceptions/Exception.h engine/main/other/exceptions/LogicError.h engine/main/other/exceptions/InvalidArgument.h engine/main/other/exceptions/custom/FileCanNotBeOpened.h engine/main/other/exceptions/ExceptionCodes.h engine/main/other/exceptions/custom/AudioFileCanNotBeOpened.h engine/main/other/exceptions/custom/TextureCanNotBeLoaded.h engine/main/other/exceptions/custom/FontCanNotBeLoaded.h)
 

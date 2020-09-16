@@ -48,9 +48,20 @@ namespace Obstacles {
 
         const Components::Size &getSize() const noexcept override;
 
+        float getRotation() const noexcept override;
+
+        void setPosition(const Components::Point &point) noexcept override;
+
+        void setPosition(float x, float y) noexcept override;
+
+        void setSize(const Components::Size &size) noexcept override;
+
+        void setRotation(float angle) noexcept override;
+
         virtual ~CompositeSpriteBlock() = default;
 
     protected:
+        float _angle;
         Components::Point _point;
         Components::Size _size;
         Components::Speed _speed;
