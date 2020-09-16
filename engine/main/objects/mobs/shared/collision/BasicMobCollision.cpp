@@ -70,10 +70,17 @@ Obstacles::Obstacle *Mobs::BasicMobCollision::abscissaMoveAble(Mobs::Mob *mob) c
                ((obstacleMaxCoordinates.y >= mobMinCoordinates.y) && (obstacleMaxCoordinates.y <= mobMaxCoordinates.y)))))
             continue; //Takes only obstacle with valid position.
 
+        const float mobMoveXSpeed = mob->getMoveSpeed().xSpeed;
+
+        if ((mobMoveXSpeed > 0) && (mobMaxCoordinates.x > obstacleMaxCoordinates.x)) continue;
+        if ((mobMoveXSpeed < 0) && (mobMinCoordinates.x < obstacleMinCoordinates.x)) continue;
+
+        if ((mobMoveXSpeed > 0) && (mobMaxCoordinates.x + mobMoveXSpeed < obstacleMinCoordinates.x)) continue;
+        if ((mobMoveXSpeed < 0) && (mobMinCoordinates.x + mobMoveXSpeed > obstacleMaxCoordinates.x)) continue;
+
         for (float y = mobMinCoordinates.y + ANALYSIS_STEP_Y; y < mobMaxCoordinates.y; y += ANALYSIS_STEP_Y) {
 
-            if (obstacle->collision((mob->getMoveSpeed().xSpeed > 0 ? mobMaxCoordinates.x : mobMinCoordinates.x)
-                                    + mob->getMoveSpeed().xSpeed, y)) {
+            if (obstacle->collision((mobMoveXSpeed > 0 ? mobMaxCoordinates.x : mobMinCoordinates.x) + mobMoveXSpeed, y)) {
                 return obstacle.get();
             }
         }
@@ -98,10 +105,17 @@ Obstacles::Obstacle *Mobs::BasicMobCollision::ordinateMoveAble(Mobs::Mob *mob) c
                ((obstacleMaxCoordinates.x >= mobMinCoordinates.x) && (obstacleMaxCoordinates.x <= mobMaxCoordinates.x)))))
             continue; //Takes only obstacle with valid position.
 
+        const float mobMoveYSpeed = mob->getMoveSpeed().ySpeed;
+
+        if ((mobMoveYSpeed > 0) && (mobMaxCoordinates.y > obstacleMaxCoordinates.y)) continue;
+        if ((mobMoveYSpeed < 0) && (mobMinCoordinates.y < obstacleMinCoordinates.y)) continue;
+
+        if ((mobMoveYSpeed > 0) && (mobMaxCoordinates.y + mobMoveYSpeed < obstacleMinCoordinates.y)) continue;
+        if ((mobMoveYSpeed < 0) && (mobMinCoordinates.y + mobMoveYSpeed > obstacleMaxCoordinates.y)) continue;
+
         for (float x = mobMinCoordinates.x + ANALYSIS_STEP_X; x < mobMaxCoordinates.x; x += ANALYSIS_STEP_X) {
 
-            if (obstacle->collision(x, (mob->getMoveSpeed().ySpeed > 0 ? mobMaxCoordinates.y : mobMinCoordinates.y)
-                                       + mob->getMoveSpeed().ySpeed)) {
+            if (obstacle->collision(x, (mobMoveYSpeed > 0 ? mobMaxCoordinates.y : mobMinCoordinates.y) + mobMoveYSpeed)) {
                 return obstacle.get();
             }
         }
