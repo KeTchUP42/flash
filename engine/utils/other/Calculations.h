@@ -21,7 +21,6 @@ namespace OtherUtils {
      * @brief Function returns new point after rotation base point around target point.
      * @return New Point.
      */
-    Components::Point
-    pointToPointRotation(const Components::Point &base, float angle, const Components::Point &target) noexcept;
+    Components::Point pointToPointRotation(const Components::Point &base, float angle, const Components::Point &target) noexcept;
 }
 #endif //FLASH_CALCULATIONS_H

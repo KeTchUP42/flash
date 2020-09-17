@@ -14,7 +14,7 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
         obstacle->draw(target);
     }
 
-    // Mobs
+    // Monsters
 
     for (const std::shared_ptr<Mobs::Player> &player: _players) {
         player->draw(target);
@@ -56,7 +56,7 @@ void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sen
         player->update(event, sender);
     }
 
-    //mobs
+    //You can add monsters to update circle.
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
         obstacle->update(event, sender);
@@ -65,6 +65,4 @@ void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sen
     for (const std::shared_ptr<Components::ISprite> &sprite: _frontSprites) {
         sprite->update(event, sender);
     }
-
-    //all observers
 }

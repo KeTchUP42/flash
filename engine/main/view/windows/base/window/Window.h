@@ -81,6 +81,12 @@ namespace WindowView {
         void setFramerateLimit(unsigned int limit) noexcept;
 
         /**
+         * @brief Method returns SFML window.
+         * @return Window.
+         */
+        const sf::RenderWindow &getWindow() const noexcept;
+
+        /**
          * @brief Method starts window "life" cycle.
          */
         void start();

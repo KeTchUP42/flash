@@ -53,3 +53,7 @@ void WindowView::Window::removeObserver(const std::shared_ptr<Window::Observer> 
 void WindowView::Window::setFramerateLimit(unsigned int limit) noexcept {
     _window.setFramerateLimit(limit);
 }
+
+const sf::RenderWindow &WindowView::Window::getWindow() const noexcept {
+    return _window;
+}
