@@ -6,32 +6,31 @@
 #define FLASH_COLLISIONSTRATEGY_H
 
 #include "../../../unifier/common-base/Unifier.h"
-#include "../Mob.h"
 
-namespace Mobs {
+namespace Material {
 
     /**
      * @brief The base class of the CollisionStrategy class hierarchy. These classes contains collision algorithms.
-     * @namespace Mobs
+     * @namespace Material
      *
      * This class defines base CollisionStrategy interface.
     */
-    template<typename Result>
+    template<class ProcessedType, class Result>
     class CollisionStrategy {
     public:
         CollisionStrategy(Unite::Unifier *unifier) : _unifier(unifier) {}
 
         /**
          * @brief Method checks move able for "X" line.
-         * @param mob Processed mob.
+         * @param object Processed object.
          */
-        virtual Result abscissaMoveAble(Mob *mob) const noexcept = 0;
+        virtual Result abscissaMoveAble(ProcessedType object) const noexcept = 0;
 
         /**
          * @brief Method checks move able for "Y" line.
-         * @param mob Processed mob.
+         * @param object Processed object.
          */
-        virtual Result ordinateMoveAble(Mob *mob) const noexcept = 0;
+        virtual Result ordinateMoveAble(ProcessedType object) const noexcept = 0;
 
         virtual ~CollisionStrategy() = default;
 

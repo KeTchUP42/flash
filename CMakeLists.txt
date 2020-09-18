@@ -33,29 +33,29 @@ set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
 set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Rotatable.h engine/main/objects/auxiliary/possibilities/SelfMovable.h engine/main/objects/auxiliary/possibilities/SelfActionable.h engine/main/objects/auxiliary/possibilities/RectangleGetters.h engine/main/objects/auxiliary/possibilities/Elastic.h engine/main/objects/auxiliary/possibilities/SelfObserver.h engine/main/objects/auxiliary/possibilities/RectangleSetters.h)
 set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/point/Point.h engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/Size.h engine/main/objects/auxiliary/components/elementary/Speed.h)
-set(SPRITE engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h engine/main/objects/auxiliary/components/sprite/common/box/ISpriteBox.h)
+et(SPRITE engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/common/box/SpriteBox.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.cpp engine/main/objects/auxiliary/components/sprite/common/base/ISprite.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h engine/main/objects/auxiliary/components/sprite/common/box/ISpriteBox.h)
 set(COMPONENTS ${ELEMENTARY} ${SPRITE})
 set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
 
-set(BACK engine/main/objects/generating/components/background/BackGroundSpriteBoxFactory.h engine/main/objects/generating/components/background/PrimaryBackGroundFactory.cpp engine/main/objects/generating/components/background/PrimaryBackGroundFactory.h)
-set(SPRITES engine/main/objects/generating/components/sprites/SpriteFactory.h engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.cpp engine/main/objects/generating/components/sprites/StoneWallSpriteFactory.h engine/main/objects/auxiliary/components/sprite/common/base/ISprite.cpp)
-set(COMPONENTS ${BACK} ${SPRITES})
 set(LEVEL engine/main/objects/generating/level/LevelUnifierFactory.h engine/main/objects/generating/level/StartLevelFactory.cpp engine/main/objects/generating/level/StartLevelFactory.h)
-set(GENERATING ${COMPONENTS} ${LEVEL})
+set(GENERATING ${LEVEL})
 
 set(MONSTERS engine/main/objects/mobs/monsters/common-base/Monster.cpp engine/main/objects/mobs/monsters/common-base/Monster.h engine/main/objects/mobs/monsters/common-base/CollisionProneMonster.h engine/main/objects/mobs/monsters/custom/mushroom/Mushroom.cpp engine/main/objects/mobs/monsters/custom/mushroom/Mushroom.h)
 set(PLAYER engine/main/objects/mobs/player/common-base/Player.h engine/main/objects/mobs/player/common-base/Player.cpp engine/main/objects/mobs/player/control/KeyAlias.h engine/main/objects/mobs/player/custom/BasicPlayer.cpp engine/main/objects/mobs/player/custom/BasicPlayer.h)
 set(SHARED engine/main/objects/mobs/shared/Mob.h engine/main/objects/mobs/shared/collision/CollisionStrategy.h engine/main/objects/mobs/shared/collision/ObstacleMobCollision.cpp engine/main/objects/mobs/shared/collision/ObstacleMobCollision.h)
 set(MOBS ${MONSTERS} ${PLAYER} ${SHARED})
 
-set(OBSTACLES engine/main/objects/obstacles/shared/Obstacle.h engine/main/objects/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/obstacles/blocks/single/DullBlock.cpp engine/main/objects/obstacles/blocks/single/DullBlock.h engine/main/objects/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/obstacles/blocks/composite/DullCompositeBlock.h)
+set(OBSTACLES engine/main/objects/material/obstacles/shared/Obstacle.h engine/main/objects/material/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/material/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/single/DullBlock.cpp engine/main/objects/material/obstacles/blocks/single/DullBlock.h engine/main/objects/material/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/material/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/material/obstacles/blocks/composite/DullCompositeBlock.h)
+set(MATERIAL_SHARED engine/main/objects/material/shared/collision/CollisionStrategy.h engine/main/objects/material/shared/collision/ObstacleCollision.cpp engine/main/objects/material/shared/collision/ObstacleCollision.h engine/main/objects/material/shared/collision/coordinates/CoordinatesCalculation.cpp engine/main/objects/material/shared/collision/coordinates/CoordinatesCalculation.h engine/main/objects/material/shared/collision/MobCollision.cpp engine/main/objects/material/shared/collision/MobCollision.h)
+set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_SHARED} engine/main/objects/material/shared/MaterialObject.h)
 
 set(EFFECTS engine/main/objects/static/effects/Effect.h engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityEffect.h)
-set(STATIC ${EFFECTS})
+set(TRIGGERS engine/main/objects/static/triggers/Trigger.h)
+set(STATIC ${EFFECTS} ${TRIGGERS})
 
 set(UNIFIER engine/main/objects/unifier/common-base/Unifier.h engine/main/objects/unifier/common-base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
 
-set(OBJECTS ${AUXILIARY} ${GENERATING} ${MOBS} ${OBSTACLES} ${STATIC} ${UNIFIER})
+set(OBJECTS ${AUXILIARY} ${GENERATING} ${MATERIAL} ${STATIC} ${UNIFIER})
 
 set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
 

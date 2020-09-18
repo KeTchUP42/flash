@@ -1,9 +1,9 @@
 //
-// Created by roman on 08.09.2020.
+// Created by roman on 18.09.2020.
 //
 
-#ifndef FLASH_MOB_H
-#define FLASH_MOB_H
+#ifndef FLASH_MATERIALOBJECT_H
+#define FLASH_MATERIALOBJECT_H
 
 #include "../../auxiliary/possibilities/Drawable.h"
 #include "../../auxiliary/possibilities/Movable.h"
@@ -15,21 +15,19 @@
 #include "../../auxiliary/components/elementary/Size.h"
 #include "../../auxiliary/possibilities/RectangleGetters.h"
 
-#include <SFML/Graphics.hpp>
-
 namespace Unite {
     class Unifier;
 }
 
-namespace Mobs {
+namespace Material {
 
     /**
-     * @brief The base class of the Mob class hierarchy. It contains all usefull interfaces.
-     * @namespace Mobs
+     * @brief The base class of the MaterialObject class hierarchy. Interface describes all material objects possibilities.
+     * @namespace Material
      *
-     * This class defines base Mob interface.
+     * This class defines base MaterialObject interface.
     */
-    class Mob :
+    class MaterialObject :
             public Possibilities::SelfActionable<Unite::Unifier>,
             public Possibilities::SelfMovable<Unite::Unifier>,
             public Possibilities::Movable,
@@ -39,18 +37,18 @@ namespace Mobs {
             public Possibilities::Drawable<sf::RenderTarget>,
             public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
-        Mob() = default;
+        MaterialObject() = default;
 
         /**
          * @brief Method deletes "operator=".
-         * @return Mob
+         * @return MaterialObject
          */
-        Mob &operator=(const Mob &) = delete;
+        MaterialObject &operator=(const MaterialObject &) = delete;
 
-        virtual ~Mob() = default;
+        virtual ~MaterialObject() = default;
     };
 }
 
 #include "../../unifier/common-base/Unifier.h"
 
-#endif //FLASH_MOB_H
+#endif //FLASH_MATERIALOBJECT_H
