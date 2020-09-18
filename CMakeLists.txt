@@ -43,9 +43,10 @@ set(COMPONENTS ${BACK} ${SPRITES})
 set(LEVEL engine/main/objects/generating/level/LevelUnifierFactory.h engine/main/objects/generating/level/StartLevelFactory.cpp engine/main/objects/generating/level/StartLevelFactory.h)
 set(GENERATING ${COMPONENTS} ${LEVEL})
 
+set(MONSTERS engine/main/objects/mobs/monsters/common-base/Monster.cpp engine/main/objects/mobs/monsters/common-base/Monster.h engine/main/objects/mobs/monsters/common-base/CollisionProneMonster.h engine/main/objects/mobs/monsters/custom/mushroom/Mushroom.cpp engine/main/objects/mobs/monsters/custom/mushroom/Mushroom.h)
 set(PLAYER engine/main/objects/mobs/player/common-base/Player.h engine/main/objects/mobs/player/common-base/Player.cpp engine/main/objects/mobs/player/control/KeyAlias.h engine/main/objects/mobs/player/custom/BasicPlayer.cpp engine/main/objects/mobs/player/custom/BasicPlayer.h)
-set(SHARED engine/main/objects/mobs/shared/Mob.h engine/main/objects/mobs/shared/collision/CollisionStrategy.h engine/main/objects/mobs/shared/collision/BasicMobCollision.cpp engine/main/objects/mobs/shared/collision/BasicMobCollision.h)
-set(MOBS ${PLAYER} ${SHARED})
+set(SHARED engine/main/objects/mobs/shared/Mob.h engine/main/objects/mobs/shared/collision/CollisionStrategy.h engine/main/objects/mobs/shared/collision/ObstacleMobCollision.cpp engine/main/objects/mobs/shared/collision/ObstacleMobCollision.h)
+set(MOBS ${MONSTERS} ${PLAYER} ${SHARED})
 
 set(OBSTACLES engine/main/objects/obstacles/shared/Obstacle.h engine/main/objects/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/obstacles/blocks/single/DullBlock.cpp engine/main/objects/obstacles/blocks/single/DullBlock.h engine/main/objects/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/obstacles/blocks/composite/DullCompositeBlock.h)
 

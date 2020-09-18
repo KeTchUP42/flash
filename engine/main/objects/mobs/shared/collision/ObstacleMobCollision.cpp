@@ -2,13 +2,13 @@
 // Created by roman on 12.09.2020.
 //
 
-#include "BasicMobCollision.h"
+#include "ObstacleMobCollision.h"
 
 #define _USE_MATH_DEFINES
 
 #include <math.h>
 
-Mobs::BasicMobCollision::BasicMobCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY)
+Mobs::ObstacleMobCollision::ObstacleMobCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY)
         : CollisionStrategy(unifier), ANALYSIS_STEP_X(analysisStepX), ANALYSIS_STEP_Y(analysisStepY) {}
 
 Components::Point Mobs::maxCoordinates(const Possibilities::RectangleGetters &rectangle) {
@@ -53,7 +53,7 @@ Components::Point Mobs::minCoordinates(const Possibilities::RectangleGetters &re
                              std::min(std::min(rectangleY2, rectangleY3), std::min(rectangleY4, rectangleYStart)));
 }
 
-Obstacles::Obstacle *Mobs::BasicMobCollision::abscissaMoveAble(Mobs::Mob *mob) const noexcept {
+Obstacles::Obstacle *Mobs::ObstacleMobCollision::abscissaMoveAble(Mobs::Mob *mob) const noexcept {
     if (mob->getMoveSpeed().xSpeed == 0) return nullptr;
 
     Components::Point mobMinCoordinates = minCoordinates(*mob);
@@ -88,7 +88,7 @@ Obstacles::Obstacle *Mobs::BasicMobCollision::abscissaMoveAble(Mobs::Mob *mob) c
     return nullptr;
 }
 
-Obstacles::Obstacle *Mobs::BasicMobCollision::ordinateMoveAble(Mobs::Mob *mob) const noexcept {
+Obstacles::Obstacle *Mobs::ObstacleMobCollision::ordinateMoveAble(Mobs::Mob *mob) const noexcept {
     if (mob->getMoveSpeed().ySpeed == 0) return nullptr;
 
     Components::Point mobMinCoordinates = minCoordinates(*mob);
@@ -123,10 +123,10 @@ Obstacles::Obstacle *Mobs::BasicMobCollision::ordinateMoveAble(Mobs::Mob *mob) c
     return nullptr;
 }
 
-void Mobs::BasicMobCollision::setAnalysisStepX(float analysisStepX) noexcept {
-    BasicMobCollision::ANALYSIS_STEP_X = analysisStepX;
+void Mobs::ObstacleMobCollision::setAnalysisStepX(float analysisStepX) noexcept {
+    ObstacleMobCollision::ANALYSIS_STEP_X = analysisStepX;
 }
 
-void Mobs::BasicMobCollision::setAnalysisStepY(float analysisStepY) noexcept {
-    BasicMobCollision::ANALYSIS_STEP_Y = analysisStepY;
+void Mobs::ObstacleMobCollision::setAnalysisStepY(float analysisStepY) noexcept {
+    ObstacleMobCollision::ANALYSIS_STEP_Y = analysisStepY;
 }

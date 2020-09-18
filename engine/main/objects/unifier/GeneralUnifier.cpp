@@ -6,7 +6,7 @@
 
 void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: _backSprites) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: _back) {
         sprite->draw(target);
     }
 
@@ -14,13 +14,15 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
         obstacle->draw(target);
     }
 
-    // Monsters
+    for (const std::shared_ptr<Mobs::Monster> &monster: _monsters) {
+        monster->draw(target);
+    }
 
     for (const std::shared_ptr<Mobs::Player> &player: _players) {
         player->draw(target);
     }
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: _frontSprites) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: _front) {
         sprite->draw(target);
     }
 }
@@ -39,16 +41,16 @@ void Unite::GeneralUnifier::refresh() {
         player->selfAction(this);
     }
 
-    //mobs
-
-    //..
+    for (const std::shared_ptr<Mobs::Monster> &monster: _monsters) {
+        monster->selfAction(this);
+    }
 
     //trigers
 }
 
 void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: _backSprites) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: _back) {
         sprite->update(event, sender);
     }
 
@@ -56,13 +58,17 @@ void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sen
         player->update(event, sender);
     }
 
-    //You can add monsters to update circle.
+    for (const std::shared_ptr<Mobs::Monster> &monster: _monsters) {
+        monster->update(event, sender);
+    }
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
         obstacle->update(event, sender);
     }
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: _frontSprites) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: _front) {
         sprite->update(event, sender);
     }
+
+    //trigers
 }

@@ -9,6 +9,7 @@
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../../mobs/player/common-base/Player.h"
+#include "../../mobs/monsters/common-base/Monster.h"
 #include "../../static/effects/Effect.h"
 #include "../../obstacles/shared/Obstacle.h"
 
@@ -18,6 +19,8 @@ namespace Obstacles {
 
 namespace Mobs {
     class Player;
+
+    class Monster;
 }
 
 namespace Components {
@@ -173,6 +176,38 @@ namespace Unite {
         //..
 
         /**
+         * @brief Method adds new monster.
+         * @param monster New monster.
+         */
+        void addMonster(Mobs::Monster *monster) noexcept;
+
+        /**
+         * @brief Method adds new monster.
+         * @param monster New monster.
+         */
+        void addMonster(const std::shared_ptr<Mobs::Monster> &monster) noexcept;
+
+        /**
+         * @brief Method removes monster.
+         * @param monster Existing monster.
+         */
+        void removeMonster(Mobs::Monster *monster) noexcept;
+
+        /**
+         * @brief Method removes monster.
+         * @param monster Existing monster.
+         */
+        void removeMonster(const std::shared_ptr<Mobs::Monster> &monster) noexcept;
+
+        /**
+         * @brief Method returns const reference on monsters collection.
+         * @return Const reference on monsters collection.
+         */
+        const std::list<std::shared_ptr<Mobs::Monster>> &getMonsters() const noexcept;
+
+        //..
+
+        /**
          * @brief Method adds new effect.
          * @param effect New effect.
          */
@@ -208,12 +243,12 @@ namespace Unite {
         /**
          * @brief Back sprites.
          */
-        std::list<std::shared_ptr<Components::ISprite>> _backSprites;
+        std::list<std::shared_ptr<Components::ISprite>> _back;
 
         /**
          * @brief Front sprites.
         */
-        std::list<std::shared_ptr<Components::ISprite>> _frontSprites;
+        std::list<std::shared_ptr<Components::ISprite>> _front;
 
         /**
          * @brief Obstacles.
@@ -225,7 +260,10 @@ namespace Unite {
          */
         std::list<std::shared_ptr<Mobs::Player>> _players;
 
-        //Mobs and other..
+        /**
+         * @brief Monsters.
+            */
+        std::list<std::shared_ptr<Mobs::Monster>> _monsters;
 
         /**
          * @brief Effects.

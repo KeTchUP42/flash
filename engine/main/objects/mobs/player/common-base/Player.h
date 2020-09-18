@@ -43,8 +43,8 @@ namespace Mobs {
         virtual void loadKeyMap(const std::string &filename, Managers::DataManager *manager) = 0;
 
         /**
-         * @brief Method changes player's sprite.
-         * @param texture New sprite.
+         * @brief Method changes player's sprite texture.
+         * @param texture New texture.
          */
         void loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
 

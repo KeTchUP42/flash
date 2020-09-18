@@ -20,7 +20,7 @@ namespace Possibilities {
 
         /**
          * @brief Method uses for components communication.
-         * @param event Some information event DTO class.
+         * @param event Some information in event DTO class object.
          * @param sender Class sender.
          */
         virtual void selfUpdate(const Event &event, Sender &sender) = 0;

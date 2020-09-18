@@ -14,7 +14,6 @@
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../auxiliary/components/elementary/Size.h"
 #include "../../auxiliary/possibilities/RectangleGetters.h"
-#include "../../unifier/common-base/Unifier.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -51,5 +50,7 @@ namespace Mobs {
         virtual ~Mob() = default;
     };
 }
+
+#include "../../unifier/common-base/Unifier.h"
 
 #endif //FLASH_MOB_H

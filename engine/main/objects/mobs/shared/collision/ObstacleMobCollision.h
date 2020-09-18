@@ -2,16 +2,16 @@
 // Created by roman on 12.09.2020.
 //
 
-#ifndef FLASH_BASICMOBCOLLISION_H
-#define FLASH_BASICMOBCOLLISION_H
+#ifndef FLASH_OBSTACLEMOBCOLLISION_H
+#define FLASH_OBSTACLEMOBCOLLISION_H
 
 #include "CollisionStrategy.h"
 
 namespace Mobs {
 
-    class BasicMobCollision : public CollisionStrategy<Obstacles::Obstacle *> {
+    class ObstacleMobCollision : public CollisionStrategy<Obstacles::Obstacle *> {
     public:
-        explicit BasicMobCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY);
+        explicit ObstacleMobCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY);
 
         Obstacles::Obstacle *abscissaMoveAble(Mob *mob) const noexcept override;
 
@@ -39,4 +39,4 @@ namespace Mobs {
     Components::Point minCoordinates(const Possibilities::RectangleGetters &rectangle);
 }
 
-#endif //FLASH_BASICMOBCOLLISION_H
+#endif //FLASH_OBSTACLEMOBCOLLISION_H
