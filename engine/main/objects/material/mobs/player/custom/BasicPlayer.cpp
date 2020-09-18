@@ -5,12 +5,14 @@
 #include "BasicPlayer.h"
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               const std::shared_ptr<CollisionStrategy<Obstacles::Obstacle *>> &collision)
-        : _collision(collision), Player(sprite) {}
+                               const std::shared_ptr<Material::ObstacleCollision> &obstacleCollision,
+                               const std::shared_ptr<Material::MobCollision> &mobCollision)
+        : Player(sprite), _obstacleCollision(obstacleCollision), _mobCollision(mobCollision) {}
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               Mobs::CollisionStrategy<Obstacles::Obstacle *> *collision)
-        : _collision(collision), Player(sprite) {}
+                               Material::ObstacleCollision *obstacleCollision, Material::MobCollision *mobCollision)
+        : Player(sprite), _obstacleCollision(obstacleCollision), _mobCollision(mobCollision) {}
+
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);
@@ -20,12 +22,12 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = _collision->abscissaMoveAble(this)) != nullptr) {
-        _speed.xSpeed = static_cast<int>(-1 * _speed.xSpeed * 0.49);  // You can use coefficient of elasticity.
+    if ((obstacle = _obstacleCollision->abscissaMoveAble(this)) != nullptr) {
+        _speed.xSpeed = static_cast<int>(-1 * _speed.xSpeed * 0);  // You can use coefficient of elasticity.
     }
 
-    if ((obstacle = _collision->ordinateMoveAble(this)) != nullptr) {
-        _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * 0.49);  // You can use coefficient of elasticity.
+    if ((obstacle = _obstacleCollision->ordinateMoveAble(this)) != nullptr) {
+        _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * 0);  // You can use coefficient of elasticity.
     }
 
     this->move(_speed.xSpeed, _speed.ySpeed);

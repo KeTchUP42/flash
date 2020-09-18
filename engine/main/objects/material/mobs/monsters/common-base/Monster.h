@@ -5,20 +5,20 @@
 #ifndef FLASH_MONSTER_H
 #define FLASH_MONSTER_H
 
-#include "../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
-#include "../../shared/Mob.h"
+#include "../../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
+#include "../../../shared/MaterialObject.h"
 
 #include <memory>
 
 namespace Mobs {
 
     /**
-     * @brief The base class of the Monster class hierarchy.
+     * @brief The base class of the Monster class hierarchy. Monster - alias for mobs.
      * @namespace Mobs
      *
      * This class defines base Monster interface.
     */
-    class Monster : public Mob {
+    class Monster : public Material::MaterialObject {
     public:
         explicit Monster(const std::shared_ptr<Components::ISpriteBox> &sprite);
 

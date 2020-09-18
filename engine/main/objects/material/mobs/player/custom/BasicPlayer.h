@@ -6,17 +6,20 @@
 #define FLASH_BASICPLAYER_H
 
 #include "../common-base/Player.h"
-#include "../../shared/collision/CollisionStrategy.h"
+#include "../../../shared/collision/CollisionStrategy.h"
+#include "../../../shared/collision/ObstacleCollision.h"
+#include "../../../shared/collision/MobCollision.h"
 
 namespace Mobs {
 
     class BasicPlayer : public Player {
     public:
         explicit BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             const std::shared_ptr<CollisionStrategy<Obstacles::Obstacle *>> &collision);
+                             const std::shared_ptr<Material::ObstacleCollision> &obstacleCollision,
+                             const std::shared_ptr<Material::MobCollision> &mobCollision);
 
         explicit BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             CollisionStrategy<Obstacles::Obstacle *> *collision);
+                             Material::ObstacleCollision *obstacleCollision, Material::MobCollision *mobCollision);
 
         void selfAction(Unite::Unifier *unifier) override;
 
@@ -29,7 +32,8 @@ namespace Mobs {
         ~BasicPlayer() override = default;
 
     protected:
-        std::shared_ptr<CollisionStrategy<Obstacles::Obstacle *>> _collision;
+        std::shared_ptr<Material::ObstacleCollision> _obstacleCollision;
+        std::shared_ptr<Material::MobCollision> _mobCollision;
     };
 }
 

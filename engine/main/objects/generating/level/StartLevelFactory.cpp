@@ -4,11 +4,12 @@
 
 #include "StartLevelFactory.h"
 #include "../../unifier/GeneralUnifier.h"
-#include "../../mobs/player/custom/BasicPlayer.h"
+#include "../../material/mobs/player/custom/BasicPlayer.h"
+#include "../../material/mobs/monsters/custom/mushroom/Mushroom.h"
 #include "../../auxiliary/components/sprite/common/box/SpriteBox.h"
 #include "../../static/effects/GravityEffect.h"
-#include "../../obstacles/blocks/single/DullBlock.h"
-#include "../../mobs/shared/collision/BasicMobCollision.h"
+#include "../../material/obstacles/blocks/single/DullBlock.h"
+#include "../../material/shared/collision/ObstacleCollision.h"
 
 #include <memory>
 #include <map>
@@ -19,7 +20,16 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     using namespace Unite;
     using namespace Mobs;
     using namespace Components;
+    using namespace Material;
+
     Unifier *unifier = new GeneralUnifier();
+
+    ObstacleCollision *ocollision = new ObstacleCollision(unifier, 5, 5);
+    MobCollision *mcollision = new MobCollision(unifier, 5, 5);
+
+
+    unifier->addBackSprite(new SpriteBox(Point(0, 0), Size(size.x, size.y),
+                                         manager->getTextureManager()->loadTexture("background/dungeon_back_2.png")));
 
     Player *player = new BasicPlayer(
             std::shared_ptr<ISpriteBox>(
@@ -27,177 +37,282 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
                             Point(600, 100),
                             Size(20, 20),  //10 - min
                             manager->getTextureManager()->loadTexture("mobs/player/mush.png"))),
-            new BasicMobCollision(unifier, 4, 4));
+            ocollision, mcollision);
 
     player->loadKeyMap("keys/keymap.ini", manager);
     unifier->addPlayer(player);
 
+    //mushroom
+    Mobs::Monster *mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
+            new SpriteBox(
+                    Point(1180, 250),
+                    Size(20, 20),  //10 - min
+                    manager->getTextureManager()->loadTexture("mobs/monsters/mushroom/mushroom.png"))),
+                                             ocollision, mcollision);
+    mush->addSpeed(-1, 0);
+    unifier->addMonster(mush);
+
+    //gravity
     unifier->addEffect(new Effects::GravityEffect(0, 1));
 
     auto wall_texture = manager->getTextureManager()->loadTexture("structure/walls/stone/stone_wall_1.jpg");
 
-    auto block = new Obstacles::DullBlock(
-            std::shared_ptr<SpriteBox>(new SpriteBox(
-                    Point(800, 340),
-                    Size(150, 150),
-                    wall_texture)));
-    block->rotate(45);
-
-    unifier->addObstacle(block);
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1100, 300),
+                            Size(100, 100),
+                            wall_texture))));
 
     //
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 440),
-                            Size(20, 20),
-                            wall_texture))));
-
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 460),
-                            Size(20, 20),
-                            wall_texture))));
-
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 480),
-                            Size(20, 20),
-                            wall_texture))));
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 500),
-                            Size(20, 20),
-                            wall_texture))));
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 580),
-                            Size(20, 20),
-                            wall_texture))));
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 560),
-                            Size(20, 20),
-                            wall_texture))));
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 540),
-                            Size(20, 20),
-                            wall_texture))));
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 520),
-                            Size(20, 20),
-                            wall_texture))));
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(175, 500),
-                            Size(20, 20),
-                            wall_texture))));
-    //
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(575, 400),
+                            Point(100, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(1200, 620),
-                            Size(100, 100),
-                            wall_texture))));
-
-
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(1100, 620),
+                            Point(200, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(1000, 620),
+                            Point(300, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(900, 620),
+                            Point(400, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(800, 620),
+                            Point(500, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(700, 620),
+                            Point(600, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(600, 620),
+                            Point(700, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(500, 620),
+                            Point(800, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(400, 620),
+                            Point(900, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(300, 620),
+                            Point(1000, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(200, 620),
-                            Size(100, 100),
-                            wall_texture))));
-    unifier->addObstacle(
-            new Obstacles::DullBlock(
-                    std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(100, 620),
+                            Point(1100, 0),
                             Size(100, 100),
                             wall_texture))));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     std::shared_ptr<SpriteBox>(new SpriteBox(
-                            Point(0, 620),
+                            Point(1200, 0),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1200, 100),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1200, 200),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1200, 300),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1200, 400),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1200, 500),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1200, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1100, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(1000, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(900, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(800, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(700, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(600, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(500, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(400, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(300, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(200, 600),
+                            Size(100, 100),
+                            wall_texture))));
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(100, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(0, 600),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(0, 500),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(0, 400),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(0, 300),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(0, 200),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(0, 100),
+                            Size(100, 100),
+                            wall_texture))));
+
+    unifier->addObstacle(
+            new Obstacles::DullBlock(
+                    std::shared_ptr<SpriteBox>(new SpriteBox(
+                            Point(0, 0),
                             Size(100, 100),
                             wall_texture))));
 

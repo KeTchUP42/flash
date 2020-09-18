@@ -10,13 +10,15 @@
 
 namespace Mobs {
 
-    class Mushroom : public CollisionProneMonster<Obstacles::Obstacle *> {
+    class Mushroom : public CollisionProneMonster {
     public:
         explicit Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                          const std::shared_ptr<CollisionStrategy<Obstacles::Obstacle *>> &collision);
+                          const std::shared_ptr<Material::ObstacleCollision> &obstacleCollision,
+                          const std::shared_ptr<Material::MobCollision> &mobCollision);
 
         explicit Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                          CollisionStrategy<Obstacles::Obstacle *> *collision);
+                          Material::ObstacleCollision *obstacleCollision,
+                          Material::MobCollision *mobCollision);
 
         void selfAction(Unite::Unifier *unifier) override;
 

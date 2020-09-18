@@ -5,9 +5,9 @@
 #ifndef FLASH_PLAYER_H
 #define FLASH_PLAYER_H
 
-#include "../../shared/Mob.h"
 #include "../control/KeyAlias.h"
-#include "../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
+#include "../../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
+#include "../../../shared/MaterialObject.h"
 
 #include <map>
 #include <string>
@@ -21,7 +21,7 @@ namespace Mobs {
      *
      * This class defines base Player interface.
     */
-    class Player : public Mob {
+    class Player : public Material::MaterialObject {
     public:
         /**
          * @brief Base player constructor.
