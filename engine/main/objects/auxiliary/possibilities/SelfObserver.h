@@ -19,11 +19,18 @@ namespace Possibilities {
         SelfObserver() = default;
 
         /**
-         * @brief Method uses for components communication.
+         * @brief Method uses for components communication. From top to down.
          * @param event Some information in event DTO class object.
          * @param sender Class sender.
          */
-        virtual void selfUpdate(const Event &event, Sender &sender) = 0;
+        virtual void selfUpdateDown(const Event &event, Sender &sender) = 0;
+
+        /**
+         * @brief Method uses for components communication. From down to top.
+         * @param event Some information in event DTO class object.
+         * @param sender Class sender.
+         */
+        virtual void selfUpdateUp(const Event &event, Sender &sender) = 0;
 
         virtual ~SelfObserver() = default;
     };
