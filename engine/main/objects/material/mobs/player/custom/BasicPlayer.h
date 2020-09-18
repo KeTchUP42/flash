@@ -29,8 +29,6 @@ namespace Mobs {
 
         void loadKeyMap(const std::string &filename, Managers::DataManager *manager) override;
 
-        ~BasicPlayer() override = default;
-
     protected:
         std::shared_ptr<Material::ObstacleCollision> _obstacleCollision;
         std::shared_ptr<Material::MobCollision> _mobCollision;

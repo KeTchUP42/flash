@@ -24,8 +24,8 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
     Unifier *unifier = new GeneralUnifier();
 
-    ObstacleCollision *ocollision = new ObstacleCollision(unifier, 5, 5);
-    MobCollision *mcollision = new MobCollision(unifier, 5, 5);
+    std::shared_ptr<ObstacleCollision> ocollision(new ObstacleCollision(unifier, 5, 5));
+    std::shared_ptr<MobCollision> mcollision(new MobCollision(unifier, 5, 5));
 
 
     unifier->addBackSprite(new SpriteBox(Point(0, 0), Size(size.x, size.y),
@@ -45,8 +45,8 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     //mushroom
     Mobs::Monster *mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
             new SpriteBox(
-                    Point(1180, 250),
-                    Size(20, 20),  //10 - min
+                    Point(1160, 250),
+                    Size(30, 30),  //10 - min
                     manager->getTextureManager()->loadTexture("mobs/monsters/mushroom/mushroom.png"))),
                                              ocollision, mcollision);
     mush->addSpeed(-1, 0);

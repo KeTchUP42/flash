@@ -13,7 +13,7 @@
 namespace Mobs {
 
     /**
-     * @brief The base class of the Monster class hierarchy. Monster - alias for mobs.
+     * @brief The base class of the Monster class hierarchy. Monster - all mobs without players.
      * @namespace Mobs
      *
      * This class defines base Monster interface.
