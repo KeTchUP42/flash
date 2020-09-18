@@ -51,3 +51,14 @@ OtherUtils::pointToPointRotation(const Components::Point &base, float angle, con
     return Components::Point(target.x + (target.y - base.y) * sinAngle + (base.x - target.x) * cosAngle,
                              target.y + (base.y - target.y) * cosAngle + (base.x - target.x) * sinAngle);
 }
+
+
+std::pair<int, int>
+pointToPointRotationOffset(const Components::Point &base, float angle, const Components::Point &target) noexcept {
+    const float angleInRadians = angle * M_PI / 180;
+    const float sinAngle = std::sin(angleInRadians);
+    const float cosAngle = std::cos(angleInRadians);
+
+    return std::pair<int, int>((target.y - base.y) * sinAngle + (base.x - target.x) * cosAngle,
+                               (base.y - target.y) * cosAngle + (base.x - target.x) * sinAngle);
+}

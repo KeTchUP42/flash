@@ -22,7 +22,6 @@ namespace Screen {
         void update(const sf::Event &event, sf::RenderWindow &sender) override;
 
     protected:
-        std::shared_ptr<Components::ISprite> _background;
         std::shared_ptr<Unite::Unifier> _unifier;
     };
 }

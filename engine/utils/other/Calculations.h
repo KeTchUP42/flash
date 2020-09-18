@@ -6,6 +6,9 @@
 #define FLASH_CALCULATIONS_H
 
 #include "../../main/objects/auxiliary/possibilities/RectangleGetters.h"
+#include "../../main/objects/auxiliary/components/elementary/Speed.h"
+
+#include <utility>
 
 namespace OtherUtils {
 
@@ -22,5 +25,12 @@ namespace OtherUtils {
      * @return New Point.
      */
     Components::Point pointToPointRotation(const Components::Point &base, float angle, const Components::Point &target) noexcept;
+
+    /**
+     * @brief Function returns position offset after rotation base point around target point.
+     * @return Speed.
+     */
+    std::pair<int, int>
+    pointToPointRotationOffset(const Components::Point &base, float angle, const Components::Point &target) noexcept;
 }
 #endif //FLASH_CALCULATIONS_H
