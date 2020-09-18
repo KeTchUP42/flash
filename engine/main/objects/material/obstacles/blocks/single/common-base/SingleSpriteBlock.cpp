@@ -3,6 +3,9 @@
 //
 
 #include "SingleSpriteBlock.h"
+#include "../../../../../../../utils/other/Calculations.h"
+
+#include <math.h>
 
 Obstacles::SingleSpriteBlock::SingleSpriteBlock(const std::shared_ptr<Components::ISpriteBox> &sprite)
         : _sprite(sprite), _speed() {}
@@ -28,11 +31,19 @@ void Obstacles::SingleSpriteBlock::rotate(float angle) noexcept {
 }
 
 void Obstacles::SingleSpriteBlock::rotate(float angle, float x, float y) noexcept {
-    _sprite->rotate(angle, x, y);
+    //_sprite->rotate(angle, x, y);
+
+    //Components::Speed speed = OtherUtils::pointToPointRotationOffset(this->getPosition(), angle, Components::Point(x, y));
+    //this->addSpeed(speed.xSpeed, speed.ySpeed);
+    this->rotate(angle);
 }
 
 void Obstacles::SingleSpriteBlock::rotate(float angle, const Components::Point &point) noexcept {
-    _sprite->rotate(angle, point);
+    //_sprite->rotate(angle, point);
+
+    //Components::Speed speed = OtherUtils::pointToPointRotationOffset(this->getPosition(), angle, point);
+    //this->addSpeed(speed.xSpeed, speed.ySpeed);
+    this->rotate(angle);
 }
 
 void Obstacles::SingleSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {

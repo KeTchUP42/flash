@@ -3,7 +3,7 @@
 //
 
 #include "CompositeSpriteBlock.h"
-#include "../../../../../../utils/other/Calculations.h"
+#include "../../../../../../../utils/other/Calculations.h"
 
 Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const Components::Point &point, const Components::Size &size,
                                                       const std::shared_ptr<Components::ISprite> &sprite)
