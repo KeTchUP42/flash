@@ -6,8 +6,8 @@
 
 Material::Collision::Collision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY)
         : CollisionStrategy(unifier),
-          _monsterCollision(new Material::MonsterCollision(unifier, analysisStepX, analysisStepY)),
           _playerCollision(new Material::PlayerCollision(unifier, analysisStepX, analysisStepY)),
+          _monsterCollision(new Material::MonsterCollision(unifier, analysisStepX, analysisStepY)),
           _obstacleCollision(new Material::ObstacleCollision(unifier, analysisStepX, analysisStepY)) {}
 
 Material::MaterialObject *Material::Collision::abscissaMoveAble(Material::MaterialObject *object) const noexcept {
