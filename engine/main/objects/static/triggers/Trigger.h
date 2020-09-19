@@ -5,6 +5,8 @@
 #ifndef FLASH_TRIGGER_H
 #define FLASH_TRIGGER_H
 
+#include "../../unifier/common-base/Unifier.h"
+
 namespace Triggers {
 
     /**
@@ -15,7 +17,16 @@ namespace Triggers {
     */
     class Trigger {
     public:
+        /**
+         * @brief Triggers mush get StateChangeable pointer.
+         */
         Trigger() = default;
+
+        /**
+         * @brief Method checks trigger's conditions.
+         * @param unifier Level unifier.
+         */
+        virtual void verifyTrigger(Unite::Unifier *unifier) noexcept = 0;
 
         virtual ~Trigger() = default;
     };
