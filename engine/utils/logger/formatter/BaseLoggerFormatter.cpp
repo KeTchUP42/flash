@@ -4,13 +4,13 @@
 
 #include "BaseLoggerFormatter.h"
 
-std::string dateTimeNow() noexcept;
+static inline std::string dateTimeNow() noexcept;
 
 std::string LoggerUtil::BaseLoggerFormatter::format(const std::string &data) const noexcept {
     return dateTimeNow() + data + '\n';
 }
 
-std::string dateTimeNow() noexcept {
+static inline std::string dateTimeNow() noexcept {
     const unsigned buffchars = 20;
     char buffer[buffchars];
     time_t seconds = time(nullptr);

@@ -11,14 +11,11 @@ namespace Audio {
 
     class SoundPlayer : public AudioPlayer {
     public:
-        explicit SoundPlayer(const sf::SoundBuffer &buffer)
-                : AudioPlayer(std::shared_ptr<sf::SoundSource>(new sf::Sound(buffer))) {}
+        explicit SoundPlayer(const sf::SoundBuffer &buffer);
 
-        explicit SoundPlayer(const std::shared_ptr<sf::Sound> &sound)
-                : AudioPlayer(sound) {}
+        explicit SoundPlayer(const std::shared_ptr<sf::Sound> &sound);
 
-        explicit SoundPlayer(sf::Sound *sound)
-                : AudioPlayer(sound) {}
+        explicit SoundPlayer(sf::Sound *sound);
 
         void play() override;
 

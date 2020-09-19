@@ -25,15 +25,13 @@ namespace Audio {
          * @brief Constructor.
          * @param sound Sound source object.
          */
-        explicit AudioPlayer(const std::shared_ptr<sf::SoundSource> &sound)
-                : _sound(sound) {}
+        explicit AudioPlayer(const std::shared_ptr<sf::SoundSource> &sound);
 
         /**
          * @brief Constructor.
          * @param sound Sound source object ptr.
          */
-        explicit AudioPlayer(sf::SoundSource *sound)
-                : _sound(sound) {}
+        explicit AudioPlayer(sf::SoundSource *sound);
 
         AudioPlayer &operator=(const AudioPlayer &) = delete;
 
@@ -61,9 +59,7 @@ namespace Audio {
          * @brief Method returns origin SoundSource.
          * @return sf::SoundSource
          */
-        sf::SoundSource *const getSoundSource() const noexcept {
-            return _sound.get();
-        }
+        sf::SoundSource *const getSoundSource() const noexcept;
 
         virtual ~AudioPlayer() = default;
 

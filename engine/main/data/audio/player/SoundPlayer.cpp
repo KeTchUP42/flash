@@ -3,6 +3,13 @@
 //
 #include "SoundPlayer.h"
 
+Audio::SoundPlayer::SoundPlayer(const sf::SoundBuffer &buffer)
+        : AudioPlayer(std::shared_ptr<sf::SoundSource>(new sf::Sound(buffer))) {}
+
+Audio::SoundPlayer::SoundPlayer(const std::shared_ptr<sf::Sound> &sound) : AudioPlayer(sound) {}
+
+Audio::SoundPlayer::SoundPlayer(sf::Sound *sound) : AudioPlayer(sound) {}
+
 void Audio::SoundPlayer::play() {
     _sound->play();
 

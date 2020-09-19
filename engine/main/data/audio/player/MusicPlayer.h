@@ -13,11 +13,9 @@ namespace Audio {
     public:
         explicit MusicPlayer(const std::string &filename, bool loop = false);
 
-        explicit MusicPlayer(const std::shared_ptr<sf::Music> &sound)
-                : AudioPlayer(sound) {}
+        explicit MusicPlayer(const std::shared_ptr<sf::Music> &sound);
 
-        explicit MusicPlayer(sf::Music *sound)
-                : AudioPlayer(sound) {}
+        explicit MusicPlayer(sf::Music *sound);
 
         void play() override;
 
