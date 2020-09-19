@@ -69,7 +69,7 @@ set(TRIM engine/utils/trim/trim.h)
 set(OTHER engine/utils/other/Calculations.cpp engine/utils/other/Calculations.h)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM} ${OTHER})
 
-set(EXCEPTIONS engine/main/other/exceptions/RuntimeException.h engine/main/other/exceptions/Exception.cpp engine/main/other/exceptions/Exception.h engine/main/other/exceptions/LogicError.h engine/main/other/exceptions/InvalidArgument.h engine/main/other/exceptions/custom/FileCanNotBeOpened.h engine/main/other/exceptions/ExceptionCodes.h engine/main/other/exceptions/custom/AudioFileCanNotBeOpened.h engine/main/other/exceptions/custom/TextureCanNotBeLoaded.h engine/main/other/exceptions/custom/FontCanNotBeLoaded.h)
+set(EXCEPTIONS engine/main/other/exceptions/RuntimeException.h engine/main/other/exceptions/Exception.cpp engine/main/other/exceptions/Exception.h engine/main/other/exceptions/LogicError.h engine/main/other/exceptions/InvalidArgument.h engine/main/other/exceptions/custom/FileCannotBeOpened.h engine/main/other/exceptions/ExceptionCodes.h engine/main/other/exceptions/custom/AudioFileCannotBeOpened.h engine/main/other/exceptions/custom/TextureCannotBeLoaded.h engine/main/other/exceptions/custom/FontCannotBeLoaded.h)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++${CMAKE_CXX_STANDARD} -pthread")
 

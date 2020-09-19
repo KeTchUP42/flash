@@ -11,10 +11,10 @@ namespace PreferredExceptions {
 
     class InvalidArgument : public LogicError {
     public:
-        explicit InvalidArgument(const char *message, const int &code = ExceptionCodes::INVALID_ARGUMENT)
+        explicit InvalidArgument(const char *message, const int &code = ExceptionCodes::INVALID_ARGUMENT) noexcept
                 : LogicError(message, code) {}
 
-        explicit InvalidArgument(const std::string &message, const int &code = ExceptionCodes::INVALID_ARGUMENT)
+        explicit InvalidArgument(const std::string &message, const int &code = ExceptionCodes::INVALID_ARGUMENT) noexcept
                 : LogicError(message, code) {}
     };
 

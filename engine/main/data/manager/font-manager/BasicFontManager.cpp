@@ -3,13 +3,13 @@
 //
 
 #include "BasicFontManager.h"
-#include "../../../other/exceptions/custom/FontCanNotBeLoaded.h"
+#include "../../../other/exceptions/custom/FontCannotBeLoaded.h"
 
 std::shared_ptr<sf::Font> Managers::BasicFontManager::loadFont(const std::string &filename) const {
     std::shared_ptr<sf::Font> font(new sf::Font());
 
     if (!font->loadFromFile(FONTS_DIRECTORY + "/" + filename))
-        throw PreferredExceptions::FontCanNotBeLoaded("Font " + filename + " cannot be loaded.");
+        throw PreferredExceptions::FontCannotBeLoaded("Font " + filename + " cannot be loaded.");
 
     return std::move(font);
 }

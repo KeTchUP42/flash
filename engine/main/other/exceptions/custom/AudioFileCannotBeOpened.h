@@ -9,12 +9,12 @@
 
 namespace PreferredExceptions {
 
-    class AudioFileCanNotBeOpened : public RuntimeException {
+    class AudioFileCannotBeOpened : public RuntimeException {
     public:
-        explicit AudioFileCanNotBeOpened(const char *message)
+        explicit AudioFileCannotBeOpened(const char *message)
                 : RuntimeException(message) {}
 
-        explicit AudioFileCanNotBeOpened(const std::string &message)
+        explicit AudioFileCannotBeOpened(const std::string &message)
                 : RuntimeException(message) {}
     };
 }

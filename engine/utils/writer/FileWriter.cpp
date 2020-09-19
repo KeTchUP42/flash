@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "FileWriter.h"
-#include "../../main/other/exceptions/custom/FileCanNotBeOpened.h"
+#include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
 
 static inline void checkFileToOpen(const std::string &path);
 
@@ -35,7 +35,7 @@ static inline void checkFileToOpen(const std::string &path) {
     std::ofstream out(path, std::ios::app);
     if (!out.is_open()) {
         out.close();
-        throw PreferredExceptions::FileCanNotBeOpened("File " + path + " cannot be opened.");
+        throw PreferredExceptions::FileCannotBeOpened("File " + path + " cannot be opened.");
     }
     out.close();
 }

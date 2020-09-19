@@ -9,12 +9,12 @@
 
 namespace PreferredExceptions {
 
-    class TextureCanNotBeLoaded : public RuntimeException {
+    class TextureCannotBeLoaded : public RuntimeException {
     public:
-        explicit TextureCanNotBeLoaded(const char *message)
+        explicit TextureCannotBeLoaded(const char *message)
                 : RuntimeException(message) {}
 
-        explicit TextureCanNotBeLoaded(const std::string &message)
+        explicit TextureCannotBeLoaded(const std::string &message)
                 : RuntimeException(message) {}
     };
 }

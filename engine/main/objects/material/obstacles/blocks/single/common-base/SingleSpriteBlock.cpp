@@ -31,19 +31,11 @@ void Obstacles::SingleSpriteBlock::rotate(float angle) noexcept {
 }
 
 void Obstacles::SingleSpriteBlock::rotate(float angle, float x, float y) noexcept {
-    //_sprite->rotate(angle, x, y);
-
-    //Components::Speed speed = OtherUtils::pointToPointRotationOffset(this->getPosition(), angle, Components::Point(x, y));
-    //this->addSpeed(speed.xSpeed, speed.ySpeed);
-    this->rotate(angle);
+    _sprite->rotate(angle, x, y);
 }
 
 void Obstacles::SingleSpriteBlock::rotate(float angle, const Components::Point &point) noexcept {
-    //_sprite->rotate(angle, point);
-
-    //Components::Speed speed = OtherUtils::pointToPointRotationOffset(this->getPosition(), angle, point);
-    //this->addSpeed(speed.xSpeed, speed.ySpeed);
-    this->rotate(angle);
+    _sprite->rotate(angle, point);
 }
 
 void Obstacles::SingleSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {

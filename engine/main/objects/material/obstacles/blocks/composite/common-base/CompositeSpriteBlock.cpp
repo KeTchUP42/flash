@@ -16,8 +16,7 @@ void Obstacles::CompositeSpriteBlock::loadNewSprite(const std::shared_ptr<Compon
 }
 
 bool Obstacles::CompositeSpriteBlock::collision(float x, float y) const noexcept {
-    return OtherUtils::collision(Components::Point(x, y), *this) &&
-           _sprite->collision(x, y);
+    return OtherUtils::collision(Components::Point(x, y), *this) && _sprite->collision(x, y);
 }
 
 void Obstacles::CompositeSpriteBlock::draw(sf::RenderTarget &target) const noexcept {

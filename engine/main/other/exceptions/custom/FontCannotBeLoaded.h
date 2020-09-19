@@ -9,12 +9,12 @@
 
 namespace PreferredExceptions {
 
-    class FontCanNotBeLoaded : public RuntimeException {
+    class FontCannotBeLoaded : public RuntimeException {
     public:
-        explicit FontCanNotBeLoaded(const char *message)
+        explicit FontCannotBeLoaded(const char *message)
                 : RuntimeException(message) {}
 
-        explicit FontCanNotBeLoaded(const std::string &message)
+        explicit FontCannotBeLoaded(const std::string &message)
                 : RuntimeException(message) {}
     };
 }

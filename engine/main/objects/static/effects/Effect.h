@@ -7,10 +7,6 @@
 
 #include "../../unifier/common-base/Unifier.h"
 
-namespace Unite {
-    class Unifier;
-}
-
 namespace Effects {
 
     /**

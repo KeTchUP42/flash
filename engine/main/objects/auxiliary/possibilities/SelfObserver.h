@@ -8,7 +8,7 @@
 namespace Possibilities {
 
     /**
-     * @brief The base class of the SelfObserver class hierarchy. Important interface, uses in app components communication.
+     * @brief The base class of the SelfObserver class hierarchy. Important interface, uses in components communication.
      * @namespace Possibilities
      *
      * This class defines base SelfObserver interface.

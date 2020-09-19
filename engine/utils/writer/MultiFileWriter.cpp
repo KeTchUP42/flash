@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "MultiFileWriter.h"
-#include "../../main/other/exceptions/custom/FileCanNotBeOpened.h"
+#include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
 
 static inline bool checkFileToOpen(const std::string &filepath);
 
@@ -51,7 +51,7 @@ void WriterUtil::MultiFileWriter::add(const std::string &filepath) {
     if (checkFileToOpen(filepath)) {
         _paths.push_back(filepath);
     } else {
-        throw PreferredExceptions::FileCanNotBeOpened("File " + filepath + " cannot be opened.");
+        throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
 }
 

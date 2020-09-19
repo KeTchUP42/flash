@@ -5,7 +5,7 @@
 #include <iterator>
 
 #include "FileReader.h"
-#include "../../main/other/exceptions/custom/FileCanNotBeOpened.h"
+#include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
 
 static inline void checkFileToOpen(const std::string &path);
 
@@ -45,7 +45,7 @@ static inline void checkFileToOpen(const std::string &path) {
     std::ifstream in(path);
     if (!in.is_open()) {
         in.close();
-        throw PreferredExceptions::FileCanNotBeOpened("File " + path + " cannot be opened.");
+        throw PreferredExceptions::FileCannotBeOpened("File " + path + " cannot be opened.");
     }
     in.close();
 }

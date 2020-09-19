@@ -9,12 +9,12 @@
 
 namespace PreferredExceptions {
 
-    class FileCanNotBeOpened : public RuntimeException {
+    class FileCannotBeOpened : public RuntimeException {
     public:
-        explicit FileCanNotBeOpened(const char *message)
+        explicit FileCannotBeOpened(const char *message)
                 : RuntimeException(message) {}
 
-        explicit FileCanNotBeOpened(const std::string &message)
+        explicit FileCannotBeOpened(const std::string &message)
                 : RuntimeException(message) {}
     };
 }
