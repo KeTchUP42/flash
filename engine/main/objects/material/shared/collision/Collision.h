@@ -6,9 +6,9 @@
 #define FLASH_COLLISION_H
 
 #include "CollisionStrategy.h"
-#include "PlayerCollision.h"
-#include "MonsterCollision.h"
-#include "ObstacleCollision.h"
+#include "moving-collision/PlayerCollision.h"
+#include "moving-collision/MonsterCollision.h"
+#include "moving-collision/ObstacleCollision.h"
 
 #include <memory>
 

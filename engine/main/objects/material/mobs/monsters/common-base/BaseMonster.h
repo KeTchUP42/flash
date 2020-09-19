@@ -7,7 +7,7 @@
 
 #include "Monster.h"
 #include "../../../shared/collision/CollisionStrategy.h"
-#include "../../../shared/collision/ObstacleCollision.h"
+#include "../../../shared/collision/moving-collision/ObstacleCollision.h"
 #include "../../../shared/collision/Collision.h"
 
 namespace Mobs {

@@ -3,10 +3,10 @@
 //
 
 #include "MonsterCollision.h"
-#include "coordinates/CoordinatesCalculation.h"
+#include "../coordinates/CoordinatesCalculation.h"
 
 Material::MonsterCollision::MonsterCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY)
-        : CollisionStrategy(unifier), ANALYSIS_STEP_X(analysisStepX), ANALYSIS_STEP_Y(analysisStepY) {}
+        : CollisionStrategy(unifier), MovingCollision(analysisStepX, analysisStepY) {}
 
 Mobs::Monster *Material::MonsterCollision::abscissaMoveAble(Material::MaterialObject *object) const noexcept {
     if (object->getMoveSpeed().xSpeed == 0) return nullptr;
@@ -80,13 +80,5 @@ Mobs::Monster *Material::MonsterCollision::ordinateMoveAble(Material::MaterialOb
         }
     }
     return nullptr;
-}
-
-void Material::MonsterCollision::setAnalysisStepX(float analysisStepX) noexcept {
-    MonsterCollision::ANALYSIS_STEP_X = analysisStepX;
-}
-
-void Material::MonsterCollision::setAnalysisStepY(float analysisStepY) noexcept {
-    MonsterCollision::ANALYSIS_STEP_Y = analysisStepY;
 }
 
