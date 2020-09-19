@@ -40,8 +40,8 @@ set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
 set(LEVEL engine/main/objects/generating/level/LevelUnifierFactory.h engine/main/objects/generating/level/StartLevelFactory.cpp engine/main/objects/generating/level/StartLevelFactory.h)
 set(GENERATING ${LEVEL})
 
-set(MONSTERS engine/main/objects/material/mobs/monsters/common-base/Monster.cpp engine/main/objects/material/mobs/monsters/common-base/Monster.h engine/main/objects/material/mobs/monsters/common-base/CollisionProneMonster.h engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.cpp engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.h)
-set(PLAYER engine/main/objects/material/mobs/player/common-base/Player.h engine/main/objects/material/mobs/player/common-base/Player.cpp engine/main/objects/material/mobs/player/control/KeyAlias.h engine/main/objects/material/mobs/player/custom/BasicPlayer.cpp engine/main/objects/material/mobs/player/custom/BasicPlayer.h)
+set(MONSTERS engine/main/objects/material/mobs/monsters/common-base/Monster.cpp engine/main/objects/material/mobs/monsters/common-base/Monster.h engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.cpp engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.h)
+set(PLAYER engine/main/objects/material/mobs/player/common-base/Player.h engine/main/objects/material/mobs/player/common-base/Player.cpp engine/main/objects/material/mobs/player/common-base/BasePlayer.h engine/main/objects/material/mobs/player/control/KeyAlias.h engine/main/objects/material/mobs/player/custom/BasicPlayer.cpp engine/main/objects/material/mobs/player/custom/BasicPlayer.h)
 set(MOB_SHARED)
 set(MOBS ${MONSTERS} ${PLAYER} ${MOB_SHARED})
 

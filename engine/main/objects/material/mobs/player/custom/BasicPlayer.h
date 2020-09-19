@@ -5,14 +5,14 @@
 #ifndef FLASH_BASICPLAYER_H
 #define FLASH_BASICPLAYER_H
 
-#include "../common-base/Player.h"
+#include "../common-base/BasePlayer.h"
 #include "../../../shared/collision/CollisionStrategy.h"
 #include "../../../shared/collision/ObstacleCollision.h"
 #include "../../../shared/collision/Collision.h"
 
 namespace Mobs {
 
-    class BasicPlayer : public Player {
+    class BasicPlayer : public BasePlayer {
     public:
         explicit BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
                              const std::shared_ptr<Material::Collision> &collision);
@@ -27,9 +27,6 @@ namespace Mobs {
         void update(const sf::Event &event, sf::RenderWindow &sender) override;
 
         void loadKeyMap(const std::string &filename, Managers::DataManager *manager) override;
-
-    protected:
-        std::shared_ptr<Material::Collision> _collision;
     };
 }
 

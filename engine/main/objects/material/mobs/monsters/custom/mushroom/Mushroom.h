@@ -6,11 +6,11 @@
 #define FLASH_MUSHROOM_H
 
 #include "../../../../obstacles/shared/Obstacle.h"
-#include "../../common-base/CollisionProneMonster.h"
+#include "../../common-base/BaseMonster.h"
 
 namespace Mobs {
 
-    class Mushroom : public CollisionProneMonster {
+    class Mushroom : public BaseMonster {
     public:
         explicit Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
                           const std::shared_ptr<Material::Collision> &collision);

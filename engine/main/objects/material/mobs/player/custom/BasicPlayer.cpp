@@ -6,11 +6,11 @@
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
                                const std::shared_ptr<Material::Collision> &collision)
-        : Player(sprite), _collision(collision) {}
+        : BasePlayer(sprite, collision) {}
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
                                Material::Collision *collision)
-        : Player(sprite), _collision(collision) {}
+        : BasePlayer(sprite, collision) {}
 
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {

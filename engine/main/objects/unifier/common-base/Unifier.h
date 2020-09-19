@@ -8,10 +8,6 @@
 #include "../../auxiliary/possibilities/Drawable.h"
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
-#include "../../material/mobs/player/common-base/Player.h"
-#include "../../material/mobs/monsters/common-base/Monster.h"
-#include "../../material/obstacles/shared/Obstacle.h"
-#include "../../static/effects/Effect.h"
 
 namespace Obstacles {
     class Obstacle;
@@ -271,5 +267,10 @@ namespace Unite {
         std::list<std::shared_ptr<Effects::Effect>> _effects;
     };
 }
+
+#include "../../material/mobs/player/common-base/Player.h"
+#include "../../material/mobs/monsters/common-base/Monster.h"
+#include "../../material/obstacles/shared/Obstacle.h"
+#include "../../static/effects/Effect.h"
 
 #endif //FLASH_UNIFIER_H

@@ -6,11 +6,11 @@
 
 Mobs::Mushroom::Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
                          const std::shared_ptr<Material::Collision> &collision)
-        : CollisionProneMonster(sprite, collision) {}
+        : BaseMonster(sprite, collision) {}
 
 Mobs::Mushroom::Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
                          Material::Collision *collision)
-        : CollisionProneMonster(sprite, collision) {}
+        : BaseMonster(sprite, collision) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);
