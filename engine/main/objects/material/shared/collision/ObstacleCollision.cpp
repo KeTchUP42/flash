@@ -37,8 +37,7 @@ Obstacles::Obstacle *Material::ObstacleCollision::abscissaMoveAble(Material::Mat
 
         for (float y = objectMinCoordinates.y + ANALYSIS_STEP_Y; y < objectMaxCoordinates.y; y += ANALYSIS_STEP_Y) {
 
-            if (obstacle->collision((objectMoveXSpeed > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + objectMoveXSpeed,
-                                    y)) {
+            if (obstacle->collision((objectMoveXSpeed > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + objectMoveXSpeed, y)) {
                 return obstacle.get();
             }
         }

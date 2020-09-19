@@ -6,6 +6,10 @@
 #define FLASH_MOBCOLLISION_H
 
 #include "CollisionStrategy.h"
+#include "PlayerCollision.h"
+#include "MonsterCollision.h"
+
+#include <memory>
 
 namespace Material {
 
@@ -21,9 +25,13 @@ namespace Material {
 
         void setAnalysisStepY(float analysisStepY) noexcept;
 
+        const std::shared_ptr<Material::PlayerCollision> &getPlayerCollision() const noexcept;
+
+        const std::shared_ptr<Material::MonsterCollision> &getMonsterCollision() const noexcept;
+
     protected:
-        float ANALYSIS_STEP_X;
-        float ANALYSIS_STEP_Y;
+        std::shared_ptr<Material::PlayerCollision> _playerCollision;
+        std::shared_ptr<Material::MonsterCollision> _monsterCollision;
     };
 }
 

@@ -31,10 +31,10 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
 
     Material::MaterialObject *mob;
 
-    if ((mob = _mobCollision->abscissaMoveAble(this)) != nullptr) {
+    if ((mob = _mobCollision->getPlayerCollision()->abscissaMoveAble(this)) != nullptr) {
         if (((_speed.xSpeed < 0) && (mob->getMoveSpeed().xSpeed >= 0)) ||
             ((_speed.xSpeed > 0) && (mob->getMoveSpeed().xSpeed <= 0))) {
-            mob->setMoveSpeed(Components::Speed(_speed.xSpeed * 10, mob->getMoveSpeed().ySpeed - 10));
+            mob->setMoveSpeed(Components::Speed(_speed.xSpeed * 5, mob->getMoveSpeed().ySpeed - 10));
         }
     }
 
