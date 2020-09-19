@@ -8,24 +8,22 @@
 #include "Monster.h"
 #include "../../../shared/collision/CollisionStrategy.h"
 #include "../../../shared/collision/ObstacleCollision.h"
-#include "../../../shared/collision/MobCollision.h"
+#include "../../../shared/collision/Collision.h"
 
 namespace Mobs {
 
     class CollisionProneMonster : public Monster {
     public:
         explicit CollisionProneMonster(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                       const std::shared_ptr<Material::ObstacleCollision> &obstacleCollision,
-                                       const std::shared_ptr<Material::MobCollision> &mobCollision)
-                : Monster(sprite), _obstacleCollision(obstacleCollision), _mobCollision(mobCollision) {}
+                                       const std::shared_ptr<Material::Collision> &mobCollision)
+                : Monster(sprite), _collision(mobCollision) {}
 
         explicit CollisionProneMonster(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                       Material::ObstacleCollision *obstacleCollision, Material::MobCollision *mobCollision)
-                : Monster(sprite), _obstacleCollision(obstacleCollision), _mobCollision(mobCollision) {}
+                                       Material::Collision *mobCollision)
+                : Monster(sprite), _collision(mobCollision) {}
 
     protected:
-        std::shared_ptr<Material::ObstacleCollision> _obstacleCollision;
-        std::shared_ptr<Material::MobCollision> _mobCollision;
+        std::shared_ptr<Material::Collision> _collision;
     };
 }
 

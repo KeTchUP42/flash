@@ -52,6 +52,8 @@ namespace Mobs {
 
         const Components::Speed &getMoveSpeed() const noexcept override;
 
+        const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
+
     protected:
         Components::Speed _speed;
         std::shared_ptr<Components::ISpriteBox> _sprite;

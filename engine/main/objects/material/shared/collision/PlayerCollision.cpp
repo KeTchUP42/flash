@@ -8,7 +8,7 @@
 Material::PlayerCollision::PlayerCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY)
         : CollisionStrategy(unifier), ANALYSIS_STEP_X(analysisStepX), ANALYSIS_STEP_Y(analysisStepY) {}
 
-Material::MaterialObject *Material::PlayerCollision::abscissaMoveAble(Material::MaterialObject *object) const noexcept {
+Mobs::Player *Material::PlayerCollision::abscissaMoveAble(Material::MaterialObject *object) const noexcept {
     if (object->getMoveSpeed().xSpeed == 0) return nullptr;
 
     Components::Point objectMinCoordinates = minCoordinates(*object);
@@ -45,7 +45,7 @@ Material::MaterialObject *Material::PlayerCollision::abscissaMoveAble(Material::
     return nullptr;
 }
 
-Material::MaterialObject *Material::PlayerCollision::ordinateMoveAble(Material::MaterialObject *object) const noexcept {
+Mobs::Player *Material::PlayerCollision::ordinateMoveAble(Material::MaterialObject *object) const noexcept {
     if (object->getMoveSpeed().ySpeed == 0) return nullptr;
 
     Components::Point objectMinCoordinates = minCoordinates(*object);

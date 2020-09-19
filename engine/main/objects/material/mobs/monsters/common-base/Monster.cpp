@@ -59,3 +59,7 @@ const Components::Size &Mobs::Monster::getSize() const noexcept {
 float Mobs::Monster::getRotation() const noexcept {
     return _sprite->getRotation();
 }
+
+const std::shared_ptr<Components::ISpriteBox> &Mobs::Monster::getSprite() const noexcept {
+    return _sprite;
+}

@@ -5,13 +5,12 @@
 #include "BasicPlayer.h"
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               const std::shared_ptr<Material::ObstacleCollision> &obstacleCollision,
-                               const std::shared_ptr<Material::MobCollision> &mobCollision)
-        : Player(sprite), _obstacleCollision(obstacleCollision), _mobCollision(mobCollision) {}
+                               const std::shared_ptr<Material::Collision> &collision)
+        : Player(sprite), _collision(collision) {}
 
 Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               Material::ObstacleCollision *obstacleCollision, Material::MobCollision *mobCollision)
-        : Player(sprite), _obstacleCollision(obstacleCollision), _mobCollision(mobCollision) {}
+                               Material::Collision *collision)
+        : Player(sprite), _collision(collision) {}
 
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
@@ -22,11 +21,11 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = _obstacleCollision->abscissaMoveAble(this)) != nullptr) {
+    if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this)) != nullptr) {
         _speed.xSpeed = static_cast<int>(-1 * _speed.xSpeed * 0);  // You can use coefficient of elasticity.
     }
 
-    if ((obstacle = _obstacleCollision->ordinateMoveAble(this)) != nullptr) {
+    if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this)) != nullptr) {
         _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * 0);  // You can use coefficient of elasticity.
     }
 
@@ -45,7 +44,7 @@ void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender)
         if ((std::abs(_speed.xSpeed) < 15) && (_speed.xSpeed - 5 >= -15)) { this->addSpeed(-3, 0); }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Jump])) {
-        if (_speed.ySpeed >= 0) { this->addSpeed(0, -15); }
+        if (_speed.ySpeed == 0) { this->addSpeed(0, -15); }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Use])) {
         this->_sprite->setPosition(600, 100);

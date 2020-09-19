@@ -70,6 +70,10 @@ namespace Mobs {
 
         const Components::Size &getSize() const noexcept override;
 
+        const std::map<KeyAlias, sf::Keyboard::Key> &getKeyMap() const noexcept;
+
+        const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
+
         float getRotation() const noexcept override;
 
         virtual ~Player() = default;

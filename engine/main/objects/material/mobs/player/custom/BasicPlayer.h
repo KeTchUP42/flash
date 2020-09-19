@@ -8,18 +8,17 @@
 #include "../common-base/Player.h"
 #include "../../../shared/collision/CollisionStrategy.h"
 #include "../../../shared/collision/ObstacleCollision.h"
-#include "../../../shared/collision/MobCollision.h"
+#include "../../../shared/collision/Collision.h"
 
 namespace Mobs {
 
     class BasicPlayer : public Player {
     public:
         explicit BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             const std::shared_ptr<Material::ObstacleCollision> &obstacleCollision,
-                             const std::shared_ptr<Material::MobCollision> &mobCollision);
+                             const std::shared_ptr<Material::Collision> &collision);
 
         explicit BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             Material::ObstacleCollision *obstacleCollision, Material::MobCollision *mobCollision);
+                             Material::Collision *collision);
 
         void selfAction(Unite::Unifier *unifier) override;
 
@@ -30,8 +29,7 @@ namespace Mobs {
         void loadKeyMap(const std::string &filename, Managers::DataManager *manager) override;
 
     protected:
-        std::shared_ptr<Material::ObstacleCollision> _obstacleCollision;
-        std::shared_ptr<Material::MobCollision> _mobCollision;
+        std::shared_ptr<Material::Collision> _collision;
     };
 }
 

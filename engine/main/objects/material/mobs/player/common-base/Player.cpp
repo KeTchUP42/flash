@@ -63,3 +63,11 @@ const Components::Size &Mobs::Player::getSize() const noexcept {
 float Mobs::Player::getRotation() const noexcept {
     return _sprite->getRotation();
 }
+
+const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &Mobs::Player::getKeyMap() const noexcept {
+    return _keyMap;
+}
+
+const std::shared_ptr<Components::ISpriteBox> &Mobs::Player::getSprite() const noexcept {
+    return _sprite;
+}

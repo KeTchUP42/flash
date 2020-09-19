@@ -24,8 +24,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
     Unifier *unifier = new GeneralUnifier();
 
-    std::shared_ptr<ObstacleCollision> ocollision(new ObstacleCollision(unifier, 5, 5));
-    std::shared_ptr<MobCollision> mcollision(new MobCollision(unifier, 5, 5));
+    std::shared_ptr<Collision> collision(new Collision(unifier, 8, 8));
 
 
     unifier->addBackSprite(new SpriteBox(Point(0, 0), Size(size.x, size.y),
@@ -37,20 +36,59 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
                             Point(600, 100),
                             Size(20, 20),  //10 - min
                             manager->getTextureManager()->loadTexture("mobs/player/mush.png"))),
-            ocollision, mcollision);
+            collision);
 
     player->loadKeyMap("keys/keymap.ini", manager);
     unifier->addPlayer(player);
 
     //mushroom
+
+    auto mushroom = manager->getTextureManager()->loadTexture("mobs/monsters/mushroom/mushroom.png");
+
     Mobs::Monster *mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
+            new SpriteBox(
+                    Point(555, 250),
+                    Size(30, 30),  //10 - min
+                    mushroom)), collision);
+    mush->addSpeed(-1, 0);
+    unifier->addMonster(mush);
+
+
+    mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
             new SpriteBox(
                     Point(1160, 250),
                     Size(30, 30),  //10 - min
-                    manager->getTextureManager()->loadTexture("mobs/monsters/mushroom/mushroom.png"))),
-                                             ocollision, mcollision);
+                    mushroom)), collision);
     mush->addSpeed(-1, 0);
     unifier->addMonster(mush);
+
+
+    mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
+            new SpriteBox(
+                    Point(1130, 250),
+                    Size(30, 30),  //10 - min
+                    mushroom)), collision);
+    mush->addSpeed(1, 0);
+    unifier->addMonster(mush);
+
+
+    mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
+            new SpriteBox(
+                    Point(200, 250),
+                    Size(30, 30),  //10 - min
+                    mushroom)), collision);
+    mush->addSpeed(-1, 0);
+    unifier->addMonster(mush);
+
+
+    mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
+            new SpriteBox(
+                    Point(170, 250),
+                    Size(30, 30),  //10 - min
+                    mushroom)), collision);
+    mush->addSpeed(1, 0);
+    unifier->addMonster(mush);
+
 
     //gravity
     unifier->addEffect(new Effects::GravityEffect(0, 1));

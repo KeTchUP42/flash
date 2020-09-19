@@ -5,13 +5,12 @@
 #include "Mushroom.h"
 
 Mobs::Mushroom::Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                         const std::shared_ptr<Material::ObstacleCollision> &obstacleCollision,
-                         const std::shared_ptr<Material::MobCollision> &mobCollision)
-        : CollisionProneMonster(sprite, obstacleCollision, mobCollision) {}
+                         const std::shared_ptr<Material::Collision> &collision)
+        : CollisionProneMonster(sprite, collision) {}
 
 Mobs::Mushroom::Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                         Material::ObstacleCollision *obstacleCollision, Material::MobCollision *mobCollision)
-        : CollisionProneMonster(sprite, obstacleCollision, mobCollision) {}
+                         Material::Collision *collision)
+        : CollisionProneMonster(sprite, collision) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);
@@ -21,20 +20,20 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = _obstacleCollision->abscissaMoveAble(this)) != nullptr) {
+    if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this)) != nullptr) {
         _speed.xSpeed = -1 * _speed.xSpeed;
     }
 
-    if ((obstacle = _obstacleCollision->ordinateMoveAble(this)) != nullptr) {
+    if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this)) != nullptr) {
         _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * 0.3);
     }
 
-    Material::MaterialObject *mob;
+    Mobs::Player *player;
 
-    if ((mob = _mobCollision->getPlayerCollision()->abscissaMoveAble(this)) != nullptr) {
-        if (((_speed.xSpeed < 0) && (mob->getMoveSpeed().xSpeed >= 0)) ||
-            ((_speed.xSpeed > 0) && (mob->getMoveSpeed().xSpeed <= 0))) {
-            mob->setMoveSpeed(Components::Speed(_speed.xSpeed * 5, mob->getMoveSpeed().ySpeed - 10));
+    if ((player = _collision->getPlayerCollision()->abscissaMoveAble(this)) != nullptr) {
+        if (((_speed.xSpeed < 0) && (player->getMoveSpeed().xSpeed >= 0)) ||
+            ((_speed.xSpeed > 0) && (player->getMoveSpeed().xSpeed <= 0))) {
+            player->setMoveSpeed(Components::Speed(_speed.xSpeed * 5, player->getMoveSpeed().ySpeed - 10));
         }
     }
 
