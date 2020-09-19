@@ -28,12 +28,13 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
         _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * 0.3);
     }
 
-    Mobs::Player *player;
+    Mobs::Monster *monster;
 
-    if ((player = _collision->getPlayerCollision()->abscissaMoveAble(this)) != nullptr) {
-        if (((_speed.xSpeed < 0) && (player->getMoveSpeed().xSpeed >= 0)) ||
-            ((_speed.xSpeed > 0) && (player->getMoveSpeed().xSpeed <= 0))) {
-            player->setMoveSpeed(Components::Speed(_speed.xSpeed * 5, player->getMoveSpeed().ySpeed - 10));
+    if ((monster = _collision->getMonsterCollision()->abscissaMoveAble(this)) != nullptr) {
+        if (((_speed.xSpeed < 0) && (monster->getMoveSpeed().xSpeed >= 0)) ||
+            ((_speed.xSpeed > 0) && (monster->getMoveSpeed().xSpeed <= 0))) {
+            monster->setMoveSpeed(Components::Speed(_speed.xSpeed > 0 ? 5 : -5, monster->getMoveSpeed().ySpeed - 10));
+            _speed.xSpeed += _speed.xSpeed > 0 ? -1 : 1;
         }
     }
 
