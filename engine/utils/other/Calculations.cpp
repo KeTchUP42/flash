@@ -8,15 +8,12 @@
 
 #include <math.h>
 
-/**
- * @brief This is help function for collision function.
- * @return The value responsible for the position of the point relative to the vector.
- */
-static inline int product(float Px, float Py, float Ax, float Ay, float Bx, float By) {
-    return (Bx - Ax) * (Py - Ay) - (By - Ay) * (Px - Ax);
-}
+OtherUtils::RectangleCoordinates::RectangleCoordinates(const Components::Point &point1, const Components::Point &point2,
+                                                       const Components::Point &point3, const Components::Point &point4)
+        : point_1(point1), point_2(point2), point_3(point3), point_4(point4) {}
 
-bool OtherUtils::collision(const Components::Point &point, const Possibilities::RectangleGetters &rectangle) noexcept {
+
+OtherUtils::RectangleCoordinates OtherUtils::coordinates(const Possibilities::RectangleGetters &rectangle) noexcept {
     const float angle = rectangle.getRotation() * M_PI / 180;
     const float sinAngle = std::sin(angle);
     const float cosAngle = std::cos(angle);
@@ -36,10 +33,27 @@ bool OtherUtils::collision(const Components::Point &point, const Possibilities::
     float rectangleX4 = -sinAngle * rectangleHeight + cosAngle + rectangleX;
     float rectangleY4 = cosAngle * rectangleHeight + sinAngle + rectangleY;
 
-    return ((product(point.x, point.y, rectangleX, rectangleY, rectangleX2, rectangleY2) >= 0) &&
-            (product(point.x, point.y, rectangleX2, rectangleY2, rectangleX3, rectangleY3) >= 0) &&
-            (product(point.x, point.y, rectangleX3, rectangleY3, rectangleX4, rectangleY4) >= 0) &&
-            (product(point.x, point.y, rectangleX4, rectangleY4, rectangleX, rectangleY) >= 0));
+    return OtherUtils::RectangleCoordinates(Components::Point(rectangleX, rectangleY),
+                                            Components::Point(rectangleX2, rectangleY2),
+                                            Components::Point(rectangleX3, rectangleY3),
+                                            Components::Point(rectangleX4, rectangleY4));
+}
+
+/**
+ * @brief This is help function for collision function.
+ * @return The value responsible for the position of the point relative to the vector.
+ */
+static inline int product(float Px, float Py, float Ax, float Ay, float Bx, float By) {
+    return (Bx - Ax) * (Py - Ay) - (By - Ay) * (Px - Ax);
+}
+
+bool OtherUtils::collision(const Components::Point &point, const Possibilities::RectangleGetters &rectangle) noexcept {
+    OtherUtils::RectangleCoordinates coordinates = OtherUtils::coordinates(rectangle);
+
+    return ((product(point.x, point.y, coordinates.point_1.x, coordinates.point_1.y, coordinates.point_2.x, coordinates.point_2.y) >= 0) &&
+            (product(point.x, point.y, coordinates.point_2.x, coordinates.point_2.y, coordinates.point_3.x, coordinates.point_3.y) >= 0) &&
+            (product(point.x, point.y, coordinates.point_3.x, coordinates.point_3.y, coordinates.point_4.x, coordinates.point_4.y) >= 0) &&
+            (product(point.x, point.y, coordinates.point_4.x, coordinates.point_4.y, coordinates.point_1.x, coordinates.point_1.y) >= 0));
 }
 
 Components::Point

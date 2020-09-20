@@ -13,13 +13,13 @@ namespace Material {
      * @brief Analysis helper function.
      * @return Pair of coordinates, max "X" and max "Y".
      */
-    Components::Point maxCoordinates(const Possibilities::RectangleGetters &rectangle);
+    Components::Point maxCoordinates(const Possibilities::RectangleGetters &rectangle) noexcept;
 
     /**
      * @brief Analysis helper function.
      * @return Pair of coordinates, min "X" and min "Y".
      */
-    Components::Point minCoordinates(const Possibilities::RectangleGetters &rectangle);
+    Components::Point minCoordinates(const Possibilities::RectangleGetters &rectangle) noexcept;
 }
 
 
