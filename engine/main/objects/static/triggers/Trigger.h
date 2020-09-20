@@ -6,6 +6,7 @@
 #define FLASH_TRIGGER_H
 
 #include "../../unifier/common-base/Unifier.h"
+#include "../../../view/windows/base/observer/Observer.h"
 
 namespace Triggers {
 
@@ -15,10 +16,10 @@ namespace Triggers {
      *
      * This class defines base Trigger interface.
     */
-    class Trigger {
+    class Trigger : public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         /**
-         * @brief Triggers mush get StateChangeable pointer.
+         * @brief Triggers must get StateChangeable pointer.
          */
         Trigger() = default;
 

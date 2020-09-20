@@ -29,7 +29,9 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
 
 void Unite::GeneralUnifier::refresh() {
 
-    //trigers
+    for (const std::shared_ptr<Triggers::Trigger> &trigger: _triggers) {
+        trigger->verifyTrigger(this);
+    }
 
     for (const std::shared_ptr<Effects::Effect> &effect: _effects) {
         effect->applyEffect(this);
@@ -50,7 +52,9 @@ void Unite::GeneralUnifier::refresh() {
 
 void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
 
-    //trigers
+    for (const std::shared_ptr<Triggers::Trigger> &trigger: _triggers) {
+        trigger->update(event, sender);
+    }
 
     for (const std::shared_ptr<Components::ISprite> &sprite: _back) {
         sprite->update(event, sender);
