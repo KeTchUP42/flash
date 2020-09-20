@@ -16,12 +16,12 @@ Components::Point Components::Point::operator-(const Components::Point &right) {
     return Components::Point(x - right.x, y - right.y);
 }
 
-Components::Point &Components::Point::operator+=(Components::Point &right) {
+Components::Point &Components::Point::operator+=(const Components::Point &right) {
     *this = *this + right;
     return *this;
 }
 
-Components::Point &Components::Point::operator-=(Components::Point &right) {
+Components::Point &Components::Point::operator-=(const Components::Point &right) {
     *this = *this - right;
     return *this;
 }

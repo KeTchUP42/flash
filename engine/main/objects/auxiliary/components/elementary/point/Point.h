@@ -42,13 +42,13 @@ namespace Components {
          * @brief Method overloads operator "+=".
          * @param right Right operand.
          */
-        Point &operator+=(Point &right);
+        Point &operator+=(const Point &right);
 
         /**
          * @brief Method overloads operator "-=".
          * @param right Right operand.
          */
-        Point &operator-=(Point &right);
+        Point &operator-=(const Point &right);
 
         /**
          * @brief Method overload comparison operator.
