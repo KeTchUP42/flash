@@ -27,6 +27,10 @@ namespace Effects {
     class Effect;
 }
 
+namespace Triggers {
+    class Trigger;
+}
+
 namespace Unite {
 
     class Unifier : public Possibilities::Drawable<sf::RenderWindow>,
@@ -233,6 +237,38 @@ namespace Unite {
          */
         const std::list<std::shared_ptr<Effects::Effect>> &getEffects() const noexcept;
 
+        //..
+
+        /**
+         * @brief Method adds new trigger.
+         * @param trigger New trigger.
+         */
+        void addTrigger(Triggers::Trigger *trigger) noexcept;
+
+        /**
+         * @brief Method adds new trigger.
+         * @param trigger New trigger.
+         */
+        void addTrigger(const std::shared_ptr<Triggers::Trigger> &trigger) noexcept;
+
+        /**
+         * @brief Method removes trigger.
+         * @param trigger Existing trigger.
+         */
+        void removeTrigger(Triggers::Trigger *trigger) noexcept;
+
+        /**
+         * @brief Method removes trigger.
+         * @param trigger Existing trigger.
+         */
+        void removeTrigger(const std::shared_ptr<Triggers::Trigger> &trigger) noexcept;
+
+        /**
+         * @brief Method returns const reference on triggers collection.
+         * @return Const reference on triggers collection.
+         */
+        const std::list<std::shared_ptr<Triggers::Trigger>> &getTriggers() const noexcept;
+
         virtual ~Unifier() = default;
 
     protected:
@@ -265,12 +301,18 @@ namespace Unite {
          * @brief Effects.
          */
         std::list<std::shared_ptr<Effects::Effect>> _effects;
+
+        /**
+         * @brief Triggers.
+         */
+        std::list<std::shared_ptr<Triggers::Trigger>> _triggers;
     };
 }
 
 #include "../../material/mobs/player/common-base/Player.h"
 #include "../../material/mobs/monsters/common-base/Monster.h"
 #include "../../material/obstacles/shared/Obstacle.h"
+#include "../../static/triggers/Trigger.h"
 #include "../../static/effects/Effect.h"
 
 #endif //FLASH_UNIFIER_H

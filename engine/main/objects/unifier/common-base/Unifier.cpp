@@ -135,3 +135,25 @@ void Unite::Unifier::removeEffect(const std::shared_ptr<Effects::Effect> &effect
 const std::list<std::shared_ptr<Effects::Effect>> &Unite::Unifier::getEffects() const noexcept {
     return _effects;
 }
+
+void Unite::Unifier::addTrigger(Triggers::Trigger *trigger) noexcept {
+    _triggers.push_back(std::shared_ptr<Triggers::Trigger>(trigger));
+}
+
+void Unite::Unifier::addTrigger(const std::shared_ptr<Triggers::Trigger> &trigger) noexcept {
+    _triggers.push_back(trigger);
+}
+
+void Unite::Unifier::removeTrigger(Triggers::Trigger *trigger) noexcept {
+    _triggers.remove_if([trigger](const std::shared_ptr<Triggers::Trigger> &trgr) -> bool {
+        return trgr.get() == trigger;
+    });
+}
+
+void Unite::Unifier::removeTrigger(const std::shared_ptr<Triggers::Trigger> &trigger) noexcept {
+    _triggers.remove(trigger);
+}
+
+const std::list<std::shared_ptr<Triggers::Trigger>> &Unite::Unifier::getTriggers() const noexcept {
+    return _triggers;
+}
