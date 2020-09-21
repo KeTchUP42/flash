@@ -9,6 +9,9 @@
 #include "moving-collision/PlayerCollision.h"
 #include "moving-collision/MonsterCollision.h"
 #include "moving-collision/ObstacleCollision.h"
+#include "static-collision/StaticObstacleCollision.h"
+#include "static-collision/StaticPlayerCollision.h"
+#include "static-collision/StaticMonsterCollision.h"
 
 #include <memory>
 
@@ -22,6 +25,18 @@ namespace Material {
 
         Material::MaterialObject *ordinateMoveAble(Material::MaterialObject *object) const noexcept override;
 
+        Mobs::Player *abscissaPlayerMoveAble(Material::MaterialObject *object) const noexcept;
+
+        Mobs::Player *ordinatePlayerMoveAble(Material::MaterialObject *object) const noexcept;
+
+        Mobs::Monster *abscissaMonsterMoveAble(Material::MaterialObject *object) const noexcept;
+
+        Mobs::Monster *ordinateMonsterMoveAble(Material::MaterialObject *object) const noexcept;
+
+        Obstacles::Obstacle *abscissaObstacleMoveAble(Material::MaterialObject *object) const noexcept;
+
+        Obstacles::Obstacle *ordinateObstacleMoveAble(Material::MaterialObject *object) const noexcept;
+
         void setAnalysisStepX(float analysisStepX) noexcept;
 
         void setAnalysisStepY(float analysisStepY) noexcept;
@@ -30,12 +45,22 @@ namespace Material {
 
         const std::shared_ptr<Material::MonsterCollision> &getMonsterCollision() const noexcept;
 
-        const std::shared_ptr<Material::ObstacleCollision> &getObstacleCollision() const;
+        const std::shared_ptr<Material::ObstacleCollision> &getObstacleCollision() const noexcept;
+
+        const std::shared_ptr<Material::StaticObstacleCollision> &getStaticObstacleCollision() const noexcept;
+
+        const std::shared_ptr<Material::StaticPlayerCollision> &getStaticPlayerCollision() const noexcept;
+
+        const std::shared_ptr<Material::StaticMonsterCollision> &getStaticMonsterCollision() const noexcept;
 
     protected:
         std::shared_ptr<Material::PlayerCollision> _playerCollision;
         std::shared_ptr<Material::MonsterCollision> _monsterCollision;
         std::shared_ptr<Material::ObstacleCollision> _obstacleCollision;
+
+        std::shared_ptr<Material::StaticPlayerCollision> _staticPlayerCollision;
+        std::shared_ptr<Material::StaticMonsterCollision> _staticMonsterCollision;
+        std::shared_ptr<Material::StaticObstacleCollision> _staticObstacleCollision;
     };
 }
 
