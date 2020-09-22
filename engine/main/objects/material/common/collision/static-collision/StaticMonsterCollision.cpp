@@ -4,7 +4,7 @@
 
 #include "StaticMonsterCollision.h"
 #include "../coordinates/CoordinatesCalculation.h"
-#include "additionally/ExtraCoordinates.h"
+#include "additionally/ExtremeCoordinates.h"
 
 Material::StaticMonsterCollision::StaticMonsterCollision(Unite::Unifier *unifier) : CollisionStrategy(unifier) {}
 

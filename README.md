@@ -2,7 +2,7 @@
  ![Read the Docs](https://img.shields.io/readthedocs/docs) 
  
   My little C++ experience.  
-  This is a small platformer written using the SFML 2.5 library.
+  This is a small platformer made with SFML 2.5 library.
 
 
  ## DOCUMENTATION:

@@ -2,8 +2,8 @@
 // Created by roman on 21.09.2020.
 //
 
-#ifndef FLASH_EXTRACOORDINATES_H
-#define FLASH_EXTRACOORDINATES_H
+#ifndef FLASH_EXTREMECOORDINATES_H
+#define FLASH_EXTREMECOORDINATES_H
 
 #include "../../../../../auxiliary/components/elementary/point/Point.h"
 #include "../../../../../auxiliary/possibilities/RectangleGetters.h"
@@ -25,4 +25,4 @@ namespace Material {
     std::vector<Components::Point>
     extremeCoordinatesOrdinate(const Possibilities::RectangleGetters &rectangle, float absentYValue) noexcept;
 }
-#endif //FLASH_EXTRACOORDINATES_H
+#endif //FLASH_EXTREMECOORDINATES_H

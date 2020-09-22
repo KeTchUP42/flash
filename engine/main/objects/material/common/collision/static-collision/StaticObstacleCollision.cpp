@@ -4,7 +4,7 @@
 
 #include "StaticObstacleCollision.h"
 #include "../coordinates/CoordinatesCalculation.h"
-#include "additionally/ExtraCoordinates.h"
+#include "additionally/ExtremeCoordinates.h"
 
 Material::StaticObstacleCollision::StaticObstacleCollision(Unite::Unifier *unifier) : CollisionStrategy(unifier) {}
 
