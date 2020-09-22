@@ -16,11 +16,11 @@ Managers::DataManager *Setup::EngineConfigurator::load() const {
     IniProcessorUtil::Analyzer::IniData iniData = iniProcessor.fullparse();
 
     using namespace Managers;
-    AudioManager *audioManager = new MusicManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["audio"]);
-    ConfigManager *configManager = new IniConfigManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["configs"]);
-    FontManager *fontManager = new BasicFontManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["fonts"]);
-    LogManager *logManager = new BasicLogManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["logs"]);
-    TextureManager *textureManager = new BasicTextureManager(iniData["DATA"]["AppData"] + "/" + iniData["DATA"]["textures"]);
+    AudioManager *audioManager = new MusicManager(iniData["DATA"]["PATH"] + "/" + iniData["DATA"]["audio"]);
+    ConfigManager *configManager = new IniConfigManager(iniData["DATA"]["PATH"] + "/" + iniData["DATA"]["config"]);
+    FontManager *fontManager = new BasicFontManager(iniData["DATA"]["PATH"] + "/" + iniData["DATA"]["fonts"]);
+    LogManager *logManager = new BasicLogManager(iniData["DATA"]["PATH"] + "/" + iniData["DATA"]["logs"]);
+    TextureManager *textureManager = new BasicTextureManager(iniData["DATA"]["PATH"] + "/" + iniData["DATA"]["textures"]);
 
     return new StandardDataManager(audioManager, configManager, fontManager, logManager, textureManager);
 }
