@@ -18,7 +18,7 @@ namespace Obstacles {
          * @param sprite Block sprite.
          */
         explicit CompositeSpriteBlock(const Components::Point &point, const Components::Size &size,
-                                      const std::shared_ptr<Components::ISprite> &sprite);
+                                      const ObstacleProperties &properties, const std::shared_ptr<Components::ISprite> &sprite);
 
         /**
          * @brief Method changes block's sprite.
@@ -49,6 +49,8 @@ namespace Obstacles {
         const Components::Size &getSize() const noexcept override;
 
         float getRotation() const noexcept override;
+
+        float getElasticCoefficient() const noexcept override;
 
         void setPosition(const Components::Point &point) noexcept override;
 

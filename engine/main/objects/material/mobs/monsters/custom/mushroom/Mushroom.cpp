@@ -21,11 +21,11 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
     Obstacles::Obstacle *obstacle;
 
     if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this)) != nullptr) {
-        _speed.xSpeed = -1 * _speed.xSpeed;
+        _speed.xSpeed = static_cast<int>(-1 * _speed.xSpeed * obstacle->getElasticCoefficient());
     }
 
     if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this)) != nullptr) {
-        _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * 0.3);
+        _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * obstacle->getElasticCoefficient());
     }
 
     Mobs::Monster *monster;

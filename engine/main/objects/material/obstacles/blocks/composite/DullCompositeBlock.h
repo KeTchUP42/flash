@@ -12,7 +12,7 @@ namespace Obstacles {
     class DullCompositeBlock : public CompositeSpriteBlock {
     public:
         DullCompositeBlock(const Components::Point &point, const Components::Size &size,
-                           const std::shared_ptr<Components::ISprite> &sprite);
+                           const ObstacleProperties &properties, const std::shared_ptr<Components::ISprite> &sprite);
 
         void selfAction(Unite::Unifier *unifier) override;
 

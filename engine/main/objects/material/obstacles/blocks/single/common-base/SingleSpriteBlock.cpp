@@ -3,12 +3,10 @@
 //
 
 #include "SingleSpriteBlock.h"
-#include "../../../../../../../utils/other/Calculations.h"
 
-#include <math.h>
-
-Obstacles::SingleSpriteBlock::SingleSpriteBlock(const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : _sprite(sprite), _speed() {}
+Obstacles::SingleSpriteBlock::SingleSpriteBlock(const ObstacleProperties &properties,
+                                                const std::shared_ptr<Components::ISpriteBox> &sprite)
+        : Obstacles::Obstacle(properties), _sprite(sprite), _speed() {}
 
 void Obstacles::SingleSpriteBlock::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     _sprite->setTexture(texture);
@@ -61,6 +59,10 @@ const Components::Size &Obstacles::SingleSpriteBlock::getSize() const noexcept {
 
 float Obstacles::SingleSpriteBlock::getRotation() const noexcept {
     return _sprite->getRotation();
+}
+
+float Obstacles::SingleSpriteBlock::getElasticCoefficient() const noexcept {
+    return _properties.elasticCoefficient;
 }
 
 void Obstacles::SingleSpriteBlock::setPosition(const Components::Point &point) noexcept {

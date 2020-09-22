@@ -6,8 +6,9 @@
 #include "../../../../../../../utils/other/Calculations.h"
 
 Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const Components::Point &point, const Components::Size &size,
+                                                      const ObstacleProperties &properties,
                                                       const std::shared_ptr<Components::ISprite> &sprite)
-        : _point(point), _size(size), _speed(), _sprite(sprite) {
+        : Obstacles::Obstacle(properties), _point(point), _size(size), _speed(), _sprite(sprite) {
 }
 
 void Obstacles::CompositeSpriteBlock::loadNewSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
@@ -67,6 +68,10 @@ const Components::Size &Obstacles::CompositeSpriteBlock::getSize() const noexcep
 
 float Obstacles::CompositeSpriteBlock::getRotation() const noexcept {
     return _angle;
+}
+
+float Obstacles::CompositeSpriteBlock::getElasticCoefficient() const noexcept {
+    return _properties.elasticCoefficient;
 }
 
 void Obstacles::CompositeSpriteBlock::setPosition(const Components::Point &point) noexcept {

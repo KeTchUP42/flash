@@ -16,7 +16,7 @@ namespace Obstacles {
          * @brief Base block constructor.
          * @param sprite Block's sprite.
          */
-        explicit SingleSpriteBlock(const std::shared_ptr<Components::ISpriteBox> &sprite);
+        explicit SingleSpriteBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
          * @brief Method changes block's sprite texture.
@@ -47,6 +47,8 @@ namespace Obstacles {
         const Components::Size &getSize() const noexcept override;
 
         float getRotation() const noexcept override;
+
+        float getElasticCoefficient() const noexcept override;
 
         void setPosition(const Components::Point &point) noexcept override;
 
