@@ -24,7 +24,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
     Unifier *unifier = new GeneralUnifier();
 
-    std::shared_ptr<Collision> collision(new Collision(unifier, 8, 8));
+    std::shared_ptr<Collision> collision(new Collision(unifier, 8, 5));
 
 
     unifier->addBackSprite(new SpriteBox(Point(0, 0), Size(size.x, size.y),
@@ -33,7 +33,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     Player *player = new BasicPlayer(
             std::shared_ptr<ISpriteBox>(
                     new SpriteBox(
-                            Point(600, 100),
+                            Point(610, 110),
                             Size(20, 20),  //10 - min
                             manager->getTextureManager()->loadTexture("mobs/player/mush.png"))),
             collision);
@@ -53,10 +53,27 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     mush->addSpeed(-1, 0);
     unifier->addMonster(mush);
 
+    mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
+            new SpriteBox(
+                    Point(1060, 280),
+                    Size(30, 30),  //10 - min
+                    mushroom)), collision);
+    mush->addSpeed(-1, 0);
+    unifier->addMonster(mush);
+
 
     mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
             new SpriteBox(
-                    Point(1160, 250),
+                    Point(1060, 220),
+                    Size(30, 30),  //10 - min
+                    mushroom)), collision);
+    mush->addSpeed(-1, 0);
+    unifier->addMonster(mush);
+
+
+    mush = new Mobs::Mushroom(std::shared_ptr<ISpriteBox>(
+            new SpriteBox(
+                    Point(1060, 250),
                     Size(30, 30),  //10 - min
                     mushroom)), collision);
     mush->addSpeed(-1, 0);
