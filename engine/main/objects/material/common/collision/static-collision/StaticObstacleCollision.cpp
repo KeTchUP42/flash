@@ -25,15 +25,16 @@ Obstacles::Obstacle *Material::StaticObstacleCollision::abscissaMoveAble(Materia
                ((obstacleMaxCoordinates.y >= objectMinCoordinates.y) && (obstacleMaxCoordinates.y <= objectMaxCoordinates.y)))))
             continue; //Takes only obstacle with valid position.
 
+        bool objectCloserToOrigin = obstacleMaxCoordinates.x > objectMaxCoordinates.x;
+
         //Optimization.
-        if (obstacleMaxCoordinates.x > objectMaxCoordinates.x) {
+        if (objectCloserToOrigin) {
             if (obstacleMinCoordinates.x - objectMaxCoordinates.x > 0) continue;
         } else {
             if (objectMinCoordinates.x - obstacleMaxCoordinates.x > 0) continue;
         }
 
-        float objectSuperfluousX = ((obstacleMaxCoordinates.x > objectMaxCoordinates.x)
-                                    ? objectMinCoordinates.x : objectMaxCoordinates.x);
+        float objectSuperfluousX = ((objectCloserToOrigin) ? objectMinCoordinates.x : objectMaxCoordinates.x);
 
         for (const Components::Point &point : extremeCoordinatesAbscissa(*object, objectSuperfluousX)) {
             if (obstacle->collision(point.x, point.y)) {
@@ -41,8 +42,7 @@ Obstacles::Obstacle *Material::StaticObstacleCollision::abscissaMoveAble(Materia
             }
         }
 
-        float obstacleSuperfluousX = ((obstacleMaxCoordinates.x > objectMaxCoordinates.x)
-                                      ? obstacleMaxCoordinates.x : obstacleMinCoordinates.x);
+        float obstacleSuperfluousX = ((objectCloserToOrigin) ? obstacleMaxCoordinates.x : obstacleMinCoordinates.x);
 
         for (const Components::Point &point : extremeCoordinatesAbscissa(*obstacle, obstacleSuperfluousX)) {
             if (object->collision(point.x, point.y)) {
@@ -70,15 +70,16 @@ Obstacles::Obstacle *Material::StaticObstacleCollision::ordinateMoveAble(Materia
                ((obstacleMaxCoordinates.x >= objectMinCoordinates.x) && (obstacleMaxCoordinates.x <= objectMaxCoordinates.x)))))
             continue; //Takes only obstacle with valid position.
 
+        bool objectCloserToOrigin = obstacleMaxCoordinates.y > objectMaxCoordinates.y;
+
         //Optimization.
-        if (obstacleMaxCoordinates.y > objectMaxCoordinates.y) {
+        if (objectCloserToOrigin) {
             if (obstacleMinCoordinates.y - objectMaxCoordinates.y > 0) continue;
         } else {
             if (objectMinCoordinates.y - obstacleMaxCoordinates.y > 0) continue;
         }
 
-        float objectSuperfluousY = ((obstacleMaxCoordinates.y > objectMaxCoordinates.y)
-                                    ? objectMinCoordinates.y : objectMaxCoordinates.y);
+        float objectSuperfluousY = ((objectCloserToOrigin) ? objectMinCoordinates.y : objectMaxCoordinates.y);
 
         for (const Components::Point &point : extremeCoordinatesOrdinate(*object, objectSuperfluousY)) {
             if (obstacle->collision(point.x, point.y)) {
@@ -86,8 +87,7 @@ Obstacles::Obstacle *Material::StaticObstacleCollision::ordinateMoveAble(Materia
             }
         }
 
-        float obstacleSuperfluousY = ((obstacleMaxCoordinates.y > objectMaxCoordinates.y)
-                                      ? obstacleMaxCoordinates.y : obstacleMinCoordinates.y);
+        float obstacleSuperfluousY = ((objectCloserToOrigin) ? obstacleMaxCoordinates.y : obstacleMinCoordinates.y);
 
         for (const Components::Point &point : extremeCoordinatesOrdinate(*obstacle, obstacleSuperfluousY)) {
             if (object->collision(point.x, point.y)) {

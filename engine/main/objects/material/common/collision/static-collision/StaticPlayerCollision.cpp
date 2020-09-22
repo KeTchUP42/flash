@@ -25,15 +25,16 @@ Mobs::Player *Material::StaticPlayerCollision::abscissaMoveAble(Material::Materi
                ((playerMaxCoordinates.y >= objectMinCoordinates.y) && (playerMaxCoordinates.y <= objectMaxCoordinates.y)))))
             continue; //Takes only player with valid position.
 
+        bool objectCloserToOrigin = playerMaxCoordinates.x > objectMaxCoordinates.x;
+
         //Optimization.
-        if (playerMaxCoordinates.x > objectMaxCoordinates.x) {
+        if (objectCloserToOrigin) {
             if (playerMinCoordinates.x - objectMaxCoordinates.x > 0) continue;
         } else {
             if (objectMinCoordinates.x - playerMaxCoordinates.x > 0) continue;
         }
 
-        float objectSuperfluousX = ((playerMaxCoordinates.x > objectMaxCoordinates.x)
-                                    ? objectMinCoordinates.x : objectMaxCoordinates.x);
+        float objectSuperfluousX = ((objectCloserToOrigin) ? objectMinCoordinates.x : objectMaxCoordinates.x);
 
         for (const Components::Point &point : extremeCoordinatesAbscissa(*object, objectSuperfluousX)) {
             if (player->collision(point.x, point.y)) {
@@ -41,8 +42,7 @@ Mobs::Player *Material::StaticPlayerCollision::abscissaMoveAble(Material::Materi
             }
         }
 
-        float playerSuperfluousX = ((playerMaxCoordinates.x > objectMaxCoordinates.x)
-                                    ? playerMaxCoordinates.x : playerMinCoordinates.x);
+        float playerSuperfluousX = ((objectCloserToOrigin) ? playerMaxCoordinates.x : playerMinCoordinates.x);
 
         for (const Components::Point &point : extremeCoordinatesAbscissa(*player, playerSuperfluousX)) {
             if (object->collision(point.x, point.y)) {
@@ -70,15 +70,16 @@ Mobs::Player *Material::StaticPlayerCollision::ordinateMoveAble(Material::Materi
                ((playerMaxCoordinates.x >= objectMinCoordinates.x) && (playerMaxCoordinates.x <= objectMaxCoordinates.x)))))
             continue; //Takes only player with valid position.
 
+        bool objectCloserToOrigin = playerMaxCoordinates.y > objectMaxCoordinates.y;
+
         //Optimization.
-        if (playerMaxCoordinates.y > objectMaxCoordinates.y) {
+        if (objectCloserToOrigin) {
             if (playerMinCoordinates.y - objectMaxCoordinates.y > 0) continue;
         } else {
             if (objectMinCoordinates.y - playerMaxCoordinates.y > 0) continue;
         }
 
-        float objectSuperfluousY = ((playerMaxCoordinates.y > objectMaxCoordinates.y)
-                                    ? objectMinCoordinates.y : objectMaxCoordinates.y);
+        float objectSuperfluousY = ((objectCloserToOrigin) ? objectMinCoordinates.y : objectMaxCoordinates.y);
 
         for (const Components::Point &point : extremeCoordinatesOrdinate(*object, objectSuperfluousY)) {
             if (player->collision(point.x, point.y)) {
@@ -86,8 +87,7 @@ Mobs::Player *Material::StaticPlayerCollision::ordinateMoveAble(Material::Materi
             }
         }
 
-        float obstacleSuperfluousY = ((playerMaxCoordinates.y > objectMaxCoordinates.y)
-                                      ? playerMaxCoordinates.y : playerMinCoordinates.y);
+        float obstacleSuperfluousY = ((objectCloserToOrigin) ? playerMaxCoordinates.y : playerMinCoordinates.y);
 
         for (const Components::Point &point : extremeCoordinatesOrdinate(*player, obstacleSuperfluousY)) {
             if (object->collision(point.x, point.y)) {

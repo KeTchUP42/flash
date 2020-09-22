@@ -10,8 +10,7 @@
 
 namespace Material {
 
-    class ObstacleCollision
-            : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Obstacles::Obstacle *> {
+    class ObstacleCollision : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Obstacles::Obstacle *> {
     public:
         explicit ObstacleCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY);
 

@@ -25,15 +25,16 @@ Mobs::Monster *Material::StaticMonsterCollision::abscissaMoveAble(Material::Mate
                ((monsterMaxCoordinates.y >= objectMinCoordinates.y) && (monsterMaxCoordinates.y <= objectMaxCoordinates.y)))))
             continue; //Takes only monster with valid position.
 
+        bool objectCloserToOrigin = monsterMaxCoordinates.x > objectMaxCoordinates.x;
+
         //Optimization.
-        if (monsterMaxCoordinates.x > objectMaxCoordinates.x) {
+        if (objectCloserToOrigin) {
             if (monsterMinCoordinates.x - objectMaxCoordinates.x > 0) continue;
         } else {
             if (objectMinCoordinates.x - monsterMaxCoordinates.x > 0) continue;
         }
 
-        float objectSuperfluousX = ((monsterMaxCoordinates.x > objectMaxCoordinates.x)
-                                    ? objectMinCoordinates.x : objectMaxCoordinates.x);
+        float objectSuperfluousX = ((objectCloserToOrigin) ? objectMinCoordinates.x : objectMaxCoordinates.x);
 
         for (const Components::Point &point : extremeCoordinatesAbscissa(*object, objectSuperfluousX)) {
             if (monster->collision(point.x, point.y)) {
@@ -41,8 +42,7 @@ Mobs::Monster *Material::StaticMonsterCollision::abscissaMoveAble(Material::Mate
             }
         }
 
-        float monsterSuperfluousX = ((monsterMaxCoordinates.x > objectMaxCoordinates.x)
-                                     ? monsterMaxCoordinates.x : monsterMinCoordinates.x);
+        float monsterSuperfluousX = ((objectCloserToOrigin) ? monsterMaxCoordinates.x : monsterMinCoordinates.x);
 
         for (const Components::Point &point : extremeCoordinatesAbscissa(*monster, monsterSuperfluousX)) {
             if (object->collision(point.x, point.y)) {
@@ -70,15 +70,16 @@ Mobs::Monster *Material::StaticMonsterCollision::ordinateMoveAble(Material::Mate
                ((monsterMaxCoordinates.x >= objectMinCoordinates.x) && (monsterMaxCoordinates.x <= objectMaxCoordinates.x)))))
             continue; //Takes only monster with valid position.
 
+        bool objectCloserToOrigin = monsterMaxCoordinates.y > objectMaxCoordinates.y;
+
         //Optimization.
-        if (monsterMaxCoordinates.y > objectMaxCoordinates.y) {
+        if (objectCloserToOrigin) {
             if (monsterMinCoordinates.y - objectMaxCoordinates.y > 0) continue;
         } else {
             if (objectMinCoordinates.y - monsterMaxCoordinates.y > 0) continue;
         }
 
-        float objectSuperfluousY = ((monsterMaxCoordinates.y > objectMaxCoordinates.y)
-                                    ? objectMinCoordinates.y : objectMaxCoordinates.y);
+        float objectSuperfluousY = ((objectCloserToOrigin) ? objectMinCoordinates.y : objectMaxCoordinates.y);
 
         for (const Components::Point &point : extremeCoordinatesOrdinate(*object, objectSuperfluousY)) {
             if (monster->collision(point.x, point.y)) {
@@ -86,8 +87,7 @@ Mobs::Monster *Material::StaticMonsterCollision::ordinateMoveAble(Material::Mate
             }
         }
 
-        float monsterSuperfluousY = ((monsterMaxCoordinates.y > objectMaxCoordinates.y)
-                                     ? monsterMaxCoordinates.y : monsterMinCoordinates.y);
+        float monsterSuperfluousY = ((objectCloserToOrigin) ? monsterMaxCoordinates.y : monsterMinCoordinates.y);
 
         for (const Components::Point &point : extremeCoordinatesOrdinate(*monster, monsterSuperfluousY)) {
             if (object->collision(point.x, point.y)) {

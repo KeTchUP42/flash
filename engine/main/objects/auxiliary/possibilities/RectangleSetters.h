@@ -10,6 +10,12 @@
 
 namespace Possibilities {
 
+    /**
+     * @brief The interface describes methods that provide the ability to change the basic parameters of the rectangle.
+     * @namespace Possibilities
+     *
+     * This class defines base RectangleSetters interface.
+    */
     class RectangleSetters {
     public:
         RectangleSetters() = default;
