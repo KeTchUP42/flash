@@ -2,7 +2,7 @@
 // Created by roman on 21.09.2020.
 //
 
-#include "ExtraFunctions.h"
+#include "ExtraCoordinates.h"
 
 std::vector<Components::Point>
 Material::extremeCoordinatesAbscissa(const Possibilities::RectangleGetters &rectangle, float absentXValue) noexcept {

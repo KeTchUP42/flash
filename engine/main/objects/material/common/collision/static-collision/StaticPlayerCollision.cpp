@@ -4,7 +4,7 @@
 
 #include "StaticPlayerCollision.h"
 #include "../coordinates/CoordinatesCalculation.h"
-#include "additionally/ExtraFunctions.h"
+#include "additionally/ExtraCoordinates.h"
 
 Material::StaticPlayerCollision::StaticPlayerCollision(Unite::Unifier *unifier) : CollisionStrategy(unifier) {}
 
