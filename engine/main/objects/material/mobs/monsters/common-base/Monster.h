@@ -6,7 +6,7 @@
 #define FLASH_MONSTER_H
 
 #include "../../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
-#include "../../../shared/MaterialObject.h"
+#include "../../../common/MaterialObject.h"
 
 #include <memory>
 

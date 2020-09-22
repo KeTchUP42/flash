@@ -5,7 +5,7 @@
 #ifndef FLASH_COMPOSITESPRITEBLOCK_H
 #define FLASH_COMPOSITESPRITEBLOCK_H
 
-#include "../../../shared/Obstacle.h"
+#include "../../../common/Obstacle.h"
 
 namespace Obstacles {
 

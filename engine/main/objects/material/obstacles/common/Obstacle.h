@@ -6,7 +6,7 @@
 #define FLASH_OBSTACLE_H
 
 #include "../../../auxiliary/possibilities/RectangleSetters.h"
-#include "../../shared/MaterialObject.h"
+#include "../../common/MaterialObject.h"
 
 namespace Obstacles {
 

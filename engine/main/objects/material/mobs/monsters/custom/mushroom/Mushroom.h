@@ -5,7 +5,7 @@
 #ifndef FLASH_MUSHROOM_H
 #define FLASH_MUSHROOM_H
 
-#include "../../../../obstacles/shared/Obstacle.h"
+#include "../../../../obstacles/common/Obstacle.h"
 #include "../../common-base/BaseMonster.h"
 
 namespace Mobs {

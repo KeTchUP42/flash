@@ -5,7 +5,7 @@
 #ifndef FLASH_SINGLESPRITEBLOCK_H
 #define FLASH_SINGLESPRITEBLOCK_H
 
-#include "../../../shared/Obstacle.h"
+#include "../../../common/Obstacle.h"
 #include "../../../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
 
 namespace Obstacles {

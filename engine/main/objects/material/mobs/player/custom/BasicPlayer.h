@@ -6,9 +6,9 @@
 #define FLASH_BASICPLAYER_H
 
 #include "../common-base/BasePlayer.h"
-#include "../../../shared/collision/CollisionStrategy.h"
-#include "../../../shared/collision/moving-collision/ObstacleCollision.h"
-#include "../../../shared/collision/Collision.h"
+#include "../../../common/collision/CollisionStrategy.h"
+#include "../../../common/collision/moving-collision/ObstacleCollision.h"
+#include "../../../common/collision/Collision.h"
 
 namespace Mobs {
 

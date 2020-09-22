@@ -6,7 +6,7 @@
 #define FLASH_BASEPLAYER_H
 
 #include "Player.h"
-#include "../../../shared/collision/Collision.h"
+#include "../../../common/collision/Collision.h"
 
 namespace Mobs {
 

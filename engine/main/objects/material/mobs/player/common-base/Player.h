@@ -7,7 +7,7 @@
 
 #include "../control/KeyAlias.h"
 #include "../../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
-#include "../../../shared/MaterialObject.h"
+#include "../../../common/MaterialObject.h"
 
 #include <map>
 #include <string>

@@ -9,7 +9,7 @@
 #include "../../auxiliary/components/sprite/common/box/SpriteBox.h"
 #include "../../static/effects/GravityEffect.h"
 #include "../../material/obstacles/blocks/single/DullBlock.h"
-#include "../../material/shared/collision/moving-collision/ObstacleCollision.h"
+#include "../../material/common/collision/moving-collision/ObstacleCollision.h"
 
 #include <memory>
 #include <map>
