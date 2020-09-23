@@ -6,6 +6,7 @@
 #define FLASH_COMPOSITESPRITEBLOCK_H
 
 #include "../../../common/Obstacle.h"
+#include "../../../../../auxiliary/components/elementary/Area.h"
 
 namespace Obstacles {
 
@@ -13,13 +14,12 @@ namespace Obstacles {
     public:
         /**
          * @brief Base constructor.
-         * @param point Virtual position.
-         * @param size Virtual size.
+         * @param area Collision area.
          * @param properties Obstacle properties.
          * @param sprite Block sprite.
          */
-        explicit CompositeSpriteBlock(const Components::Point &point, const Components::Size &size,
-                                      const ObstacleProperties &properties, const std::shared_ptr<Components::ISprite> &sprite);
+        explicit CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
+                                      const std::shared_ptr<Components::ISprite> &sprite);
 
         /**
          * @brief Method changes block's sprite.
@@ -64,9 +64,7 @@ namespace Obstacles {
         virtual ~CompositeSpriteBlock() = default;
 
     protected:
-        float _angle;
-        Components::Point _point;
-        Components::Size _size;
+        Components::Area _area;
         Components::Speed _speed;
         std::shared_ptr<Components::ISprite> _sprite;
     };
