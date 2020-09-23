@@ -5,9 +5,9 @@
 #ifndef FLASH_ISPRITEBOX_H
 #define FLASH_ISPRITEBOX_H
 
-#include "../base/ISprite.h"
-#include "../.././../../possibilities/RectangleGetters.h"
-#include "../../../../possibilities/RectangleSetters.h"
+#include "../common-base/ISprite.h"
+#include "../../../possibilities/RectangleGetters.h"
+#include "../../../possibilities/RectangleSetters.h"
 
 #include <memory>
 

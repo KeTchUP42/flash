@@ -5,7 +5,7 @@
 #ifndef FLASH_ICOMPOSITESPRITE_H
 #define FLASH_ICOMPOSITESPRITE_H
 
-#include "../common/base/ISprite.h"
+#include "../common-base/ISprite.h"
 
 #include <memory>
 

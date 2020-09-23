@@ -6,7 +6,7 @@
 #include "../../unifier/GeneralUnifier.h"
 #include "../../material/mobs/player/custom/BasicPlayer.h"
 #include "../../material/mobs/monsters/custom/mushroom/Mushroom.h"
-#include "../../auxiliary/components/sprite/common/box/SpriteBox.h"
+#include "../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../../static/effects/GravityEffect.h"
 #include "../../material/obstacles/blocks/single/DullBlock.h"
 #include "../../material/common/collision/moving-collision/ObstacleCollision.h"

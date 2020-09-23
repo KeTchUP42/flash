@@ -6,8 +6,8 @@
 #define FLASH_SPRITEBOX_H
 
 #include "ISpriteBox.h"
-#include "../../../elementary/point/Point.h"
-#include "../../../elementary/Size.h"
+#include "../../elementary/point/Point.h"
+#include "../../elementary/Size.h"
 
 namespace Components {
 

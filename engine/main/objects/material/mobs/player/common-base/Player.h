@@ -6,7 +6,7 @@
 #define FLASH_PLAYER_H
 
 #include "../control/KeyAlias.h"
-#include "../../../../auxiliary/components/sprite/common/box/ISpriteBox.h"
+#include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../../../common/MaterialObject.h"
 
 #include <map>
