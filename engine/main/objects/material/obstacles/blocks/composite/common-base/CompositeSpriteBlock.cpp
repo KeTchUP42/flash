@@ -6,8 +6,7 @@
 #include "../../../../../../../utils/other/Calculations.h"
 
 Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const Components::Point &point, const Components::Size &size,
-                                                      const ObstacleProperties &properties,
-                                                      const std::shared_ptr<Components::ISprite> &sprite)
+                                                      const ObstacleProperties &properties, const std::shared_ptr<Components::ISprite> &sprite)
         : Obstacles::Obstacle(properties), _point(point), _size(size), _speed(), _sprite(sprite) {
 }
 

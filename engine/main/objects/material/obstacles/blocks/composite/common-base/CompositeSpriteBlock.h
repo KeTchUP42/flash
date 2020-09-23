@@ -15,6 +15,7 @@ namespace Obstacles {
          * @brief Base constructor.
          * @param point Virtual position.
          * @param size Virtual size.
+         * @param properties Obstacle properties.
          * @param sprite Block sprite.
          */
         explicit CompositeSpriteBlock(const Components::Point &point, const Components::Size &size,

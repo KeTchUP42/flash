@@ -5,8 +5,7 @@
 #include "DullCompositeBlock.h"
 
 Obstacles::DullCompositeBlock::DullCompositeBlock(const Components::Point &point, const Components::Size &size,
-                                                  const ObstacleProperties &properties,
-                                                  const std::shared_ptr<Components::ISprite> &sprite)
+                                                  const ObstacleProperties &properties, const std::shared_ptr<Components::ISprite> &sprite)
         : CompositeSpriteBlock(point, size, properties, sprite) {}
 
 void Obstacles::DullCompositeBlock::selfAction(Unite::Unifier *unifier) {
