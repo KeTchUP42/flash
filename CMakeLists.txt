@@ -10,9 +10,8 @@ find_package(SFML 2.5.1 COMPONENTS window graphics audio)
 set(MAIN init/main.cpp)
 set(ENGINE engine/init/Engine.cpp engine/init/Engine.h)
 
-set(PLAYER engine/main/data/audio/player/AudioPlayer.cpp engine/main/data/audio/player/AudioPlayer.h engine/main/data/audio/player/MusicPlayer.cpp engine/main/data/audio/player/MusicPlayer.h engine/main/data/audio/player/SoundPlayer.cpp engine/main/data/audio/player/SoundPlayer.h)
 set(AUDIOPLAYBACK engine/main/data/audio/simple-audio/AudioPlayback.h engine/main/data/audio/simple-audio/AudioPlayback.cpp)
-set(AUDIO ${PLAYER} ${AUDIOPLAYBACK})
+set(AUDIO ${AUDIOPLAYBACK})
 
 set(AUDIOMANAGER engine/main/data/manager/audio-manager/AudioManager.h engine/main/data/manager/audio-manager/MusicManager.cpp engine/main/data/manager/audio-manager/MusicManager.h)
 set(CONFIGMANAGER engine/main/data/manager/config-manager/ConfigManager.h engine/main/data/manager/config-manager/IniConfigManager.cpp engine/main/data/manager/config-manager/IniConfigManager.h)

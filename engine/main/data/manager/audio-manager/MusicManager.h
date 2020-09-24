@@ -17,8 +17,8 @@ namespace Managers {
         explicit MusicManager(const char *audioDirectory)
                 : AudioManager(audioDirectory) {}
 
-        std::shared_ptr<Audio::AudioPlayer>
-        loadAudioFile(const std::string &filename, bool loop) const override;
+        std::shared_ptr<sf::Music>
+        loadMusic(const std::string &filename) const override;
     };
 }
 

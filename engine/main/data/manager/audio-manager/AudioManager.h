@@ -7,8 +7,7 @@
 
 #include <string>
 #include <memory>
-
-#include "../../audio/player/AudioPlayer.h"
+#include <SFML/Audio.hpp>
 
 namespace Managers {
 
@@ -29,11 +28,10 @@ namespace Managers {
         /**
          * @brief Method loads file from Audio directory.
          * @param filename File in audio directory.
-         * @param Is loop? Can be useless.
-         * @return New audio player.
+         * @return New audio sf::Music.
          */
-        virtual std::shared_ptr<Audio::AudioPlayer>
-        loadAudioFile(const std::string &filename, bool loop) const = 0;
+        virtual std::shared_ptr<sf::Music>
+        loadMusic(const std::string &filename) const = 0;
 
         virtual ~AudioManager() = default;
 

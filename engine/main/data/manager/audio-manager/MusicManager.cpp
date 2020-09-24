@@ -3,9 +3,13 @@
 //
 
 #include "MusicManager.h"
-#include "../../audio/player/MusicPlayer.h"
+#include "../../../other/exceptions/custom/AudioFileCannotBeOpened.h"
 
-std::shared_ptr<Audio::AudioPlayer>
-Managers::MusicManager::loadAudioFile(const std::string &filename, bool loop) const {
-    return std::shared_ptr<Audio::AudioPlayer>(new Audio::MusicPlayer(AUDIO_DIRECTORY + "/" + filename, loop));
+std::shared_ptr<sf::Music> Managers::MusicManager::loadMusic(const std::string &filename) const {
+    std::shared_ptr<sf::Music> music(new sf::Music());
+
+    if (!music->openFromFile(AUDIO_DIRECTORY + "/" + filename)) {
+        throw PreferredExceptions::AudioFileCannotBeOpened("File " + filename + " cannot be opened.");
+    }
+    return music;
 }
