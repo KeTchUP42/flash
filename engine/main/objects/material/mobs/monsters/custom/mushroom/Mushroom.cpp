@@ -23,7 +23,7 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
     Obstacles::Obstacle *obstacle;
 
     if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this)) != nullptr) {
-        _properties.speed.xSpeed = static_cast<int>(-1 * _properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
+        _properties.speed.xSpeed = static_cast<int>(-1 * _properties.speed.xSpeed);
     }
 
     if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this)) != nullptr) {
