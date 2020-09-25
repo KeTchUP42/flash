@@ -5,15 +5,18 @@
 #ifndef FLASH_OBSTACLEPROPERTIES_H
 #define FLASH_OBSTACLEPROPERTIES_H
 
-#include "../../../common/properties/MaterialProperties.h"
+#include "../../../common/properties/MaterialObjectProperties.h"
 
 namespace Obstacles {
 
     /**
      * @brief Struct contains all obstacle numeric properties.
      */
-    struct ObstacleProperties : public Material::MaterialProperties {
-        explicit ObstacleProperties(const Components::Speed &speed, float elasticCoefficient);
+    struct ObstacleProperties : public Material::MaterialObjectProperties {
+
+        explicit ObstacleProperties(const Components::Speed &speed, float elasticCoefficient)
+                : MaterialObjectProperties(speed, elasticCoefficient) {}
+
     };
 }
 

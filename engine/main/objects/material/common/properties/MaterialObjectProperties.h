@@ -2,8 +2,8 @@
 // Created by roman on 25.09.2020.
 //
 
-#ifndef FLASH_MATERIALPROPERTIES_H
-#define FLASH_MATERIALPROPERTIES_H
+#ifndef FLASH_MATERIALOBJECTPROPERTIES_H
+#define FLASH_MATERIALOBJECTPROPERTIES_H
 
 #include "../../../auxiliary/components/elementary/Speed.h"
 
@@ -12,11 +12,12 @@ namespace Material {
     /**
      * @brief Struct contains all obstacle numeric properties.
      */
-    struct MaterialProperties {
+    struct MaterialObjectProperties {
         /**
          * @brief Сonstructor initializes numeric properties.
          */
-        explicit MaterialProperties(const Components::Speed &speed, float elasticCoefficient);
+        explicit MaterialObjectProperties(const Components::Speed &speed, float elasticCoefficient)
+                : speed(speed), elasticCoefficient(elasticCoefficient) {}
 
         /**
          * @brief Material coefficient.
@@ -30,4 +31,4 @@ namespace Material {
     };
 }
 
-#endif //FLASH_MATERIALPROPERTIES_H
+#endif //FLASH_MATERIALOBJECTPROPERTIES_H

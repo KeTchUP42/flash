@@ -5,15 +5,17 @@
 #ifndef FLASH_PLAYERPROPERTIES_H
 #define FLASH_PLAYERPROPERTIES_H
 
-#include "../../../../common/properties/MaterialProperties.h"
+#include "../../../../common/properties/MaterialObjectProperties.h"
 
 namespace Mobs {
 
     /**
      * @brief Struct contains all player numeric properties.
      */
-    struct PlayerProperties : public Material::MaterialProperties {
-        explicit PlayerProperties(const Components::Speed &speed, float elasticCoefficient);
+    struct PlayerProperties : public Material::MaterialObjectProperties {
+
+        explicit PlayerProperties(const Components::Speed &speed, float elasticCoefficient)
+                : MaterialObjectProperties(speed, elasticCoefficient) {}
     };
 }
 

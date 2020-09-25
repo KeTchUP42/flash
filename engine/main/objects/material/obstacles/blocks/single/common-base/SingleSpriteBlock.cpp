@@ -62,7 +62,7 @@ float Obstacles::SingleSpriteBlock::getRotation() const noexcept {
     return _sprite->getRotation();
 }
 
-const Material::MaterialProperties &Obstacles::SingleSpriteBlock::getProperties() const noexcept {
+const Material::MaterialObjectProperties &Obstacles::SingleSpriteBlock::getProperties() const noexcept {
     return _properties;
 }
 

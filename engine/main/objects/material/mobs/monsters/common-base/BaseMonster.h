@@ -19,7 +19,7 @@ namespace Mobs {
                 : Monster(properties, sprite), _collision(collision) {}
 
         explicit BaseMonster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             ::Material::Collision *collision)
+                             Material::Collision *collision)
                 : Monster(properties, sprite), _collision(collision) {}
 
     protected:

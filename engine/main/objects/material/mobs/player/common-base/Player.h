@@ -65,7 +65,7 @@ namespace Mobs {
 
         void setMoveSpeed(const Components::Speed &speed) noexcept override;
 
-        const Material::MaterialProperties &getProperties() const noexcept override;
+        const Material::MaterialObjectProperties &getProperties() const noexcept override;
 
         const Components::Speed &getMoveSpeed() const noexcept override;
 

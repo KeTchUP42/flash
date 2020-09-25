@@ -5,7 +5,7 @@
 #ifndef FLASH_PHYSICAL_H
 #define FLASH_PHYSICAL_H
 
-#include "../../material/common/properties/MaterialProperties.h"
+#include "../../material/common/properties/MaterialObjectProperties.h"
 
 namespace Possibilities {
 
@@ -23,7 +23,7 @@ namespace Possibilities {
          * @brief Method returns object's properties.
          * @return Physical properties.
          */
-        virtual const Material::MaterialProperties &getProperties() const noexcept = 0;
+        virtual const Material::MaterialObjectProperties &getProperties() const noexcept = 0;
 
         virtual ~Physical() = default;
     };

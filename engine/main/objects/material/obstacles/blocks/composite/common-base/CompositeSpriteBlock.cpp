@@ -69,7 +69,7 @@ float Obstacles::CompositeSpriteBlock::getRotation() const noexcept {
     return _area.angle;
 }
 
-const Material::MaterialProperties &Obstacles::CompositeSpriteBlock::getProperties() const noexcept {
+const Material::MaterialObjectProperties &Obstacles::CompositeSpriteBlock::getProperties() const noexcept {
     return _properties;
 }
 

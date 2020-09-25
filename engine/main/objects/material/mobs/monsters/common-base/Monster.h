@@ -6,8 +6,8 @@
 #define FLASH_MONSTER_H
 
 #include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../../../common/MaterialObject.h"
 #include "../common/properties/MonsterProperties.h"
+#include "../../../common/MaterialObject.h"
 
 #include <memory>
 
@@ -55,7 +55,7 @@ namespace Mobs {
 
         const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
 
-        const Material::MaterialProperties &getProperties() const noexcept override;
+        const Material::MaterialObjectProperties &getProperties() const noexcept override;
 
     protected:
         Mobs::MonsterProperties _properties;

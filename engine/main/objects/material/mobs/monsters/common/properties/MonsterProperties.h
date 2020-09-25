@@ -5,15 +5,17 @@
 #ifndef FLASH_MONSTERPROPERTIES_H
 #define FLASH_MONSTERPROPERTIES_H
 
-#include "../../../../common/properties/MaterialProperties.h"
+#include "../../../../common/properties/MaterialObjectProperties.h"
 
 namespace Mobs {
 
     /**
      * @brief Struct contains all monster numeric properties.
      */
-    struct MonsterProperties : Material::MaterialProperties {
-        explicit MonsterProperties(const Components::Speed &speed, float elasticCoefficient);
+    struct MonsterProperties : Material::MaterialObjectProperties {
+
+        explicit MonsterProperties(const Components::Speed &speed, float elasticCoefficient)
+                : Material::MaterialObjectProperties(speed, elasticCoefficient) {}
     };
 }
 

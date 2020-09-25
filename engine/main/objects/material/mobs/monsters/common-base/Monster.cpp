@@ -64,6 +64,6 @@ const std::shared_ptr<Components::ISpriteBox> &Mobs::Monster::getSprite() const 
     return _sprite;
 }
 
-const Material::MaterialProperties &Mobs::Monster::getProperties() const noexcept {
+const Material::MaterialObjectProperties &Mobs::Monster::getProperties() const noexcept {
     return _properties;
 }
