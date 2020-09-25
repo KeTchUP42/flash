@@ -14,16 +14,16 @@ namespace Mobs {
 
     class BaseMonster : public Monster {
     public:
-        explicit BaseMonster(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             const std::shared_ptr<Material::Collision> &mobCollision)
-                : Monster(sprite), _collision(mobCollision) {}
+        explicit BaseMonster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                             const std::shared_ptr<::Material::Collision> &collision)
+                : Monster(properties, sprite), _collision(collision) {}
 
-        explicit BaseMonster(const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             Material::Collision *mobCollision)
-                : Monster(sprite), _collision(mobCollision) {}
+        explicit BaseMonster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                             ::Material::Collision *collision)
+                : Monster(properties, sprite), _collision(collision) {}
 
     protected:
-        std::shared_ptr<Material::Collision> _collision;
+        std::shared_ptr<::Material::Collision> _collision;
     };
 }
 

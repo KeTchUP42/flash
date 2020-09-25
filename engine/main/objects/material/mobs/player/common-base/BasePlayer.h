@@ -12,13 +12,15 @@ namespace Mobs {
 
     class BasePlayer : public Player {
     public:
-        explicit BasePlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
+        explicit BasePlayer(const Mobs::PlayerProperties &properties,
+                            const std::shared_ptr<Components::ISpriteBox> &sprite,
                             const std::shared_ptr<Material::Collision> &collision)
-                : Player(sprite), _collision(collision) {}
+                : Player(properties, sprite), _collision(collision) {}
 
-        explicit BasePlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
+        explicit BasePlayer(const Mobs::PlayerProperties &properties,
+                            const std::shared_ptr<Components::ISpriteBox> &sprite,
                             Material::Collision *collision)
-                : Player(sprite), _collision(collision) {}
+                : Player(properties, sprite), _collision(collision) {}
 
     protected:
         std::shared_ptr<Material::Collision> _collision;

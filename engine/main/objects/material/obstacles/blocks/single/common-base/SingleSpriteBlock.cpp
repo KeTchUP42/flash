@@ -4,9 +4,10 @@
 
 #include "SingleSpriteBlock.h"
 
-Obstacles::SingleSpriteBlock::SingleSpriteBlock(const ObstacleProperties &properties,
-                                                const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : Obstacles::Obstacle(properties), _sprite(sprite), _speed() {}
+Obstacles::SingleSpriteBlock::SingleSpriteBlock(const Obstacles::ObstacleProperties &properties,
+                                                const std::shared_ptr<Components::ISpriteBox> &sprite,
+                                                const std::shared_ptr<Material::Collision> &collision)
+        : Obstacles::Obstacle(properties), _sprite(sprite), _collision(collision) {}
 
 void Obstacles::SingleSpriteBlock::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     _sprite->setTexture(texture);
@@ -37,16 +38,16 @@ void Obstacles::SingleSpriteBlock::rotate(float angle, const Components::Point &
 }
 
 void Obstacles::SingleSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {
-    _speed.xSpeed += offsetX;
-    _speed.ySpeed += offsetY;
+    _properties.speed.xSpeed += offsetX;
+    _properties.speed.ySpeed += offsetY;
 }
 
 void Obstacles::SingleSpriteBlock::setMoveSpeed(const Components::Speed &speed) noexcept {
-    _speed = speed;
+    _properties.speed = speed;
 }
 
 const Components::Speed &Obstacles::SingleSpriteBlock::getMoveSpeed() const noexcept {
-    return _speed;
+    return _properties.speed;
 }
 
 const Components::Point &Obstacles::SingleSpriteBlock::getPosition() const noexcept {
@@ -61,8 +62,8 @@ float Obstacles::SingleSpriteBlock::getRotation() const noexcept {
     return _sprite->getRotation();
 }
 
-float Obstacles::SingleSpriteBlock::getElasticCoefficient() const noexcept {
-    return _properties.elasticCoefficient;
+const Material::MaterialProperties &Obstacles::SingleSpriteBlock::getProperties() const noexcept {
+    return _properties;
 }
 
 void Obstacles::SingleSpriteBlock::setPosition(const Components::Point &point) noexcept {

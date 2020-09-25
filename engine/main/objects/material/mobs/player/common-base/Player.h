@@ -8,6 +8,7 @@
 #include "../control/KeyAlias.h"
 #include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../../../common/MaterialObject.h"
+#include "../common/properties/PlayerProperties.h"
 
 #include <map>
 #include <string>
@@ -27,7 +28,7 @@ namespace Mobs {
          * @brief Base player constructor.
          * @param sprite Player's sprite.
          */
-        explicit Player(const std::shared_ptr<Components::ISpriteBox> &sprite);
+        explicit Player(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
          * @brief Method loads new player's key map. Keys under special names used in player's controlling.
@@ -64,6 +65,8 @@ namespace Mobs {
 
         void setMoveSpeed(const Components::Speed &speed) noexcept override;
 
+        const Material::MaterialProperties &getProperties() const noexcept override;
+
         const Components::Speed &getMoveSpeed() const noexcept override;
 
         const Components::Point &getPosition() const noexcept override;
@@ -79,7 +82,7 @@ namespace Mobs {
         virtual ~Player() = default;
 
     protected:
-        Components::Speed _speed;
+        Mobs::PlayerProperties _properties;
         std::map<KeyAlias, sf::Keyboard::Key> _keyMap;
         std::shared_ptr<Components::ISpriteBox> _sprite;
     };

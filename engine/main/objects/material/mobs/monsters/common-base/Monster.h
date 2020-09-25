@@ -7,6 +7,7 @@
 
 #include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../../../common/MaterialObject.h"
+#include "../common/properties/MonsterProperties.h"
 
 #include <memory>
 
@@ -20,7 +21,7 @@ namespace Mobs {
     */
     class Monster : public Material::MaterialObject {
     public:
-        explicit Monster(const std::shared_ptr<Components::ISpriteBox> &sprite);
+        explicit Monster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
          * @brief Method changes monsters's sprite texture.
@@ -54,8 +55,10 @@ namespace Mobs {
 
         const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
 
+        const Material::MaterialProperties &getProperties() const noexcept override;
+
     protected:
-        Components::Speed _speed;
+        Mobs::MonsterProperties _properties;
         std::shared_ptr<Components::ISpriteBox> _sprite;
     };
 }

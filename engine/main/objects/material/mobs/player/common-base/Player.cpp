@@ -4,8 +4,8 @@
 
 #include "Player.h"
 
-Mobs::Player::Player(const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : _sprite(sprite), _speed() {}
+Mobs::Player::Player(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite)
+        : _properties(properties), _sprite(sprite) {}
 
 void Mobs::Player::loadKeyMap(const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &keyMap) noexcept {
     _keyMap = keyMap;
@@ -40,16 +40,20 @@ void Mobs::Player::rotate(float angle, const Components::Point &point) noexcept 
 }
 
 void Mobs::Player::addSpeed(float offsetX, float offsetY) noexcept {
-    _speed.xSpeed += offsetX;
-    _speed.ySpeed += offsetY;
+    _properties.speed.xSpeed += offsetX;
+    _properties.speed.ySpeed += offsetY;
 }
 
 void Mobs::Player::setMoveSpeed(const Components::Speed &speed) noexcept {
-    _speed = speed;
+    _properties.speed = speed;
+}
+
+const Material::MaterialProperties &Mobs::Player::getProperties() const noexcept {
+    return _properties;
 }
 
 const Components::Speed &Mobs::Player::getMoveSpeed() const noexcept {
-    return _speed;
+    return _properties.speed;
 }
 
 const Components::Point &Mobs::Player::getPosition() const noexcept {

@@ -4,13 +4,15 @@
 
 #include "BasicPlayer.h"
 
-Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
+Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties,
+                               const std::shared_ptr<Components::ISpriteBox> &sprite,
                                const std::shared_ptr<Material::Collision> &collision)
-        : BasePlayer(sprite, collision) {}
+        : BasePlayer(properties, sprite, collision) {}
 
-Mobs::BasicPlayer::BasicPlayer(const std::shared_ptr<Components::ISpriteBox> &sprite,
+Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties,
+                               const std::shared_ptr<Components::ISpriteBox> &sprite,
                                Material::Collision *collision)
-        : BasePlayer(sprite, collision) {}
+        : BasePlayer(properties, sprite, collision) {}
 
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
@@ -22,29 +24,29 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
     Obstacles::Obstacle *obstacle;
 
     if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this)) != nullptr) {
-        _speed.xSpeed = static_cast<int>(-1 * _speed.xSpeed * obstacle->getElasticCoefficient());
+        _properties.speed.xSpeed = static_cast<int>(-1 * _properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
     }
 
     if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this)) != nullptr) {
-        _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * obstacle->getElasticCoefficient());
+        _properties.speed.ySpeed = static_cast<int>(-1 * _properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
     }
 
-    this->move(_speed.xSpeed, _speed.ySpeed);
+    this->move(_properties.speed.xSpeed, _properties.speed.ySpeed);
 
-    if ((_speed.xSpeed != 0) && (_speed.ySpeed == 0)) {
-        this->addSpeed(_speed.xSpeed < 0 ? 1 : -1, 0);
+    if ((_properties.speed.xSpeed != 0) && (_properties.speed.ySpeed == 0)) {
+        this->addSpeed(_properties.speed.xSpeed < 0 ? 1 : -1, 0);
     }
 }
 
 void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Right])) {
-        if ((std::abs(_speed.xSpeed) < 15) && (_speed.xSpeed + 3 <= 15)) { this->addSpeed(3, 0); }
+        if ((std::abs(_properties.speed.xSpeed) < 15) && (_properties.speed.xSpeed + 3 <= 15)) { this->addSpeed(3, 0); }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Left])) {
-        if ((std::abs(_speed.xSpeed) < 15) && (_speed.xSpeed - 5 >= -15)) { this->addSpeed(-3, 0); }
+        if ((std::abs(_properties.speed.xSpeed) < 15) && (_properties.speed.xSpeed - 5 >= -15)) { this->addSpeed(-3, 0); }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Jump])) {
-        if (_speed.ySpeed == 0) { this->addSpeed(0, -15); }
+        if (_properties.speed.ySpeed == 0) { this->addSpeed(0, -15); }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Use])) {
         this->_sprite->setPosition(600, 100);

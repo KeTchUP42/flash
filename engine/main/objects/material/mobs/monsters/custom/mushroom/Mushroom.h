@@ -12,10 +12,12 @@ namespace Mobs {
 
     class Mushroom : public BaseMonster {
     public:
-        explicit Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
+        explicit Mushroom(const Mobs::MonsterProperties &properties,
+                          const std::shared_ptr<Components::ISpriteBox> &sprite,
                           const std::shared_ptr<Material::Collision> &collision);
 
-        explicit Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
+        explicit Mushroom(const Mobs::MonsterProperties &properties,
+                          const std::shared_ptr<Components::ISpriteBox> &sprite,
                           Material::Collision *collision);
 
         void selfAction(Unite::Unifier *unifier) override;

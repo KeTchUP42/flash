@@ -7,6 +7,7 @@
 
 #include "../../../common/Obstacle.h"
 #include "../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
+#include "../../../../common/collision/Collision.h"
 
 namespace Obstacles {
 
@@ -17,7 +18,9 @@ namespace Obstacles {
          * @param properties Obstacle properties.
          * @param sprite Block's sprite.
          */
-        explicit SingleSpriteBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
+        explicit SingleSpriteBlock(const ObstacleProperties &properties,
+                                   const std::shared_ptr<Components::ISpriteBox> &sprite,
+                                   const std::shared_ptr<Material::Collision> &collision);
 
         /**
          * @brief Method changes block's sprite texture.
@@ -49,7 +52,7 @@ namespace Obstacles {
 
         float getRotation() const noexcept override;
 
-        float getElasticCoefficient() const noexcept override;
+        const Material::MaterialProperties &getProperties() const noexcept override;
 
         void setPosition(const Components::Point &point) noexcept override;
 
@@ -62,8 +65,8 @@ namespace Obstacles {
         virtual ~SingleSpriteBlock() = default;
 
     protected:
-        Components::Speed _speed;
         std::shared_ptr<Components::ISpriteBox> _sprite;
+        std::shared_ptr<Material::Collision> _collision;
     };
 }
 

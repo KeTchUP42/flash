@@ -12,12 +12,7 @@ namespace Obstacles {
 
     class CompositeSpriteBlock : public Obstacles::Obstacle {
     public:
-        /**
-         * @brief Base constructor.
-         * @param area Collision area.
-         * @param properties Obstacle properties.
-         * @param sprite Block sprite.
-         */
+
         explicit CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
                                       const std::shared_ptr<Components::ISprite> &sprite);
 
@@ -51,7 +46,7 @@ namespace Obstacles {
 
         float getRotation() const noexcept override;
 
-        float getElasticCoefficient() const noexcept override;
+        const Material::MaterialProperties &getProperties() const noexcept override;
 
         void setPosition(const Components::Point &point) noexcept override;
 
@@ -65,7 +60,6 @@ namespace Obstacles {
 
     protected:
         Components::Area _area;
-        Components::Speed _speed;
         std::shared_ptr<Components::ISprite> _sprite;
     };
 }

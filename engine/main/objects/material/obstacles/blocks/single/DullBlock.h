@@ -11,7 +11,9 @@ namespace Obstacles {
 
     class DullBlock : public Obstacles::SingleSpriteBlock {
     public:
-        DullBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
+        explicit DullBlock(const ObstacleProperties &properties,
+                           const std::shared_ptr<Components::ISpriteBox> &sprite,
+                           const std::shared_ptr<Material::Collision> &collision);
 
         void selfAction(Unite::Unifier *unifier) override;
 

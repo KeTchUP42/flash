@@ -4,8 +4,8 @@
 
 #include "Monster.h"
 
-Mobs::Monster::Monster(const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : _sprite(sprite), _speed() {}
+Mobs::Monster::Monster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite)
+        : _sprite(sprite), _properties(properties) {}
 
 void Mobs::Monster::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     _sprite->setTexture(texture);
@@ -36,16 +36,16 @@ void Mobs::Monster::rotate(float angle, const Components::Point &point) noexcept
 }
 
 void Mobs::Monster::addSpeed(float offsetX, float offsetY) noexcept {
-    _speed.xSpeed += offsetX;
-    _speed.ySpeed += offsetY;
+    _properties.speed.xSpeed += offsetX;
+    _properties.speed.ySpeed += offsetY;
 }
 
 void Mobs::Monster::setMoveSpeed(const Components::Speed &speed) noexcept {
-    _speed = speed;
+    _properties.speed = speed;
 }
 
 const Components::Speed &Mobs::Monster::getMoveSpeed() const noexcept {
-    return _speed;
+    return _properties.speed;
 }
 
 const Components::Point &Mobs::Monster::getPosition() const noexcept {
@@ -62,4 +62,8 @@ float Mobs::Monster::getRotation() const noexcept {
 
 const std::shared_ptr<Components::ISpriteBox> &Mobs::Monster::getSprite() const noexcept {
     return _sprite;
+}
+
+const Material::MaterialProperties &Mobs::Monster::getProperties() const noexcept {
+    return _properties;
 }

@@ -7,7 +7,7 @@
 
 Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
                                                       const std::shared_ptr<Components::ISprite> &sprite)
-        : Obstacles::Obstacle(properties), _area(area), _speed(), _sprite(sprite) {
+        : Obstacles::Obstacle(properties), _area(area), _sprite(sprite) {
 }
 
 void Obstacles::CompositeSpriteBlock::loadNewSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
@@ -45,16 +45,16 @@ void Obstacles::CompositeSpriteBlock::rotate(float angle, const Components::Poin
 }
 
 void Obstacles::CompositeSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {
-    _speed.xSpeed += offsetX;
-    _speed.ySpeed += offsetY;
+    _properties.speed.xSpeed += offsetX;
+    _properties.speed.ySpeed += offsetY;
 }
 
 void Obstacles::CompositeSpriteBlock::setMoveSpeed(const Components::Speed &speed) noexcept {
-    _speed = speed;
+    _properties.speed = speed;
 }
 
 const Components::Speed &Obstacles::CompositeSpriteBlock::getMoveSpeed() const noexcept {
-    return _speed;
+    return _properties.speed;
 }
 
 const Components::Point &Obstacles::CompositeSpriteBlock::getPosition() const noexcept {
@@ -69,8 +69,8 @@ float Obstacles::CompositeSpriteBlock::getRotation() const noexcept {
     return _area.angle;
 }
 
-float Obstacles::CompositeSpriteBlock::getElasticCoefficient() const noexcept {
-    return _properties.elasticCoefficient;
+const Material::MaterialProperties &Obstacles::CompositeSpriteBlock::getProperties() const noexcept {
+    return _properties;
 }
 
 void Obstacles::CompositeSpriteBlock::setPosition(const Components::Point &point) noexcept {

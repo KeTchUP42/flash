@@ -4,13 +4,15 @@
 
 #include "Mushroom.h"
 
-Mobs::Mushroom::Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
+Mobs::Mushroom::Mushroom(const Mobs::MonsterProperties &properties,
+                         const std::shared_ptr<Components::ISpriteBox> &sprite,
                          const std::shared_ptr<Material::Collision> &collision)
-        : BaseMonster(sprite, collision) {}
+        : BaseMonster(properties, sprite, collision) {}
 
-Mobs::Mushroom::Mushroom(const std::shared_ptr<Components::ISpriteBox> &sprite,
+Mobs::Mushroom::Mushroom(const Mobs::MonsterProperties &properties,
+                         const std::shared_ptr<Components::ISpriteBox> &sprite,
                          Material::Collision *collision)
-        : BaseMonster(sprite, collision) {}
+        : BaseMonster(properties, sprite, collision) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);
@@ -21,24 +23,24 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
     Obstacles::Obstacle *obstacle;
 
     if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this)) != nullptr) {
-        _speed.xSpeed = static_cast<int>(-1 * _speed.xSpeed * obstacle->getElasticCoefficient());
+        _properties.speed.xSpeed = static_cast<int>(-1 * _properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
     }
 
     if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this)) != nullptr) {
-        _speed.ySpeed = static_cast<int>(-1 * _speed.ySpeed * obstacle->getElasticCoefficient());
+        _properties.speed.ySpeed = static_cast<int>(-1 * _properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
     }
 
     Mobs::Monster *monster;
 
     if ((monster = _collision->getMonsterCollision()->abscissaMoveAble(this)) != nullptr) {
-        if (((_speed.xSpeed < 0) && (monster->getMoveSpeed().xSpeed >= 0)) ||
-            ((_speed.xSpeed > 0) && (monster->getMoveSpeed().xSpeed <= 0))) {
-            monster->setMoveSpeed(Components::Speed(_speed.xSpeed > 0 ? 5 : -5, monster->getMoveSpeed().ySpeed - 10));
-            _speed.xSpeed += _speed.xSpeed > 0 ? -1 : 1;
+        if (((_properties.speed.xSpeed < 0) && (monster->getMoveSpeed().xSpeed >= 0)) ||
+            ((_properties.speed.xSpeed > 0) && (monster->getMoveSpeed().xSpeed <= 0))) {
+            monster->setMoveSpeed(Components::Speed(_properties.speed.xSpeed > 0 ? 5 : -5, monster->getMoveSpeed().ySpeed - 10));
+            _properties.speed.xSpeed += _properties.speed.xSpeed > 0 ? -1 : 1;
         }
     }
 
-    this->move(_speed.xSpeed, _speed.ySpeed);
+    this->move(_properties.speed.xSpeed, _properties.speed.ySpeed);
 }
 
 void Mobs::Mushroom::update(const sf::Event &event, sf::RenderWindow &sender) {

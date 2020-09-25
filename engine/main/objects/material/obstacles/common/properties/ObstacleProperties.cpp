@@ -4,4 +4,5 @@
 
 #include "ObstacleProperties.h"
 
-Obstacles::ObstacleProperties::ObstacleProperties(float elasticCoefficient) : elasticCoefficient(elasticCoefficient) {}
+Obstacles::ObstacleProperties::ObstacleProperties(const Components::Speed &speed, float elasticCoefficient)
+        : MaterialProperties(speed, elasticCoefficient) {}
