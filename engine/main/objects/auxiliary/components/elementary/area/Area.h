@@ -5,8 +5,9 @@
 #ifndef FLASH_AREA_H
 #define FLASH_AREA_H
 
-#include "point/Point.h"
-#include "Size.h"
+#include "../point/Point.h"
+#include "../Size.h"
+#include "../../../possibilities/RectangleGetters.h"
 
 namespace Components {
 
@@ -16,11 +17,17 @@ namespace Components {
      *
      * This struct is the base component.
     */
-    struct Area {
+    struct Area : public Possibilities::RectangleGetters {
         explicit Area(const Point &point, const Size &size, float angle)
                 : angle(angle), point(point), size(size) {}
 
         Area() : angle(), point(), size() {}
+
+        const Point &getPosition() const noexcept override;
+
+        const Size &getSize() const noexcept override;
+
+        float getRotation() const noexcept override;
 
         float angle;
         Components::Point point;

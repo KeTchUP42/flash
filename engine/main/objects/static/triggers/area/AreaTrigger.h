@@ -6,7 +6,7 @@
 #define FLASH_AREATRIGGER_H
 
 #include "../Trigger.h"
-#include "../../../auxiliary/components/elementary/Area.h"
+#include "../../../auxiliary/components/elementary/area/Area.h"
 
 namespace Triggers {
 

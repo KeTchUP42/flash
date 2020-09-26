@@ -6,7 +6,7 @@
 #define FLASH_COMPOSITESPRITEBLOCK_H
 
 #include "../../../common/Obstacle.h"
-#include "../../../../../auxiliary/components/elementary/Area.h"
+#include "../../../../../auxiliary/components/elementary/area/Area.h"
 
 namespace Obstacles {
 
