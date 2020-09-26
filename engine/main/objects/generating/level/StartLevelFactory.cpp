@@ -29,7 +29,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
                                          manager->getTextureManager()->loadTexture("background/dungeon_back_2.png")));
 
     Player *player = new BasicPlayer(
-            PlayerProperties(Speed(0, 0), 0),
+            PlayerProperties(Speed(0, 0)),
             std::shared_ptr<ISpriteBox>(
                     new SpriteBox(
                             Point(610, 110),
@@ -45,7 +45,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     auto mushroom = manager->getTextureManager()->loadTexture("mobs/monsters/mushroom/mushroom.png");
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0), 0),
+            MonsterProperties(Speed(-1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(555, 250),
@@ -53,7 +53,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
                             mushroom)), collision));
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0), 0),
+            MonsterProperties(Speed(-1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1060, 280),
@@ -62,7 +62,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0), 0),
+            MonsterProperties(Speed(-1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1060, 220),
@@ -71,7 +71,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0), 0),
+            MonsterProperties(Speed(-1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1060, 250),
@@ -80,7 +80,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0), 0),
+            MonsterProperties(Speed(1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1130, 250),
@@ -89,7 +89,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0), 0),
+            MonsterProperties(Speed(-1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(200, 250),
@@ -98,7 +98,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0), 0),
+            MonsterProperties(Speed(1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(170, 250),
@@ -107,7 +107,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0), 0),
+            MonsterProperties(Speed(1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(270, 250),
@@ -116,7 +116,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0), 0),
+            MonsterProperties(Speed(1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(370, 250),
@@ -125,7 +125,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0), 0),
+            MonsterProperties(Speed(1, 0)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(370, 150),
@@ -136,7 +136,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
     unifier->addEffect(new Effects::GravityEffect(0, 1));
 
     //walls
-    Obstacles::ObstacleProperties properties(Speed(0, 0), 0.45);
+    Obstacles::ObstacleProperties properties(Speed(0, 0), 0.2);
     auto wall_texture = manager->getTextureManager()->loadTexture("structure/walls/stone/stone_wall_1.jpg");
 
     unifier->addObstacle(

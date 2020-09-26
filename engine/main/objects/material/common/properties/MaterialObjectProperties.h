@@ -16,13 +16,7 @@ namespace Material {
         /**
          * @brief Сonstructor initializes numeric properties.
          */
-        explicit MaterialObjectProperties(const Components::Speed &speed, float elasticCoefficient)
-                : speed(speed), elasticCoefficient(elasticCoefficient) {}
-
-        /**
-         * @brief Material coefficient.
-         */
-        float elasticCoefficient;
+        explicit MaterialObjectProperties(const Components::Speed &speed) : speed(speed) {}
 
         /**
          * @brief Object speed.

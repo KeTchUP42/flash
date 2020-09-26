@@ -7,6 +7,7 @@
 
 #include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../common/properties/MonsterProperties.h"
+#include "../../../../auxiliary/possibilities/Physical.h"
 #include "../../../common/MaterialObject.h"
 
 #include <memory>
@@ -19,7 +20,8 @@ namespace Mobs {
      *
      * This class defines base Monster interface.
     */
-    class Monster : public Material::MaterialObject {
+    class Monster : public Material::MaterialObject,
+                    public Possibilities::Physical<Mobs::MonsterProperties> {
     public:
         explicit Monster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
 
@@ -55,7 +57,7 @@ namespace Mobs {
 
         const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
 
-        const Material::MaterialObjectProperties &getProperties() const noexcept override;
+        const Mobs::MonsterProperties &getProperties() const noexcept override;
 
     protected:
         Mobs::MonsterProperties _properties;

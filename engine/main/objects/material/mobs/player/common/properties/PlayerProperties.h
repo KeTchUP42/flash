@@ -14,8 +14,8 @@ namespace Mobs {
      */
     struct PlayerProperties : public Material::MaterialObjectProperties {
 
-        explicit PlayerProperties(const Components::Speed &speed, float elasticCoefficient)
-                : MaterialObjectProperties(speed, elasticCoefficient) {}
+        explicit PlayerProperties(const Components::Speed &speed)
+                : MaterialObjectProperties(speed) {}
     };
 }
 

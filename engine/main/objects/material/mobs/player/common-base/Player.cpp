@@ -48,7 +48,7 @@ void Mobs::Player::setMoveSpeed(const Components::Speed &speed) noexcept {
     _properties.speed = speed;
 }
 
-const Material::MaterialObjectProperties &Mobs::Player::getProperties() const noexcept {
+const Mobs::PlayerProperties &Mobs::Player::getProperties() const noexcept {
     return _properties;
 }
 

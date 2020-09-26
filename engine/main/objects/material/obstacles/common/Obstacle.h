@@ -6,8 +6,9 @@
 #define FLASH_OBSTACLE_H
 
 #include "../../../auxiliary/possibilities/RectangleSetters.h"
-#include "../../common/MaterialObject.h"
+#include "../../../auxiliary/possibilities/Physical.h"
 #include "properties/ObstacleProperties.h"
+#include "../../common/MaterialObject.h"
 
 namespace Obstacles {
 
@@ -18,7 +19,8 @@ namespace Obstacles {
      * This class defines base Obstacle interface.
     */
     class Obstacle : public Material::MaterialObject,
-                     public Possibilities::RectangleSetters {
+                     public Possibilities::RectangleSetters,
+                     public Possibilities::Physical<Obstacles::ObstacleProperties> {
     public:
         /**
          * @brief Base obstacle constructor.

@@ -9,6 +9,7 @@
 #include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../../../common/MaterialObject.h"
 #include "../common/properties/PlayerProperties.h"
+#include "../../../../auxiliary/possibilities/Physical.h"
 
 #include <map>
 #include <string>
@@ -22,7 +23,8 @@ namespace Mobs {
      *
      * This class defines base Player interface.
     */
-    class Player : public Material::MaterialObject {
+    class Player : public Material::MaterialObject,
+                   public Possibilities::Physical<Mobs::PlayerProperties> {
     public:
         /**
          * @brief Base player constructor.
@@ -65,7 +67,7 @@ namespace Mobs {
 
         void setMoveSpeed(const Components::Speed &speed) noexcept override;
 
-        const Material::MaterialObjectProperties &getProperties() const noexcept override;
+        const Mobs::PlayerProperties &getProperties() const noexcept override;
 
         const Components::Speed &getMoveSpeed() const noexcept override;
 
