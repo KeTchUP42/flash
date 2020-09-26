@@ -19,23 +19,23 @@ namespace Material {
 
     class Collision : public CollisionStrategy<Material::MaterialObject *, Material::MaterialObject *> {
     public:
-        explicit Collision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY);
+        explicit Collision(float analysisStepX, float analysisStepY);
 
-        Material::MaterialObject *abscissaMoveAble(Material::MaterialObject *object) const noexcept override;
+        Material::MaterialObject *abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
-        Material::MaterialObject *ordinateMoveAble(Material::MaterialObject *object) const noexcept override;
+        Material::MaterialObject *ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
-        Mobs::Player *abscissaPlayerMoveAble(Material::MaterialObject *object) const noexcept;
+        Mobs::Player *abscissaPlayerMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept;
 
-        Mobs::Player *ordinatePlayerMoveAble(Material::MaterialObject *object) const noexcept;
+        Mobs::Player *ordinatePlayerMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept;
 
-        Mobs::Monster *abscissaMonsterMoveAble(Material::MaterialObject *object) const noexcept;
+        Mobs::Monster *abscissaMonsterMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept;
 
-        Mobs::Monster *ordinateMonsterMoveAble(Material::MaterialObject *object) const noexcept;
+        Mobs::Monster *ordinateMonsterMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept;
 
-        Obstacles::Obstacle *abscissaObstacleMoveAble(Material::MaterialObject *object) const noexcept;
+        Obstacles::Obstacle *abscissaObstacleMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept;
 
-        Obstacles::Obstacle *ordinateObstacleMoveAble(Material::MaterialObject *object) const noexcept;
+        Obstacles::Obstacle *ordinateObstacleMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept;
 
         void setAnalysisStepX(float analysisStepX) noexcept;
 

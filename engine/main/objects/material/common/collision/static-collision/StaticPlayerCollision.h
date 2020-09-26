@@ -11,11 +11,9 @@ namespace Material {
 
     class StaticPlayerCollision : public CollisionStrategy<Material::MaterialObject *, Mobs::Player *> {
     public:
-        StaticPlayerCollision(Unite::Unifier *unifier);
+        Mobs::Player *abscissaMoveAble(MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
-        Mobs::Player *abscissaMoveAble(MaterialObject *object) const noexcept override;
-
-        Mobs::Player *ordinateMoveAble(MaterialObject *object) const noexcept override;
+        Mobs::Player *ordinateMoveAble(MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
     };
 }
 

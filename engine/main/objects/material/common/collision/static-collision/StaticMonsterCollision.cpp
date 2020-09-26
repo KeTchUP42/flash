@@ -6,13 +6,11 @@
 #include "../coordinates/CoordinatesCalculation.h"
 #include "additionally/ExtremeCoordinates.h"
 
-Material::StaticMonsterCollision::StaticMonsterCollision(Unite::Unifier *unifier) : CollisionStrategy(unifier) {}
-
-Mobs::Monster *Material::StaticMonsterCollision::abscissaMoveAble(Material::MaterialObject *object) const noexcept {
+Mobs::Monster *Material::StaticMonsterCollision::abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Components::Point objectMinCoordinates = minCoordinates(*object);
     Components::Point objectMaxCoordinates = maxCoordinates(*object);
 
-    for (const std::shared_ptr<Mobs::Monster> &monster : _unifier->getMonsters()) {
+    for (const std::shared_ptr<Mobs::Monster> &monster : unifier->getMonsters()) {
 
         if (monster.get() == object) continue;
 
@@ -53,11 +51,11 @@ Mobs::Monster *Material::StaticMonsterCollision::abscissaMoveAble(Material::Mate
     return nullptr;
 }
 
-Mobs::Monster *Material::StaticMonsterCollision::ordinateMoveAble(Material::MaterialObject *object) const noexcept {
+Mobs::Monster *Material::StaticMonsterCollision::ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Components::Point objectMinCoordinates = minCoordinates(*object);
     Components::Point objectMaxCoordinates = maxCoordinates(*object);
 
-    for (const std::shared_ptr<Mobs::Monster> &monster : _unifier->getMonsters()) {
+    for (const std::shared_ptr<Mobs::Monster> &monster : unifier->getMonsters()) {
 
         if (monster.get() == object) continue;
 

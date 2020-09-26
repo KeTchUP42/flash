@@ -6,13 +6,11 @@
 #include "../coordinates/CoordinatesCalculation.h"
 #include "additionally/ExtremeCoordinates.h"
 
-Material::StaticPlayerCollision::StaticPlayerCollision(Unite::Unifier *unifier) : CollisionStrategy(unifier) {}
-
-Mobs::Player *Material::StaticPlayerCollision::abscissaMoveAble(Material::MaterialObject *object) const noexcept {
+Mobs::Player *Material::StaticPlayerCollision::abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Components::Point objectMinCoordinates = minCoordinates(*object);
     Components::Point objectMaxCoordinates = maxCoordinates(*object);
 
-    for (const std::shared_ptr<Mobs::Player> &player : _unifier->getPlayers()) {
+    for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
 
         if (player.get() == object) continue;
 
@@ -53,11 +51,11 @@ Mobs::Player *Material::StaticPlayerCollision::abscissaMoveAble(Material::Materi
     return nullptr;
 }
 
-Mobs::Player *Material::StaticPlayerCollision::ordinateMoveAble(Material::MaterialObject *object) const noexcept {
+Mobs::Player *Material::StaticPlayerCollision::ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Components::Point objectMinCoordinates = minCoordinates(*object);
     Components::Point objectMaxCoordinates = maxCoordinates(*object);
 
-    for (const std::shared_ptr<Mobs::Player> &player : _unifier->getPlayers()) {
+    for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
 
         if (player.get() == object) continue;
 

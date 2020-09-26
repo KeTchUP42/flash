@@ -6,13 +6,11 @@
 #include "../coordinates/CoordinatesCalculation.h"
 #include "additionally/ExtremeCoordinates.h"
 
-Material::StaticObstacleCollision::StaticObstacleCollision(Unite::Unifier *unifier) : CollisionStrategy(unifier) {}
-
-Obstacles::Obstacle *Material::StaticObstacleCollision::abscissaMoveAble(Material::MaterialObject *object) const noexcept {
+Obstacles::Obstacle *Material::StaticObstacleCollision::abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Components::Point objectMinCoordinates = minCoordinates(*object);
     Components::Point objectMaxCoordinates = maxCoordinates(*object);
 
-    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle : _unifier->getObstacles()) {
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle : unifier->getObstacles()) {
 
         if (obstacle.get() == object) continue;
 
@@ -53,11 +51,11 @@ Obstacles::Obstacle *Material::StaticObstacleCollision::abscissaMoveAble(Materia
     return nullptr;
 }
 
-Obstacles::Obstacle *Material::StaticObstacleCollision::ordinateMoveAble(Material::MaterialObject *object) const noexcept {
+Obstacles::Obstacle *Material::StaticObstacleCollision::ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Components::Point objectMinCoordinates = minCoordinates(*object);
     Components::Point objectMaxCoordinates = maxCoordinates(*object);
 
-    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle : _unifier->getObstacles()) {
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle : unifier->getObstacles()) {
 
         if (obstacle.get() == object) continue;
 

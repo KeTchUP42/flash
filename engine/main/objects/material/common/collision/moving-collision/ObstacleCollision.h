@@ -12,11 +12,11 @@ namespace Material {
 
     class ObstacleCollision : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Obstacles::Obstacle *> {
     public:
-        explicit ObstacleCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY);
+        explicit ObstacleCollision(float analysisStepX, float analysisStepY);
 
-        Obstacles::Obstacle *abscissaMoveAble(Material::MaterialObject *object) const noexcept override;
+        Obstacles::Obstacle *abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
-        Obstacles::Obstacle *ordinateMoveAble(Material::MaterialObject *object) const noexcept override;
+        Obstacles::Obstacle *ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
     };
 }
 

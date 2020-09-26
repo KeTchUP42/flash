@@ -13,11 +13,11 @@ namespace Material {
 
     class PlayerCollision : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Mobs::Player *> {
     public:
-        explicit PlayerCollision(Unite::Unifier *unifier, float analysisStepX, float analysisStepY);
+        explicit PlayerCollision(float analysisStepX, float analysisStepY);
 
-        Mobs::Player *abscissaMoveAble(Material::MaterialObject *object) const noexcept override;
+        Mobs::Player *abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
-        Mobs::Player *ordinateMoveAble(Material::MaterialObject *object) const noexcept override;
+        Mobs::Player *ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
     };
 }
 
