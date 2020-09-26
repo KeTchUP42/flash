@@ -12,7 +12,10 @@ namespace LevelGenerating {
     class StartLevelFactory : public LevelUnifierFactory {
     public:
         std::shared_ptr<Unite::Unifier>
-        loadLevel(const sf::Vector2u &size, Screen::StateChangeable *context, Managers::DataManager *manager) const override;
+        loadLevel(Screen::StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) const override;
+
+        void loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
+                       Managers::DataManager *manager, sf::RenderWindow &target) const override;
     };
 }
 

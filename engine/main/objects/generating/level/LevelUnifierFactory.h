@@ -25,13 +25,21 @@ namespace LevelGenerating {
 
         /**
          * @brief Method creates new Unifier with objects.
-         * @param size Screen size for scale.
          * @param context Window context.
          * @param manager Data manager.
          * @return New Unifier.
          */
         virtual std::shared_ptr<Unite::Unifier>
-        loadLevel(const sf::Vector2u &size, Screen::StateChangeable *context, Managers::DataManager *manager) const = 0;
+        loadLevel(Screen::StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) const = 0;
+
+        /**
+         * @brief Method fills Unifier with objects.
+         * @param context Window context.
+         * @param manager Data manager.
+         * @return Unifier.
+         */
+        virtual void loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
+                               Managers::DataManager *manager, sf::RenderWindow &target) const = 0;
 
         virtual ~LevelUnifierFactory() = default;
     };

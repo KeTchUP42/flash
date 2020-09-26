@@ -9,24 +9,39 @@
 #include "../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../../static/effects/GravityEffect.h"
 #include "../../material/obstacles/blocks/single/DullBlock.h"
+#include "../../static/triggers/area/PlainLevelTrigger.h"
 
 #include <memory>
 #include <map>
 
 std::shared_ptr<Unite::Unifier>
-LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::StateChangeable *context,
-                                              Managers::DataManager *manager) const {
+LevelGenerating::StartLevelFactory::loadLevel(Screen::StateChangeable *context, Managers::DataManager *manager,
+                                              sf::RenderWindow &target) const {
+    using namespace Unite;
+    using namespace Components;
+
+    Unifier *unifier = new GeneralUnifier();
+    StartLevelFactory::loadLevel(unifier, context, manager, target);
+
+    unifier->addTrigger(new Triggers::PlainLevelTrigger(Area(Point(1000, 500), Size(100, 100), 0), context));//todo
+
+    return std::shared_ptr<Unite::Unifier>(unifier);
+}
+
+void LevelGenerating::StartLevelFactory::
+loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
+          Managers::DataManager *manager, sf::RenderWindow &target) const {
+
     using namespace Unite;
     using namespace Mobs;
     using namespace Components;
     using namespace Material;
 
-    Unifier *unifier = new GeneralUnifier();
+    std::shared_ptr<Collision> collision(new Collision(5, 5));
 
-    std::shared_ptr<Collision> collision(new Collision(unifier, 5, 5));
+    unifier->addBackSprite(new SpriteBox(Point(0, 0), Size(target.getSize().x, target.getSize().y),
+                                         manager->getTextureManager()->loadTexture("background/dungeon_back_1.jpg")));
 
-    unifier->addBackSprite(new SpriteBox(Point(0, 0), Size(size.x, size.y),
-                                         manager->getTextureManager()->loadTexture("background/dungeon_back_2.png")));
 
     Player *player = new BasicPlayer(
             PlayerProperties(Speed(0, 0)),
@@ -49,7 +64,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(555, 250),
-                            Size(30, 30),  //10 - min
+                            Size(60, 60),  //10 - min
                             mushroom)), collision));
 
     unifier->addMonster(new Mobs::Mushroom(
@@ -57,7 +72,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1060, 280),
-                            Size(30, 30),  //10 - min
+                            Size(60, 60),  //10 - min
                             mushroom)), collision));
 
 
@@ -66,7 +81,7 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1060, 320),
-                            Size(30, 30),  //10 - min
+                            Size(60, 60),  //10 - min
                             mushroom)), collision));
 
 
@@ -371,6 +386,4 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
                             Point(0, 0),
                             Size(100, 100),
                             wall_texture), collision));
-
-    return std::shared_ptr<Unite::Unifier>(unifier);
 }

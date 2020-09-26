@@ -24,7 +24,7 @@ set(DATA ${AUDIO} ${MANAGERS})
 
 set(OBSERVERS engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/base/observers/WindowResizeObserver.cpp engine/main/view/windows/base/observers/WindowResizeObserver.h)
 set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
-set(SCREEN engine/main/view/windows/screen/context-abilities/StateChangeable.h engine/main/view/windows/screen/states/common-base/ScreenState.h engine/main/view/windows/screen/states/common-base/ScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.h)
+set(SCREEN engine/main/view/windows/screen/context-abilities/StateChangeable.h engine/main/view/windows/screen/states/common-base/ScreenState.h engine/main/view/windows/screen/states/common-base/ScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.h engine/main/view/windows/screen/states/TransitScreenState.cpp engine/main/view/windows/screen/states/TransitScreenState.h)
 set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
 set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
 
@@ -57,7 +57,7 @@ set(MATERIAL_COMMON ${COLLISION} ${MATERIAL_PROPERTIES} engine/main/objects/mate
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
 set(EFFECTS engine/main/objects/static/effects/Effect.h engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityEffect.h)
-set(TRIGGERS engine/main/objects/static/triggers/Trigger.h engine/main/objects/static/triggers/area/AreaTrigger.h)
+set(TRIGGERS engine/main/objects/static/triggers/Trigger.h engine/main/objects/static/triggers/area/AreaTrigger.h engine/main/objects/static/triggers/area/PlainLevelTrigger.cpp engine/main/objects/static/triggers/area/PlainLevelTrigger.h engine/main/objects/static/triggers/codes/ResultCode.h)
 set(STATIC ${EFFECTS} ${TRIGGERS})
 
 set(UNIFIER engine/main/objects/unifier/common-base/Unifier.h engine/main/objects/unifier/common-base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
