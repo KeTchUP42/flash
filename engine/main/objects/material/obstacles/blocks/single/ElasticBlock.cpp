@@ -19,7 +19,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
         Obstacles::Obstacle *obstacle;
 
-        if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(player.get())) != nullptr) {
+        if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(player.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 player->setMoveSpeed(Components::Speed(
                         static_cast<int>(-1 * player->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
@@ -27,7 +27,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
             }
         }
 
-        if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(player.get())) != nullptr) {
+        if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(player.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 player->setMoveSpeed(Components::Speed(
                         player->getMoveSpeed().xSpeed,
@@ -41,7 +41,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
         Obstacles::Obstacle *obstacle;
 
-        if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(monster.get())) != nullptr) {
+        if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(monster.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 monster->setMoveSpeed(Components::Speed(
                         static_cast<int>(-1 * monster->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
@@ -49,7 +49,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
             }
         }
 
-        if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(monster.get())) != nullptr) {
+        if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(monster.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 monster->setMoveSpeed(Components::Speed(
                         monster->getMoveSpeed().xSpeed,

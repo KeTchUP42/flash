@@ -23,11 +23,11 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this)) != nullptr) {
+    if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
         _properties.speed.xSpeed = static_cast<int>(-1 * _properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
     }
 
-    if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this)) != nullptr) {
+    if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
         _properties.speed.ySpeed = static_cast<int>(-1 * _properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
     }
 

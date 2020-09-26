@@ -9,7 +9,7 @@ void Screen::InitialScreenState::load(StateChangeable *context, Managers::DataMa
     ScreenState::load(context, manager, target);
 
     LevelGenerating::StartLevelFactory lvl_factory;
-    _unifier = lvl_factory.loadLevel(target.getSize(), _context, _manager);
+    _unifier = lvl_factory.loadLevel(_context, _manager, target);
 }
 
 void Screen::InitialScreenState::refresh() {
