@@ -18,7 +18,7 @@ namespace Obstacles {
                 : MaterialObjectProperties(speed), elasticCoefficient(elasticCoefficient) {}
 
         /**
-         * @brief Material coefficient.
+         * @brief Elastic coefficient.
          */
         float elasticCoefficient;
     };

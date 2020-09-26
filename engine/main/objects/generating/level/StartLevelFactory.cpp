@@ -62,75 +62,13 @@ LevelGenerating::StartLevelFactory::loadLevel(const sf::Vector2u &size, Screen::
 
 
     unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0)),
+            MonsterProperties(Speed(1, 4)),
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
-                            Point(1060, 220),
+                            Point(1060, 320),
                             Size(30, 30),  //10 - min
                             mushroom)), collision));
 
-
-    unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0)),
-            std::shared_ptr<ISpriteBox>(
-                    std::make_shared<SpriteBox>(
-                            Point(1060, 250),
-                            Size(30, 30),  //10 - min
-                            mushroom)), collision));
-
-
-    unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0)),
-            std::shared_ptr<ISpriteBox>(
-                    std::make_shared<SpriteBox>(
-                            Point(1130, 250),
-                            Size(30, 30),  //10 - min
-                            mushroom)), collision));
-
-
-    unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(-1, 0)),
-            std::shared_ptr<ISpriteBox>(
-                    std::make_shared<SpriteBox>(
-                            Point(200, 250),
-                            Size(30, 30),  //10 - min
-                            mushroom)), collision));
-
-
-    unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0)),
-            std::shared_ptr<ISpriteBox>(
-                    std::make_shared<SpriteBox>(
-                            Point(170, 250),
-                            Size(30, 30),  //10 - min
-                            mushroom)), collision));
-
-
-    unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0)),
-            std::shared_ptr<ISpriteBox>(
-                    std::make_shared<SpriteBox>(
-                            Point(270, 250),
-                            Size(30, 30),  //10 - min
-                            mushroom)), collision));
-
-
-    unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0)),
-            std::shared_ptr<ISpriteBox>(
-                    std::make_shared<SpriteBox>(
-                            Point(370, 250),
-                            Size(30, 30),  //10 - min
-                            mushroom)), collision));
-
-
-    unifier->addMonster(new Mobs::Mushroom(
-            MonsterProperties(Speed(1, 0)),
-            std::shared_ptr<ISpriteBox>(
-                    std::make_shared<SpriteBox>(
-                            Point(370, 150),
-                            Size(30, 30),  //10 - min
-                            mushroom)), collision));
 
     //gravity
     unifier->addEffect(new Effects::GravityEffect(0, 1));
