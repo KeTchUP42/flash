@@ -20,12 +20,11 @@ namespace Program {
     */
     class Engine {
     public:
-
         /**
          * @brief Main app constructor.
          * @param filename - path to main ini config.
          */
-        explicit Engine(const std::string &filename);
+        Engine(const std::string &filename);
 
         /**
          * @brief Main program entry point method.
@@ -36,11 +35,10 @@ namespace Program {
         virtual ~Engine() = default;
 
     private:
-
         /**
          * @brief Pointer with unique data manager object. Uses to search app data.
          */
-        std::unique_ptr<Managers::DataManager> _manager;
+        std::unique_ptr<Managers::DataManager> m_manager;
     };
 }
 

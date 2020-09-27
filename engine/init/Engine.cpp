@@ -9,20 +9,19 @@
 
 Program::Engine::Engine(const std::string &filename) {
     Setup::EngineConfigurator configurator(filename);
-    _manager = std::unique_ptr<Managers::DataManager>(configurator.load());
+    m_manager = std::unique_ptr<Managers::DataManager>(configurator.load());
 }
 
 int Program::Engine::start() const {
     try {
         ViewCreate::PrimaryWindowFactory factory;
-        std::shared_ptr<WindowView::Window> window = factory.create("win/primary.ini", _manager.get());
+        std::shared_ptr<WindowView::Window> window = factory.create("win/primary.ini", m_manager.get());
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
-        std::shared_ptr<LoggerUtil::Logger> logger = _manager->getLogManager()->createLoggerForFile("crash.log");
+        std::shared_ptr<LoggerUtil::Logger> logger = m_manager->getLogManager()->createLoggerForFile("crash.log");
         logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
         return exception.getCode();
     }
-    //Think to split this method with usage of two objects - Starter and Process. They need to be in engine/init directory.
     return EXIT_SUCCESS;
 }
