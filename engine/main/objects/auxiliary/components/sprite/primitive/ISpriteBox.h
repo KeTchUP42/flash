@@ -29,7 +29,7 @@ namespace Components {
          * @brief Method returns sprite texture.
          * @return Texture ptr.
          */
-        virtual const sf::Texture *const getTexture() const noexcept = 0;
+        virtual const sf::Texture *getTexture() const noexcept = 0;
 
         /**
          * @brief Method sets new sprite texture.

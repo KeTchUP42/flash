@@ -5,7 +5,7 @@
 #include "Monster.h"
 
 Mobs::Monster::Monster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : _sprite(sprite), _properties(properties) {}
+        : _properties(properties), _sprite(sprite) {}
 
 void Mobs::Monster::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     _sprite->setTexture(texture);

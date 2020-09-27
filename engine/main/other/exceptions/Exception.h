@@ -20,15 +20,15 @@ namespace PreferredExceptions {
 
         const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;
 
-        const std::string getMessage() const noexcept;
+        const std::string &getMessage() const noexcept;
 
-        const int getCode() const noexcept;
+        int getCode() const noexcept;
 
         virtual ~Exception() noexcept = default;
 
     protected:
-        const std::string _message;
-        const int _code;
+        std::string _message;
+        int _code;
     };
 }
 

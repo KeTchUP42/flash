@@ -74,7 +74,7 @@ const std::shared_ptr<sf::Sprite> &Components::SpriteBox::getSprite() const noex
     return _sprite;
 }
 
-const sf::Texture *const Components::SpriteBox::getTexture() const noexcept {
+const sf::Texture *Components::SpriteBox::getTexture() const noexcept {
     return _sprite->getTexture();
 }
 

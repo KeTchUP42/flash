@@ -42,7 +42,7 @@ namespace Components {
 
         const std::shared_ptr<sf::Sprite> &getSprite() const noexcept override;
 
-        const sf::Texture *const getTexture() const noexcept override;
+        const sf::Texture *getTexture() const noexcept override;
 
         void setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept override;
 
