@@ -14,13 +14,18 @@ namespace Obstacles {
      */
     struct ObstacleProperties : public Material::MaterialObjectProperties {
 
-        explicit ObstacleProperties(const Components::Speed &speed, float elasticCoefficient)
-                : MaterialObjectProperties(speed), elasticCoefficient(elasticCoefficient) {}
+        explicit ObstacleProperties(const Components::Speed &speed, float elasticCoefficient, bool isFixed)
+                : MaterialObjectProperties(speed), elasticCoefficient(elasticCoefficient), isFixed(isFixed) {}
 
         /**
          * @brief Elastic coefficient.
          */
         float elasticCoefficient;
+
+        /**
+         * @brief Whether the obstacle is motionless.
+         */
+        bool isFixed;
     };
 }
 

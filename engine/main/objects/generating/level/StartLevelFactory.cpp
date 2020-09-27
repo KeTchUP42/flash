@@ -64,7 +64,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(555, 250),
-                            Size(60, 60),  //10 - min
+                            Size(30, 30),  //10 - min
                             mushroom)), collision));
 
     unifier->addMonster(new Mobs::Mushroom(
@@ -72,7 +72,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1060, 280),
-                            Size(60, 60),  //10 - min
+                            Size(30, 30),  //10 - min
                             mushroom)), collision));
 
 
@@ -81,15 +81,15 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
             std::shared_ptr<ISpriteBox>(
                     std::make_shared<SpriteBox>(
                             Point(1060, 320),
-                            Size(60, 60),  //10 - min
+                            Size(30, 30),  //10 - min
                             mushroom)), collision));
 
 
     //gravity
-    unifier->addEffect(new Effects::GravityEffect(0, 1));
+    unifier->addEffect(new Effects::GravityEffect(0, 0.8));
 
     //walls
-    Obstacles::ObstacleProperties properties(Speed(0, 0), 0.2);
+    Obstacles::ObstacleProperties properties(Speed(0, 0), 0.2, true);
     auto wall_texture = manager->getTextureManager()->loadTexture("structure/walls/stone/stone_wall_1.jpg");
 
     unifier->addObstacle(

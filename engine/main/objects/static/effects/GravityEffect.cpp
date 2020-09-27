@@ -15,4 +15,10 @@ void Effects::GravityEffect::applyEffect(Unite::Unifier *unifier) {
     for (const std::shared_ptr<Mobs::Monster> &monster : unifier->getMonsters()) {
         monster->addSpeed(X_ACCELERATION, Y_ACCELERATION);
     }
+
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle : unifier->getObstacles()) {
+        if (!obstacle->getProperties().isFixed) {
+            obstacle->addSpeed(X_ACCELERATION, Y_ACCELERATION);
+        }
+    }
 }
