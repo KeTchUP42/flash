@@ -11,7 +11,7 @@ Managers::BasicTextureManager::loadTexture(const std::string &filename, const sf
     if (!texture->loadFromFile(TEXTURES_DIRECTORY + "/" + filename, area))
         throw PreferredExceptions::TextureCannotBeLoaded("Texture " + filename + " cannot be loaded.");
 
-    return std::move(texture);
+    return texture;
 }
 
 std::shared_ptr<sf::Image> Managers::BasicTextureManager::loadImage(const std::string &filename) const {
@@ -19,5 +19,5 @@ std::shared_ptr<sf::Image> Managers::BasicTextureManager::loadImage(const std::s
     if (!image->loadFromFile(TEXTURES_DIRECTORY + "/" + filename))
         throw PreferredExceptions::TextureCannotBeLoaded("Image " + filename + " cannot be loaded.");
 
-    return std::move(image);
+    return image;
 }

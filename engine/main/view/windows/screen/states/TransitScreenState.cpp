@@ -9,10 +9,9 @@ Screen::TransitScreenState::TransitScreenState(const std::shared_ptr<Unite::Unif
 
 void Screen::TransitScreenState::
 load(Screen::StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
-    ScreenState::load(context, manager, target);
     //todo !!!
-    LevelGenerating::StartLevelFactory lvl_factory;
-    lvl_factory.loadLevel(_unifier.get(), _context, _manager, target);
+    Generating::StartLevelFactory lvl_factory;
+    lvl_factory.loadLevel(_unifier.get(), context, manager, target);
 }
 
 void Screen::TransitScreenState::refresh() {

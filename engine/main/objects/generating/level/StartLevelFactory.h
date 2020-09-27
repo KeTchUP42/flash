@@ -7,7 +7,7 @@
 
 #include "LevelUnifierFactory.h"
 
-namespace LevelGenerating {
+namespace Generating {
 
     class StartLevelFactory : public LevelUnifierFactory {
     public:

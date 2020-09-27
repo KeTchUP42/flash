@@ -39,7 +39,7 @@ IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) 
             result[blockName][key] = value;
         }
     }
-    return std::move(result);
+    return result;
 }
 
 void IniProcessorUtil::IniAnalyzer::clear(std::string &data) const noexcept {

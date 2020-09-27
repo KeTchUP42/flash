@@ -4,7 +4,6 @@
 
 #include "EngineConfigurator.h"
 #include "../utils/Ini/BasicIniProcessor.h"
-#include "../main/data/manager/StandardDataManager.h"
 #include "../main/data/manager/audio-manager/MusicManager.h"
 #include "../main/data/manager/config-manager/IniConfigManager.h"
 #include "../main/data/manager/font-manager/BasicFontManager.h"
@@ -22,5 +21,5 @@ Managers::DataManager *Setup::EngineConfigurator::load() const {
     LogManager *logManager = new BasicLogManager(iniData["DATA"]["PATH"] + "/" + iniData["DATA"]["logs"]);
     TextureManager *textureManager = new BasicTextureManager(iniData["DATA"]["PATH"] + "/" + iniData["DATA"]["textures"]);
 
-    return new StandardDataManager(audioManager, configManager, fontManager, logManager, textureManager);
+    return new DataManager(audioManager, configManager, fontManager, logManager, textureManager);
 }

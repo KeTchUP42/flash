@@ -6,10 +6,8 @@
 #include "../../../../objects/generating/level/StartLevelFactory.h"
 
 void Screen::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
-    ScreenState::load(context, manager, target);
-
-    LevelGenerating::StartLevelFactory lvl_factory;
-    _unifier = lvl_factory.loadLevel(_context, _manager, target);
+    Generating::StartLevelFactory lvl_factory;
+    _unifier = lvl_factory.loadLevel(context, manager, target);
 }
 
 void Screen::InitialScreenState::refresh() {

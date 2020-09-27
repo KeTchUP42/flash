@@ -23,39 +23,52 @@ namespace Managers {
     */
     class DataManager {
     public:
-        DataManager() = default;
+        explicit DataManager(AudioManager *audioManager, ConfigManager *configManager, FontManager *fontManager,
+                             LogManager *logManager, TextureManager *textureManager);
+
+        explicit DataManager(const std::shared_ptr<AudioManager> &audioManager,
+                             const std::shared_ptr<ConfigManager> &configManager,
+                             const std::shared_ptr<FontManager> &fontManager, const std::shared_ptr<LogManager> &logManager,
+                             const std::shared_ptr<TextureManager> &textureManager);
 
         /**
          * @brief Method returns AudioManager.
          * @return AudioManager
          */
-        virtual std::shared_ptr<AudioManager> getAudioManager() const noexcept = 0;
+        std::shared_ptr<AudioManager> getAudioManager() const noexcept;
 
         /**
          * @brief Method returns ConfigManager.
          * @return ConfigManager
          */
-        virtual std::shared_ptr<ConfigManager> getConfigManager() const noexcept = 0;
+        std::shared_ptr<ConfigManager> getConfigManager() const noexcept;
 
         /**
          * @brief Method returns FontManager.
          * @return FontManager
          */
-        virtual std::shared_ptr<FontManager> getFontManager() const noexcept = 0;
+        std::shared_ptr<FontManager> getFontManager() const noexcept;
 
         /**
          * @brief Method returns LogManager.
          * @return LogManager
          */
-        virtual std::shared_ptr<LogManager> getLogManager() const noexcept = 0;
+        std::shared_ptr<LogManager> getLogManager() const noexcept;
 
         /**
          * @brief Method returns TextureManager.
          * @return TextureManager
          */
-        virtual std::shared_ptr<TextureManager> getTextureManager() const noexcept = 0;
+        std::shared_ptr<TextureManager> getTextureManager() const noexcept;
 
         virtual ~DataManager() = default;
+
+    private:
+        std::shared_ptr<AudioManager> m_audioManager;
+        std::shared_ptr<ConfigManager> m_configManager;
+        std::shared_ptr<FontManager> m_fontManager;
+        std::shared_ptr<LogManager> m_logManager;
+        std::shared_ptr<TextureManager> m_textureManager;
     };
 }
 #endif //FLASH_DATAMANAGER_H

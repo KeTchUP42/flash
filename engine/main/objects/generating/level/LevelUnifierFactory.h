@@ -11,11 +11,11 @@
 
 #include <memory>
 
-namespace LevelGenerating {
+namespace Generating {
 
     /**
      * @brief The base class of the LevelUnifierFactory factory class hierarchy.
-     * @namespace LevelGenerating
+     * @namespace Generating
      *
      * This class defines base LevelUnifierFactory interface.
     */

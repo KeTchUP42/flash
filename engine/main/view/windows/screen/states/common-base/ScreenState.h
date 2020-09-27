@@ -31,12 +31,12 @@ namespace Screen {
         ScreenState() = default;
 
         /**
-         * @brief Method inits all screen components. ALL overrides MUST call base method.
+         * @brief Method inits all screen components.
          * @param context StateChangeable context.
          * @param manager Manager for data searching.
          * @param target Render target.
          */
-        virtual void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target);
+        virtual void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) = 0;
 
         /**
          * @brief Method uses for components refresh logic.
@@ -44,16 +44,6 @@ namespace Screen {
         virtual void refresh() = 0;
 
         virtual ~ScreenState() = default;
-
-    protected:
-        /**
-         * @brief Do not call "delete" for this ptr.
-         */
-        StateChangeable *_context;
-        /**
-         * @brief Do not call "delete" for this ptr.
-         */
-        Managers::DataManager *_manager;
     };
 }
 

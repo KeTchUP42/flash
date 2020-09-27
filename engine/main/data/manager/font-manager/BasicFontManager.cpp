@@ -11,5 +11,5 @@ std::shared_ptr<sf::Font> Managers::BasicFontManager::loadFont(const std::string
     if (!font->loadFromFile(FONTS_DIRECTORY + "/" + filename))
         throw PreferredExceptions::FontCannotBeLoaded("Font " + filename + " cannot be loaded.");
 
-    return std::move(font);
+    return font;
 }

@@ -15,8 +15,8 @@
 #include <map>
 
 std::shared_ptr<Unite::Unifier>
-LevelGenerating::StartLevelFactory::loadLevel(Screen::StateChangeable *context, Managers::DataManager *manager,
-                                              sf::RenderWindow &target) const {
+Generating::StartLevelFactory::loadLevel(Screen::StateChangeable *context, Managers::DataManager *manager,
+                                         sf::RenderWindow &target) const {
     using namespace Unite;
     using namespace Components;
 
@@ -28,7 +28,7 @@ LevelGenerating::StartLevelFactory::loadLevel(Screen::StateChangeable *context, 
     return std::shared_ptr<Unite::Unifier>(unifier);
 }
 
-void LevelGenerating::StartLevelFactory::
+void Generating::StartLevelFactory::
 loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
           Managers::DataManager *manager, sf::RenderWindow &target) const {
 

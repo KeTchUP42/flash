@@ -11,7 +11,7 @@ IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BasicIniProcessor::fullpar
 IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BasicIniProcessor::fullparse(ReaderUtil::Reader *reader) const noexcept {
     Analyzer::IniData result = _analyzer->fullparse(reader->readlines());
     delete reader;
-    return std::move(result);
+    return result;
 }
 
 IniProcessorUtil::Analyzer::IniData
