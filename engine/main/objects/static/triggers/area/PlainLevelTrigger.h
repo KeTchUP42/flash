@@ -6,6 +6,7 @@
 #define FLASH_PLAINLEVELTRIGGER_H
 
 #include "AreaTrigger.h"
+#include "../../../../view/windows/screen/context-abilities/StateChangeable.h"
 
 namespace Triggers {
 

@@ -7,7 +7,10 @@
 
 #include "../../auxiliary/possibilities/Drawable.h"
 #include "../../../view/windows/base/observer/Observer.h"
-#include "../../../view/windows/screen/context-abilities/StateChangeable.h"
+#include "../../../data/manager/DataManager.h"
+
+#include <memory>
+#include <list>
 
 namespace Obstacles {
     class Obstacle;
