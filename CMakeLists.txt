@@ -8,76 +8,18 @@ set(SFML_DIR ./lib/SFML-2.5.1/lib/cmake/SFML)
 find_package(SFML 2.5.1 COMPONENTS window graphics audio)
 
 set(MAIN init/main.cpp)
-set(ENGINE engine/init/Engine.cpp engine/init/Engine.h)
 
-set(AUDIOPLAYBACK engine/main/data/audio/simple-audio/AudioPlayback.h engine/main/data/audio/simple-audio/AudioPlayback.cpp)
-set(AUDIO ${AUDIOPLAYBACK})
+# Including source files:
+include(engine/engine-build.cmake)
 
-set(AUDIOMANAGER engine/main/data/manager/audio-manager/AudioManager.h engine/main/data/manager/audio-manager/MusicManager.cpp engine/main/data/manager/audio-manager/MusicManager.h)
-set(CONFIGMANAGER engine/main/data/manager/config-manager/ConfigManager.h engine/main/data/manager/config-manager/IniConfigManager.cpp engine/main/data/manager/config-manager/IniConfigManager.h)
-set(FONTMANAGER engine/main/data/manager/font-manager/FontManager.h engine/main/data/manager/font-manager/BasicFontManager.cpp engine/main/data/manager/font-manager/BasicFontManager.h)
-set(LOGMANAGER engine/main/data/manager/log-manager/BasicLogManager.cpp engine/main/data/manager/log-manager/BasicLogManager.h)
-set(TEXTUREMANAGER engine/main/data/manager/texture-manager/TextureManager.h engine/main/data/manager/texture-manager/BasicTextureManager.cpp engine/main/data/manager/texture-manager/BasicTextureManager.h)
-set(DATAMANAGER engine/main/data/manager/DataManager.h engine/main/data/manager/StandardDataManager.cpp engine/main/data/manager/StandardDataManager.h)
-set(MANAGERS ${AUDIOMANAGER} ${CONFIGMANAGER} ${FONTMANAGER} ${LOGMANAGER} ${TEXTUREMANAGER} ${DATAMANAGER})
-set(DATA ${AUDIO} ${MANAGERS})
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-set(OBSERVERS engine/main/view/windows/base/observer/Observer.h engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowCloseObserver.h engine/main/view/windows/base/observers/WindowResizeObserver.cpp engine/main/view/windows/base/observers/WindowResizeObserver.h)
-set(WINDOWS engine/main/view/windows/base/window/Window.h engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.h)
-set(SCREEN engine/main/view/windows/screen/context-abilities/StateChangeable.h engine/main/view/windows/screen/states/common-base/ScreenState.h engine/main/view/windows/screen/states/common-base/ScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/InitialScreenState.h engine/main/view/windows/screen/states/TransitScreenState.cpp engine/main/view/windows/screen/states/TransitScreenState.h)
-set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
-set(VIEWCREATE engine/main/view/create/window/WindowFactory.h engine/main/view/create/window/PrimaryWindowFactory.cpp engine/main/view/create/window/PrimaryWindowFactory.h)
-
-set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
-
-set(POSSIBILITIES engine/main/objects/auxiliary/possibilities/Drawable.h engine/main/objects/auxiliary/possibilities/Movable.h engine/main/objects/auxiliary/possibilities/CollisionProne.h engine/main/objects/auxiliary/possibilities/Rotatable.h engine/main/objects/auxiliary/possibilities/SelfMovable.h engine/main/objects/auxiliary/possibilities/SelfActionable.h engine/main/objects/auxiliary/possibilities/RectangleGetters.h engine/main/objects/auxiliary/possibilities/Physical.h engine/main/objects/auxiliary/possibilities/SelfObserver.h engine/main/objects/auxiliary/possibilities/RectangleSetters.h)
-set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/point/Point.h engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/Size.h engine/main/objects/auxiliary/components/elementary/Speed.h engine/main/objects/auxiliary/components/elementary/area/Area.h engine/main/objects/auxiliary/components/elementary/area/Area.cpp)
-set(SPRITE engine/main/objects/auxiliary/components/sprite/common-base/ISprite.cpp engine/main/objects/auxiliary/components/sprite/common-base/ISprite.h engine/main/objects/auxiliary/components/sprite/primitive/ISpriteBox.h engine/main/objects/auxiliary/components/sprite/primitive/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/primitive/SpriteBox.h engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.h engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.h)
-set(COMPONENTS ${ELEMENTARY} ${SPRITE})
-set(AUXILIARY ${POSSIBILITIES} ${COMPONENTS})
-
-set(LEVEL engine/main/objects/generating/level/LevelUnifierFactory.h engine/main/objects/generating/level/StartLevelFactory.cpp engine/main/objects/generating/level/StartLevelFactory.h)
-set(GENERATING ${LEVEL})
-
-set(MONSTERS_COMMON engine/main/objects/material/mobs/monsters/common/properties/MonsterProperties.h)
-set(MONSTERS ${MONSTERS_COMMON} engine/main/objects/material/mobs/monsters/common-base/Monster.cpp engine/main/objects/material/mobs/monsters/common-base/Monster.h engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.cpp engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.h)
-
-set(PLAYER_COMMON engine/main/objects/material/mobs/player/common/properties/PlayerProperties.h)
-set(PLAYER ${PLAYER_COMMON} engine/main/objects/material/mobs/player/common-base/Player.h engine/main/objects/material/mobs/player/common-base/Player.cpp engine/main/objects/material/mobs/player/common-base/BasePlayer.h engine/main/objects/material/mobs/player/control/KeyAlias.h engine/main/objects/material/mobs/player/custom/BasicPlayer.cpp engine/main/objects/material/mobs/player/custom/BasicPlayer.h)
-set(MOBS_COMMON)
-set(MOBS ${MONSTERS} ${PLAYER} ${MOBS_COMMON})
-
-set(BLOCKS engine/main/objects/material/obstacles/blocks/single/common-base/SingleSpriteBlock.h engine/main/objects/material/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/single/DullBlock.cpp engine/main/objects/material/obstacles/blocks/single/DullBlock.h engine/main/objects/material/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/composite/common-base/CompositeSpriteBlock.h engine/main/objects/material/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/material/obstacles/blocks/composite/DullCompositeBlock.h engine/main/objects/material/obstacles/blocks/single/ElasticBlock.cpp engine/main/objects/material/obstacles/blocks/single/ElasticBlock.h)
-set(OBSTACLES_COMMON engine/main/objects/material/obstacles/common/Obstacle.h engine/main/objects/material/obstacles/common/properties/ObstacleProperties.h)
-set(OBSTACLES ${BLOCKS} ${OBSTACLES_COMMON})
-
-set(COLLISION engine/main/objects/material/common/collision/CollisionStrategy.h engine/main/objects/material/common/collision/Collision.cpp engine/main/objects/material/common/collision/Collision.h engine/main/objects/material/common/collision/coordinates/CoordinatesCalculation.cpp engine/main/objects/material/common/collision/coordinates/CoordinatesCalculation.h engine/main/objects/material/common/collision/moving-collision/MovingCollision.cpp engine/main/objects/material/common/collision/moving-collision/MovingCollision.h engine/main/objects/material/common/collision/moving-collision/ObstacleCollision.cpp engine/main/objects/material/common/collision/moving-collision/ObstacleCollision.h engine/main/objects/material/common/collision/moving-collision/PlayerCollision.cpp engine/main/objects/material/common/collision/moving-collision/PlayerCollision.h engine/main/objects/material/common/collision/moving-collision/MonsterCollision.cpp engine/main/objects/material/common/collision/moving-collision/MonsterCollision.h engine/main/objects/material/common/collision/static-collision/StaticObstacleCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticObstacleCollision.h engine/main/objects/material/common/collision/static-collision/StaticMonsterCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticMonsterCollision.h engine/main/objects/material/common/collision/static-collision/StaticPlayerCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticPlayerCollision.h engine/main/objects/material/common/collision/static-collision/additionally/ExtremeCoordinates.cpp engine/main/objects/material/common/collision/static-collision/additionally/ExtremeCoordinates.h)
-set(MATERIAL_PROPERTIES engine/main/objects/material/common/properties/MaterialObjectProperties.h)
-set(MATERIAL_COMMON ${COLLISION} ${MATERIAL_PROPERTIES} engine/main/objects/material/common/MaterialObject.h)
-set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
-
-set(EFFECTS engine/main/objects/static/effects/Effect.h engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityEffect.h)
-set(TRIGGERS engine/main/objects/static/triggers/Trigger.h engine/main/objects/static/triggers/area/AreaTrigger.h engine/main/objects/static/triggers/area/PlainLevelTrigger.cpp engine/main/objects/static/triggers/area/PlainLevelTrigger.h engine/main/objects/static/triggers/codes/ResultCode.h)
-set(STATIC ${EFFECTS} ${TRIGGERS})
-
-set(UNIFIER engine/main/objects/unifier/common-base/Unifier.h engine/main/objects/unifier/common-base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp engine/main/objects/unifier/GeneralUnifier.h)
-
-set(OBJECTS ${AUXILIARY} ${GENERATING} ${MATERIAL} ${STATIC} ${UNIFIER})
-
-set(SETUP engine/setup/Configurator.h engine/setup/EngineConfigurator.cpp engine/setup/EngineConfigurator.h)
-
-set(LOGGER engine/utils/logger/Logger.h engine/utils/logger/BasicLogger.cpp engine/utils/logger/BasicLogger.h engine/utils/logger/formatter/Formatter.h engine/utils/logger/formatter/BaseLoggerFormatter.cpp engine/utils/logger/formatter/BaseLoggerFormatter.h)
-set(WRITER engine/utils/writer/Writer.h engine/utils/writer/FileWriter.cpp engine/utils/writer/FileWriter.h engine/utils/writer/MultiFileWriter.cpp engine/utils/writer/MultiFileWriter.h)
-set(READER engine/utils/reader/Reader.h engine/utils/reader/FileReader.cpp engine/utils/reader/FileReader.h)
-set(INI engine/utils/Ini/IniProcessor.h engine/utils/Ini/analyzer/Analyzer.h engine/utils/Ini/BasicIniProcessor.cpp engine/utils/Ini/BasicIniProcessor.h engine/utils/Ini/analyzer/IniAnalyzer.cpp engine/utils/Ini/analyzer/IniAnalyzer.h)
-set(TRIM engine/utils/trim/trim.h)
-set(OTHER engine/utils/other/Calculations.cpp engine/utils/other/Calculations.h)
-set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${TRIM} ${OTHER})
-
-set(EXCEPTIONS engine/main/other/exceptions/RuntimeException.h engine/main/other/exceptions/Exception.cpp engine/main/other/exceptions/Exception.h engine/main/other/exceptions/LogicError.h engine/main/other/exceptions/InvalidArgument.h engine/main/other/exceptions/custom/FileCannotBeOpened.h engine/main/other/exceptions/ExceptionCodes.h engine/main/other/exceptions/custom/AudioFileCannotBeOpened.h engine/main/other/exceptions/custom/TextureCannotBeLoaded.h engine/main/other/exceptions/custom/FontCannotBeLoaded.h)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++${CMAKE_CXX_STANDARD} -pthread")
 
-add_executable(Flash ${MAIN} ${ENGINE} ${DATA} ${VIEW} ${OBJECTS} ${SETUP} ${UTILS} ${EXCEPTIONS})
+add_executable(Flash ${MAIN} ${ENGINE})
 
 target_link_libraries(Flash sfml-window sfml-graphics sfml-audio)
