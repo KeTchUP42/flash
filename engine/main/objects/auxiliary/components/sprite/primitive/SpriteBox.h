@@ -28,8 +28,6 @@ namespace Components {
 
         bool collision(float x, float y) const noexcept override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
-
         void setPosition(const Point &point) noexcept override;
 
         void setPosition(float x, float y) noexcept override;
@@ -57,10 +55,10 @@ namespace Components {
         const Size &getSize() const noexcept override;
 
     protected:
-        Components::Point _point;
-        Components::Size _size;
-        std::shared_ptr<sf::Texture> _texture;
-        std::shared_ptr<sf::Sprite> _sprite;
+        Components::Point m_point;
+        Components::Size m_size;
+        std::shared_ptr<sf::Texture> m_texture;
+        std::shared_ptr<sf::Sprite> m_sprite;
     };
 }
 

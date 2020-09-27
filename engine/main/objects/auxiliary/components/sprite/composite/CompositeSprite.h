@@ -29,8 +29,6 @@ namespace Components {
 
         bool collision(float x, float y) const noexcept override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) noexcept override;
-
         void addSprite(ISprite *sprite) noexcept override;
 
         void addSprite(const std::shared_ptr<ISprite> &sprite) noexcept override;
@@ -40,7 +38,7 @@ namespace Components {
         void removeSprite(const std::shared_ptr<ISprite> &sprite) noexcept override;
 
     protected:
-        std::list<std::shared_ptr<ISprite>> _sprites;
+        std::list<std::shared_ptr<ISprite>> m_sprites;
     };
 }
 

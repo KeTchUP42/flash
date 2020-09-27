@@ -5,9 +5,9 @@
 #include "ISprite.h"
 
 void Components::ISprite::setParent(Components::ISprite *sprite) noexcept {
-    _parent = sprite;
+    m_parent = sprite;
 }
 
 Components::ISprite *Components::ISprite::getParent() const noexcept {
-    return _parent;
+    return m_parent;
 }

@@ -7,27 +7,27 @@
 
 Components::SpriteBox::SpriteBox(const Components::Point &point, const Components::Size &size,
                                  const std::shared_ptr<sf::Texture> &texture)
-        : _point(point), _size(size), _texture(texture) {
+        : m_point(point), m_size(size), m_texture(texture) {
 
-    _sprite = std::shared_ptr<sf::Sprite>(new sf::Sprite());
-    _sprite->setTexture(*texture.get(), true);
-    _sprite->setPosition(_point.x, _point.y);
-    _sprite->setScale(static_cast<float>(_size.width) / _texture->getSize().x,
-                      static_cast<float>(_size.height) / _texture->getSize().y);
+    m_sprite = std::shared_ptr<sf::Sprite>(new sf::Sprite());
+    m_sprite->setTexture(*texture.get(), true);
+    m_sprite->setPosition(m_point.x, m_point.y);
+    m_sprite->setScale(static_cast<float>(m_size.width) / m_texture->getSize().x,
+                       static_cast<float>(m_size.height) / m_texture->getSize().y);
 }
 
 void Components::SpriteBox::draw(sf::RenderTarget &target) const noexcept {
-    target.draw(*_sprite.get(), sf::RenderStates::Default);
+    target.draw(*m_sprite.get(), sf::RenderStates::Default);
 }
 
 void Components::SpriteBox::move(float offsetX, float offsetY) noexcept {
-    _point.x += offsetX;
-    _point.y += offsetY;
-    _sprite->setPosition(_point.x, _point.y);
+    m_point.x += offsetX;
+    m_point.y += offsetY;
+    m_sprite->setPosition(m_point.x, m_point.y);
 }
 
 void Components::SpriteBox::rotate(float angle) noexcept {
-    _sprite->rotate(angle);
+    m_sprite->rotate(angle);
 }
 
 void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
@@ -43,63 +43,59 @@ bool Components::SpriteBox::collision(float x, float y) const noexcept {
     return OtherUtils::collision(Point(x, y), *this);
 }
 
-void Components::SpriteBox::update(const sf::Event &event, sf::RenderWindow &sender) noexcept {
-    //..
-}
-
 void Components::SpriteBox::setPosition(const Components::Point &point) noexcept {
     this->setPosition(point.x, point.y);
 }
 
 void Components::SpriteBox::setPosition(float x, float y) noexcept {
-    _point = Point(x, y);
-    _sprite->setPosition(_point.x, _point.y);
+    m_point = Point(x, y);
+    m_sprite->setPosition(m_point.x, m_point.y);
 }
 
 void Components::SpriteBox::setSize(const Components::Size &size) noexcept {
-    _size = size;
-    _sprite->setScale(static_cast<float>(_size.width) / _texture->getSize().x,
-                      static_cast<float>(_size.height) / _texture->getSize().y);
+    m_size = size;
+    m_sprite->setScale(static_cast<float>(m_size.width) / m_texture->getSize().x,
+                       static_cast<float>(m_size.height) / m_texture->getSize().y);
 }
 
 void Components::SpriteBox::setRotation(float angle) noexcept {
-    _sprite->setRotation(angle);
+    m_sprite->setRotation(angle);
 }
 
 float Components::SpriteBox::getRotation() const noexcept {
-    return _sprite->getRotation();
+    return m_sprite->getRotation();
 }
 
 const std::shared_ptr<sf::Sprite> &Components::SpriteBox::getSprite() const noexcept {
-    return _sprite;
+    return m_sprite;
 }
 
 const sf::Texture *Components::SpriteBox::getTexture() const noexcept {
-    return _sprite->getTexture();
+    return m_sprite->getTexture();
 }
 
 void Components::SpriteBox::setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
-    _texture.reset(); // Safe delete.
-    _texture = texture;
-    _sprite->setTexture(*_texture.get(), true);
+    m_texture.reset(); // Safe delete.
+    m_texture = texture;
+    m_sprite->setTexture(*m_texture.get(), true);
 }
 
 const sf::IntRect &Components::SpriteBox::getTextureRect() const noexcept {
-    return _sprite->getTextureRect();
+    return m_sprite->getTextureRect();
 }
 
 sf::Color Components::SpriteBox::getColor() const noexcept {
-    return _sprite->getColor();
+    return m_sprite->getColor();
 }
 
 void Components::SpriteBox::setColor(const sf::Color &color) noexcept {
-    _sprite->setColor(color);
+    m_sprite->setColor(color);
 }
 
 const Components::Point &Components::SpriteBox::getPosition() const noexcept {
-    return _point;
+    return m_point;
 }
 
 const Components::Size &Components::SpriteBox::getSize() const noexcept {
-    return _size;
+    return m_size;
 }

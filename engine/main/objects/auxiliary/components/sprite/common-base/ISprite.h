@@ -27,8 +27,7 @@ namespace Components {
             : public Possibilities::Movable,
               public Possibilities::Rotatable,
               public Possibilities::CollisionProne,
-              public Possibilities::Drawable<sf::RenderTarget>,
-              public WindowView::Observer<sf::RenderWindow, sf::Event> {
+              public Possibilities::Drawable<sf::RenderTarget> {
     public:
         ISprite() = default;
 
@@ -56,7 +55,7 @@ namespace Components {
         /**
          * @brief Sprite's tree parent. Base sprite will not have parent, so it will be "nullptr".
          */
-        Components::ISprite *_parent;
+        Components::ISprite *m_parent;
     };
 }
 
