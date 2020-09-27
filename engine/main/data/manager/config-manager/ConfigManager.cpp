@@ -1,11 +1,11 @@
 //
-// Created by roman on 24.08.2020.
+// Created by roman on 27.09.2020.
 //
 
-#include "IniConfigManager.h"
+#include "ConfigManager.h"
 #include "../../../../utils/Ini/BasicIniProcessor.h"
 
-IniProcessorUtil::Analyzer::IniData Managers::IniConfigManager::loadIni(const std::string &filename) const {
+IniProcessorUtil::Analyzer::IniData Managers::ConfigManager::loadIni(const std::string &filename) const {
     IniProcessorUtil::BasicIniProcessor processor(CONFIG_DIRECTORY + "/" + filename);
     return processor.fullparse();
 }

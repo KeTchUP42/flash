@@ -8,8 +8,8 @@
 #include "../main/view/create/window/PrimaryWindowFactory.h"
 
 Program::Engine::Engine(const std::string &filename) {
-    Setup::EngineConfigurator configurator(filename);
-    m_manager = std::unique_ptr<Managers::DataManager>(configurator.load());
+    Setup::EngineConfigurator configurator;
+    m_manager = std::unique_ptr<Managers::DataManager>(configurator.load(filename));
 }
 
 int Program::Engine::start() const {

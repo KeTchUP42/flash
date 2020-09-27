@@ -30,7 +30,7 @@ namespace Managers {
          * @param filename File in config directory.
          * @return IniProcessorUtil::Analyzer::IniData
          */
-        virtual IniProcessorUtil::Analyzer::IniData loadIni(const std::string &filename) const = 0;
+        IniProcessorUtil::Analyzer::IniData loadIni(const std::string &filename) const;
 
         virtual ~ConfigManager() = default;
 

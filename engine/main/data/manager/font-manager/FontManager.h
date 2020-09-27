@@ -30,7 +30,7 @@ namespace Managers {
          * @param filename Font file name in Font directory.
          * @return New Font.
          */
-        virtual std::shared_ptr<sf::Font> loadFont(const std::string &filename) const = 0;
+        std::shared_ptr<sf::Font> loadFont(const std::string &filename) const;
 
         virtual ~FontManager() = default;
 

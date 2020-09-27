@@ -31,16 +31,14 @@ namespace Managers {
          * @param area Area of the texture to loadTexture.
          * @return New Texture.
          */
-        virtual std::shared_ptr<sf::Texture>
-        loadTexture(const std::string &filename, const sf::Rect<int> &area = sf::IntRect()) const = 0;
+        std::shared_ptr<sf::Texture> loadTexture(const std::string &filename, const sf::Rect<int> &area = sf::IntRect()) const;
 
         /**
          * @brief Method loads image from file.
          * @param filename Image file name.
          * @return New Image.
          */
-        virtual std::shared_ptr<sf::Image>
-        loadImage(const std::string &filename) const = 0;
+        std::shared_ptr<sf::Image> loadImage(const std::string &filename) const;
 
         virtual ~TextureManager() = default;
 

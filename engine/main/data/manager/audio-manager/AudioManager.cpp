@@ -1,11 +1,10 @@
 //
-// Created by roman on 23.08.2020.
+// Created by roman on 27.09.2020.
 //
-
-#include "MusicManager.h"
+#include "AudioManager.h"
 #include "../../../other/exceptions/custom/AudioFileCannotBeOpened.h"
 
-std::shared_ptr<sf::Music> Managers::MusicManager::loadMusic(const std::string &filename) const {
+std::shared_ptr<sf::Music> Managers::AudioManager::loadMusic(const std::string &filename) const {
     std::shared_ptr<sf::Music> music(new sf::Music());
 
     if (!music->openFromFile(AUDIO_DIRECTORY + "/" + filename)) {

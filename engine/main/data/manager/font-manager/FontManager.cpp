@@ -1,11 +1,10 @@
 //
-// Created by roman on 24.08.2020.
+// Created by roman on 27.09.2020.
 //
-
-#include "BasicFontManager.h"
+#include "FontManager.h"
 #include "../../../other/exceptions/custom/FontCannotBeLoaded.h"
 
-std::shared_ptr<sf::Font> Managers::BasicFontManager::loadFont(const std::string &filename) const {
+std::shared_ptr<sf::Font> Managers::FontManager::loadFont(const std::string &filename) const {
     std::shared_ptr<sf::Font> font(new sf::Font());
 
     if (!font->loadFromFile(FONTS_DIRECTORY + "/" + filename))

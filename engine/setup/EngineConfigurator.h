@@ -12,26 +12,20 @@
 namespace Setup {
 
     /**
-     * @brief The base class of the EngineConfigurator class hierarchy.
+     * @brief The EngineConfigurator class.
      * @namespace Setup
      *
-     * This class defines base EngineConfigurator interface and fields.
+     * This class defines EngineConfigurator.
     */
     class EngineConfigurator {
     public:
-        explicit EngineConfigurator(const std::string &filename)
-                : CONFIG_FILE_NAME(filename) {}
-
         /**
          * @brief Method reads config and returns data managers in DataManager facade class object.
          * @return Created data manager.
          */
-        virtual Managers::DataManager *load() const;
+        virtual Managers::DataManager *load(const std::string &filename) const;
 
         virtual ~EngineConfigurator() = default;
-
-    protected:
-        const std::string CONFIG_FILE_NAME;
     };
 }
 

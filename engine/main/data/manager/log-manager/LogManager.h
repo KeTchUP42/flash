@@ -32,16 +32,14 @@ namespace Managers {
          * @param filename File in Log directory.
          * @return New Logger.
          */
-        virtual std::shared_ptr<LoggerUtil::Logger>
-        createLoggerForFile(const std::string &filename) const = 0;
+        std::shared_ptr<LoggerUtil::Logger> createLoggerForFile(const std::string &filename) const;
 
         /**
          * @brief Method creates Logger for files in Log directory.
          * @param filenames Files in Log directory.
          * @return New Logger.
          */
-        virtual std::shared_ptr<LoggerUtil::Logger>
-        createLoggerForSomeFiles(const std::vector<std::string> &filenames) const = 0;
+        std::shared_ptr<LoggerUtil::Logger> createLoggerForSomeFiles(const std::vector<std::string> &filenames) const;
 
         virtual ~LogManager() = default;
 

@@ -30,8 +30,7 @@ namespace Managers {
          * @param filename File in audio directory.
          * @return New audio sf::Music.
          */
-        virtual std::shared_ptr<sf::Music>
-        loadMusic(const std::string &filename) const = 0;
+        std::shared_ptr<sf::Music> loadMusic(const std::string &filename) const;
 
         virtual ~AudioManager() = default;
 
