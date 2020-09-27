@@ -19,8 +19,7 @@ namespace Obstacles {
          * @param sprite Block's sprite.
          * @param collision Collision algorithms.
          */
-        explicit SingleSpriteBlock(const ObstacleProperties &properties,
-                                   const std::shared_ptr<Components::ISpriteBox> &sprite,
+        explicit SingleSpriteBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                                    const std::shared_ptr<Material::Collision> &collision);
 
         /**

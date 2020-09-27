@@ -38,16 +38,16 @@ void Obstacles::SingleSpriteBlock::rotate(float angle, const Components::Point &
 }
 
 void Obstacles::SingleSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {
-    _properties.speed.xSpeed += offsetX;
-    _properties.speed.ySpeed += offsetY;
+    m_properties.speed.xSpeed += offsetX;
+    m_properties.speed.ySpeed += offsetY;
 }
 
 void Obstacles::SingleSpriteBlock::setMoveSpeed(const Components::Speed &speed) noexcept {
-    _properties.speed = speed;
+    m_properties.speed = speed;
 }
 
 const Components::Speed &Obstacles::SingleSpriteBlock::getMoveSpeed() const noexcept {
-    return _properties.speed;
+    return m_properties.speed;
 }
 
 const Components::Point &Obstacles::SingleSpriteBlock::getPosition() const noexcept {
@@ -63,7 +63,7 @@ float Obstacles::SingleSpriteBlock::getRotation() const noexcept {
 }
 
 const Obstacles::ObstacleProperties &Obstacles::SingleSpriteBlock::getProperties() const noexcept {
-    return _properties;
+    return m_properties;
 }
 
 void Obstacles::SingleSpriteBlock::setPosition(const Components::Point &point) noexcept {

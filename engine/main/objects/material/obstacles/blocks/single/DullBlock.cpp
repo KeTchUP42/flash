@@ -13,7 +13,7 @@ void Obstacles::DullBlock::selfAction(Unite::Unifier *unifier) {
 }
 
 void Obstacles::DullBlock::selfMove(Unite::Unifier *unifier) {
-    this->move(_properties.speed.xSpeed, _properties.speed.ySpeed);
+    this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
 }
 
 void Obstacles::DullBlock::update(const sf::Event &event, sf::RenderWindow &sender) {

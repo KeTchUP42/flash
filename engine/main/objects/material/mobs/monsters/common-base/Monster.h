@@ -60,7 +60,7 @@ namespace Mobs {
         const Mobs::MonsterProperties &getProperties() const noexcept override;
 
     protected:
-        Mobs::MonsterProperties _properties;
+        Mobs::MonsterProperties m_properties;
         std::shared_ptr<Components::ISpriteBox> _sprite;
     };
 }

@@ -84,7 +84,7 @@ namespace Mobs {
         virtual ~Player() = default;
 
     protected:
-        Mobs::PlayerProperties _properties;
+        Mobs::PlayerProperties m_properties;
         std::map<KeyAlias, sf::Keyboard::Key> _keyMap;
         std::shared_ptr<Components::ISpriteBox> _sprite;
     };

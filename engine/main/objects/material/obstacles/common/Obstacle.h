@@ -26,12 +26,12 @@ namespace Obstacles {
          * @brief Base obstacle constructor.
          * @param properties Object with obstacle properties.
          */
-        Obstacle(const ObstacleProperties &properties) : _properties(properties) {};
+        Obstacle(const ObstacleProperties &properties) : m_properties(properties) {};
 
         virtual ~Obstacle() = default;
 
     protected:
-        ObstacleProperties _properties;
+        ObstacleProperties m_properties;
     };
 }
 

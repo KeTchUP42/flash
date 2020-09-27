@@ -22,11 +22,11 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
     if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
-        _properties.speed.xSpeed = static_cast<int>(-1 * _properties.speed.xSpeed);
+        m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed);
     }
 
     if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
-        _properties.speed.ySpeed = static_cast<int>(-1 * _properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
+        m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
     }
 
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
@@ -43,14 +43,14 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
 
     Mobs::Monster *monster;
     if ((monster = _collision->getMonsterCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
-        if (((_properties.speed.xSpeed < 0) && (monster->getMoveSpeed().xSpeed >= 0)) ||
-            ((_properties.speed.xSpeed > 0) && (monster->getMoveSpeed().xSpeed <= 0))) {
-            monster->setMoveSpeed(Components::Speed(_properties.speed.xSpeed > 0 ? 5 : -5, monster->getMoveSpeed().ySpeed - 10));
-            _properties.speed.xSpeed += _properties.speed.xSpeed > 0 ? -1 : 1;
+        if (((m_properties.speed.xSpeed < 0) && (monster->getMoveSpeed().xSpeed >= 0)) ||
+            ((m_properties.speed.xSpeed > 0) && (monster->getMoveSpeed().xSpeed <= 0))) {
+            monster->setMoveSpeed(Components::Speed(m_properties.speed.xSpeed > 0 ? 5 : -5, monster->getMoveSpeed().ySpeed - 10));
+            m_properties.speed.xSpeed += m_properties.speed.xSpeed > 0 ? -1 : 1;
         }
     }
 
-    this->move(_properties.speed.xSpeed, _properties.speed.ySpeed);
+    this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
 }
 
 void Mobs::Mushroom::update(const sf::Event &event, sf::RenderWindow &sender) {
