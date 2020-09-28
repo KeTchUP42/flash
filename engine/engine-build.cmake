@@ -19,7 +19,7 @@ set(MANAGERS ${AUDIO_MANAGER} ${CONFIG_MANAGER} ${FONT_MANAGER} ${LOG_MANAGER} $
 set(DATA ${AUDIO} ${MANAGERS})
 
 set(OBSERVERS engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowResizeObserver.cpp)
-set(WINDOWS engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/PrimaryWindow/PrimaryWindow.cpp)
+set(WINDOWS engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/primary/PrimaryWindow.cpp)
 set(SCREEN engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/TransitScreenState.cpp)
 set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
 set(VIEWCREATE engine/main/view/create/window/PrimaryWindowFactory.cpp)

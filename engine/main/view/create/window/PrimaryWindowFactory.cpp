@@ -3,7 +3,7 @@
 //
 
 #include "PrimaryWindowFactory.h"
-#include "../../windows/custom/PrimaryWindow/PrimaryWindow.h"
+#include "../../windows/custom/primary/PrimaryWindow.h"
 #include "../../windows/base/observers/WindowCloseObserver.h"
 #include "../../windows/screen/states/InitialScreenState.h"
 
