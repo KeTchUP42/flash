@@ -36,7 +36,6 @@ void WindowView::PrimaryWindow::update() {
 }
 
 void WindowView::PrimaryWindow::setScreenState(Screen::ScreenState *state) noexcept {
-    if (state == nullptr) return;
     this->removeObserver(m_state);
     m_state.reset(state); //Method calls "delete" for an old one ptr.
     m_state->load(this, m_manager, m_window);
