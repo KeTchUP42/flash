@@ -20,17 +20,15 @@ namespace WriterUtil {
     public:
         Writer() = default;
 
-        Writer &operator=(const Writer &) = delete;
-
         /**
          * Writer main method which writes std::string to stream.
          */
-        virtual bool write(const std::string &__s, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
+        virtual bool write(const std::string &__s, const std::ios::openmode &mode) const noexcept = 0;
 
         /**
          * Writer main method which writes 'C' string to stream.
          */
-        virtual bool write(const char *__s, const std::ios::openmode &mode = std::ios::app) const noexcept = 0;
+        virtual bool write(const char *__s, const std::ios::openmode &mode) const noexcept = 0;
 
         virtual ~Writer() noexcept = default;
     };

@@ -9,17 +9,17 @@
 
 static inline bool checkFileToOpen(const std::string &filepath);
 
-WriterUtil::MultiFileWriter::MultiFileWriter(const std::list<std::string> &paths) {
-    this->add(paths);
+WriterUtil::MultiFileWriter::MultiFileWriter(const std::list<std::string> &filepaths) {
+    this->add(filepaths);
 }
 
-WriterUtil::MultiFileWriter::MultiFileWriter(const std::vector<std::string> &paths) {
-    this->add(paths);
+WriterUtil::MultiFileWriter::MultiFileWriter(const std::vector<std::string> &filepaths) {
+    this->add(filepaths);
 }
 
 bool WriterUtil::MultiFileWriter::write(const char *message, const std::ios::openmode &mode) const noexcept {
     bool result = true;
-    for (const std::string &path : _paths) {
+    for (const std::string &path : m_filepaths) {
         std::ofstream out(path.c_str(), mode);
         bool isOpen = out.is_open();
         if (isOpen) {
@@ -35,28 +35,28 @@ bool WriterUtil::MultiFileWriter::write(const std::string &message, const std::i
     return write(message.c_str(), mode);
 }
 
-void WriterUtil::MultiFileWriter::add(const std::list<std::string> &paths) {
-    for (const std::string &path : paths) {
+void WriterUtil::MultiFileWriter::add(const std::list<std::string> &filepaths) {
+    for (const std::string &path : filepaths) {
         this->add(path);
     }
 }
 
-void WriterUtil::MultiFileWriter::add(const std::vector<std::string> &paths) {
-    for (const std::string &path : paths) {
+void WriterUtil::MultiFileWriter::add(const std::vector<std::string> &filepaths) {
+    for (const std::string &path : filepaths) {
         this->add(path);
     }
 }
 
 void WriterUtil::MultiFileWriter::add(const std::string &filepath) {
     if (checkFileToOpen(filepath)) {
-        _paths.push_back(filepath);
+        m_filepaths.push_back(filepath);
     } else {
         throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
 }
 
 void WriterUtil::MultiFileWriter::remove(const std::string &filepath) noexcept {
-    _paths.remove(filepath);
+    m_filepaths.remove(filepath);
 }
 
 static inline bool checkFileToOpen(const std::string &filepath) {

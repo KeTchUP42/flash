@@ -5,28 +5,28 @@
 #include "BasicIniProcessor.h"
 
 IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BasicIniProcessor::fullparse() const noexcept {
-    return _analyzer->fullparse(_reader->readlines());
+    return m_analyzer->fullparse(m_reader->readlines());
 }
 
-IniProcessorUtil::Analyzer::IniData IniProcessorUtil::BasicIniProcessor::fullparse(ReaderUtil::Reader *reader) const noexcept {
-    Analyzer::IniData result = _analyzer->fullparse(reader->readlines());
-    delete reader;
-    return result;
+IniProcessorUtil::Analyzer::IniData
+IniProcessorUtil::BasicIniProcessor::fullparse(const ReaderUtil::Reader &reader) const noexcept {
+    return m_analyzer->fullparse(reader.readlines());
 }
 
 IniProcessorUtil::Analyzer::IniData
 IniProcessorUtil::BasicIniProcessor::fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept {
-    return _analyzer->fullparse(reader->readlines());
+    return m_analyzer->fullparse(reader->readlines());
 }
 
 void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
                                                     const std::shared_ptr<WriterUtil::Writer> &writer,
                                                     const std::ios::openmode &mode) const noexcept {
-    this->createIni(data, writer.get(), mode);
+    this->createIni(data, *writer.get(), mode);
 }
 
 void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
-                                                    WriterUtil::Writer *writer, const std::ios::openmode &mode) const noexcept {
+                                                    const WriterUtil::Writer &writer,
+                                                    const std::ios::openmode &mode) const noexcept {
     std::string inidata;
     for (Analyzer::IniData::const_iterator block = data.cbegin(); block != data.cend(); ++block) {
 
@@ -43,5 +43,5 @@ void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Anal
             inidata.append(line->first + " = " + line->second + "\n");
         }
     }
-    writer->write(std::move(inidata), mode);
+    writer.write(std::move(inidata), mode);
 }

@@ -9,17 +9,17 @@
 
 static inline void checkFileToOpen(const std::string &path);
 
-ReaderUtil::FileReader::FileReader(const std::string &filepath) : _path(filepath) {
+ReaderUtil::FileReader::FileReader(const std::string &filepath) : m_path(filepath) {
     checkFileToOpen(filepath);
 }
 
-ReaderUtil::FileReader::FileReader(const char *filepath) : _path(filepath) {
+ReaderUtil::FileReader::FileReader(const char *filepath) : m_path(filepath) {
     checkFileToOpen(filepath);
 }
 
 std::string ReaderUtil::FileReader::read() const noexcept {
     std::string result;
-    std::ifstream in(_path.c_str());
+    std::ifstream in(m_path.c_str());
     if (in.is_open()) {
         in >> std::noskipws;
         std::copy(std::istream_iterator<char>(in), std::istream_iterator<char>(), std::back_inserter(result));
@@ -30,7 +30,7 @@ std::string ReaderUtil::FileReader::read() const noexcept {
 
 std::vector<std::string> ReaderUtil::FileReader::readlines() const noexcept {
     std::vector<std::string> result;
-    std::ifstream in(_path.c_str());
+    std::ifstream in(m_path.c_str());
     if (in.is_open()) {
         std::string line;
         while (std::getline(in, line)) {
@@ -38,7 +38,7 @@ std::vector<std::string> ReaderUtil::FileReader::readlines() const noexcept {
         }
     }
     in.close();
-    return std::move(result);
+    return result;
 }
 
 static inline void checkFileToOpen(const std::string &path) {

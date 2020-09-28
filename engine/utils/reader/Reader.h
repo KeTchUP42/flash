@@ -20,8 +20,6 @@ namespace ReaderUtil {
     public:
         Reader() = default;
 
-        Reader &operator=(const Reader &) = delete;
-
         /**
          * Reader method which returns std::string from stream.
          */

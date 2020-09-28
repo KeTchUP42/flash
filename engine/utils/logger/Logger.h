@@ -22,11 +22,11 @@ namespace LoggerUtil {
     class Logger {
     public:
         explicit Logger(WriterUtil::Writer *writer, Formatter<std::string> *formatter)
-                : _writer(writer), _formatter(formatter) {}
+                : m_writer(writer), m_formatter(formatter) {}
 
         explicit Logger(const std::shared_ptr<WriterUtil::Writer> &writer,
                         const std::shared_ptr<Formatter<std::string>> &formatter)
-                : _writer(writer), _formatter(formatter) {}
+                : m_writer(writer), m_formatter(formatter) {}
 
         Logger &operator=(const Logger &) = delete;
 
@@ -73,8 +73,8 @@ namespace LoggerUtil {
         virtual ~Logger() noexcept = default;
 
     protected:
-        std::shared_ptr<WriterUtil::Writer> _writer;
-        std::shared_ptr<Formatter<std::string>> _formatter;
+        std::shared_ptr<WriterUtil::Writer> m_writer;
+        std::shared_ptr<Formatter<std::string>> m_formatter;
     };
 
 }

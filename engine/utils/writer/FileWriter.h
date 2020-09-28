@@ -11,16 +11,16 @@ namespace WriterUtil {
 
     class FileWriter : public Writer {
     public:
-        explicit FileWriter(const std::string &filepath);
+        FileWriter(const std::string &filepath);
 
-        explicit FileWriter(const char *filepath);
+        FileWriter(const char *filepath);
 
-        bool write(const char *message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
+        bool write(const char *message, const std::ios::openmode &mode) const noexcept override;
 
-        bool write(const std::string &message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
+        bool write(const std::string &message, const std::ios::openmode &mode) const noexcept override;
 
     protected:
-        const std::string _path;
+        const std::string m_path;
     };
 
 }

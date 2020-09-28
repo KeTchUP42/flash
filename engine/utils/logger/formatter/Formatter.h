@@ -20,8 +20,6 @@ namespace LoggerUtil {
     public:
         Formatter() = default;
 
-        Formatter<T> &operator=(const Formatter<T> &) = delete;
-
         /**
          * Main formatter template handle method.
          * Uses to generate output line which logger writes to the stream.

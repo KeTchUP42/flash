@@ -16,9 +16,9 @@ namespace WriterUtil {
     public:
         MultiFileWriter() = default;
 
-        explicit MultiFileWriter(const std::list<std::string> &paths);
+        MultiFileWriter(const std::list<std::string> &filepaths);
 
-        explicit MultiFileWriter(const std::vector<std::string> &paths);
+        MultiFileWriter(const std::vector<std::string> &filepaths);
 
         void add(const std::string &filepath);
 
@@ -28,12 +28,12 @@ namespace WriterUtil {
 
         void remove(const std::string &filepath) noexcept;
 
-        bool write(const std::string &message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
+        bool write(const std::string &message, const std::ios::openmode &mode) const noexcept override;
 
-        bool write(const char *message, const std::ios::openmode &mode = std::ios::app) const noexcept override;
+        bool write(const char *message, const std::ios::openmode &mode) const noexcept override;
 
     protected:
-        std::list<std::string> _paths;
+        std::list<std::string> m_filepaths;
     };
 }
 

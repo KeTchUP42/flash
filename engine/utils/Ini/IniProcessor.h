@@ -23,16 +23,16 @@ namespace IniProcessorUtil {
     class IniProcessor {
     public:
         explicit IniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer)
-                : _reader(reader), _analyzer(analyzer) {}
+                : m_reader(reader), m_analyzer(analyzer) {}
 
         explicit IniProcessor(const std::string &filepath, Analyzer *analyzer)
-                : _reader(new ReaderUtil::FileReader(filepath)), _analyzer(analyzer) {}
+                : m_reader(new ReaderUtil::FileReader(filepath)), m_analyzer(analyzer) {}
 
         explicit IniProcessor(const std::string &filepath, const std::shared_ptr<Analyzer> &analyzer)
-                : _reader(new ReaderUtil::FileReader(filepath)), _analyzer(analyzer) {}
+                : m_reader(new ReaderUtil::FileReader(filepath)), m_analyzer(analyzer) {}
 
         explicit IniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader, const std::shared_ptr<Analyzer> &analyzer)
-                : _reader(reader), _analyzer(analyzer) {}
+                : m_reader(reader), m_analyzer(analyzer) {}
 
         IniProcessor &operator=(const IniProcessor &) = delete;
 
@@ -53,12 +53,11 @@ namespace IniProcessorUtil {
           * Method returns full ini config data in IniData type.
           * Configs without block will be in NONAME_BLOCK section.
           * This method uses custom reader.
-          * Reader WILL BE DELETED!
           *
           * @param reader Reader
           * @return Analyzer::IniData
           */
-        virtual Analyzer::IniData fullparse(ReaderUtil::Reader *reader) const noexcept = 0;
+        virtual Analyzer::IniData fullparse(const ReaderUtil::Reader &reader) const noexcept = 0;
 
         /**
           * Method returns full ini config data in IniData type.
@@ -82,21 +81,20 @@ namespace IniProcessorUtil {
 
         /**
          * Method creates new ini file or append new data with standard writer.
-         * This method WILL NOT delete writer, so be careful!
          *
          * @param data Analyzer::IniData
          * @param writer Writer
          **/
         virtual void
-        createIni(const Analyzer::IniData &data, WriterUtil::Writer *writer,
+        createIni(const Analyzer::IniData &data, const WriterUtil::Writer &writer,
                   const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
 
 
         virtual ~IniProcessor() = default;
 
     protected:
-        std::shared_ptr<ReaderUtil::Reader> _reader;
-        std::shared_ptr<Analyzer> _analyzer;
+        std::shared_ptr<ReaderUtil::Reader> m_reader;
+        std::shared_ptr<Analyzer> m_analyzer;
     };
 }
 #endif //FLASH_INIPROCESSOR_H

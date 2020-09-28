@@ -7,18 +7,18 @@
 #include "FileWriter.h"
 #include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
 
-static inline void checkFileToOpen(const std::string &path);
+static inline void checkFileToOpen(const std::string &filepath);
 
-WriterUtil::FileWriter::FileWriter(const std::string &filepath) : _path(filepath) {
+WriterUtil::FileWriter::FileWriter(const std::string &filepath) : m_path(filepath) {
     checkFileToOpen(filepath);
 }
 
-WriterUtil::FileWriter::FileWriter(const char *filepath) : _path(filepath) {
+WriterUtil::FileWriter::FileWriter(const char *filepath) : m_path(filepath) {
     checkFileToOpen(filepath);
 }
 
 bool WriterUtil::FileWriter::write(const char *message, const std::ios::openmode &mode) const noexcept {
-    std::ofstream out(_path.c_str(), mode);
+    std::ofstream out(m_path.c_str(), mode);
     bool isOpen = out.is_open();
     if (isOpen) {
         out << message;
@@ -31,11 +31,11 @@ bool WriterUtil::FileWriter::write(const std::string &message, const std::ios::o
     return write(message.c_str(), mode);
 }
 
-static inline void checkFileToOpen(const std::string &path) {
-    std::ofstream out(path, std::ios::app);
+static inline void checkFileToOpen(const std::string &filepath) {
+    std::ofstream out(filepath, std::ios::app);
     if (!out.is_open()) {
         out.close();
-        throw PreferredExceptions::FileCannotBeOpened("File " + path + " cannot be opened.");
+        throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
     out.close();
 }
