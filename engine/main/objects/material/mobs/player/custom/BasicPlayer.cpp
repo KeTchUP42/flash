@@ -59,7 +59,5 @@ void Mobs::BasicPlayer::loadKeyMap(const std::string &filename, Managers::DataMa
     m_keyMap[KeyAlias::Right] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Right"].c_str()));
     m_keyMap[KeyAlias::Left] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Left"].c_str()));
     m_keyMap[KeyAlias::Jump] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Jump"].c_str()));
-    m_keyMap[KeyAlias::ShootR] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["ShootR"].c_str()));
-    m_keyMap[KeyAlias::ShootL] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["ShootL"].c_str()));
     m_keyMap[KeyAlias::Use] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Use"].c_str()));
 }
