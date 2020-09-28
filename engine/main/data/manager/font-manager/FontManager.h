@@ -26,8 +26,8 @@ namespace Managers {
                 : FONTS_DIRECTORY(fontDirectory) {}
 
         /**
-         * @brief Method loads font from Font directory.
-         * @param filename Font file name in Font directory.
+         * @brief Method loads font from font directory.
+         * @param filename Font file name in font directory.
          * @return New Font.
          */
         std::shared_ptr<sf::Font> loadFont(const std::string &filename) const;

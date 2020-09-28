@@ -26,9 +26,9 @@ namespace Managers {
                 : TEXTURES_DIRECTORY(textureDirectory) {}
 
         /**
-         * @brief Method loads texture from Texture directory.
-         * @param filename Texture file name in Texture directory.
-         * @param area Area of the texture to loadTexture.
+         * @brief Method loads texture from texture directory.
+         * @param filename Texture file name in texture directory.
+         * @param area Area of the texture.
          * @return New Texture.
          */
         std::shared_ptr<sf::Texture> loadTexture(const std::string &filename, const sf::Rect<int> &area = sf::IntRect()) const;

@@ -28,15 +28,15 @@ namespace Managers {
                 : LOG_DIRECTORY(logDirectory) {}
 
         /**
-         * @brief Method creates Logger for file in Log directory.
-         * @param filename File in Log directory.
+         * @brief Method creates Logger for file in log directory.
+         * @param filename File in log directory.
          * @return New Logger.
          */
         std::shared_ptr<LoggerUtil::Logger> createLoggerForFile(const std::string &filename) const;
 
         /**
-         * @brief Method creates Logger for files in Log directory.
-         * @param filenames Files in Log directory.
+         * @brief Method creates Logger for some files in log directory.
+         * @param filenames Some files in log directory.
          * @return New Logger.
          */
         std::shared_ptr<LoggerUtil::Logger> createLoggerForSomeFiles(const std::vector<std::string> &filenames) const;

@@ -26,7 +26,7 @@ namespace Managers {
                 : AUDIO_DIRECTORY(audioDirectory) {}
 
         /**
-         * @brief Method loads file from Audio directory.
+         * @brief Method loads file from audio directory.
          * @param filename File in audio directory.
          * @return New audio sf::Music.
          */
