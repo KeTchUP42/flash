@@ -7,14 +7,14 @@
 
 #include "../../../common/Obstacle.h"
 #include "../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../../../../common/collision/Collision.h"
+#include "../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 
     class SingleSpriteBlock : public Obstacles::Obstacle {
     public:
         explicit SingleSpriteBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                   const std::shared_ptr<Material::Collision> &collision);
+                                   const std::shared_ptr<Material::Algorithms> &algorithms);
 
         /**
          * @brief Method changes block's sprite texture.
@@ -60,7 +60,7 @@ namespace Obstacles {
 
     protected:
         std::shared_ptr<Components::ISpriteBox> m_sprite;
-        std::shared_ptr<Material::Collision> m_collision;
+        std::shared_ptr<Material::Algorithms> m_algorithms;
     };
 }
 

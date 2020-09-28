@@ -6,24 +6,22 @@
 #define FLASH_BASEPLAYER_H
 
 #include "Player.h"
-#include "../../../common/collision/Collision.h"
+#include "../../../common/algorithms/Algorithms.h"
 
 namespace Mobs {
 
     class BasePlayer : public Player {
     public:
-        explicit BasePlayer(const Mobs::PlayerProperties &properties,
-                            const std::shared_ptr<Components::ISpriteBox> &sprite,
-                            const std::shared_ptr<Material::Collision> &collision)
-                : Player(properties, sprite), m_collision(collision) {}
+        explicit BasePlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                            const std::shared_ptr<Material::Algorithms> &algorithms)
+                : Player(properties, sprite), m_algorithms(algorithms) {}
 
-        explicit BasePlayer(const Mobs::PlayerProperties &properties,
-                            const std::shared_ptr<Components::ISpriteBox> &sprite,
-                            Material::Collision *collision)
-                : Player(properties, sprite), m_collision(collision) {}
+        explicit BasePlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                            Material::Algorithms *algorithms)
+                : Player(properties, sprite), m_algorithms(algorithms) {}
 
     protected:
-        std::shared_ptr<Material::Collision> m_collision;
+        std::shared_ptr<Material::Algorithms> m_algorithms;
     };
 }
 

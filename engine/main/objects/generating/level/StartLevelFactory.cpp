@@ -38,6 +38,8 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
     using namespace Material;
 
     std::shared_ptr<Collision> collision(new Collision(5, 5));
+    std::shared_ptr<Algorithms> algorithms(new Algorithms(collision));
+
 
     unifier->addBackSprite(new SpriteBox(Point(0, 0), Size(target.getSize().x, target.getSize().y),
                                          manager->getTextureManager()->loadTexture("background/dungeon_back_1.jpg")));
@@ -50,7 +52,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                             Point(610, 110),
                             Size(20, 20),  //10 - min
                             manager->getTextureManager()->loadTexture("mobs/player/mush.png"))),
-            collision);
+            algorithms);
 
     player->loadKeyMap("keys/keymap.ini", manager);
     unifier->addPlayer(player);
@@ -65,7 +67,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(555, 250),
                             Size(30, 30),  //10 - min
-                            mushroom)), collision));
+                            mushroom)), algorithms));
 
     unifier->addMonster(new Mobs::Mushroom(
             MonsterProperties(Speed(-1, 0)),
@@ -73,7 +75,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1060, 280),
                             Size(30, 30),  //10 - min
-                            mushroom)), collision));
+                            mushroom)), algorithms));
 
 
     unifier->addMonster(new Mobs::Mushroom(
@@ -82,7 +84,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1060, 320),
                             Size(30, 30),  //10 - min
-                            mushroom)), collision));
+                            mushroom)), algorithms));
 
 
     //gravity
@@ -98,7 +100,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1100, 300),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -106,7 +108,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(100, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -114,7 +116,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(200, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -122,7 +124,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(300, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -130,7 +132,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(400, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -138,7 +140,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(500, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -146,7 +148,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(600, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -154,7 +156,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(700, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -162,7 +164,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(800, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -170,7 +172,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(900, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -178,7 +180,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1000, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -186,7 +188,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1100, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -194,7 +196,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1200, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -202,7 +204,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1200, 100),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -210,7 +212,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1200, 200),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -218,7 +220,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1200, 300),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -226,7 +228,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1200, 400),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -234,7 +236,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1200, 500),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -242,7 +244,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1200, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -250,7 +252,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1100, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -258,7 +260,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(1000, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -266,7 +268,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(900, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -274,7 +276,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(800, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -282,7 +284,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(700, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -290,7 +292,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(600, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -298,7 +300,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(500, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -306,7 +308,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(400, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -314,7 +316,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(300, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -322,14 +324,14 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(200, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
     unifier->addObstacle(
             new Obstacles::DullBlock(
                     properties,
                     std::make_shared<SpriteBox>(
                             Point(100, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -337,7 +339,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(0, 600),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -345,7 +347,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(0, 500),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -353,7 +355,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(0, 400),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -361,7 +363,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(0, 300),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -369,7 +371,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(0, 200),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -377,7 +379,7 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(0, 100),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 
     unifier->addObstacle(
             new Obstacles::DullBlock(
@@ -385,5 +387,5 @@ loadLevel(Unite::Unifier *unifier, Screen::StateChangeable *context,
                     std::make_shared<SpriteBox>(
                             Point(0, 0),
                             Size(100, 100),
-                            wall_texture), collision));
+                            wall_texture), algorithms));
 }

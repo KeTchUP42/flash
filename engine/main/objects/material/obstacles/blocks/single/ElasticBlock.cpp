@@ -6,8 +6,8 @@
 
 Obstacles::ElasticBlock::ElasticBlock(const Obstacles::ObstacleProperties &properties,
                                       const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                      const std::shared_ptr<Material::Collision> &collision)
-        : SingleSpriteBlock(properties, sprite, collision) {}
+                                      const std::shared_ptr<Material::Algorithms> &algorithms)
+        : SingleSpriteBlock(properties, sprite, algorithms) {}
 
 void Obstacles::ElasticBlock::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);
@@ -19,7 +19,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
         Obstacles::Obstacle *obstacle;
 
-        if ((obstacle = m_collision->getObstacleCollision()->abscissaMoveAble(player.get(), unifier)) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->abscissaMoveAble(player.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 player->setMoveSpeed(Components::Speed(
                         static_cast<int>(-1 * player->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
@@ -27,7 +27,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
             }
         }
 
-        if ((obstacle = m_collision->getObstacleCollision()->ordinateMoveAble(player.get(), unifier)) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->ordinateMoveAble(player.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 player->setMoveSpeed(Components::Speed(
                         player->getMoveSpeed().xSpeed,
@@ -41,7 +41,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
         Obstacles::Obstacle *obstacle;
 
-        if ((obstacle = m_collision->getObstacleCollision()->abscissaMoveAble(monster.get(), unifier)) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->abscissaMoveAble(monster.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 monster->setMoveSpeed(Components::Speed(
                         static_cast<int>(-1 * monster->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
@@ -49,7 +49,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
             }
         }
 
-        if ((obstacle = m_collision->getObstacleCollision()->ordinateMoveAble(monster.get(), unifier)) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->ordinateMoveAble(monster.get(), unifier)) != nullptr) {
             if (obstacle == this) {
                 monster->setMoveSpeed(Components::Speed(
                         monster->getMoveSpeed().xSpeed,

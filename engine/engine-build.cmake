@@ -46,8 +46,9 @@ set(BLOCKS engine/main/objects/material/obstacles/blocks/single/common-base/Sing
 set(OBSTACLES_COMMON)
 set(OBSTACLES ${BLOCKS} ${OBSTACLES_COMMON})
 
+set(ALGORITHMS engine/main/objects/material/common/algorithms/Algorithms.cpp)
 set(COLLISION engine/main/objects/material/common/collision/Collision.cpp engine/main/objects/material/common/collision/coordinates/CoordinatesCalculation.cpp engine/main/objects/material/common/collision/moving-collision/MovingCollision.cpp engine/main/objects/material/common/collision/moving-collision/ObstacleCollision.cpp engine/main/objects/material/common/collision/moving-collision/PlayerCollision.cpp engine/main/objects/material/common/collision/moving-collision/MonsterCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticObstacleCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticMonsterCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticPlayerCollision.cpp engine/main/objects/material/common/collision/static-collision/additionally/ExtremeCoordinates.cpp)
-set(MATERIAL_COMMON ${COLLISION})
+set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION})
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
 set(EFFECTS engine/main/objects/static/effects/GravityEffect.cpp)

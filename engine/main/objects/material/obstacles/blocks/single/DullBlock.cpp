@@ -5,8 +5,8 @@
 #include "DullBlock.h"
 
 Obstacles::DullBlock::DullBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                const std::shared_ptr<Material::Collision> &collision)
-        : SingleSpriteBlock(properties, sprite, collision) {}
+                                const std::shared_ptr<Material::Algorithms> &algorithms)
+        : SingleSpriteBlock(properties, sprite, algorithms) {}
 
 void Obstacles::DullBlock::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);

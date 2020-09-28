@@ -7,13 +7,14 @@
 
 #include "../../../common/Obstacle.h"
 #include "../../../../../auxiliary/components/elementary/area/Area.h"
+#include "../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 
     class CompositeSpriteBlock : public Obstacles::Obstacle {
     public:
         explicit CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
-                                      const std::shared_ptr<Components::ISprite> &sprite);
+                                      const std::shared_ptr<Components::ISprite> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms);
 
         /**
          * @brief Method changes block's sprite.
@@ -60,6 +61,7 @@ namespace Obstacles {
     protected:
         Components::Area m_area;
         std::shared_ptr<Components::ISprite> m_sprite;
+        std::shared_ptr<Material::Algorithms> m_algorithms;
     };
 }
 

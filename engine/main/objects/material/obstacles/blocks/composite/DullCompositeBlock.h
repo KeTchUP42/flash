@@ -12,7 +12,7 @@ namespace Obstacles {
     class DullCompositeBlock : public CompositeSpriteBlock {
     public:
         DullCompositeBlock(const Components::Area &area, const ObstacleProperties &properties,
-                           const std::shared_ptr<Components::ISprite> &sprite);
+                           const std::shared_ptr<Components::ISprite> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms);
 
         void selfAction(Unite::Unifier *unifier) override;
 
@@ -21,6 +21,5 @@ namespace Obstacles {
         void update(const sf::Event &event, sf::RenderWindow &sender) override;
     };
 }
-
 
 #endif //FLASH_DULLCOMPOSITEBLOCK_H

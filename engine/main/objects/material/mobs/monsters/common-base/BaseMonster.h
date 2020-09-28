@@ -6,24 +6,22 @@
 #define FLASH_BASEMONSTER_H
 
 #include "Monster.h"
-#include "../../../common/collision/CollisionStrategy.h"
-#include "../../../common/collision/moving-collision/ObstacleCollision.h"
-#include "../../../common/collision/Collision.h"
+#include "../../../common/algorithms/Algorithms.h"
 
 namespace Mobs {
 
     class BaseMonster : public Monster {
     public:
         explicit BaseMonster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             const std::shared_ptr<::Material::Collision> &collision)
-                : Monster(properties, sprite), m_collision(collision) {}
+                             const std::shared_ptr<::Material::Algorithms> &algorithms)
+                : Monster(properties, sprite), m_algorithms(algorithms) {}
 
         explicit BaseMonster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             Material::Collision *collision)
-                : Monster(properties, sprite), m_collision(collision) {}
+                             Material::Algorithms *algorithms)
+                : Monster(properties, sprite), m_algorithms(algorithms) {}
 
     protected:
-        std::shared_ptr<::Material::Collision> m_collision;
+        std::shared_ptr<::Material::Algorithms> m_algorithms;
     };
 }
 

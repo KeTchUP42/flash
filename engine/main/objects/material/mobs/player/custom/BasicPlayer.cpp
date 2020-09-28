@@ -4,15 +4,13 @@
 
 #include "BasicPlayer.h"
 
-Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties,
-                               const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               const std::shared_ptr<Material::Collision> &collision)
-        : BasePlayer(properties, sprite, collision) {}
+Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                               const std::shared_ptr<Material::Algorithms> &algorithms)
+        : BasePlayer(properties, sprite, algorithms) {}
 
-Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties,
-                               const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               Material::Collision *collision)
-        : BasePlayer(properties, sprite, collision) {}
+Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                               Material::Algorithms *algorithms)
+        : BasePlayer(properties, sprite, algorithms) {}
 
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
@@ -23,11 +21,11 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = m_collision->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
+    if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
         m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
     }
 
-    if ((obstacle = m_collision->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
+    if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
         m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
     }
 

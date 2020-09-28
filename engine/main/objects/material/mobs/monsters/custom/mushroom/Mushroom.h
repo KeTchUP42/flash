@@ -5,20 +5,17 @@
 #ifndef FLASH_MUSHROOM_H
 #define FLASH_MUSHROOM_H
 
-#include "../../../../obstacles/common/Obstacle.h"
 #include "../../common-base/BaseMonster.h"
 
 namespace Mobs {
 
     class Mushroom : public BaseMonster {
     public:
-        explicit Mushroom(const Mobs::MonsterProperties &properties,
-                          const std::shared_ptr<Components::ISpriteBox> &sprite,
-                          const std::shared_ptr<Material::Collision> &collision);
+        explicit Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                          const std::shared_ptr<Material::Algorithms> &algorithms);
 
-        explicit Mushroom(const Mobs::MonsterProperties &properties,
-                          const std::shared_ptr<Components::ISpriteBox> &sprite,
-                          Material::Collision *collision);
+        explicit Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
+                          Material::Algorithms *algorithms);
 
         void selfAction(Unite::Unifier *unifier) override;
 
