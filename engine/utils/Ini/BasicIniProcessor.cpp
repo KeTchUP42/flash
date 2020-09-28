@@ -18,14 +18,12 @@ IniProcessorUtil::BasicIniProcessor::fullparse(const std::shared_ptr<ReaderUtil:
     return m_analyzer->fullparse(reader->readlines());
 }
 
-void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
-                                                    const std::shared_ptr<WriterUtil::Writer> &writer,
+void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
                                                     const std::ios::openmode &mode) const noexcept {
     this->createIni(data, *writer.get(), mode);
 }
 
-void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data,
-                                                    const WriterUtil::Writer &writer,
+void IniProcessorUtil::BasicIniProcessor::createIni(const IniProcessorUtil::Analyzer::IniData &data, const WriterUtil::Writer &writer,
                                                     const std::ios::openmode &mode) const noexcept {
     std::string inidata;
     for (Analyzer::IniData::const_iterator block = data.cbegin(); block != data.cend(); ++block) {
