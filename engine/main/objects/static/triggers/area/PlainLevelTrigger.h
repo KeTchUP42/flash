@@ -14,12 +14,12 @@ namespace Triggers {
     public:
         explicit PlainLevelTrigger(const Components::Area &area, Screen::StateChangeable *context);
 
-        ResultCode verifyTrigger(Unite::Unifier *unifier) noexcept override;
+        ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) override;
 
     protected:
-        Screen::StateChangeable *_context;
+        Screen::StateChangeable *m_context;
     };
 }
 

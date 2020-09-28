@@ -18,10 +18,10 @@ namespace Triggers {
     */
     class AreaTrigger : public Trigger {
     public:
-        AreaTrigger(const Components::Area &area) : _area(area) {}
+        AreaTrigger(const Components::Area &area) : m_area(area) {}
 
     protected:
-        Components::Area _area;
+        Components::Area m_area;
     };
 }
 

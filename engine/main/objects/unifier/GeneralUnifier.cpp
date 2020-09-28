@@ -30,7 +30,7 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
 void Unite::GeneralUnifier::refresh() {
 
     for (const std::shared_ptr<Triggers::Trigger> &trigger: _triggers) {
-        if (trigger->verifyTrigger(this) == Triggers::ResultCode::STOP) return;
+        if (trigger->verifyTrigger(this) == Triggers::ResultCodes::STOP) return;
     }
 
     for (const std::shared_ptr<Effects::Effect> &effect: _effects) {

@@ -7,7 +7,7 @@
 
 #include "../../unifier/common-base/Unifier.h"
 #include "../../../view/windows/base/observer/Observer.h"
-#include "codes/ResultCode.h"
+#include "codes/ResultCodes.h"
 
 namespace Triggers {
 
@@ -28,7 +28,7 @@ namespace Triggers {
          * @brief Method checks trigger's conditions.
          * @param unifier Level unifier.
          */
-        virtual ResultCode verifyTrigger(Unite::Unifier *unifier) noexcept = 0;
+        virtual ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept = 0;
 
         virtual ~Trigger() = default;
     };

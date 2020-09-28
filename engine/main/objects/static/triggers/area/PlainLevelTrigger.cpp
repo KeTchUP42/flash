@@ -7,9 +7,9 @@
 #include "../../../../view/windows/screen/states/TransitScreenState.h"
 
 Triggers::PlainLevelTrigger::PlainLevelTrigger(const Components::Area &area, Screen::StateChangeable *context)
-        : AreaTrigger(area), _context(context) {}
+        : AreaTrigger(area), m_context(context) {}
 
-Triggers::ResultCode Triggers::PlainLevelTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
+Triggers::ResultCodes Triggers::PlainLevelTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
     for (const std::shared_ptr<Mobs::Player> &plyr: unifier->getPlayers()) {
 
         float playerX = plyr->getPosition().x;
@@ -17,21 +17,21 @@ Triggers::ResultCode Triggers::PlainLevelTrigger::verifyTrigger(Unite::Unifier *
         unsigned playerWidth = plyr->getSize().width;
         unsigned playerHeight = plyr->getSize().height;
 
-        if (((playerX > _area.point.x) && (playerX <= _area.point.x + _area.size.width) &&
-             (plyr->getPosition().y > _area.point.y) && (plyr->getPosition().y <= _area.point.y + _area.size.height)) ||
-            ((playerX + playerWidth > _area.point.x) && (playerX + playerWidth <= _area.point.x + _area.size.width) &&
-             (playerY + playerHeight > _area.point.y) && (playerY + playerHeight <= _area.point.y + _area.size.height))) {
+        if (((playerX > m_area.point.x) && (playerX <= m_area.point.x + m_area.size.width) &&
+             (plyr->getPosition().y > m_area.point.y) && (plyr->getPosition().y <= m_area.point.y + m_area.size.height)) ||
+            ((playerX + playerWidth > m_area.point.x) && (playerX + playerWidth <= m_area.point.x + m_area.size.width) &&
+             (playerY + playerHeight > m_area.point.y) && (playerY + playerHeight <= m_area.point.y + m_area.size.height))) {
 
             std::shared_ptr<Unite::Unifier> new_unifier(new Unite::GeneralUnifier());
             for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
                 new_unifier->addPlayer(player);
             }
 
-            _context->setScreenState(new Screen::TransitScreenState(new_unifier));
-            return ResultCode::STOP;
+            m_context->setScreenState(new Screen::TransitScreenState(new_unifier));
+            return ResultCodes::STOP;
         }
     }
-    return ResultCode::OK;
+    return ResultCodes::OK;
 }
 
 void Triggers::PlainLevelTrigger::update(const sf::Event &event, sf::RenderWindow &sender) {

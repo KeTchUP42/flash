@@ -2,17 +2,17 @@
 // Created by roman on 26.09.2020.
 //
 
-#ifndef FLASH_RESULTCODE_H
-#define FLASH_RESULTCODE_H
+#ifndef FLASH_RESULTCODES_H
+#define FLASH_RESULTCODES_H
 
 namespace Triggers {
 
     /**
      * @brief Enum contains triggers result codes.
      */
-    enum class ResultCode {
+    enum class ResultCodes {
         OK = 0,
         STOP,
     };
 }
-#endif //FLASH_RESULTCODE_H
+#endif //FLASH_RESULTCODES_H
