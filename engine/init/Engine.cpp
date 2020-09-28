@@ -9,13 +9,13 @@
 
 Program::Engine::Engine(const std::string &filename) {
     Setup::EngineConfigurator configurator;
-    m_manager = std::unique_ptr<Managers::DataManager>(configurator.load(filename));
+    m_manager = configurator.load(filename);
 }
 
 int Program::Engine::start() const {
     try {
         ViewCreate::PrimaryWindowFactory factory;
-        std::shared_ptr<WindowView::Window> window = factory.create("win/primary.ini", m_manager.get());
+        std::shared_ptr<WindowView::Window> window = factory.create("win/primary.ini", m_manager);
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
@@ -24,4 +24,8 @@ int Program::Engine::start() const {
         return exception.getCode();
     }
     return EXIT_SUCCESS;
+}
+
+Program::Engine::~Engine() {
+    delete m_manager;
 }

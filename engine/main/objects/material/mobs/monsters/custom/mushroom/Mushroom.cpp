@@ -21,17 +21,17 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
 void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
-    if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
+    if ((obstacle = m_collision->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
         m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed);
     }
 
-    if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
+    if ((obstacle = m_collision->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
         m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
     }
 
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
         Mobs::Monster *me;
-        if ((me = _collision->getMonsterCollision()->ordinateMoveAble(player.get(), unifier)) != nullptr) {
+        if ((me = m_collision->getMonsterCollision()->ordinateMoveAble(player.get(), unifier)) != nullptr) {
             if (me == this) {
                 player->setMoveSpeed(Components::Speed(
                         player->getMoveSpeed().xSpeed,
@@ -42,7 +42,7 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
     }
 
     Mobs::Monster *monster;
-    if ((monster = _collision->getMonsterCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
+    if ((monster = m_collision->getMonsterCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
         if (((m_properties.speed.xSpeed < 0) && (monster->getMoveSpeed().xSpeed >= 0)) ||
             ((m_properties.speed.xSpeed > 0) && (monster->getMoveSpeed().xSpeed <= 0))) {
             monster->setMoveSpeed(Components::Speed(m_properties.speed.xSpeed > 0 ? 5 : -5, monster->getMoveSpeed().ySpeed - 10));

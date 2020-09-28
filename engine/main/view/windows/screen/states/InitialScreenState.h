@@ -22,7 +22,7 @@ namespace Screen {
         void update(const sf::Event &event, sf::RenderWindow &sender) override;
 
     protected:
-        std::shared_ptr<Unite::Unifier> _unifier;
+        std::shared_ptr<Unite::Unifier> m_unifier;
     };
 }
 

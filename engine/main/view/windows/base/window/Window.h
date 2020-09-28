@@ -117,8 +117,8 @@ namespace WindowView {
         virtual ~Window() = default;
 
     protected:
-        std::list<std::shared_ptr<Observer>> _observers;
-        sf::RenderWindow _window;
+        std::list<std::shared_ptr<Observer>> m_observers;
+        sf::RenderWindow m_window;
     };
 }
 

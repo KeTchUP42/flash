@@ -6,17 +6,17 @@
 #include <thread>
 
 WindowView::Window::Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings)
-        : _window(mode, title, style, settings) {
+        : m_window(mode, title, style, settings) {
 }
 
 WindowView::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &settings)
-        : _window(handle, settings) {
+        : m_window(handle, settings) {
 }
 
 void WindowView::Window::start() {
-    while (_window.isOpen()) {
+    while (m_window.isOpen()) {
         sf::Event event;
-        while (_window.pollEvent(event)) {
+        while (m_window.pollEvent(event)) {
             this->notify(event);
         }
         this->update();
@@ -28,33 +28,33 @@ std::thread WindowView::Window::startAsync() noexcept {
 }
 
 void WindowView::Window::notify(const sf::Event &event) {
-    for (std::shared_ptr<Window::Observer> &observer : _observers) {
-        observer->update(event, _window);
+    for (std::shared_ptr<Window::Observer> &observer : m_observers) {
+        observer->update(event, m_window);
     }
 }
 
 void WindowView::Window::addObserver(Window::Observer *observer) noexcept {
-    _observers.push_back(std::shared_ptr<Window::Observer>(observer));
+    m_observers.push_back(std::shared_ptr<Window::Observer>(observer));
 }
 
 void WindowView::Window::addObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
-    _observers.push_back(observer);
+    m_observers.push_back(observer);
 }
 
 void WindowView::Window::removeObserver(Window::Observer *observer) noexcept {
-    _observers.remove_if([observer](const std::shared_ptr<Window::Observer> &obs) -> bool {
+    m_observers.remove_if([observer](const std::shared_ptr<Window::Observer> &obs) -> bool {
         return obs.get() == observer;
     });
 }
 
 void WindowView::Window::removeObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
-    _observers.remove(observer);
+    m_observers.remove(observer);
 }
 
 void WindowView::Window::setFramerateLimit(unsigned int limit) noexcept {
-    _window.setFramerateLimit(limit);
+    m_window.setFramerateLimit(limit);
 }
 
 const sf::RenderWindow &WindowView::Window::getWindow() const noexcept {
-    return _window;
+    return m_window;
 }

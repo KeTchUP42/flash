@@ -8,13 +8,13 @@
 WindowView::PrimaryWindow::PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
                                          const sf::ContextSettings &settings, Screen::ScreenState *screenState,
                                          Managers::DataManager *manager)
-        : Window(mode, title, style, settings), _state(screenState), _manager(manager) {
+        : Window(mode, title, style, settings), m_state(screenState), m_manager(manager) {
     this->configure();
 }
 
 WindowView::PrimaryWindow::PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
                                          Screen::ScreenState *screenState, Managers::DataManager *manager)
-        : Window(handle, settings), _state(screenState), _manager(manager) {
+        : Window(handle, settings), m_state(screenState), m_manager(manager) {
     this->configure();
 }
 
@@ -25,20 +25,20 @@ void WindowView::PrimaryWindow::configure() {
 void WindowView::PrimaryWindow::initialization() {
     this->addObserver(new WindowCloseObserver());
     //Place, where you can add more std observers.
-    _state->load(this, _manager, _window);
-    this->addObserver(_state);
+    m_state->load(this, m_manager, m_window);
+    this->addObserver(m_state);
 }
 
 void WindowView::PrimaryWindow::update() {
-    _state->refresh();
-    _state->draw(_window);
-    _window.display();
+    m_state->refresh();
+    m_state->draw(m_window);
+    m_window.display();
 }
 
 void WindowView::PrimaryWindow::setScreenState(Screen::ScreenState *state) noexcept {
     if (state == nullptr) return;
-    this->removeObserver(_state);
-    _state.reset(state); //Method calls "delete" for an old one ptr.
-    _state->load(this, _manager, _window);
-    this->addObserver(_state);
+    this->removeObserver(m_state);
+    m_state.reset(state); //Method calls "delete" for an old one ptr.
+    m_state->load(this, m_manager, m_window);
+    this->addObserver(m_state);
 }

@@ -12,7 +12,6 @@ namespace Obstacles {
 
     class CompositeSpriteBlock : public Obstacles::Obstacle {
     public:
-
         explicit CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
                                       const std::shared_ptr<Components::ISprite> &sprite);
 
@@ -59,8 +58,8 @@ namespace Obstacles {
         virtual ~CompositeSpriteBlock() = default;
 
     protected:
-        Components::Area _area;
-        std::shared_ptr<Components::ISprite> _sprite;
+        Components::Area m_area;
+        std::shared_ptr<Components::ISprite> m_sprite;
     };
 }
 

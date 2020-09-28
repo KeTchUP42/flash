@@ -85,8 +85,8 @@ namespace Mobs {
 
     protected:
         Mobs::PlayerProperties m_properties;
-        std::map<KeyAlias, sf::Keyboard::Key> _keyMap;
-        std::shared_ptr<Components::ISpriteBox> _sprite;
+        std::map<KeyAlias, sf::Keyboard::Key> m_keyMap;
+        std::shared_ptr<Components::ISpriteBox> m_sprite;
     };
 }
 

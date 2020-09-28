@@ -7,17 +7,17 @@
 
 void Screen::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
     Generating::StartLevelFactory lvl_factory;
-    _unifier = lvl_factory.loadLevel(context, manager, target);
+    m_unifier = lvl_factory.loadLevel(context, manager, target);
 }
 
 void Screen::InitialScreenState::refresh() {
-    _unifier->refresh();
+    m_unifier->refresh();
 }
 
 void Screen::InitialScreenState::draw(sf::RenderWindow &target) const noexcept {
-    _unifier->draw(target);
+    m_unifier->draw(target);
 }
 
 void Screen::InitialScreenState::update(const sf::Event &event, sf::RenderWindow &sender) {
-    _unifier->update(event, sender);
+    m_unifier->update(event, sender);
 }

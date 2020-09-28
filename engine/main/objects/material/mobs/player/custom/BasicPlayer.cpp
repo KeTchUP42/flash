@@ -23,11 +23,11 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = _collision->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
+    if ((obstacle = m_collision->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
         m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
     }
 
-    if ((obstacle = _collision->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
+    if ((obstacle = m_collision->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
         m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
     }
 
@@ -39,27 +39,27 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 }
 
 void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender) {
-    if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Right])) {
+    if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Right])) {
         if ((std::abs(m_properties.speed.xSpeed) < 15) && (m_properties.speed.xSpeed + 3 <= 15)) { this->addSpeed(3, 0); }
     }
-    if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Left])) {
+    if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Left])) {
         if ((std::abs(m_properties.speed.xSpeed) < 15) && (m_properties.speed.xSpeed - 5 >= -15)) { this->addSpeed(-3, 0); }
     }
-    if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Jump])) {
+    if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Jump])) {
         if (m_properties.speed.ySpeed == 0) { this->addSpeed(0, -15); }
     }
-    if ((event.type == sf::Event::KeyPressed) && (event.key.code == _keyMap[KeyAlias::Use])) {
-        this->_sprite->setPosition(600, 100);
+    if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Use])) {
+        this->m_sprite->setPosition(600, 100);
     }
 }
 
 void Mobs::BasicPlayer::loadKeyMap(const std::string &filename, Managers::DataManager *manager) {
     IniProcessorUtil::Analyzer::IniData keymap = manager->getConfigManager()->loadIni(filename);
 
-    _keyMap[KeyAlias::Right] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Right"].c_str()));
-    _keyMap[KeyAlias::Left] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Left"].c_str()));
-    _keyMap[KeyAlias::Jump] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Jump"].c_str()));
-    _keyMap[KeyAlias::ShootR] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["ShootR"].c_str()));
-    _keyMap[KeyAlias::ShootL] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["ShootL"].c_str()));
-    _keyMap[KeyAlias::Use] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Use"].c_str()));
+    m_keyMap[KeyAlias::Right] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Right"].c_str()));
+    m_keyMap[KeyAlias::Left] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Left"].c_str()));
+    m_keyMap[KeyAlias::Jump] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Jump"].c_str()));
+    m_keyMap[KeyAlias::ShootR] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["ShootR"].c_str()));
+    m_keyMap[KeyAlias::ShootL] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["ShootL"].c_str()));
+    m_keyMap[KeyAlias::Use] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Use"].c_str()));
 }

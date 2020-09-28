@@ -5,13 +5,13 @@
 #include "Exception.h"
 
 const char *PreferredExceptions::Exception::what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT {
-    return _message.c_str();
+    return m_message.c_str();
 }
 
 const std::string &PreferredExceptions::Exception::getMessage() const noexcept {
-    return _message;
+    return m_message;
 }
 
 int PreferredExceptions::Exception::getCode() const noexcept {
-    return _code;
+    return m_code;
 }

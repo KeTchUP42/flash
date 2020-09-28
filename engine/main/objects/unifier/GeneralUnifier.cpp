@@ -6,73 +6,73 @@
 
 void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: _back) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: m_back) {
         sprite->draw(target);
     }
 
-    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->draw(target);
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster: _monsters) {
+    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
         monster->draw(target);
     }
 
-    for (const std::shared_ptr<Mobs::Player> &player: _players) {
+    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
         player->draw(target);
     }
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: _front) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: m_front) {
         sprite->draw(target);
     }
 }
 
 void Unite::GeneralUnifier::refresh() {
 
-    for (const std::shared_ptr<Triggers::Trigger> &trigger: _triggers) {
+    for (const std::shared_ptr<Triggers::Trigger> &trigger: m_triggers) {
         if (trigger->verifyTrigger(this) == Triggers::ResultCodes::STOP) return;
     }
 
-    for (const std::shared_ptr<Effects::Effect> &effect: _effects) {
+    for (const std::shared_ptr<Effects::Effect> &effect: m_effects) {
         effect->applyEffect(this);
     }
 
-    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->selfAction(this);
     }
 
-    for (const std::shared_ptr<Mobs::Player> &player: _players) {
+    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
         player->selfAction(this);
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster: _monsters) {
+    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
         monster->selfAction(this);
     }
 }
 
 void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
 
-    for (const std::shared_ptr<Triggers::Trigger> &trigger: _triggers) {
+    for (const std::shared_ptr<Triggers::Trigger> &trigger: m_triggers) {
         trigger->update(event, sender);
     }
 
-//    for (const std::shared_ptr<Components::ISprite> &sprite: _back) {
+//    for (const std::shared_ptr<Components::ISprite> &sprite: m_back) {
 //        sprite->update(event, sender);
 //    }
 
-    for (const std::shared_ptr<Mobs::Player> &player: _players) {
+    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
         player->update(event, sender);
     }
 
-//    for (const std::shared_ptr<Mobs::Monster> &monster: _monsters) {
+//    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
 //        monster->update(event, sender);
 //    }
 
-//    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: _obstacles) {
+//    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
 //        obstacle->update(event, sender);
 //    }
 
-//    for (const std::shared_ptr<Components::ISprite> &sprite: _front) {
+//    for (const std::shared_ptr<Components::ISprite> &sprite: m_front) {
 //        sprite->update(event, sender);
 //    }
 }

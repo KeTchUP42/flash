@@ -18,7 +18,7 @@ namespace Program {
      *
      * This class has app entry point method.
     */
-    class Engine {
+    class Engine final {
     public:
         /**
          * @brief Main app constructor.
@@ -32,13 +32,13 @@ namespace Program {
          */
         int start() const;
 
-        virtual ~Engine() = default;
+        virtual ~Engine();
 
     private:
         /**
          * @brief Pointer with unique data manager object. Uses to search app data.
          */
-        std::unique_ptr<Managers::DataManager> m_manager;
+        Managers::DataManager *m_manager;
     };
 }
 

@@ -36,12 +36,12 @@ namespace WindowView {
         /**
          * @brief Current window screen state.
          */
-        std::shared_ptr<Screen::ScreenState> _state;
+        std::shared_ptr<Screen::ScreenState> m_state;
 
         /**
          * @brief Do not call "delete" for this ptr.
         */
-        Managers::DataManager *_manager;
+        Managers::DataManager *m_manager;
     };
 }
 

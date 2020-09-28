@@ -14,6 +14,7 @@ namespace Components {
      * This struct is the base component.
     */
     struct Point {
+
         /**
          * @brief Base constructor. Inits "x" and "y" by zero.
          */

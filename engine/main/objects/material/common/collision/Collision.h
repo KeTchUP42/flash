@@ -54,13 +54,13 @@ namespace Material {
         const std::shared_ptr<Material::StaticMonsterCollision> &getStaticMonsterCollision() const noexcept;
 
     protected:
-        std::shared_ptr<Material::PlayerCollision> _playerCollision;
-        std::shared_ptr<Material::MonsterCollision> _monsterCollision;
-        std::shared_ptr<Material::ObstacleCollision> _obstacleCollision;
+        std::shared_ptr<Material::PlayerCollision> m_playerCollision;
+        std::shared_ptr<Material::MonsterCollision> m_monsterCollision;
+        std::shared_ptr<Material::ObstacleCollision> m_obstacleCollision;
 
-        std::shared_ptr<Material::StaticPlayerCollision> _staticPlayerCollision;
-        std::shared_ptr<Material::StaticMonsterCollision> _staticMonsterCollision;
-        std::shared_ptr<Material::StaticObstacleCollision> _staticObstacleCollision;
+        std::shared_ptr<Material::StaticPlayerCollision> m_staticPlayerCollision;
+        std::shared_ptr<Material::StaticMonsterCollision> m_staticMonsterCollision;
+        std::shared_ptr<Material::StaticObstacleCollision> m_staticObstacleCollision;
     };
 }
 

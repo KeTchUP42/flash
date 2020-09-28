@@ -61,7 +61,7 @@ namespace Mobs {
 
     protected:
         Mobs::MonsterProperties m_properties;
-        std::shared_ptr<Components::ISpriteBox> _sprite;
+        std::shared_ptr<Components::ISpriteBox> m_sprite;
     };
 }
 

@@ -13,10 +13,10 @@ namespace PreferredExceptions {
     class Exception : public std::exception {
     public:
         explicit Exception(const char *message, const int &code) noexcept
-                : std::exception(), _message(message), _code(code) {}
+                : std::exception(), m_message(message), m_code(code) {}
 
         explicit Exception(const std::string &message, const int &code) noexcept
-                : std::exception(), _message(message), _code(code) {}
+                : std::exception(), m_message(message), m_code(code) {}
 
         const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;
 
@@ -27,8 +27,8 @@ namespace PreferredExceptions {
         virtual ~Exception() noexcept = default;
 
     protected:
-        std::string _message;
-        int _code;
+        std::string m_message;
+        int m_code;
     };
 }
 

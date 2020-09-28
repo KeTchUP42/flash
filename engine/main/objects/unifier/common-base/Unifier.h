@@ -278,37 +278,37 @@ namespace Unite {
         /**
          * @brief Back sprites.
          */
-        std::list<std::shared_ptr<Components::ISprite>> _back;
+        std::list<std::shared_ptr<Components::ISprite>> m_back;
 
         /**
          * @brief Front sprites.
         */
-        std::list<std::shared_ptr<Components::ISprite>> _front;
+        std::list<std::shared_ptr<Components::ISprite>> m_front;
 
         /**
          * @brief Obstacles.
          */
-        std::list<std::shared_ptr<Obstacles::Obstacle>> _obstacles;
+        std::list<std::shared_ptr<Obstacles::Obstacle>> m_obstacles;
 
         /**
          * @brief Players.
          */
-        std::list<std::shared_ptr<Mobs::Player>> _players;
+        std::list<std::shared_ptr<Mobs::Player>> m_players;
 
         /**
          * @brief Monsters.
             */
-        std::list<std::shared_ptr<Mobs::Monster>> _monsters;
+        std::list<std::shared_ptr<Mobs::Monster>> m_monsters;
 
         /**
          * @brief Effects.
          */
-        std::list<std::shared_ptr<Effects::Effect>> _effects;
+        std::list<std::shared_ptr<Effects::Effect>> m_effects;
 
         /**
          * @brief Triggers.
          */
-        std::list<std::shared_ptr<Triggers::Trigger>> _triggers;
+        std::list<std::shared_ptr<Triggers::Trigger>> m_triggers;
     };
 }
 

@@ -5,37 +5,37 @@
 #include "Collision.h"
 
 Material::Collision::Collision(float analysisStepX, float analysisStepY)
-        : _playerCollision(new Material::PlayerCollision(analysisStepX, analysisStepY)),
-          _monsterCollision(new Material::MonsterCollision(analysisStepX, analysisStepY)),
-          _obstacleCollision(new Material::ObstacleCollision(analysisStepX, analysisStepY)),
-          _staticPlayerCollision(new Material::StaticPlayerCollision()),
-          _staticMonsterCollision(new Material::StaticMonsterCollision()),
-          _staticObstacleCollision(new Material::StaticObstacleCollision()) {}
+        : m_playerCollision(new Material::PlayerCollision(analysisStepX, analysisStepY)),
+          m_monsterCollision(new Material::MonsterCollision(analysisStepX, analysisStepY)),
+          m_obstacleCollision(new Material::ObstacleCollision(analysisStepX, analysisStepY)),
+          m_staticPlayerCollision(new Material::StaticPlayerCollision()),
+          m_staticMonsterCollision(new Material::StaticMonsterCollision()),
+          m_staticObstacleCollision(new Material::StaticObstacleCollision()) {}
 
 Material::MaterialObject *Material::Collision::abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Material::MaterialObject *result;
 
-    if ((result = _obstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_obstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _monsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_monsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _playerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_playerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _staticObstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_staticObstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _staticMonsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_staticMonsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _staticPlayerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_staticPlayerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
     return nullptr;
@@ -44,27 +44,27 @@ Material::MaterialObject *Material::Collision::abscissaMoveAble(Material::Materi
 Material::MaterialObject *Material::Collision::ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Material::MaterialObject *result;
 
-    if ((result = _obstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_obstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _monsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_monsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _playerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_playerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _staticObstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_staticObstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _staticMonsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_staticMonsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = _staticPlayerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_staticPlayerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
     return nullptr;
@@ -73,11 +73,11 @@ Material::MaterialObject *Material::Collision::ordinateMoveAble(Material::Materi
 Mobs::Player *Material::Collision::abscissaPlayerMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Player *player;
 
-    if ((player = _playerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((player = m_playerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return player;
     }
 
-    if ((player = _staticPlayerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((player = m_staticPlayerCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return player;
     }
     return nullptr;
@@ -86,11 +86,11 @@ Mobs::Player *Material::Collision::abscissaPlayerMoveAble(Material::MaterialObje
 Mobs::Player *Material::Collision::ordinatePlayerMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Player *player;
 
-    if ((player = _playerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((player = m_playerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return player;
     }
 
-    if ((player = _staticPlayerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((player = m_staticPlayerCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return player;
     }
     return nullptr;
@@ -100,11 +100,11 @@ Mobs::Player *Material::Collision::ordinatePlayerMoveAble(Material::MaterialObje
 Mobs::Monster *Material::Collision::abscissaMonsterMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Monster *monster;
 
-    if ((monster = _monsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((monster = m_monsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return monster;
     }
 
-    if ((monster = _staticMonsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((monster = m_staticMonsterCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return monster;
     }
     return nullptr;
@@ -113,11 +113,11 @@ Mobs::Monster *Material::Collision::abscissaMonsterMoveAble(Material::MaterialOb
 Mobs::Monster *Material::Collision::ordinateMonsterMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Monster *monster;
 
-    if ((monster = _monsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((monster = m_monsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return monster;
     }
 
-    if ((monster = _staticMonsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((monster = m_staticMonsterCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return monster;
     }
     return nullptr;
@@ -126,11 +126,11 @@ Mobs::Monster *Material::Collision::ordinateMonsterMoveAble(Material::MaterialOb
 Obstacles::Obstacle *Material::Collision::abscissaObstacleMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = _obstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((obstacle = m_obstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return obstacle;
     }
 
-    if ((obstacle = _staticObstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((obstacle = m_staticObstacleCollision->abscissaMoveAble(object, unifier)) != nullptr) {
         return obstacle;
     }
     return nullptr;
@@ -139,48 +139,48 @@ Obstacles::Obstacle *Material::Collision::abscissaObstacleMoveAble(Material::Mat
 Obstacles::Obstacle *Material::Collision::ordinateObstacleMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = _obstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((obstacle = m_obstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return obstacle;
     }
 
-    if ((obstacle = _staticObstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((obstacle = m_staticObstacleCollision->ordinateMoveAble(object, unifier)) != nullptr) {
         return obstacle;
     }
     return nullptr;
 }
 
 void Material::Collision::setAnalysisStepX(float analysisStepX) noexcept {
-    _playerCollision->setAnalysisStepX(analysisStepX);
-    _monsterCollision->setAnalysisStepX(analysisStepX);
-    _obstacleCollision->setAnalysisStepX(analysisStepX);
+    m_playerCollision->setAnalysisStepX(analysisStepX);
+    m_monsterCollision->setAnalysisStepX(analysisStepX);
+    m_obstacleCollision->setAnalysisStepX(analysisStepX);
 }
 
 void Material::Collision::setAnalysisStepY(float analysisStepY) noexcept {
-    _playerCollision->setAnalysisStepY(analysisStepY);
-    _monsterCollision->setAnalysisStepY(analysisStepY);
-    _obstacleCollision->setAnalysisStepY(analysisStepY);
+    m_playerCollision->setAnalysisStepY(analysisStepY);
+    m_monsterCollision->setAnalysisStepY(analysisStepY);
+    m_obstacleCollision->setAnalysisStepY(analysisStepY);
 }
 
 const std::shared_ptr<Material::PlayerCollision> &Material::Collision::getPlayerCollision() const noexcept {
-    return _playerCollision;
+    return m_playerCollision;
 }
 
 const std::shared_ptr<Material::MonsterCollision> &Material::Collision::getMonsterCollision() const noexcept {
-    return _monsterCollision;
+    return m_monsterCollision;
 }
 
 const std::shared_ptr<Material::ObstacleCollision> &Material::Collision::getObstacleCollision() const noexcept {
-    return _obstacleCollision;
+    return m_obstacleCollision;
 }
 
 const std::shared_ptr<Material::StaticObstacleCollision> &Material::Collision::getStaticObstacleCollision() const noexcept {
-    return _staticObstacleCollision;
+    return m_staticObstacleCollision;
 }
 
 const std::shared_ptr<Material::StaticPlayerCollision> &Material::Collision::getStaticPlayerCollision() const noexcept {
-    return _staticPlayerCollision;
+    return m_staticPlayerCollision;
 }
 
 const std::shared_ptr<Material::StaticMonsterCollision> &Material::Collision::getStaticMonsterCollision() const noexcept {
-    return _staticMonsterCollision;
+    return m_staticMonsterCollision;
 }

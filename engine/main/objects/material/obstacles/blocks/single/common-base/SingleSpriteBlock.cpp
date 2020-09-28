@@ -7,34 +7,34 @@
 Obstacles::SingleSpriteBlock::SingleSpriteBlock(const Obstacles::ObstacleProperties &properties,
                                                 const std::shared_ptr<Components::ISpriteBox> &sprite,
                                                 const std::shared_ptr<Material::Collision> &collision)
-        : Obstacles::Obstacle(properties), _sprite(sprite), _collision(collision) {}
+        : Obstacles::Obstacle(properties), m_sprite(sprite), m_collision(collision) {}
 
 void Obstacles::SingleSpriteBlock::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
-    _sprite->setTexture(texture);
+    m_sprite->setTexture(texture);
 }
 
 bool Obstacles::SingleSpriteBlock::collision(float x, float y) const noexcept {
-    return _sprite->collision(x, y);
+    return m_sprite->collision(x, y);
 }
 
 void Obstacles::SingleSpriteBlock::draw(sf::RenderTarget &target) const noexcept {
-    _sprite->draw(target);
+    m_sprite->draw(target);
 }
 
 void Obstacles::SingleSpriteBlock::move(float offsetX, float offsetY) noexcept {
-    _sprite->move(offsetX, offsetY);
+    m_sprite->move(offsetX, offsetY);
 }
 
 void Obstacles::SingleSpriteBlock::rotate(float angle) noexcept {
-    _sprite->rotate(angle);
+    m_sprite->rotate(angle);
 }
 
 void Obstacles::SingleSpriteBlock::rotate(float angle, float x, float y) noexcept {
-    _sprite->rotate(angle, x, y);
+    m_sprite->rotate(angle, x, y);
 }
 
 void Obstacles::SingleSpriteBlock::rotate(float angle, const Components::Point &point) noexcept {
-    _sprite->rotate(angle, point);
+    m_sprite->rotate(angle, point);
 }
 
 void Obstacles::SingleSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {
@@ -51,15 +51,15 @@ const Components::Speed &Obstacles::SingleSpriteBlock::getMoveSpeed() const noex
 }
 
 const Components::Point &Obstacles::SingleSpriteBlock::getPosition() const noexcept {
-    return _sprite->getPosition();
+    return m_sprite->getPosition();
 }
 
 const Components::Size &Obstacles::SingleSpriteBlock::getSize() const noexcept {
-    return _sprite->getSize();
+    return m_sprite->getSize();
 }
 
 float Obstacles::SingleSpriteBlock::getRotation() const noexcept {
-    return _sprite->getRotation();
+    return m_sprite->getRotation();
 }
 
 const Obstacles::ObstacleProperties &Obstacles::SingleSpriteBlock::getProperties() const noexcept {
@@ -67,17 +67,17 @@ const Obstacles::ObstacleProperties &Obstacles::SingleSpriteBlock::getProperties
 }
 
 void Obstacles::SingleSpriteBlock::setPosition(const Components::Point &point) noexcept {
-    _sprite->setPosition(point);
+    m_sprite->setPosition(point);
 }
 
 void Obstacles::SingleSpriteBlock::setPosition(float x, float y) noexcept {
-    _sprite->setPosition(Components::Point(x, y));
+    m_sprite->setPosition(Components::Point(x, y));
 }
 
 void Obstacles::SingleSpriteBlock::setSize(const Components::Size &size) noexcept {
-    _sprite->setSize(size);
+    m_sprite->setSize(size);
 }
 
 void Obstacles::SingleSpriteBlock::setRotation(float angle) noexcept {
-    _sprite->setRotation(angle);
+    m_sprite->setRotation(angle);
 }

@@ -13,12 +13,6 @@ namespace Obstacles {
 
     class SingleSpriteBlock : public Obstacles::Obstacle {
     public:
-        /**
-         * @brief Base block constructor.
-         * @param properties Obstacle properties.
-         * @param sprite Block's sprite.
-         * @param collision Collision algorithms.
-         */
         explicit SingleSpriteBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                                    const std::shared_ptr<Material::Collision> &collision);
 
@@ -65,8 +59,8 @@ namespace Obstacles {
         virtual ~SingleSpriteBlock() = default;
 
     protected:
-        std::shared_ptr<Components::ISpriteBox> _sprite;
-        std::shared_ptr<Material::Collision> _collision;
+        std::shared_ptr<Components::ISpriteBox> m_sprite;
+        std::shared_ptr<Material::Collision> m_collision;
     };
 }
 
