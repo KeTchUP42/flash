@@ -13,6 +13,8 @@ namespace Screen {
 
     class InitialScreenState : public ScreenState {
     public:
+        InitialScreenState(const std::string &filename);
+
         void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) override;
 
         void refresh() override;

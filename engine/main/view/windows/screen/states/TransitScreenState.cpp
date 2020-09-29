@@ -3,15 +3,15 @@
 //
 
 #include "TransitScreenState.h"
-#include "../../../../objects/generating/level/StartLevelFactory.h"
+#include "../../../../objects/generation/scene/SceneGenerator.h"
 
-Screen::TransitScreenState::TransitScreenState(const std::shared_ptr<Unite::Unifier> &unifier) : m_unifier(unifier) {}
+Screen::TransitScreenState::TransitScreenState(const std::string &filename, const std::shared_ptr<Unite::Unifier> &unifier)
+        : Screen::ScreenState(filename), m_unifier(unifier) {}
 
 void Screen::TransitScreenState::
 load(Screen::StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
-    //todo !!!
-    Generating::StartLevelFactory lvl_factory;
-    lvl_factory.loadLevel(m_unifier.get(), context, manager, target);
+    Generating::SceneGenerator generator(context, manager);
+    generator.loadScene(m_scene_filename, *m_unifier.get(), target);
 }
 
 void Screen::TransitScreenState::refresh() {

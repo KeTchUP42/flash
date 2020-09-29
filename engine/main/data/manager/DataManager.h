@@ -12,6 +12,7 @@
 #include "config-manager/ConfigManager.h"
 #include "texture-manager/TextureManager.h"
 #include "font-manager/FontManager.h"
+#include "scene-manager/SceneManager.h"
 
 namespace Managers {
 
@@ -24,11 +25,11 @@ namespace Managers {
     class DataManager {
     public:
         explicit DataManager(AudioManager *audioManager, ConfigManager *configManager, FontManager *fontManager,
-                             LogManager *logManager, TextureManager *textureManager);
+                             LogManager *logManager, SceneManager *sceneManager, TextureManager *textureManager);
 
-        explicit DataManager(const std::shared_ptr<AudioManager> &audioManager,const std::shared_ptr<ConfigManager> &configManager,
+        explicit DataManager(const std::shared_ptr<AudioManager> &audioManager, const std::shared_ptr<ConfigManager> &configManager,
                              const std::shared_ptr<FontManager> &fontManager, const std::shared_ptr<LogManager> &logManager,
-                             const std::shared_ptr<TextureManager> &textureManager);
+                             const std::shared_ptr<SceneManager> &sceneManager, const std::shared_ptr<TextureManager> &textureManager);
 
         /**
          * @brief Method returns AudioManager.
@@ -55,6 +56,12 @@ namespace Managers {
         std::shared_ptr<LogManager> getLogManager() const noexcept;
 
         /**
+         * @brief Method returns SceneManager.
+         * @return SceneManager
+         */
+        const std::shared_ptr<SceneManager> &getSceneManager() const;
+
+        /**
          * @brief Method returns TextureManager.
          * @return TextureManager
          */
@@ -67,6 +74,7 @@ namespace Managers {
         std::shared_ptr<ConfigManager> m_configManager;
         std::shared_ptr<FontManager> m_fontManager;
         std::shared_ptr<LogManager> m_logManager;
+        std::shared_ptr<SceneManager> m_sceneManager;
         std::shared_ptr<TextureManager> m_textureManager;
     };
 }

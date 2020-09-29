@@ -27,7 +27,8 @@ Triggers::ResultCodes Triggers::PlainLevelTrigger::verifyTrigger(Unite::Unifier 
                 new_unifier->addPlayer(player);
             }
 
-            m_context->setScreenState(new Screen::TransitScreenState(new_unifier));
+            m_context->setScreenState(new Screen::TransitScreenState("", new_unifier));
+            //todo: Fix Triggers. Make new base "new Level" trigger class.
             return ResultCodes::STOP;
         }
     }

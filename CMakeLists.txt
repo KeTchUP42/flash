@@ -12,8 +12,6 @@ set(MAIN init/main.cpp)
 # Including source files:
 include(engine/engine-build.cmake)
 
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
-
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
