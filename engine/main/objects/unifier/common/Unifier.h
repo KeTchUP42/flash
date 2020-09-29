@@ -312,8 +312,8 @@ namespace Unite {
     };
 }
 
-#include "../../material/mobs/player/common-base/Player.h"
-#include "../../material/mobs/monsters/common-base/Monster.h"
+#include "../../material/mobs/player/common/base/Player.h"
+#include "../../material/mobs/monsters/common/base/Monster.h"
 #include "../../material/obstacles/common/Obstacle.h"
 #include "../../static/triggers/Trigger.h"
 #include "../../static/effects/Effect.h"

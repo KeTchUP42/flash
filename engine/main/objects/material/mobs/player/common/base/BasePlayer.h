@@ -6,7 +6,7 @@
 #define FLASH_BASEPLAYER_H
 
 #include "Player.h"
-#include "../../../common/algorithms/Algorithms.h"
+#include "../../../../common/algorithms/Algorithms.h"
 
 namespace Mobs {
 

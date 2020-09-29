@@ -6,7 +6,7 @@
 #define FLASH_BASEMONSTER_H
 
 #include "Monster.h"
-#include "../../../common/algorithms/Algorithms.h"
+#include "../../../../common/algorithms/Algorithms.h"
 
 namespace Mobs {
 

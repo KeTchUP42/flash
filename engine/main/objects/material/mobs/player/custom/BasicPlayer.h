@@ -5,7 +5,7 @@
 #ifndef FLASH_BASICPLAYER_H
 #define FLASH_BASICPLAYER_H
 
-#include "../common-base/BasePlayer.h"
+#include "../common/base/BasePlayer.h"
 #include "../../../common/collision/CollisionStrategy.h"
 #include "../../../common/collision/moving-collision/ObstacleCollision.h"
 #include "../../../common/collision/Collision.h"

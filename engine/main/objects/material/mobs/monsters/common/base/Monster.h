@@ -5,10 +5,10 @@
 #ifndef FLASH_MONSTER_H
 #define FLASH_MONSTER_H
 
-#include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../common/properties/MonsterProperties.h"
-#include "../../../../auxiliary/possibilities/Physical.h"
-#include "../../../common/MaterialObject.h"
+#include "../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
+#include "../properties/MonsterProperties.h"
+#include "../../../../../auxiliary/possibilities/Physical.h"
+#include "../../../../common/MaterialObject.h"
 
 #include <memory>
 
