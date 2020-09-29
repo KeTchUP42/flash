@@ -31,8 +31,7 @@ set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.
 set(COMPONENTS ${ELEMENTARY} ${SPRITES})
 set(AUXILIARY ${COMPONENTS})
 
-set(LEVEL engine/main/objects/generating/level/StartLevelFactory.cpp)
-set(GENERATING ${LEVEL})
+set(GENERATION)
 
 set(MONSTERS_COMMON)
 set(MONSTERS ${MONSTERS_COMMON} engine/main/objects/material/mobs/monsters/common-base/Monster.cpp engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.cpp)
@@ -55,9 +54,9 @@ set(EFFECTS engine/main/objects/static/effects/GravityEffect.cpp)
 set(TRIGGERS engine/main/objects/static/triggers/area/PlainLevelTrigger.cpp)
 set(STATIC ${EFFECTS} ${TRIGGERS})
 
-set(UNIFIER engine/main/objects/unifier/common-base/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp)
+set(UNIFIER engine/main/objects/unifier/common/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp)
 
-set(OBJECTS ${AUXILIARY} ${GENERATING} ${MATERIAL} ${STATIC} ${UNIFIER})
+set(OBJECTS ${AUXILIARY} ${GENERATION} ${MATERIAL} ${STATIC} ${UNIFIER})
 
 set(SETUP engine/setup/EngineConfigurator.cpp)
 

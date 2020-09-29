@@ -7,7 +7,7 @@
 
 #include "common-base/ScreenState.h"
 #include "../../../../objects/auxiliary/components/sprite/common-base/ISprite.h"
-#include "../../../../objects/unifier/common-base/Unifier.h"
+#include "../../../../objects/unifier/common/Unifier.h"
 
 namespace Screen {
 

@@ -49,6 +49,6 @@ namespace Material {
     };
 }
 
-#include "../../unifier/common-base/Unifier.h"
+#include "../../unifier/common/Unifier.h"
 
 #endif //FLASH_MATERIALOBJECT_H
