@@ -35,7 +35,7 @@ namespace Generating {
         /**
          * @brief Source pool.
          */
-        SourcePool &m_pool;
+        SourcePool &m_sourcePool;
 
         /**
          * @brief Cache with generators.

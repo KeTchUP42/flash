@@ -39,7 +39,7 @@ std::shared_ptr<sf::Font> Generating::SourcePool::getFont(const std::string &fil
     return m_fonts[filename];
 }
 
-const Generating::AlgorithmsPool &Generating::SourcePool::getAlgpool() const noexcept {
-    return m_algpool;
+Generating::AlgorithmsPool *Generating::SourcePool::getAlgpool() noexcept {
+    return &m_algpool;
 }
 

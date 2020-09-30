@@ -36,6 +36,10 @@ namespace Program {
 
     private:
         /**
+         * @brief Window config file path.
+         */
+        std::string m_windowSettingsFile;
+        /**
          * @brief Pointer with unique data manager object. Uses to search app data.
          */
         Managers::DataManager *m_manager;

@@ -23,7 +23,7 @@ set(OBSERVERS engine/main/view/windows/base/observers/WindowCloseObserver.cpp en
 set(WINDOWS engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/primary/PrimaryWindow.cpp)
 set(SCREEN engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/TransitScreenState.cpp)
 set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
-set(VIEWCREATE engine/main/view/create/window/PrimaryWindowFactory.cpp)
+set(VIEWCREATE engine/main/view/create/window/BasicWindowFactory.cpp)
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
@@ -32,7 +32,13 @@ set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.
 set(COMPONENTS ${ELEMENTARY} ${SPRITES})
 set(AUXILIARY ${COMPONENTS})
 
-set(GENERATORS engine/main/objects/generation/scene/generators/obstacles/DullBlockGenerator.cpp)
+set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp)
+set(MONSTERS_GENERATORS)
+set(OBSTACLES_GENERATORS engine/main/objects/generation/scene/generators/obstacles/DullBlockGenerator.cpp)
+set(PLAYERS_GENERATORS)
+set(SPRITES_GENERATORS engine/main/objects/generation/scene/generators/sprites/BackgroundSpriteGenerator.cpp)
+set(TRIGGERS_GENERATORS)
+set(GENERATORS ${EFFECTS_GENERATORS} ${MONSTERS_GENERATORS} ${OBSTACLES_GENERATORS} ${PLAYERS_GENERATORS} ${SPRITES_GENERATORS} ${TRIGGERS_GENERATORS})
 set(IMPLEMENTER engine/main/objects/generation/scene/implementer/Implementer.cpp)
 set(POOLS engine/main/objects/generation/scene/pools/SourcePool.cpp engine/main/objects/generation/scene/pools/GeneratorsPool.cpp engine/main/objects/generation/scene/pools/AlgorithmsPool.cpp)
 set(SCENE ${GENERATORS} ${IMPLEMENTER} ${POOLS} engine/main/objects/generation/scene/SceneGenerator.cpp)

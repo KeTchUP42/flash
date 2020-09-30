@@ -2,7 +2,7 @@
 // Created by roman on 23.08.2020.
 //
 
-#include "PrimaryWindowFactory.h"
+#include "BasicWindowFactory.h"
 #include "../../windows/custom/primary/PrimaryWindow.h"
 #include "../../windows/base/observers/WindowCloseObserver.h"
 #include "../../windows/screen/states/InitialScreenState.h"
@@ -12,7 +12,7 @@
 #include <cstdlib>
 
 std::shared_ptr<WindowView::Window>
-ViewCreate::PrimaryWindowFactory::create(const std::string &filename, Managers::DataManager *manager) const {
+ViewCreate::BasicWindowFactory::create(const std::string &filename, Managers::DataManager *manager) const {
     IniProcessorUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
 
     //context settings

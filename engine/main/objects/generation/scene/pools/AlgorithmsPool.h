@@ -25,13 +25,13 @@ namespace Generating {
          * @brief Method loads collsion.
          * @return Collision.
          */
-        std::shared_ptr<Material::Collision> loadCollision(const std::pair<float, float> &params) const noexcept;
+        std::shared_ptr<Material::Collision> loadCollision(const std::pair<float, float> &params) noexcept;
 
     protected:
         /**
          * @brief Collision cache.
          */
-        mutable std::map<std::pair<float, float>, std::shared_ptr<Material::Collision>> m_collision;
+        std::map<std::pair<float, float>, std::shared_ptr<Material::Collision>> m_collision;
     };
 }
 

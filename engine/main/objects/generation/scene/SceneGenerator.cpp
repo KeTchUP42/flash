@@ -15,7 +15,6 @@ void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::U
 
     for (Analyzer::IniData::const_iterator block = data.cbegin(); block != data.cend(); ++block) {
         if (block->first == "") continue;
-        m_gen_pool.load(std::regex_replace(block->first, std::regex{"_.*"}, ""))
-                ->load(block->second, unifier, target);
+        m_gen_pool.load(std::regex_replace(block->first, std::regex{"_.*"}, ""))->load(block->second, unifier, target);
     }
 }

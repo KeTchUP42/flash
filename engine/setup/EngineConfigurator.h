@@ -20,10 +20,10 @@ namespace Setup {
     class EngineConfigurator {
     public:
         /**
-         * @brief Method reads config and returns data managers in DataManager facade class object.
+         * @brief Method reads data block and returns data managers in DataManager facade class object.
          * @return Created data manager.
          */
-        virtual Managers::DataManager *load(const std::string &filename) const;
+        Managers::DataManager *load(const IniProcessorUtil::Analyzer::IniBlock &block) const;
 
         virtual ~EngineConfigurator() = default;
     };

@@ -54,7 +54,7 @@ namespace Generating {
          * @brief Method returns algorithms pool.
          * @return Algorithms pool.
          */
-        const Generating::AlgorithmsPool &getAlgpool() const noexcept;
+        Generating::AlgorithmsPool *getAlgpool() noexcept;
 
     protected:
 
