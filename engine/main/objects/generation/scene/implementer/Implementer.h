@@ -12,12 +12,12 @@ namespace Generating {
 
     /**
      * @brief Method contains generating logic.
-     * @param alias Generator alias.
+     * @param name Generator name.
      * @param pool Source pool.
      * @param context State changeable pointer, uses in generators constructing.
      * @return Implement generator.
      */
-    Generator *implement(const std::string &alias, SourcePool &pool, Screen::StateChangeable *context) noexcept;
+    Generator *implement(const std::string &name, SourcePool &pool, Screen::StateChangeable *context);
 }
 
 #endif //FLASH_IMPLEMENTER_H

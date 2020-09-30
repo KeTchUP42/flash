@@ -6,22 +6,27 @@
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/effects/GravityEffectGenerator.h"
 #include "../generators/sprites/BackgroundSpriteGenerator.h"
+#include "../../../../other/exceptions/RuntimeException.h"
+#include "../generators/triggers/SceneAreaTriggerGenerator.h"
 
 Generating::Generator *
-Generating::implement(const std::string &alias, SourcePool &pool, Screen::StateChangeable *context) noexcept {
+Generating::implement(const std::string &name, SourcePool &pool, Screen::StateChangeable *context) {
     using namespace Generating;
     //obstacles
-    if (alias == "DullBlock")
+    if (name == "DullBlock")
         return new DullBlockGenerator(pool);
 
     //effects
-    if (alias == "GravityEffect")
+    if (name == "GravityEffect")
         return new GravityEffectGenerator(pool);
 
     //sprites
-    if (alias == "BackgroundSprite")
+    if (name == "BackgroundSprite")
         return new BackgroundSpriteGenerator(pool);
 
-    //todo: Add alias implementation.
-    return nullptr;
+    //triggers
+    if (name == "SceneAreaTrigger")
+        return new SceneAreaTriggerGenerator(pool, context);
+
+    throw PreferredExceptions::RuntimeException("Invalid generator name: " + name);
 }
