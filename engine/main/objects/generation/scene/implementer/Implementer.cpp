@@ -10,6 +10,6 @@ Generating::implement(const std::string &alias, SourcePool &pool, Screen::StateC
     using namespace Generating;
     if (alias == "DullBlock")
         return new DullBlockGenerator(pool);
-    //.. Add alias implementation.
+    //todo: Add alias implementation.
     return nullptr;
 }
