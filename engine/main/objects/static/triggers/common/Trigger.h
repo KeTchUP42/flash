@@ -5,8 +5,8 @@
 #ifndef FLASH_TRIGGER_H
 #define FLASH_TRIGGER_H
 
-#include "../../unifier/common/Unifier.h"
-#include "../../../view/windows/base/observer/Observer.h"
+#include "../../../unifier/common/Unifier.h"
+#include "../../../../view/windows/base/observer/Observer.h"
 #include "codes/ResultCodes.h"
 
 namespace Triggers {

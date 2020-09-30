@@ -5,13 +5,13 @@
 #ifndef FLASH_AREATRIGGER_H
 #define FLASH_AREATRIGGER_H
 
-#include "../Trigger.h"
+#include "Trigger.h"
 #include "../../../auxiliary/components/elementary/area/Area.h"
 
 namespace Triggers {
 
     /**
-     * @brief The base class of the AreaTrigger class hierarchy. Base interface class for area triggers.
+     * @brief The base class of the AreaTrigger class hierarchy. Base interface class for scene triggers.
      * @namespace Triggers
      *
      * This class defines base AreaTrigger interface.

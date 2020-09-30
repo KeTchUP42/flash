@@ -56,7 +56,7 @@ set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION})
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
 set(EFFECTS engine/main/objects/static/effects/GravityEffect.cpp)
-set(TRIGGERS engine/main/objects/static/triggers/area/PlainLevelTrigger.cpp)
+set(TRIGGERS engine/main/objects/static/triggers/scene/PlainSceneTrigger.cpp)
 set(STATIC ${EFFECTS} ${TRIGGERS})
 
 set(UNIFIER engine/main/objects/unifier/common/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp)

@@ -2,14 +2,16 @@
 // Created by roman on 26.09.2020.
 //
 
-#include "PlainLevelTrigger.h"
+#include "PlainSceneTrigger.h"
 #include "../../../unifier/GeneralUnifier.h"
 #include "../../../../view/windows/screen/states/TransitScreenState.h"
 
-Triggers::PlainLevelTrigger::PlainLevelTrigger(const Components::Area &area, Screen::StateChangeable *context)
-        : AreaTrigger(area), m_context(context) {}
+Triggers::PlainSceneTrigger::PlainSceneTrigger(const std::string &filename, const Components::Area &area,
+                                               Screen::StateChangeable *context)
+        : SceneTrigger(filename, area, context) {}
 
-Triggers::ResultCodes Triggers::PlainLevelTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
+
+Triggers::ResultCodes Triggers::PlainSceneTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
     for (const std::shared_ptr<Mobs::Player> &plyr: unifier->getPlayers()) {
 
         float playerX = plyr->getPosition().x;
@@ -27,14 +29,9 @@ Triggers::ResultCodes Triggers::PlainLevelTrigger::verifyTrigger(Unite::Unifier 
                 new_unifier->addPlayer(player);
             }
 
-            m_context->setScreenState(new Screen::TransitScreenState("", new_unifier));
-            //todo: Fix Triggers. Make new base "new Level" trigger class.
+            m_context->setScreenState(new Screen::TransitScreenState(m_scene_filename, new_unifier));
             return ResultCodes::STOP;
         }
     }
     return ResultCodes::OK;
-}
-
-void Triggers::PlainLevelTrigger::update(const sf::Event &event, sf::RenderWindow &sender) {
-    //..
 }

@@ -57,6 +57,17 @@ namespace Generating {
         const Generating::AlgorithmsPool &getAlgpool() const noexcept;
 
     protected:
+
+        /**
+         * @brief Algorithms pool.
+         */
+        AlgorithmsPool m_algpool;
+
+        /**
+         * @brief Do not call "delete" for this ptr.
+         */
+        Managers::DataManager *m_manager;
+
         /**
          * @brief Texture cache.
          */
@@ -76,16 +87,6 @@ namespace Generating {
          * @brief Font cache.
          */
         std::map<std::string, std::shared_ptr<sf::Font>> m_fonts;
-
-        /**
-         * @brief Algorithms pool.
-         */
-        AlgorithmsPool m_algpool;
-
-        /**
-         * @brief Do not call "delete" for this ptr.
-         */
-        Managers::DataManager *m_manager;
     };
 }
 

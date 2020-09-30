@@ -315,7 +315,7 @@ namespace Unite {
 #include "../../material/mobs/player/common/base/Player.h"
 #include "../../material/mobs/monsters/common/base/Monster.h"
 #include "../../material/obstacles/common/Obstacle.h"
-#include "../../static/triggers/Trigger.h"
+#include "../../static/triggers/common/Trigger.h"
 #include "../../static/effects/Effect.h"
 
 #endif //FLASH_UNIFIER_H
