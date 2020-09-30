@@ -28,7 +28,7 @@ namespace Screen {
         /**
          * @brief Constructors may have transit data.
          */
-        ScreenState(const std::string &filename) : m_scene_filename(filename) {};
+        ScreenState(const std::string &filename) : m_sceneFileName(filename) {};
 
         /**
          * @brief Method inits all screen components.
@@ -49,7 +49,7 @@ namespace Screen {
         /**
          * @brief Scene file name.
          */
-        std::string m_scene_filename;
+        std::string m_sceneFileName;
     };
 }
 

@@ -29,7 +29,7 @@ Triggers::ResultCodes Triggers::PlainSceneTrigger::verifyTrigger(Unite::Unifier 
                 new_unifier->addPlayer(player);
             }
 
-            m_context->setScreenState(new Screen::TransitScreenState(m_scene_filename, new_unifier));
+            m_context->setScreenState(new Screen::TransitScreenState(m_sceneFileName, new_unifier));
             return ResultCodes::STOP;
         }
     }

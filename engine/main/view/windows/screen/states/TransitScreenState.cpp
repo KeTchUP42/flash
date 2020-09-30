@@ -11,7 +11,7 @@ Screen::TransitScreenState::TransitScreenState(const std::string &filename, cons
 void Screen::TransitScreenState::
 load(Screen::StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
     Generating::SceneGenerator generator(context, manager);
-    generator.loadScene(m_scene_filename, *m_unifier.get(), target);
+    generator.loadScene(m_sceneFileName, *m_unifier.get(), target);
 }
 
 void Screen::TransitScreenState::refresh() {
