@@ -60,6 +60,22 @@ float Mobs::Monster::getRotation() const noexcept {
     return m_sprite->getRotation();
 }
 
+void Mobs::Monster::setPosition(const Components::Point &point) noexcept {
+    m_sprite->setPosition(point);
+}
+
+void Mobs::Monster::setPosition(float x, float y) noexcept {
+    m_sprite->setPosition(Components::Point(x, y));
+}
+
+void Mobs::Monster::setSize(const Components::Size &size) noexcept {
+    m_sprite->setSize(size);
+}
+
+void Mobs::Monster::setRotation(float angle) noexcept {
+    m_sprite->setRotation(angle);
+}
+
 const std::shared_ptr<Components::ISpriteBox> &Mobs::Monster::getSprite() const noexcept {
     return m_sprite;
 }

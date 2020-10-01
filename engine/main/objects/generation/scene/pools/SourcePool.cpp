@@ -43,3 +43,7 @@ Generating::AlgorithmsPool *Generating::SourcePool::getAlgpool() noexcept {
     return &m_algpool;
 }
 
+Managers::DataManager *Generating::SourcePool::getManager() const noexcept {
+    return m_manager;
+}
+

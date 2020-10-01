@@ -14,6 +14,7 @@
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../auxiliary/components/elementary/Size.h"
 #include "../../auxiliary/possibilities/RectangleGetters.h"
+#include "../../auxiliary/possibilities/RectangleSetters.h"
 
 namespace Unite {
     class Unifier;
@@ -34,6 +35,7 @@ namespace Material {
             public Possibilities::CollisionProne,
             public Possibilities::Rotatable,
             public Possibilities::RectangleGetters,
+            public Possibilities::RectangleSetters,
             public Possibilities::Drawable<sf::RenderTarget>,
             public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:

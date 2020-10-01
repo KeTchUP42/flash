@@ -81,6 +81,14 @@ namespace Mobs {
 
         float getRotation() const noexcept override;
 
+        void setPosition(const Components::Point &point) noexcept override;
+
+        void setPosition(float x, float y) noexcept override;
+
+        void setSize(const Components::Size &size) noexcept override;
+
+        void setRotation(float angle) noexcept override;
+
         virtual ~Player() = default;
 
     protected:

@@ -56,6 +56,12 @@ namespace Generating {
          */
         Generating::AlgorithmsPool *getAlgpool() noexcept;
 
+        /**
+         * @brief Method returns data manager.
+         * @return Manager.
+         */
+        Managers::DataManager *getManager() const noexcept;
+
     protected:
 
         /**

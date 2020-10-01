@@ -1,14 +1,14 @@
 //
-// Created by roman on 29.09.2020.
+// Created by roman on 01.10.2020.
 //
 
-#include "DullBlockGenerator.h"
-#include "../../../../material/obstacles/blocks/single/DullBlock.h"
+#include "MushroomGenerator.h"
+#include "../../../../material/mobs/monsters/custom/mushroom/Mushroom.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
-Generating::DullBlockGenerator::DullBlockGenerator(Generating::SourcePool &pool) : Generator(pool) {}
+Generating::MushroomGenerator::MushroomGenerator(Generating::SourcePool &pool) : Generator(pool) {}
 
-void Generating::DullBlockGenerator::
+void Generating::MushroomGenerator::
 load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     //point
     Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));
@@ -20,9 +20,7 @@ load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, 
     Components::Speed speed(std::stof(data.at("X_SPEED")), std::stof(data.at("Y_SPEED")));
 
     //properties
-    float elasticCoefficient = std::stof(data.at("ELASTIC_COEFFICIENT"));
-    bool isFixed = (std::atoi(data.at("IS_FIXED").c_str()) == 1);
-    Obstacles::ObstacleProperties properties(speed, elasticCoefficient, isFixed);
+    Mobs::MonsterProperties properties(speed);
 
     //texture
     auto texture = m_sourcePool.getTexture(data.at("TEXTURE"));
@@ -34,8 +32,11 @@ load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, 
     std::shared_ptr<Material::Algorithms> algorithms(
             new Material::Algorithms(m_sourcePool.getAlgpool()->loadCollision(collisionParams)));
 
-    unifier.addObstacle(
-            new Obstacles::DullBlock(
-                    properties,
-                    std::make_shared<Components::SpriteBox>(point, size, texture), algorithms));
+    unifier.addMonster(new Mobs::Mushroom(
+            properties,
+            std::shared_ptr<Components::ISpriteBox>(
+                    new Components::SpriteBox(
+                            point,
+                            size,
+                            texture)), algorithms));
 }

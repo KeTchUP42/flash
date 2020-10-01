@@ -75,3 +75,19 @@ const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &Mobs::Player::getKeyMap() con
 const std::shared_ptr<Components::ISpriteBox> &Mobs::Player::getSprite() const noexcept {
     return m_sprite;
 }
+
+void Mobs::Player::setPosition(const Components::Point &point) noexcept {
+    m_sprite->setPosition(point);
+}
+
+void Mobs::Player::setPosition(float x, float y) noexcept {
+    m_sprite->setPosition(Components::Point(x, y));
+}
+
+void Mobs::Player::setSize(const Components::Size &size) noexcept {
+    m_sprite->setSize(size);
+}
+
+void Mobs::Player::setRotation(float angle) noexcept {
+    m_sprite->setRotation(angle);
+}

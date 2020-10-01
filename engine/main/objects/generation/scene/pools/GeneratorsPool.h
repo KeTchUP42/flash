@@ -25,11 +25,11 @@ namespace Generating {
         explicit GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context);
 
         /**
-         * @brief Method returns generator under alias.
+         * @brief Method returns generator with alias.
          * @param alias Generator's alias.
-         * @return Generator pointer.
+         * @return Generator's pointer.
          */
-        std::shared_ptr<Generator> load(const std::string &alias) noexcept;
+        std::shared_ptr<Generator> load(const std::string &alias);
 
     protected:
         /**
