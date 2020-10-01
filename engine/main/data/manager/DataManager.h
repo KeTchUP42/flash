@@ -17,7 +17,7 @@
 namespace Managers {
 
     /**
-     * @brief The base class of the DataManager class hierarchy. Facade class interface.
+     * @brief The base class of the DataManager class hierarchy. Facade class.
      * @namespace Managers
      *
      * This class defines base DataManager interface. DataManager contains all other managers for ease of use.
@@ -35,37 +35,37 @@ namespace Managers {
          * @brief Method returns AudioManager.
          * @return AudioManager
          */
-        std::shared_ptr<AudioManager> getAudioManager() const noexcept;
+        const std::shared_ptr<AudioManager> &getAudioManager() const noexcept;
 
         /**
          * @brief Method returns ConfigManager.
          * @return ConfigManager
          */
-        std::shared_ptr<ConfigManager> getConfigManager() const noexcept;
+        const std::shared_ptr<ConfigManager> &getConfigManager() const noexcept;
 
         /**
          * @brief Method returns FontManager.
          * @return FontManager
          */
-        std::shared_ptr<FontManager> getFontManager() const noexcept;
+        const std::shared_ptr<FontManager> &getFontManager() const noexcept;
 
         /**
          * @brief Method returns LogManager.
          * @return LogManager
          */
-        std::shared_ptr<LogManager> getLogManager() const noexcept;
+        const std::shared_ptr<LogManager> &getLogManager() const noexcept;
 
         /**
          * @brief Method returns SceneManager.
          * @return SceneManager
          */
-        const std::shared_ptr<SceneManager> &getSceneManager() const;
+        const std::shared_ptr<SceneManager> &getSceneManager() const noexcept;
 
         /**
          * @brief Method returns TextureManager.
          * @return TextureManager
          */
-        std::shared_ptr<TextureManager> getTextureManager() const noexcept;
+        const std::shared_ptr<TextureManager> &getTextureManager() const noexcept;
 
         virtual ~DataManager() = default;
 
