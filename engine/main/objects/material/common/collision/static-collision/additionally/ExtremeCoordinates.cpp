@@ -7,7 +7,7 @@
 std::vector<Components::Point>
 Material::extremeCoordinatesAbscissa(const Possibilities::RectangleGetters &rectangle, float absentXValue) noexcept {
     std::vector<Components::Point> result;
-    OtherUtils::RectangleCoordinates coordinates = OtherUtils::coordinates(rectangle);
+    MathUtils::RectangleCoordinates coordinates = MathUtils::coordinates(rectangle);
 
     if (coordinates.point_1.x != absentXValue) {
         result.push_back(coordinates.point_1);
@@ -25,13 +25,13 @@ Material::extremeCoordinatesAbscissa(const Possibilities::RectangleGetters &rect
         result.push_back(coordinates.point_4);
     }
 
-    return std::move(result);
+    return result;
 }
 
 std::vector<Components::Point>
 Material::extremeCoordinatesOrdinate(const Possibilities::RectangleGetters &rectangle, float absentYValue) noexcept {
     std::vector<Components::Point> result;
-    OtherUtils::RectangleCoordinates coordinates = OtherUtils::coordinates(rectangle);
+    MathUtils::RectangleCoordinates coordinates = MathUtils::coordinates(rectangle);
 
     if (coordinates.point_1.y != absentYValue) {
         result.push_back(coordinates.point_1);
@@ -49,5 +49,5 @@ Material::extremeCoordinatesOrdinate(const Possibilities::RectangleGetters &rect
         result.push_back(coordinates.point_4);
     }
 
-    return std::move(result);
+    return result;
 }

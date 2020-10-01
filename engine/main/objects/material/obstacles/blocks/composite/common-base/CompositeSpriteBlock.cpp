@@ -3,7 +3,7 @@
 //
 
 #include "CompositeSpriteBlock.h"
-#include "../../../../../../../utils/other/Calculations.h"
+#include "../../../../../../../utils/math/Rectangle.h"
 
 Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
                                                       const std::shared_ptr<Components::ISprite> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms)
@@ -16,7 +16,7 @@ void Obstacles::CompositeSpriteBlock::loadNewSprite(const std::shared_ptr<Compon
 }
 
 bool Obstacles::CompositeSpriteBlock::collision(float x, float y) const noexcept {
-    return OtherUtils::collision(Components::Point(x, y), *this) && m_sprite->collision(x, y);
+    return MathUtils::collision(Components::Point(x, y), *this) && m_sprite->collision(x, y);
 }
 
 void Obstacles::CompositeSpriteBlock::draw(sf::RenderTarget &target) const noexcept {
@@ -39,7 +39,7 @@ void Obstacles::CompositeSpriteBlock::rotate(float angle, float x, float y) noex
 }
 
 void Obstacles::CompositeSpriteBlock::rotate(float angle, const Components::Point &point) noexcept {
-    m_area.point = OtherUtils::pointToPointRotation(m_area.point, angle, point);
+    m_area.point = MathUtils::pointToPointRotation(m_area.point, angle, point);
     m_sprite->rotate(angle, point);
     m_area.angle += angle;
 }

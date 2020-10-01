@@ -75,8 +75,8 @@ set(LOGGER engine/utils/logger/BasicLogger.cpp engine/utils/logger/formatter/Bas
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
 set(INI engine/utils/Ini/BasicIniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp)
-set(OTHER engine/utils/other/Calculations.cpp)
-set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${OTHER})
+set(MATH engine/utils/math/Rectangle.cpp)
+set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 
 set(EXCEPTIONS engine/main/other/exceptions/Exception.cpp)
 set(OTHER ${EXCEPTIONS})

@@ -7,7 +7,7 @@
 
 #include "../../../../../auxiliary/components/elementary/point/Point.h"
 #include "../../../../../auxiliary/possibilities/RectangleGetters.h"
-#include "../../../../../../../utils/other/Calculations.h"
+#include "../../../../../../../utils/math/Rectangle.h"
 
 #include <vector>
 

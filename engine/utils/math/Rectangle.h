@@ -2,15 +2,15 @@
 // Created by roman on 16.09.2020.
 //
 
-#ifndef FLASH_CALCULATIONS_H
-#define FLASH_CALCULATIONS_H
+#ifndef FLASH_RECTANGLE_H
+#define FLASH_RECTANGLE_H
 
 #include "../../main/objects/auxiliary/possibilities/RectangleGetters.h"
 #include "../../main/objects/auxiliary/components/elementary/Speed.h"
 
 #include <utility>
 
-namespace OtherUtils {
+namespace MathUtils {
 
     /**
      * @brief Struct with all rectangle coordinates.
@@ -28,7 +28,7 @@ namespace OtherUtils {
     /**
      * @brief Function returns rectangle coordinates.
      * @param rectangle Rectangle object.
-     * @return Coordinates
+     * @return Coordinates.
      */
     RectangleCoordinates coordinates(const Possibilities::RectangleGetters &rectangle) noexcept;
 
@@ -53,4 +53,4 @@ namespace OtherUtils {
     std::pair<int, int>
     pointToPointRotationOffset(const Components::Point &base, float angle, const Components::Point &target) noexcept;
 }
-#endif //FLASH_CALCULATIONS_H
+#endif //FLASH_RECTANGLE_H
