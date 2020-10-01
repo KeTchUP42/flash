@@ -7,17 +7,11 @@
 
 #include <memory>
 
-#include "../../windows/base/window/Window.h"
-#include "../../../data/manager/DataManager.h"
+#include "../windows/base/window/Window.h"
+#include "../../data/manager/DataManager.h"
 
 namespace ViewCreate {
 
-    /**
-     * @brief The base class of the WindowFactory factory class hierarchy.
-     * @namespace ViewCreate
-     *
-     * This class defines base WindowFactory interface.
-    */
     class WindowFactory {
     public:
         WindowFactory() = default;
@@ -30,8 +24,8 @@ namespace ViewCreate {
          * @param manager Resource data manager.
          * @return New Window.
          */
-        virtual std::shared_ptr<WindowView::Window>
-        create(const std::string &filename, Managers::DataManager *manager) const = 0;
+        std::shared_ptr<WindowView::Window>
+        create(const std::string &filename, Managers::DataManager *manager) const;
 
         virtual ~WindowFactory() = default;
     };

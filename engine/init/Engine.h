@@ -8,7 +8,6 @@
 #include "../main/data/manager/DataManager.h"
 
 #include <string>
-#include <memory>
 
 namespace Program {
 
@@ -38,7 +37,7 @@ namespace Program {
         /**
          * @brief Window config file path.
          */
-        std::string m_windowSettingsFile;
+        std::string m_WindowSettingsFile;
         /**
          * @brief Pointer with unique data manager object. Uses to search app data.
          */

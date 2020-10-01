@@ -23,7 +23,7 @@ set(OBSERVERS engine/main/view/windows/base/observers/WindowCloseObserver.cpp en
 set(WINDOWS engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/primary/PrimaryWindow.cpp)
 set(SCREEN engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/TransitScreenState.cpp)
 set(WINDOWVIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
-set(VIEWCREATE engine/main/view/create/window/BasicWindowFactory.cpp)
+set(VIEWCREATE engine/main/view/create/WindowFactory.cpp)
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
