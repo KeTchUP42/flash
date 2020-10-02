@@ -17,13 +17,15 @@
 
 namespace Material {
 
-    class Collision : public CollisionStrategy<Material::MaterialObject *, Material::MaterialObject *> {
+    class Collision final : public CollisionStrategy<Material::MaterialObject *, Material::MaterialObject *> {
     public:
         explicit Collision(float analysisStepX, float analysisStepY);
 
-        Material::MaterialObject *abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
+        Material::MaterialObject *
+        abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
-        Material::MaterialObject *ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
+        Material::MaterialObject *
+        ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
         Mobs::Player *abscissaPlayerMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept;
 
@@ -53,7 +55,7 @@ namespace Material {
 
         const std::shared_ptr<Material::StaticMonsterCollision> &getStaticMonsterCollision() const noexcept;
 
-    protected:
+    private:
         std::shared_ptr<Material::PlayerCollision> m_playerCollision;
         std::shared_ptr<Material::MonsterCollision> m_monsterCollision;
         std::shared_ptr<Material::ObstacleCollision> m_obstacleCollision;

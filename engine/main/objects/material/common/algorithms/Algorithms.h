@@ -13,7 +13,7 @@ namespace Material {
      * @brief The Algorithms class. Class contains all algorithms facade class objects.
      * @namespace Material
      *
-     * This class defines base Algorithms realization.
+     * This class defines Algorithms realization.
     */
     class Algorithms {
     public:

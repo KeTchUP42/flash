@@ -27,19 +27,18 @@ IniUtil::BasicIniProcessor::createIni(const IniUtil::Analyzer::IniData &data, co
 void IniUtil::BasicIniProcessor::createIni(const IniUtil::Analyzer::IniData &data, const WriterUtil::Writer &writer,
                                            const std::ios::openmode &mode) const noexcept {
     std::string inidata;
-    for (Analyzer::IniData::const_iterator block = data.cbegin(); block != data.cend(); ++block) {
-
-        if (block->first == NONAME_BLOCK) {
-            for (Analyzer::IniBlock::const_reverse_iterator line = block->second.rbegin();
-                 line != block->second.rend(); ++line) {
+    for (const auto &block: data) {
+        if (block.first == NONAME_BLOCK) {
+            for (Analyzer::IniBlock::const_reverse_iterator line = block.second.rbegin();
+                 line != block.second.rend(); ++line) {
                 inidata = line->first + " = " + line->second + "\n" + inidata;
             }
             continue;
         }
 
-        inidata.append("\n[" + block->first + "]\n");
-        for (Analyzer::IniBlock::const_iterator line = block->second.cbegin(); line != block->second.cend(); ++line) {
-            inidata.append(line->first + " = " + line->second + "\n");
+        inidata.append("\n[" + block.first + "]\n");
+        for (const auto &line: block.second) {
+            inidata.append(line.first + " = " + line.second + "\n");
         }
     }
     writer.write(std::move(inidata), mode);
