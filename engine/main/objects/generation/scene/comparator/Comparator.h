@@ -17,7 +17,7 @@ namespace Generating {
      * @param context State changeable pointer, uses in generators constructing.
      * @return Implement generator.
      */
-    Generator *compare(const std::string &name, SourcePool &pool, Screen::StateChangeable *context);
+    Generator *compare(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context);
 }
 
 #endif //FLASH_COMPARATOR_H

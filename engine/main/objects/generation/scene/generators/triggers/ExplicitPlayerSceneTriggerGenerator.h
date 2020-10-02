@@ -11,7 +11,7 @@ namespace Generating {
 
     class ExplicitPlayerSceneTriggerGenerator : public SceneTriggerGenerator {
     public:
-        explicit ExplicitPlayerSceneTriggerGenerator(SourcePool &pool, Screen::StateChangeable *context);
+        explicit ExplicitPlayerSceneTriggerGenerator(Pools::SourcePool &pool, Screen::StateChangeable *context);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
     };

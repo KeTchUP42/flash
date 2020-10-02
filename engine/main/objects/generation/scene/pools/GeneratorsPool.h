@@ -14,39 +14,41 @@
 
 namespace Generating {
 
-    /**
-     * @brief The GeneratorsPool class.
-     * @namespace Generating
-     *
-     * This class defines GeneratorsPool realization.
-    */
-    class GeneratorsPool {
-    public:
-        explicit GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context);
+    namespace Pools {
 
         /**
-         * @brief Method returns generator with alias.
-         * @param alias Generator's alias.
-         * @return Generator's pointer.
-         */
-        std::shared_ptr<Generator> load(const std::string &alias);
+         * @brief The GeneratorsPool class.
+         * @namespace Generating
+         *
+         * This class defines GeneratorsPool realization.
+        */
+        class GeneratorsPool {
+        public:
+            explicit GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context);
 
-    protected:
-        /**
-         * @brief Source pool.
-         */
-        SourcePool &m_sourcePool;
+            /**
+             * @brief Method returns generator with alias.
+             * @param alias Generator's alias.
+             * @return Generator's pointer.
+             */
+            std::shared_ptr<Generator> load(const std::string &alias);
 
-        /**
-         * @brief Cache with generators.
-         */
-        std::map<std::string, std::shared_ptr<Generator>> m_generators;
+        protected:
+            /**
+             * @brief Source pool.
+             */
+            SourcePool &m_sourcePool;
 
-        /**
-         * @brief Do not call "delete" for this ptr.
-         */
-        Screen::StateChangeable *m_context;
-    };
+            /**
+             * @brief Cache with generators.
+             */
+            std::map<std::string, std::shared_ptr<Generator>> m_generators;
+
+            /**
+             * @brief Do not call "delete" for this ptr.
+             */
+            Screen::StateChangeable *m_context;
+        };
+    }
 }
-
 #endif //FLASH_GENERATORSPOOL_H

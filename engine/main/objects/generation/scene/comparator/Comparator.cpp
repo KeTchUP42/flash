@@ -11,7 +11,7 @@
 #include "../generators/players/BasicPlayerGenerator.h"
 
 Generating::Generator *
-Generating::compare(const std::string &name, SourcePool &pool, Screen::StateChangeable *context) {
+Generating::compare(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
     using namespace Generating;
     //effects
     if (name == "GravityEffect")

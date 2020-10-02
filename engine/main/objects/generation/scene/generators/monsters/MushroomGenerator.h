@@ -11,7 +11,7 @@ namespace Generating {
 
     class MushroomGenerator : public Generator {
     public:
-        MushroomGenerator(SourcePool &pool);
+        MushroomGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
     };

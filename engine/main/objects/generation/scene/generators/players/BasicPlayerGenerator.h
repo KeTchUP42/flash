@@ -11,7 +11,7 @@ namespace Generating {
 
     class BasicPlayerGenerator : public Generator {
     public:
-        BasicPlayerGenerator(SourcePool &pool);
+        BasicPlayerGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
     };

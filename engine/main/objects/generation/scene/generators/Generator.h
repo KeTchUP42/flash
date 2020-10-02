@@ -18,7 +18,7 @@ namespace Generating {
     */
     class Generator {
     public:
-        Generator(SourcePool &pool) : m_sourcePool(pool) {}
+        Generator(Pools::SourcePool &pool) : m_sourcePool(pool) {}
 
         /**
          * @brief Method generats new object from data and adds it to unifier.
@@ -29,7 +29,7 @@ namespace Generating {
         load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) = 0;
 
     protected:
-        SourcePool &m_sourcePool;
+        Pools::SourcePool &m_sourcePool;
     };
 }
 

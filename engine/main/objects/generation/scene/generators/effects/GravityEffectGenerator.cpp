@@ -5,7 +5,7 @@
 #include "GravityEffectGenerator.h"
 #include "../../../../static/effects/GravityEffect.h"
 
-Generating::GravityEffectGenerator::GravityEffectGenerator(Generating::SourcePool &pool) : Generator(pool) {}
+Generating::GravityEffectGenerator::GravityEffectGenerator(Generating::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generating::GravityEffectGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {

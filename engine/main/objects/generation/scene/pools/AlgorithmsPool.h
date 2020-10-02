@@ -13,26 +13,28 @@
 
 namespace Generating {
 
-    /**
-     * @brief The AlgorithmsPool class.
-     * @namespace Generating
-     *
-     * This class defines AlgorithmsPool realization.
-    */
-    class AlgorithmsPool {
-    public:
-        /**
-         * @brief Method loads collsion.
-         * @return Collision.
-         */
-        std::shared_ptr<Material::Collision> loadCollision(const std::pair<float, float> &params) noexcept;
+    namespace Pools {
 
-    protected:
         /**
-         * @brief Collision cache.
-         */
-        std::map<std::pair<float, float>, std::shared_ptr<Material::Collision>> m_collision;
-    };
+         * @brief The AlgorithmsPool class.
+         * @namespace Generating
+         *
+         * This class defines AlgorithmsPool realization.
+        */
+        class AlgorithmsPool {
+        public:
+            /**
+             * @brief Method loads collsion.
+             * @return Collision.
+             */
+            std::shared_ptr<Material::Collision> loadCollision(const std::pair<float, float> &params) noexcept;
+
+        protected:
+            /**
+             * @brief Collision cache.
+             */
+            std::map<std::pair<float, float>, std::shared_ptr<Material::Collision>> m_collision;
+        };
+    }
 }
-
 #endif //FLASH_ALGORITHMSPOOL_H

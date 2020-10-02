@@ -11,7 +11,7 @@
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
-#include "window/WindowConfigurator.h"
+#include "global/GlobalBlockAnalyzer.h"
 
 namespace Generating {
 
@@ -37,22 +37,17 @@ namespace Generating {
         /**
          * @brief Source pool.
          */
-        SourcePool m_source_pool;
+        Pools::SourcePool m_source_pool;
 
         /**
          * @brief Generators pool.
          */
-        GeneratorsPool m_gen_pool;
+        Pools::GeneratorsPool m_gen_pool;
 
         /**
-         * @brief Window configurator.
+         * @brief Global configurator.
          */
-        WindowConfigurator m_configurator;
-
-        /**
-         * @brief Do not call "delete" for this ptr.
-         */
-        Screen::StateChangeable *m_context;
+        GlobalBlockAnalyzer m_analyzer;
 
         /**
          * @brief Do not call "delete" for this ptr.

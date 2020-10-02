@@ -6,7 +6,7 @@
 #include "../../../../material/obstacles/blocks/single/DullBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
-Generating::DullBlockGenerator::DullBlockGenerator(Generating::SourcePool &pool) : Generator(pool) {}
+Generating::DullBlockGenerator::DullBlockGenerator(Generating::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generating::DullBlockGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {

@@ -10,7 +10,7 @@
 
 Generating::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Managers::DataManager *manager)
         : m_source_pool(manager), m_gen_pool(m_source_pool, context),
-          m_configurator(m_source_pool), m_context(context), m_manager(manager) {}
+          m_analyzer(m_source_pool), m_manager(manager) {}
 
 void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
     using namespace IniUtil;
@@ -19,7 +19,7 @@ void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::U
 
     for (const auto &block: data) {
         if (block.first == IniUtil::IniProcessor::NONAME_BLOCK) {
-            m_configurator.configure(block.second, target);
+            m_analyzer.analyze(block.second, target);
             continue;
         }
         if ((generator = m_gen_pool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {

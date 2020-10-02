@@ -12,7 +12,7 @@ namespace Generating {
 
     class SceneTriggerGenerator : public Generator {
     public:
-        explicit SceneTriggerGenerator(SourcePool &pool, Screen::StateChangeable *context)
+        explicit SceneTriggerGenerator(Pools::SourcePool &pool, Screen::StateChangeable *context)
                 : Generator(pool), m_context(context) {}
 
     protected:

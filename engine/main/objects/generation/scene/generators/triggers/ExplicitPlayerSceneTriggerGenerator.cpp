@@ -6,7 +6,7 @@
 #include "../../../../static/triggers/scene/ExplicitPlayerSceneTrigger.h"
 
 Generating::ExplicitPlayerSceneTriggerGenerator::
-ExplicitPlayerSceneTriggerGenerator(Generating::SourcePool &pool, Screen::StateChangeable *context)
+ExplicitPlayerSceneTriggerGenerator(Generating::Pools::SourcePool &pool, Screen::StateChangeable *context)
         : SceneTriggerGenerator(pool, context) {}
 
 void Generating::ExplicitPlayerSceneTriggerGenerator::

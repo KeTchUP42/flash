@@ -7,7 +7,7 @@
 #include "../../../../material/mobs/player/custom/BasicPlayer.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
-Generating::BasicPlayerGenerator::BasicPlayerGenerator(Generating::SourcePool &pool) : Generator(pool) {}
+Generating::BasicPlayerGenerator::BasicPlayerGenerator(Generating::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generating::BasicPlayerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {

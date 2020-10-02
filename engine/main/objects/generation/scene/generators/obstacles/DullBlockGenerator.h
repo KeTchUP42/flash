@@ -11,7 +11,7 @@ namespace Generating {
 
     class DullBlockGenerator : public Generating::Generator {
     public:
-        DullBlockGenerator(SourcePool &pool);
+        DullBlockGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
     };
