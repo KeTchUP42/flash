@@ -21,7 +21,7 @@ namespace WindowView {
         explicit PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
                                Screen::ScreenState *screenState, Managers::DataManager *manager);
 
-    private:
+    public:
         void configure();
 
     protected:

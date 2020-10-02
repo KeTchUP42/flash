@@ -12,7 +12,7 @@
 #include <cstdlib>
 
 std::shared_ptr<WindowView::Window>
-ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataManager *manager) const {
+ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataManager *manager) {
     IniUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
 
     //context settings
@@ -40,10 +40,11 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
 
     //window
     using namespace WindowView;
-    Window *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"], style,
-                                       contextSettings, new Screen::InitialScreenState(iniData["Scene"]["InitSceneFile"]), manager);
+    PrimaryWindow *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"], style, contextSettings,
+                                              new Screen::InitialScreenState(iniData["Scene"]["InitSceneFile"]), manager);
     //fps
     window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
 
+    window->configure(); // Mathod calls initialization mathod.
     return std::shared_ptr<WindowView::Window>(window);
 }
