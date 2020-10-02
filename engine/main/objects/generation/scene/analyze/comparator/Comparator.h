@@ -5,8 +5,8 @@
 #ifndef FLASH_COMPARATOR_H
 #define FLASH_COMPARATOR_H
 
-#include "../generators/Generator.h"
-#include "../../../../view/windows/screen/context-abilities/StateChangeable.h"
+#include "../../generators/Generator.h"
+#include "../../../../../view/windows/screen/context-abilities/StateChangeable.h"
 
 namespace Generating {
 

@@ -3,12 +3,12 @@
 //
 
 #include "Comparator.h"
-#include "../generators/obstacles/DullBlockGenerator.h"
-#include "../generators/effects/GravityEffectGenerator.h"
-#include "../generators/sprites/BackgroundSpriteGenerator.h"
-#include "../generators/triggers/ExplicitPlayerSceneTriggerGenerator.h"
-#include "../generators/monsters/MushroomGenerator.h"
-#include "../generators/players/BasicPlayerGenerator.h"
+#include "../../generators/obstacles/DullBlockGenerator.h"
+#include "../../generators/effects/GravityEffectGenerator.h"
+#include "../../generators/sprites/BackgroundSpriteGenerator.h"
+#include "../../generators/triggers/ExplicitPlayerSceneTriggerGenerator.h"
+#include "../../generators/monsters/MushroomGenerator.h"
+#include "../../generators/players/BasicPlayerGenerator.h"
 
 Generating::Generator *
 Generating::compare(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {

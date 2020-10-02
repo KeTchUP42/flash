@@ -3,7 +3,7 @@
 //
 
 #include "GeneratorsPool.h"
-#include "../comparator/Comparator.h"
+#include "../analyze/comparator/Comparator.h"
 
 Generating::Pools::GeneratorsPool::GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context)
         : m_sourcePool(pool), m_context(context) {}

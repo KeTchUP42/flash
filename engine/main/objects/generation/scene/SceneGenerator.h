@@ -11,7 +11,7 @@
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
-#include "global/GlobalBlockAnalyzer.h"
+#include "analyze/global/GlobalBlockAnalyzer.h"
 
 namespace Generating {
 

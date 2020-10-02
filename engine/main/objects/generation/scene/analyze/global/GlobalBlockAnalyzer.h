@@ -5,7 +5,7 @@
 #ifndef FLASH_GLOBALBLOCKANALYZER_H
 #define FLASH_GLOBALBLOCKANALYZER_H
 
-#include "../pools/SourcePool.h"
+#include "../../pools/SourcePool.h"
 
 namespace Generating {
 
