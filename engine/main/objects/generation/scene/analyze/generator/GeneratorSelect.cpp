@@ -2,7 +2,7 @@
 // Created by roman on 29.09.2020.
 //
 
-#include "Comparator.h"
+#include "GeneratorSelect.h"
 #include "../../generators/obstacles/DullBlockGenerator.h"
 #include "../../generators/effects/GravityEffectGenerator.h"
 #include "../../generators/sprites/BackgroundSpriteGenerator.h"
@@ -11,7 +11,7 @@
 #include "../../generators/players/BasicPlayerGenerator.h"
 
 Generating::Generator *
-Generating::compare(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
+Generating::Select::select(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
     using namespace Generating;
     //effects
     if (name == "GravityEffect")

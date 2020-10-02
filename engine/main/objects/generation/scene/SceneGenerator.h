@@ -11,7 +11,7 @@
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
-#include "analyze/global/GlobalBlockAnalyzer.h"
+#include "analyze/block/GlobalBlockAnalyzer.h"
 
 namespace Generating {
 
@@ -42,7 +42,7 @@ namespace Generating {
         /**
          * @brief Generators pool.
          */
-        Pools::GeneratorsPool m_gen_pool;
+        Pools::GeneratorsPool m_generators_pool;
 
         /**
          * @brief Global configurator.
