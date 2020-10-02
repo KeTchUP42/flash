@@ -40,8 +40,9 @@ set(SPRITES_GENERATORS engine/main/objects/generation/scene/generators/sprites/B
 set(TRIGGERS_GENERATORS engine/main/objects/generation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp)
 set(GENERATORS ${EFFECTS_GENERATORS} ${MONSTERS_GENERATORS} ${OBSTACLES_GENERATORS} ${PLAYERS_GENERATORS} ${SPRITES_GENERATORS} ${TRIGGERS_GENERATORS})
 set(COMPARATOR engine/main/objects/generation/scene/comparator/Comparator.cpp)
+set(WINDOW_CONFIGURATOR engine/main/objects/generation/scene/window/WindowConfigurator.cpp)
 set(POOLS engine/main/objects/generation/scene/pools/SourcePool.cpp engine/main/objects/generation/scene/pools/GeneratorsPool.cpp engine/main/objects/generation/scene/pools/AlgorithmsPool.cpp)
-set(SCENE ${GENERATORS} ${COMPARATOR} ${POOLS} engine/main/objects/generation/scene/SceneGenerator.cpp)
+set(SCENE ${GENERATORS} ${COMPARATOR} ${WINDOW_CONFIGURATOR} ${POOLS} engine/main/objects/generation/scene/SceneGenerator.cpp)
 set(GENERATION ${SCENE})
 
 set(MONSTERS_COMMON)

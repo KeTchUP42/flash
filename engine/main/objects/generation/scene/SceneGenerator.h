@@ -11,6 +11,7 @@
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
+#include "window/WindowConfigurator.h"
 
 namespace Generating {
 
@@ -42,6 +43,11 @@ namespace Generating {
          * @brief Generators pool.
          */
         GeneratorsPool m_gen_pool;
+
+        /**
+         * @brief Window configurator.
+         */
+        WindowConfigurator m_configurator;
 
         /**
          * @brief Do not call "delete" for this ptr.
