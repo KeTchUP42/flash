@@ -4,7 +4,7 @@
 
 #include "SceneGenerator.h"
 #include "../../../../utils/Ini/IniProcessor.h"
-#include "../../../other/exceptions/RuntimeException.h"
+#include "../../../other/exceptions/InvalidArgument.h"
 
 #include <regex>
 
@@ -25,7 +25,7 @@ void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::U
         if ((generator = m_generators_pool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {
             generator->load(block.second, unifier, target);
         } else {
-            throw PreferredExceptions::RuntimeException("Invalid generator's name " + block.first + " in file " + filename);
+            throw PreferredExceptions::InvalidArgument("Invalid generator's name \"" + block.first + "\" in file \"" + filename + "\".");
         }
     }
 }
