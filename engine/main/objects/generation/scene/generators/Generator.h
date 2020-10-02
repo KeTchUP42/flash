@@ -26,7 +26,7 @@ namespace Generating {
          * @param unifier Target unifier.
          */
         virtual void
-        load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) = 0;
+        load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) = 0;
 
     protected:
         SourcePool &m_sourcePool;

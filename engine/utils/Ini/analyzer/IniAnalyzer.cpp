@@ -8,8 +8,8 @@
 
 #include <regex>
 
-IniProcessorUtil::Analyzer::IniData
-IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noexcept {
+IniUtil::Analyzer::IniData
+IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noexcept {
     std::string blockName = IniProcessor::NONAME_BLOCK;
     IniData result = IniData();
     result[blockName] = IniBlock();
@@ -42,7 +42,7 @@ IniProcessorUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) 
     return result;
 }
 
-void IniProcessorUtil::IniAnalyzer::clear(std::string &data) const noexcept {
+void IniUtil::IniAnalyzer::clear(std::string &data) const noexcept {
     data = std::regex_replace(data, std::regex{";.*\n"}, "");
     data = std::regex_replace(data, std::regex{";.*"}, "");
     Trim::trim(data);

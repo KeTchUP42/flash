@@ -9,11 +9,11 @@
 #include <vector>
 #include <string>
 
-namespace IniProcessorUtil {
+namespace IniUtil {
 
     /**
      * @brief The base class of the Analyzer strategy class hierarchy. Uses in IniProcessor hierarchy.
-     * @namespace IniProcessorUtil
+     * @namespace IniUtil
      *
      * This class defines base interface of Analyzer classes.
     */

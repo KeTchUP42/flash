@@ -8,6 +8,6 @@
 Generating::GravityEffectGenerator::GravityEffectGenerator(Generating::SourcePool &pool) : Generator(pool) {}
 
 void Generating::GravityEffectGenerator::
-load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     unifier.addEffect(new Effects::GravityEffect(std::stof(data.at("X_ACCELERATION")), std::stof(data.at("Y_ACCELERATION"))));
 }

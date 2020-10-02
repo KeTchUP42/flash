@@ -10,7 +10,7 @@ Generating::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Man
         : m_source_pool(manager), m_gen_pool(m_source_pool, context), m_context(context), m_manager(manager) {}
 
 void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    using namespace IniProcessorUtil;
+    using namespace IniUtil;
     Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
 
     for (Analyzer::IniData::const_iterator block = data.cbegin(); block != data.cend(); ++block) {

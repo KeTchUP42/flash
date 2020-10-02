@@ -11,8 +11,8 @@
 #include <memory>
 
 Program::Engine::Engine(const std::string &filename) {
-    IniProcessorUtil::BasicIniProcessor iniProcessor(filename);
-    IniProcessorUtil::Analyzer::IniData iniData = iniProcessor.fullparse();
+    IniUtil::BasicIniProcessor iniProcessor(filename);
+    IniUtil::Analyzer::IniData iniData = iniProcessor.fullparse();
     Setup::EngineConfigurator configurator;
     m_manager = configurator.load(iniData["DATA"]);
     m_WindowSettingsFile = iniData["WINDOW"]["WindowSettingsFile"];

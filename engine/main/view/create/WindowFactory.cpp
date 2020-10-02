@@ -13,7 +13,7 @@
 
 std::shared_ptr<WindowView::Window>
 ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataManager *manager) const {
-    IniProcessorUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
+    IniUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
 
     //context settings
     sf::ContextSettings contextSettings;

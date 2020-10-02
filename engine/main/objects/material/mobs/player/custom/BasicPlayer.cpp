@@ -52,7 +52,7 @@ void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender)
 }
 
 void Mobs::BasicPlayer::loadKeyMap(const std::string &filename, Managers::DataManager *manager) {
-    IniProcessorUtil::Analyzer::IniData keymap = manager->getConfigManager()->loadIni(filename);
+    IniUtil::Analyzer::IniData keymap = manager->getConfigManager()->loadIni(filename);
 
     m_keyMap[KeyAlias::Right] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Right"].c_str()));
     m_keyMap[KeyAlias::Left] = static_cast<sf::Keyboard::Key>(std::atoi(keymap["MAP"]["Left"].c_str()));

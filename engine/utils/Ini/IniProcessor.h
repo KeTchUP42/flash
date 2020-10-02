@@ -12,11 +12,11 @@
 
 #include <memory>
 
-namespace IniProcessorUtil {
+namespace IniUtil {
 
     /**
      * @brief The base class of the IniProcessor class hierarchy.
-     * @namespace IniProcessorUtil
+     * @namespace IniUtil
      *
      * This class defines base interface and fields of IniProcessor classes.
     */

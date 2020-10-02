@@ -9,7 +9,7 @@
 Generating::DullBlockGenerator::DullBlockGenerator(Generating::SourcePool &pool) : Generator(pool) {}
 
 void Generating::DullBlockGenerator::
-load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     //point
     Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));
 

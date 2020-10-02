@@ -8,7 +8,7 @@
 #include "IniProcessor.h"
 #include "analyzer/IniAnalyzer.h"
 
-namespace IniProcessorUtil {
+namespace IniUtil {
 
     class BasicIniProcessor : public IniProcessor {
     public:

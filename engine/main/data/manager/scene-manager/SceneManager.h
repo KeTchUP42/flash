@@ -27,9 +27,9 @@ namespace Managers {
         /**
          * @brief Method loads and analizes scene ini config file.
          * @param filename File in scene directory.
-         * @return IniProcessorUtil::Analyzer::IniData
+         * @return IniUtil::Analyzer::IniData
          */
-        IniProcessorUtil::Analyzer::IniData load(const std::string &filename) const;
+        IniUtil::Analyzer::IniData load(const std::string &filename) const;
 
         virtual ~SceneManager() = default;
 

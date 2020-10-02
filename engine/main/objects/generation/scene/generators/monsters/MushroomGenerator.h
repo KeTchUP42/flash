@@ -13,7 +13,7 @@ namespace Generating {
     public:
         MushroomGenerator(SourcePool &pool);
 
-        void load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
+        void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
     };
 }
 

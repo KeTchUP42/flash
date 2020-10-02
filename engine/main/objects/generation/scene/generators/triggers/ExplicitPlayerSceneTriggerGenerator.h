@@ -13,7 +13,7 @@ namespace Generating {
     public:
         explicit ExplicitPlayerSceneTriggerGenerator(SourcePool &pool, Screen::StateChangeable *context);
 
-        void load(const IniProcessorUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
+        void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
     };
 }
 

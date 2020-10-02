@@ -28,9 +28,9 @@ namespace Managers {
         /**
          * @brief Method loads and analizes ini config file.
          * @param filename File in config directory.
-         * @return IniProcessorUtil::Analyzer::IniData
+         * @return IniUtil::Analyzer::IniData
          */
-        IniProcessorUtil::Analyzer::IniData loadIni(const std::string &filename) const;
+        IniUtil::Analyzer::IniData loadIni(const std::string &filename) const;
 
         virtual ~ConfigManager() = default;
 
