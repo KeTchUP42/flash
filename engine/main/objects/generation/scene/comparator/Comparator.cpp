@@ -3,7 +3,6 @@
 //
 
 #include "Comparator.h"
-#include "../../../../other/exceptions/RuntimeException.h"
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/effects/GravityEffectGenerator.h"
 #include "../generators/sprites/BackgroundSpriteGenerator.h"
@@ -38,5 +37,5 @@ Generating::compare(const std::string &name, SourcePool &pool, Screen::StateChan
     if (name == "ExplicitPlayerSceneTrigger")
         return new ExplicitPlayerSceneTriggerGenerator(pool, context);
 
-    throw PreferredExceptions::RuntimeException("Invalid generator's name: " + name);
+    return nullptr;
 }

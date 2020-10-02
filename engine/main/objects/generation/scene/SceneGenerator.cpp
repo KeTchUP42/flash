@@ -4,6 +4,7 @@
 
 #include "SceneGenerator.h"
 #include "../../../../utils/Ini/IniProcessor.h"
+#include "../../../other/exceptions/RuntimeException.h"
 
 #include <regex>
 
@@ -14,12 +15,17 @@ Generating::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Man
 void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
     using namespace IniUtil;
     Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
+    std::shared_ptr<Generator> generator;
 
     for (const auto &block: data) {
         if (block.first == IniUtil::IniProcessor::NONAME_BLOCK) {
             m_configurator.configure(block.second, target);
             continue;
         }
-        m_gen_pool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))->load(block.second, unifier, target);
+        if ((generator = m_gen_pool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {
+            generator->load(block.second, unifier, target);
+        } else {
+            throw PreferredExceptions::RuntimeException("Invalid generator's name " + block.first + " in file " + filename);
+        }
     }
 }
