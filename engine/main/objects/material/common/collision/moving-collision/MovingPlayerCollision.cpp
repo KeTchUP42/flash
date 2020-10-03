@@ -20,7 +20,7 @@ Material::MovingPlayerCollision::abscissaMoveAble(Material::MaterialObject *obje
 
         if (player.get() == object) continue;
 
-        if (movingAbscissaMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *player.get(), ANALYSIS_STEP_Y)) {
+        if (movingAbscissaMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *player, ANALYSIS_STEP_Y)) {
             return player.get();
         }
     }
@@ -38,7 +38,7 @@ Material::MovingPlayerCollision::ordinateMoveAble(Material::MaterialObject *obje
 
         if (player.get() == object) continue;
 
-        if (movingOrdinateMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *player.get(), ANALYSIS_STEP_X)) {
+        if (movingOrdinateMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *player, ANALYSIS_STEP_X)) {
             return player.get();
         }
     }
