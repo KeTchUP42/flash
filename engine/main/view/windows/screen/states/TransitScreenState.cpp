@@ -5,7 +5,7 @@
 #include "TransitScreenState.h"
 #include "../../../../objects/generation/scene/SceneGenerator.h"
 
-Screen::TransitScreenState::TransitScreenState(const std::string &filename, const std::shared_ptr<Unite::Unifier> &unifier)
+Screen::TransitScreenState::TransitScreenState(const std::string &filename, Unite::Unifier *unifier)
         : Screen::ScreenState(filename), m_unifier(unifier) {}
 
 void Screen::TransitScreenState::

@@ -2,8 +2,8 @@
 // Created by roman on 19.09.2020.
 //
 
-#ifndef FLASH_MONSTERCOLLISION_H
-#define FLASH_MONSTERCOLLISION_H
+#ifndef FLASH_MOVINGMONSTERCOLLISION_H
+#define FLASH_MOVINGMONSTERCOLLISION_H
 
 #include "../CollisionStrategy.h"
 #include "../../MaterialObject.h"
@@ -11,9 +11,9 @@
 
 namespace Material {
 
-    class MonsterCollision : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Mobs::Monster *> {
+    class MovingMonsterCollision : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Mobs::Monster *> {
     public:
-        explicit MonsterCollision(float analysisStepX, float analysisStepY);
+        explicit MovingMonsterCollision(float analysisStepX, float analysisStepY);
 
         Mobs::Monster *abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
@@ -21,4 +21,4 @@ namespace Material {
     };
 }
 
-#endif //FLASH_MONSTERCOLLISION_H
+#endif //FLASH_MOVINGMONSTERCOLLISION_H

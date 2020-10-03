@@ -2,8 +2,8 @@
 // Created by roman on 19.09.2020.
 //
 
-#ifndef FLASH_PLAYERCOLLISION_H
-#define FLASH_PLAYERCOLLISION_H
+#ifndef FLASH_MOVINGPLAYERCOLLISION_H
+#define FLASH_MOVINGPLAYERCOLLISION_H
 
 #include "../CollisionStrategy.h"
 #include "../../MaterialObject.h"
@@ -11,9 +11,9 @@
 
 namespace Material {
 
-    class PlayerCollision : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Mobs::Player *> {
+    class MovingPlayerCollision : public MovingCollision, public CollisionStrategy<Material::MaterialObject *, Mobs::Player *> {
     public:
-        explicit PlayerCollision(float analysisStepX, float analysisStepY);
+        explicit MovingPlayerCollision(float analysisStepX, float analysisStepY);
 
         Mobs::Player *abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept override;
 
@@ -21,4 +21,4 @@ namespace Material {
     };
 }
 
-#endif //FLASH_PLAYERCOLLISION_H
+#endif //FLASH_MOVINGPLAYERCOLLISION_H

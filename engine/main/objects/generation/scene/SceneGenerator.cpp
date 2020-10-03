@@ -13,8 +13,7 @@ Generating::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Man
           m_analyzer(m_source_pool), m_manager(manager) {}
 
 void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    using namespace IniUtil;
-    Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
+    IniUtil::Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
     std::shared_ptr<Generator> generator;
 
     for (const auto &block: data) {

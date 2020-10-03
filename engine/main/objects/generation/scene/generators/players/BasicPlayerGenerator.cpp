@@ -30,8 +30,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     std::pair<float, float> collisionParams = std::make_pair<float, float>(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
                                                                            std::stof(data.at("COLLISION_ANALYSIS_STEP")));
 
-    std::shared_ptr<Material::Algorithms> algorithms(
-            new Material::Algorithms(m_sourcePool.getAlgpool()->loadCollision(collisionParams)));
+    Material::Algorithms *algorithms = new Material::Algorithms(m_sourcePool.getAlgpool()->loadCollision(collisionParams));
 
     Mobs::Player *player = new Mobs::BasicPlayer(
             properties,

@@ -7,7 +7,7 @@
 
 #include "../common/base/BasePlayer.h"
 #include "../../../common/collision/CollisionStrategy.h"
-#include "../../../common/collision/moving-collision/ObstacleCollision.h"
+#include "../../../common/collision/moving-collision/MovingObstacleCollision.h"
 #include "../../../common/collision/Collision.h"
 
 namespace Mobs {

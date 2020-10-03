@@ -5,9 +5,9 @@
 #include "Collision.h"
 
 Material::Collision::Collision(float analysisStepX, float analysisStepY)
-        : m_playerCollision(analysisStepX, analysisStepY),
-          m_monsterCollision(analysisStepX, analysisStepY),
-          m_obstacleCollision(analysisStepX, analysisStepY),
+        : m_movingPlayerCollision(analysisStepX, analysisStepY),
+          m_movingMonsterCollision(analysisStepX, analysisStepY),
+          m_movingObstacleCollision(analysisStepX, analysisStepY),
           m_staticPlayerCollision(),
           m_staticMonsterCollision(),
           m_staticObstacleCollision() {}
@@ -16,15 +16,15 @@ Material::MaterialObject *
 Material::Collision::abscissaMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Material::MaterialObject *result;
 
-    if ((result = m_obstacleCollision.abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_movingObstacleCollision.abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = m_monsterCollision.abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_movingMonsterCollision.abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = m_playerCollision.abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_movingPlayerCollision.abscissaMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
@@ -46,15 +46,15 @@ Material::MaterialObject *
 Material::Collision::ordinateMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Material::MaterialObject *result;
 
-    if ((result = m_obstacleCollision.ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_movingObstacleCollision.ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = m_monsterCollision.ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_movingMonsterCollision.ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
-    if ((result = m_playerCollision.ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((result = m_movingPlayerCollision.ordinateMoveAble(object, unifier)) != nullptr) {
         return result;
     }
 
@@ -76,7 +76,7 @@ Mobs::Player *
 Material::Collision::abscissaPlayerMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Player *player;
 
-    if ((player = m_playerCollision.abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((player = m_movingPlayerCollision.abscissaMoveAble(object, unifier)) != nullptr) {
         return player;
     }
 
@@ -90,7 +90,7 @@ Mobs::Player *
 Material::Collision::ordinatePlayerMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Player *player;
 
-    if ((player = m_playerCollision.ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((player = m_movingPlayerCollision.ordinateMoveAble(object, unifier)) != nullptr) {
         return player;
     }
 
@@ -105,7 +105,7 @@ Mobs::Monster *
 Material::Collision::abscissaMonsterMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Monster *monster;
 
-    if ((monster = m_monsterCollision.abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((monster = m_movingMonsterCollision.abscissaMoveAble(object, unifier)) != nullptr) {
         return monster;
     }
 
@@ -119,7 +119,7 @@ Mobs::Monster *
 Material::Collision::ordinateMonsterMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Mobs::Monster *monster;
 
-    if ((monster = m_monsterCollision.ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((monster = m_movingMonsterCollision.ordinateMoveAble(object, unifier)) != nullptr) {
         return monster;
     }
 
@@ -133,7 +133,7 @@ Obstacles::Obstacle *
 Material::Collision::abscissaObstacleMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = m_obstacleCollision.abscissaMoveAble(object, unifier)) != nullptr) {
+    if ((obstacle = m_movingObstacleCollision.abscissaMoveAble(object, unifier)) != nullptr) {
         return obstacle;
     }
 
@@ -147,7 +147,7 @@ Obstacles::Obstacle *
 Material::Collision::ordinateObstacleMoveAble(Material::MaterialObject *object, Unite::Unifier *unifier) const noexcept {
     Obstacles::Obstacle *obstacle;
 
-    if ((obstacle = m_obstacleCollision.ordinateMoveAble(object, unifier)) != nullptr) {
+    if ((obstacle = m_movingObstacleCollision.ordinateMoveAble(object, unifier)) != nullptr) {
         return obstacle;
     }
 
@@ -158,27 +158,27 @@ Material::Collision::ordinateObstacleMoveAble(Material::MaterialObject *object, 
 }
 
 void Material::Collision::setAnalysisStepX(float analysisStepX) noexcept {
-    m_playerCollision.setAnalysisStepX(analysisStepX);
-    m_monsterCollision.setAnalysisStepX(analysisStepX);
-    m_obstacleCollision.setAnalysisStepX(analysisStepX);
+    m_movingPlayerCollision.setAnalysisStepX(analysisStepX);
+    m_movingMonsterCollision.setAnalysisStepX(analysisStepX);
+    m_movingObstacleCollision.setAnalysisStepX(analysisStepX);
 }
 
 void Material::Collision::setAnalysisStepY(float analysisStepY) noexcept {
-    m_playerCollision.setAnalysisStepY(analysisStepY);
-    m_monsterCollision.setAnalysisStepY(analysisStepY);
-    m_obstacleCollision.setAnalysisStepY(analysisStepY);
+    m_movingPlayerCollision.setAnalysisStepY(analysisStepY);
+    m_movingMonsterCollision.setAnalysisStepY(analysisStepY);
+    m_movingObstacleCollision.setAnalysisStepY(analysisStepY);
 }
 
-const Material::PlayerCollision &Material::Collision::getPlayerCollision() const noexcept {
-    return m_playerCollision;
+const Material::MovingPlayerCollision &Material::Collision::getMovingPlayerCollision() const noexcept {
+    return m_movingPlayerCollision;
 }
 
-const Material::MonsterCollision &Material::Collision::getMonsterCollision() const noexcept {
-    return m_monsterCollision;
+const Material::MovingMonsterCollision &Material::Collision::getMovingMonsterCollision() const noexcept {
+    return m_movingMonsterCollision;
 }
 
-const Material::ObstacleCollision &Material::Collision::getObstacleCollision() const noexcept {
-    return m_obstacleCollision;
+const Material::MovingObstacleCollision &Material::Collision::getMovingObstacleCollision() const noexcept {
+    return m_movingObstacleCollision;
 }
 
 const Material::StaticObstacleCollision &Material::Collision::getStaticObstacleCollision() const noexcept {

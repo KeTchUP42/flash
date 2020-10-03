@@ -24,7 +24,7 @@ Triggers::ResultCodes Triggers::ExplicitPlayerSceneTrigger::verifyTrigger(Unite:
             ((playerX + playerWidth > m_area.point.x) && (playerX + playerWidth <= m_area.point.x + m_area.size.width) &&
              (playerY + playerHeight > m_area.point.y) && (playerY + playerHeight <= m_area.point.y + m_area.size.height))) {
 
-            std::shared_ptr<Unite::Unifier> new_unifier(new Unite::GeneralUnifier());
+            Unite::Unifier *new_unifier = new Unite::GeneralUnifier();
             for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
                 player->setPosition(m_target);
                 new_unifier->addPlayer(player);

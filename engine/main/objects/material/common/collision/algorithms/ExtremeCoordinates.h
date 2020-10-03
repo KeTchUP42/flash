@@ -5,9 +5,9 @@
 #ifndef FLASH_EXTREMECOORDINATES_H
 #define FLASH_EXTREMECOORDINATES_H
 
-#include "../../../../../auxiliary/components/elementary/point/Point.h"
-#include "../../../../../auxiliary/possibilities/RectangleGetters.h"
-#include "../../../../../../../utils/math/Rectangle.h"
+#include "../../../../auxiliary/components/elementary/point/Point.h"
+#include "../../../../auxiliary/possibilities/RectangleGetters.h"
+#include "../../../../../../utils/math/Rectangle.h"
 
 #include <vector>
 
