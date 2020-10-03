@@ -8,10 +8,6 @@ Mobs::Mushroom::Mushroom(const Mobs::MonsterProperties &properties, const std::s
                          const std::shared_ptr<Material::Algorithms> &algorithms)
         : BaseMonster(properties, sprite, algorithms) {}
 
-Mobs::Mushroom::Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                         Material::Algorithms *algorithms)
-        : BaseMonster(properties, sprite, algorithms) {}
-
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);
 }

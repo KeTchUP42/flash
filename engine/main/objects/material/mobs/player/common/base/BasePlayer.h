@@ -16,10 +16,6 @@ namespace Mobs {
                             const std::shared_ptr<Material::Algorithms> &algorithms)
                 : Player(properties, sprite), m_algorithms(algorithms) {}
 
-        explicit BasePlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                            Material::Algorithms *algorithms)
-                : Player(properties, sprite), m_algorithms(algorithms) {}
-
     protected:
         std::shared_ptr<Material::Algorithms> m_algorithms;
     };

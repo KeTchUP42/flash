@@ -14,9 +14,6 @@ namespace Mobs {
         explicit Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                           const std::shared_ptr<Material::Algorithms> &algorithms);
 
-        explicit Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                          Material::Algorithms *algorithms);
-
         void selfAction(Unite::Unifier *unifier) override;
 
         void selfMove(Unite::Unifier *unifier) override;

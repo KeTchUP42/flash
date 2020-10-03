@@ -8,11 +8,6 @@ Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties, const s
                                const std::shared_ptr<Material::Algorithms> &algorithms)
         : BasePlayer(properties, sprite, algorithms) {}
 
-Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               Material::Algorithms *algorithms)
-        : BasePlayer(properties, sprite, algorithms) {}
-
-
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);
 }

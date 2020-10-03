@@ -16,10 +16,6 @@ namespace Mobs {
                              const std::shared_ptr<::Material::Algorithms> &algorithms)
                 : Monster(properties, sprite), m_algorithms(algorithms) {}
 
-        explicit BaseMonster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             Material::Algorithms *algorithms)
-                : Monster(properties, sprite), m_algorithms(algorithms) {}
-
     protected:
         std::shared_ptr<::Material::Algorithms> m_algorithms;
     };
