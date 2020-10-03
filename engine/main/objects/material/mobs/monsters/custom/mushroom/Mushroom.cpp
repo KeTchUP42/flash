@@ -19,17 +19,18 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
 void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
-    if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
+    if ((obstacle = m_algorithms->getCollision()->getObstacleCollision().abscissaMoveAble(this, unifier)) != nullptr) {
         m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed);
     }
 
-    if ((obstacle = m_algorithms->getCollision()->getObstacleCollision()->ordinateMoveAble(this, unifier)) != nullptr) {
-        m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
+    if ((obstacle = m_algorithms->getCollision()->getObstacleCollision().ordinateMoveAble(this, unifier)) != nullptr) {
+        m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed *
+                                                     obstacle->getProperties().elasticCoefficient);
     }
 
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
         Mobs::Monster *me;
-        if ((me = m_algorithms->getCollision()->getMonsterCollision()->ordinateMoveAble(player.get(), unifier)) != nullptr) {
+        if ((me = m_algorithms->getCollision()->getMonsterCollision().ordinateMoveAble(player.get(), unifier)) != nullptr) {
             if (me == this) {
                 player->setMoveSpeed(Components::Speed(
                         player->getMoveSpeed().xSpeed,
@@ -40,7 +41,7 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
     }
 
     Mobs::Monster *monster;
-    if ((monster = m_algorithms->getCollision()->getMonsterCollision()->abscissaMoveAble(this, unifier)) != nullptr) {
+    if ((monster = m_algorithms->getCollision()->getMonsterCollision().abscissaMoveAble(this, unifier)) != nullptr) {
         if (((m_properties.speed.xSpeed < 0) && (monster->getMoveSpeed().xSpeed >= 0)) ||
             ((m_properties.speed.xSpeed > 0) && (monster->getMoveSpeed().xSpeed <= 0))) {
             monster->setMoveSpeed(Components::Speed(m_properties.speed.xSpeed > 0 ? 5 : -5, monster->getMoveSpeed().ySpeed - 10));

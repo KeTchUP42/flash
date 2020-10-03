@@ -43,26 +43,26 @@ namespace Material {
 
         void setAnalysisStepY(float analysisStepY) noexcept;
 
-        const std::shared_ptr<Material::PlayerCollision> &getPlayerCollision() const noexcept;
+        const Material::PlayerCollision &getPlayerCollision() const noexcept;
 
-        const std::shared_ptr<Material::MonsterCollision> &getMonsterCollision() const noexcept;
+        const Material::MonsterCollision &getMonsterCollision() const noexcept;
 
-        const std::shared_ptr<Material::ObstacleCollision> &getObstacleCollision() const noexcept;
+        const Material::ObstacleCollision &getObstacleCollision() const noexcept;
 
-        const std::shared_ptr<Material::StaticObstacleCollision> &getStaticObstacleCollision() const noexcept;
+        const Material::StaticObstacleCollision &getStaticObstacleCollision() const noexcept;
 
-        const std::shared_ptr<Material::StaticPlayerCollision> &getStaticPlayerCollision() const noexcept;
+        const Material::StaticPlayerCollision &getStaticPlayerCollision() const noexcept;
 
-        const std::shared_ptr<Material::StaticMonsterCollision> &getStaticMonsterCollision() const noexcept;
+        const Material::StaticMonsterCollision &getStaticMonsterCollision() const noexcept;
 
     private:
-        std::shared_ptr<Material::PlayerCollision> m_playerCollision;
-        std::shared_ptr<Material::MonsterCollision> m_monsterCollision;
-        std::shared_ptr<Material::ObstacleCollision> m_obstacleCollision;
+        Material::PlayerCollision m_playerCollision;
+        Material::MonsterCollision m_monsterCollision;
+        Material::ObstacleCollision m_obstacleCollision;
 
-        std::shared_ptr<Material::StaticPlayerCollision> m_staticPlayerCollision;
-        std::shared_ptr<Material::StaticMonsterCollision> m_staticMonsterCollision;
-        std::shared_ptr<Material::StaticObstacleCollision> m_staticObstacleCollision;
+        Material::StaticPlayerCollision m_staticPlayerCollision;
+        Material::StaticMonsterCollision m_staticMonsterCollision;
+        Material::StaticObstacleCollision m_staticObstacleCollision;
     };
 }
 
