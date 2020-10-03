@@ -5,6 +5,7 @@
 #include "ExplicitPlayerSceneTrigger.h"
 #include "../../../unifier/GeneralUnifier.h"
 #include "../../../../view/windows/screen/states/TransitScreenState.h"
+#include "../../../../../utils/math/Rectangle.h"
 
 Triggers::ExplicitPlayerSceneTrigger::ExplicitPlayerSceneTrigger(const std::string &filename, const Components::Area &area,
                                                                  const Components::Point &target, Screen::StateChangeable *context)
@@ -12,22 +13,14 @@ Triggers::ExplicitPlayerSceneTrigger::ExplicitPlayerSceneTrigger(const std::stri
 
 
 Triggers::ResultCodes Triggers::ExplicitPlayerSceneTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
-    for (const std::shared_ptr<Mobs::Player> &plyr: unifier->getPlayers()) {
+    for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
 
-        float playerX = plyr->getPosition().x;
-        float playerY = plyr->getPosition().y;
-        unsigned playerWidth = plyr->getSize().width;
-        unsigned playerHeight = plyr->getSize().height;
-
-        if (((playerX > m_area.point.x) && (playerX <= m_area.point.x + m_area.size.width) &&
-             (plyr->getPosition().y > m_area.point.y) && (plyr->getPosition().y <= m_area.point.y + m_area.size.height)) ||
-            ((playerX + playerWidth > m_area.point.x) && (playerX + playerWidth <= m_area.point.x + m_area.size.width) &&
-             (playerY + playerHeight > m_area.point.y) && (playerY + playerHeight <= m_area.point.y + m_area.size.height))) {
+        if (MathUtils::collision(m_area, *player)) {
 
             Unite::Unifier *new_unifier = new Unite::GeneralUnifier();
-            for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
-                player->setPosition(m_target);
-                new_unifier->addPlayer(player);
+            for (const std::shared_ptr<Mobs::Player> &plr: unifier->getPlayers()) {
+                plr->setPosition(m_target);
+                new_unifier->addPlayer(plr);
             }
 
             m_context->setScreenState(new Screen::TransitScreenState(m_sceneFileName, new_unifier));

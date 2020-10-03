@@ -14,24 +14,21 @@ MathUtils::RectangleCoordinates::RectangleCoordinates(const Components::Point &p
 
 
 MathUtils::RectangleCoordinates MathUtils::coordinates(const Possibilities::RectangleGetters &rectangle) noexcept {
-    const float angle = rectangle.getRotation() * M_PI / 180;
-    const float sinAngle = std::sin(angle);
-    const float cosAngle = std::cos(angle);
+    const float angleInRadians = rectangle.getRotation() * M_PI / 180;
+    const float sinAngle = std::sin(angleInRadians);
+    const float cosAngle = std::cos(angleInRadians);
 
-    const unsigned int rectangleWidth = rectangle.getSize().width;
-    const unsigned int rectangleHeight = rectangle.getSize().height;
+    float rectangleX = rectangle.getPosition().x;
+    float rectangleY = rectangle.getPosition().y;
 
-    const float rectangleX = rectangle.getPosition().x;
-    const float rectangleY = rectangle.getPosition().y;
+    float rectangleX2 = -sinAngle + cosAngle * rectangle.getSize().width + rectangleX;
+    float rectangleY2 = cosAngle + sinAngle * rectangle.getSize().width + rectangleY;
 
-    float rectangleX2 = -sinAngle + cosAngle * rectangleWidth + rectangleX;
-    float rectangleY2 = cosAngle + sinAngle * rectangleWidth + rectangleY;
+    float rectangleX3 = -sinAngle * rectangle.getSize().height + cosAngle * rectangle.getSize().width + rectangleX;
+    float rectangleY3 = cosAngle * rectangle.getSize().height + sinAngle * rectangle.getSize().width + rectangleY;
 
-    float rectangleX3 = -sinAngle * rectangleHeight + cosAngle * rectangleWidth + rectangleX;
-    float rectangleY3 = cosAngle * rectangleHeight + sinAngle * rectangleWidth + rectangleY;
-
-    float rectangleX4 = -sinAngle * rectangleHeight + cosAngle + rectangleX;
-    float rectangleY4 = cosAngle * rectangleHeight + sinAngle + rectangleY;
+    float rectangleX4 = -sinAngle * rectangle.getSize().height + cosAngle + rectangleX;
+    float rectangleY4 = cosAngle * rectangle.getSize().height + sinAngle + rectangleY;
 
     return MathUtils::RectangleCoordinates(Components::Point(rectangleX, rectangleY),
                                            Components::Point(rectangleX2, rectangleY2),
@@ -56,6 +53,22 @@ bool MathUtils::collision(const Components::Point &point, const Possibilities::R
             (product(point.x, point.y, coordinates.point_4.x, coordinates.point_4.y, coordinates.point_1.x, coordinates.point_1.y) >= 0));
 }
 
+bool MathUtils::
+collision(const Possibilities::RectangleGetters &rectangle1, const Possibilities::RectangleGetters &rectangle2) noexcept {
+    MathUtils::RectangleCoordinates coordinates2 = MathUtils::coordinates(rectangle2);
+    if (collision(coordinates2.point_1, rectangle1)) return true;
+    if (collision(coordinates2.point_2, rectangle1)) return true;
+    if (collision(coordinates2.point_3, rectangle1)) return true;
+    if (collision(coordinates2.point_4, rectangle1)) return true;
+
+    MathUtils::RectangleCoordinates coordinates1 = MathUtils::coordinates(rectangle1);
+    if (collision(coordinates1.point_1, rectangle2)) return true;
+    if (collision(coordinates1.point_2, rectangle2)) return true;
+    if (collision(coordinates1.point_3, rectangle2)) return true;
+    if (collision(coordinates1.point_4, rectangle2)) return true;
+    return false;
+}
+
 Components::Point
 MathUtils::pointToPointRotation(const Components::Point &base, float angle, const Components::Point &target) noexcept {
     const float angleInRadians = angle * M_PI / 180;
@@ -65,7 +78,6 @@ MathUtils::pointToPointRotation(const Components::Point &base, float angle, cons
     return Components::Point(target.x + (target.y - base.y) * sinAngle + (base.x - target.x) * cosAngle,
                              target.y + (base.y - target.y) * cosAngle + (base.x - target.x) * sinAngle);
 }
-
 
 std::pair<int, int>
 pointToPointRotationOffset(const Components::Point &base, float angle, const Components::Point &target) noexcept {

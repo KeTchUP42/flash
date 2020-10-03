@@ -41,6 +41,14 @@ namespace MathUtils {
     bool collision(const Components::Point &point, const Possibilities::RectangleGetters &rectangle) noexcept;
 
     /**
+     * @brief Function checks point being inside the rectangle.
+     * @param rectangle1 Object with rectangle properties.
+     * @param rectangle2 Object with rectangle properties.
+     * @return Result.
+    */
+    bool collision(const Possibilities::RectangleGetters &rectangle1, const Possibilities::RectangleGetters &rectangle2) noexcept;
+
+    /**
      * @brief Function returns new point after rotation base point around target point.
      * @return New Point.
      */
