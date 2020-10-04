@@ -55,6 +55,15 @@ bool MathUtils::collision(const Components::Point &point, const Possibilities::R
 
 bool MathUtils::
 collision(const Possibilities::RectangleGetters &rectangle1, const Possibilities::RectangleGetters &rectangle2) noexcept {
+
+    float rectangle1Diagonal = std::sqrt(std::pow(rectangle1.getSize().width, 2) + std::pow(rectangle1.getSize().height, 2));
+    float rectangle2Diagonal = std::sqrt(std::pow(rectangle2.getSize().width, 2) + std::pow(rectangle2.getSize().height, 2));
+
+    float vectorModule = std::sqrt(std::pow(rectangle1.getPosition().x - rectangle2.getPosition().x, 2) +
+                                   std::pow(rectangle1.getPosition().y - rectangle2.getPosition().y, 2));
+
+    if (vectorModule > (rectangle1Diagonal + rectangle2Diagonal)) return false;
+
     MathUtils::RectangleCoordinates coordinates2 = MathUtils::coordinates(rectangle2);
     if (collision(coordinates2.point_1, rectangle1)) return true;
     if (collision(coordinates2.point_2, rectangle1)) return true;
