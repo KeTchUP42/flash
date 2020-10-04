@@ -27,10 +27,6 @@ namespace Managers {
         explicit DataManager(AudioManager *audioManager, ConfigManager *configManager, FontManager *fontManager,
                              LogManager *logManager, SceneManager *sceneManager, TextureManager *textureManager);
 
-        explicit DataManager(const std::shared_ptr<AudioManager> &audioManager, const std::shared_ptr<ConfigManager> &configManager,
-                             const std::shared_ptr<FontManager> &fontManager, const std::shared_ptr<LogManager> &logManager,
-                             const std::shared_ptr<SceneManager> &sceneManager, const std::shared_ptr<TextureManager> &textureManager);
-
         /**
          * @brief Method returns AudioManager.
          * @return AudioManager

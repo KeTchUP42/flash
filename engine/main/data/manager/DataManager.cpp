@@ -10,12 +10,6 @@ Managers::DataManager::DataManager(Managers::AudioManager *audioManager, Manager
         : m_audioManager(audioManager), m_configManager(configManager), m_fontManager(fontManager),
           m_logManager(logManager), m_sceneManager(sceneManager), m_textureManager(textureManager) {}
 
-Managers::DataManager::DataManager(const std::shared_ptr<AudioManager> &audioManager, const std::shared_ptr<ConfigManager> &configManager,
-                                   const std::shared_ptr<FontManager> &fontManager, const std::shared_ptr<LogManager> &logManager,
-                                   const std::shared_ptr<SceneManager> &sceneManager, const std::shared_ptr<TextureManager> &textureManager)
-        : m_audioManager(audioManager), m_configManager(configManager), m_fontManager(fontManager),
-          m_logManager(logManager), m_sceneManager(sceneManager), m_textureManager(textureManager) {}
-
 const std::shared_ptr<Managers::AudioManager> &Managers::DataManager::getAudioManager() const noexcept {
     return m_audioManager;
 }
