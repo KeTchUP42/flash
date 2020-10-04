@@ -12,13 +12,13 @@
 #include <memory>
 #include <string>
 
-namespace Generating {
+namespace Generate {
 
     namespace Pools {
 
         /**
          * @brief The GeneratorsPool class.
-         * @namespace Generating
+         * @namespace Pools
          *
          * This class defines GeneratorsPool realization.
         */

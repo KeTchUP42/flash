@@ -10,9 +10,9 @@
 #include "../../generators/monsters/MushroomGenerator.h"
 #include "../../generators/players/BasicPlayerGenerator.h"
 
-Generating::Generator *
-Generating::Select::select(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
-    using namespace Generating;
+Generate::Generator *
+Generate::Select::select(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
+    using namespace Generate;
     //effects
     if (name == "GravityEffect")
         return new GravityEffectGenerator(pool);

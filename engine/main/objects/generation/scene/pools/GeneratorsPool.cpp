@@ -5,10 +5,10 @@
 #include "GeneratorsPool.h"
 #include "../analyze/select/GeneratorSelect.h"
 
-Generating::Pools::GeneratorsPool::GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context)
+Generate::Pools::GeneratorsPool::GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context)
         : m_sourcePool(pool), m_context(context) {}
 
-std::shared_ptr<Generating::Generator> Generating::Pools::GeneratorsPool::load(const std::string &alias) {
+std::shared_ptr<Generate::Generator> Generate::Pools::GeneratorsPool::load(const std::string &alias) {
     if (m_generators[alias].get() == nullptr) {
         m_generators[alias] = std::shared_ptr<Generator>(Select::select(alias, m_sourcePool, m_context));
     }

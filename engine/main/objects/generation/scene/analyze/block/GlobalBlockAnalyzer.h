@@ -7,7 +7,7 @@
 
 #include "../../pools/SourcePool.h"
 
-namespace Generating {
+namespace Generate {
 
     class GlobalBlockAnalyzer {
     public:

@@ -8,11 +8,11 @@
 #include "../pools/SourcePool.h"
 #include "../../../unifier/common/Unifier.h"
 
-namespace Generating {
+namespace Generate {
 
     /**
      * @brief The base class of the Generator class hierarchy.
-     * @namespace Generating
+     * @namespace Generate
      *
      * This class defines base Generator interface.
     */

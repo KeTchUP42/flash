@@ -6,7 +6,7 @@
 
 
 std::shared_ptr<Material::Collision>
-Generating::Pools::AlgorithmsPool::loadCollision(const std::pair<float, float> &params) noexcept {
+Generate::Pools::AlgorithmsPool::loadCollision(const std::pair<float, float> &params) noexcept {
     if (m_collision[params].get() == nullptr) {
         m_collision[params] = std::make_shared<Material::Collision>(params.first, params.second);
     }

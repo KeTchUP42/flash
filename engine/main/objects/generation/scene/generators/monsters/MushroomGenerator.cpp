@@ -6,9 +6,9 @@
 #include "../../../../material/mobs/monsters/custom/mushroom/Mushroom.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
-Generating::MushroomGenerator::MushroomGenerator(Generating::Pools::SourcePool &pool) : Generator(pool) {}
+Generate::MushroomGenerator::MushroomGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
-void Generating::MushroomGenerator::
+void Generate::MushroomGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     //point
     Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));

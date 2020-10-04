@@ -5,9 +5,9 @@
 #include "BackgroundSpriteGenerator.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
-Generating::BackgroundSpriteGenerator::BackgroundSpriteGenerator(Generating::Pools::SourcePool &pool) : Generator(pool) {}
+Generate::BackgroundSpriteGenerator::BackgroundSpriteGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
-void Generating::BackgroundSpriteGenerator::
+void Generate::BackgroundSpriteGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     unifier.addBackSprite(
             new Components::SpriteBox(Components::Point(0, 0),

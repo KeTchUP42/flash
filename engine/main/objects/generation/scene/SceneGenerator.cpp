@@ -8,11 +8,11 @@
 
 #include <regex>
 
-Generating::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Managers::DataManager *manager)
+Generate::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Managers::DataManager *manager)
         : m_source_pool(manager), m_generators_pool(m_source_pool, context),
           m_analyzer(m_source_pool), m_manager(manager) {}
 
-void Generating::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
+void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
     IniUtil::Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
     std::shared_ptr<Generator> generator;
 

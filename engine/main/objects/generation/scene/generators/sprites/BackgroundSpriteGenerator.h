@@ -7,7 +7,7 @@
 
 #include "../Generator.h"
 
-namespace Generating {
+namespace Generate {
 
     class BackgroundSpriteGenerator : public Generator {
     public:

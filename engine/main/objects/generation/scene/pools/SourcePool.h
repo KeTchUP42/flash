@@ -10,13 +10,13 @@
 
 #include <map>
 
-namespace Generating {
+namespace Generate {
 
     namespace Pools {
 
         /**
          * @brief The SourcePool class.
-         * @namespace Generating
+         * @namespace Pools
          *
          * This class defines SourcePool realization.
         */
@@ -70,7 +70,7 @@ namespace Generating {
              * @brief Method returns algorithms pool.
              * @return Algorithms pool.
              */
-            Generating::Pools::AlgorithmsPool *getAlgpool() noexcept;
+            Generate::Pools::AlgorithmsPool *getAlgpool() noexcept;
 
             /**
              * @brief Method returns data manager.

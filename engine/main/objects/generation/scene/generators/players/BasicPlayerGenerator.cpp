@@ -7,9 +7,9 @@
 #include "../../../../material/mobs/player/custom/BasicPlayer.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
-Generating::BasicPlayerGenerator::BasicPlayerGenerator(Generating::Pools::SourcePool &pool) : Generator(pool) {}
+Generate::BasicPlayerGenerator::BasicPlayerGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
-void Generating::BasicPlayerGenerator::
+void Generate::BasicPlayerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     //point
     Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));

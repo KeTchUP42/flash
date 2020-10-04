@@ -7,7 +7,7 @@
 
 #include "SceneTriggerGenerator.h"
 
-namespace Generating {
+namespace Generate {
 
     class ExplicitPlayerSceneTriggerGenerator : public SceneTriggerGenerator {
     public:

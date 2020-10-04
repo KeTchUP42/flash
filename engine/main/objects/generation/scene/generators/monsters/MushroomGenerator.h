@@ -7,7 +7,7 @@
 
 #include "../Generator.h"
 
-namespace Generating {
+namespace Generate {
 
     class MushroomGenerator : public Generator {
     public:

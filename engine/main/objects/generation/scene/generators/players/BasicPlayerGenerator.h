@@ -7,7 +7,7 @@
 
 #include "../Generator.h"
 
-namespace Generating {
+namespace Generate {
 
     class BasicPlayerGenerator : public Generator {
     public:

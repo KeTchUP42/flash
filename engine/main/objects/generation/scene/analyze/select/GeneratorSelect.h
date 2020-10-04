@@ -8,7 +8,7 @@
 #include "../../generators/Generator.h"
 #include "../../../../../view/windows/screen/context-abilities/StateChangeable.h"
 
-namespace Generating {
+namespace Generate {
 
     namespace Select {
 

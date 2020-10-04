@@ -8,7 +8,7 @@
 #include "../Generator.h"
 #include "../../../../../view/windows/screen/context-abilities/StateChangeable.h"
 
-namespace Generating {
+namespace Generate {
 
     class SceneTriggerGenerator : public Generator {
     public:

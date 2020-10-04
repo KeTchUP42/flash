@@ -11,13 +11,13 @@
 
 #include "../../../material/common/collision/Collision.h"
 
-namespace Generating {
+namespace Generate {
 
     namespace Pools {
 
         /**
          * @brief The AlgorithmsPool class.
-         * @namespace Generating
+         * @namespace Pools
          *
          * This class defines AlgorithmsPool realization.
         */

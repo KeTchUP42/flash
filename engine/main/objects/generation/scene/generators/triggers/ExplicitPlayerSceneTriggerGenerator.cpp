@@ -6,11 +6,11 @@
 #include "../../../../static/triggers/scene/player/PlayerSceneTrigger.h"
 #include "../../../../static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.h"
 
-Generating::ExplicitPlayerSceneTriggerGenerator::
-ExplicitPlayerSceneTriggerGenerator(Generating::Pools::SourcePool &pool, Screen::StateChangeable *context)
+Generate::ExplicitPlayerSceneTriggerGenerator::
+ExplicitPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
         : SceneTriggerGenerator(pool, context) {}
 
-void Generating::ExplicitPlayerSceneTriggerGenerator::
+void Generate::ExplicitPlayerSceneTriggerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     //point
     Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));

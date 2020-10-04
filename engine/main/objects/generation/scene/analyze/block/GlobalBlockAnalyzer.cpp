@@ -4,10 +4,10 @@
 
 #include "GlobalBlockAnalyzer.h"
 
-Generating::GlobalBlockAnalyzer::GlobalBlockAnalyzer(Generating::Pools::SourcePool &sourcePool)
+Generate::GlobalBlockAnalyzer::GlobalBlockAnalyzer(Generate::Pools::SourcePool &sourcePool)
         : m_source_pool(sourcePool) {}
 
-void Generating::GlobalBlockAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &data, sf::RenderWindow &window) {
+void Generate::GlobalBlockAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &data, sf::RenderWindow &window) {
 
     for (const auto &line : data) {
         if (line.first == "SET_TITLE") {

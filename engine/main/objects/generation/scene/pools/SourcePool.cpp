@@ -4,10 +4,10 @@
 
 #include "SourcePool.h"
 
-Generating::Pools::SourcePool::SourcePool(Managers::DataManager *manager)
+Generate::Pools::SourcePool::SourcePool(Managers::DataManager *manager)
         : m_algpool(), m_manager(manager) {}
 
-std::shared_ptr<sf::Texture> Generating::Pools::SourcePool::getTexture(const std::string &filename) {
+std::shared_ptr<sf::Texture> Generate::Pools::SourcePool::getTexture(const std::string &filename) {
     if (m_textures[filename].get() == nullptr) {
         m_textures[filename] = m_manager->getTextureManager()->loadTexture(filename);
     }
@@ -15,7 +15,7 @@ std::shared_ptr<sf::Texture> Generating::Pools::SourcePool::getTexture(const std
     return m_textures[filename];
 }
 
-std::shared_ptr<sf::Image> Generating::Pools::SourcePool::getImage(const std::string &filename) {
+std::shared_ptr<sf::Image> Generate::Pools::SourcePool::getImage(const std::string &filename) {
     if (m_images[filename].get() == nullptr) {
         m_images[filename] = m_manager->getTextureManager()->loadImage(filename);
     }
@@ -23,7 +23,7 @@ std::shared_ptr<sf::Image> Generating::Pools::SourcePool::getImage(const std::st
     return m_images[filename];
 }
 
-std::shared_ptr<sf::Music> Generating::Pools::SourcePool::getMusic(const std::string &filename) {
+std::shared_ptr<sf::Music> Generate::Pools::SourcePool::getMusic(const std::string &filename) {
     if (m_music[filename].get() == nullptr) {
         m_music[filename] = m_manager->getAudioManager()->loadMusic(filename);
     }
@@ -31,7 +31,7 @@ std::shared_ptr<sf::Music> Generating::Pools::SourcePool::getMusic(const std::st
     return m_music[filename];
 }
 
-std::shared_ptr<sf::Font> Generating::Pools::SourcePool::getFont(const std::string &filename) {
+std::shared_ptr<sf::Font> Generate::Pools::SourcePool::getFont(const std::string &filename) {
     if (m_fonts[filename].get() == nullptr) {
         m_fonts[filename] = m_manager->getFontManager()->loadFont(filename);
     }
@@ -39,19 +39,19 @@ std::shared_ptr<sf::Font> Generating::Pools::SourcePool::getFont(const std::stri
     return m_fonts[filename];
 }
 
-std::string Generating::Pools::SourcePool::getVariable(const std::string &name) const noexcept {
+std::string Generate::Pools::SourcePool::getVariable(const std::string &name) const noexcept {
     return m_variables.at(name);
 }
 
-void Generating::Pools::SourcePool::setVariable(const std::string &name, const std::string &value) noexcept {
+void Generate::Pools::SourcePool::setVariable(const std::string &name, const std::string &value) noexcept {
     m_variables[name] = value;
 }
 
-Generating::Pools::AlgorithmsPool *Generating::Pools::SourcePool::getAlgpool() noexcept {
+Generate::Pools::AlgorithmsPool *Generate::Pools::SourcePool::getAlgpool() noexcept {
     return &m_algpool;
 }
 
-Managers::DataManager *Generating::Pools::SourcePool::getManager() const noexcept {
+Managers::DataManager *Generate::Pools::SourcePool::getManager() const noexcept {
     return m_manager;
 }
 

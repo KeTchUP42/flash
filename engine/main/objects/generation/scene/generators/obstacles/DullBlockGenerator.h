@@ -7,9 +7,9 @@
 
 #include "../Generator.h"
 
-namespace Generating {
+namespace Generate {
 
-    class DullBlockGenerator : public Generating::Generator {
+    class DullBlockGenerator : public Generate::Generator {
     public:
         DullBlockGenerator(Pools::SourcePool &pool);
 

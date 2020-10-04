@@ -13,11 +13,11 @@
 #include "pools/SourcePool.h"
 #include "analyze/block/GlobalBlockAnalyzer.h"
 
-namespace Generating {
+namespace Generate {
 
     /**
      * @brief The SceneGenerator class.
-     * @namespace Generating
+     * @namespace Generate
      *
      * This class defines SceneGenerator realization.
     */

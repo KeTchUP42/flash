@@ -7,7 +7,7 @@
 
 #include "../Generator.h"
 
-namespace Generating {
+namespace Generate {
 
     class GravityEffectGenerator : public Generator {
     public:
