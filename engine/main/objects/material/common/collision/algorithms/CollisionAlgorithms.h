@@ -29,8 +29,8 @@ namespace Material {
     /**
      * @brief Function contains static collision algorithm.
      * @param object Main object.
-     * @param objectMinCoordinates Object's min coordinates. For time optimization.
-     * @param objectMaxCoordinates Object's max coordinates. For time optimization.
+     * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
+     * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
      * @return True or false.
      */
@@ -40,8 +40,8 @@ namespace Material {
     /**
      * @brief Function contains static collision algorithm.
      * @param object Main object.
-     * @param objectMinCoordinates Object's min coordinates. For time optimization.
-     * @param objectMaxCoordinates Object's max coordinates. For time optimization.
+     * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
+     * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
      * @return True or false.
      */
@@ -67,8 +67,8 @@ namespace Material {
     /**
      * @brief Function contains moving collision algorithm.
      * @param object Main object.
-     * @param objectMinCoordinates Object's min coordinates. For time optimization.
-     * @param objectMaxCoordinates Object's max coordinates. For time optimization.
+     * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
+     * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
      * @return True or false.
     */
@@ -78,8 +78,8 @@ namespace Material {
     /**
      * @brief Function contains moving collision algorithm.
      * @param object Main object.
-     * @param objectMinCoordinates Object's min coordinates. For time optimization.
-     * @param objectMaxCoordinates Object's max coordinates. For time optimization.
+     * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
+     * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
      * @return True or false.
      */
