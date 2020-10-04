@@ -3,7 +3,7 @@
 //
 
 #include "GeneratorsPool.h"
-#include "../analyze/generator/GeneratorSelect.h"
+#include "../analyze/select/GeneratorSelect.h"
 
 Generating::Pools::GeneratorsPool::GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context)
         : m_sourcePool(pool), m_context(context) {}
