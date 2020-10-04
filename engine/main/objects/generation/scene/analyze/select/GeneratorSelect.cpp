@@ -9,6 +9,8 @@
 #include "../../generators/triggers/ExplicitPlayerSceneTriggerGenerator.h"
 #include "../../generators/monsters/MushroomGenerator.h"
 #include "../../generators/players/BasicPlayerGenerator.h"
+#include "../../generators/sprites/BackSpriteGenerator.h"
+#include "../../generators/sprites/FrontSpriteGenerator.h"
 
 Generate::Generator *
 Generate::Select::select(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
@@ -32,6 +34,10 @@ Generate::Select::select(const std::string &name, Pools::SourcePool &pool, Scree
     //sprites
     if (name == "BackgroundSprite")
         return new BackgroundSpriteGenerator(pool);
+    if (name == "BackSprite")
+        return new BackSpriteGenerator(pool);
+    if (name == "FrontSprite")
+        return new FrontSpriteGenerator(pool);
 
     //triggers
     if (name == "ExplicitPlayerSceneTrigger")

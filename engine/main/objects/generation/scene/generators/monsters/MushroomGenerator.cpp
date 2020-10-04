@@ -23,14 +23,14 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     Mobs::MonsterProperties properties(speed);
 
     //texture
-    auto texture = m_sourcePool.getTexture(data.at("TEXTURE"));
+    auto texture = m_source.getTexture(data.at("TEXTURE"));
 
     //algorithms
     std::pair<float, float> collisionParams = std::make_pair<float, float>(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
                                                                            std::stof(data.at("COLLISION_ANALYSIS_STEP")));
 
     std::shared_ptr<Material::Algorithms> algorithms(
-            new Material::Algorithms(m_sourcePool.getAlgpool()->loadCollision(collisionParams)));
+            new Material::Algorithms(m_source.getAlgpool()->loadCollision(collisionParams)));
 
     unifier.addMonster(new Mobs::Mushroom(
             properties,

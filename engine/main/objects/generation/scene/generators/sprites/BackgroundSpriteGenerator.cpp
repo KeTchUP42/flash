@@ -12,5 +12,5 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     unifier.addBackSprite(
             new Components::SpriteBox(Components::Point(0, 0),
                                       Components::Size(target.getSize().x, target.getSize().y),
-                                      m_sourcePool.getTexture(data.at("TEXTURE"))));
+                                      m_source.getTexture(data.at("TEXTURE"))));
 }
