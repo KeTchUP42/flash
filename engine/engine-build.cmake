@@ -64,7 +64,9 @@ set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION})
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
 set(EFFECTS engine/main/objects/static/effects/GravityEffect.cpp)
-set(TRIGGERS engine/main/objects/static/triggers/scene/ExplicitPlayerSceneTrigger.cpp)
+
+set(HANDLERS engine/main/objects/static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.cpp)
+set(TRIGGERS ${HANDLERS} engine/main/objects/static/triggers/scene/player/PlayerSceneTrigger.cpp)
 set(STATIC ${EFFECTS} ${TRIGGERS})
 
 set(UNIFIER engine/main/objects/unifier/common/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp)

@@ -11,7 +11,7 @@ Screen::InitialScreenState::InitialScreenState(const std::string &filename) : Sc
 void Screen::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
     m_unifier = std::make_shared<Unite::GeneralUnifier>();
     Generating::SceneGenerator generator(context, manager);
-    generator.loadScene(m_sceneFileName, *m_unifier.get(), target);
+    generator.loadScene(m_SceneFileName, *m_unifier.get(), target);
 }
 
 void Screen::InitialScreenState::refresh() {

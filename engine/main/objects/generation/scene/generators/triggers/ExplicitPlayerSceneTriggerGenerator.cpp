@@ -3,7 +3,8 @@
 //
 
 #include "ExplicitPlayerSceneTriggerGenerator.h"
-#include "../../../../static/triggers/scene/ExplicitPlayerSceneTrigger.h"
+#include "../../../../static/triggers/scene/player/PlayerSceneTrigger.h"
+#include "../../../../static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.h"
 
 Generating::ExplicitPlayerSceneTriggerGenerator::
 ExplicitPlayerSceneTriggerGenerator(Generating::Pools::SourcePool &pool, Screen::StateChangeable *context)
@@ -21,8 +22,9 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     float angle = std::stof(data.at("ANGLE"));
 
     //target point
-    Components::Point targetPoint(std::stof(data.at("TARGET_X")), std::stof(data.at("TARGET_Y")));
+    Components::Point target_point(std::stof(data.at("TARGET_X")), std::stof(data.at("TARGET_Y")));
 
-    unifier.addTrigger(new Triggers::ExplicitPlayerSceneTrigger(
-            data.at("NEXT_SCENE"), Components::Area(point, size, angle), targetPoint, m_context));
+    unifier.addTrigger(new Triggers::PlayerSceneTrigger(
+            data.at("NEXT_SCENE"), Components::Area(point, size, angle),
+            new Triggers::ExplicitPositionPlayerHandler(target_point), m_context));
 }

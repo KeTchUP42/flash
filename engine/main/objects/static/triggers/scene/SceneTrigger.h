@@ -13,13 +13,13 @@ namespace Triggers {
     class SceneTrigger : public AreaTrigger {
     public:
         explicit SceneTrigger(const std::string &filename, const Components::Area &area, Screen::StateChangeable *context)
-                : AreaTrigger(area), m_context(context), m_sceneFileName(filename) {}
+                : AreaTrigger(area), m_context(context), m_SceneFileName(filename) {}
 
         void update(const sf::Event &event, sf::RenderWindow &sender) override {}
 
     protected:
         Screen::StateChangeable *m_context;
-        std::string m_sceneFileName;
+        std::string m_SceneFileName;
     };
 }
 
