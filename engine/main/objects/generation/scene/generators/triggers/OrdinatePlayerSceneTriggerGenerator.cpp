@@ -22,7 +22,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     float angle = std::stof(data.at("ANGLE"));
 
     //target Y
-    float targetY = (data.at("TARGET_Y") == "MAX") ? target.getSize().y : std::stof(data.at("TARGET_Y")); // Checking value name.
+    float targetY = (data.at("TARGET_Y") == "MAX") ? target.getSize().y : std::stof(data.at("TARGET_Y")); // Checking value.
 
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
             data.at("NEXT_SCENE"), Components::Area(point, size, angle),

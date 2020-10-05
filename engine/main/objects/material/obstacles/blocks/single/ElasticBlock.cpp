@@ -4,8 +4,7 @@
 
 #include "ElasticBlock.h"
 
-Obstacles::ElasticBlock::ElasticBlock(const Obstacles::ObstacleProperties &properties,
-                                      const std::shared_ptr<Components::ISpriteBox> &sprite,
+Obstacles::ElasticBlock::ElasticBlock(const Obstacles::ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                                       const std::shared_ptr<Material::Algorithms> &algorithms)
         : SingleSpriteBlock(properties, sprite, algorithms) {}
 
