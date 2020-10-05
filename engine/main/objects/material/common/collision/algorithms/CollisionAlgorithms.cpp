@@ -7,8 +7,8 @@
 #include "CoordinatesCalculation.h"
 
 bool Material::
-staticAbscissaMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                       const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
+staticAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                        const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -47,8 +47,8 @@ staticAbscissaMoveAble(const Components::Point &objectMinCoordinates, const Comp
 }
 
 bool Material::
-staticOrdinateMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                       const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
+staticOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                        const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -87,8 +87,8 @@ staticOrdinateMoveAble(const Components::Point &objectMinCoordinates, const Comp
 }
 
 bool Material::
-movingAbscissaMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                       const Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept {
+movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                        Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -110,6 +110,18 @@ movingAbscissaMoveAble(const Components::Point &objectMinCoordinates, const Comp
     for (float y = objectMinCoordinates.y + yStep; y < objectMaxCoordinates.y; y += yStep) {
 
         if (processed.collision((objectMoveXSpeed > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + objectMoveXSpeed, y)) {
+
+            int moveLength = static_cast<int>(objectMoveXSpeed / 2);
+            int moved = 0;
+            while (moveLength != 0) {
+                if (processed.collision((moveLength > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + moved + moveLength, y)) {
+                    moveLength /= 2;
+                    continue;
+                }
+                object.move(moveLength, 0);
+                moved += moveLength;
+                moveLength += moveLength < 0 ? 1 : -1;
+            }
             return true;
         }
     }
@@ -117,8 +129,8 @@ movingAbscissaMoveAble(const Components::Point &objectMinCoordinates, const Comp
 }
 
 bool Material::
-movingOrdinateMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                       const Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept {
+movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                        Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -140,6 +152,18 @@ movingOrdinateMoveAble(const Components::Point &objectMinCoordinates, const Comp
     for (float x = objectMinCoordinates.x + xStep; x < objectMaxCoordinates.x; x += xStep) {
 
         if (processed.collision(x, (objectMoveYSpeed > 0 ? objectMaxCoordinates.y : objectMinCoordinates.y) + objectMoveYSpeed)) {
+
+            int moveLength = static_cast<int>(objectMoveYSpeed / 2);
+            int moved = 0;
+            while (moveLength != 0) {
+                if (processed.collision(x, (moveLength > 0 ? objectMaxCoordinates.y : objectMinCoordinates.y) + moved + moveLength)) {
+                    moveLength /= 2;
+                    continue;
+                }
+                object.move(0, moveLength);
+                moved += moveLength;
+                moveLength += moveLength < 0 ? 1 : -1;
+            }
             return true;
         }
     }
@@ -147,23 +171,23 @@ movingOrdinateMoveAble(const Components::Point &objectMinCoordinates, const Comp
 }
 
 bool Material::
-staticAbscissaMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
-    return staticAbscissaMoveAble(minCoordinates(object), maxCoordinates(object), object, processed);
+staticAbscissaCollision(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
+    return staticAbscissaCollision(minCoordinates(object), maxCoordinates(object), object, processed);
 }
 
 bool Material::
-staticOrdinateMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
-    return staticOrdinateMoveAble(minCoordinates(object), maxCoordinates(object), object, processed);
+staticOrdinateCollision(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept {
+    return staticOrdinateCollision(minCoordinates(object), maxCoordinates(object), object, processed);
 }
 
 bool Material::
-movingAbscissaMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept {
-    return movingAbscissaMoveAble(minCoordinates(object), maxCoordinates(object), object, processed, yStep);
+movingAbscissaCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept {
+    return movingAbscissaCollision(minCoordinates(object), maxCoordinates(object), object, processed, yStep);
 }
 
 bool Material::
-movingOrdinateMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept {
-    return movingOrdinateMoveAble(minCoordinates(object), maxCoordinates(object), object, processed, xStep);
+movingOrdinateCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept {
+    return movingOrdinateCollision(minCoordinates(object), maxCoordinates(object), object, processed, xStep);
 }
 
 

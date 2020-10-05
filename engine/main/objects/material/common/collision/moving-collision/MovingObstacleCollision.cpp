@@ -20,7 +20,7 @@ Material::MovingObstacleCollision::abscissaMoveAble(Material::MaterialObject *ob
 
         if (obstacle.get() == object) continue;
 
-        if (movingAbscissaMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle, ANALYSIS_STEP_Y)) {
+        if (movingAbscissaCollision(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle, ANALYSIS_STEP_Y)) {
             return obstacle.get();
         }
     }
@@ -38,7 +38,7 @@ Material::MovingObstacleCollision::ordinateMoveAble(Material::MaterialObject *ob
 
         if (obstacle.get() == object) continue;
 
-        if (movingOrdinateMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle, ANALYSIS_STEP_X)) {
+        if (movingOrdinateCollision(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle, ANALYSIS_STEP_X)) {
             return obstacle.get();
         }
     }

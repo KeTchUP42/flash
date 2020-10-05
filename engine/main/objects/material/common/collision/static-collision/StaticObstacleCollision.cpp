@@ -15,7 +15,7 @@ Material::StaticObstacleCollision::abscissaMoveAble(Material::MaterialObject *ob
 
         if (obstacle.get() == object) continue;
 
-        if (staticAbscissaMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle)) {
+        if (staticAbscissaCollision(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle)) {
             return obstacle.get();
         }
     }
@@ -31,7 +31,7 @@ Material::StaticObstacleCollision::ordinateMoveAble(Material::MaterialObject *ob
 
         if (obstacle.get() == object) continue;
 
-        if (staticOrdinateMoveAble(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle))
+        if (staticOrdinateCollision(objectMinCoordinates, objectMaxCoordinates, *object, *obstacle))
             return obstacle.get();
     }
     return nullptr;

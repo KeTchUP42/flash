@@ -16,7 +16,7 @@ namespace Material {
      * @param processed Processed object.
      * @return True or false.
      */
-    bool staticAbscissaMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
+    bool staticAbscissaCollision(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
 
     /**
      * @brief Function contains static collision algorithm.
@@ -24,18 +24,7 @@ namespace Material {
      * @param processed Processed object.
      * @return True or false.
      */
-    bool staticOrdinateMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
-
-    /**
-     * @brief Function contains static collision algorithm.
-     * @param object Main object.
-     * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
-     * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
-     * @param processed Processed object.
-     * @return True or false.
-     */
-    bool staticAbscissaMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                                const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
+    bool staticOrdinateCollision(const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
 
     /**
      * @brief Function contains static collision algorithm.
@@ -45,46 +34,65 @@ namespace Material {
      * @param processed Processed object.
      * @return True or false.
      */
-    bool staticOrdinateMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                                const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
+    bool staticAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                 const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
 
     /**
-     * @brief Function contains moving collision algorithm.
+     * @brief Function contains static collision algorithm.
+     * @param object Main object.
+     * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
+     * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
+     * @param processed Processed object.
+     * @return True or false.
+     */
+    bool staticOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                 const Material::MaterialObject &object, const Material::MaterialObject &processed) noexcept;
+
+    /**
+     * Function contains moving collision algorithm.
+     * After collision event, the main object moves as close as possible to the processed object.
+     *
      * @param object Main object.
      * @param processed Processed object.
      * @return True or false.
     */
-    bool movingAbscissaMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept;
+    bool movingAbscissaCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept;
 
     /**
-     * @brief Function contains moving collision algorithm.
+     * Function contains moving collision algorithm.
+     * After collision event, the main object moves as close as possible to the processed object.
+     *
      * @param object Main object.
      * @param processed Processed object.
      * @return True or false.
      */
-    bool movingOrdinateMoveAble(const Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept;
+    bool movingOrdinateCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept;
 
     /**
-     * @brief Function contains moving collision algorithm.
+     * Function contains moving collision algorithm.
+     * After collision event, the main object moves as close as possible to the processed object.
+     *
      * @param object Main object.
      * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
      * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
      * @return True or false.
     */
-    bool movingAbscissaMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                                const Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept;
+    bool movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                 Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept;
 
     /**
-     * @brief Function contains moving collision algorithm.
+     * Function contains moving collision algorithm.
+     * After collision event, the main object moves as close as possible to the processed object.
+     *
      * @param object Main object.
      * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
      * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
      * @return True or false.
      */
-    bool movingOrdinateMoveAble(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                                const Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept;
+    bool movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                 Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept;
 }
 
 #endif //FLASH_COLLISIONALGORITHMS_H
