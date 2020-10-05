@@ -3,19 +3,19 @@
 //
 
 #include "GeneratorSelect.h"
-#include "../../generators/effects/GravityEffectGenerator.h"
-#include "../../generators/monsters/MushroomGenerator.h"
-#include "../../generators/obstacles/DullBlockGenerator.h"
-#include "../../generators/players/BasicPlayerGenerator.h"
-#include "../../generators/sprites/BackgroundSpriteGenerator.h"
-#include "../../generators/sprites/BackSpriteGenerator.h"
-#include "../../generators/sprites/FrontSpriteGenerator.h"
-#include "../../generators/triggers/ExplicitPlayerSceneTriggerGenerator.h"
-#include "../../generators/triggers/AbscissaPlayerSceneTriggerGenerator.h"
-#include "../../generators/triggers/OrdinatePlayerSceneTriggerGenerator.h"
+#include "../generators/effects/GravityEffectGenerator.h"
+#include "../generators/monsters/MushroomGenerator.h"
+#include "../generators/obstacles/DullBlockGenerator.h"
+#include "../generators/players/BasicPlayerGenerator.h"
+#include "../generators/sprites/BackgroundSpriteGenerator.h"
+#include "../generators/sprites/BackSpriteGenerator.h"
+#include "../generators/sprites/FrontSpriteGenerator.h"
+#include "../generators/triggers/ExplicitPlayerSceneTriggerGenerator.h"
+#include "../generators/triggers/AbscissaPlayerSceneTriggerGenerator.h"
+#include "../generators/triggers/OrdinatePlayerSceneTriggerGenerator.h"
 
 Generate::Generator *
-Generate::Select::select(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
+Generate::selectGenerator(const std::string &name, Pools::SourcePool &pool, Screen::StateChangeable *context) {
     using namespace Generate;
     //effects
     if (name == "GravityEffect")

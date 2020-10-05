@@ -39,10 +39,9 @@ set(PLAYERS_GENERATORS engine/main/objects/generation/scene/generators/players/B
 set(SPRITES_GENERATORS engine/main/objects/generation/scene/generators/sprites/BackgroundSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/BackSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/FrontSpriteGenerator.cpp)
 set(TRIGGERS_GENERATORS engine/main/objects/generation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
 set(GENERATORS ${EFFECTS_GENERATORS} ${MONSTERS_GENERATORS} ${OBSTACLES_GENERATORS} ${PLAYERS_GENERATORS} ${SPRITES_GENERATORS} ${TRIGGERS_GENERATORS})
-set(GENERATOR_SELECTOR engine/main/objects/generation/scene/analyze/select/GeneratorSelect.cpp)
-set(BLOCK_ANALYZER engine/main/objects/generation/scene/analyze/block/GlobalBlockAnalyzer.cpp)
+set(ANALYZE engine/main/objects/generation/scene/analyze/GeneratorSelect.cpp engine/main/objects/generation/scene/analyze/BlockAnalyze.cpp)
 set(POOLS engine/main/objects/generation/scene/pools/SourcePool.cpp engine/main/objects/generation/scene/pools/GeneratorsPool.cpp engine/main/objects/generation/scene/pools/AlgorithmsPool.cpp)
-set(SCENE ${GENERATORS} ${GENERATOR_SELECTOR} ${BLOCK_ANALYZER} ${POOLS} engine/main/objects/generation/scene/SceneGenerator.cpp)
+set(SCENE ${GENERATORS} ${ANALYZE} ${POOLS} engine/main/objects/generation/scene/SceneGenerator.cpp)
 set(GENERATION ${SCENE})
 
 set(MONSTERS_COMMON)

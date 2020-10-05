@@ -2,12 +2,10 @@
 // Created by roman on 02.10.2020.
 //
 
-#include "GlobalBlockAnalyzer.h"
+#include "BlockAnalyze.h"
 
-Generate::GlobalBlockAnalyzer::GlobalBlockAnalyzer(Generate::Pools::SourcePool &sourcePool)
-        : m_source_pool(sourcePool) {}
-
-void Generate::GlobalBlockAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &data, sf::RenderWindow &window) {
+void Generate::
+analyzeIniBlock(const IniUtil::Analyzer::IniBlock &data, Pools::SourcePool &sourcePool, sf::RenderWindow &window) {
 
     for (const auto &line : data) {
         if (line.first == "SET_TITLE") {
@@ -27,6 +25,6 @@ void Generate::GlobalBlockAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &d
             continue;
         }
         //..
-        m_source_pool.setVariable(line.first, line.second);
+        sourcePool.setVariable(line.first, line.second);
     }
 }

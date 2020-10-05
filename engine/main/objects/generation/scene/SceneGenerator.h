@@ -11,7 +11,7 @@
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
-#include "analyze/block/GlobalBlockAnalyzer.h"
+#include "analyze/BlockAnalyze.h"
 
 namespace Generate {
 
@@ -43,11 +43,6 @@ namespace Generate {
          * @brief Generators pool.
          */
         Pools::GeneratorsPool m_generators_pool;
-
-        /**
-         * @brief Global configurator.
-         */
-        GlobalBlockAnalyzer m_analyzer;
 
         /**
          * @brief Do not call "delete" for this ptr.
