@@ -5,8 +5,8 @@
 #ifndef FLASH_COORDINATESCALCULATION_H
 #define FLASH_COORDINATESCALCULATION_H
 
-#include "../../../../auxiliary/components/elementary/point/Point.h"
-#include "../../../../auxiliary/possibilities/RectangleGetters.h"
+#include "../../../../../auxiliary/components/elementary/point/Point.h"
+#include "../../../../../auxiliary/possibilities/RectangleGetters.h"
 
 namespace Material {
     /**
