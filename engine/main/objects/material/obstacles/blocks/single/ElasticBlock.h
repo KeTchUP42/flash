@@ -12,8 +12,7 @@ namespace Obstacles {
 
     class ElasticBlock : public Obstacles::SingleSpriteBlock {
     public:
-        explicit ElasticBlock(const ObstacleProperties &properties,
-                              const std::shared_ptr<Components::ISpriteBox> &sprite,
+        explicit ElasticBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                               const std::shared_ptr<Material::Algorithms> &algorithms);
 
         void selfAction(Unite::Unifier *unifier) override;

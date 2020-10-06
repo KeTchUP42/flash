@@ -16,6 +16,9 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     //size
     Components::Size size(std::atoi(data.at("WIDTH").c_str()), std::atoi(data.at("HEIGHT").c_str()));
 
+    //angle
+    float angle = std::stof(data.at("ANGLE"));
+
     //speed
     Components::Speed speed(std::stof(data.at("X_SPEED")), std::stof(data.at("Y_SPEED")));
 
@@ -34,8 +37,10 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     std::shared_ptr<Material::Algorithms> algorithms(
             new Material::Algorithms(m_source.getAlgpool()->loadCollision(collisionParams)));
 
-    unifier.addObstacle(
-            new Obstacles::DullBlock(
-                    properties,
-                    std::make_shared<Components::SpriteBox>(point, size, texture), algorithms));
+    Obstacles::DullBlock *block =
+            new Obstacles::DullBlock(properties,
+                                     std::make_shared<Components::SpriteBox>(point, size, texture),
+                                     algorithms);
+    block->rotate(angle); //Rotating..
+    unifier.addObstacle(block);
 }

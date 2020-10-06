@@ -9,7 +9,7 @@ Obstacles::DullBlock::DullBlock(const ObstacleProperties &properties, const std:
         : SingleSpriteBlock(properties, sprite, algorithms) {}
 
 void Obstacles::DullBlock::selfAction(Unite::Unifier *unifier) {
-    this->selfMove(unifier);
+    this->selfMove(unifier); //Add other "self" methods if you need.
 }
 
 void Obstacles::DullBlock::selfMove(Unite::Unifier *unifier) {

@@ -22,7 +22,7 @@ Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier
                 new_unifier->addPlayer(plr);
             }
 
-            m_context->setScreenState(new Screen::TransitScreenState(m_SceneFileName, new_unifier));
+            m_context->setScreenState(new Screen::TransitScreenState(m_scene_file, new_unifier));
             return ResultCodes::STOP;
         }
     }

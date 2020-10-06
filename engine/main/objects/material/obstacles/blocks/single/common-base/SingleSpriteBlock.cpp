@@ -4,8 +4,7 @@
 
 #include "SingleSpriteBlock.h"
 
-Obstacles::SingleSpriteBlock::SingleSpriteBlock(const Obstacles::ObstacleProperties &properties,
-                                                const std::shared_ptr<Components::ISpriteBox> &sprite,
+Obstacles::SingleSpriteBlock::SingleSpriteBlock(const Obstacles::ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                                                 const std::shared_ptr<Material::Algorithms> &algorithms)
         : Obstacles::Obstacle(properties), m_sprite(sprite), m_algorithms(algorithms) {}
 

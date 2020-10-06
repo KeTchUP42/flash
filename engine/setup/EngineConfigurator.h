@@ -19,6 +19,8 @@ namespace Setup {
     */
     class EngineConfigurator {
     public:
+        EngineConfigurator() = default;
+
         /**
          * @brief Method reads data block and returns data managers in DataManager facade class object.
          * @return Created data manager.

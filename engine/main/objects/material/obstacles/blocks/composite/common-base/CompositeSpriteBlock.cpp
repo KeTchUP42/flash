@@ -31,7 +31,7 @@ void Obstacles::CompositeSpriteBlock::move(float offsetX, float offsetY) noexcep
 
 void Obstacles::CompositeSpriteBlock::rotate(float angle) noexcept {
     m_sprite->rotate(angle);
-    m_area.angle += angle;
+    m_area.angle += angle; //Week place.
 }
 
 void Obstacles::CompositeSpriteBlock::rotate(float angle, float x, float y) noexcept {
@@ -41,7 +41,7 @@ void Obstacles::CompositeSpriteBlock::rotate(float angle, float x, float y) noex
 void Obstacles::CompositeSpriteBlock::rotate(float angle, const Components::Point &point) noexcept {
     m_area.point = MathUtils::pointToPointRotation(m_area.point, angle, point);
     m_sprite->rotate(angle, point);
-    m_area.angle += angle;
+    m_area.angle += angle; //Week place.
 }
 
 void Obstacles::CompositeSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {
