@@ -16,8 +16,6 @@ namespace Mobs {
                              const std::shared_ptr<::Material::Algorithms> &algorithms)
                 : Monster(properties, sprite), m_algorithms(algorithms) {}
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override {}
-
     protected:
         std::shared_ptr<::Material::Algorithms> m_algorithms;
     };

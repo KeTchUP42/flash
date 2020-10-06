@@ -7,6 +7,7 @@
 
 #include "../generators/Generator.h"
 #include "../../../../view/windows/screen/context-abilities/StateChangeable.h"
+#include "../analyze/GeneratorSelector.h"
 
 #include <map>
 #include <memory>
@@ -35,19 +36,14 @@ namespace Generate {
 
         protected:
             /**
-             * @brief Source pool.
+             * @brief Generators selector.
              */
-            SourcePool &m_sourcePool;
+            Generate::GeneratorSelector m_selector;
 
             /**
              * @brief Cache with generators.
              */
             std::map<std::string, std::shared_ptr<Generator>> m_generators;
-
-            /**
-             * @brief Do not call "delete" for this ptr.
-             */
-            Screen::StateChangeable *m_context;
         };
     }
 }

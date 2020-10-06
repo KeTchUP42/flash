@@ -17,7 +17,6 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
 
         Obstacles::Obstacle *obstacle;
-
         if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(player.get(), unifier->getObstacles())) != nullptr) {
             if (obstacle == this) {
                 player->setMoveSpeed(Components::Speed(
@@ -39,7 +38,6 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
     for (const std::shared_ptr<Mobs::Monster> &monster : unifier->getMonsters()) {
 
         Obstacles::Obstacle *obstacle;
-
         if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(monster.get(), unifier->getObstacles())) != nullptr) {
             if (obstacle == this) {
                 monster->setMoveSpeed(Components::Speed(

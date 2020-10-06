@@ -4,18 +4,16 @@
 
 #include "SceneGenerator.h"
 #include "../../../../utils/Ini/IniProcessor.h"
-#include "analyze/BlockAnalyze.h"
 #include "../../../other/exceptions/InvalidArgument.h"
 
 #include <regex>
 
 Generate::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Managers::DataManager *manager)
-        : m_source_pool(manager), m_generators_pool(m_source_pool, context),
-          m_manager(manager) {}
+        : m_source_pool(manager), m_analyzer(m_source_pool), m_generators_pool(m_source_pool, context), m_manager(manager) {}
 
 void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
     IniUtil::Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
-    Generate::analyzeIniBlock(data[IniUtil::IniProcessor::NONAME_BLOCK], m_source_pool, target);
+    m_analyzer.analyze(data[IniUtil::IniProcessor::NONAME_BLOCK], target);
     std::shared_ptr<Generator> generator;
 
     for (const auto &block: data) {
@@ -24,8 +22,7 @@ void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Uni
         if ((generator = m_generators_pool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {
             generator->load(block.second, unifier, target);
         } else {
-            throw PreferredExceptions::
-            InvalidArgument("Invalid generator's name \"" + block.first + "\" in file \"" + filename + "\".");
+            throw PreferredExceptions::InvalidArgument("Invalid generator's name \"" + block.first + "\" in file \"" + filename + "\".");
         }
     }
 }

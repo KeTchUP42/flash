@@ -2,10 +2,11 @@
 // Created by roman on 02.10.2020.
 //
 
-#include "BlockAnalyze.h"
+#include "BlockAnalyzer.h"
 
-void Generate::
-analyzeIniBlock(const IniUtil::Analyzer::IniBlock &data, Pools::SourcePool &sourcePool, sf::RenderWindow &window) {
+Generate::BlockAnalyzer::BlockAnalyzer(Generate::Pools::SourcePool &sourcePool) : m_sourcePool(sourcePool) {}
+
+void Generate::BlockAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &data, sf::RenderWindow &window) {
 
     for (const auto &line : data) {
         if (line.first == "SET_TITLE") {
@@ -25,6 +26,6 @@ analyzeIniBlock(const IniUtil::Analyzer::IniBlock &data, Pools::SourcePool &sour
             continue;
         }
         //..
-        sourcePool.setVariable(line.first, line.second);
+        m_sourcePool.setVariable(line.first, line.second);
     }
 }

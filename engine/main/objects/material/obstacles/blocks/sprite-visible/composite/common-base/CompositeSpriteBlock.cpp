@@ -5,8 +5,9 @@
 #include "CompositeSpriteBlock.h"
 #include "../../../../../../../../utils/math/Rectangle.h"
 
-Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
-                                                      const std::shared_ptr<Components::ISprite> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms)
+Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const ObstacleProperties &properties, const Components::Area &area,
+                                                      const std::shared_ptr<Components::ISprite> &sprite,
+                                                      const std::shared_ptr<Material::Algorithms> &algorithms)
         : Obstacles::Obstacle(properties), m_area(area), m_sprite(sprite), m_algorithms(algorithms) {
 }
 

@@ -11,7 +11,7 @@
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
-#include "analyze/BlockAnalyze.h"
+#include "analyze/BlockAnalyzer.h"
 
 namespace Generate {
 
@@ -38,6 +38,11 @@ namespace Generate {
          * @brief Source pool.
          */
         Pools::SourcePool m_source_pool;
+
+        /**
+         * @brief Block analyzer.
+         */
+        Generate::BlockAnalyzer m_analyzer;
 
         /**
          * @brief Generators pool.
