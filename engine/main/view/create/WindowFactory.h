@@ -18,8 +18,6 @@ namespace ViewCreate {
 
         /**
          * @brief Base factory method. You can add any additional logic to it.
-         * This method WILL NOT delete DataManager!
-         *
          * @param filename Window config filename.
          * @param manager Resource data manager.
          * @return New Window.

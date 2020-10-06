@@ -17,21 +17,21 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
 
     //context settings
     sf::ContextSettings contextSettings;
-    contextSettings.depthBits = std::atoi(iniData["ContextSettings"]["depthBits"].c_str());
-    contextSettings.stencilBits = std::atoi(iniData["ContextSettings"]["stencilBits"].c_str());
-    contextSettings.antialiasingLevel = std::atoi(iniData["ContextSettings"]["antialiasingLevel"].c_str());
-    contextSettings.majorVersion = std::atoi(iniData["ContextSettings"]["majorVersion"].c_str());
-    contextSettings.minorVersion = std::atoi(iniData["ContextSettings"]["minorVersion"].c_str());
-    contextSettings.attributeFlags = std::atoi(iniData["ContextSettings"]["attributeFlags"].c_str());
-    contextSettings.sRgbCapable = std::atoi(iniData["ContextSettings"]["sRgbCapable"].c_str());
+    contextSettings.depthBits = std::atoi(iniData["CONTEXT_SETTINGS"]["depthBits"].c_str());
+    contextSettings.stencilBits = std::atoi(iniData["CONTEXT_SETTINGS"]["stencilBits"].c_str());
+    contextSettings.antialiasingLevel = std::atoi(iniData["CONTEXT_SETTINGS"]["antialiasingLevel"].c_str());
+    contextSettings.majorVersion = std::atoi(iniData["CONTEXT_SETTINGS"]["majorVersion"].c_str());
+    contextSettings.minorVersion = std::atoi(iniData["CONTEXT_SETTINGS"]["minorVersion"].c_str());
+    contextSettings.attributeFlags = std::atoi(iniData["CONTEXT_SETTINGS"]["attributeFlags"].c_str());
+    contextSettings.sRgbCapable = std::atoi(iniData["CONTEXT_SETTINGS"]["sRgbCapable"].c_str());
 
     //size
-    int width = std::atoi(iniData["Window"]["width"].c_str());
-    int height = std::atoi(iniData["Window"]["height"].c_str());
+    int width = std::atoi(iniData["WINDOW"]["width"].c_str());
+    int height = std::atoi(iniData["WINDOW"]["height"].c_str());
 
     //style
     sf::Uint32 style = sf::Style::Default;
-    std::string styleName = iniData["Window"]["style"];
+    std::string styleName = iniData["WINDOW"]["style"];
     std::transform(styleName.begin(), styleName.end(), styleName.begin(),
                    [](unsigned char ch) { return std::tolower(ch); });
 
@@ -40,10 +40,10 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
 
     //window
     using namespace WindowView;
-    PrimaryWindow *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["Window"]["title"], style, contextSettings,
-                                              new Screen::InitialScreenState(iniData["Scene"]["InitSceneFile"]), manager);
+    PrimaryWindow *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["WINDOW"]["title"], style, contextSettings,
+                                              new Screen::InitialScreenState(iniData["SCENE"]["launch"]), manager);
     //fps
-    window->setFramerateLimit(std::atoi(iniData["Window"]["fps"].c_str()));
+    window->setFramerateLimit(std::atoi(iniData["WINDOW"]["fps"].c_str()));
 
     window->configure(); // Mathod calls initialization mathod.
     return std::shared_ptr<WindowView::Window>(window);
