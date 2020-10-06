@@ -6,6 +6,7 @@
 #include "../generators/effects/GravityEffectGenerator.h"
 #include "../generators/monsters/MushroomGenerator.h"
 #include "../generators/obstacles/DullBlockGenerator.h"
+#include "../generators/obstacles/DullInvisibleBlockGenarator.h"
 #include "../generators/players/BasicPlayerGenerator.h"
 #include "../generators/sprites/BackgroundSpriteGenerator.h"
 #include "../generators/sprites/BackSpriteGenerator.h"
@@ -28,6 +29,8 @@ Generate::selectGenerator(const std::string &name, Pools::SourcePool &pool, Scre
     //obstacles
     if (name == "DullBlock")
         return new DullBlockGenerator(pool);
+    if (name == "DullInvisibleBlock")
+        return new DullInvisibleBlockGenarator(pool);
 
     //players
     if (name == "BasicPlayer")
