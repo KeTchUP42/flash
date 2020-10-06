@@ -15,5 +15,9 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     //size
     Components::Size size(std::atoi(data.at("WIDTH").c_str()), std::atoi(data.at("HEIGHT").c_str()));
 
-    unifier.addBackSprite(new Components::SpriteBox(point, size, m_source.getTexture(data.at("TEXTURE"))));
+    //angle
+    float angle = std::stof(data.at("ANGLE"));
+
+    unifier.addBackSprite(new Components::SpriteBox(Components::Area(point, size, angle),
+                                                    m_source.getTexture(data.at("TEXTURE"))));
 }

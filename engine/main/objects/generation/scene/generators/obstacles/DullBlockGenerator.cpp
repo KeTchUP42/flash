@@ -37,10 +37,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     std::shared_ptr<Material::Algorithms> algorithms(
             new Material::Algorithms(m_source.getAlgpool()->loadCollision(collisionParams)));
 
-    Obstacles::DullBlock *block =
-            new Obstacles::DullBlock(properties,
-                                     std::make_shared<Components::SpriteBox>(point, size, texture),
-                                     algorithms);
-    block->rotate(angle); //Rotating..
-    unifier.addObstacle(block);
+    unifier.addObstacle(new Obstacles::DullBlock(properties,
+                                                 std::make_shared<Components::SpriteBox>(
+                                                         Components::Area(point, size, angle), texture), algorithms));
 }

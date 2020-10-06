@@ -6,6 +6,6 @@
 
 Material::Algorithms::Algorithms(const std::shared_ptr<Collision> &collision) : m_collision(collision) {}
 
-const std::shared_ptr<Material::Collision> &Material::Algorithms::getCollision() const {
-    return m_collision;
+const Material::Collision &Material::Algorithms::getCollision() const {
+    return *m_collision;
 }

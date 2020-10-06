@@ -35,8 +35,5 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     unifier.addMonster(new Mobs::Mushroom(
             properties,
             std::shared_ptr<Components::ISpriteBox>(
-                    new Components::SpriteBox(
-                            point,
-                            size,
-                            texture)), algorithms));
+                    new Components::SpriteBox(Components::Area(point, size, 0), texture)), algorithms));
 }

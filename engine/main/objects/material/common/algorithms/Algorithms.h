@@ -22,7 +22,7 @@ namespace Material {
         /**
          * @brief Method returns collision algorithms facade.
          */
-        const std::shared_ptr<Material::Collision> &getCollision() const;
+        const Material::Collision &getCollision() const;
 
         virtual ~Algorithms() = default;
 

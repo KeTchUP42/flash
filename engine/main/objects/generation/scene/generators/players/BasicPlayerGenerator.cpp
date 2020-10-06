@@ -36,7 +36,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     Mobs::Player *player = new Mobs::BasicPlayer(
             properties,
             std::shared_ptr<Components::ISpriteBox>(
-                    new Components::SpriteBox(point, size, texture)), algorithms);
+                    new Components::SpriteBox(Components::Area(point, size, 0), texture)), algorithms);
 
     player->loadKeyMap(data.at("KEYMAP"), m_source.getManager());
     unifier.addPlayer(player);

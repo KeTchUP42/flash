@@ -18,7 +18,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
         Obstacles::Obstacle *obstacle;
 
-        if ((obstacle = m_algorithms->getCollision()->getMovingCollision().abscissaMoveAble(player.get(), unifier->getObstacles())) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(player.get(), unifier->getObstacles())) != nullptr) {
             if (obstacle == this) {
                 player->setMoveSpeed(Components::Speed(
                         static_cast<int>(-1 * player->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
@@ -26,7 +26,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
             }
         }
 
-        if ((obstacle = m_algorithms->getCollision()->getMovingCollision().ordinateMoveAble(player.get(), unifier->getObstacles())) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), unifier->getObstacles())) != nullptr) {
             if (obstacle == this) {
                 player->setMoveSpeed(Components::Speed(
                         player->getMoveSpeed().xSpeed,
@@ -40,7 +40,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
         Obstacles::Obstacle *obstacle;
 
-        if ((obstacle = m_algorithms->getCollision()->getMovingCollision().abscissaMoveAble(monster.get(), unifier->getObstacles())) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(monster.get(), unifier->getObstacles())) != nullptr) {
             if (obstacle == this) {
                 monster->setMoveSpeed(Components::Speed(
                         static_cast<int>(-1 * monster->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
@@ -48,7 +48,7 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
             }
         }
 
-        if ((obstacle = m_algorithms->getCollision()->getMovingCollision().ordinateMoveAble(monster.get(), unifier->getObstacles())) != nullptr) {
+        if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(monster.get(), unifier->getObstacles())) != nullptr) {
             if (obstacle == this) {
                 monster->setMoveSpeed(Components::Speed(
                         monster->getMoveSpeed().xSpeed,

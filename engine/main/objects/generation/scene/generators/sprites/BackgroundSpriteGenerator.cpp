@@ -9,8 +9,7 @@ Generate::BackgroundSpriteGenerator::BackgroundSpriteGenerator(Generate::Pools::
 
 void Generate::BackgroundSpriteGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    unifier.addBackSprite(
-            new Components::SpriteBox(Components::Point(0, 0),
-                                      Components::Size(target.getSize().x, target.getSize().y),
-                                      m_source.getTexture(data.at("TEXTURE"))));
+    unifier.addBackSprite(new Components::SpriteBox(
+            Components::Area(Components::Point(0, 0), Components::Size(target.getSize().x, target.getSize().y), 0),
+            m_source.getTexture(data.at("TEXTURE"))));
 }

@@ -6,15 +6,13 @@
 #define FLASH_SPRITEBOX_H
 
 #include "ISpriteBox.h"
-#include "../../elementary/point/Point.h"
-#include "../../elementary/Size.h"
+#include "../../elementary/area/Area.h"
 
 namespace Components {
 
     class SpriteBox : public ISpriteBox {
     public:
-        explicit SpriteBox(const Components::Point &point, const Components::Size &size,
-                           const std::shared_ptr<sf::Texture> &texture);
+        explicit SpriteBox(const Components::Area &area, const std::shared_ptr<sf::Texture> &texture);
 
         void draw(sf::RenderTarget &target) const noexcept override;
 
@@ -24,15 +22,15 @@ namespace Components {
 
         void rotate(float angle, float x, float y) noexcept override;
 
-        void rotate(float angle, const Point &point) noexcept override;
+        void rotate(float angle, const Components::Point &point) noexcept override;
 
         bool collision(float x, float y) const noexcept override;
 
-        void setPosition(const Point &point) noexcept override;
+        void setPosition(const Components::Point &point) noexcept override;
 
         void setPosition(float x, float y) noexcept override;
 
-        void setSize(const Size &size) noexcept override;
+        void setSize(const Components::Size &size) noexcept override;
 
         void setRotation(float angle) noexcept override;
 
@@ -50,13 +48,12 @@ namespace Components {
 
         void setColor(const sf::Color &color) noexcept override;
 
-        const Point &getPosition() const noexcept override;
+        const Components::Point &getPosition() const noexcept override;
 
-        const Size &getSize() const noexcept override;
+        const Components::Size &getSize() const noexcept override;
 
     protected:
-        Components::Point m_point;
-        Components::Size m_size;
+        Components::Area m_area;
         std::shared_ptr<sf::Texture> m_texture;
         std::shared_ptr<sf::Sprite> m_sprite;
     };
