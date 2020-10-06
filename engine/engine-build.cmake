@@ -52,9 +52,9 @@ set(PLAYER ${PLAYER_COMMON} engine/main/objects/material/mobs/player/common/base
 set(MOBS_COMMON)
 set(MOBS ${MONSTERS} ${PLAYER} ${MOBS_COMMON})
 
-set(ORDINARY engine/main/objects/material/obstacles/blocks/single/common-base/SingleSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/single/DullBlock.cpp engine/main/objects/material/obstacles/blocks/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/composite/DullCompositeBlock.cpp engine/main/objects/material/obstacles/blocks/single/ElasticBlock.cpp)
+set(SPRITE-VISIBLE engine/main/objects/material/obstacles/blocks/sprite-visible/single/common-base/SingleSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/DullBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/DullCompositeBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/ElasticBlock.cpp)
 set(INVISIBLE engine/main/objects/material/obstacles/blocks/invisible/common-base/InvisibleBlock.cpp engine/main/objects/material/obstacles/blocks/invisible/DullInvisibleBlock.cpp)
-set(BLOCKS ${INVISIBLE} ${ORDINARY})
+set(BLOCKS ${INVISIBLE} ${SPRITE-VISIBLE})
 set(OBSTACLES_COMMON)
 set(OBSTACLES ${BLOCKS} ${OBSTACLES_COMMON})
 

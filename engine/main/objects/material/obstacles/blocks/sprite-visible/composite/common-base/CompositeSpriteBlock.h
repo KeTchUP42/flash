@@ -5,9 +5,9 @@
 #ifndef FLASH_COMPOSITESPRITEBLOCK_H
 #define FLASH_COMPOSITESPRITEBLOCK_H
 
-#include "../../../common/Obstacle.h"
-#include "../../../../../auxiliary/components/elementary/area/Area.h"
-#include "../../../../common/algorithms/Algorithms.h"
+#include "../../../../common/Obstacle.h"
+#include "../../../../../../auxiliary/components/elementary/area/Area.h"
+#include "../../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 

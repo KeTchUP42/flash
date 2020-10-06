@@ -3,7 +3,7 @@
 //
 
 #include "CompositeSpriteBlock.h"
-#include "../../../../../../../utils/math/Rectangle.h"
+#include "../../../../../../../../utils/math/Rectangle.h"
 
 Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const Components::Area &area, const ObstacleProperties &properties,
                                                       const std::shared_ptr<Components::ISprite> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms)

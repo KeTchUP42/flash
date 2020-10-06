@@ -3,7 +3,7 @@
 //
 
 #include "DullBlockGenerator.h"
-#include "../../../../material/obstacles/blocks/single/DullBlock.h"
+#include "../../../../material/obstacles/blocks/sprite-visible/single/DullBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
 Generate::DullBlockGenerator::DullBlockGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
