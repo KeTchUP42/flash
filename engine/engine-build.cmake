@@ -74,7 +74,7 @@ set(OBJECTS ${AUXILIARY} ${GENERATION} ${MATERIAL} ${STATIC} ${UNIFIER})
 
 set(SETUP engine/setup/EngineConfigurator.cpp)
 
-set(LOGGER engine/utils/logger/BasicLogger.cpp engine/utils/logger/formatter/BaseLoggerFormatter.cpp)
+set(LOGGER engine/utils/logger/BasicLogger.cpp engine/utils/logger/formatter/LoggerFormatter.cpp)
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
 set(INI engine/utils/Ini/BasicIniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp)

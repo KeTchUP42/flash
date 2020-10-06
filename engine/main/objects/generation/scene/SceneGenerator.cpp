@@ -15,17 +15,17 @@ Generate::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Manag
 
 void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
     IniUtil::Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
+    Generate::analyzeIniBlock(data[IniUtil::IniProcessor::NONAME_BLOCK], m_source_pool, target);
     std::shared_ptr<Generator> generator;
 
     for (const auto &block: data) {
-        if (block.first == IniUtil::IniProcessor::NONAME_BLOCK) {
-            Generate::analyzeIniBlock(block.second, m_source_pool, target);
-            continue;
-        }
+        if (block.first == IniUtil::IniProcessor::NONAME_BLOCK) continue;
+
         if ((generator = m_generators_pool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {
             generator->load(block.second, unifier, target);
         } else {
-            throw PreferredExceptions::InvalidArgument("Invalid generator's name \"" + block.first + "\" in file \"" + filename + "\".");
+            throw PreferredExceptions::
+            InvalidArgument("Invalid generator's name \"" + block.first + "\" in file \"" + filename + "\".");
         }
     }
 }

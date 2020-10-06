@@ -2,11 +2,11 @@
 // Created by roman on 05.08.2020.
 //
 
-#include "BaseLoggerFormatter.h"
+#include "LoggerFormatter.h"
 
 static inline std::string dateTimeNow() noexcept;
 
-std::string LoggerUtil::BaseLoggerFormatter::format(const std::string &data) const noexcept {
+std::string LoggerUtil::LoggerFormatter::format(const std::string &data) const noexcept {
     return dateTimeNow() + data + '\n';
 }
 

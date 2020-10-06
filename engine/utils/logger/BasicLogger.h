@@ -6,18 +6,18 @@
 #define FLASH_BASICLOGGER_H
 
 #include "Logger.h"
-#include "formatter/BaseLoggerFormatter.h"
+#include "formatter/LoggerFormatter.h"
 
 namespace LoggerUtil {
 
     class BasicLogger : public Logger {
     public:
-        explicit BasicLogger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new BaseLoggerFormatter())
+        explicit BasicLogger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new LoggerFormatter())
                 : Logger(writer, formatter) {}
 
         explicit BasicLogger(const std::shared_ptr<WriterUtil::Writer> &writer,
-                             const std::shared_ptr<Formatter<std::string>> &formatter =
-                             std::shared_ptr<Formatter<std::string>>(new BaseLoggerFormatter()))
+                             const std::shared_ptr<Formatter<std::string>> &formatter = std::shared_ptr<Formatter<std::string>>(
+                                     new LoggerFormatter()))
                 : Logger(writer, formatter) {}
 
         void emergency(const std::string &message) const noexcept override;
