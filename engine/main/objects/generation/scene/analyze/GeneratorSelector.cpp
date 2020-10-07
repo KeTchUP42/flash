@@ -7,6 +7,7 @@
 #include "../generators/monsters/MushroomGenerator.h"
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/obstacles/DullInvisibleBlockGenarator.h"
+#include "../generators/obstacles/PlatformBlockGenerator.h"
 #include "../generators/players/BasicPlayerGenerator.h"
 #include "../generators/sprites/BackgroundSpriteGenerator.h"
 #include "../generators/sprites/BackSpriteGenerator.h"
@@ -36,6 +37,8 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new DullBlockGenerator(m_pool);
     if (alias == "DullInvisibleBlock")
         return new DullInvisibleBlockGenarator(m_pool);
+    if (alias == "PlatformBlock")
+        return new PlatformBlockGenerator(m_pool);
 
     //players
     if (alias == "BasicPlayer")
