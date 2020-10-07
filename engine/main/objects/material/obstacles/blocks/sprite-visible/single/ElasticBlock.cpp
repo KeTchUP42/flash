@@ -16,43 +16,33 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
 
-        Obstacles::Obstacle *obstacle;
-        if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(player.get(), unifier->getObstacles())) != nullptr) {
-            if (obstacle == this) {
-                player->setMoveSpeed(Components::Speed(
-                        static_cast<int>(-1 * player->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
-                        player->getMoveSpeed().ySpeed));
-            }
+        if (m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(player.get(), this)) {
+            player->setMoveSpeed(Components::Speed(
+                    static_cast<int>(-1 * player->getMoveSpeed().xSpeed * m_properties.elasticCoefficient),
+                    player->getMoveSpeed().ySpeed));
         }
 
-        if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), unifier->getObstacles())) != nullptr) {
-            if (obstacle == this) {
-                player->setMoveSpeed(Components::Speed(
-                        player->getMoveSpeed().xSpeed,
-                        static_cast<int>(-1 * player->getMoveSpeed().ySpeed * obstacle->getProperties().elasticCoefficient)
-                ));
-            }
+        if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), this)) {
+            player->setMoveSpeed(Components::Speed(
+                    player->getMoveSpeed().xSpeed,
+                    static_cast<int>(-1 * player->getMoveSpeed().ySpeed * m_properties.elasticCoefficient)
+            ));
         }
     }
 
     for (const std::shared_ptr<Mobs::Monster> &monster : unifier->getMonsters()) {
 
-        Obstacles::Obstacle *obstacle;
-        if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(monster.get(), unifier->getObstacles())) != nullptr) {
-            if (obstacle == this) {
-                monster->setMoveSpeed(Components::Speed(
-                        static_cast<int>(-1 * monster->getMoveSpeed().xSpeed * obstacle->getProperties().elasticCoefficient),
-                        monster->getMoveSpeed().ySpeed));
-            }
+        if (m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(monster.get(), this)) {
+            monster->setMoveSpeed(Components::Speed(
+                    static_cast<int>(-1 * monster->getMoveSpeed().xSpeed * m_properties.elasticCoefficient),
+                    monster->getMoveSpeed().ySpeed));
         }
 
-        if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(monster.get(), unifier->getObstacles())) != nullptr) {
-            if (obstacle == this) {
-                monster->setMoveSpeed(Components::Speed(
-                        monster->getMoveSpeed().xSpeed,
-                        static_cast<int>(-1 * monster->getMoveSpeed().ySpeed * obstacle->getProperties().elasticCoefficient)
-                ));
-            }
+        if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(monster.get(), this)) {
+            monster->setMoveSpeed(Components::Speed(
+                    monster->getMoveSpeed().xSpeed,
+                    static_cast<int>(-1 * monster->getMoveSpeed().ySpeed * m_properties.elasticCoefficient)
+            ));
         }
     }
 

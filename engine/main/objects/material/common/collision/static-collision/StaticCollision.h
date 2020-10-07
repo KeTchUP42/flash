@@ -20,6 +20,10 @@ namespace Material {
 
         template<class Type>
         Type *ordinateMoveAble(MaterialObject *object, const std::list<std::shared_ptr<Type>> &objects) const noexcept;
+
+        bool abscissaMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept;
+
+        bool ordinateMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept;
     };
 
     template<class Type>

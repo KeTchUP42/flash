@@ -24,14 +24,11 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
     }
 
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
-        Mobs::Monster *me;
-        if ((me = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), unifier->getMonsters())) != nullptr) {
-            if (me == this) {
-                player->setMoveSpeed(Components::Speed(
-                        player->getMoveSpeed().xSpeed,
-                        static_cast<int>(-1 * (player->getMoveSpeed().ySpeed + player->getMoveSpeed().ySpeed * 0.25))
-                ));
-            }
+        if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), this)) {
+            player->setMoveSpeed(Components::Speed(
+                    player->getMoveSpeed().xSpeed,
+                    static_cast<int>(-1 * (player->getMoveSpeed().ySpeed + player->getMoveSpeed().ySpeed * 0.25))
+            ));
         }
     }
 

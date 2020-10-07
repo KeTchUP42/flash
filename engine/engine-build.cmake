@@ -60,7 +60,7 @@ set(OBSTACLES ${BLOCKS} ${OBSTACLES_COMMON})
 
 set(ALGORITHMS engine/main/objects/material/common/algorithms/Algorithms.cpp)
 set(COLLISION_ALGORITHMS engine/main/objects/material/common/collision/algorithms/collision/StaticCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/collision/MovingCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/coordinates/CoordinatesCalculation.cpp engine/main/objects/material/common/collision/algorithms/coordinates/ExtremeCoordinates.cpp)
-set(COLLISION ${COLLISION_ALGORITHMS} engine/main/objects/material/common/collision/Collision.cpp engine/main/objects/material/common/collision/moving-collision/MovingCollision.cpp)
+set(COLLISION ${COLLISION_ALGORITHMS} engine/main/objects/material/common/collision/Collision.cpp engine/main/objects/material/common/collision/moving-collision/MovingCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticCollision.cpp)
 set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION})
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
