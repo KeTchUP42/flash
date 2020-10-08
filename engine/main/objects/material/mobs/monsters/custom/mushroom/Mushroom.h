@@ -6,6 +6,7 @@
 #define FLASH_MUSHROOM_H
 
 #include "../../common/base/BaseMonster.h"
+#include "mind/MushroomMind.h"
 
 namespace Mobs {
 
@@ -14,11 +15,16 @@ namespace Mobs {
         explicit Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                           const std::shared_ptr<Material::Algorithms> &algorithms);
 
+        friend class MushroomMind;
+
         void selfAction(Unite::Unifier *unifier) override;
 
         void selfMove(Unite::Unifier *unifier) override;
 
         void update(const sf::Event &event, sf::RenderWindow &sender) override;
+
+    protected:
+        MushroomMind m_mind;
     };
 }
 

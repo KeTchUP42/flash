@@ -41,11 +41,11 @@ void Obstacles::SingleSpriteBlock::addSpeed(float offsetX, float offsetY) noexce
     m_properties.speed.ySpeed += offsetY;
 }
 
-void Obstacles::SingleSpriteBlock::setMoveSpeed(const Components::Speed &speed) noexcept {
+void Obstacles::SingleSpriteBlock::setSpeed(const Components::Speed &speed) noexcept {
     m_properties.speed = speed;
 }
 
-const Components::Speed &Obstacles::SingleSpriteBlock::getMoveSpeed() const noexcept {
+const Components::Speed &Obstacles::SingleSpriteBlock::getSpeed() const noexcept {
     return m_properties.speed;
 }
 

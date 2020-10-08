@@ -50,11 +50,11 @@ void Obstacles::CompositeSpriteBlock::addSpeed(float offsetX, float offsetY) noe
     m_properties.speed.ySpeed += offsetY;
 }
 
-void Obstacles::CompositeSpriteBlock::setMoveSpeed(const Components::Speed &speed) noexcept {
+void Obstacles::CompositeSpriteBlock::setSpeed(const Components::Speed &speed) noexcept {
     m_properties.speed = speed;
 }
 
-const Components::Speed &Obstacles::CompositeSpriteBlock::getMoveSpeed() const noexcept {
+const Components::Speed &Obstacles::CompositeSpriteBlock::getSpeed() const noexcept {
     return m_properties.speed;
 }
 

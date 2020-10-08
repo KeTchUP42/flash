@@ -46,9 +46,9 @@ namespace Obstacles {
 
         void addSpeed(float offsetX, float offsetY) noexcept override;
 
-        void setMoveSpeed(const Components::Speed &speed) noexcept override;
+        void setSpeed(const Components::Speed &speed) noexcept override;
 
-        const Components::Speed &getMoveSpeed() const noexcept override;
+        const Components::Speed &getSpeed() const noexcept override;
 
     protected:
         Components::Area m_area;

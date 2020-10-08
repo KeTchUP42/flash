@@ -36,13 +36,13 @@ namespace Possibilities {
          * @brief Method sets speed.
          * @param speed Move speed.
          */
-        virtual void setMoveSpeed(const Components::Speed &speed) noexcept = 0;
+        virtual void setSpeed(const Components::Speed &speed) noexcept = 0;
 
         /**
          * @brief Method retuens object move speed.
          * @return Move speed.
          */
-        virtual const Components::Speed &getMoveSpeed() const noexcept = 0;
+        virtual const Components::Speed &getSpeed() const noexcept = 0;
 
         virtual ~SelfMovable() = default;
     };

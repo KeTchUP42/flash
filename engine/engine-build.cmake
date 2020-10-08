@@ -44,8 +44,9 @@ set(POOLS engine/main/objects/generation/scene/pools/SourcePool.cpp engine/main/
 set(SCENE ${GENERATORS} ${ANALYZE} ${POOLS} engine/main/objects/generation/scene/SceneGenerator.cpp)
 set(GENERATION ${SCENE})
 
+set(MUSHROOM engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.cpp engine/main/objects/material/mobs/monsters/custom/mushroom/mind/MushroomMind.cpp)
 set(MONSTERS_COMMON)
-set(MONSTERS ${MONSTERS_COMMON} engine/main/objects/material/mobs/monsters/common/base/Monster.cpp engine/main/objects/material/mobs/monsters/custom/mushroom/Mushroom.cpp)
+set(MONSTERS ${MONSTERS_COMMON} ${MUSHROOM} engine/main/objects/material/mobs/monsters/common/base/Monster.cpp)
 
 set(PLAYER_COMMON)
 set(PLAYER ${PLAYER_COMMON} engine/main/objects/material/mobs/player/common/base/Player.cpp engine/main/objects/material/mobs/player/custom/BasicPlayer.cpp)

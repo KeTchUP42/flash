@@ -8,14 +8,14 @@ Material::MovingCollision::MovingCollision(float analysisStepX, float analysisSt
         : ANALYSIS_STEP_X(analysisStepX), ANALYSIS_STEP_Y(analysisStepY) {}
 
 bool Material::MovingCollision::abscissaMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept {
-    if (object->getMoveSpeed().xSpeed == 0) return false;
+    if (object->getSpeed().xSpeed == 0) return false;
     if (object == processed) return false;
 
     return movingAbscissaCollision(*object, *processed, ANALYSIS_STEP_Y);
 }
 
 bool Material::MovingCollision::ordinateMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept {
-    if (object->getMoveSpeed().ySpeed == 0) return false;
+    if (object->getSpeed().ySpeed == 0) return false;
     if (object == processed) return false;
 
     return movingOrdinateCollision(*object, *processed, ANALYSIS_STEP_X);

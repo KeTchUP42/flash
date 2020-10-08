@@ -72,11 +72,11 @@ void Obstacles::InvisibleBlock::addSpeed(float offsetX, float offsetY) noexcept 
     m_properties.speed.ySpeed += offsetY;
 }
 
-void Obstacles::InvisibleBlock::setMoveSpeed(const Components::Speed &speed) noexcept {
+void Obstacles::InvisibleBlock::setSpeed(const Components::Speed &speed) noexcept {
     m_properties.speed = speed;
 }
 
-const Components::Speed &Obstacles::InvisibleBlock::getMoveSpeed() const noexcept {
+const Components::Speed &Obstacles::InvisibleBlock::getSpeed() const noexcept {
     return m_properties.speed;
 }
 

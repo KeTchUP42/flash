@@ -15,7 +15,6 @@ void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
 void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
     Obstacles::Obstacle *obstacle;
-
     if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getObstacles())) != nullptr) {
         m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
     }
@@ -42,7 +41,7 @@ void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender)
         if (m_properties.speed.ySpeed == 0) { this->addSpeed(0, -15); }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Use])) {
-        this->m_sprite->setPosition(600, 100);
+        this->m_sprite->setPosition(600, 500);
     }
 }
 

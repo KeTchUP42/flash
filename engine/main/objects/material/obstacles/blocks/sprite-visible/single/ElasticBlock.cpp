@@ -17,15 +17,15 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
 
         if (m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(player.get(), this)) {
-            player->setMoveSpeed(Components::Speed(
-                    static_cast<int>(-1 * player->getMoveSpeed().xSpeed * m_properties.elasticCoefficient),
-                    player->getMoveSpeed().ySpeed));
+            player->setSpeed(Components::Speed(
+                    static_cast<int>(-1 * player->getSpeed().xSpeed * m_properties.elasticCoefficient),
+                    player->getSpeed().ySpeed));
         }
 
         if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), this)) {
-            player->setMoveSpeed(Components::Speed(
-                    player->getMoveSpeed().xSpeed,
-                    static_cast<int>(-1 * player->getMoveSpeed().ySpeed * m_properties.elasticCoefficient)
+            player->setSpeed(Components::Speed(
+                    player->getSpeed().xSpeed,
+                    static_cast<int>(-1 * player->getSpeed().ySpeed * m_properties.elasticCoefficient)
             ));
         }
     }
@@ -33,15 +33,15 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
     for (const std::shared_ptr<Mobs::Monster> &monster : unifier->getMonsters()) {
 
         if (m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(monster.get(), this)) {
-            monster->setMoveSpeed(Components::Speed(
-                    static_cast<int>(-1 * monster->getMoveSpeed().xSpeed * m_properties.elasticCoefficient),
-                    monster->getMoveSpeed().ySpeed));
+            monster->setSpeed(Components::Speed(
+                    static_cast<int>(-1 * monster->getSpeed().xSpeed * m_properties.elasticCoefficient),
+                    monster->getSpeed().ySpeed));
         }
 
         if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(monster.get(), this)) {
-            monster->setMoveSpeed(Components::Speed(
-                    monster->getMoveSpeed().xSpeed,
-                    static_cast<int>(-1 * monster->getMoveSpeed().ySpeed * m_properties.elasticCoefficient)
+            monster->setSpeed(Components::Speed(
+                    monster->getSpeed().xSpeed,
+                    static_cast<int>(-1 * monster->getSpeed().ySpeed * m_properties.elasticCoefficient)
             ));
         }
     }

@@ -39,7 +39,7 @@ namespace Material {
     template<class Type>
     Type *Material::MovingCollision::
     abscissaMoveAble(Material::MaterialObject *object, const std::list<std::shared_ptr<Type>> &objects) const noexcept {
-        if (object->getMoveSpeed().xSpeed == 0) return nullptr;
+        if (object->getSpeed().xSpeed == 0) return nullptr;
 
         Components::Point objectMinCoordinates = minCoordinates(*object);
         Components::Point objectMaxCoordinates = maxCoordinates(*object);
@@ -58,7 +58,7 @@ namespace Material {
     template<class Type>
     Type *Material::MovingCollision::
     ordinateMoveAble(Material::MaterialObject *object, const std::list<std::shared_ptr<Type>> &objects) const noexcept {
-        if (object->getMoveSpeed().ySpeed == 0) return nullptr;
+        if (object->getSpeed().ySpeed == 0) return nullptr;
 
         Components::Point objectMinCoordinates = minCoordinates(*object);
         Components::Point objectMaxCoordinates = maxCoordinates(*object);

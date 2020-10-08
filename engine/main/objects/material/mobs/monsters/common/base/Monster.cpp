@@ -40,11 +40,11 @@ void Mobs::Monster::addSpeed(float offsetX, float offsetY) noexcept {
     m_properties.speed.ySpeed += offsetY;
 }
 
-void Mobs::Monster::setMoveSpeed(const Components::Speed &speed) noexcept {
+void Mobs::Monster::setSpeed(const Components::Speed &speed) noexcept {
     m_properties.speed = speed;
 }
 
-const Components::Speed &Mobs::Monster::getMoveSpeed() const noexcept {
+const Components::Speed &Mobs::Monster::getSpeed() const noexcept {
     return m_properties.speed;
 }
 
