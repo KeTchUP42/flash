@@ -18,9 +18,8 @@ IniUtil::BasicIniProcessor::fullparse(const std::shared_ptr<ReaderUtil::Reader> 
     return m_analyzer->fullparse(reader->readlines());
 }
 
-void
-IniUtil::BasicIniProcessor::createIni(const IniUtil::Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
-                                      const std::ios::openmode &mode) const noexcept {
+void IniUtil::BasicIniProcessor::createIni(const IniUtil::Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
+                                           const std::ios::openmode &mode) const noexcept {
     this->createIni(data, *writer.get(), mode);
 }
 

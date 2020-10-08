@@ -4,6 +4,7 @@
 
 #include "GeneratorSelector.h"
 #include "../generators/effects/GravityEffectGenerator.h"
+#include "../generators/effects/GravityPointEffectGenerator.h"
 #include "../generators/monsters/MushroomGenerator.h"
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/obstacles/DullInvisibleBlockGenarator.h"
@@ -27,6 +28,8 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
     //effects
     if (alias == "GravityEffect")
         return new GravityEffectGenerator(m_pool);
+    if (alias == "GravityPointEffect")
+        return new GravityPointEffectGenerator(m_pool);
 
     //monsters
     if (alias == "Mushroom")

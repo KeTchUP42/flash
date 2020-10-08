@@ -5,7 +5,9 @@
 #ifndef FLASH_EFFECT_H
 #define FLASH_EFFECT_H
 
-#include "../../unifier/common/Unifier.h"
+namespace Unite {
+    class Unifier;
+}
 
 namespace Effects {
 
@@ -28,5 +30,7 @@ namespace Effects {
         virtual ~Effect() = default;
     };
 }
+
+#include "../../unifier/common/Unifier.h"
 
 #endif //FLASH_EFFECT_H

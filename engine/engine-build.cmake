@@ -32,7 +32,7 @@ set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.
 set(COMPONENTS ${ELEMENTARY} ${SPRITES})
 set(AUXILIARY ${COMPONENTS})
 
-set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp)
+set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityPointEffectGenerator.cpp)
 set(MONSTERS_GENERATORS engine/main/objects/generation/scene/generators/monsters/MushroomGenerator.cpp)
 set(OBSTACLES_GENERATORS engine/main/objects/generation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/generation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/generation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
 set(PLAYERS_GENERATORS engine/main/objects/generation/scene/generators/players/BasicPlayerGenerator.cpp)
@@ -64,7 +64,7 @@ set(COLLISION ${COLLISION_ALGORITHMS} engine/main/objects/material/common/collis
 set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION})
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
-set(EFFECTS engine/main/objects/static/effects/GravityEffect.cpp)
+set(EFFECTS engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityPointEffect.cpp)
 
 set(HANDLERS engine/main/objects/static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.cpp)
 set(TRIGGERS ${HANDLERS} engine/main/objects/static/triggers/scene/player/PlayerSceneTrigger.cpp)

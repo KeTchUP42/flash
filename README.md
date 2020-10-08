@@ -3,7 +3,7 @@
  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bwormguy/flash)  
 
   My little C++ experience.  
-  This is a small platformer made with SFML 2.5.1 library.
+  This is a small platformer engine made with SFML 2.5.1 library.
 
 
  ## DOCUMENTATION:
