@@ -17,17 +17,19 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
     Obstacles::Obstacle *obstacle;
     if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getObstacles())) != nullptr) {
         m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient);
+        if (m_properties.speed.ySpeed != obstacle->getSpeed().ySpeed) {
+            m_properties.speed.ySpeed = static_cast<int>(m_properties.speed.ySpeed * obstacle->getProperties().frictionCoefficient);
+        }
     }
 
     if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getObstacles())) != nullptr) {
         m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
+        if (m_properties.speed.xSpeed != obstacle->getSpeed().xSpeed) {
+            m_properties.speed.xSpeed = static_cast<int>(m_properties.speed.xSpeed * obstacle->getProperties().frictionCoefficient);
+        }
     }
 
     this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
-
-    if ((m_properties.speed.xSpeed != 0) && (m_properties.speed.ySpeed == 0)) {
-        this->addSpeed(m_properties.speed.xSpeed < 0 ? 1 : -1, 0);
-    }
 }
 
 void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender) {

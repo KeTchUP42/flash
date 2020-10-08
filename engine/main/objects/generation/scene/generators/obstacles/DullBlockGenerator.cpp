@@ -22,8 +22,9 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     //properties
     Components::Speed speed(std::stof(data.at("X_SPEED")), std::stof(data.at("Y_SPEED")));
     float elasticCoefficient = std::stof(data.at("ELASTIC_COEFFICIENT"));
+    float frictionCoefficient = std::stof(data.at("FRICTION_COEFFICIENT"));
     bool isFixed = (std::atoi(data.at("IS_FIXED").c_str()) == 1);
-    Obstacles::ObstacleProperties properties(speed, elasticCoefficient, isFixed);
+    Obstacles::ObstacleProperties properties(speed, elasticCoefficient, frictionCoefficient, isFixed);
 
     //texture
     auto texture = m_source.getTexture(data.at("TEXTURE"));
