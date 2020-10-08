@@ -48,7 +48,7 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new BasicPlayerGenerator(m_pool);
 
     //sprites
-    if (alias == "BackgroundSprite")
+    if (alias == "BackGroundSprite")
         return new BackgroundSpriteGenerator(m_pool);
     if (alias == "BackSprite")
         return new BackSpriteGenerator(m_pool);

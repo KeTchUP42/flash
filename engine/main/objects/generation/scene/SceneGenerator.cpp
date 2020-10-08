@@ -22,7 +22,7 @@ void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Uni
         if ((generator = m_generators_pool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {
             generator->load(block.second, unifier, target);
         } else {
-            throw PreferredExceptions::InvalidArgument("Invalid generator's name \"" + block.first + "\" in file \"" + filename + "\".");
+            throw PreferredExceptions::InvalidArgument("Invalid object's name \"" + block.first + "\" in file \"" + filename + "\".");
         }
     }
 }
