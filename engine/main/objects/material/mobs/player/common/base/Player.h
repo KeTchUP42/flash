@@ -10,6 +10,7 @@
 #include "../../../../common/MaterialObject.h"
 #include "../properties/PlayerProperties.h"
 #include "../../../../../auxiliary/possibilities/Physical.h"
+#include "../../../../../auxiliary/components/elementary/area/Area.h"
 
 #include <map>
 #include <string>
@@ -30,7 +31,8 @@ namespace Mobs {
          * @brief Base player constructor.
          * @param sprite Player's sprite.
          */
-        explicit Player(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
+        explicit Player(const Mobs::PlayerProperties &properties, const Components::Area &area,
+                        const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
          * @brief Method loads new player's key map. Keys under special names used in player's controlling.
@@ -94,6 +96,7 @@ namespace Mobs {
     protected:
         Mobs::PlayerProperties m_properties;
         std::map<KeyAlias, sf::Keyboard::Key> m_keyMap;
+        Components::Area m_area;
         std::shared_ptr<Components::ISpriteBox> m_sprite;
     };
 }

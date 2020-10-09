@@ -10,10 +10,10 @@ Components::SpriteBox::SpriteBox(const Components::Area &area, const std::shared
 
     m_sprite = std::shared_ptr<sf::Sprite>(new sf::Sprite());
     m_sprite->setTexture(*texture.get(), true);
-    m_sprite->setPosition(m_area.point.x, m_area.point.y);
-    m_sprite->setScale(static_cast<float>(m_area.size.width) / m_texture->getSize().x,
-                       static_cast<float>(m_area.size.height) / m_texture->getSize().y);
-    m_sprite->rotate(m_area.angle);
+    m_sprite->setPosition(m_area.m_point.x, m_area.m_point.y);
+    m_sprite->setScale(static_cast<float>(m_area.m_size.width) / m_texture->getSize().x,
+                       static_cast<float>(m_area.m_size.height) / m_texture->getSize().y);
+    m_sprite->rotate(m_area.m_angle);
 }
 
 void Components::SpriteBox::draw(sf::RenderTarget &target) const noexcept {
@@ -21,14 +21,13 @@ void Components::SpriteBox::draw(sf::RenderTarget &target) const noexcept {
 }
 
 void Components::SpriteBox::move(float offsetX, float offsetY) noexcept {
-    m_area.point.x += offsetX;
-    m_area.point.y += offsetY;
-    m_sprite->setPosition(m_area.point.x, m_area.point.y);
+    m_area.move(offsetX, offsetY);
+    m_sprite->setPosition(m_area.m_point.x, m_area.m_point.y);
 }
 
 void Components::SpriteBox::rotate(float angle) noexcept {
     m_sprite->rotate(angle);
-    m_area.angle += angle;
+    m_area.rotate(angle);
 }
 
 void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
@@ -49,20 +48,19 @@ void Components::SpriteBox::setPosition(const Components::Point &point) noexcept
 }
 
 void Components::SpriteBox::setPosition(float x, float y) noexcept {
-    m_area.point.x = x;
-    m_area.point.y = y;
-    m_sprite->setPosition(m_area.point.x, m_area.point.y);
+    m_area.setPosition(x, y);
+    m_sprite->setPosition(x, y);
 }
 
 void Components::SpriteBox::setSize(const Components::Size &size) noexcept {
-    m_area.size = size;
-    m_sprite->setScale(static_cast<float>(m_area.size.width) / m_texture->getSize().x,
-                       static_cast<float>(m_area.size.height) / m_texture->getSize().y);
+    m_area.setSize(size);
+    m_sprite->setScale(static_cast<float>(m_area.m_size.width) / m_texture->getSize().x,
+                       static_cast<float>(m_area.m_size.height) / m_texture->getSize().y);
 }
 
 void Components::SpriteBox::setRotation(float angle) noexcept {
     m_sprite->setRotation(angle);
-    m_area.angle = angle;
+    m_area.setRotation(angle);
 }
 
 float Components::SpriteBox::getRotation() const noexcept {
@@ -96,9 +94,9 @@ void Components::SpriteBox::setColor(const sf::Color &color) noexcept {
 }
 
 const Components::Point &Components::SpriteBox::getPosition() const noexcept {
-    return m_area.point;
+    return m_area.m_point;
 }
 
 const Components::Size &Components::SpriteBox::getSize() const noexcept {
-    return m_area.size;
+    return m_area.m_size;
 }

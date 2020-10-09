@@ -12,8 +12,8 @@ namespace Mobs {
 
     class BasicPlayer : public BasePlayer {
     public:
-        explicit BasicPlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                             const std::shared_ptr<Material::Algorithms> &algorithms);
+        explicit BasicPlayer(const Mobs::PlayerProperties &properties, const Components::Area &area,
+                             const std::shared_ptr<Components::ISpriteBox> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms);
 
         void selfAction(Unite::Unifier *unifier) override;
 

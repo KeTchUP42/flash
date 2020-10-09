@@ -14,12 +14,11 @@ void Obstacles::InvisibleBlock::draw(sf::RenderTarget &target) const noexcept {
 }
 
 bool Obstacles::InvisibleBlock::collision(float x, float y) const noexcept {
-    return MathUtils::collision(Components::Point(x, y), *this);
+    return m_area.collision(x, y);
 }
 
 void Obstacles::InvisibleBlock::move(float offsetX, float offsetY) noexcept {
-    m_area.point.x += offsetX;
-    m_area.point.y += offsetY;
+    m_area.move(offsetX, offsetY);
 }
 
 const Obstacles::ObstacleProperties &Obstacles::InvisibleBlock::getProperties() const noexcept {
@@ -27,44 +26,43 @@ const Obstacles::ObstacleProperties &Obstacles::InvisibleBlock::getProperties() 
 }
 
 const Components::Point &Obstacles::InvisibleBlock::getPosition() const noexcept {
-    return m_area.point;
+    return m_area.m_point;
 }
 
 const Components::Size &Obstacles::InvisibleBlock::getSize() const noexcept {
-    return m_area.size;
+    return m_area.m_size;
 }
 
 float Obstacles::InvisibleBlock::getRotation() const noexcept {
-    return m_area.angle;
+    return m_area.m_angle;
 }
 
 void Obstacles::InvisibleBlock::setPosition(const Components::Point &point) noexcept {
-    m_area.point = point;
+    m_area.setPosition(point);
 }
 
 void Obstacles::InvisibleBlock::setPosition(float x, float y) noexcept {
-    m_area.point = Components::Point(x, y);
+    m_area.setPosition(x, y);
 }
 
 void Obstacles::InvisibleBlock::setSize(const Components::Size &size) noexcept {
-    m_area.size = size;
+    m_area.setSize(size);
 }
 
 void Obstacles::InvisibleBlock::setRotation(float angle) noexcept {
-    m_area.angle = angle;
+    m_area.setRotation(angle);
 }
 
 void Obstacles::InvisibleBlock::rotate(float angle) noexcept {
-    m_area.angle += angle; //Week place.
+    m_area.rotate(angle);
 }
 
 void Obstacles::InvisibleBlock::rotate(float angle, float x, float y) noexcept {
-    this->rotate(angle, Components::Point(x, y));
+    m_area.rotate(angle, x, y);
 }
 
 void Obstacles::InvisibleBlock::rotate(float angle, const Components::Point &point) noexcept {
-    m_area.point = MathUtils::pointToPointRotation(m_area.point, angle, point);
-    this->rotate(angle);
+    m_area.rotate(angle, point);
 }
 
 void Obstacles::InvisibleBlock::addSpeed(float offsetX, float offsetY) noexcept {

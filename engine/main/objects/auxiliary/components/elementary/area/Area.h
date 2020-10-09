@@ -8,6 +8,10 @@
 #include "../point/Point.h"
 #include "../Size.h"
 #include "../../../possibilities/RectangleGetters.h"
+#include "../../../possibilities/RectangleSetters.h"
+#include "../../../possibilities/CollisionProne.h"
+#include "../../../possibilities/Movable.h"
+#include "../../../possibilities/Rotatable.h"
 
 namespace Components {
 
@@ -17,11 +21,33 @@ namespace Components {
      *
      * This struct is the base component.
     */
-    struct Area : public Possibilities::RectangleGetters {
-        explicit Area(const Point &point, const Size &size, float angle)
-                : angle(angle), point(point), size(size) {}
+    struct Area : public Possibilities::RectangleGetters,
+                  public Possibilities::RectangleSetters,
+                  public Possibilities::CollisionProne,
+                  public Possibilities::Rotatable,
+                  public Possibilities::Movable {
 
-        Area() : angle(), point(), size() {}
+        Area();
+
+        explicit Area(const Point &point, const Size &size, float angle);
+
+        bool collision(float x, float y) const noexcept override;
+
+        void move(float offsetX, float offsetY) noexcept override;
+
+        void rotate(float angle) noexcept override;
+
+        void rotate(float angle, float x, float y) noexcept override;
+
+        void rotate(float angle, const Point &point) noexcept override;
+
+        void setPosition(const Point &point) noexcept override;
+
+        void setPosition(float x, float y) noexcept override;
+
+        void setSize(const Size &size) noexcept override;
+
+        void setRotation(float angle) noexcept override;
 
         const Point &getPosition() const noexcept override;
 
@@ -29,9 +55,9 @@ namespace Components {
 
         float getRotation() const noexcept override;
 
-        float angle;
-        Components::Point point;
-        Components::Size size;
+        float m_angle;
+        Components::Point m_point;
+        Components::Size m_size;
     };
 }
 

@@ -4,9 +4,9 @@
 
 #include "BasicPlayer.h"
 
-Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               const std::shared_ptr<Material::Algorithms> &algorithms)
-        : BasePlayer(properties, sprite, algorithms) {}
+Mobs::BasicPlayer::BasicPlayer(const Mobs::PlayerProperties &properties, const Components::Area &area,
+                               const std::shared_ptr<Components::ISpriteBox> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms)
+        : BasePlayer(properties, area, sprite, algorithms) {}
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
     this->selfMove(unifier);

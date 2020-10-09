@@ -3,11 +3,10 @@
 //
 
 #include "CompositeSpriteBlock.h"
-#include "../../../../../../../../utils/math/Rectangle.h"
 
-Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(const ObstacleProperties &properties, const Components::Area &area,
-                                                      const std::shared_ptr<Components::ISprite> &sprite,
-                                                      const std::shared_ptr<Material::Algorithms> &algorithms)
+Obstacles::CompositeSpriteBlock::
+CompositeSpriteBlock(const ObstacleProperties &properties, const Components::Area &area,
+                     const std::shared_ptr<Components::ISprite> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms)
         : Obstacles::Obstacle(properties), m_area(area), m_sprite(sprite), m_algorithms(algorithms) {
 }
 
@@ -17,7 +16,7 @@ void Obstacles::CompositeSpriteBlock::loadNewSprite(const std::shared_ptr<Compon
 }
 
 bool Obstacles::CompositeSpriteBlock::collision(float x, float y) const noexcept {
-    return MathUtils::collision(Components::Point(x, y), *this) && m_sprite->collision(x, y);
+    return m_area.collision(x, y) && m_sprite->collision(x, y);
 }
 
 void Obstacles::CompositeSpriteBlock::draw(sf::RenderTarget &target) const noexcept {
@@ -25,14 +24,13 @@ void Obstacles::CompositeSpriteBlock::draw(sf::RenderTarget &target) const noexc
 }
 
 void Obstacles::CompositeSpriteBlock::move(float offsetX, float offsetY) noexcept {
-    m_area.point.x += offsetX;
-    m_area.point.y += offsetY;
+    m_area.move(offsetX, offsetY);
     m_sprite->move(offsetX, offsetY);
 }
 
 void Obstacles::CompositeSpriteBlock::rotate(float angle) noexcept {
+    m_area.rotate(angle);
     m_sprite->rotate(angle);
-    m_area.angle += angle; //Week place.
 }
 
 void Obstacles::CompositeSpriteBlock::rotate(float angle, float x, float y) noexcept {
@@ -40,9 +38,8 @@ void Obstacles::CompositeSpriteBlock::rotate(float angle, float x, float y) noex
 }
 
 void Obstacles::CompositeSpriteBlock::rotate(float angle, const Components::Point &point) noexcept {
-    m_area.point = MathUtils::pointToPointRotation(m_area.point, angle, point);
+    m_area.rotate(angle, point);
     m_sprite->rotate(angle, point);
-    m_area.angle += angle; //Week place.
 }
 
 void Obstacles::CompositeSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {
@@ -59,15 +56,15 @@ const Components::Speed &Obstacles::CompositeSpriteBlock::getSpeed() const noexc
 }
 
 const Components::Point &Obstacles::CompositeSpriteBlock::getPosition() const noexcept {
-    return m_area.point;
+    return m_area.m_point;
 }
 
 const Components::Size &Obstacles::CompositeSpriteBlock::getSize() const noexcept {
-    return m_area.size;
+    return m_area.m_size;
 }
 
 float Obstacles::CompositeSpriteBlock::getRotation() const noexcept {
-    return m_area.angle;
+    return m_area.m_angle;
 }
 
 const Obstacles::ObstacleProperties &Obstacles::CompositeSpriteBlock::getProperties() const noexcept {
@@ -75,17 +72,17 @@ const Obstacles::ObstacleProperties &Obstacles::CompositeSpriteBlock::getPropert
 }
 
 void Obstacles::CompositeSpriteBlock::setPosition(const Components::Point &point) noexcept {
-    m_area.point = point;
+    m_area.setPosition(point);
 }
 
 void Obstacles::CompositeSpriteBlock::setPosition(float x, float y) noexcept {
-    m_area.point = Components::Point(x, y);
+    m_area.setPosition(x, y);
 }
 
 void Obstacles::CompositeSpriteBlock::setSize(const Components::Size &size) noexcept {
-    m_area.size = size;
+    m_area.setSize(size);
 }
 
 void Obstacles::CompositeSpriteBlock::setRotation(float angle) noexcept {
-    m_area.angle = angle;
+    m_area.setRotation(angle);
 }

@@ -4,8 +4,8 @@
 
 #include "Player.h"
 
-Mobs::Player::Player(const Mobs::PlayerProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : m_properties(properties), m_sprite(sprite) {}
+Mobs::Player::Player(const Mobs::PlayerProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite)
+        : m_properties(properties), m_area(area), m_sprite(sprite) {}
 
 void Mobs::Player::loadKeyMap(const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &keyMap) noexcept {
     m_keyMap = keyMap;
@@ -16,7 +16,7 @@ void Mobs::Player::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) n
 }
 
 bool Mobs::Player::collision(float x, float y) const noexcept {
-    return m_sprite->collision(x, y);
+    return m_area.collision(x, y);
 }
 
 void Mobs::Player::draw(sf::RenderTarget &target) const noexcept {
@@ -24,18 +24,23 @@ void Mobs::Player::draw(sf::RenderTarget &target) const noexcept {
 }
 
 void Mobs::Player::move(float offsetX, float offsetY) noexcept {
+    m_area.move(offsetX, offsetY);
     m_sprite->move(offsetX, offsetY);
 }
 
 void Mobs::Player::rotate(float angle) noexcept {
+    m_area.rotate(angle);
     m_sprite->rotate(angle);
 }
 
 void Mobs::Player::rotate(float angle, float x, float y) noexcept {
-    m_sprite->rotate(angle, x, y);
+    Components::Point point(x, y);
+    m_area.rotate(angle, point);
+    m_sprite->rotate(angle, point);
 }
 
 void Mobs::Player::rotate(float angle, const Components::Point &point) noexcept {
+    m_area.rotate(angle, point);
     m_sprite->rotate(angle, point);
 }
 
@@ -57,15 +62,15 @@ const Components::Speed &Mobs::Player::getSpeed() const noexcept {
 }
 
 const Components::Point &Mobs::Player::getPosition() const noexcept {
-    return m_sprite->getPosition();
+    return m_area.m_point;
 }
 
 const Components::Size &Mobs::Player::getSize() const noexcept {
-    return m_sprite->getSize();
+    return m_area.m_size;
 }
 
 float Mobs::Player::getRotation() const noexcept {
-    return m_sprite->getRotation();
+    return m_area.m_angle;
 }
 
 const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &Mobs::Player::getKeyMap() const noexcept {
@@ -77,17 +82,24 @@ const std::shared_ptr<Components::ISpriteBox> &Mobs::Player::getSprite() const n
 }
 
 void Mobs::Player::setPosition(const Components::Point &point) noexcept {
-    m_sprite->setPosition(point);
+    this->setPosition(point.x, point.y);
 }
 
 void Mobs::Player::setPosition(float x, float y) noexcept {
-    m_sprite->setPosition(Components::Point(x, y));
+    float spriteOffsetX = m_sprite->getPosition().x - m_area.m_point.x;
+    float spriteOffsetY = m_sprite->getPosition().y - m_area.m_point.y;
+    m_area.setPosition(x, y);
+    m_sprite->setPosition(m_area.m_point.x + spriteOffsetX, m_area.m_point.y + spriteOffsetY);
 }
 
 void Mobs::Player::setSize(const Components::Size &size) noexcept {
-    m_sprite->setSize(size);
+    float widthCoeff = static_cast<float>(m_sprite->getSize().width) / m_area.m_size.width;
+    float heightCoeff = static_cast<float>(m_sprite->getSize().height) / m_area.m_size.height;
+    m_area.setSize(size);
+    m_sprite->setSize(Components::Size(m_area.m_size.width * widthCoeff, m_area.m_size.height * heightCoeff));
 }
 
 void Mobs::Player::setRotation(float angle) noexcept {
+    m_area.setRotation(angle);
     m_sprite->setRotation(angle);
 }
