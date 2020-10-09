@@ -5,12 +5,12 @@
 #ifndef FLASH_PLAYER_H
 #define FLASH_PLAYER_H
 
-#include "../../control/KeyAlias.h"
+#include "../../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
+#include "../../../../../auxiliary/possibilities/Physical.h"
 #include "../../../../common/MaterialObject.h"
 #include "../properties/PlayerProperties.h"
-#include "../../../../../auxiliary/possibilities/Physical.h"
-#include "../../../../../auxiliary/components/elementary/area/Area.h"
+#include "../../control/KeyAlias.h"
 
 #include <map>
 #include <string>

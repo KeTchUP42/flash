@@ -12,8 +12,8 @@ namespace Mobs {
 
     class Mushroom : public BaseMonster {
     public:
-        explicit Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                          const std::shared_ptr<Material::Algorithms> &algorithms);
+        explicit Mushroom(const Mobs::MonsterProperties &properties, const Components::Area &area,
+                          const std::shared_ptr<Components::ISpriteBox> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms);
 
         friend class MushroomMind;
 

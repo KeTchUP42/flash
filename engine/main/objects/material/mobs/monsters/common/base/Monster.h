@@ -5,10 +5,11 @@
 #ifndef FLASH_MONSTER_H
 #define FLASH_MONSTER_H
 
+#include "../../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../properties/MonsterProperties.h"
 #include "../../../../../auxiliary/possibilities/Physical.h"
 #include "../../../../common/MaterialObject.h"
+#include "../properties/MonsterProperties.h"
 
 #include <memory>
 
@@ -23,7 +24,8 @@ namespace Mobs {
     class Monster : public Material::MaterialObject,
                     public Possibilities::Physical<Mobs::MonsterProperties> {
     public:
-        explicit Monster(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite);
+        explicit Monster(const Mobs::MonsterProperties &properties, const Components::Area &area,
+                         const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
          * @brief Method changes monsters's sprite texture.
@@ -63,12 +65,13 @@ namespace Mobs {
 
         const Components::Speed &getSpeed() const noexcept override;
 
-        const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
-
         const Mobs::MonsterProperties &getProperties() const noexcept override;
+
+        const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
 
     protected:
         Mobs::MonsterProperties m_properties;
+        Components::Area m_area;
         std::shared_ptr<Components::ISpriteBox> m_sprite;
     };
 }

@@ -4,9 +4,9 @@
 
 #include "Mushroom.h"
 
-Mobs::Mushroom::Mushroom(const Mobs::MonsterProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                         const std::shared_ptr<Material::Algorithms> &algorithms)
-        : BaseMonster(properties, sprite, algorithms), m_mind(this) {}
+Mobs::Mushroom::Mushroom(const Mobs::MonsterProperties &properties, const Components::Area &area,
+                         const std::shared_ptr<Components::ISpriteBox> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms)
+        : BaseMonster(properties, area, sprite, algorithms), m_mind(this) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     m_mind.analyze(unifier);
