@@ -26,7 +26,8 @@ movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Com
     if ((objectMoveXSpeed > 0) && (objectMaxCoordinates.x + objectMoveXSpeed < processedMinCoordinates.x)) return false;
     if ((objectMoveXSpeed < 0) && (objectMinCoordinates.x + objectMoveXSpeed > processedMaxCoordinates.x)) return false;
 
-    for (float y = objectMinCoordinates.y + yStep; y < objectMaxCoordinates.y; y += yStep) {
+    for (float y = objectMinCoordinates.y + 1; y < objectMaxCoordinates.y;
+         y = (y + yStep >= objectMaxCoordinates.y) ? objectMaxCoordinates.y : y + yStep) {
 
         if (processed.collision((objectMoveXSpeed > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + objectMoveXSpeed, y)) {
 
@@ -68,7 +69,8 @@ movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Com
     if ((objectMoveYSpeed > 0) && (objectMaxCoordinates.y + objectMoveYSpeed < processedMinCoordinates.y)) return false;
     if ((objectMoveYSpeed < 0) && (objectMinCoordinates.y + objectMoveYSpeed > processedMaxCoordinates.y)) return false;
 
-    for (float x = objectMinCoordinates.x + xStep; x < objectMaxCoordinates.x; x += xStep) {
+    for (float x = objectMinCoordinates.x + 1; x < objectMaxCoordinates.x;
+         x = (x + xStep >= objectMaxCoordinates.x) ? objectMaxCoordinates.x : x + xStep) {
 
         if (processed.collision(x, (objectMoveYSpeed > 0 ? objectMaxCoordinates.y : objectMinCoordinates.y) + objectMoveYSpeed)) {
 
