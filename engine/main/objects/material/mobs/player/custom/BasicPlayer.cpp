@@ -43,7 +43,7 @@ void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender)
         if (m_properties.speed.ySpeed == 0) { this->addSpeed(0, -15); }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Use])) {
-        this->m_sprite->setPosition(600, 500);
+        this->setPosition(600, 500);
     }
 }
 

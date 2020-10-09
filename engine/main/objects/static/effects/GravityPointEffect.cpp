@@ -75,3 +75,8 @@ void Effects::GravityPointEffect::setPoint(const Components::Point &point) noexc
     m_point = point;
 }
 
+void Effects::GravityPointEffect::setPoint(float x, float y) noexcept {
+    m_point.x = x;
+    m_point.y = y;
+}
+

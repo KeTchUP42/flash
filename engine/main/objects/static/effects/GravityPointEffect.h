@@ -21,6 +21,8 @@ namespace Effects {
 
         void setPoint(const Components::Point &point) noexcept;
 
+        void setPoint(float x, float y) noexcept;
+
     protected:
         Components::Point m_point;
         const float ACCELERATION;

@@ -22,12 +22,12 @@ void Components::SpriteBox::draw(sf::RenderTarget &target) const noexcept {
 
 void Components::SpriteBox::move(float offsetX, float offsetY) noexcept {
     m_area.move(offsetX, offsetY);
-    m_sprite->setPosition(m_area.m_point.x, m_area.m_point.y);
+    m_sprite->move(offsetX, offsetY);
 }
 
 void Components::SpriteBox::rotate(float angle) noexcept {
-    m_sprite->rotate(angle);
     m_area.rotate(angle);
+    m_sprite->rotate(angle);
 }
 
 void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
@@ -59,8 +59,8 @@ void Components::SpriteBox::setSize(const Components::Size &size) noexcept {
 }
 
 void Components::SpriteBox::setRotation(float angle) noexcept {
-    m_sprite->setRotation(angle);
     m_area.setRotation(angle);
+    m_sprite->setRotation(angle);
 }
 
 float Components::SpriteBox::getRotation() const noexcept {
