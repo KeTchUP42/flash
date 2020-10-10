@@ -49,16 +49,16 @@ void Unite::GeneralUnifier::refresh() {
         effect->applyEffect(this);
     }
 
-    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
-        obstacle->selfAction(this);
+    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
+        monster->selfAction(this);
     }
 
     for (const std::shared_ptr<Mobs::Player> &player: m_players) {
         player->selfAction(this);
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
-        monster->selfAction(this);
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
+        obstacle->selfAction(this);
     }
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {

@@ -14,13 +14,10 @@ void Generate::ExplicitPlayerSceneTriggerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
     //point
     Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));
-
     //size
     Components::Size size(std::atoi(data.at("WIDTH").c_str()), std::atoi(data.at("HEIGHT").c_str()));
-
     //angle
     float angle = std::stof(data.at("ANGLE"));
-
     //target point
     Components::Point target_point(std::stof(data.at("TARGET_X")), std::stof(data.at("TARGET_Y")));
 

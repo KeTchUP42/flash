@@ -49,7 +49,7 @@ set(MONSTERS_COMMON)
 set(MONSTERS ${MONSTERS_COMMON} ${MUSHROOM} engine/main/objects/material/mobs/monsters/common/base/Monster.cpp)
 
 set(PLAYER_COMMON)
-set(PLAYER ${PLAYER_COMMON} engine/main/objects/material/mobs/player/common/base/Player.cpp engine/main/objects/material/mobs/player/custom/BasicPlayer.cpp)
+set(PLAYER ${PLAYER_COMMON} engine/main/objects/material/mobs/player/common/base/Player.cpp engine/main/objects/material/mobs/player/custom/basic/BasicPlayer.cpp)
 set(MOBS_COMMON)
 set(MOBS ${MONSTERS} ${PLAYER} ${MOBS_COMMON})
 

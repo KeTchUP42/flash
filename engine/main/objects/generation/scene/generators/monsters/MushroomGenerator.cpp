@@ -30,6 +30,12 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     Components::Speed speed(std::stof(data.at("X_SPEED")), std::stof(data.at("Y_SPEED")));
     Mobs::MonsterProperties properties(speed);
 
+    //mush properties
+    Mobs::MushroomProperties mushroomProperties(std::stof(data.at("PUNCH_POWER")), std::stof(data.at("ELASTICITY_LEVEL")));
+
+    //texture
+    auto texture = m_source.getTexture(data.at("TEXTURE"));
+
     //algorithms
     std::pair<float, float> collisionParams = std::make_pair<float, float>(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
                                                                            std::stof(data.at("COLLISION_ANALYSIS_STEP")));
@@ -40,5 +46,5 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     unifier.addMonster(new Mobs::Mushroom(
             properties, area,
             std::shared_ptr<Components::ISpriteBox>(
-                    new Components::SpriteBox(spriteArea, m_source.getTexture(data.at("TEXTURE")))), algorithms));
+                    new Components::SpriteBox(spriteArea, texture)), algorithms, mushroomProperties));
 }

@@ -4,7 +4,7 @@
 
 #include "BasicPlayerGenerator.h"
 #include "../../../../material/common/algorithms/Algorithms.h"
-#include "../../../../material/mobs/player/custom/BasicPlayer.h"
+#include "../../../../material/mobs/player/custom/basic/BasicPlayer.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
 Generate::BasicPlayerGenerator::BasicPlayerGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
@@ -31,6 +31,10 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     Components::Speed speed(std::stof(data.at("X_SPEED")), std::stof(data.at("Y_SPEED")));
     Mobs::PlayerProperties properties(speed);
 
+    //player properties
+    Mobs::BasicPlayerProperties playerProperties(std::stof(data.at("MOVE_SPEED")), std::stof(data.at("MAX_MOVE_SPEED")),
+                                                 std::stof(data.at("JUMP_SPEED")));
+
     //texture
     auto texture = m_source.getTexture(data.at("TEXTURE"));
 
@@ -44,7 +48,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     Mobs::Player *player = new Mobs::BasicPlayer(
             properties, area,
             std::shared_ptr<Components::ISpriteBox>(
-                    new Components::SpriteBox(spriteArea, texture)), algorithms);
+                    new Components::SpriteBox(spriteArea, texture)), algorithms, playerProperties);
 
     player->loadKeyMap(data.at("KEYMAP"), m_source.getManager());
     unifier.addPlayer(player);
