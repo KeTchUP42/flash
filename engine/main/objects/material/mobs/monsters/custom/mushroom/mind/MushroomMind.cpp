@@ -21,12 +21,16 @@ void Mobs::MushroomMind::analyze(Unite::Unifier *unifier) noexcept {
 
     Mobs::Monster *monster;
     if ((monster = m_holder->m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(m_holder, unifier->getMonsters())) != nullptr) {
-        if (((m_holder->getSpeed().xSpeed < 0) && (monster->getSpeed().xSpeed >= 0)) ||
-            ((m_holder->getSpeed().xSpeed > 0) && (monster->getSpeed().xSpeed <= 0))) {
+        if (m_holder->getSpeed().xSpeed * monster->getSpeed().xSpeed <= 0) {
             monster->setSpeed(Components::Speed((m_holder->getSpeed().xSpeed > 0 ? 1 : -1) * m_holder->m_mushroom.punchPower,
                                                 monster->getSpeed().ySpeed - m_holder->m_mushroom.punchPower * 2));
-            m_holder->m_properties.speed.xSpeed += (m_holder->getSpeed().xSpeed > 0) ?
-                                                   -m_holder->m_mushroom.punchPower : m_holder->m_mushroom.punchPower;
+
+            if (std::abs(m_holder->m_mushroom.punchPower) > std::abs(m_holder->getSpeed().xSpeed)) {
+                m_holder->m_properties.speed.xSpeed = 0;
+            } else {
+                m_holder->m_properties.speed.xSpeed = -m_holder->getSpeed().xSpeed + m_holder->m_mushroom.punchPower *
+                                                      ((m_holder->getSpeed().xSpeed > 0 ? -1 : 1) * (m_holder->m_mushroom.punchPower > 0 ? -1 : 1));
+            }
         }
     }
 
