@@ -5,48 +5,44 @@
 #include "ExtremeCoordinates.h"
 
 std::vector<Components::Point>
-Material::extremeCoordinatesAbscissa(const Possibilities::RectangleGetters &rectangle, float absentXValue) noexcept {
+Material::extremeCoordinatesAbscissa(const Material::MaterialObject &object, float absentXValue) noexcept {
     std::vector<Components::Point> result;
-    MathUtils::RectangleCoordinates coordinates = MathUtils::coordinates(rectangle);
-
-    if (coordinates.point_1.x != absentXValue) {
-        result.push_back(coordinates.point_1);
+    if (object.getCoordinates().point_1.x != absentXValue) {
+        result.push_back(object.getCoordinates().point_1);
     }
 
-    if (coordinates.point_2.x != absentXValue) {
-        result.push_back(coordinates.point_2);
+    if (object.getCoordinates().point_2.x != absentXValue) {
+        result.push_back(object.getCoordinates().point_2);
     }
 
-    if (coordinates.point_3.x != absentXValue) {
-        result.push_back(coordinates.point_3);
+    if (object.getCoordinates().point_3.x != absentXValue) {
+        result.push_back(object.getCoordinates().point_3);
     }
 
-    if (coordinates.point_4.x != absentXValue) {
-        result.push_back(coordinates.point_4);
+    if (object.getCoordinates().point_4.x != absentXValue) {
+        result.push_back(object.getCoordinates().point_4);
     }
 
     return result;
 }
 
 std::vector<Components::Point>
-Material::extremeCoordinatesOrdinate(const Possibilities::RectangleGetters &rectangle, float absentYValue) noexcept {
+Material::extremeCoordinatesOrdinate(const Material::MaterialObject &object, float absentYValue) noexcept {
     std::vector<Components::Point> result;
-    MathUtils::RectangleCoordinates coordinates = MathUtils::coordinates(rectangle);
-
-    if (coordinates.point_1.y != absentYValue) {
-        result.push_back(coordinates.point_1);
+    if (object.getCoordinates().point_1.y != absentYValue) {
+        result.push_back(object.getCoordinates().point_1);
     }
 
-    if (coordinates.point_2.y != absentYValue) {
-        result.push_back(coordinates.point_2);
+    if (object.getCoordinates().point_2.y != absentYValue) {
+        result.push_back(object.getCoordinates().point_2);
     }
 
-    if (coordinates.point_3.y != absentYValue) {
-        result.push_back(coordinates.point_3);
+    if (object.getCoordinates().point_3.y != absentYValue) {
+        result.push_back(object.getCoordinates().point_3);
     }
 
-    if (coordinates.point_4.y != absentYValue) {
-        result.push_back(coordinates.point_4);
+    if (object.getCoordinates().point_4.y != absentYValue) {
+        result.push_back(object.getCoordinates().point_4);
     }
 
     return result;

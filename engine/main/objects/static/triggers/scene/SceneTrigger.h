@@ -15,8 +15,6 @@ namespace Triggers {
         explicit SceneTrigger(const std::string &filename, const Components::Area &area, Screen::StateChangeable *context)
                 : AreaTrigger(area), m_context(context), m_scene_file(filename) {}
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override {}
-
     protected:
         Screen::StateChangeable *m_context;
         std::string m_scene_file;

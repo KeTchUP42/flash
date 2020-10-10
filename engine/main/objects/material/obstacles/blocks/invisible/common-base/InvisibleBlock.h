@@ -18,8 +18,6 @@ namespace Obstacles {
 
         void draw(sf::RenderTarget &target) const noexcept override;
 
-        bool collision(float x, float y) const noexcept override;
-
         void move(float offsetX, float offsetY) noexcept override;
 
         const ObstacleProperties &getProperties() const noexcept override;

@@ -12,10 +12,6 @@ void Mobs::Monster::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) 
     m_sprite->setTexture(texture);
 }
 
-bool Mobs::Monster::collision(float x, float y) const noexcept {
-    return m_area.collision(x, y);
-}
-
 void Mobs::Monster::draw(sf::RenderTarget &target) const noexcept {
     m_sprite->draw(target);
 }

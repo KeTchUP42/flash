@@ -27,8 +27,6 @@ namespace Components {
 
         void rotate(float angle, const Point &point) noexcept override;
 
-        bool collision(float x, float y) const noexcept override;
-
         void addSprite(ISprite *sprite) noexcept override;
 
         void addSprite(const std::shared_ptr<ISprite> &sprite) noexcept override;

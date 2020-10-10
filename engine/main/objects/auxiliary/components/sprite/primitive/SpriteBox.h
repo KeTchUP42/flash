@@ -24,8 +24,6 @@ namespace Components {
 
         void rotate(float angle, const Components::Point &point) noexcept override;
 
-        bool collision(float x, float y) const noexcept override;
-
         void setPosition(const Components::Point &point) noexcept override;
 
         void setPosition(float x, float y) noexcept override;

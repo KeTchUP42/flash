@@ -16,12 +16,21 @@ namespace Triggers {
      *
      * This class defines base AreaTrigger interface.
     */
-    class AreaTrigger : public Trigger {
+    class AreaTrigger : public Trigger, public Possibilities::RectangleInfo {
     public:
-        AreaTrigger(const Components::Area &area) : m_area(area) {}
+        AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(MathUtils::coordinates(this)) {}
+
+        const Components::Coordinates &getCoordinates() const noexcept override;
+
+        const Components::Point &getPosition() const noexcept override;
+
+        const Components::Size &getSize() const noexcept override;
+
+        float getRotation() const noexcept override;
 
     protected:
         Components::Area m_area;
+        Components::Coordinates m_coordinates;
     };
 }
 

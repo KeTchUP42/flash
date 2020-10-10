@@ -10,13 +10,9 @@ DullCompositeBlock(const ObstacleProperties &properties, const Components::Area 
         : CompositeSpriteBlock(properties, area, sprite, algorithms) {}
 
 void Obstacles::DullCompositeBlock::selfAction(Unite::Unifier *unifier) {
-    this->selfMove(unifier);
+    //..
 }
 
 void Obstacles::DullCompositeBlock::selfMove(Unite::Unifier *unifier) {
-    this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
-}
-
-void Obstacles::DullCompositeBlock::update(const sf::Event &event, sf::RenderWindow &sender) {
     //..
 }

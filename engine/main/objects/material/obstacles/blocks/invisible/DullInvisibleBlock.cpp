@@ -9,14 +9,10 @@ Obstacles::DullInvisibleBlock::DullInvisibleBlock(const Obstacles::ObstaclePrope
         : InvisibleBlock(properties, area, algorithms) {}
 
 void Obstacles::DullInvisibleBlock::selfAction(Unite::Unifier *unifier) {
-    this->selfMove(unifier);
+    //..
 }
 
 void Obstacles::DullInvisibleBlock::selfMove(Unite::Unifier *unifier) {
-    this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
-}
-
-void Obstacles::DullInvisibleBlock::update(const sf::Event &event, sf::RenderWindow &sender) {
     //..
 }
 

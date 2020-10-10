@@ -3,7 +3,7 @@
 //
 
 #include "InvisibleBlock.h"
-#include "../../../../../../../utils/math/Rectangle.h"
+#include "../../../../../../../utils/math/RectangleMath.h"
 
 Obstacles::InvisibleBlock::InvisibleBlock(const Obstacles::ObstacleProperties &properties, const Components::Area &area,
                                           const std::shared_ptr<Material::Algorithms> &algorithms)
@@ -11,10 +11,6 @@ Obstacles::InvisibleBlock::InvisibleBlock(const Obstacles::ObstacleProperties &p
 
 void Obstacles::InvisibleBlock::draw(sf::RenderTarget &target) const noexcept {
     //..
-}
-
-bool Obstacles::InvisibleBlock::collision(float x, float y) const noexcept {
-    return m_area.collision(x, y);
 }
 
 void Obstacles::InvisibleBlock::move(float offsetX, float offsetY) noexcept {

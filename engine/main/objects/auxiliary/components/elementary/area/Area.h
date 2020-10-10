@@ -23,15 +23,12 @@ namespace Components {
     */
     struct Area : public Possibilities::RectangleGetters,
                   public Possibilities::RectangleSetters,
-                  public Possibilities::CollisionProne,
                   public Possibilities::Rotatable,
                   public Possibilities::Movable {
 
         Area();
 
         explicit Area(const Point &point, const Size &size, float angle);
-
-        bool collision(float x, float y) const noexcept override;
 
         void move(float offsetX, float offsetY) noexcept override;
 

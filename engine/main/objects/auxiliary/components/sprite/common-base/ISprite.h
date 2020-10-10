@@ -26,7 +26,6 @@ namespace Components {
     class ISprite
             : public Possibilities::Movable,
               public Possibilities::Rotatable,
-              public Possibilities::CollisionProne,
               public Possibilities::Drawable<sf::RenderTarget> {
     public:
         ISprite() = default;

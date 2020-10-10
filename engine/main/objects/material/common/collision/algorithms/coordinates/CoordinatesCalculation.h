@@ -6,20 +6,20 @@
 #define FLASH_COORDINATESCALCULATION_H
 
 #include "../../../../../auxiliary/components/elementary/point/Point.h"
-#include "../../../../../auxiliary/possibilities/RectangleGetters.h"
+#include "../../../MaterialObject.h"
 
 namespace Material {
     /**
      * @brief Analysis helper function.
      * @return Pair of coordinates, max "X" and max "Y".
      */
-    Components::Point maxCoordinates(const Possibilities::RectangleGetters &rectangle) noexcept;
+    Components::Point maxCoordinates(const Material::MaterialObject &object) noexcept;
 
     /**
      * @brief Analysis helper function.
      * @return Pair of coordinates, min "X" and min "Y".
      */
-    Components::Point minCoordinates(const Possibilities::RectangleGetters &rectangle) noexcept;
+    Components::Point minCoordinates(const Material::MaterialObject &object) noexcept;
 }
 
 

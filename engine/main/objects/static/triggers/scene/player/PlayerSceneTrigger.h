@@ -17,6 +17,8 @@ namespace Triggers {
 
         ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept override;
 
+        void update(const sf::Event &event, sf::RenderWindow &sender) override;
+
     protected:
         std::shared_ptr<Handler<Mobs::Player>> m_handler;
     };

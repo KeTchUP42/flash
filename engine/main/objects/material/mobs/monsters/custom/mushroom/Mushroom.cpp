@@ -20,13 +20,7 @@ void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {
     }
 
     if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getObstacles())) != nullptr) {
-        m_properties.speed.ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
+        float ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient);
+        m_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
     }
-
-    this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
 }
-
-void Mobs::Mushroom::update(const sf::Event &event, sf::RenderWindow &sender) {
-    //..
-}
-

@@ -3,7 +3,7 @@
 //
 
 #include "SpriteBox.h"
-#include "../../../../../../utils/math/Rectangle.h"
+#include "../../../../../../utils/math/RectangleMath.h"
 
 Components::SpriteBox::SpriteBox(const Components::Area &area, const std::shared_ptr<sf::Texture> &texture)
         : m_area(area), m_texture(texture) {
@@ -37,10 +37,6 @@ void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
 void Components::SpriteBox::rotate(float angle, const Components::Point &point) noexcept {
     this->setPosition(MathUtils::pointToPointRotation(this->getPosition(), angle, point));
     this->rotate(angle);
-}
-
-bool Components::SpriteBox::collision(float x, float y) const noexcept {
-    return MathUtils::collision(Point(x, y), *this);
 }
 
 void Components::SpriteBox::setPosition(const Components::Point &point) noexcept {

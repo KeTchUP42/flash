@@ -6,8 +6,7 @@
 #define FLASH_EXTREMECOORDINATES_H
 
 #include "../../../../../auxiliary/components/elementary/point/Point.h"
-#include "../../../../../auxiliary/possibilities/RectangleGetters.h"
-#include "../../../../../../../utils/math/Rectangle.h"
+#include "../../../../../../../utils/math/RectangleMath.h"
 
 #include <vector>
 
@@ -17,12 +16,12 @@ namespace Material {
      * @brief Function returns points without "absentXValue" `X` value.
      */
     std::vector<Components::Point>
-    extremeCoordinatesAbscissa(const Possibilities::RectangleGetters &rectangle, float absentXValue) noexcept;
+    extremeCoordinatesAbscissa(const Material::MaterialObject &object, float absentXValue) noexcept;
 
     /**
      * @brief Function returns points without "absentYValue" `Y` value.
      */
     std::vector<Components::Point>
-    extremeCoordinatesOrdinate(const Possibilities::RectangleGetters &rectangle, float absentYValue) noexcept;
+    extremeCoordinatesOrdinate(const Material::MaterialObject &object, float absentYValue) noexcept;
 }
 #endif //FLASH_EXTREMECOORDINATES_H

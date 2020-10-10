@@ -22,8 +22,6 @@ namespace Obstacles {
          */
         void loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
 
-        bool collision(float x, float y) const noexcept override;
-
         void draw(sf::RenderTarget &target) const noexcept override;
 
         void move(float offsetX, float offsetY) noexcept override;

@@ -71,10 +71,5 @@ void Obstacles::PlatformBlock::selfMove(Unite::Unifier *unifier) {
             }
         }
     }
-
-    this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
 }
 
-void Obstacles::PlatformBlock::update(const sf::Event &event, sf::RenderWindow &sender) {
-    //..
-}

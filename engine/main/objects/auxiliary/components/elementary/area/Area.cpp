@@ -3,7 +3,7 @@
 //
 
 #include "Area.h"
-#include "../../../../../../utils/math/Rectangle.h"
+#include "../../../../../../utils/math/RectangleMath.h"
 
 #include <cmath>
 
@@ -11,10 +11,6 @@ Components::Area::Area(const Components::Point &point, const Components::Size &s
         : m_angle(angle), m_point(point), m_size(size) {}
 
 Components::Area::Area() : m_angle(), m_point(), m_size() {}
-
-bool Components::Area::collision(float x, float y) const noexcept {
-    return MathUtils::collision(Point(x, y), *this);
-}
 
 void Components::Area::move(float offsetX, float offsetY) noexcept {
     m_point.x += offsetX;

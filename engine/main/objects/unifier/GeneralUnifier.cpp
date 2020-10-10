@@ -29,6 +29,18 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
 
 void Unite::GeneralUnifier::refresh() {
 
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
+        obstacle->updateCoordinates();
+    }
+
+    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
+        player->updateCoordinates();
+    }
+
+    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
+        monster->updateCoordinates();
+    }
+
     for (const std::shared_ptr<Triggers::Trigger> &trigger: m_triggers) {
         if (trigger->verifyTrigger(this) == Triggers::ResultCodes::STOP) return;
     }
@@ -47,6 +59,18 @@ void Unite::GeneralUnifier::refresh() {
 
     for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
         monster->selfAction(this);
+    }
+
+    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
+        obstacle->updateLocation();
+    }
+
+    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
+        player->updateLocation();
+    }
+
+    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
+        monster->updateLocation();
     }
 }
 

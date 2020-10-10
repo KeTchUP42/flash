@@ -2,35 +2,24 @@
 // Created by roman on 16.09.2020.
 //
 
-#ifndef FLASH_RECTANGLE_H
-#define FLASH_RECTANGLE_H
+#ifndef FLASH_RECTANGLEMATH_H
+#define FLASH_RECTANGLEMATH_H
 
-#include "../../main/objects/auxiliary/possibilities/RectangleGetters.h"
+#include "../../main/objects/auxiliary/possibilities/RectangleInfo.h"
 #include "../../main/objects/auxiliary/components/elementary/Speed.h"
+#include "../../main/objects/auxiliary/components/elementary/Coordinates.h"
+#include "../../main/objects/material/common/MaterialObject.h"
 
 #include <utility>
 
 namespace MathUtils {
 
     /**
-     * @brief Struct with all rectangle coordinates.
-     */
-    struct RectangleCoordinates {
-        explicit RectangleCoordinates(const Components::Point &point1, const Components::Point &point2,
-                                      const Components::Point &point3, const Components::Point &point4);
-
-        Components::Point point_1;
-        Components::Point point_2;
-        Components::Point point_3;
-        Components::Point point_4;
-    };
-
-    /**
      * @brief Function returns rectangle coordinates.
-     * @param rectangle Rectangle object.
+     * @param rectangle Rectangle rectangle.
      * @return Coordinates.
      */
-    RectangleCoordinates coordinates(const Possibilities::RectangleGetters &rectangle) noexcept;
+    Components::Coordinates coordinates(const Possibilities::RectangleInfo *rectangle) noexcept;
 
     /**
      * @brief Function checks point being inside the rectangle.
@@ -38,7 +27,14 @@ namespace MathUtils {
      * @param rectangle Object with rectangle properties.
      * @return Result.
      */
-    bool collision(const Components::Point &point, const Possibilities::RectangleGetters &rectangle) noexcept;
+    bool collision(const Components::Point &point, const Possibilities::RectangleInfo &rectangle) noexcept;
+
+    /**
+     * @brief Function checks point being inside the rectangle.
+     * @param rectangle Object with rectangle properties.
+     * @return Result.
+     */
+    bool collision(float x, float y, const Possibilities::RectangleInfo &rectangle) noexcept;
 
     /**
      * @brief Function checks point being inside the rectangle.
@@ -46,7 +42,7 @@ namespace MathUtils {
      * @param rectangle2 Object with rectangle properties.
      * @return Result.
     */
-    bool collision(const Possibilities::RectangleGetters &rectangle1, const Possibilities::RectangleGetters &rectangle2) noexcept;
+    bool collision(const Possibilities::RectangleInfo &rectangle1, const Possibilities::RectangleInfo &rectangle2) noexcept;
 
     /**
      * @brief Function returns new point after rotation base point around target point.
@@ -61,4 +57,4 @@ namespace MathUtils {
     std::pair<int, int>
     pointToPointRotationOffset(const Components::Point &base, float angle, const Components::Point &target) noexcept;
 }
-#endif //FLASH_RECTANGLE_H
+#endif //FLASH_RECTANGLEMATH_H

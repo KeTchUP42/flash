@@ -62,13 +62,13 @@ set(OBSTACLES ${BLOCKS} ${OBSTACLES_COMMON})
 set(ALGORITHMS engine/main/objects/material/common/algorithms/Algorithms.cpp)
 set(COLLISION_ALGORITHMS engine/main/objects/material/common/collision/algorithms/collision/StaticCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/collision/MovingCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/coordinates/CoordinatesCalculation.cpp engine/main/objects/material/common/collision/algorithms/coordinates/ExtremeCoordinates.cpp)
 set(COLLISION ${COLLISION_ALGORITHMS} engine/main/objects/material/common/collision/Collision.cpp engine/main/objects/material/common/collision/moving-collision/MovingCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticCollision.cpp)
-set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION})
+set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION} engine/main/objects/material/common/MaterialObject.cpp)
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
 set(EFFECTS engine/main/objects/static/effects/GravityEffect.cpp engine/main/objects/static/effects/GravityPointEffect.cpp)
 
 set(HANDLERS engine/main/objects/static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.cpp)
-set(TRIGGERS ${HANDLERS} engine/main/objects/static/triggers/scene/player/PlayerSceneTrigger.cpp)
+set(TRIGGERS engine/main/objects/static/triggers/common/AreaTrigger.cpp ${HANDLERS} engine/main/objects/static/triggers/scene/player/PlayerSceneTrigger.cpp)
 set(STATIC ${EFFECTS} ${TRIGGERS})
 
 set(UNIFIER engine/main/objects/unifier/common/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp)
@@ -81,7 +81,7 @@ set(LOGGER engine/utils/logger/BasicLogger.cpp engine/utils/logger/formatter/Log
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
 set(INI engine/utils/Ini/BasicIniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp)
-set(MATH engine/utils/math/Rectangle.cpp)
+set(MATH engine/utils/math/RectangleMath.cpp)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 
 set(EXCEPTIONS engine/main/other/exceptions/Exception.cpp)

@@ -45,10 +45,4 @@ void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
             ));
         }
     }
-
-    this->move(m_properties.speed.xSpeed, m_properties.speed.ySpeed);
-}
-
-void Obstacles::ElasticBlock::update(const sf::Event &event, sf::RenderWindow &sender) {
-    //..
 }

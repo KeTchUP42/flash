@@ -3,8 +3,8 @@
 //
 
 #include "PlayerSceneTrigger.h"
-#include "../../../../../../utils/math/Rectangle.h"
 #include "../../../../unifier/GeneralUnifier.h"
+#include "../../../../../../utils/math/RectangleMath.h"
 #include "../../../../../view/windows/screen/states/TransitScreenState.h"
 
 Triggers::PlayerSceneTrigger::PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
@@ -14,7 +14,7 @@ Triggers::PlayerSceneTrigger::PlayerSceneTrigger(const std::string &filename, co
 Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
     for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
 
-        if (MathUtils::collision(m_area, *player)) {
+        if (MathUtils::collision(*this, *player)) {
 
             Unite::Unifier *new_unifier = new Unite::GeneralUnifier();
             for (const std::shared_ptr<Mobs::Player> &plr: unifier->getPlayers()) {
@@ -27,4 +27,8 @@ Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier
         }
     }
     return ResultCodes::OK;
+}
+
+void Triggers::PlayerSceneTrigger::update(const sf::Event &event, sf::RenderWindow &sender) {
+    //..
 }

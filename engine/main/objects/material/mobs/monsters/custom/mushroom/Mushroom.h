@@ -21,8 +21,6 @@ namespace Mobs {
 
         void selfMove(Unite::Unifier *unifier) override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override;
-
     protected:
         MushroomMind m_mind;
     };
