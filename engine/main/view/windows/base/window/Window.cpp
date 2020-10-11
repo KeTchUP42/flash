@@ -54,6 +54,10 @@ void WindowView::Window::setFramerateLimit(unsigned int limit) noexcept {
     m_window.setFramerateLimit(limit);
 }
 
+void WindowView::Window::setVerticalSyncEnabled(bool enabled) noexcept {
+    m_window.setVerticalSyncEnabled(enabled);
+}
+
 const sf::RenderWindow &WindowView::Window::getWindow() const noexcept {
     return m_window;
 }

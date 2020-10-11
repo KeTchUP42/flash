@@ -44,6 +44,8 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
                                               new Screen::InitialScreenState(iniData["SCENE"]["launch"]), manager);
     //fps
     window->setFramerateLimit(std::atoi(iniData["WINDOW"]["fps"].c_str()));
+    //sync
+    window->setVerticalSyncEnabled((std::atoi(iniData["WINDOW"]["VerticalSync"].c_str()) == 1));
 
     window->configure(); // Mathod calls initialization mathod.
     return std::shared_ptr<WindowView::Window>(window);

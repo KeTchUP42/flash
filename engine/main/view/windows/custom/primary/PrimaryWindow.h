@@ -24,13 +24,12 @@ namespace WindowView {
     public:
         void configure();
 
+        void setScreenState(Screen::ScreenState *state) noexcept override;
+
     protected:
         void initialization() override;
 
         void update() override;
-
-    public:
-        void setScreenState(Screen::ScreenState *state) noexcept override;
 
     private:
         /**

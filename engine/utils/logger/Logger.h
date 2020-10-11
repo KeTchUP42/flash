@@ -28,8 +28,6 @@ namespace LoggerUtil {
                         const std::shared_ptr<Formatter<std::string>> &formatter)
                 : m_writer(writer), m_formatter(formatter) {}
 
-        Logger &operator=(const Logger &) = delete;
-
         /**
          * System is unusable.
          */

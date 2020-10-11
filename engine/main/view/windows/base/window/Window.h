@@ -81,6 +81,12 @@ namespace WindowView {
         void setFramerateLimit(unsigned int limit) noexcept;
 
         /**
+         * @brief Method sets vertical Sync enabled value.
+         * @param enabled
+         */
+        void setVerticalSyncEnabled(bool enabled) noexcept;
+
+        /**
          * @brief Method returns SFML window.
          * @return Window.
          */
@@ -102,7 +108,6 @@ namespace WindowView {
         void notify(const sf::Event &event);
 
     protected:
-
         /**
          * @brief Method initializes all window components.
          */
