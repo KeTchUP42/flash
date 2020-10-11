@@ -9,6 +9,15 @@
 #include <math.h>
 
 Components::Coordinates MathUtils::coordinates(const Possibilities::RectangleInfo *rectangle) noexcept {
+    //Conditional expected for pre-rounded degrees.
+    if (rectangle->getRotation() == 0) {
+        return Components::Coordinates(
+                Components::Point(rectangle->getPosition().x, rectangle->getPosition().y),
+                Components::Point(rectangle->getPosition().x + rectangle->getSize().width, rectangle->getPosition().y),
+                Components::Point(rectangle->getPosition().x + rectangle->getSize().width, rectangle->getPosition().y + rectangle->getSize().height),
+                Components::Point(rectangle->getPosition().x, rectangle->getPosition().y + rectangle->getSize().height));
+    }
+
     const float angleInRadians = rectangle->getRotation() * M_PI / 180;
     const float sinAngle = std::sin(angleInRadians);
     const float cosAngle = std::cos(angleInRadians);

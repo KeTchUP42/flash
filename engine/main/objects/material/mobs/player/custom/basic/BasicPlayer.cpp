@@ -39,14 +39,12 @@ void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {
 
 void Mobs::BasicPlayer::update(const sf::Event &event, sf::RenderWindow &sender) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Right])) {
-        if ((std::abs(m_properties.speed.xSpeed) < m_basic.maxMoveSpeed) &&
-            (m_properties.speed.xSpeed + m_basic.moveSpeed <= m_basic.maxMoveSpeed)) {
+        if ((std::abs(m_properties.speed.xSpeed) < m_basic.maxMoveSpeed) && (m_properties.speed.xSpeed + m_basic.moveSpeed <= m_basic.maxMoveSpeed)) {
             this->addSpeed(m_basic.moveSpeed, 0);
         }
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == m_keyMap[KeyAlias::Left])) {
-        if ((std::abs(m_properties.speed.xSpeed) < m_basic.maxMoveSpeed) &&
-            (m_properties.speed.xSpeed - m_basic.moveSpeed >= -m_basic.maxMoveSpeed)) {
+        if ((std::abs(m_properties.speed.xSpeed) < m_basic.maxMoveSpeed) && (m_properties.speed.xSpeed - m_basic.moveSpeed >= -m_basic.maxMoveSpeed)) {
             this->addSpeed(-m_basic.moveSpeed, 0);
         }
     }
