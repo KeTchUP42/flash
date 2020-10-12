@@ -6,9 +6,8 @@
 #include "../../../../../../utils/math/RectangleMath.h"
 
 Components::SpriteBox::SpriteBox(const Components::Area &area, const std::shared_ptr<sf::Texture> &texture)
-        : m_area(area), m_texture(texture) {
+        : ISpriteBox(texture, new sf::Sprite()), m_area(area) {
 
-    m_sprite = std::shared_ptr<sf::Sprite>(new sf::Sprite());
     m_sprite->setTexture(*texture.get(), true);
     m_sprite->setPosition(m_area.m_point.x, m_area.m_point.y);
     m_sprite->setScale(static_cast<float>(m_area.m_size.width) / m_texture->getSize().x,
@@ -61,32 +60,6 @@ void Components::SpriteBox::setRotation(float angle) noexcept {
 
 float Components::SpriteBox::getRotation() const noexcept {
     return m_sprite->getRotation();
-}
-
-const std::shared_ptr<sf::Sprite> &Components::SpriteBox::getSprite() const noexcept {
-    return m_sprite;
-}
-
-const sf::Texture *Components::SpriteBox::getTexture() const noexcept {
-    return m_sprite->getTexture();
-}
-
-void Components::SpriteBox::setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
-    m_texture.reset(); // Safe delete.
-    m_texture = texture;
-    m_sprite->setTexture(*m_texture.get(), true);
-}
-
-const sf::IntRect &Components::SpriteBox::getTextureRect() const noexcept {
-    return m_sprite->getTextureRect();
-}
-
-sf::Color Components::SpriteBox::getColor() const noexcept {
-    return m_sprite->getColor();
-}
-
-void Components::SpriteBox::setColor(const sf::Color &color) noexcept {
-    m_sprite->setColor(color);
 }
 
 const Components::Point &Components::SpriteBox::getPosition() const noexcept {

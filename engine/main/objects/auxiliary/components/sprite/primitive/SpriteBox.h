@@ -34,26 +34,12 @@ namespace Components {
 
         float getRotation() const noexcept override;
 
-        const std::shared_ptr<sf::Sprite> &getSprite() const noexcept override;
-
-        const sf::Texture *getTexture() const noexcept override;
-
-        void setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept override;
-
-        const sf::IntRect &getTextureRect() const noexcept override;
-
-        sf::Color getColor() const noexcept override;
-
-        void setColor(const sf::Color &color) noexcept override;
-
         const Components::Point &getPosition() const noexcept override;
 
         const Components::Size &getSize() const noexcept override;
 
     protected:
         Components::Area m_area;
-        std::shared_ptr<sf::Texture> m_texture;
-        std::shared_ptr<sf::Sprite> m_sprite;
     };
 }
 

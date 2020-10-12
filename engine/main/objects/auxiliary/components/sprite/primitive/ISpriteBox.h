@@ -13,46 +13,60 @@
 
 namespace Components {
 
-    class ISpriteBox : public Possibilities::RectangleGetters,
-                       public Possibilities::RectangleSetters,
-                       public ISprite {
+    class ISpriteBox : public ISprite, public Possibilities::RectangleGetters, public Possibilities::RectangleSetters {
     public:
-        ISpriteBox() = default;
+        /**
+         * @brief Base custom sprite constructor.
+         * @param texture Sprite texture.
+         * @param sprite Base sprite.
+         */
+        explicit ISpriteBox(const std::shared_ptr<sf::Texture> &texture, sf::Sprite *sprite);
+
+        /**
+         * @brief Base custom sprite constructor.
+         * @param texture Sprite texture.
+         * @param sprite Base sprite.
+         */
+        explicit ISpriteBox(const std::shared_ptr<sf::Texture> &texture, const std::shared_ptr<sf::Sprite> &sprite);
 
         /**
          * @brief Method returns origin sprite.
          * @return Sprite.
          */
-        virtual const std::shared_ptr<sf::Sprite> &getSprite() const noexcept = 0;
+        const std::shared_ptr<sf::Sprite> &getSprite() const noexcept;
 
         /**
          * @brief Method returns sprite texture.
-         * @return Texture ptr.
+         * @return Texture pointer.
          */
-        virtual const sf::Texture *getTexture() const noexcept = 0;
+        const sf::Texture *getTexture() const noexcept;
 
         /**
          * @brief Method sets new sprite texture.
          */
-        virtual void setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept = 0;
+        virtual void setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
 
         /**
          * @brief Method returns texture rect.
          * @return Texture rect.
          */
-        virtual const sf::IntRect &getTextureRect() const noexcept = 0;
+        const sf::IntRect &getTextureRect() const noexcept;
 
         /**
          * @brief Method return sprite color.
          * @return Color.
          */
-        virtual sf::Color getColor() const noexcept = 0;
+        sf::Color getColor() const noexcept;
 
         /**
          * @brief Method sets sprite color.
          * @param color Color.
          */
-        virtual void setColor(const sf::Color &color) noexcept = 0;
+        void setColor(const sf::Color &color) noexcept;
+
+    protected:
+        std::shared_ptr<sf::Texture> m_texture;
+        std::shared_ptr<sf::Sprite> m_sprite;
     };
 }
 

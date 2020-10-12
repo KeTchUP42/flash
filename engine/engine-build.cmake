@@ -28,7 +28,7 @@ set(VIEWCREATE engine/main/view/create/WindowFactory.cpp)
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
 set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/area/Area.cpp)
-set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.cpp engine/main/objects/auxiliary/components/sprite/primitive/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp)
+set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.cpp engine/main/objects/auxiliary/components/sprite/primitive/ISpriteBox.cpp engine/main/objects/auxiliary/components/sprite/primitive/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp)
 set(TEXT engine/main/objects/auxiliary/components/text/Text.cpp)
 set(COMPONENTS ${ELEMENTARY} ${SPRITES} ${TEXT})
 set(AUXILIARY ${COMPONENTS})
