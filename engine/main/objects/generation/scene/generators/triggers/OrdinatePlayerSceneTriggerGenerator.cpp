@@ -5,7 +5,7 @@
 #include "OrdinatePlayerSceneTriggerGenerator.h"
 #include "../../../../static/triggers/scene/player/PlayerSceneTrigger.h"
 #include "../../../../static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.h"
-#include "../reducing/area.h"
+#include "../reduction/area.h"
 
 Generate::OrdinatePlayerSceneTriggerGenerator::
 OrdinatePlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)

@@ -5,7 +5,7 @@
 #ifndef FLASH_GRAVITYEFFECT_H
 #define FLASH_GRAVITYEFFECT_H
 
-#include "Effect.h"
+#include "../Effect.h"
 
 namespace Effects {
 

@@ -5,7 +5,7 @@
 #include "MushroomGenerator.h"
 #include "../../../../material/mobs/monsters/custom/mushroom/Mushroom.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../reducing/area.h"
+#include "../reduction/area.h"
 
 Generate::MushroomGenerator::MushroomGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 

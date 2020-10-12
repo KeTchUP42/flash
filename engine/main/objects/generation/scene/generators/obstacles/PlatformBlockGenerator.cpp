@@ -6,8 +6,8 @@
 #include "../../../../material/common/algorithms/Algorithms.h"
 #include "../../../../material/obstacles/blocks/sprite-visible/single/PlatformBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "reducing/properties.h"
-#include "../reducing/area.h"
+#include "reduction/Properties.h"
+#include "../reduction/area.h"
 
 Generate::PlatformBlockGenerator::PlatformBlockGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 

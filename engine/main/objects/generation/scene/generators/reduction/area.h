@@ -9,7 +9,6 @@
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 
 namespace Generate {
-
     /**
      * @brief Function generates general objects area.
      * @param data Ini data.

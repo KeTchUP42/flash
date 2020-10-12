@@ -3,7 +3,7 @@
 //
 
 #include "GravityEffectGenerator.h"
-#include "../../../../static/effects/GravityEffect.h"
+#include "../../../../static/effects/gravity/GravityEffect.h"
 
 Generate::GravityEffectGenerator::GravityEffectGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 

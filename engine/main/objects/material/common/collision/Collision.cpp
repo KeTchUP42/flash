@@ -5,8 +5,7 @@
 #include "Collision.h"
 
 Material::Collision::Collision(float analysisStepX, float analysisStepY)
-        : m_movingCollision(analysisStepX, analysisStepY),
-          m_staticCollision() {}
+        : m_movingCollision(analysisStepX, analysisStepY), m_staticCollision() {}
 
 void Material::Collision::setAnalysisStepX(float analysisStepX) noexcept {
     m_movingCollision.setAnalysisStepX(analysisStepX);

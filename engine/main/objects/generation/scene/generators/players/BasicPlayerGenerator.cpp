@@ -6,7 +6,7 @@
 #include "../../../../material/common/algorithms/Algorithms.h"
 #include "../../../../material/mobs/player/custom/basic/BasicPlayer.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../reducing/area.h"
+#include "../reduction/area.h"
 
 Generate::BasicPlayerGenerator::BasicPlayerGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 

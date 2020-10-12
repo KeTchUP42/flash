@@ -5,8 +5,8 @@
 #include "DullBlockGenerator.h"
 #include "../../../../material/obstacles/blocks/sprite-visible/single/DullBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "reducing/properties.h"
-#include "../reducing/area.h"
+#include "reduction/Properties.h"
+#include "../reduction/area.h"
 
 Generate::DullBlockGenerator::DullBlockGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
