@@ -48,6 +48,28 @@ const std::list<std::shared_ptr<Components::ISprite>> &Unite::Unifier::getFrontS
     return m_front;
 }
 
+void Unite::Unifier::addText(Components::Text *text) noexcept {
+    m_texts.push_back(std::shared_ptr<Components::Text>(text));
+}
+
+void Unite::Unifier::addText(const std::shared_ptr<Components::Text> &text) noexcept {
+    m_texts.push_back(text);
+}
+
+void Unite::Unifier::removeText(Components::Text *text) noexcept {
+    m_texts.remove_if([text](const std::shared_ptr<Components::Text> &txt) -> bool {
+        return txt.get() == text;
+    });
+}
+
+void Unite::Unifier::removeText(const std::shared_ptr<Components::Text> &text) noexcept {
+    m_texts.remove(text);
+}
+
+const std::list<std::shared_ptr<Components::Text>> &Unite::Unifier::getTextAreas() const noexcept {
+    return m_texts;
+}
+
 void Unite::Unifier::addObstacle(Obstacles::Obstacle *obstacle) noexcept {
     m_obstacles.push_back(std::shared_ptr<Obstacles::Obstacle>(obstacle));
 }

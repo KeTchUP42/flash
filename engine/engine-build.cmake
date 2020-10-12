@@ -29,7 +29,8 @@ set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
 set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/area/Area.cpp)
 set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.cpp engine/main/objects/auxiliary/components/sprite/primitive/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp)
-set(COMPONENTS ${ELEMENTARY} ${SPRITES})
+set(TEXT engine/main/objects/auxiliary/components/text/Text.cpp)
+set(COMPONENTS ${ELEMENTARY} ${SPRITES} ${TEXT})
 set(AUXILIARY ${COMPONENTS})
 
 set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityPointEffectGenerator.cpp)
@@ -37,6 +38,7 @@ set(MONSTERS_GENERATORS engine/main/objects/generation/scene/generators/monsters
 set(OBSTACLES_GENERATORS engine/main/objects/generation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/generation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/generation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
 set(PLAYERS_GENERATORS engine/main/objects/generation/scene/generators/players/BasicPlayerGenerator.cpp)
 set(SPRITES_GENERATORS engine/main/objects/generation/scene/generators/sprites/BackgroundSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/BackSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/FrontSpriteGenerator.cpp)
+set(TEXT_GENERATORS engine/main/objects/generation/scene/generators/text/TextGenerator.cpp)
 set(TRIGGERS_GENERATORS engine/main/objects/generation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
 set(GENERATORS ${EFFECTS_GENERATORS} ${MONSTERS_GENERATORS} ${OBSTACLES_GENERATORS} ${PLAYERS_GENERATORS} ${SPRITES_GENERATORS} ${TRIGGERS_GENERATORS})
 set(ANALYZE engine/main/objects/generation/scene/analyze/GeneratorSelector.cpp engine/main/objects/generation/scene/analyze/BlockAnalyzer.cpp)
@@ -81,7 +83,7 @@ set(LOGGER engine/utils/logger/BasicLogger.cpp engine/utils/logger/formatter/Log
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
 set(INI engine/utils/Ini/BasicIniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp)
-set(MATH engine/utils/math/RectangleMath.cpp)
+set(MATH engine/utils/math/RectangleMath.cpp engine/utils/math/algorithms.cpp)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 
 set(EXCEPTIONS engine/main/other/exceptions/Exception.cpp)

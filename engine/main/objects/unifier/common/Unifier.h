@@ -24,6 +24,8 @@ namespace Mobs {
 
 namespace Components {
     class ISprite;
+
+    class Text;
 }
 
 namespace Effects {
@@ -111,6 +113,38 @@ namespace Unite {
          * @return Const reference on sprites collection.
          */
         const std::list<std::shared_ptr<Components::ISprite>> &getFrontSprites() const noexcept;
+
+        //..
+
+        /**
+         * @brief Method adds new text area.
+         * @param text New text area.
+        */
+        void addText(Components::Text *text) noexcept;
+
+        /**
+         * @brief Method adds new text area.
+         * @param text New text area.
+         */
+        void addText(const std::shared_ptr<Components::Text> &text) noexcept;
+
+        /**
+         * @brief Method removes text area.
+         * @param text Existing text area.
+         */
+        void removeText(Components::Text *text) noexcept;
+
+        /**
+         * @brief Method removes text.
+         * @param text Existing text area.
+         */
+        void removeText(const std::shared_ptr<Components::Text> &text) noexcept;
+
+        /**
+         * @brief Method returns const reference on text collection.
+         * @return Const reference on text areas collection.
+         */
+        const std::list<std::shared_ptr<Components::Text>> &getTextAreas() const noexcept;
 
         //..
 
@@ -286,6 +320,11 @@ namespace Unite {
         std::list<std::shared_ptr<Components::ISprite>> m_front;
 
         /**
+         * @brief Screen text.
+         */
+        std::list<std::shared_ptr<Components::Text>> m_texts;
+
+        /**
          * @brief Obstacles.
          */
         std::list<std::shared_ptr<Obstacles::Obstacle>> m_obstacles;
@@ -315,6 +354,7 @@ namespace Unite {
 #include "../../material/mobs/player/common/base/Player.h"
 #include "../../material/mobs/monsters/common/base/Monster.h"
 #include "../../material/obstacles/common/Obstacle.h"
+#include "../../auxiliary/components/text/Text.h"
 #include "../../static/triggers/common/Trigger.h"
 #include "../../static/effects/Effect.h"
 

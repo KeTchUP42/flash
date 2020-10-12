@@ -10,6 +10,10 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
         sprite->draw(target);
     }
 
+    for (const std::shared_ptr<Components::Text> &text: m_texts) {
+        text->draw(target);
+    }
+
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->draw(target);
     }

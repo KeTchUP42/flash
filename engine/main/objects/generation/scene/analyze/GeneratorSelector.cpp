@@ -13,6 +13,7 @@
 #include "../generators/sprites/BackgroundSpriteGenerator.h"
 #include "../generators/sprites/BackSpriteGenerator.h"
 #include "../generators/sprites/FrontSpriteGenerator.h"
+#include "../generators/text/TextGenerator.h"
 #include "../generators/triggers/ExplicitPlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/AbscissaPlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/OrdinatePlayerSceneTriggerGenerator.h"
@@ -20,7 +21,6 @@
 
 Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
-
 
 Generate::Generator *
 Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
@@ -54,6 +54,10 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new BackSpriteGenerator(m_pool);
     if (alias == "FrontSprite")
         return new FrontSpriteGenerator(m_pool);
+
+    //text
+    if (alias == "Text")
+        return new TextGenerator(m_pool);
 
     //triggers
     if (alias == "ExplicitPlayerSceneTrigger")
