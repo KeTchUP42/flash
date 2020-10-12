@@ -16,8 +16,7 @@ namespace Possibilities {
      *
      * This class defines base RectangleInfo interface.
     */
-    class RectangleInfo : public RectangleGetters,
-                          public CoordinatesGetters {
+    class RectangleInfo : public RectangleGetters, public CoordinatesGetters {
     public:
         RectangleInfo() = default;
 
