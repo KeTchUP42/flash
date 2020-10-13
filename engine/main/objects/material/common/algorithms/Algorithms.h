@@ -20,7 +20,7 @@ namespace Material {
         explicit Algorithms(const std::shared_ptr<Material::Collision> &collision);
 
         /**
-         * @brief Method returns collision algorithms facade.
+         * @brief Method returns collision algorithms facade class object.
          */
         const Material::Collision &getCollision() const;
 

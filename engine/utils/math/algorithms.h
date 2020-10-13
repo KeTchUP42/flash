@@ -2,8 +2,8 @@
 // Created by roman on 12.10.2020.
 //
 
-#ifndef FLASH_ALGORITHMS_H
-#define FLASH_ALGORITHMS_H
+#ifndef FLASH_ALGORITHMS_UTIL_H
+#define FLASH_ALGORITHMS_UTIL_H
 
 #include <vector>
 #include <string>
@@ -19,4 +19,4 @@ namespace MathUtils {
     std::vector<std::string> split(const std::string &data, const char delimiter) noexcept;
 }
 
-#endif //FLASH_ALGORITHMS_H
+#endif //FLASH_ALGORITHMS_UTIL_H

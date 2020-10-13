@@ -8,7 +8,6 @@
 #include "../windows/screen/states/InitialScreenState.h"
 
 #include <algorithm>
-#include <cctype>
 #include <cstdlib>
 
 std::shared_ptr<WindowView::Window>
@@ -32,10 +31,8 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
     //style
     sf::Uint32 style = sf::Style::Default;
     std::string styleName = iniData["WINDOW"]["style"];
-    std::transform(styleName.begin(), styleName.end(), styleName.begin(),
-                   [](unsigned char ch) { return std::tolower(ch); });
 
-    if (styleName == "fullscreen")
+    if (styleName == "Fullscreen")
         style = sf::Style::Fullscreen;
 
     //window

@@ -5,13 +5,13 @@
 #ifndef FLASH_AREA_H
 #define FLASH_AREA_H
 
-#include "../point/Point.h"
-#include "../Size.h"
 #include "../../../possibilities/RectangleGetters.h"
 #include "../../../possibilities/RectangleSetters.h"
 #include "../../../possibilities/CollisionProne.h"
 #include "../../../possibilities/Movable.h"
 #include "../../../possibilities/Rotatable.h"
+#include "../point/Point.h"
+#include "../Size.h"
 
 namespace Components {
 

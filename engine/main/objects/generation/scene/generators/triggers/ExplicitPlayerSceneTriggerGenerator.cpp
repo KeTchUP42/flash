@@ -5,7 +5,7 @@
 #include "ExplicitPlayerSceneTriggerGenerator.h"
 #include "../../../../static/triggers/scene/player/PlayerSceneTrigger.h"
 #include "../../../../static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.h"
-#include "../reduction/area.h"
+#include "../reduction/AreaReduction.h"
 
 Generate::ExplicitPlayerSceneTriggerGenerator::
 ExplicitPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)

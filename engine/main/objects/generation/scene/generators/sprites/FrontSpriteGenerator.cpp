@@ -4,7 +4,7 @@
 
 #include "FrontSpriteGenerator.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../reduction/area.h"
+#include "../reduction/AreaReduction.h"
 
 Generate::FrontSpriteGenerator::FrontSpriteGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 

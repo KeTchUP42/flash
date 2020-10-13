@@ -5,19 +5,14 @@
 #include "DullInvisibleBlockGenarator.h"
 #include "../../../../material/common/algorithms/Algorithms.h"
 #include "../../../../material/obstacles/blocks/invisible/DullInvisibleBlock.h"
-#include "reduction/Properties.h"
-#include "../reduction/area.h"
+#include "../reduction/AlgorithmsReduction.h"
+#include "reduction/PropertiesReduction.h"
+#include "../reduction/AreaReduction.h"
 
 Generate::DullInvisibleBlockGenarator::DullInvisibleBlockGenarator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generate::DullInvisibleBlockGenarator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    //algorithms
-    std::pair<float, float> collisionParams = std::make_pair<float, float>(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
-                                                                           std::stof(data.at("COLLISION_ANALYSIS_STEP")));
-
-    std::shared_ptr<Material::Algorithms> algorithms(
-            new Material::Algorithms(m_source.getAlgpool()->loadCollision(collisionParams)));
-
-    unifier.addObstacle(new Obstacles::DullInvisibleBlock(obstacle(data), physicalArea(data), algorithms));
+    unifier.addObstacle(new Obstacles::DullInvisibleBlock(
+            loadObstacleProperties(data), physicalArea(data), loadAlgorithms(data, m_source)));
 }

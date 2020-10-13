@@ -2,13 +2,14 @@
 // Created by roman on 12.10.2020.
 //
 
-#ifndef FLASH_REDUCING_H
-#define FLASH_REDUCING_H
+#ifndef FLASH_AREA_REDUCTION_H
+#define FLASH_AREA_REDUCTION_H
 
 #include "../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 
 namespace Generate {
+
     /**
      * @brief Function generates general objects area.
      * @param data Ini data.
@@ -23,4 +24,4 @@ namespace Generate {
      */
     Components::Area spriteArea(const IniUtil::Analyzer::IniBlock &data) noexcept;
 }
-#endif //FLASH_AREA_H
+#endif //FLASH_AREA_REDUCTION_H

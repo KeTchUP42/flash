@@ -11,7 +11,7 @@
 namespace Triggers {
 
     /**
-     * @brief The base class of the AreaTrigger class hierarchy. Base interface class for scene triggers.
+     * @brief The base class of the AreaTrigger class hierarchy.
      * @namespace Triggers
      *
      * This class defines base AreaTrigger interface.

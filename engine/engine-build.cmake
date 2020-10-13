@@ -1,10 +1,11 @@
 #----------------------------------------------------------------------------
 # Cmake file with all include source files.
 #
-# Main variables are - ENTRY_POINT, DATA, OBJECTS, OTHER, VIEW, SETUP, UTILS.
+# Main variables are - ENTRY_POINT, DATA, OBJECTS, OTHER, VIEW, UTILS.
 # Global engine source files variable - ENGINE.
 #----------------------------------------------------------------------------
-set(ENTRY_POINT engine/init/Engine.cpp)
+set(SETUP engine/init/setup/EngineConfigurator.cpp)
+set(ENTRY_POINT ${SETUP} engine/init/Engine.cpp)
 
 set(AUDIOPLAYBACK engine/main/data/audio/simple-audio/AudioPlayback.cpp)
 set(AUDIO ${AUDIOPLAYBACK})
@@ -35,12 +36,12 @@ set(AUXILIARY ${COMPONENTS})
 
 set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityPointEffectGenerator.cpp)
 set(MONSTERS_GENERATORS engine/main/objects/generation/scene/generators/monsters/MushroomGenerator.cpp)
-set(OBSTACLES_GENERATORS engine/main/objects/generation/scene/generators/obstacles/reduction/Properties.cpp engine/main/objects/generation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/generation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/generation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
+set(OBSTACLES_GENERATORS engine/main/objects/generation/scene/generators/obstacles/reduction/PropertiesReduction.cpp engine/main/objects/generation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/generation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/generation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
 set(PLAYERS_GENERATORS engine/main/objects/generation/scene/generators/players/BasicPlayerGenerator.cpp)
 set(SPRITES_GENERATORS engine/main/objects/generation/scene/generators/sprites/BackgroundSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/BackSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/FrontSpriteGenerator.cpp)
 set(TEXT_GENERATORS engine/main/objects/generation/scene/generators/text/TextGenerator.cpp)
 set(TRIGGERS_GENERATORS engine/main/objects/generation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
-set(REDUCTION engine/main/objects/generation/scene/generators/reduction/area.cpp)
+set(REDUCTION engine/main/objects/generation/scene/generators/reduction/AreaReduction.cpp engine/main/objects/generation/scene/generators/reduction/AlgorithmsReduction.cpp)
 set(GENERATORS ${REDUCTION} ${EFFECTS_GENERATORS} ${MONSTERS_GENERATORS} ${OBSTACLES_GENERATORS} ${PLAYERS_GENERATORS} ${SPRITES_GENERATORS} ${TEXT_GENERATORS} ${TRIGGERS_GENERATORS})
 set(ANALYZE engine/main/objects/generation/scene/analyze/GeneratorSelector.cpp engine/main/objects/generation/scene/analyze/BlockAnalyzer.cpp)
 set(POOLS engine/main/objects/generation/scene/pools/SourcePool.cpp engine/main/objects/generation/scene/pools/GeneratorsPool.cpp engine/main/objects/generation/scene/pools/AlgorithmsPool.cpp)
@@ -78,8 +79,6 @@ set(UNIFIER engine/main/objects/unifier/common/Unifier.cpp engine/main/objects/u
 
 set(OBJECTS ${AUXILIARY} ${GENERATION} ${MATERIAL} ${STATIC} ${UNIFIER})
 
-set(SETUP engine/setup/EngineConfigurator.cpp)
-
 set(LOGGER engine/utils/logger/BasicLogger.cpp engine/utils/logger/formatter/LoggerFormatter.cpp)
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
@@ -90,4 +89,4 @@ set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 set(EXCEPTIONS engine/main/other/exceptions/Exception.cpp)
 set(OTHER ${EXCEPTIONS})
 
-set(ENGINE ${ENTRY_POINT} ${DATA} ${OBJECTS} ${OTHER} ${VIEW} ${SETUP} ${UTILS})
+set(ENGINE ${ENTRY_POINT} ${DATA} ${OBJECTS} ${OTHER} ${VIEW} ${UTILS})

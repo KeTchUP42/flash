@@ -5,7 +5,7 @@
 #include "AbscissaPlayerSceneTriggerGenerator.h"
 #include "../../../../static/triggers/scene/player/PlayerSceneTrigger.h"
 #include "../../../../static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.h"
-#include "../reduction/area.h"
+#include "../reduction/AreaReduction.h"
 
 Generate::AbscissaPlayerSceneTriggerGenerator::
 AbscissaPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)

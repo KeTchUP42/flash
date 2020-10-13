@@ -6,7 +6,8 @@
 #include "../../../../material/common/algorithms/Algorithms.h"
 #include "../../../../material/mobs/player/custom/basic/BasicPlayer.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../reduction/area.h"
+#include "../reduction/AlgorithmsReduction.h"
+#include "../reduction/AreaReduction.h"
 
 Generate::BasicPlayerGenerator::BasicPlayerGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
@@ -22,20 +23,11 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
             std::stof(data.at("MAX_MOVE_SPEED")),
             std::stof(data.at("JUMP_SPEED")));
 
-    //texture
-    auto texture = m_source.getTexture(data.at("TEXTURE"));
-
-    //algorithms
-    std::pair<float, float> collisionParams = std::make_pair<float, float>(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
-                                                                           std::stof(data.at("COLLISION_ANALYSIS_STEP")));
-
-    std::shared_ptr<Material::Algorithms> algorithms(
-            new Material::Algorithms(m_source.getAlgpool()->loadCollision(collisionParams)));
-
     Mobs::Player *player = new Mobs::BasicPlayer(
             properties, physicalArea(data),
-            std::shared_ptr<Components::ISpriteBox>(
-                    new Components::SpriteBox(spriteArea(data), texture)), algorithms, playerProperties);
+            std::make_shared<Components::SpriteBox>(
+                    spriteArea(data), m_source.getTexture(data.at("TEXTURE"))),
+            loadAlgorithms(data, m_source), playerProperties);
 
     player->loadKeyMap(data.at("KEYMAP"), m_source.getManager());
     unifier.addPlayer(player);

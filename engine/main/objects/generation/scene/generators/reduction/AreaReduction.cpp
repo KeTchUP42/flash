@@ -2,7 +2,7 @@
 // Created by roman on 12.10.2020.
 //
 
-#include "area.h"
+#include "AreaReduction.h"
 
 Components::Area Generate::physicalArea(const IniUtil::Analyzer::IniBlock &data) noexcept {
     Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));

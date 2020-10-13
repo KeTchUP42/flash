@@ -11,8 +11,8 @@ namespace Triggers {
      * @brief Enum contains triggers result codes.
      */
     enum class ResultCodes {
-        OK = 0, // Nothing will happen.
-        STOP,   // Code will stop Unifier's self-refresh method.
+        OK = 0,
+        STOP,  //Unifier's self-refresh method will stop.
     };
 }
 #endif //FLASH_RESULTCODES_H

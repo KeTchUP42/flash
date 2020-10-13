@@ -4,7 +4,7 @@
 
 #include "BackSpriteGenerator.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../reduction/area.h"
+#include "../reduction/AreaReduction.h"
 
 Generate::BackSpriteGenerator::BackSpriteGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
