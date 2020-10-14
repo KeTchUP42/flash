@@ -1,6 +1,6 @@
  # ![mush](docs/images/mushroom.png) Flash
  ![Read the Docs](https://img.shields.io/readthedocs/docs)
- ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bwormguy/flash)
+ ![Lines of code](https://img.shields.io/tokei/lines/github/bwormguy/flash)
  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bwormguy/flash)  
 
   This is a small platformer engine made with SFML 2.5.1 library.  
