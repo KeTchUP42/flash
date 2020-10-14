@@ -4,7 +4,7 @@
  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bwormguy/flash)  
 
   This is a small platformer engine made with SFML 2.5.1 library.  
-  This small engine allows you to create game levels yourself from a set of ready-made components.
+  It allows you to create your own game scenes from a set of ready-made components.
 
  ## Documentation:
  * [Setup](docs/setup/ProgramSetup.md)

@@ -13,6 +13,6 @@
     TEXTURE = sprite.jpg
 
  ### Explanation:
-        
+
  * `X`, `Y`, `WIDTH`, `HEIGHT` and `ANGLE` - options allow you to specify the position and orientation of sprite's physical area on the screen.
  * `TEXTURE` - path to image file.

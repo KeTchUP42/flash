@@ -7,5 +7,5 @@
  * [Configs](config/Config.md)
  * [Scenes](scenes/Scenes.md)
  * [Components](components/Components.md)
- * [Code hints.](code-hints/CodeHints.md)
+ * [Code-hints.](code-hints/CodeHints.md)
  * [General](project/ProjectHints.md)

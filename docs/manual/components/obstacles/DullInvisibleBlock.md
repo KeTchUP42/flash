@@ -1,6 +1,6 @@
- ## Dull-invisible block
+ ## Dull-Invisible block
 
- The block does not contain logic of interaction with other objects. It is designed to interact with it. It is invisible.
+ The block does not contain logic of interaction with other objects. It is designed to interact with it. The feature of this block is that it is invisible.
 
  **Configuration block example:**
 

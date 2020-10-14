@@ -5,7 +5,7 @@
  **Configuration block example:**
 
     [Mushroom]
-    X_ = 100
+    X = 100
     Y = 100
     WIDTH = 100
     HEIGHT = 100

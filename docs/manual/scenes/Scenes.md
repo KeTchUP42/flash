@@ -1,7 +1,7 @@
  ## Scenes
 
  All scenes are described in configuration files that describe all objects on the screen.  
- Scenes were mainly conceived to provide a convenient description of levels. The levels are linked to each other by triggers.  
+ Scenes were mainly conceived to provide a convenient description of levels. Scenes can be linked together using different triggers.  
 
  **Simple level example:**
 
