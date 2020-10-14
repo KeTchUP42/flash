@@ -2,7 +2,7 @@
 
  The image that is placed in front of the main depicted objects.
 
- Configuration block example:
+ **Configuration block example:**
 
     [FrontSprite]
     X = 100

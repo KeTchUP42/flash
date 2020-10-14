@@ -2,7 +2,7 @@
 
  The block does not contain logic of interaction with other objects. It is designed to interact with it.
 
- Configuration block example:
+ **Configuration block example:**
 
     [DullBlock]
     X = 100

@@ -1,8 +1,8 @@
- ## Gravity point effect
+ ## Gravity-point effect
 
  Simulates the action of gravity point.  
 
- Configuration block example:
+ **Configuration block example:**
 
     [GravityPointEffect]
     X = 100

@@ -2,7 +2,7 @@
 
  The image that is placed behind the main depicted objects.
 
- Configuration block example:
+ **Configuration block example:**
 
     [BackSprite]
     X = 100

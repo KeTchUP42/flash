@@ -2,7 +2,7 @@
 
  This trigger moves players to a specified point on the ordinate axis when one of the players enters the trigger area.
 
- Configuration block example:
+ **Configuration block example:**
 
     [OrdinatePlayerSceneTrigger]
     X = 100

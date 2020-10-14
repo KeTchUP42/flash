@@ -1,8 +1,8 @@
- ## Dull invisible block
+ ## Dull-invisible block
 
  The block does not contain logic of interaction with other objects. It is designed to interact with it. It is invisible.
 
- Configuration block example:
+ **Configuration block example:**
 
     [DullInvisibleBlock]
     X = 100

@@ -2,7 +2,7 @@
 
  Mushroom is a harmless mob, which simply pushes all monsters. Players can also jump on them.
 
- Configuration block example:
+ **Configuration block example:**
 
     [Mushroom]
     X_ = 100

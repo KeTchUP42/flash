@@ -2,7 +2,7 @@
 
  Simulates the action of gravity along the coordinate axes.  
 
- Configuration block example:
+ **Configuration block example:**
 
     [GravityEffect]
     X_ACCELERATION = 0

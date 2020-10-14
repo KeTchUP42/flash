@@ -3,7 +3,7 @@
  This facility is conceived as a platform for transporting monsters and players.  
  Block changes its direction when it encounters any other obstacles.
 
- Configuration block example:
+ **Configuration block example:**
 
     [PlatformBlock]
     X = 210

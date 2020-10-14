@@ -2,7 +2,7 @@
 
  This trigger moves players to a specified point on the abscissa axis when one of the players enters the trigger area.
 
- Configuration block example:
+ **Configuration block example:**
 
     [AbscissaPlayerSceneTrigger]
     X = 100

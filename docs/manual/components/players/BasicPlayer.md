@@ -2,7 +2,7 @@
 
  This is the basic and easiest implementation of a player.
 
- Configuration block example:
+ **Configuration block example:**
 
     [BasicPlayer]
     X = 600

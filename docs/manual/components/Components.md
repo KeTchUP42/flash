@@ -9,5 +9,5 @@
  * [Obstacles.](obstacles/Obstacles.md)
  * [Players.](players/Players.md)
  * [Sprites.](sprites/Sprites.md)
- * [Text.](text/Text.md)
  * [Triggers.](triggers/Triggers.md)
+ * [Text.](text/Text.md)

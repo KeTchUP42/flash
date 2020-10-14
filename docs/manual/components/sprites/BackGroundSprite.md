@@ -2,7 +2,7 @@
 
  The image, which is stretched as a background program window.
 
- Configuration block example:
+ **Configuration block example:**
 
     [BackGroundSprite]
     TEXTURE = back.jpg

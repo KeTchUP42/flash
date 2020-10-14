@@ -2,7 +2,7 @@
 
  This component allows you to display any text information on the screen.
 
- Configuration block example:
+ **Configuration block example:**
 
     [Text]
     X = 100
