@@ -3,4 +3,5 @@
 /cmake-build-release/
 /cmake-build-debug-coverage/
 /cmake-build-release-coverage
+/config
 /data
