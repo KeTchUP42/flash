@@ -19,7 +19,7 @@ namespace MathUtils {
      * @param rectangle Rectangle rectangle.
      * @return Coordinates.
      */
-    Components::Coordinates coordinates(const Possibilities::RectangleInfo *rectangle) noexcept;
+    Components::Coordinates coordinates(Possibilities::RectangleInfo *rectangle) noexcept;
 
     /**
      * @brief Function checks point being inside the rectangle.

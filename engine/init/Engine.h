@@ -17,7 +17,7 @@ namespace Program {
      *
      * This class has app entry point method.
     */
-    class Engine final {
+    class Engine {
     public:
         /**
          * @brief Main app constructor.

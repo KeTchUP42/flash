@@ -34,8 +34,6 @@ namespace IniUtil {
         explicit IniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader, const std::shared_ptr<Analyzer> &analyzer)
                 : m_reader(reader), m_analyzer(analyzer) {}
 
-        IniProcessor &operator=(const IniProcessor &) = delete;
-
         /**
          * Default configs without block IniData section name.
          */
@@ -75,9 +73,8 @@ namespace IniUtil {
          * @param data Analyzer::IniData
          * @param writer Writer
          */
-        virtual void
-        createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
-                  const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
+        virtual void createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
+                               const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
 
         /**
          * Method creates new ini file or append new data with standard writer.
@@ -85,9 +82,8 @@ namespace IniUtil {
          * @param data Analyzer::IniData
          * @param writer Writer
          **/
-        virtual void
-        createIni(const Analyzer::IniData &data, const WriterUtil::Writer &writer,
-                  const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
+        virtual void createIni(const Analyzer::IniData &data, const WriterUtil::Writer &writer,
+                               const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
 
 
         virtual ~IniProcessor() = default;

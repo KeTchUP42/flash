@@ -19,9 +19,6 @@ namespace Triggers {
     */
     class Trigger : public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
-        /**
-         * @brief Triggers must get StateChangeable pointer.
-         */
         Trigger() = default;
 
         /**
