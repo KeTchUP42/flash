@@ -5,13 +5,10 @@
  **Configuration block example:**
 
     [DullInvisibleBlock]
-    X = 100
-    Y = 100
-    WIDTH = 100
-    HEIGHT = 100
+    POSITION = 100:100
+    SIZE = 100:100
     ANGLE = 0
-    X_SPEED = 0
-    Y_SPEED = 0
+    SPEED = 0:0
     ELASTIC_COEFFICIENT = 0.2
     FRICTION_COEFFICIENT = 0.4
     IS_FIXED = 1
@@ -19,8 +16,10 @@
 
  ### Explanation:
 
- * `X`, `Y`, `WIDTH`, `HEIGHT` and `ANGLE` - options allow you to specify the position and orientation of block's physical area on the screen.
- * `X_SPEED` and `Y_SPEED` - physical object's speed.
+ * `POSITION` - Parameter sets the position of the block's physical area on the screen. It has the following format - `X:Y`.
+ * `SIZE` - Parameter sets the size of the block's physical area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `ANGLE` - Parameter sets the angle of the block's physical area on the screen. 
+ * `SPEED` - physical object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `ELASTIC_COEFFICIENT` - this coefficient uses in jumps calculations.
  * `FRICTION_COEFFICIENT` - this coefficient uses in movement calculations.
  * `IS_FIXED` - if this flag is not set, the obstacle will be affected by static effects.

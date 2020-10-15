@@ -5,17 +5,16 @@
  **Configuration block example:**
 
     [ExplicitPlayerSceneTrigger]
-    X = 100
-    Y = 100
-    WIDTH = 100
-    HEIGHT = 100
+    POSITION = 100:100
+    SIZE = 100:100
     ANGLE = 0
-    TARGET_X = 500
-    TARGET_Y = 500
+    TARGET = 500:500
     NEXT_SCENE = levels/level_1.ini
 
  ### Explanation:
 
- * `X`, `Y`, `WIDTH`, `HEIGHT` and `ANGLE` - options allow you to specify the position and orientation of triggers's physical area on the screen.
- * `TARGET_X` and `TARGET_Y` - target point.
+ * `POSITION` - Parameter sets the position of the trigger's area on the screen. It has the following format - `X:Y`.
+ * `SIZE` - Parameter sets the size of the trigger's area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `ANGLE` - Parameter sets the angle of the trigger's area on the screen. 
+ * `TARGETY` - target point. It has the following format - `X:Y`.
  * `NEXT_SCENE` - next scene file.

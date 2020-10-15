@@ -3,17 +3,14 @@
 //
 
 #include "AreaReduction.h"
+#include "ElementaryReduction.h"
 
-Components::Area Generate::physicalArea(const IniUtil::Analyzer::IniBlock &data) noexcept {
-    Components::Point point(std::stof(data.at("X")), std::stof(data.at("Y")));
-    Components::Size size(std::atoi(data.at("WIDTH").c_str()), std::atoi(data.at("HEIGHT").c_str()));
+Components::Area Generate::physicalArea(const IniUtil::Analyzer::IniBlock &data) {
     float angle = std::stof(data.at("ANGLE"));
-    return Components::Area(point, size, angle);
+    return Components::Area(position(data, "POSITION"), size(data, "SIZE"), angle);
 }
 
-Components::Area Generate::spriteArea(const IniUtil::Analyzer::IniBlock &data) noexcept {
-    Components::Point point(std::stof(data.at("SPRITE_X")), std::stof(data.at("SPRITE_Y")));
-    Components::Size size(std::atoi(data.at("SPRITE_WIDTH").c_str()), std::atoi(data.at("SPRITE_HEIGHT").c_str()));
-    float angle = std::stof(data.at("ANGLE"));
-    return Components::Area(point, size, angle);
+Components::Area Generate::spriteArea(const IniUtil::Analyzer::IniBlock &data) {
+    float angle = std::stof(data.at("SPRITE_ANGLE"));
+    return Components::Area(position(data, "SPRITE_POSITION"), size(data, "SPRITE_SIZE"), angle);
 }

@@ -15,13 +15,13 @@ namespace Generate {
      * @param data Ini data.
      * @return Physical area.
      */
-    Components::Area physicalArea(const IniUtil::Analyzer::IniBlock &data) noexcept;
+    Components::Area physicalArea(const IniUtil::Analyzer::IniBlock &data);
 
     /**
      * @brief Function generates sprite area.
      * @param data Ini data.
      * @return Sprite area.
      */
-    Components::Area spriteArea(const IniUtil::Analyzer::IniBlock &data) noexcept;
+    Components::Area spriteArea(const IniUtil::Analyzer::IniBlock &data);
 }
 #endif //FLASH_AREA_REDUCTION_H

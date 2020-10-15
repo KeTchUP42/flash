@@ -6,13 +6,10 @@
  **Configuration block example:**
 
     [PlatformBlock]
-    X = 210
-    Y = 500
-    WIDTH = 80
-    HEIGHT = 40
+    POSITION = 210:500
+    SIZE = 80:40
     ANGLE = 0
-    X_SPEED = 1
-    Y_SPEED = 0
+    SPEED = 1:0
     ELASTIC_COEFFICIENT = 0.2
     FRICTION_COEFFICIENT = 0.4
     IS_FIXED = 1
@@ -21,8 +18,10 @@
 
  ### Explanation:
     
- * `X`, `Y`, `WIDTH`, `HEIGHT` and `ANGLE` - options allow you to specify the position and orientation of block's physical area on the screen.
- * `X_SPEED` and `Y_SPEED` - physical object's speed.
+ * `POSITION` - Parameter sets the position of the block's physical area on the screen. It has the following format - `X:Y`.
+ * `SIZE` - Parameter sets the size of the block's physical area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `ANGLE` - Parameter sets the angle of the block's physical area on the screen. 
+ * `SPEED` - physical object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `ELASTIC_COEFFICIENT` - this coefficient uses in jumps calculations.
  * `FRICTION_COEFFICIENT` - this coefficient uses in movement calculations.
  * `IS_FIXED` - if this flag is not set, the obstacle will be affected by static effects.

@@ -16,7 +16,7 @@ namespace Generate {
      * @param pool Source pool.
      * @return New Algorithms object.
      */
-    std::shared_ptr<Material::Algorithms> loadAlgorithms(const IniUtil::Analyzer::IniBlock &data, Generate::Pools::SourcePool &pool) noexcept;
+    std::shared_ptr<Material::Algorithms> loadAlgorithms(const IniUtil::Analyzer::IniBlock &data, Generate::Pools::SourcePool &pool);
 }
 
 #endif //FLASH_ALGORITHMS_REDUCTION_H

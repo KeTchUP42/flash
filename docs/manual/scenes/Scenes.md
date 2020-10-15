@@ -13,8 +13,7 @@
     Y_ACCELERATION = 0.65
 
     [Text]
-    X = 510
-    Y = 400
+    POSITION = 510:400
     ANGLE = 0
     STRING = Welcome!
     CHARACTER_SIZE = 50
@@ -27,32 +26,25 @@
     FONT = sansation.ttf
 
     [BasicPlayer]
-    X = 610
-    Y = 570
-    WIDTH = 30
-    HEIGHT = 30
+    POSITION = 610:570
+    SIZE = 30:30
     ANGLE = 0
-    X_SPEED = 0
-    Y_SPEED = 0
+    SPRITE_POSITION = 610:570
+    SPRITE_SIZE = 30:30
+    SPRITE_ANGLE = 0
+    SPEED = 0:0
     MOVE_SPEED = 5
     MAX_MOVE_SPEED = 20
-    JUMP_SPEED = 25
-    SPRITE_X = 610
-    SPRITE_Y = 570
-    SPRITE_WIDTH = 30
-    SPRITE_HEIGHT = 30
+    JUMP_SPEED = 20
     TEXTURE = mobs/player/mush.png
     KEYMAP = keys/keymap.ini
     COLLISION_ANALYSIS_STEP = 5
 
     [DullBlock_0]
-    X = 575
-    Y = 600
-    WIDTH = 100
-    HEIGHT = 100
+    POSITION = 575:600
+    SIZE = 100:100
     ANGLE = 0
-    X_SPEED = 0
-    Y_SPEED = 0
+    SPEED = 0:0
     ELASTIC_COEFFICIENT = 0.5
     FRICTION_COEFFICIENT = 0.85
     IS_FIXED = 1
@@ -60,13 +52,10 @@
     COLLISION_ANALYSIS_STEP = 5
 
     [DullBlock_1]
-    X = 475
-    Y = 600
-    WIDTH = 100
-    HEIGHT = 100
+    POSITION = 475:600
+    SIZE = 100:100
     ANGLE = 0
-    X_SPEED = 0
-    Y_SPEED = 0
+    SPEED = 0:0
     ELASTIC_COEFFICIENT = 0.5
     FRICTION_COEFFICIENT = 0.85
     IS_FIXED = 1
@@ -74,13 +63,10 @@
     COLLISION_ANALYSIS_STEP = 5
 
     [DullBlock_2]
-    X = 675
-    Y = 600
-    WIDTH = 100
-    HEIGHT = 100
+    POSITION = 675:600
+    SIZE = 100:100
     ANGLE = 0
-    X_SPEED = 0
-    Y_SPEED = 0
+    SPEED = 0:0
     ELASTIC_COEFFICIENT = 0.5
     FRICTION_COEFFICIENT = 0.85
     IS_FIXED = 1

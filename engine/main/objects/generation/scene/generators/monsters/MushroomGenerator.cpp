@@ -6,21 +6,18 @@
 #include "../../../../material/mobs/monsters/custom/mushroom/Mushroom.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../reduction/AlgorithmsReduction.h"
+#include "../reduction/PropertiesReduction.h"
 #include "../reduction/AreaReduction.h"
 
 Generate::MushroomGenerator::MushroomGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generate::MushroomGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    //properties
-    Components::Speed speed(std::stof(data.at("X_SPEED")), std::stof(data.at("Y_SPEED")));
-    Mobs::MonsterProperties properties(speed);
-
     //mushroom properties
     Mobs::MushroomProperties mushroomProperties(std::stof(data.at("PUNCH_POWER")), std::stof(data.at("ELASTICITY_LEVEL")));
 
     unifier.addMonster(new Mobs::Mushroom(
-            properties, physicalArea(data),
+            loadMonsterProperties(data), physicalArea(data),
             std::shared_ptr<Components::ISpriteBox>(
                     new Components::SpriteBox(spriteArea(data), m_source.getTexture(data.at("TEXTURE")))),
             loadAlgorithms(data, m_source), mushroomProperties));

@@ -5,7 +5,7 @@
 #include "AlgorithmsReduction.h"
 
 std::shared_ptr<Material::Algorithms>
-Generate::loadAlgorithms(const IniUtil::Analyzer::IniBlock &data, Generate::Pools::SourcePool &pool) noexcept {
+Generate::loadAlgorithms(const IniUtil::Analyzer::IniBlock &data, Generate::Pools::SourcePool &pool) {
     //collision
     std::pair<float, float> collisionParams = std::make_pair<float, float>(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
                                                                            std::stof(data.at("COLLISION_ANALYSIS_STEP")));

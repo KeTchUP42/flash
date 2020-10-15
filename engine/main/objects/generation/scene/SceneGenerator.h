@@ -8,10 +8,10 @@
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../../../data/manager/DataManager.h"
 #include "../../unifier/common/Unifier.h"
+#include "analyze/BlockAnalyzer.h"
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
-#include "analyze/BlockAnalyzer.h"
 
 namespace Generate {
 

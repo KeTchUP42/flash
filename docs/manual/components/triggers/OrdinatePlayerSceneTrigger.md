@@ -5,16 +5,16 @@
  **Configuration block example:**
 
     [OrdinatePlayerSceneTrigger]
-    X = 100
-    Y = 100
-    WIDTH = 100
-    HEIGHT = 100
+    POSITION = 100:100
+    SIZE = 100:100
     ANGLE = 0
     TARGET_Y = 0
     NEXT_SCENE = levels/level_1.ini
 
  ### Explanation:
 
- * `X`, `Y`, `WIDTH`, `HEIGHT` and `ANGLE` - options allow you to specify the position and orientation of triggers's physical area on the screen.
+ * `POSITION` - Parameter sets the position of the trigger's area on the screen. It has the following format - `X:Y`.
+ * `SIZE` - Parameter sets the size of the trigger's area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `ANGLE` - Parameter sets the angle of the trigger's area on the screen. 
  * `TARGET_Y` - target `Y` position. You can write "MAX" if you need to specify a point at the edge of the coordinates.
  * `NEXT_SCENE` - next scene file.

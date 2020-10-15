@@ -5,14 +5,14 @@
  **Configuration block example:**
 
     [FrontSprite]
-    X = 100
-    Y = 100
-    WIDTH = 100
-    HEIGHT = 100
+    POSITION = 100:100
+    SIZE = 100:100
     ANGLE = 0
     TEXTURE = sprite.jpg
 
  ### Explanation:
 
- * `X`, `Y`, `WIDTH`, `HEIGHT` and `ANGLE` - options allow you to specify the position and orientation of sprite's physical area on the screen.
+ * `POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
+ * `SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
  * `TEXTURE` - path to image file.

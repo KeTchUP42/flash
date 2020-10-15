@@ -6,7 +6,7 @@
 #include "../../../../material/common/algorithms/Algorithms.h"
 #include "../../../../material/obstacles/blocks/invisible/DullInvisibleBlock.h"
 #include "../reduction/AlgorithmsReduction.h"
-#include "reduction/PropertiesReduction.h"
+#include "../reduction/PropertiesReduction.h"
 #include "../reduction/AreaReduction.h"
 
 Generate::DullInvisibleBlockGenarator::DullInvisibleBlockGenarator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
