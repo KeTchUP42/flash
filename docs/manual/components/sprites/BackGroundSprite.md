@@ -9,4 +9,4 @@
 
  ### Explanation:
 
- * `TEXTURE` - path to image file.
+ * `TEXTURE` - Path to image file.

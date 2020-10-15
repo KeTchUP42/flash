@@ -15,4 +15,4 @@
  * `POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
  * `SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
- * `TEXTURE` - path to image file.
+ * `TEXTURE` - Path to image file.

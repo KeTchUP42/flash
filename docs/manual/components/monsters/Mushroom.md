@@ -25,8 +25,8 @@
  * `SPRITE_POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
  * `SPRITE_SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `SPRITE_ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
- * `SPEED` - physical object's speed. It has the following format - `X_SPEED:Y_SPEED`.
- * `PUNCH_POWER` - mushroom's push power.
- * `ELASTICITY_LEVEL` - the percentage of vertical speed that the player will return to when he jumps a mushroom.
- * `TEXTURE` - path to image file.
- * `COLLISION_ANALYSIS_STEP` - the collision frequency factor depends on the accuracy of the collision, but the performance suffers.
+ * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
+ * `PUNCH_POWER` - Mushroom's push power.
+ * `ELASTICITY_LEVEL` - The percentage of vertical speed that the player will return to when he jumps a mushroom.
+ * `TEXTURE` - Path to image file.
+ * `COLLISION_ANALYSIS_STEP` - The collision frequency factor depends on the accuracy of the collision, but the performance suffers.

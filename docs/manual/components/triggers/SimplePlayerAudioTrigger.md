@@ -1,20 +1,22 @@
- ## ExplicitPlayerSceneTrigger
+ ## SimplePlayerAudioTrigger
 
- This trigger moves players to a specified point when one of the players enters the trigger area and changes current screen scene.
+ This trigger plays audio when one of the players enters the trigger area.
 
  **Configuration block example:**
 
-    [ExplicitPlayerSceneTrigger]
-    POSITION = 100:100
+    [SimplePlayerAudioTrigger]
+    POSITION = 410:500
     SIZE = 100:100
     ANGLE = 0
-    TARGET = 500:500
-    NEXT_SCENE = levels/level_1.ini
+    AUDIO = ding.flac
+    AUDIO_VOLUME = 10
+    AUDIO_LOOP = 0
 
  ### Explanation:
 
  * `POSITION` - Parameter sets the position of the trigger's area on the screen. It has the following format - `X:Y`.
  * `SIZE` - Parameter sets the size of the trigger's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `ANGLE` - Parameter sets the angle of the trigger's area on the screen. 
- * `TARGETY` - Target point. It has the following format - `X:Y`.
- * `NEXT_SCENE` - Next scene file.
+ * `AUDIO` - Path to audio file.
+ * `AUDIO_VOLUME` - This parameter sets the audio playback volume.
+ * `AUDIO_LOOP` - Parameter sets whether the audio will be repeated.

@@ -21,9 +21,9 @@
 
  * `POSITION` - Parameter sets the position of the text on the screen. It has the following format - `X:Y`.
  * `ANGLE` - Parameter sets text's angle on the screen. 
- * `STRING` - displayed text.
- *  Color is set by four parameters - `255:0:0:255`, where `r:g:b:alpha`.
- * `FONT` - font file.
+ * `STRING` - Displayed text information.
+ *  Color sets by four parameters - `255:0:0:255`, where `r:g:b:alpha`.
+ * `FONT` - Font file.
  * Available styles:
      * Regular
      * Bold

@@ -27,13 +27,13 @@
  * `SPRITE_POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
  * `SPRITE_SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `SPRITE_ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
- * `SPEED` - physical object's speed. It has the following format - `X_SPEED:Y_SPEED`.
- * `MOVE_SPEED` - speed increase at the push of a button.
- * `MAX_MOVE_SPEED` - maximum speed that a player can achieve when moving independently.
- * `JUMP_SPEED` - speed obtained by jumping.
- * `TEXTURE` - path to image file.
- * `KEYMAP` - path to keys config file. {1}
- * `COLLISION_ANALYSIS_STEP` - the collision frequency factor depends on the accuracy of the collision, but the performance suffers.
+ * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
+ * `MOVE_SPEED` - Speed increase at the push of a button.
+ * `MAX_MOVE_SPEED` - Maximum speed that a player can achieve when moving independently.
+ * `JUMP_SPEED` - Speed obtained by jumping.
+ * `TEXTURE` - Path to image file.
+ * `KEYMAP` - Path to keys config file. {1}
+ * `COLLISION_ANALYSIS_STEP` - The collision frequency factor depends on the accuracy of the collision, but the performance suffers.
  
  {1} **Example:**  
     
