@@ -17,6 +17,6 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     float targetY = (data.at("TARGET_Y") == "MAX") ? target.getSize().y : std::stof(data.at("TARGET_Y")); // Checking value.
 
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
-            data.at("NEXT_SCENE"), physicalArea(data),
+            data.at("NEXT_SCENE"), commonArea(data),
             new Triggers::OrdinatePositionPlayerHandler(targetY), m_context));
 }

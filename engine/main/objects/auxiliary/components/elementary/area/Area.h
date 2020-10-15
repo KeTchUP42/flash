@@ -26,6 +26,9 @@ namespace Components {
                   public Possibilities::Rotatable,
                   public Possibilities::Movable {
 
+        /**
+         * @brief Inits all fields by zero.
+         */
         Area();
 
         explicit Area(const Point &point, const Size &size, float angle);

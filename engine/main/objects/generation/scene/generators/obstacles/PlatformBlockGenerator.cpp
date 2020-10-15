@@ -6,8 +6,8 @@
 #include "../../../../material/common/algorithms/Algorithms.h"
 #include "../../../../material/obstacles/blocks/sprite-visible/single/PlatformBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../reduction/AlgorithmsReduction.h"
 #include "../reduction/PropertiesReduction.h"
+#include "../reduction/CustomReduction.h"
 #include "../reduction/AreaReduction.h"
 
 Generate::PlatformBlockGenerator::PlatformBlockGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
@@ -17,6 +17,6 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     unifier.addObstacle(new Obstacles::PlatformBlock(
             loadObstacleProperties(data),
             std::make_shared<Components::SpriteBox>(
-                    physicalArea(data), m_source.getTexture(data.at("TEXTURE"))),
+                    commonArea(data), m_source.getTexture(data.at("TEXTURE"))),
             loadAlgorithms(data, m_source)));
 }

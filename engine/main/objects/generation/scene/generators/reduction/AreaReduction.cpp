@@ -5,7 +5,7 @@
 #include "AreaReduction.h"
 #include "ElementaryReduction.h"
 
-Components::Area Generate::physicalArea(const IniUtil::Analyzer::IniBlock &data) {
+Components::Area Generate::commonArea(const IniUtil::Analyzer::IniBlock &data) {
     float angle = std::stof(data.at("ANGLE"));
     return Components::Area(position(data, "POSITION"), size(data, "SIZE"), angle);
 }

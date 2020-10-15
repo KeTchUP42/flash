@@ -16,7 +16,7 @@
 namespace Generate {
 
     /**
-     * @brief The SceneGenerator class.
+     * @brief The SceneGenerator class. The class is responsible for uploading scenes to the unifier.
      * @namespace Generate
      *
      * This class defines SceneGenerator realization.
@@ -28,7 +28,7 @@ namespace Generate {
         /**
          * @brief Method fills Unifier with objects.
          * @param filename Config file path.
-         * @param unifier Unifier.
+         * @param unifier Scene unifier.
          * @param target Target render window.
          */
         void loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target);
@@ -37,7 +37,7 @@ namespace Generate {
         /**
          * @brief Source pool.
          */
-        Pools::SourcePool m_source_pool;
+        Pools::SourcePool m_sourcePool;
 
         /**
          * @brief Block analyzer.
@@ -47,7 +47,7 @@ namespace Generate {
         /**
          * @brief Generators pool.
          */
-        Pools::GeneratorsPool m_generators_pool;
+        Pools::GeneratorsPool m_generatorsPool;
 
         /**
          * @brief Do not call "delete" for this ptr.

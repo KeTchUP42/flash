@@ -5,8 +5,8 @@
 #include "DullBlockGenerator.h"
 #include "../../../../material/obstacles/blocks/sprite-visible/single/DullBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../reduction/AlgorithmsReduction.h"
 #include "../reduction/PropertiesReduction.h"
+#include "../reduction/CustomReduction.h"
 #include "../reduction/AreaReduction.h"
 
 Generate::DullBlockGenerator::DullBlockGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
@@ -16,6 +16,6 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
     unifier.addObstacle(new Obstacles::DullBlock(
             loadObstacleProperties(data),
             std::make_shared<Components::SpriteBox>(
-                    physicalArea(data), m_source.getTexture(data.at("TEXTURE"))),
+                    commonArea(data), m_source.getTexture(data.at("TEXTURE"))),
             loadAlgorithms(data, m_source)));
 }

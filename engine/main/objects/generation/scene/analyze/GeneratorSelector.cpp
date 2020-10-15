@@ -17,6 +17,7 @@
 #include "../generators/triggers/ExplicitPlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/AbscissaPlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/OrdinatePlayerSceneTriggerGenerator.h"
+#include "../generators/triggers/SimplePlayerAudioTriggerGenerator.h"
 
 
 Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
@@ -66,6 +67,8 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new AbscissaPlayerSceneTriggerGenerator(m_pool, m_context);
     if (alias == "OrdinatePlayerSceneTrigger")
         return new OrdinatePlayerSceneTriggerGenerator(m_pool, m_context);
+    if (alias == "SimplePlayerAudioTrigger")
+        return new SimplePlayerAudioTriggerGenerator(m_pool);
 
     return nullptr;
 }

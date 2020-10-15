@@ -10,5 +10,5 @@ Generate::BackSpriteGenerator::BackSpriteGenerator(Generate::Pools::SourcePool &
 
 void Generate::BackSpriteGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    unifier.addBackSprite(new Components::SpriteBox(physicalArea(data), m_source.getTexture(data.at("TEXTURE"))));
+    unifier.addBackSprite(new Components::SpriteBox(commonArea(data), m_source.getTexture(data.at("TEXTURE"))));
 }

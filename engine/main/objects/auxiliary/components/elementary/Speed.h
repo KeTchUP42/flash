@@ -14,7 +14,7 @@ namespace Components {
      * This struct is the base component.
     */
     struct Speed {
-        Speed(float xSpeed, float ySpeed)
+        explicit Speed(float xSpeed, float ySpeed)
                 : xSpeed(xSpeed), ySpeed(ySpeed) {}
 
         Speed() : xSpeed(), ySpeed() {}

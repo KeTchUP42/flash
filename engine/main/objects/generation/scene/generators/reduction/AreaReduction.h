@@ -13,9 +13,9 @@ namespace Generate {
     /**
      * @brief Function generates general objects area.
      * @param data Ini data.
-     * @return Physical area.
+     * @return Common area.
      */
-    Components::Area physicalArea(const IniUtil::Analyzer::IniBlock &data);
+    Components::Area commonArea(const IniUtil::Analyzer::IniBlock &data);
 
     /**
      * @brief Function generates sprite area.
