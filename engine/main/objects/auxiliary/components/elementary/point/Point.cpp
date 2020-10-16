@@ -8,28 +8,28 @@ Components::Point::Point() : x(), y() {}
 
 Components::Point::Point(float x, float y) : x(x), y(y) {}
 
-Components::Point Components::Point::operator+(const Components::Point &right) {
-    return Components::Point(x + right.x, y + right.y);
+Components::Point Components::operator+(const Point &left, const Components::Point &right) {
+    return Components::Point(left.x + right.x, left.y + right.y);
 }
 
-Components::Point Components::Point::operator-(const Components::Point &right) {
-    return Components::Point(x - right.x, y - right.y);
+Components::Point Components::operator-(const Point &left, const Components::Point &right) {
+    return Components::Point(left.x - right.x, left.y - right.y);
 }
 
-Components::Point &Components::Point::operator+=(const Components::Point &right) {
-    *this = *this + right;
-    return *this;
+Components::Point &Components::operator+=(Point &left, const Components::Point &right) {
+    left = left + right;
+    return left;
 }
 
-Components::Point &Components::Point::operator-=(const Components::Point &right) {
-    *this = *this - right;
-    return *this;
+Components::Point &Components::operator-=(Point &left, const Components::Point &right) {
+    left = left - right;
+    return left;
 }
 
-bool Components::Point::operator==(const Components::Point &rhs) const noexcept {
-    return (x == rhs.x) && (y == rhs.y);
+bool Components::operator==(const Point &left, const Components::Point &right) noexcept {
+    return (left.x == right.x) && (left.y == right.y);
 }
 
-bool Components::Point::operator!=(const Point &rhs) const noexcept {
-    return !(rhs == *this);
+bool Components::operator!=(const Point &left, const Point &right) noexcept {
+    return !(right == left);
 }

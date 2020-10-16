@@ -27,45 +27,51 @@ namespace Components {
          */
         Point(float x, float y);
 
-        /**
-         * @brief Method overloads operator "+".
-         * @param right Right operand.
-         */
-        Point operator+(const Point &right);
-
-        /**
-         * @brief Method overloads operator "-".
-         * @param right Right operand.
-         */
-        Point operator-(const Point &right);
-
-        /**
-         * @brief Method overloads operator "+=".
-         * @param right Right operand.
-         */
-        Point &operator+=(const Point &right);
-
-        /**
-         * @brief Method overloads operator "-=".
-         * @param right Right operand.
-         */
-        Point &operator-=(const Point &right);
-
-        /**
-         * @brief Method overload comparison operator.
-         * @param rhs Compared object.
-         */
-        bool operator==(const Point &rhs) const noexcept;
-
-        /**
-         * @brief Method overload comparison operator.
-         * @param rhs Compared object.
-         */
-        bool operator!=(const Point &rhs) const noexcept;
-
         float x;
         float y;
     };
+
+    /**
+     * @brief Method overloads operator "+".
+     * @param left Left operand.
+     * @param right Right operand.
+     */
+    Point operator+(const Point &left, const Point &right);
+
+    /**
+     * @brief Method overloads operator "-".
+     * @param left Left operand.
+     * @param right Right operand.
+     */
+    Point operator-(const Point &left, const Point &right);
+
+    /**
+     * @brief Method overloads operator "+=".
+     * @param left Left operand.
+     * @param right Right operand.
+     */
+    Point &operator+=(Point &left, const Point &right);
+
+    /**
+     * @brief Method overloads operator "-=".
+     * @param left Left operand.
+     * @param right Right operand.
+     */
+    Point &operator-=(Point &left, const Point &right);
+
+    /**
+     * @brief Method overload comparison operator.
+     * @param left Left operand.
+     * @param right Compared object.
+     */
+    bool operator==(const Point &left, const Point &right) noexcept;
+
+    /**
+     * @brief Method overload comparison operator.
+     * @param left Left operand.
+     * @param right Compared object.
+     */
+    bool operator!=(const Point &left, const Point &right) noexcept;
 }
 
 #endif //FLASH_POINT_H
