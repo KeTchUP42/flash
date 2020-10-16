@@ -12,7 +12,8 @@ Generate::loadAlgorithms(const IniUtil::Analyzer::IniBlock &data, Generate::Pool
     return std::make_shared<Material::Algorithms>(pool.getAlgpool()->loadCollision(collisionParams));
 }
 
-std::shared_ptr<sf::Music> Generate::loadMusic(const IniUtil::Analyzer::IniBlock &data, Generate::Pools::SourcePool &pool) {
+std::shared_ptr<sf::Music>
+Generate::loadMusic(const IniUtil::Analyzer::IniBlock &data, Generate::Pools::SourcePool &pool) {
     std::shared_ptr<sf::Music> music = pool.getMusic(data.at("AUDIO"));
     music->setVolume(std::atof(data.at("AUDIO_VOLUME").c_str()));
     music->setLoop(static_cast<bool>(std::atoi(data.at("AUDIO_LOOP").c_str())));

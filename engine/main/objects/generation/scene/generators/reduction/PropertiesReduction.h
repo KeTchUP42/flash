@@ -5,9 +5,9 @@
 #ifndef FLASH_PROPERTIES_REDUCTION_H
 #define FLASH_PROPERTIES_REDUCTION_H
 
-#include "../../../../material/obstacles/common/properties/ObstacleProperties.h"
-#include "../../../../material/mobs/player/common/properties/PlayerProperties.h"
 #include "../../../../material/mobs/monsters/common/properties/MonsterProperties.h"
+#include "../../../../material/mobs/player/common/properties/PlayerProperties.h"
+#include "../../../../material/obstacles/common/properties/ObstacleProperties.h"
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 
 namespace Generate {
