@@ -14,8 +14,6 @@ namespace Triggers {
         explicit AudioTrigger(const Components::Area &area, const std::shared_ptr<sf::Music> &audio)
                 : AreaTrigger(area), m_audio(audio) {}
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override {}
-
     protected:
         std::shared_ptr<sf::Music> m_audio;
     };

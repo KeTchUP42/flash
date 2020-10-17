@@ -28,6 +28,8 @@ namespace Triggers {
 
         float getRotation() const noexcept override;
 
+        void update(const sf::Event &event, sf::RenderWindow &sender) override {}
+
     protected:
         Components::Area m_area;
         Components::Coordinates m_coordinates;

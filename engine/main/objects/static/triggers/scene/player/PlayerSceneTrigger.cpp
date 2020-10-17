@@ -28,7 +28,3 @@ Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier
     }
     return ResultCodes::OK;
 }
-
-void Triggers::PlayerSceneTrigger::update(const sf::Event &event, sf::RenderWindow &sender) {
-    //..
-}
