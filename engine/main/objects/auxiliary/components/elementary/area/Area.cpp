@@ -54,7 +54,8 @@ void Components::Area::setSize(const Components::Size &size) noexcept {
 }
 
 void Components::Area::setRotation(float angle) noexcept {
-    m_angle = angle;
+    m_angle = 0;
+    this->rotate(angle);
 }
 
 const Components::Point &Components::Area::getPosition() const noexcept {

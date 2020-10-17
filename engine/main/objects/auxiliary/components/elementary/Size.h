@@ -8,7 +8,7 @@
 namespace Components {
 
     /**
-     * @brief Base component.
+     * @brief The structure is used to describe the object size.
      * @namespace Components
      *
      * This struct is the base component.

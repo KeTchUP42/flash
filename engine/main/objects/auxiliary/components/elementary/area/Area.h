@@ -8,15 +8,15 @@
 #include "../../../possibilities/RectangleGetters.h"
 #include "../../../possibilities/RectangleSetters.h"
 #include "../../../possibilities/CollisionProne.h"
-#include "../../../possibilities/Movable.h"
 #include "../../../possibilities/Rotatable.h"
+#include "../../../possibilities/Movable.h"
 #include "../point/Point.h"
 #include "../Size.h"
 
 namespace Components {
 
     /**
-     * @brief Base component.
+     * @brief The structure is used to represent an area on coordinates.
      * @namespace Components
      *
      * This struct is the base component.
