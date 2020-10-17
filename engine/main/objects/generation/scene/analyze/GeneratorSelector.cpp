@@ -5,6 +5,7 @@
 #include "GeneratorSelector.h"
 #include "../generators/effects/GravityEffectGenerator.h"
 #include "../generators/effects/GravityPointEffectGenerator.h"
+#include "../generators/effects/BackAudioEffectGenerator.h"
 #include "../generators/monsters/MushroomGenerator.h"
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/obstacles/DullInvisibleBlockGenarator.h"
@@ -31,6 +32,8 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new GravityEffectGenerator(m_pool);
     if (alias == "GravityPointEffect")
         return new GravityPointEffectGenerator(m_pool);
+    if (alias == "BackAudioEffect")
+        return new BackAudioEffectGenerator(m_pool);
 
     //monsters
     if (alias == "Mushroom")

@@ -34,7 +34,7 @@ set(TEXT engine/main/objects/auxiliary/components/text/Text.cpp)
 set(COMPONENTS ${ELEMENTARY} ${SPRITES} ${TEXT})
 set(AUXILIARY ${COMPONENTS})
 
-set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityPointEffectGenerator.cpp)
+set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/BackAudioEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityPointEffectGenerator.cpp)
 set(MONSTERS_GENERATORS engine/main/objects/generation/scene/generators/monsters/MushroomGenerator.cpp)
 set(OBSTACLES_GENERATORS engine/main/objects/generation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/generation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/generation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
 set(PLAYERS_GENERATORS engine/main/objects/generation/scene/generators/players/BasicPlayerGenerator.cpp)
@@ -69,7 +69,9 @@ set(COLLISION ${COLLISION_ALGORITHMS} engine/main/objects/material/common/collis
 set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION} engine/main/objects/material/common/MaterialObject.cpp)
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
 
-set(EFFECTS engine/main/objects/static/effects/gravity/GravityEffect.cpp engine/main/objects/static/effects/gravity/GravityPointEffect.cpp)
+set(AUDIO_EFFECTS engine/main/objects/static/effects/audio/back/BackAudioEffect.cpp)
+set(GRAVITY_EFFECTS engine/main/objects/static/effects/gravity/GravityEffect.cpp engine/main/objects/static/effects/gravity/GravityPointEffect.cpp)
+set(EFFECTS ${AUDIO_EFFECTS} ${GRAVITY_EFFECTS})
 
 set(HANDLERS engine/main/objects/static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.cpp)
 set(SCENE_TRIGGERS ${HANDLERS} engine/main/objects/static/triggers/scene/player/PlayerSceneTrigger.cpp)
