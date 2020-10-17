@@ -34,7 +34,7 @@ namespace Generate {
              */
             std::shared_ptr<Generator> load(const std::string &alias);
 
-        protected:
+        private:
             /**
              * @brief Generators selector.
              */

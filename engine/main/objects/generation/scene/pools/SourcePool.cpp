@@ -7,12 +7,15 @@
 Generate::Pools::SourcePool::SourcePool(Managers::DataManager *manager)
         : m_algpool(), m_manager(manager) {}
 
-std::shared_ptr<sf::Texture> Generate::Pools::SourcePool::getTexture(const std::string &filename) {
-    if (m_textures[filename].get() == nullptr) {
-        m_textures[filename] = m_manager->getTextureManager()->loadTexture(filename);
-    }
+std::shared_ptr<sf::Texture> Generate::Pools::SourcePool::getTexture(const std::string &filename, const sf::Rect<int> &area) {
+    std::string key = filename +
+                      ":" + std::to_string(area.left) + ":" + std::to_string(area.top) +
+                      ":" + std::to_string(area.width) + ":" + std::to_string(area.height);
 
-    return m_textures[filename];
+    if (m_textures[key].get() == nullptr) {
+        m_textures[key] = m_manager->getTextureManager()->loadTexture(filename, area);
+    }
+    return m_textures[key];
 }
 
 std::shared_ptr<sf::Image> Generate::Pools::SourcePool::getImage(const std::string &filename) {
@@ -24,11 +27,7 @@ std::shared_ptr<sf::Image> Generate::Pools::SourcePool::getImage(const std::stri
 }
 
 std::shared_ptr<sf::Music> Generate::Pools::SourcePool::getMusic(const std::string &filename) {
-    if (m_music[filename].get() == nullptr) {
-        m_music[filename] = m_manager->getAudioManager()->loadMusic(filename);
-    }
-
-    return m_music[filename];
+    return m_manager->getAudioManager()->loadMusic(filename);
 }
 
 std::shared_ptr<sf::Font> Generate::Pools::SourcePool::getFont(const std::string &filename) {
@@ -54,4 +53,3 @@ Generate::Pools::AlgorithmsPool *Generate::Pools::SourcePool::getAlgpool() noexc
 Managers::DataManager *Generate::Pools::SourcePool::getManager() const noexcept {
     return m_manager;
 }
-

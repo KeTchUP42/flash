@@ -29,7 +29,7 @@ namespace Generate {
              */
             std::shared_ptr<Material::Collision> loadCollision(const std::pair<float, float> &params) noexcept;
 
-        protected:
+        private:
             /**
              * @brief Collision cache.
              */

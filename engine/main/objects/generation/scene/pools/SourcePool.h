@@ -25,11 +25,12 @@ namespace Generate {
             SourcePool(Managers::DataManager *manager);
 
             /**
-             * @brief Method returns new Texture or Texture from cache.
-             * @param filename Target file name.
+             * @brief Method returns new Texture or Texture from cache. Do not call any setters, it will change global all used textures.
+             * @param filename Target texture file name.
+             * @param area Image area.
              * @return Texture.
              */
-            std::shared_ptr<sf::Texture> getTexture(const std::string &filename);
+            std::shared_ptr<sf::Texture> getTexture(const std::string &filename, const sf::Rect<int> &area = sf::IntRect());
 
             /**
              * @brief Method returns new Image or Image from cache.
@@ -78,8 +79,7 @@ namespace Generate {
              */
             Managers::DataManager *getManager() const noexcept;
 
-        protected:
-
+        private:
             /**
              * @brief Algorithms pool.
              */
@@ -91,7 +91,7 @@ namespace Generate {
             Managers::DataManager *m_manager;
 
             /**
-             * @brief Texture cache.
+             * @brief Textures cache.
              */
             std::map<std::string, std::shared_ptr<sf::Texture>> m_textures;
 
@@ -99,11 +99,6 @@ namespace Generate {
              * @brief Image cache.
              */
             std::map<std::string, std::shared_ptr<sf::Image>> m_images;
-
-            /**
-             * @brief Music cache.
-             */
-            std::map<std::string, std::shared_ptr<sf::Music>> m_music;
 
             /**
              * @brief Font cache.
