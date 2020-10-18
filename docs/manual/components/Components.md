@@ -11,3 +11,8 @@
  * [Sprites.](sprites/Sprites.md)
  * [Triggers.](triggers/Triggers.md)
  * [Text.](text/Text.md)
+ 
+ ### Notes:
+ 
+ * The supported image formats are bmp, png, tga, jpg, gif, psd, hdr and pic. Some format options are not supported, like progressive jpeg.
+ * The supported audio formats are: WAV (PCM only), OGG/Vorbis, FLAC.
