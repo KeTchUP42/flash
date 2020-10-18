@@ -26,7 +26,7 @@ namespace Material {
 
         virtual ~Algorithms() = default;
 
-    protected:
+    private:
         std::shared_ptr<Material::Collision> m_collision;
     };
 }

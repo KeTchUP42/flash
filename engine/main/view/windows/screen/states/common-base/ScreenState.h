@@ -21,9 +21,8 @@ namespace Screen {
      *
      * This class defines base ScreenState interface and fields.
     */
-    class ScreenState
-            : public Possibilities::Drawable<sf::RenderWindow>,
-              public WindowView::Observer<sf::RenderWindow, sf::Event> {
+    class ScreenState : public Possibilities::Drawable<sf::RenderWindow>,
+                        public WindowView::Observer<sf::RenderWindow, sf::Event> {
     public:
         /**
          * @brief Constructors may have transit data.

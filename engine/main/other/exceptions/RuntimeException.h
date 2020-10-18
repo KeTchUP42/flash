@@ -12,12 +12,10 @@ namespace PreferredExceptions {
 
     class RuntimeException : public Exception {
     public:
-        explicit
-        RuntimeException(const char *message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
+        explicit RuntimeException(const char *message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
                 : Exception(message, code) {}
 
-        explicit
-        RuntimeException(const std::string &message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
+        explicit RuntimeException(const std::string &message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
                 : Exception(message, code) {}
     };
 

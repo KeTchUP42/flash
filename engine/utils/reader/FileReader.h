@@ -20,7 +20,7 @@ namespace ReaderUtil {
         std::vector<std::string> readlines() const noexcept override;
 
     protected:
-        std::string m_path;
+        std::string m_filepath;
     };
 }
 

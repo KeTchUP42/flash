@@ -9,16 +9,16 @@
 
 static inline void checkFileToOpen(const std::string &filepath);
 
-WriterUtil::FileWriter::FileWriter(const std::string &filepath) : m_path(filepath) {
+WriterUtil::FileWriter::FileWriter(const std::string &filepath) : m_filepath(filepath) {
     checkFileToOpen(filepath);
 }
 
-WriterUtil::FileWriter::FileWriter(const char *filepath) : m_path(filepath) {
+WriterUtil::FileWriter::FileWriter(const char *filepath) : m_filepath(filepath) {
     checkFileToOpen(filepath);
 }
 
 bool WriterUtil::FileWriter::write(const char *message, const std::ios::openmode &mode) const noexcept {
-    std::ofstream out(m_path.c_str(), mode);
+    std::ofstream out(m_filepath.c_str(), mode);
     bool isOpen = out.is_open();
     if (isOpen) {
         out << message;
