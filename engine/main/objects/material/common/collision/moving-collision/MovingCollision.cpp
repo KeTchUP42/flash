@@ -20,11 +20,3 @@ bool Material::MovingCollision::ordinateMoveAble(Material::MaterialObject *objec
 
     return movingOrdinateCollision(*object, *processed, ANALYSIS_STEP_X);
 }
-
-void Material::MovingCollision::setAnalysisStepX(float analysisStepX) noexcept {
-    ANALYSIS_STEP_X = analysisStepX;
-}
-
-void Material::MovingCollision::setAnalysisStepY(float analysisStepY) noexcept {
-    ANALYSIS_STEP_Y = analysisStepY;
-}

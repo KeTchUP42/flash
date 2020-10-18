@@ -26,10 +26,6 @@ namespace Material {
     public:
         explicit Collision(float analysisStepX, float analysisStepY);
 
-        void setAnalysisStepX(float analysisStepX) noexcept;
-
-        void setAnalysisStepY(float analysisStepY) noexcept;
-
         const Material::MovingCollision &getMovingCollision() const noexcept;
 
         const Material::StaticCollision &getStaticCollision() const noexcept;
@@ -37,8 +33,8 @@ namespace Material {
         virtual ~Collision() = default;
 
     private:
-        Material::MovingCollision m_movingCollision;
-        Material::StaticCollision m_staticCollision;
+        const Material::MovingCollision m_movingCollision;
+        const Material::StaticCollision m_staticCollision;
     };
 }
 

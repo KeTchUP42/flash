@@ -27,13 +27,9 @@ namespace Material {
 
         bool ordinateMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept;
 
-        void setAnalysisStepX(float analysisStepX) noexcept;
-
-        void setAnalysisStepY(float analysisStepY) noexcept;
-
-    protected:
-        float ANALYSIS_STEP_X;
-        float ANALYSIS_STEP_Y;
+    private:
+        const float ANALYSIS_STEP_X;
+        const float ANALYSIS_STEP_Y;
     };
 
     template<class Type>
