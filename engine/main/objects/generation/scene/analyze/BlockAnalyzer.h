@@ -21,7 +21,7 @@ namespace Generate {
 
         virtual ~BlockAnalyzer() = default;
 
-    protected:
+    private:
         Pools::SourcePool &m_sourcePool;
     };
 }

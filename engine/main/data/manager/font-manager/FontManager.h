@@ -34,7 +34,7 @@ namespace Managers {
 
         virtual ~FontManager() = default;
 
-    protected:
+    private:
         const std::string FONTS_DIRECTORY;
     };
 }

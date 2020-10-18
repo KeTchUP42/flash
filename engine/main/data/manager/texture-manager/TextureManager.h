@@ -42,7 +42,7 @@ namespace Managers {
 
         virtual ~TextureManager() = default;
 
-    protected:
+    private:
         const std::string TEXTURES_DIRECTORY;
     };
 }

@@ -34,7 +34,7 @@ namespace Managers {
 
         virtual ~ConfigManager() = default;
 
-    protected:
+    private:
         const std::string CONFIG_DIRECTORY;
     };
 }

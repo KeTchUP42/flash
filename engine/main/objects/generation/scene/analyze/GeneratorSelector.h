@@ -23,7 +23,7 @@ namespace Generate {
 
         virtual ~GeneratorSelector() = default;
 
-    protected:
+    private:
         Pools::SourcePool &m_pool;
         Screen::StateChangeable *m_context;
     };

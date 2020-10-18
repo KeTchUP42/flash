@@ -26,8 +26,7 @@ namespace Generate {
          * @param unifier Target unifier.
          * @param target Render target.
          */
-        virtual void
-        load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) = 0;
+        virtual void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) = 0;
 
     protected:
         Pools::SourcePool &m_source;

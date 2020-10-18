@@ -20,6 +20,8 @@ namespace Triggers {
     public:
         AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(MathUtils::coordinates(this)) {}
 
+        void update(const sf::Event &event, sf::RenderWindow &sender) override;
+
         const Components::Coordinates &getCoordinates() const noexcept override;
 
         const Components::Point &getPosition() const noexcept override;
@@ -27,8 +29,6 @@ namespace Triggers {
         const Components::Size &getSize() const noexcept override;
 
         float getRotation() const noexcept override;
-
-        void update(const sf::Event &event, sf::RenderWindow &sender) override {}
 
     protected:
         Components::Area m_area;

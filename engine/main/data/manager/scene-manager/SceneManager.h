@@ -33,7 +33,7 @@ namespace Managers {
 
         virtual ~SceneManager() = default;
 
-    protected:
+    private:
         const std::string SCENE_DIRECTORY;
     };
 }

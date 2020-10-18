@@ -33,7 +33,7 @@ namespace Generate {
          */
         void loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target);
 
-    protected:
+    private:
         /**
          * @brief Source pool.
          */

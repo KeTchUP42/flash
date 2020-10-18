@@ -19,3 +19,7 @@ const Components::Size &Triggers::AreaTrigger::getSize() const noexcept {
 float Triggers::AreaTrigger::getRotation() const noexcept {
     return m_area.m_angle;
 }
+
+void Triggers::AreaTrigger::update(const sf::Event &event, sf::RenderWindow &sender) {
+    //..
+}

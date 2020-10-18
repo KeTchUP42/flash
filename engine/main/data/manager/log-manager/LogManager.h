@@ -43,7 +43,7 @@ namespace Managers {
 
         virtual ~LogManager() = default;
 
-    protected:
+    private:
         const std::string LOG_DIRECTORY;
     };
 }

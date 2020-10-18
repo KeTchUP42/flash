@@ -34,7 +34,7 @@ namespace Managers {
 
         virtual ~AudioManager() = default;
 
-    protected:
+    private:
         const std::string AUDIO_DIRECTORY;
     };
 }
