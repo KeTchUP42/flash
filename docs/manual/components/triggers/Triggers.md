@@ -7,4 +7,4 @@
      * [AbscissaPlayerSceneTrigger](AbscissaPlayerSceneTrigger.md)
      * [OrdinatePlayerSceneTrigger](OrdinatePlayerSceneTrigger.md)
  * Audio triggers - designed to play audio in certain situations.
-     * [SimplePlayerAudioTrigger](SimplePlayerAudioTrigger.md)
+     * [PlayerAudioTrigger](PlayerAudioTrigger.md)

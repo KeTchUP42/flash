@@ -1,11 +1,11 @@
- ## SimplePlayerAudioTrigger
+ ## PlayerAudioTrigger
 
  This trigger plays audio when one of the players enters the trigger area.
 
  **Configuration block example:**
 
-    [SimplePlayerAudioTrigger]
-    POSITION = 410:500
+    [PlayerAudioTrigger]
+    POSITION = 400:500
     SIZE = 100:100
     ANGLE = 0
     AUDIO = ding.flac

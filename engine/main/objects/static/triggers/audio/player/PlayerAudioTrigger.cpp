@@ -2,12 +2,12 @@
 // Created by roman on 15.10.2020.
 //
 
-#include "SimplePlayerAudioTrigger.h"
+#include "PlayerAudioTrigger.h"
 
-Triggers::SimplePlayerAudioTrigger::SimplePlayerAudioTrigger(const Components::Area &area, const std::shared_ptr<sf::Music> &audio)
+Triggers::PlayerAudioTrigger::PlayerAudioTrigger(const Components::Area &area, const std::shared_ptr<sf::Music> &audio)
         : AudioTrigger(area, audio) {}
 
-Triggers::ResultCodes Triggers::SimplePlayerAudioTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
+Triggers::ResultCodes Triggers::PlayerAudioTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
 
     for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
 
