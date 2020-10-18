@@ -14,7 +14,7 @@ namespace Triggers {
      * @brief The base class of the AreaTrigger class hierarchy.
      * @namespace Triggers
      *
-     * This class defines base AreaTrigger interface.
+     * This class defines base AreaTrigger interface and realization.
     */
     class AreaTrigger : public Trigger, public Possibilities::RectangleInfo {
     public:

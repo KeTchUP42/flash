@@ -11,7 +11,6 @@
 #include <vector>
 
 namespace Material {
-
     /**
      * @brief Function returns points without "absentXValue" `X` value.
      */
