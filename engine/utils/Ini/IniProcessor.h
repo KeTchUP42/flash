@@ -9,29 +9,31 @@
 #include "../writer/Writer.h"
 #include "../reader/Reader.h"
 #include "analyzer/Analyzer.h"
+#include "analyzer/IniAnalyzer.h"
 
 #include <memory>
 
 namespace IniUtil {
 
     /**
-     * @brief The base class of the IniProcessor class hierarchy.
+     * @brief The class contains an implementation of the processor of ini files. It can analyze and create them.
      * @namespace IniUtil
      *
-     * This class defines base interface and fields of IniProcessor classes.
+     * This class defines interface and fields of IniProcessor classes.
     */
     class IniProcessor {
     public:
-        explicit IniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer)
+        explicit IniProcessor(ReaderUtil::Reader *reader, Analyzer *analyzer = new IniAnalyzer())
                 : m_reader(reader), m_analyzer(analyzer) {}
 
-        explicit IniProcessor(const std::string &filepath, Analyzer *analyzer)
+        explicit IniProcessor(const std::string &filepath, Analyzer *analyzer = new IniAnalyzer())
                 : m_reader(new ReaderUtil::FileReader(filepath)), m_analyzer(analyzer) {}
 
         explicit IniProcessor(const std::string &filepath, const std::shared_ptr<Analyzer> &analyzer)
                 : m_reader(new ReaderUtil::FileReader(filepath)), m_analyzer(analyzer) {}
 
-        explicit IniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader, const std::shared_ptr<Analyzer> &analyzer)
+        explicit IniProcessor(const std::shared_ptr<ReaderUtil::Reader> &reader,
+                              const std::shared_ptr<Analyzer> &analyzer = std::shared_ptr<Analyzer>(new IniAnalyzer()))
                 : m_reader(reader), m_analyzer(analyzer) {}
 
         /**
@@ -45,7 +47,7 @@ namespace IniUtil {
          *
          * @return Analyzer::IniData
          */
-        virtual Analyzer::IniData fullparse() const noexcept = 0;
+        Analyzer::IniData fullparse() const noexcept;
 
         /**
           * Method returns full ini config data in IniData type.
@@ -55,7 +57,7 @@ namespace IniUtil {
           * @param reader Reader
           * @return Analyzer::IniData
           */
-        virtual Analyzer::IniData fullparse(const ReaderUtil::Reader &reader) const noexcept = 0;
+        Analyzer::IniData fullparse(const ReaderUtil::Reader &reader) const noexcept;
 
         /**
           * Method returns full ini config data in IniData type.
@@ -65,7 +67,7 @@ namespace IniUtil {
           * @param reader Reader
           * @return Analyzer::IniData
           */
-        virtual Analyzer::IniData fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept = 0;
+        Analyzer::IniData fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept;
 
         /**
          * Method creates new ini file or append new data with standard writer.
@@ -74,7 +76,7 @@ namespace IniUtil {
          * @param writer Writer
          */
         virtual void createIni(const Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
-                               const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
+                               const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept;
 
         /**
          * Method creates new ini file or append new data with standard writer.
@@ -83,7 +85,7 @@ namespace IniUtil {
          * @param writer Writer
          **/
         virtual void createIni(const Analyzer::IniData &data, const WriterUtil::Writer &writer,
-                               const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept = 0;
+                               const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const noexcept;
 
 
         virtual ~IniProcessor() = default;

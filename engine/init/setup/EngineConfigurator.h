@@ -12,7 +12,7 @@
 namespace Setup {
 
     /**
-     * @brief The EngineConfigurator class.
+     * @brief The class contains configuration logic for the engine.
      * @namespace Setup
      *
      * This class defines EngineConfigurator.
@@ -25,7 +25,7 @@ namespace Setup {
          * @brief Method reads data block and returns data managers in DataManager facade class object.
          * @return Created data manager.
          */
-        Managers::DataManager *load(const IniUtil::Analyzer::IniBlock &block) const;
+        Managers::DataManager *loadDataManager(const IniUtil::Analyzer::IniBlock &block) const;
 
         virtual ~EngineConfigurator() = default;
     };

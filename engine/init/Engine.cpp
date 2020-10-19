@@ -6,15 +6,15 @@
 #include "setup/EngineConfigurator.h"
 #include "../main/other/exceptions/Exception.h"
 #include "../main/view/create/WindowFactory.h"
-#include "../utils/Ini/BasicIniProcessor.h"
+#include "../utils/Ini/IniProcessor.h"
 
 #include <memory>
 
 Program::Engine::Engine(const std::string &filename) {
-    IniUtil::BasicIniProcessor iniProcessor(filename);
-    IniUtil::Analyzer::IniData iniData = iniProcessor.fullparse();
+    IniUtil::IniProcessor processor(filename);
+    IniUtil::Analyzer::IniData iniData = processor.fullparse();
     Setup::EngineConfigurator configurator;
-    m_manager = configurator.load(iniData["DATA"]);
+    m_manager = configurator.loadDataManager(iniData["DATA"]);
     m_WindowSettingsFile = iniData["WINDOW"]["WindowSettingsFile"];
 }
 

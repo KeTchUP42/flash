@@ -3,9 +3,9 @@
 //
 
 #include "SceneManager.h"
-#include "../../../../utils/Ini/BasicIniProcessor.h"
+#include "../../../../utils/Ini/IniProcessor.h"
 
 IniUtil::Analyzer::IniData Managers::SceneManager::load(const std::string &filename) const {
-    IniUtil::BasicIniProcessor processor(SCENE_DIRECTORY + "/" + filename);
+    IniUtil::IniProcessor processor(SCENE_DIRECTORY + "/" + filename);
     return processor.fullparse();
 }

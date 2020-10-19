@@ -1,30 +1,30 @@
 //
-// Created by roman on 10.08.2020.
+// Created by roman on 20.10.2020.
 //
 
-#include "BasicIniProcessor.h"
+#include "IniProcessor.h"
 
-IniUtil::Analyzer::IniData IniUtil::BasicIniProcessor::fullparse() const noexcept {
+IniUtil::Analyzer::IniData IniUtil::IniProcessor::fullparse() const noexcept {
     return m_analyzer->fullparse(m_reader->readlines());
 }
 
 IniUtil::Analyzer::IniData
-IniUtil::BasicIniProcessor::fullparse(const ReaderUtil::Reader &reader) const noexcept {
+IniUtil::IniProcessor::fullparse(const ReaderUtil::Reader &reader) const noexcept {
     return m_analyzer->fullparse(reader.readlines());
 }
 
 IniUtil::Analyzer::IniData
-IniUtil::BasicIniProcessor::fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept {
+IniUtil::IniProcessor::fullparse(const std::shared_ptr<ReaderUtil::Reader> &reader) const noexcept {
     return m_analyzer->fullparse(reader->readlines());
 }
 
-void IniUtil::BasicIniProcessor::createIni(const IniUtil::Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
-                                           const std::ios::openmode &mode) const noexcept {
+void IniUtil::IniProcessor::createIni(const IniUtil::Analyzer::IniData &data, const std::shared_ptr<WriterUtil::Writer> &writer,
+                                      const std::ios::openmode &mode) const noexcept {
     this->createIni(data, *writer.get(), mode);
 }
 
-void IniUtil::BasicIniProcessor::createIni(const IniUtil::Analyzer::IniData &data, const WriterUtil::Writer &writer,
-                                           const std::ios::openmode &mode) const noexcept {
+void IniUtil::IniProcessor::createIni(const IniUtil::Analyzer::IniData &data, const WriterUtil::Writer &writer,
+                                      const std::ios::openmode &mode) const noexcept {
     std::string inidata;
     for (const auto &block: data) {
         if (block.first == NONAME_BLOCK) {

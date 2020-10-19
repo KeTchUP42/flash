@@ -57,8 +57,7 @@ bool MathUtils::collision(const Components::Point &point, const Possibilities::R
     return collision(point.x, point.y, rectangle);
 }
 
-bool MathUtils::
-collision(const Possibilities::RectangleInfo &rectangle1, const Possibilities::RectangleInfo &rectangle2) noexcept {
+bool MathUtils::collision(const Possibilities::RectangleInfo &rectangle1, const Possibilities::RectangleInfo &rectangle2) noexcept {
 
     float rectangle1Diagonal = std::sqrt(std::pow(rectangle1.getSize().width, 2) + std::pow(rectangle1.getSize().height, 2));
     float rectangle2Diagonal = std::sqrt(std::pow(rectangle2.getSize().width, 2) + std::pow(rectangle2.getSize().height, 2));

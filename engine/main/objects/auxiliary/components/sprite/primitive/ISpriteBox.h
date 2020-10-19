@@ -44,7 +44,7 @@ namespace Components {
         /**
          * @brief Method sets new sprite texture.
          */
-        virtual void setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
+        void setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
 
         /**
          * @brief Method returns texture rect.

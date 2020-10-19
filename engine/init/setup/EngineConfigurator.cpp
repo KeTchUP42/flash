@@ -4,7 +4,7 @@
 
 #include "EngineConfigurator.h"
 
-Managers::DataManager *Setup::EngineConfigurator::load(const IniUtil::Analyzer::IniBlock &block) const {
+Managers::DataManager *Setup::EngineConfigurator::loadDataManager(const IniUtil::Analyzer::IniBlock &block) const {
     using namespace Managers;
     AudioManager *audioManager = new AudioManager(block.at("PATH") + "/" + block.at("audio"));
     ConfigManager *configManager = new ConfigManager(block.at("PATH") + "/" + block.at("config"));
