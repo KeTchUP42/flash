@@ -26,11 +26,6 @@ namespace Components {
     class ISprite : public Possibilities::Movable, public Possibilities::Rotatable,
                     public Possibilities::Drawable<sf::RenderTarget> {
     public:
-        /**
-         * @brief Method deletes operator= method.
-         * @return ISprite&
-         */
-        ISprite &operator=(const ISprite &) = delete;
 
         /**
          * @brief Method sets new tree parent for sprite.

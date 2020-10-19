@@ -1,7 +1,7 @@
  ## Program configs
 
  There is a global configuration file that contains information about the location of the required data.  
- This global file must have the path "./config/flash.ini" relative to the main binary file.  
+ This global file must have the path `./config/flash.ini` relative to the main binary file.  
  It also contains the location of the configuration file for the program window.  
 
  **An example of a global configuration file:**
