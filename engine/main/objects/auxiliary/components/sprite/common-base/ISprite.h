@@ -5,11 +5,11 @@
 #ifndef FLASH_ISPRITE_H
 #define FLASH_ISPRITE_H
 
+#include "../../../../../view/windows/base/observer/Observer.h"
+#include "../../../possibilities/CollisionProne.h"
 #include "../../../possibilities/Drawable.h"
 #include "../../../possibilities/Movable.h"
 #include "../../../possibilities/Rotatable.h"
-#include "../../../possibilities/CollisionProne.h"
-#include "../../../../../view/windows/base/observer/Observer.h"
 #include "../../elementary/point/Point.h"
 #include "../../elementary/Size.h"
 
@@ -18,7 +18,7 @@
 namespace Components {
 
     /**
-     * @brief The base class of the ISprite class hierarchy.
+     * @brief The base class of the ISprite class hierarchy. Basic interface for all sprite classes.
      * @namespace Components
      *
      * This class is a base leaf component interface.

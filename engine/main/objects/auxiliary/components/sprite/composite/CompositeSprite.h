@@ -7,8 +7,6 @@
 
 #include "ICompositeSprite.h"
 
-#include <list>
-
 namespace Components {
 
     class CompositeSprite : public ICompositeSprite {
@@ -26,17 +24,6 @@ namespace Components {
         void rotate(float angle, float x, float y) noexcept override;
 
         void rotate(float angle, const Point &point) noexcept override;
-
-        void addSprite(ISprite *sprite) noexcept override;
-
-        void addSprite(const std::shared_ptr<ISprite> &sprite) noexcept override;
-
-        void removeSprite(ISprite *sprite) noexcept override;
-
-        void removeSprite(const std::shared_ptr<ISprite> &sprite) noexcept override;
-
-    protected:
-        std::list<std::shared_ptr<ISprite>> m_sprites;
     };
 }
 
