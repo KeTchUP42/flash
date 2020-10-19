@@ -1,10 +1,10 @@
- ## PlayerAudioTrigger
+ ## MonsterAudioTrigger
 
- This trigger plays audio when one of the players enters the trigger area.
+ This trigger plays audio when one of the monsters enters the trigger area.
 
  **Configuration block example:**
 
-    [PlayerAudioTrigger]
+    [MonsterAudioTrigger]
     POSITION = 400:500
     SIZE = 100:100
     ANGLE = 0

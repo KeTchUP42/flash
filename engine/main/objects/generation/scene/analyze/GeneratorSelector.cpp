@@ -19,7 +19,7 @@
 #include "../generators/triggers/AbscissaPlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/OrdinatePlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/PlayerAudioTriggerGenerator.h"
-
+#include "../generators/triggers/MonsterAudioTriggerGenerator.h"
 
 Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
@@ -72,6 +72,8 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new OrdinatePlayerSceneTriggerGenerator(m_pool, m_context);
     if (alias == "PlayerAudioTrigger")
         return new PlayerAudioTriggerGenerator(m_pool);
+    if (alias == "MonsterAudioTrigger")
+        return new MonsterAudioTriggerGenerator(m_pool);
 
     return nullptr;
 }

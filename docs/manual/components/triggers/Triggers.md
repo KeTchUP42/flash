@@ -8,3 +8,4 @@
      * [OrdinatePlayerSceneTrigger](OrdinatePlayerSceneTrigger.md)
  * Audio triggers - designed to play audio in certain situations.
      * [PlayerAudioTrigger](PlayerAudioTrigger.md)
+     * [MonsterAudioTrigger](MonsterAudioTrigger.md)
