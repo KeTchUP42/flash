@@ -9,7 +9,6 @@
 #include "../../../view/windows/base/observer/Observer.h"
 #include "../../../data/manager/DataManager.h"
 
-#include <memory>
 #include <list>
 
 namespace Obstacles {
@@ -19,7 +18,7 @@ namespace Obstacles {
 namespace Mobs {
     class Player;
 
-    class Monster;
+    class Mob;
 }
 
 namespace Components {
@@ -213,34 +212,34 @@ namespace Unite {
         //..
 
         /**
-         * @brief Method adds new monster.
-         * @param monster New monster.
+         * @brief Method adds new mob.
+         * @param mob New mob.
          */
-        void addMonster(Mobs::Monster *monster) noexcept;
+        void addMob(Mobs::Mob *mob) noexcept;
 
         /**
-         * @brief Method adds new monster.
-         * @param monster New monster.
+         * @brief Method adds new mob.
+         * @param mob New mob.
          */
-        void addMonster(const std::shared_ptr<Mobs::Monster> &monster) noexcept;
+        void addMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
 
         /**
-         * @brief Method removes monster.
-         * @param monster Existing monster.
+         * @brief Method removes mob.
+         * @param mob Existing mob.
          */
-        void removeMonster(Mobs::Monster *monster) noexcept;
+        void removeMob(Mobs::Mob *mb) noexcept;
 
         /**
-         * @brief Method removes monster.
-         * @param monster Existing monster.
+         * @brief Method removes mob.
+         * @param mob Existing mob.
          */
-        void removeMonster(const std::shared_ptr<Mobs::Monster> &monster) noexcept;
+        void removeMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
 
         /**
-         * @brief Method returns const reference on monsters collection.
-         * @return Const reference on monsters collection.
+         * @brief Method returns const reference on mobs collection.
+         * @return Const reference on mobs collection.
          */
-        const std::list<std::shared_ptr<Mobs::Monster>> &getMonsters() const noexcept;
+        const std::list<std::shared_ptr<Mobs::Mob>> &getMobs() const noexcept;
 
         //..
 
@@ -335,9 +334,9 @@ namespace Unite {
         std::list<std::shared_ptr<Mobs::Player>> m_players;
 
         /**
-         * @brief Monsters.
-            */
-        std::list<std::shared_ptr<Mobs::Monster>> m_monsters;
+         * @brief Mobs.
+         */
+        std::list<std::shared_ptr<Mobs::Mob>> m_mobs;
 
         /**
          * @brief Effects.
@@ -351,11 +350,11 @@ namespace Unite {
     };
 }
 
-#include "../../material/mobs/player/common/base/Player.h"
-#include "../../material/mobs/monsters/common/base/Monster.h"
+#include "../../material/mobs/players/common/base/Player.h"
 #include "../../material/obstacles/common/Obstacle.h"
 #include "../../auxiliary/components/text/Text.h"
 #include "../../static/triggers/common/Trigger.h"
+#include "../../material/mobs/common/base/Mob.h"
 #include "../../static/effects/Effect.h"
 
 #endif //FLASH_UNIFIER_H

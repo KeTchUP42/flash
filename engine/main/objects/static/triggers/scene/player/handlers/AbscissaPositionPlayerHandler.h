@@ -6,7 +6,7 @@
 #define FLASH_ABSCISSAPOSITIONPLAYERHANDLER_H
 
 #include "../../handler/Handler.h"
-#include "../../../../../material/mobs/player/common/base/Player.h"
+#include "../../../../../material/mobs/players/common/base/Player.h"
 
 namespace Triggers {
 

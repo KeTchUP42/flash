@@ -5,26 +5,18 @@
 #ifndef FLASH_PROPERTIES_REDUCTION_H
 #define FLASH_PROPERTIES_REDUCTION_H
 
-#include "../../../../material/mobs/monsters/common/properties/MonsterProperties.h"
-#include "../../../../material/mobs/player/common/properties/PlayerProperties.h"
+#include "../../../../material/mobs/common/properties/MobProperties.h"
 #include "../../../../material/obstacles/common/properties/ObstacleProperties.h"
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 
 namespace Generate {
 
     /**
-     * @brief Function creates MonsterProperties object from given data.
+     * @brief Function creates MobProperties object from given data.
      * @param data Ini data.
-     * @return New MonsterProperties object.
+     * @return New MobProperties object.
      */
-    Mobs::MonsterProperties loadMonsterProperties(const IniUtil::Analyzer::IniBlock &data);
-
-    /**
-     * @brief Function creates PlayerProperties object from given data.
-     * @param data Ini data.
-     * @return New PlayerProperties object.
-     */
-    Mobs::PlayerProperties loadPlayerProperties(const IniUtil::Analyzer::IniBlock &data);
+    Mobs::MobProperties loadMobProperties(const IniUtil::Analyzer::IniBlock &data);
 
     /**
      * @brief Function creates ObstacleProperties object from given data.

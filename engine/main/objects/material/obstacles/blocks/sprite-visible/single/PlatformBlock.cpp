@@ -22,21 +22,21 @@ void Obstacles::PlatformBlock::selfMove(Unite::Unifier *unifier) {
         m_properties.speed.ySpeed = -1 * m_properties.speed.ySpeed;
     }
 
-    Mobs::Monster *monster;
-    if ((monster = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getMonsters())) != nullptr) {
-        bool sameSign = m_properties.speed.xSpeed * monster->getSpeed().xSpeed >= 0;
+    Mobs::Mob *mob;
+    if ((mob = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getMobs())) != nullptr) {
+        bool sameSign = m_properties.speed.xSpeed * mob->getSpeed().xSpeed >= 0;
         float xSpeed = sameSign ? m_properties.speed.xSpeed :
-                       (-1 * monster->getSpeed().xSpeed * m_properties.elasticCoefficient) + m_properties.speed.xSpeed;
+                       (-1 * mob->getSpeed().xSpeed * m_properties.elasticCoefficient) + m_properties.speed.xSpeed;
 
-        monster->setSpeed(Components::Speed(xSpeed, monster->getProperties().speed.ySpeed));
+        mob->setSpeed(Components::Speed(xSpeed, mob->getProperties().speed.ySpeed));
     }
 
-    if ((monster = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getMonsters())) != nullptr) {
-        bool sameSign = m_properties.speed.ySpeed * monster->getSpeed().ySpeed >= 0;
+    if ((mob = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getMobs())) != nullptr) {
+        bool sameSign = m_properties.speed.ySpeed * mob->getSpeed().ySpeed >= 0;
         float ySpeed = sameSign ? m_properties.speed.ySpeed :
-                       (-1 * monster->getSpeed().ySpeed * m_properties.elasticCoefficient) + m_properties.speed.ySpeed;
+                       (-1 * mob->getSpeed().ySpeed * m_properties.elasticCoefficient) + m_properties.speed.ySpeed;
 
-        monster->setSpeed(Components::Speed(monster->getProperties().speed.xSpeed, ySpeed));
+        mob->setSpeed(Components::Speed(mob->getProperties().speed.xSpeed, ySpeed));
     }
 
     Mobs::Player *player;
@@ -64,10 +64,10 @@ void Obstacles::PlatformBlock::selfMove(Unite::Unifier *unifier) {
         }
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monstr : unifier->getMonsters()) {
-        if (monstr->getSpeed().xSpeed == 0) {
-            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(monstr.get(), this)) {
-                monstr->setSpeed(Components::Speed(m_properties.speed.xSpeed, monstr->getSpeed().ySpeed));
+    for (const std::shared_ptr<Mobs::Mob> &mb : unifier->getMobs()) {
+        if (mb->getSpeed().xSpeed == 0) {
+            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(mb.get(), this)) {
+                mb->setSpeed(Components::Speed(m_properties.speed.xSpeed, mb->getSpeed().ySpeed));
             }
         }
     }

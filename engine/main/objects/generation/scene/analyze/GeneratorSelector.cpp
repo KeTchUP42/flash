@@ -6,7 +6,7 @@
 #include "../generators/effects/GravityEffectGenerator.h"
 #include "../generators/effects/GravityPointEffectGenerator.h"
 #include "../generators/effects/BackAudioEffectGenerator.h"
-#include "../generators/monsters/MushroomGenerator.h"
+#include "../generators/mobs/MushroomGenerator.h"
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/obstacles/DullInvisibleBlockGenarator.h"
 #include "../generators/obstacles/PlatformBlockGenerator.h"
@@ -19,7 +19,7 @@
 #include "../generators/triggers/AbscissaPlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/OrdinatePlayerSceneTriggerGenerator.h"
 #include "../generators/triggers/PlayerAudioTriggerGenerator.h"
-#include "../generators/triggers/MonsterAudioTriggerGenerator.h"
+#include "../generators/triggers/MobsAudioTriggerGenerator.h"
 
 Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
@@ -35,7 +35,7 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
     if (alias == "BackAudioEffect")
         return new BackAudioEffectGenerator(m_pool);
 
-    //monsters
+    //mobs
     if (alias == "Mushroom")
         return new MushroomGenerator(m_pool);
 
@@ -72,8 +72,8 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new OrdinatePlayerSceneTriggerGenerator(m_pool, m_context);
     if (alias == "PlayerAudioTrigger")
         return new PlayerAudioTriggerGenerator(m_pool);
-    if (alias == "MonsterAudioTrigger")
-        return new MonsterAudioTriggerGenerator(m_pool);
+    if (alias == "MobsAudioTrigger")
+        return new MobsAudioTriggerGenerator(m_pool);
 
     return nullptr;
 }

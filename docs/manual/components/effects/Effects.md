@@ -1,6 +1,6 @@
  ## Effects
 
- The effects affect players, monsters and obstacles.
+ The effects affect players, mobs and obstacles.
 
  * Gravity effects - effects associated with the simulation of the effect of gravity.
      * [GravityEffect](GravityEffect.md)

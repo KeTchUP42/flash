@@ -7,6 +7,7 @@
 
 #include "../../../../common/Obstacle.h"
 #include "../../../../../../auxiliary/components/elementary/area/Area.h"
+#include "../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
@@ -32,19 +33,11 @@ namespace Obstacles {
 
         void rotate(float angle, const Components::Point &point) noexcept override;
 
-        void addSpeed(float offsetX, float offsetY) noexcept override;
-
-        void setSpeed(const Components::Speed &speed) noexcept override;
-
-        const Components::Speed &getSpeed() const noexcept override;
-
         const Components::Point &getPosition() const noexcept override;
 
         const Components::Size &getSize() const noexcept override;
 
         float getRotation() const noexcept override;
-
-        const ObstacleProperties &getProperties() const noexcept override;
 
         void setPosition(const Components::Point &point) noexcept override;
 

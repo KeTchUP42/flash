@@ -26,8 +26,6 @@ namespace Components {
     class ISprite : public Possibilities::Movable, public Possibilities::Rotatable,
                     public Possibilities::Drawable<sf::RenderTarget> {
     public:
-        ISprite() = default;
-
         /**
          * @brief Method deletes operator= method.
          * @return ISprite&

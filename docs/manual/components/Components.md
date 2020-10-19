@@ -5,9 +5,9 @@
  The explanation section contains a comprehensive description of the configuration block content.
 
  * [Effects.](effects/Effects.md)
- * [Monsters.](monsters/Monsters.md)
- * [Obstacles.](obstacles/Obstacles.md)
+ * [Mobs.](mobs/Mobs.md)
  * [Players.](players/Players.md)
+ * [Obstacles.](obstacles/Obstacles.md)
  * [Sprites.](sprites/Sprites.md)
  * [Triggers.](triggers/Triggers.md)
  * [Text.](text/Text.md)

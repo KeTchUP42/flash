@@ -24,7 +24,15 @@ namespace Obstacles {
          * @brief Base obstacle constructor.
          * @param properties Object with obstacle properties.
          */
-        Obstacle(const ObstacleProperties &properties) : m_properties(properties) {};
+        Obstacle(const ObstacleProperties &properties);
+
+        void addSpeed(float offsetX, float offsetY) noexcept override;
+
+        void setSpeed(const Components::Speed &speed) noexcept override;
+
+        const Components::Speed &getSpeed() const noexcept override;
+
+        const ObstacleProperties &getProperties() const noexcept override;
 
         virtual ~Obstacle() = default;
 

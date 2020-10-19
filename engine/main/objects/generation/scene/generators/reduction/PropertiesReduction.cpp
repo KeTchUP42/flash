@@ -6,12 +6,8 @@
 #include "../../../../../../utils/math/algorithms.h"
 #include "ElementaryReduction.h"
 
-Mobs::MonsterProperties Generate::loadMonsterProperties(const IniUtil::Analyzer::IniBlock &data) {
-    return Mobs::MonsterProperties(speed(data, "SPEED"));
-}
-
-Mobs::PlayerProperties Generate::loadPlayerProperties(const IniUtil::Analyzer::IniBlock &data) {
-    return Mobs::PlayerProperties(speed(data, "SPEED"));
+Mobs::MobProperties Generate::loadMobProperties(const IniUtil::Analyzer::IniBlock &data) {
+    return Mobs::MobProperties(speed(data, "SPEED"));
 }
 
 Obstacles::ObstacleProperties Generate::loadObstacleProperties(const IniUtil::Analyzer::IniBlock &data) {

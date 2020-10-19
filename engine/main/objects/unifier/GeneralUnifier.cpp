@@ -18,8 +18,8 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
         obstacle->draw(target);
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
-        monster->draw(target);
+    for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
+        mob->draw(target);
     }
 
     for (const std::shared_ptr<Mobs::Player> &player: m_players) {
@@ -41,8 +41,8 @@ void Unite::GeneralUnifier::refresh() {
         player->updateCoordinates();
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
-        monster->updateCoordinates();
+    for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
+        mob->updateCoordinates();
     }
 
     for (const std::shared_ptr<Triggers::Trigger> &trigger: m_triggers) {
@@ -53,8 +53,8 @@ void Unite::GeneralUnifier::refresh() {
         effect->applyEffect(this);
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
-        monster->selfAction(this);
+    for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
+        mob->selfAction(this);
     }
 
     for (const std::shared_ptr<Mobs::Player> &player: m_players) {
@@ -73,8 +73,8 @@ void Unite::GeneralUnifier::refresh() {
         player->updateLocation();
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
-        monster->updateLocation();
+    for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
+        mob->updateLocation();
     }
 }
 
@@ -84,23 +84,7 @@ void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sen
         trigger->update(event, sender);
     }
 
-//    for (const std::shared_ptr<Components::ISprite> &sprite: m_back) {
-//        sprite->update(event, sender);
-//    }
-
     for (const std::shared_ptr<Mobs::Player> &player: m_players) {
         player->update(event, sender);
     }
-
-//    for (const std::shared_ptr<Mobs::Monster> &monster: m_monsters) {
-//        monster->update(event, sender);
-//    }
-
-//    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
-//        obstacle->update(event, sender);
-//    }
-
-//    for (const std::shared_ptr<Components::ISprite> &sprite: m_front) {
-//        sprite->update(event, sender);
-//    }
 }

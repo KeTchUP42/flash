@@ -28,8 +28,3 @@ bool Material::MaterialObject::collision(float x, float y) const noexcept {
     return MathUtils::collision(x, y, *this);
 }
 
-void Material::MaterialObject::update(const sf::Event &event, sf::RenderWindow &sender) {
-    //..
-}
-
-

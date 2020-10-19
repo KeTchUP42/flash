@@ -17,10 +17,6 @@ void Obstacles::InvisibleBlock::move(float offsetX, float offsetY) noexcept {
     m_area.move(offsetX, offsetY);
 }
 
-const Obstacles::ObstacleProperties &Obstacles::InvisibleBlock::getProperties() const noexcept {
-    return m_properties;
-}
-
 const Components::Point &Obstacles::InvisibleBlock::getPosition() const noexcept {
     return m_area.m_point;
 }
@@ -59,18 +55,5 @@ void Obstacles::InvisibleBlock::rotate(float angle, float x, float y) noexcept {
 
 void Obstacles::InvisibleBlock::rotate(float angle, const Components::Point &point) noexcept {
     m_area.rotate(angle, point);
-}
-
-void Obstacles::InvisibleBlock::addSpeed(float offsetX, float offsetY) noexcept {
-    m_properties.speed.xSpeed += offsetX;
-    m_properties.speed.ySpeed += offsetY;
-}
-
-void Obstacles::InvisibleBlock::setSpeed(const Components::Speed &speed) noexcept {
-    m_properties.speed = speed;
-}
-
-const Components::Speed &Obstacles::InvisibleBlock::getSpeed() const noexcept {
-    return m_properties.speed;
 }
 

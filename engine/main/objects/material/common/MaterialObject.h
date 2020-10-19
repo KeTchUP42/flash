@@ -11,7 +11,6 @@
 #include "../../auxiliary/possibilities/Rotatable.h"
 #include "../../auxiliary/possibilities/SelfActionable.h"
 #include "../../auxiliary/possibilities/SelfMovable.h"
-#include "../../../view/windows/base/observer/Observer.h"
 #include "../../auxiliary/components/elementary/Size.h"
 #include "../../auxiliary/possibilities/RectangleInfo.h"
 #include "../../auxiliary/possibilities/RectangleSetters.h"
@@ -37,8 +36,7 @@ namespace Material {
             public Possibilities::Rotatable,
             public Possibilities::RectangleInfo,
             public Possibilities::RectangleSetters,
-            public Possibilities::Drawable<sf::RenderTarget>,
-            public WindowView::Observer<sf::RenderWindow, sf::Event> {
+            public Possibilities::Drawable<sf::RenderTarget> {
     public:
         MaterialObject();
 
@@ -57,8 +55,6 @@ namespace Material {
          */
         virtual bool collision(float x, float y) const noexcept override;
 
-        virtual void update(const sf::Event &event, sf::RenderWindow &sender) override;
-
         const Components::Coordinates &getCoordinates() const noexcept override;
 
         virtual ~MaterialObject() = default;
@@ -68,6 +64,10 @@ namespace Material {
     };
 }
 
+#ifndef FLASH_MOB_H
+
 #include "../../unifier/common/Unifier.h"
+
+#endif //FLASH_MOB_H
 
 #endif //FLASH_MATERIALOBJECT_H

@@ -20,8 +20,6 @@ namespace Obstacles {
 
         void move(float offsetX, float offsetY) noexcept override;
 
-        const ObstacleProperties &getProperties() const noexcept override;
-
         const Components::Point &getPosition() const noexcept override;
 
         const Components::Size &getSize() const noexcept override;
@@ -41,12 +39,6 @@ namespace Obstacles {
         void rotate(float angle, float x, float y) noexcept override;
 
         void rotate(float angle, const Components::Point &point) noexcept override;
-
-        void addSpeed(float offsetX, float offsetY) noexcept override;
-
-        void setSpeed(const Components::Speed &speed) noexcept override;
-
-        const Components::Speed &getSpeed() const noexcept override;
 
     protected:
         Components::Area m_area;

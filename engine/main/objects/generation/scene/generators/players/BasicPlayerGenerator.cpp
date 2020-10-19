@@ -3,8 +3,7 @@
 //
 
 #include "BasicPlayerGenerator.h"
-#include "../../../../material/common/algorithms/Algorithms.h"
-#include "../../../../material/mobs/player/custom/basic/BasicPlayer.h"
+#include "../../../../material/mobs/players/custom/basic/BasicPlayer.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../reduction/PropertiesReduction.h"
 #include "../reduction/CustomReduction.h"
@@ -21,7 +20,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
             std::stof(data.at("JUMP_SPEED")));
 
     Mobs::Player *player = new Mobs::BasicPlayer(
-            loadPlayerProperties(data), commonArea(data),
+            loadMobProperties(data), commonArea(data),
             std::make_shared<Components::SpriteBox>(
                     spriteArea(data), m_source.getTexture(data.at("TEXTURE"))),
             loadAlgorithms(data, m_source), playerProperties);

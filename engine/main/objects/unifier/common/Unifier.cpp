@@ -114,26 +114,26 @@ const std::list<std::shared_ptr<Mobs::Player>> &Unite::Unifier::getPlayers() con
     return m_players;
 }
 
-void Unite::Unifier::addMonster(Mobs::Monster *monster) noexcept {
-    m_monsters.push_back(std::shared_ptr<Mobs::Monster>(monster));
+void Unite::Unifier::addMob(Mobs::Mob *mob) noexcept {
+    m_mobs.push_back(std::shared_ptr<Mobs::Mob>(mob));
 }
 
-void Unite::Unifier::addMonster(const std::shared_ptr<Mobs::Monster> &monster) noexcept {
-    m_monsters.push_back(monster);
+void Unite::Unifier::addMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_mobs.push_back(mob);
 }
 
-void Unite::Unifier::removeMonster(Mobs::Monster *monster) noexcept {
-    m_monsters.remove_if([monster](const std::shared_ptr<Mobs::Monster> &mstr) -> bool {
-        return mstr.get() == monster;
+void Unite::Unifier::removeMob(Mobs::Mob *mob) noexcept {
+    m_mobs.remove_if([mob](const std::shared_ptr<Mobs::Mob> &mb) -> bool {
+        return mb.get() == mob;
     });
 }
 
-void Unite::Unifier::removeMonster(const std::shared_ptr<Mobs::Monster> &monster) noexcept {
-    m_monsters.remove(monster);
+void Unite::Unifier::removeMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_mobs.remove(mob);
 }
 
-const std::list<std::shared_ptr<Mobs::Monster>> &Unite::Unifier::getMonsters() const noexcept {
-    return m_monsters;
+const std::list<std::shared_ptr<Mobs::Mob>> &Unite::Unifier::getMobs() const noexcept {
+    return m_mobs;
 }
 
 void Unite::Unifier::addEffect(Effects::Effect *effect) noexcept {

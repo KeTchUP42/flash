@@ -8,6 +8,7 @@ Effects::GravityPointEffect::GravityPointEffect(const Components::Point &point, 
         : m_point(point), ACCELERATION(acceleration) {}
 
 void Effects::GravityPointEffect::applyEffect(Unite::Unifier *unifier) {
+
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
 
         float playerX = player->getPosition().x + player->getSize().width;
@@ -25,20 +26,20 @@ void Effects::GravityPointEffect::applyEffect(Unite::Unifier *unifier) {
         }
     }
 
-    for (const std::shared_ptr<Mobs::Monster> &monster : unifier->getMonsters()) {
+    for (const std::shared_ptr<Mobs::Mob> &mob : unifier->getMobs()) {
 
-        float monsterX = monster->getPosition().x + monster->getSize().width;
-        if (monsterX > m_point.x) {
-            monster->addSpeed(-ACCELERATION, 0);
-        } else if (monsterX < m_point.x) {
-            monster->addSpeed(ACCELERATION, 0);
+        float mobX = mob->getPosition().x + mob->getSize().width;
+        if (mobX > m_point.x) {
+            mob->addSpeed(-ACCELERATION, 0);
+        } else if (mobX < m_point.x) {
+            mob->addSpeed(ACCELERATION, 0);
         }
 
-        float monsterY = monster->getPosition().y + monster->getSize().height;
-        if (monsterY > m_point.y) {
-            monster->addSpeed(0, -ACCELERATION);
-        } else if (monsterY < m_point.y) {
-            monster->addSpeed(0, ACCELERATION);
+        float mobY = mob->getPosition().y + mob->getSize().height;
+        if (mobY > m_point.y) {
+            mob->addSpeed(0, -ACCELERATION);
+        } else if (mobY < m_point.y) {
+            mob->addSpeed(0, ACCELERATION);
         }
     }
 

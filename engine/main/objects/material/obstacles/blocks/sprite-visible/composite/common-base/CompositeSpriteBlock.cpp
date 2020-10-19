@@ -38,19 +38,6 @@ void Obstacles::CompositeSpriteBlock::rotate(float angle, const Components::Poin
     m_sprite->rotate(angle, point);
 }
 
-void Obstacles::CompositeSpriteBlock::addSpeed(float offsetX, float offsetY) noexcept {
-    m_properties.speed.xSpeed += offsetX;
-    m_properties.speed.ySpeed += offsetY;
-}
-
-void Obstacles::CompositeSpriteBlock::setSpeed(const Components::Speed &speed) noexcept {
-    m_properties.speed = speed;
-}
-
-const Components::Speed &Obstacles::CompositeSpriteBlock::getSpeed() const noexcept {
-    return m_properties.speed;
-}
-
 const Components::Point &Obstacles::CompositeSpriteBlock::getPosition() const noexcept {
     return m_area.m_point;
 }
@@ -61,10 +48,6 @@ const Components::Size &Obstacles::CompositeSpriteBlock::getSize() const noexcep
 
 float Obstacles::CompositeSpriteBlock::getRotation() const noexcept {
     return m_area.m_angle;
-}
-
-const Obstacles::ObstacleProperties &Obstacles::CompositeSpriteBlock::getProperties() const noexcept {
-    return m_properties;
 }
 
 void Obstacles::CompositeSpriteBlock::setPosition(const Components::Point &point) noexcept {
