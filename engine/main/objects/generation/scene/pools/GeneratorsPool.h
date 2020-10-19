@@ -18,8 +18,8 @@ namespace Generate {
     namespace Pools {
 
         /**
-         * @brief The GeneratorsPool class.
-         * @namespace Pools
+         * @brief The class allows caching objects that are generators for object creation.
+         * @namespace Generate::Pools
          *
          * This class defines GeneratorsPool realization.
         */

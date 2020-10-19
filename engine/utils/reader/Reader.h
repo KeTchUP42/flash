@@ -11,10 +11,10 @@
 namespace ReaderUtil {
 
     /**
-     * @brief The base class of the Reader class hierarchy.
+     * @brief The class is a functional interface for the Reader.
      * @namespace ReaderUtil
      *
-     * This class defines base Reader interface and fields.
+     * This class defines base Reader interface.
     */
     class Reader {
     public:

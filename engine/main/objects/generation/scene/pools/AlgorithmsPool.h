@@ -16,8 +16,8 @@ namespace Generate {
     namespace Pools {
 
         /**
-         * @brief The AlgorithmsPool class.
-         * @namespace Pools
+         * @brief The class allows caching objects that represent wrappers for algorithms.
+         * @namespace Generate::Pools
          *
          * This class defines AlgorithmsPool realization.
         */

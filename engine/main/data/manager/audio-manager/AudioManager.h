@@ -12,10 +12,10 @@
 namespace Managers {
 
     /**
-     * @brief The base class of the AudioManager class hierarchy.
+     * @brief The class provides convenient access to audio data.
      * @namespace Managers
      *
-     * This class defines base AudioManager interface and fields.
+     * This class defines AudioManager interface and realization.
      */
     class AudioManager {
     public:

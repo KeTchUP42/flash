@@ -13,10 +13,10 @@
 namespace Components {
 
     /**
-     * @brief The base class of the ICompositeSprite class hierarchy.
+     * @brief The class is the base class of composite sprites.
      * @namespace Components
      *
-     * This class is a base composite component interface and realization.
+     * This class is a base composite sprite component realization.
     */
     class ICompositeSprite : public ISprite {
     public:

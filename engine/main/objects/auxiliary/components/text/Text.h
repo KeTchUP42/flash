@@ -16,7 +16,7 @@
 namespace Components {
 
     /**
-     * @brief The Text class.
+     * @brief Class for work with visual text information.
      * @namespace Components
      *
      * This class is a wrap for sf::Text from SFML.

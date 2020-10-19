@@ -12,7 +12,7 @@ namespace Screen {
     class ScreenState;
 
     /**
-     * @brief The base class of the StateChangeable class hierarchy.
+     * @brief The class is of interest to rearrange methods for changing the state of the window.
      * @namespace Screen
      *
      * This class defines base StateChangeable interface.

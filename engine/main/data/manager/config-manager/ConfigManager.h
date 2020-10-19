@@ -12,10 +12,10 @@
 namespace Managers {
 
     /**
-     * @brief The base class of the ConfigManager class hierarchy.
+     * @brief The class provides simple access to the configuration data of the program.
      * @namespace Managers
      *
-     * This class defines base ConfigManager interface and fields.
+     * This class defines base ConfigManager interface and realization.
      */
     class ConfigManager {
     public:

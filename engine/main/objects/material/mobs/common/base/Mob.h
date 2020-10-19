@@ -14,7 +14,7 @@
 namespace Mobs {
 
     /**
-     * @brief The base class of the Mob class hierarchy.
+     * @brief The class represents the base class of all Mobs.
      * @namespace Mobs
      *
      * This class defines base Mob interface and realization.

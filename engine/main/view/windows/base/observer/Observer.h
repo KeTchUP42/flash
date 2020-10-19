@@ -8,7 +8,7 @@
 namespace WindowView {
 
     /**
-     * @brief The base class of the Observer class hierarchy.
+     * @brief A class is a class interface that can listen to events, mainly keystroke events.
      * @namespace WindowView
      *
      * This class defines base Observer interface.

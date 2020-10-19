@@ -16,7 +16,7 @@ namespace Screen {
     class StateChangeable;
 
     /**
-     * @brief The base class of the ScreenState class hierarchy.
+     * @brief This class is an interest of the state from the state pattern.
      * @namespace Screen
      *
      * This class defines base ScreenState interface and fields.

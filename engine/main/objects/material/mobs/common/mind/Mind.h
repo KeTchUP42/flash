@@ -12,7 +12,7 @@ namespace Unite {
 namespace Mobs {
 
     /**
-     * @brief The base class of the Mind class hierarchy. Specific classes can be friends with the owner classes.
+     * @brief The class contains the logic of mob behavior. Specific classes can be friends with the owner classes.
      * @namespace Mobs
      *
      * This class defines base Mind interface.

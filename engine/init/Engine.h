@@ -12,7 +12,7 @@
 namespace Program {
 
     /**
-     * @brief App main class and entry point.
+     * @brief The class is the most important class in the program, and also includes an entry point.
      * @namespace Program
      *
      * This class has app entry point method.

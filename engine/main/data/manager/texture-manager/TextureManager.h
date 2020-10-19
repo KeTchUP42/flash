@@ -12,10 +12,10 @@
 namespace Managers {
 
     /**
-     * @brief The base class of the TextureManager class hierarchy.
+     * @brief The class provides easy access to visual data such as textures and images.
      * @namespace Managers
      *
-     * This class defines base TextureManager interface.
+     * This class defines TextureManager interface and realization.
      */
     class TextureManager {
     public:

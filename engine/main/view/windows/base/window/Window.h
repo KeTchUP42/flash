@@ -15,10 +15,10 @@
 namespace WindowView {
 
     /**
-     * @brief The base class of the Window class hierarchy.
+     * @brief The class is a convenient wrapper above the library window.
      * @namespace WindowView
      *
-     * This class defines base Window interface and fields.
+     * This class provides convenient opportunities to listen to the window events.
     */
     class Window {
     public:

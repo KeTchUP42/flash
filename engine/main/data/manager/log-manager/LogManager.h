@@ -14,10 +14,10 @@
 namespace Managers {
 
     /**
-     * @brief The base class of the LogManager class hierarchy.
+     * @brief The class provides a convenient way to create loggers.
      * @namespace Managers
      *
-     * This class defines base LogManager interface and fields.
+     * This class defines LogManager interface and realization.
      */
     class LogManager {
     public:

@@ -15,10 +15,10 @@
 namespace Mobs {
 
     /**
-     * @brief The base class of the Player class hierarchy.
+     * @brief The class represents the base class of all managed mobiles - players.
      * @namespace Mobs
      *
-     * This class defines base Player interface.
+     * This class defines base Player interface and realization.
     */
     class Player : public Mobs::Mob,
                    public WindowView::Observer<sf::RenderWindow, sf::Event> {

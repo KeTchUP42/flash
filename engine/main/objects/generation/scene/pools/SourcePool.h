@@ -15,8 +15,8 @@ namespace Generate {
     namespace Pools {
 
         /**
-         * @brief The SourcePool class.
-         * @namespace Pools
+         * @brief The class allows you to cache the data needed to create objects.
+         * @namespace Generate::Pools
          *
          * This class defines SourcePool realization.
         */

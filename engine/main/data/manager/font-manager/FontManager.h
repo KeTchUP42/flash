@@ -12,10 +12,10 @@
 namespace Managers {
 
     /**
-     * @brief The base class of the FontManager class hierarchy.
+     * @brief The class provides easy access to font data.
      * @namespace Managers
      *
-     * This class defines base FontManager interface and fields.
+     * This class defines base FontManager interface and realization.
      */
     class FontManager {
     public:

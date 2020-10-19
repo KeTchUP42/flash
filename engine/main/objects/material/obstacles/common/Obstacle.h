@@ -15,7 +15,7 @@ namespace Obstacles {
      * @brief The base class of the Obstacle class hierarchy. It contains all usefull interfaces.
      * @namespace Obstacles
      *
-     * This class defines base Obstacle interface.
+     * This class defines base Obstacle interface and realization.
     */
     class Obstacle : public Material::MaterialObject,
                      public Possibilities::Physical<Obstacles::ObstacleProperties> {

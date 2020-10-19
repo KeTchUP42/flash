@@ -17,10 +17,10 @@
 namespace Managers {
 
     /**
-     * @brief The base class of the DataManager class hierarchy. Facade class.
+     * @brief The class provides easy access to multiple data managers.
      * @namespace Managers
      *
-     * This class defines base DataManager interface. DataManager contains all other managers for ease of use.
+     * This class defines base DataManager interface and realization.
     */
     class DataManager {
     public:

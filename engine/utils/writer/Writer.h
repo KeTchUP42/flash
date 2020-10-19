@@ -11,10 +11,10 @@
 namespace WriterUtil {
 
     /**
-     * @brief The base class of the Writer class hierarchy.
+     * @brief The class is a functional interface for the Writer.
      * @namespace WriterUtil
      *
-     * This class defines base Writer interface and fields.
+     * This class defines base Writer interface.
     */
     class Writer {
     public:
