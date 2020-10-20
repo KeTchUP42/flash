@@ -11,6 +11,6 @@ void Mobs::Player::loadKeyMap(const std::map<Mobs::KeyAlias, sf::Keyboard::Key> 
     m_keyMap = keyMap;
 }
 
-const std::map<Mobs::KeyAlias, sf::Keyboard::Key> Mobs::Player::getKeyMap() const noexcept {
+const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &Mobs::Player::getKeyMap() const noexcept {
     return m_keyMap;
 }

@@ -8,6 +8,7 @@
 #include "../reduction/PropertiesReduction.h"
 #include "../reduction/CustomReduction.h"
 #include "../reduction/AreaReduction.h"
+#include "../reduction/KeyMapBuilder.h"
 
 Generate::BasicPlayerGenerator::BasicPlayerGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
@@ -25,6 +26,12 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::Rende
                     spriteArea(data), m_source.getTexture(data.at("TEXTURE"))),
             loadAlgorithms(data, m_source), playerProperties);
 
-    player->loadKeyMap(data.at("KEYMAP"), m_source.getManager());
+    KeyMapBuilder builder(data.at("KEYMAP"), m_source);
+    builder.setKey(Mobs::KeyAlias::Right, "MAP", "Right")
+            .setKey(Mobs::KeyAlias::Left, "MAP", "Left")
+            .setKey(Mobs::KeyAlias::Jump, "MAP", "Jump")
+            .setKey(Mobs::KeyAlias::Use, "MAP", "Use");
+
+    player->loadKeyMap(builder.getKeyMap());
     unifier.addPlayer(player);
 }

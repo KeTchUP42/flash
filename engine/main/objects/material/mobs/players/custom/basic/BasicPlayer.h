@@ -22,8 +22,6 @@ namespace Mobs {
 
         void update(const sf::Event &event, sf::RenderWindow &sender) override;
 
-        void loadKeyMap(const std::string &filename, Managers::DataManager *manager) override;
-
     protected:
         Mobs::BasicPlayerProperties m_basic;
     };
