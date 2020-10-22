@@ -11,6 +11,7 @@
     SPRITE_POSITION = 600:370
     SPRITE_SIZE = 30:30
     SPRITE_ANGLE = 0
+    HEALTH_POINTS = 100
     SPEED = 0:0
     MOVE_SPEED = 3
     MAX_MOVE_SPEED = 20
@@ -27,16 +28,17 @@
  * `SPRITE_POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
  * `SPRITE_SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `SPRITE_ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
+ * `HEALTH_POINTS` - Health points. Necessary for the process of life activities.
  * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `MOVE_SPEED` - Speed increase at the push of a button.
  * `MAX_MOVE_SPEED` - Maximum speed that a player can achieve when moving independently.
  * `JUMP_SPEED` - Speed obtained by jumping.
  * `TEXTURE` - Path to image file.
- * `KEYMAP` - Path to keys config file. {1}
+ * `KEYMAP` - Path to keys config file. [1]
  * `COLLISION_ANALYSIS_STEP` - The collision frequency factor depends on the accuracy of the collision, but the performance suffers.
- 
- {1} **Example:**  
-    
+
+ [1] **Example:**
+
     [MAP]
     Right = 3
     Left = 0

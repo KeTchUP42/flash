@@ -10,7 +10,11 @@ Mobs::BasicPlayer::BasicPlayer(const Mobs::MobProperties &properties, const Comp
         : BasePlayer(properties, area, sprite, algorithms), m_basic(params) {}
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
-    this->selfMove(unifier);
+    if (m_properties.healthPoints <= 0) {
+        m_properties.isRemovable = true;
+    } else {
+        this->selfMove(unifier);
+    }
 }
 
 void Mobs::BasicPlayer::selfMove(Unite::Unifier *unifier) {

@@ -10,7 +10,11 @@ Mobs::Mushroom::Mushroom(const Mobs::MobProperties &properties, const Components
         : BaseMob(properties, area, sprite, algorithms), m_mind(this), m_mushroom(params) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
-    m_mind.analyze(unifier);
+    if (m_properties.healthPoints <= 0) {
+        m_properties.isRemovable = true;
+    } else {
+        m_mind.analyze(unifier);
+    }
 }
 
 void Mobs::Mushroom::selfMove(Unite::Unifier *unifier) {

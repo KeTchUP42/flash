@@ -212,32 +212,32 @@ namespace Unite {
         //..
 
         /**
-         * @brief Method adds new mob.
-         * @param mob New mob.
+         * @brief Method adds new standalone mob.
+         * @param mob New standalone mob.
          */
         void addMob(Mobs::Mob *mob) noexcept;
 
         /**
-         * @brief Method adds new mob.
-         * @param mob New mob.
+         * @brief Method adds new standalone mob.
+         * @param mob New standalone mob.
          */
         void addMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
 
         /**
-         * @brief Method removes mob.
-         * @param mob Existing mob.
+         * @brief Method removes standalone mob.
+         * @param mob Existing standalone mob.
          */
         void removeMob(Mobs::Mob *mb) noexcept;
 
         /**
-         * @brief Method removes mob.
-         * @param mob Existing mob.
+         * @brief Method removes standalone mob.
+         * @param mob Existing standalone mob.
          */
         void removeMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
 
         /**
-         * @brief Method returns const reference on mobs collection.
-         * @return Const reference on mobs collection.
+         * @brief Method returns const reference on standalone mobs collection.
+         * @return Const reference on standalone mobs collection.
          */
         const std::list<std::shared_ptr<Mobs::Mob>> &getMobs() const noexcept;
 
@@ -334,7 +334,7 @@ namespace Unite {
         std::list<std::shared_ptr<Mobs::Player>> m_players;
 
         /**
-         * @brief Mobs.
+         * @brief Standalone mobs.
          */
         std::list<std::shared_ptr<Mobs::Mob>> m_mobs;
 

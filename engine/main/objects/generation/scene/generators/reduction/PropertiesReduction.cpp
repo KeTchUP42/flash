@@ -7,7 +7,7 @@
 #include "ElementaryReduction.h"
 
 Mobs::MobProperties Generate::loadMobProperties(const IniUtil::Analyzer::IniBlock &data) {
-    return Mobs::MobProperties(speed(data, "SPEED"));
+    return Mobs::MobProperties(std::atof(data.at("HEALTH_POINTS").c_str()), speed(data, "SPEED"));
 }
 
 Obstacles::ObstacleProperties Generate::loadObstacleProperties(const IniUtil::Analyzer::IniBlock &data) {

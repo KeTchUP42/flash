@@ -65,6 +65,14 @@ void Unite::GeneralUnifier::refresh() {
         obstacle->selfAction(this);
     }
 
+    m_mobs.remove_if([](const std::shared_ptr<Mobs::Mob> &mob) -> bool {
+        return mob->getProperties().isRemovable;
+    });
+
+    m_players.remove_if([](const std::shared_ptr<Mobs::Player> &player) -> bool {
+        return player->getProperties().isRemovable;
+    });
+
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateLocation();
     }

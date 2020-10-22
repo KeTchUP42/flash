@@ -25,7 +25,7 @@ namespace Generate {
             SourcePool(Managers::DataManager *manager);
 
             /**
-             * @brief Method returns new Texture or Texture from cache. Do not call any setters, it will change global all used textures.
+             * @brief Method returns new Texture or Texture from cache. Do not call any setters, it will change state all used textures.
              * @param filename Target texture file name.
              * @param area Image area.
              * @return Texture.

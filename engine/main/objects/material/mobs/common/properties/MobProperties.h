@@ -14,8 +14,15 @@ namespace Mobs {
      */
     struct MobProperties : Material::MaterialObjectProperties {
 
-        explicit MobProperties(const Components::Speed &speed)
-                : Material::MaterialObjectProperties(speed) {}
+        explicit MobProperties(float healthPoints, const Components::Speed &speed)
+                : Material::MaterialObjectProperties(speed), healthPoints(healthPoints) {}
+
+        float healthPoints;
+
+        /**
+         * @brief If the flag is set, the object will be removed from the unifier when the frame is completed.
+         */
+        bool isRemovable = false;
     };
 }
 

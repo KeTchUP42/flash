@@ -24,7 +24,7 @@ void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Uni
             try {
                 generator->load(block.second, unifier, target);
             } catch (std::out_of_range &of_range) {
-                throw InvalidArgument("Syntax error of the object description in the block - \"" + block.first + "\" in file \"" + filename + "\".");
+                throw InvalidArgument("Syntax error of the object description in block \"" + block.first + "\" in file \"" + filename + "\".");
             }
         } else {
             throw InvalidArgument("Invalid object's configuration block name \"" + block.first + "\" in file \"" + filename + "\".");
