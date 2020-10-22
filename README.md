@@ -7,5 +7,5 @@
   It allows you to create your own game scenes from a set of ready-made components.
 
  ## Documentation:
- * [Setup](docs/setup/ProgramSetup.md)
- * [Manual](docs/manual/Manual.md)
+ * [Setup.](docs/setup/Setup.md)
+ * [Manual.](docs/manual/Manual.md)

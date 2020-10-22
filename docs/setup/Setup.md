@@ -1,4 +1,4 @@
- ## Program setup:
+ ## Setup:
 
  **To setup project you must have to do some steps:**
  1. Unzip the appropriate version of the library to `./lib/` directory.
