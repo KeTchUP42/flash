@@ -27,6 +27,7 @@ int Program::Engine::start() const {
     catch (PreferredExceptions::Exception &exception) {
         std::shared_ptr<LoggerUtil::Logger> logger = m_manager->getLogManager()->createLoggerForFile("crash.log");
         logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
+        std::cout << exception.getMessage() << std::endl;
         return exception.getCode();
     }
     return EXIT_SUCCESS;

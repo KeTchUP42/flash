@@ -23,7 +23,7 @@ void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Uni
         if ((generator = m_generatorsPool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {
             try {
                 generator->load(block.second, unifier, target);
-            } catch (std::out_of_range &of_range) {
+            } catch (std::exception &exception) {
                 throw InvalidArgument("Syntax error of the object description in block \"" + block.first + "\" in file \"" + filename + "\".");
             }
         } else {
