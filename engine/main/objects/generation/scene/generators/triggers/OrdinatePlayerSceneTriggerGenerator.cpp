@@ -13,10 +13,7 @@ OrdinatePlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::S
 
 void Generate::OrdinatePlayerSceneTriggerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    //target Y
-    float targetY = (data.at("TARGET_Y") == "MAX") ? target.getSize().y : std::stof(data.at("TARGET_Y")); // Checking value.
-
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
             data.at("NEXT_SCENE"), commonArea(data),
-            new Triggers::OrdinatePositionPlayerHandler(targetY), m_context));
+            new Triggers::OrdinatePositionPlayerHandler(std::stof(data.at("TARGET_Y"))), m_context));
 }

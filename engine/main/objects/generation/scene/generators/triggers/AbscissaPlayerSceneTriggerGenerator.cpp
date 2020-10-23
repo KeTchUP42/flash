@@ -13,10 +13,7 @@ AbscissaPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::S
 
 void Generate::AbscissaPlayerSceneTriggerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
-    //target X
-    float targetX = (data.at("TARGET_X") == "MAX") ? target.getSize().x : std::stof(data.at("TARGET_X")); // Checking value.
-
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
             data.at("NEXT_SCENE"), commonArea(data),
-            new Triggers::AbscissaPositionPlayerHandler(targetX), m_context));
+            new Triggers::AbscissaPositionPlayerHandler(std::stof(data.at("TARGET_X"))), m_context));
 }

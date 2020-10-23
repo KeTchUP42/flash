@@ -16,5 +16,5 @@
  * `POSITION` - Parameter sets the position of the trigger's area on the screen. It has the following format - `X:Y`.
  * `SIZE` - Parameter sets the size of the trigger's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `ANGLE` - Parameter sets the angle of the trigger's area on the screen. 
- * `TARGET_Y` - Target `Y` position. You can write "MAX" if you need to specify a point at the edge of the coordinates.
+ * `TARGET_Y` - Position on the ordinate axis where the players will be moved.
  * `NEXT_SCENE` - Next scene file in the appropriate directory.

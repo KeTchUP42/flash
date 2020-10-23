@@ -16,5 +16,5 @@
  * `POSITION` - Parameter sets the position of the trigger's area on the screen. It has the following format - `X:Y`.
  * `SIZE` - Parameter sets the size of the trigger's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `ANGLE` - Parameter sets the angle of the trigger's area on the screen. 
- * `TARGETY` - Target point. It has the following format - `X:Y`.
+ * `TARGET` - Target point. It has the following format - `X:Y`.
  * `NEXT_SCENE` - Next scene file in the appropriate directory.
