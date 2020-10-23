@@ -1,7 +1,8 @@
- ## Scenes
+ ## What are engine scenes?
 
- All scenes are described in configuration files that describe all objects on the screen.  
- Scenes were mainly conceived to provide a convenient description of levels. Scenes can be linked together using different triggers.  
+ The ability to write configuration files scene is a feature of this small engine. Scenes serve for convenient description and editing of game levels
+ from the list of prepared components. Game levels can be linked using different triggers.  
+ If you are not familiar with the list of components, it is recommended to read their description in advance in the manual.  
 
  **Simple level example:**
 
