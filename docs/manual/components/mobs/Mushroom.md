@@ -30,5 +30,5 @@
  * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `PUNCH_POWER` - Mushroom's push power.
  * `ELASTICITY_LEVEL` - The percentage of vertical speed that the player will return to when he jumps a mushroom.
- * `TEXTURE` - Path to image file.
+ * `TEXTURE` - Path to image file in the appropriate directory.
  * `COLLISION_ANALYSIS_STEP` - The collision frequency factor depends on the accuracy of the collision, but the performance suffers.

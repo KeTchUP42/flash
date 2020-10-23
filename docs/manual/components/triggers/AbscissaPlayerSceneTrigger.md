@@ -10,7 +10,7 @@
     ANGLE = 0
     TARGET_X = 0
     NEXT_SCENE = levels/level_1.ini
-    
+
  ### Explanation:
 
  * `POSITION` - Parameter sets the position of the trigger's area on the screen. It has the following format - `X:Y`.

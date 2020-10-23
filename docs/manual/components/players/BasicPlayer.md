@@ -33,7 +33,7 @@
  * `MOVE_SPEED` - Speed increase at the push of a button.
  * `MAX_MOVE_SPEED` - Maximum speed that a player can achieve when moving independently.
  * `JUMP_SPEED` - Speed obtained by jumping.
- * `TEXTURE` - Path to image file.
+ * `TEXTURE` - Path to image file in the appropriate directory.
  * `KEYMAP` - Path to keys config file. [1]
  * `COLLISION_ANALYSIS_STEP` - The collision frequency factor depends on the accuracy of the collision, but the performance suffers.
 

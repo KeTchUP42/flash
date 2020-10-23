@@ -24,5 +24,5 @@
  * `ELASTIC_COEFFICIENT` - This coefficient uses in jumps calculations.
  * `FRICTION_COEFFICIENT` - This coefficient uses in movement calculations.
  * `IS_FIXED` - If this flag is not set, the obstacle will be affected by static effects.
- * `TEXTURE` - Path to image file.
+ * `TEXTURE` - Path to image file in the appropriate directory.
  * `COLLISION_ANALYSIS_STEP` - The collision frequency factor depends on the accuracy of the collision, but the performance suffers.
