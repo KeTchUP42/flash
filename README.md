@@ -8,4 +8,4 @@
 
  ## Documentation:
  * [MANUAL](docs/manual/Manual.md)
- * [How to setup project?](docs/setup/Setup.md)
+ * [How to run project?](docs/setup/Setup.md)
