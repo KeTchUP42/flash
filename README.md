@@ -5,7 +5,7 @@
 
  This project is an implementation of a small platformer engine.
  All its essence is that you can quickly and easily create game scenes from a set of ready-made components.
- The SFML 2.5.1 library was used to create the project.  
+ The project created with well-known SFML 2.5.1 library.  
  You can start using it and create your own game levels by reading the documentation below.
 
  ## Documentation:
