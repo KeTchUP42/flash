@@ -1,8 +1,8 @@
  ## What configuration files needed to start?
 
- There is a global configuration file that contains information about the location of the required data.  
+ There is a global configuration file, which contains the path to the necessary data and the configuration file of the window.  
  This global file must have the path `./config/flash.ini` relative to the main binary file.  
- It also contains the location of the configuration file for the program window.  
+ The window configuration file contains all needed information for creating the program window and the path to the initiating scene.  
 
  **An example of a global configuration file:**
 
@@ -21,7 +21,7 @@
     [WINDOW]
     ; Window config file path:
     WindowSettingsFile = win/primary.ini
-    
+
  **An example of a window configuration file:**
 
     [WINDOW]

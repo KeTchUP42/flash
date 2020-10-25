@@ -3,13 +3,13 @@
 //
 
 #include "InitialScreenState.h"
-#include "../../../../objects/unifier/GeneralUnifier.h"
+#include "../../../../objects/unifier/SceneUnifier.h"
 #include "../../../../objects/generation/scene/SceneGenerator.h"
 
 Screen::InitialScreenState::InitialScreenState(const std::string &filename) : ScreenState(filename) {}
 
 void Screen::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
-    m_unifier = std::make_shared<Unite::GeneralUnifier>();
+    m_unifier = std::make_shared<Unite::SceneUnifier>();
     Generate::SceneGenerator generator(context, manager);
     generator.loadScene(m_scene_file, *m_unifier, target);
 }

@@ -1,6 +1,6 @@
  ## Background sprite
 
- The image, which is stretched as a background program window.
+ The image, which is stretched as a program window background.
 
  **Configuration block example:**
 

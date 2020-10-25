@@ -79,7 +79,7 @@ set(AUDIO_TRIGGERS engine/main/objects/static/triggers/audio/mobs/MobsAudioTrigg
 set(TRIGGERS ${AUDIO_TRIGGERS} ${SCENE_TRIGGERS} engine/main/objects/static/triggers/common/AreaTrigger.cpp)
 set(STATIC ${EFFECTS} ${TRIGGERS})
 
-set(UNIFIER engine/main/objects/unifier/common/Unifier.cpp engine/main/objects/unifier/GeneralUnifier.cpp)
+set(UNIFIER engine/main/objects/unifier/common/Unifier.cpp engine/main/objects/unifier/SceneUnifier.cpp)
 
 set(OBJECTS ${AUXILIARY} ${GENERATION} ${MATERIAL} ${STATIC} ${UNIFIER})
 

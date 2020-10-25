@@ -2,9 +2,9 @@
 // Created by roman on 09.09.2020.
 //
 
-#include "GeneralUnifier.h"
+#include "SceneUnifier.h"
 
-void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
+void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
 
     for (const std::shared_ptr<Components::ISprite> &sprite: m_back) {
         sprite->draw(target);
@@ -31,7 +31,7 @@ void Unite::GeneralUnifier::draw(sf::RenderWindow &target) const noexcept {
     }
 }
 
-void Unite::GeneralUnifier::refresh() {
+void Unite::SceneUnifier::refresh() {
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateCoordinates();
@@ -86,7 +86,7 @@ void Unite::GeneralUnifier::refresh() {
     }
 }
 
-void Unite::GeneralUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
+void Unite::SceneUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
 
     for (const std::shared_ptr<Triggers::Trigger> &trigger: m_triggers) {
         trigger->update(event, sender);

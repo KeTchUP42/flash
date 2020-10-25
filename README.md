@@ -1,10 +1,12 @@
- # ![mush](docs/images/mushroom.png) Flash
+ # Flash ![mush](docs/images/mushroom.png)
  ![Read the Docs](https://img.shields.io/readthedocs/docs)
  ![Lines of code](https://img.shields.io/tokei/lines/github/bwormguy/flash)
  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bwormguy/flash)  
 
-  This is a small platformer engine made with SFML 2.5.1 library.  
-  It allows you to create your own game scenes from a set of ready-made components.
+ This project is an implementation of a small platformer engine.
+ All its essence is that you can quickly and easily create game scenes from a set of ready-made components.
+ The SFML 2.5.1 library was used to create the project.  
+ You can start using it and create your own game levels by reading the documentation below.
 
  ## Documentation:
  * [MANUAL](docs/manual/Manual.md)

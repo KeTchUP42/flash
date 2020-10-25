@@ -2,14 +2,14 @@
 // Created by roman on 09.09.2020.
 //
 
-#ifndef FLASH_GENERALUNIFIER_H
-#define FLASH_GENERALUNIFIER_H
+#ifndef FLASH_SCENEUNIFIER_H
+#define FLASH_SCENEUNIFIER_H
 
 #include "common/Unifier.h"
 
 namespace Unite {
 
-    class GeneralUnifier : public Unifier {
+    class SceneUnifier : public Unifier {
     public:
         void draw(sf::RenderWindow &target) const noexcept override;
 
@@ -19,4 +19,4 @@ namespace Unite {
     };
 }
 
-#endif //FLASH_GENERALUNIFIER_H
+#endif //FLASH_SCENEUNIFIER_H
