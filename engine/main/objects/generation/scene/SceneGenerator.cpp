@@ -14,7 +14,11 @@ Generate::SceneGenerator::SceneGenerator(View::StateChangeable *context, Manager
 void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, View::Window &window) {
     using namespace PreferredExceptions;
     IniUtil::Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
-    m_analyzer.analyze(data[IniUtil::IniProcessor::NONAME_BLOCK], window);
+    try {
+        m_analyzer.analyze(data[IniUtil::IniProcessor::NONAME_BLOCK], window);
+    } catch (std::exception &exception) {
+        throw InvalidArgument("Syntax error when describing the directives in file \"" + filename + "\".");
+    }
     std::shared_ptr<Generator> generator;
 
     for (const auto &block: data) {
