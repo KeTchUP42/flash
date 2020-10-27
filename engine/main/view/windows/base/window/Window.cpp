@@ -5,17 +5,17 @@
 #include "Window.h"
 
 WindowView::Window::Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings)
-        : m_window(mode, title, style, settings) {
+        : m_window(new sf::RenderWindow(mode, title, style, settings)) {
 }
 
 WindowView::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &settings)
-        : m_window(handle, settings) {
+        : m_window(new sf::RenderWindow(handle, settings)) {
 }
 
 void WindowView::Window::start() {
-    while (m_window.isOpen()) {
+    while (m_window->isOpen()) {
         sf::Event event;
-        while (m_window.pollEvent(event)) {
+        while (m_window->pollEvent(event)) {
             this->notify(event);
         }
         this->update();
@@ -28,7 +28,7 @@ std::thread WindowView::Window::startAsync() noexcept {
 
 void WindowView::Window::notify(const sf::Event &event) {
     for (std::shared_ptr<Window::Observer> &observer : m_observers) {
-        observer->update(event, m_window);
+        observer->update(event, *m_window);
     }
 }
 
@@ -51,13 +51,17 @@ void WindowView::Window::removeObserver(const std::shared_ptr<Window::Observer> 
 }
 
 void WindowView::Window::setFramerateLimit(unsigned int limit) noexcept {
-    m_window.setFramerateLimit(limit);
+    m_window->setFramerateLimit(limit);
 }
 
 void WindowView::Window::setVerticalSyncEnabled(bool enabled) noexcept {
-    m_window.setVerticalSyncEnabled(enabled);
+    m_window->setVerticalSyncEnabled(enabled);
 }
 
-const sf::RenderWindow &WindowView::Window::getWindow() const noexcept {
-    return m_window;
+void WindowView::Window::setIcon(const sf::Image &image) {
+    m_window->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+}
+
+sf::RenderWindow &WindowView::Window::getWindow() const noexcept {
+    return *m_window;
 }

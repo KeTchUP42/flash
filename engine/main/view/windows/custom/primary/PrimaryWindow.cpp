@@ -21,19 +21,19 @@ void WindowView::PrimaryWindow::configure() {
 void WindowView::PrimaryWindow::initialization() {
     this->addObserver(new WindowCloseObserver());
     //Place, where you can add more std observers.
-    m_state->load(this, m_manager, m_window);
+    m_state->load(this, m_manager, *m_window);
     this->addObserver(m_state);
 }
 
 void WindowView::PrimaryWindow::update() {
     m_state->refresh();
-    m_state->draw(m_window);
-    m_window.display();
+    m_state->draw(*m_window);
+    m_window->display();
 }
 
 void WindowView::PrimaryWindow::setScreenState(Screen::ScreenState *state) noexcept {
     this->removeObserver(m_state);
     m_state.reset(state); //Method calls "delete" for an old one ptr.
-    m_state->load(this, m_manager, m_window);
+    m_state->load(this, m_manager, *m_window);
     this->addObserver(m_state);
 }

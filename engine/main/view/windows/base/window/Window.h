@@ -22,7 +22,6 @@ namespace WindowView {
     */
     class Window {
     public:
-
         /**
          * @brief Window observer alias.
          */
@@ -87,10 +86,16 @@ namespace WindowView {
         void setVerticalSyncEnabled(bool enabled) noexcept;
 
         /**
+         * @brief Method sets window icon image.
+         * @param image Icon image.
+         */
+        void setIcon(const sf::Image &image);
+
+        /**
          * @brief Method returns SFML window.
          * @return Window.
          */
-        const sf::RenderWindow &getWindow() const noexcept;
+        sf::RenderWindow &getWindow() const noexcept;
 
         /**
          * @brief Method starts window "life" cycle.
@@ -123,7 +128,7 @@ namespace WindowView {
 
     protected:
         std::list<std::shared_ptr<Observer>> m_observers;
-        sf::RenderWindow m_window;
+        std::unique_ptr<sf::RenderWindow> m_window;
     };
 }
 

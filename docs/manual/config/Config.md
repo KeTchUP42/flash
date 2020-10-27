@@ -38,6 +38,9 @@
     width = 1280
     height = 720
 
+    ; Window icon image file:
+    icon = window/icons/icon_1.png
+
     ; Window vertical sync enabled:
     VerticalSync = 0
 
@@ -49,17 +52,17 @@
     launch = levels/level_1.ini
 
     [CONTEXT_SETTINGS]
-    ;Bits of the depth buffer:
+    ; Bits of the depth buffer:
     depthBits = 24
-    ;Bits of the stencil buffer:
+    ; Bits of the stencil buffer:
     stencilBits = 8
-    ;Level of antialiasing:
+    ; Level of antialiasing:
     antialiasingLevel = 0
-    ;Major number of the context version to create:
+    ; Major number of the context version to create:
     majorVersion = 1
-    ;Minor number of the context version to create:
+    ; Minor number of the context version to create:
     minorVersion = 1
-    ;The attribute flags to create the context with:
+    ; The attribute flags to create the context with:
     attributeFlags = 0
     ; Whether the context framebuffer is sRGB capable:
     sRgbCapable = 0

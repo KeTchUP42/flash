@@ -44,6 +44,11 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
     //sync
     window->setVerticalSyncEnabled(std::atoi(iniData["WINDOW"]["VerticalSync"].c_str()));
 
+    //icon
+    if (iniData["WINDOW"]["icon"] != "") {
+        window->setIcon(*manager->getTextureManager()->loadImage(iniData["WINDOW"]["icon"].c_str()));
+    }
+
     window->configure(); // Mathod calls initialization mathod.
     return std::shared_ptr<WindowView::Window>(window);
 }
