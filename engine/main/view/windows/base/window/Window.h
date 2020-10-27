@@ -12,11 +12,11 @@
 
 #include "../observer/Observer.h"
 
-namespace WindowView {
+namespace View {
 
     /**
      * @brief The class is a convenient wrapper above the library window.
-     * @namespace WindowView
+     * @namespace View
      *
      * This class provides convenient opportunities to listen to the window events.
     */
@@ -25,7 +25,7 @@ namespace WindowView {
         /**
          * @brief Window observer alias.
          */
-        using Observer = WindowView::Observer<sf::RenderWindow, sf::Event>;
+        using Observer = View::Observer<sf::Event, View::Window>;
 
         /**
          * @brief Constructor.
@@ -86,6 +86,12 @@ namespace WindowView {
         void setVerticalSyncEnabled(bool enabled) noexcept;
 
         /**
+         * @brief Method sets window background color, by default color is black.
+         * @param color Back color.
+         */
+        void setBackColor(const sf::Color &color);
+
+        /**
          * @brief Method sets window icon image.
          * @param image Icon image.
          */
@@ -127,6 +133,7 @@ namespace WindowView {
         virtual ~Window() = default;
 
     protected:
+        sf::Color m_back;
         std::list<std::shared_ptr<Observer>> m_observers;
         std::unique_ptr<sf::RenderWindow> m_window;
     };

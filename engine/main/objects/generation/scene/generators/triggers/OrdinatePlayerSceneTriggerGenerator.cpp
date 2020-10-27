@@ -8,11 +8,11 @@
 #include "../reduction/AreaReduction.h"
 
 Generate::OrdinatePlayerSceneTriggerGenerator::
-OrdinatePlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
+OrdinatePlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, View::StateChangeable *context)
         : SceneTriggerGenerator(pool, context) {}
 
 void Generate::OrdinatePlayerSceneTriggerGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
             data.at("NEXT_SCENE"), commonArea(data),
             new Triggers::OrdinatePositionPlayerHandler(std::stof(data.at("TARGET_Y"))), m_context));

@@ -11,18 +11,18 @@
 #include "../../../base/observer/Observer.h"
 #include "../../../base/window/Window.h"
 
-namespace Screen {
+namespace View {
 
     class StateChangeable;
 
     /**
      * @brief This class is an interest of the state from the state pattern.
-     * @namespace Screen
+     * @namespace View
      *
      * This class defines base ScreenState interface and fields.
     */
     class ScreenState : public Possibilities::Drawable<sf::RenderWindow>,
-                        public WindowView::Observer<sf::RenderWindow, sf::Event> {
+                        public View::Observer<sf::Event, View::Window> {
     public:
         /**
          * @brief Constructors may have transit data.
@@ -33,9 +33,9 @@ namespace Screen {
          * @brief Method inits all screen components.
          * @param context StateChangeable context.
          * @param manager Manager for data searching.
-         * @param target Render target.
+         * @param window Render window.
          */
-        virtual void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) = 0;
+        virtual void load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) = 0;
 
         /**
          * @brief Method uses for components refresh logic.

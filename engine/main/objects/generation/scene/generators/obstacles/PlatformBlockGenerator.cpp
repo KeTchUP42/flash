@@ -13,7 +13,7 @@
 Generate::PlatformBlockGenerator::PlatformBlockGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generate::PlatformBlockGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addObstacle(new Obstacles::PlatformBlock(
             loadObstacleProperties(data),
             std::make_shared<Components::SpriteBox>(

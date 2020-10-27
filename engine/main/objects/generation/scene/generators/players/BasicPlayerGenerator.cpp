@@ -13,7 +13,7 @@
 Generate::BasicPlayerGenerator::BasicPlayerGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generate::BasicPlayerGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     //player properties
     Mobs::BasicPlayerProperties playerProperties(
             std::stof(data.at("MOVE_SPEED")),

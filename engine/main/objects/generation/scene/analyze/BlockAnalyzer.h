@@ -6,6 +6,7 @@
 #define FLASH_BLOCKANALYZER_H
 
 #include "../pools/SourcePool.h"
+#include "../../../../view/windows/base/window/Window.h"
 
 namespace Generate {
 
@@ -17,7 +18,7 @@ namespace Generate {
          * @brief Method read ini data and configures render window and source pool.
          * @param data Ini data.
          */
-        void analyze(const IniUtil::Analyzer::IniBlock &data, sf::RenderWindow &window);
+        void analyze(const IniUtil::Analyzer::IniBlock &data, View::Window &window);
 
         virtual ~BlockAnalyzer() = default;
 

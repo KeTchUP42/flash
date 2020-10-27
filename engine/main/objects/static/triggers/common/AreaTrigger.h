@@ -20,7 +20,7 @@ namespace Triggers {
     public:
         AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(MathUtils::coordinates(this)) {}
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override;
+        void update(const sf::Event &event, View::Window &sender) override;
 
         const Components::Coordinates &getCoordinates() const noexcept override;
 

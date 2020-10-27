@@ -5,24 +5,24 @@
 #include "TransitScreenState.h"
 #include "../../../../objects/generation/scene/SceneGenerator.h"
 
-Screen::TransitScreenState::TransitScreenState(const std::string &filename, Unite::Unifier *unifier)
-        : Screen::ScreenState(filename), m_unifier(unifier) {}
+View::TransitScreenState::TransitScreenState(const std::string &filename, Unite::Unifier *unifier)
+        : View::ScreenState(filename), m_unifier(unifier) {}
 
-void Screen::TransitScreenState::
-load(Screen::StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
+void View::TransitScreenState::
+load(View::StateChangeable *context, Managers::DataManager *manager, View::Window &window) {
     Generate::SceneGenerator generator(context, manager);
-    generator.loadScene(m_scene_file, *m_unifier, target);
+    generator.loadScene(m_scene_file, *m_unifier, window);
 }
 
-void Screen::TransitScreenState::refresh() {
+void View::TransitScreenState::refresh() {
     m_unifier->refresh();
 }
 
-void Screen::TransitScreenState::draw(sf::RenderWindow &target) const noexcept {
+void View::TransitScreenState::draw(sf::RenderWindow &target) const noexcept {
     m_unifier->draw(target);
 }
 
-void Screen::TransitScreenState::update(const sf::Event &event, sf::RenderWindow &sender) {
+void View::TransitScreenState::update(const sf::Event &event, View::Window &sender) {
     m_unifier->update(event, sender);
 }
 

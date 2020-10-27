@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <cstdlib>
 
-std::shared_ptr<WindowView::Window>
+std::shared_ptr<View::Window>
 ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataManager *manager) {
     IniUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
 
@@ -36,9 +36,9 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
         style = sf::Style::Fullscreen;
 
     //window
-    using namespace WindowView;
+    using namespace View;
     PrimaryWindow *window = new PrimaryWindow(sf::VideoMode(width, height), iniData["WINDOW"]["title"], style, contextSettings,
-                                              new Screen::InitialScreenState(iniData["SCENE"]["launch"]), manager);
+                                              new InitialScreenState(iniData["SCENE"]["launch"]), manager);
     //fps
     window->setFramerateLimit(std::atoi(iniData["WINDOW"]["fps"].c_str()));
     //sync
@@ -50,5 +50,5 @@ ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataMan
     }
 
     window->configure(); // Mathod calls initialization mathod.
-    return std::shared_ptr<WindowView::Window>(window);
+    return std::shared_ptr<View::Window>(window);
 }

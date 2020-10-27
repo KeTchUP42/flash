@@ -7,6 +7,7 @@
 
 #include "../../auxiliary/possibilities/Drawable.h"
 #include "../../../view/windows/base/observer/Observer.h"
+#include "../../../view/windows/base/window/Window.h"
 #include "../../../data/manager/DataManager.h"
 
 #include <list>
@@ -38,7 +39,7 @@ namespace Triggers {
 namespace Unite {
 
     class Unifier : public Possibilities::Drawable<sf::RenderWindow>,
-                    public WindowView::Observer<sf::RenderWindow, sf::Event> {
+                    public View::Observer<sf::Event, View::Window> {
     public:
         /**
          * @brief Method deletes operator= method.

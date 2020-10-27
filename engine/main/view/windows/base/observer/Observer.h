@@ -5,15 +5,15 @@
 #ifndef FLASH_OBSERVER_H
 #define FLASH_OBSERVER_H
 
-namespace WindowView {
+namespace View {
 
     /**
      * @brief A class is a class interface that can listen to events, mainly keystroke events.
-     * @namespace WindowView
+     * @namespace View
      *
      * This class defines base Observer interface.
     */
-    template<class Sender, class Event>
+    template<class Event, class Sender>
     class Observer {
     public:
         Observer() = default;

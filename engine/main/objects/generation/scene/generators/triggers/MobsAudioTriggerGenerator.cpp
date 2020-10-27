@@ -10,6 +10,6 @@
 Generate::MobsAudioTriggerGenerator::MobsAudioTriggerGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generate::MobsAudioTriggerGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addTrigger(new Triggers::MobsAudioTrigger(commonArea(data), loadMusic(data, m_source)));
 }

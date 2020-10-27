@@ -9,11 +9,11 @@
 #include "../reduction/AreaReduction.h"
 
 Generate::ExplicitPlayerSceneTriggerGenerator::
-ExplicitPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
+ExplicitPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, View::StateChangeable *context)
         : SceneTriggerGenerator(pool, context) {}
 
 void Generate::ExplicitPlayerSceneTriggerGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
             data.at("NEXT_SCENE"), commonArea(data),
             new Triggers::ExplicitPositionPlayerHandler(position(data, "TARGET")), m_context));

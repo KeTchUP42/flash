@@ -17,7 +17,7 @@ namespace Triggers {
      *
      * This class defines base Trigger interface.
     */
-    class Trigger : public WindowView::Observer<sf::RenderWindow, sf::Event> {
+    class Trigger : public View::Observer<sf::Event, View::Window> {
     public:
         Trigger() = default;
 

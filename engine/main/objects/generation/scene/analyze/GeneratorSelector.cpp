@@ -21,7 +21,7 @@
 #include "../generators/triggers/PlayerAudioTriggerGenerator.h"
 #include "../generators/triggers/MobsAudioTriggerGenerator.h"
 
-Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
+Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, View::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
 
 Generate::Generator *

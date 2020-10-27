@@ -20,7 +20,7 @@ namespace Mobs {
 
         void selfMove(Unite::Unifier *unifier) override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override;
+        void update(const sf::Event &event, View::Window &sender) override;
 
     protected:
         Mobs::BasicPlayerProperties m_basic;

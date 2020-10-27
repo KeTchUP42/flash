@@ -25,7 +25,7 @@ namespace Generate {
         */
         class GeneratorsPool {
         public:
-            explicit GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context);
+            explicit GeneratorsPool(SourcePool &pool, View::StateChangeable *context);
 
             /**
              * @brief Method returns generator with alias.

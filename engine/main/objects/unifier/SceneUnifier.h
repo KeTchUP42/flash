@@ -15,7 +15,7 @@ namespace Unite {
 
         void refresh() override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override;
+        void update(const sf::Event &event, View::Window &sender) override;
     };
 }
 

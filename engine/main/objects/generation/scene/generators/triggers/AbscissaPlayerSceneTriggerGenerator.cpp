@@ -8,11 +8,11 @@
 #include "../reduction/AreaReduction.h"
 
 Generate::AbscissaPlayerSceneTriggerGenerator::
-AbscissaPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, Screen::StateChangeable *context)
+AbscissaPlayerSceneTriggerGenerator(Generate::Pools::SourcePool &pool, View::StateChangeable *context)
         : SceneTriggerGenerator(pool, context) {}
 
 void Generate::AbscissaPlayerSceneTriggerGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
             data.at("NEXT_SCENE"), commonArea(data),
             new Triggers::AbscissaPositionPlayerHandler(std::stof(data.at("TARGET_X"))), m_context));

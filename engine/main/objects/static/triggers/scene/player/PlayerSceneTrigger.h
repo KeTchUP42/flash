@@ -13,7 +13,7 @@ namespace Triggers {
     class PlayerSceneTrigger : public SceneTrigger {
     public:
         PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
-                           Handler<Mobs::Player> *handler, Screen::StateChangeable *context);
+                           Handler<Mobs::Player> *handler, View::StateChangeable *context);
 
         ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept override;
 

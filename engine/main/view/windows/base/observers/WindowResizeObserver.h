@@ -5,15 +5,14 @@
 #ifndef FLASH_WINDOWRESIZEOBSERVER_H
 #define FLASH_WINDOWRESIZEOBSERVER_H
 
-#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
-
+#include "../window/Window.h"
 #include "../observer/Observer.h"
 
-namespace WindowView {
-    class WindowResizeObserver : public Observer<sf::RenderWindow, sf::Event> {
+namespace View {
+    class WindowResizeObserver : public Observer<sf::Event, View::Window> {
     public:
-        void update(const sf::Event &event, sf::RenderWindow &window) noexcept override;
+        void update(const sf::Event &event, View::Window &window) noexcept override;
     };
 }
 

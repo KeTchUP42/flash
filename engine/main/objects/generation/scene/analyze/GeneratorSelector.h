@@ -12,7 +12,7 @@ namespace Generate {
 
     class GeneratorSelector {
     public:
-        explicit GeneratorSelector(Pools::SourcePool &pool, Screen::StateChangeable *context);
+        explicit GeneratorSelector(Pools::SourcePool &pool, View::StateChangeable *context);
 
         /**
          * @brief Function contains selecting and creating logic.
@@ -25,7 +25,7 @@ namespace Generate {
 
     private:
         Pools::SourcePool &m_pool;
-        Screen::StateChangeable *m_context;
+        View::StateChangeable *m_context;
     };
 }
 

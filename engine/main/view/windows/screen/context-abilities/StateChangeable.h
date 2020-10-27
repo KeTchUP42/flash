@@ -7,13 +7,13 @@
 
 #include "../states/common-base/ScreenState.h"
 
-namespace Screen {
+namespace View {
 
     class ScreenState;
 
     /**
      * @brief The class is of interest to rearrange methods for changing the state of the window.
-     * @namespace Screen
+     * @namespace View
      *
      * This class defines base StateChangeable interface.
     */
@@ -25,7 +25,7 @@ namespace Screen {
          * @brief ScreenState setter. Uses for dynamic content changing.
          * @param state New ScreenState.
          */
-        virtual void setScreenState(Screen::ScreenState *state) noexcept = 0;
+        virtual void setScreenState(View::ScreenState *state) noexcept = 0;
 
         virtual ~StateChangeable() = default;
     };

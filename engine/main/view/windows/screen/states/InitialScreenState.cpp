@@ -6,22 +6,22 @@
 #include "../../../../objects/unifier/SceneUnifier.h"
 #include "../../../../objects/generation/scene/SceneGenerator.h"
 
-Screen::InitialScreenState::InitialScreenState(const std::string &filename) : ScreenState(filename) {}
+View::InitialScreenState::InitialScreenState(const std::string &filename) : ScreenState(filename) {}
 
-void Screen::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) {
+void View::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) {
     m_unifier = std::make_shared<Unite::SceneUnifier>();
     Generate::SceneGenerator generator(context, manager);
-    generator.loadScene(m_scene_file, *m_unifier, target);
+    generator.loadScene(m_scene_file, *m_unifier, window);
 }
 
-void Screen::InitialScreenState::refresh() {
+void View::InitialScreenState::refresh() {
     m_unifier->refresh();
 }
 
-void Screen::InitialScreenState::draw(sf::RenderWindow &target) const noexcept {
+void View::InitialScreenState::draw(sf::RenderWindow &target) const noexcept {
     m_unifier->draw(target);
 }
 
-void Screen::InitialScreenState::update(const sf::Event &event, sf::RenderWindow &sender) {
+void View::InitialScreenState::update(const sf::Event &event, View::Window &sender) {
     m_unifier->update(event, sender);
 }

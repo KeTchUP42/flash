@@ -12,11 +12,11 @@ namespace Triggers {
 
     class SceneTrigger : public AreaTrigger {
     public:
-        explicit SceneTrigger(const std::string &filename, const Components::Area &area, Screen::StateChangeable *context)
+        explicit SceneTrigger(const std::string &filename, const Components::Area &area, View::StateChangeable *context)
                 : AreaTrigger(area), m_context(context), m_scene_file(filename) {}
 
     protected:
-        Screen::StateChangeable *m_context;
+        View::StateChangeable *m_context;
         std::string m_scene_file;
     };
 }

@@ -8,19 +8,19 @@
 #include "common-base/ScreenState.h"
 #include "../../../../objects/unifier/common/Unifier.h"
 
-namespace Screen {
+namespace View {
 
     class TransitScreenState : public ScreenState {
     public:
         explicit TransitScreenState(const std::string &filename, Unite::Unifier *unifier);
 
-        void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) override;
+        void load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) override;
 
         void refresh() override;
 
         void draw(sf::RenderWindow &target) const noexcept override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override;
+        void update(const sf::Event &event, View::Window &sender) override;
 
     protected:
         std::shared_ptr<Unite::Unifier> m_unifier;

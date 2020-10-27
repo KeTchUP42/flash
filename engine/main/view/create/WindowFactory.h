@@ -22,7 +22,7 @@ namespace ViewCreate {
          * @param manager Resource data manager.
          * @return New Window.
          */
-        std::shared_ptr<WindowView::Window>
+        std::shared_ptr<View::Window>
         create(const std::string &filename, Managers::DataManager *manager);
 
         virtual ~WindowFactory() = default;

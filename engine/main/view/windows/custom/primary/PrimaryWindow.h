@@ -10,21 +10,20 @@
 #include "../../screen/states/common-base/ScreenState.h"
 #include "../../screen/context-abilities/StateChangeable.h"
 
-namespace WindowView {
+namespace View {
 
-    class PrimaryWindow : public Window, public Screen::StateChangeable {
+    class PrimaryWindow : public Window, public View::StateChangeable {
     public:
         explicit PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
-                               const sf::ContextSettings &settings, Screen::ScreenState *screenState,
-                               Managers::DataManager *manager);
+                               const sf::ContextSettings &settings, View::ScreenState *screenState, Managers::DataManager *manager);
 
         explicit PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
-                               Screen::ScreenState *screenState, Managers::DataManager *manager);
+                               View::ScreenState *screenState, Managers::DataManager *manager);
 
     public:
         void configure();
 
-        void setScreenState(Screen::ScreenState *state) noexcept override;
+        void setScreenState(View::ScreenState *state) noexcept override;
 
     protected:
         void initialization() override;
@@ -35,7 +34,7 @@ namespace WindowView {
         /**
          * @brief Current window screen state.
          */
-        std::shared_ptr<Screen::ScreenState> m_state;
+        std::shared_ptr<View::ScreenState> m_state;
 
         /**
          * @brief Do not call "delete" for this ptr.

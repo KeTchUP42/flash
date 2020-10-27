@@ -9,19 +9,19 @@
 #include "../../../../objects/auxiliary/components/sprite/common-base/ISprite.h"
 #include "../../../../objects/unifier/common/Unifier.h"
 
-namespace Screen {
+namespace View {
 
     class InitialScreenState : public ScreenState {
     public:
         InitialScreenState(const std::string &filename);
 
-        void load(StateChangeable *context, Managers::DataManager *manager, sf::RenderWindow &target) override;
+        void load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) override;
 
         void refresh() override;
 
         void draw(sf::RenderWindow &target) const noexcept override;
 
-        void update(const sf::Event &event, sf::RenderWindow &sender) override;
+        void update(const sf::Event &event, View::Window &sender) override;
 
     protected:
         std::shared_ptr<Unite::Unifier> m_unifier;

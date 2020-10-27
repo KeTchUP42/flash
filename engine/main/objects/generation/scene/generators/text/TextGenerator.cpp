@@ -11,7 +11,7 @@ Generate::TextGenerator::TextGenerator(Generate::Pools::SourcePool &pool) : Gene
 static sf::Text::Style style(const std::string &style) noexcept;
 
 void Generate::TextGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     using namespace Components;
     Text *text = new Text(data.at("STRING"), m_source.getFont(data.at("FONT")));
     Point point = position(data, "POSITION");

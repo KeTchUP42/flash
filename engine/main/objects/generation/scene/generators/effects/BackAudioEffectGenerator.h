@@ -13,7 +13,7 @@ namespace Generate {
     public:
         BackAudioEffectGenerator(Pools::SourcePool &pool);
 
-        void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) override;
+        void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };
 }
 

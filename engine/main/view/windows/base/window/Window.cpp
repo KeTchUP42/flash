@@ -4,64 +4,70 @@
 
 #include "Window.h"
 
-WindowView::Window::Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings)
+View::Window::Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings)
         : m_window(new sf::RenderWindow(mode, title, style, settings)) {
 }
 
-WindowView::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &settings)
+View::Window::Window(sf::WindowHandle handle, const sf::ContextSettings &settings)
         : m_window(new sf::RenderWindow(handle, settings)) {
 }
 
-void WindowView::Window::start() {
+void View::Window::start() {
     while (m_window->isOpen()) {
         sf::Event event;
         while (m_window->pollEvent(event)) {
             this->notify(event);
         }
+        m_window->clear(m_back);
         this->update();
+        m_window->display();
     }
 }
 
-std::thread WindowView::Window::startAsync() noexcept {
+std::thread View::Window::startAsync() noexcept {
     return std::thread([this] { this->start(); });
 }
 
-void WindowView::Window::notify(const sf::Event &event) {
+void View::Window::notify(const sf::Event &event) {
     for (std::shared_ptr<Window::Observer> &observer : m_observers) {
-        observer->update(event, *m_window);
+        observer->update(event, *this);
     }
 }
 
-void WindowView::Window::addObserver(Window::Observer *observer) noexcept {
+void View::Window::addObserver(Window::Observer *observer) noexcept {
     m_observers.push_back(std::shared_ptr<Window::Observer>(observer));
 }
 
-void WindowView::Window::addObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
+void View::Window::addObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
     m_observers.push_back(observer);
 }
 
-void WindowView::Window::removeObserver(Window::Observer *observer) noexcept {
+void View::Window::removeObserver(Window::Observer *observer) noexcept {
     m_observers.remove_if([observer](const std::shared_ptr<Window::Observer> &obs) -> bool {
         return obs.get() == observer;
     });
 }
 
-void WindowView::Window::removeObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
+void View::Window::removeObserver(const std::shared_ptr<Window::Observer> &observer) noexcept {
     m_observers.remove(observer);
 }
 
-void WindowView::Window::setFramerateLimit(unsigned int limit) noexcept {
+void View::Window::setFramerateLimit(unsigned int limit) noexcept {
     m_window->setFramerateLimit(limit);
 }
 
-void WindowView::Window::setVerticalSyncEnabled(bool enabled) noexcept {
+void View::Window::setVerticalSyncEnabled(bool enabled) noexcept {
     m_window->setVerticalSyncEnabled(enabled);
 }
 
-void WindowView::Window::setIcon(const sf::Image &image) {
+void View::Window::setIcon(const sf::Image &image) {
     m_window->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 }
 
-sf::RenderWindow &WindowView::Window::getWindow() const noexcept {
+void View::Window::setBackColor(const sf::Color &color) {
+    m_back = color;
+}
+
+sf::RenderWindow &View::Window::getWindow() const noexcept {
     return *m_window;
 }

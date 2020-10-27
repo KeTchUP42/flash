@@ -8,13 +8,13 @@
 
 #include <regex>
 
-Generate::SceneGenerator::SceneGenerator(Screen::StateChangeable *context, Managers::DataManager *manager)
+Generate::SceneGenerator::SceneGenerator(View::StateChangeable *context, Managers::DataManager *manager)
         : m_sourcePool(manager), m_analyzer(m_sourcePool), m_generatorsPool(m_sourcePool, context), m_manager(manager) {}
 
-void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target) {
+void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Unifier &unifier, View::Window &window) {
     using namespace PreferredExceptions;
     IniUtil::Analyzer::IniData data = m_manager->getSceneManager()->load(filename);
-    m_analyzer.analyze(data[IniUtil::IniProcessor::NONAME_BLOCK], target);
+    m_analyzer.analyze(data[IniUtil::IniProcessor::NONAME_BLOCK], window);
     std::shared_ptr<Generator> generator;
 
     for (const auto &block: data) {
@@ -22,7 +22,7 @@ void Generate::SceneGenerator::loadScene(const std::string &filename, Unite::Uni
 
         if ((generator = m_generatorsPool.load(std::regex_replace(block.first, std::regex{"_.*"}, ""))) != nullptr) {
             try {
-                generator->load(block.second, unifier, target);
+                generator->load(block.second, unifier, window);
             } catch (std::exception &exception) {
                 throw InvalidArgument("Syntax error of the object description in block \"" + block.first + "\" in file \"" + filename + "\".");
             }

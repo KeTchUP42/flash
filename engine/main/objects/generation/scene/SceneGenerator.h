@@ -23,15 +23,15 @@ namespace Generate {
     */
     class SceneGenerator {
     public:
-        explicit SceneGenerator(Screen::StateChangeable *context, Managers::DataManager *manager);
+        explicit SceneGenerator(View::StateChangeable *context, Managers::DataManager *manager);
 
         /**
          * @brief Method fills Unifier with objects.
          * @param filename Config file path.
          * @param unifier Scene unifier.
-         * @param target Target render window.
+         * @param window Target render window.
          */
-        void loadScene(const std::string &filename, Unite::Unifier &unifier, sf::RenderWindow &target);
+        void loadScene(const std::string &filename, Unite::Unifier &unifier, View::Window &window);
 
     private:
         /**

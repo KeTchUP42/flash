@@ -4,9 +4,9 @@
 
 #include "WindowResizeObserver.h"
 
-void WindowView::WindowResizeObserver::update(const sf::Event &event, sf::RenderWindow &window) noexcept {
+void View::WindowResizeObserver::update(const sf::Event &event, View::Window &window) noexcept {
     if (event.type == sf::Event::Resized) {
         //..
-        window.display();
+        window.getWindow().display();
     }
 }

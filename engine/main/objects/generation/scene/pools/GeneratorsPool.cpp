@@ -4,7 +4,7 @@
 
 #include "GeneratorsPool.h"
 
-Generate::Pools::GeneratorsPool::GeneratorsPool(SourcePool &pool, Screen::StateChangeable *context)
+Generate::Pools::GeneratorsPool::GeneratorsPool(SourcePool &pool, View::StateChangeable *context)
         : m_selector(pool, context) {}
 
 std::shared_ptr<Generate::Generator> Generate::Pools::GeneratorsPool::load(const std::string &alias) {

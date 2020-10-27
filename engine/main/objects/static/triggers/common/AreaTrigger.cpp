@@ -20,6 +20,6 @@ float Triggers::AreaTrigger::getRotation() const noexcept {
     return m_area.m_angle;
 }
 
-void Triggers::AreaTrigger::update(const sf::Event &event, sf::RenderWindow &sender) {
+void Triggers::AreaTrigger::update(const sf::Event &event, View::Window &sender) {
     //..
 }

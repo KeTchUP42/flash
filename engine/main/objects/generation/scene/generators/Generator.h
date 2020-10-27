@@ -7,6 +7,7 @@
 
 #include "../pools/SourcePool.h"
 #include "../../../unifier/common/Unifier.h"
+#include "../../../../view/windows/base/window/Window.h"
 
 namespace Generate {
 
@@ -24,9 +25,9 @@ namespace Generate {
          * @brief Method generats new object from data and adds it to unifier.
          * @param data Object data.
          * @param unifier Target unifier.
-         * @param target Render target.
+         * @param window Target window.
          */
-        virtual void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) = 0;
+        virtual void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) = 0;
 
     protected:
         Pools::SourcePool &m_source;

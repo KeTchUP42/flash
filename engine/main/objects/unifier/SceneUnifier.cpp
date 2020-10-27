@@ -86,7 +86,7 @@ void Unite::SceneUnifier::refresh() {
     }
 }
 
-void Unite::SceneUnifier::update(const sf::Event &event, sf::RenderWindow &sender) {
+void Unite::SceneUnifier::update(const sf::Event &event, View::Window &sender) {
 
     for (const std::shared_ptr<Triggers::Trigger> &trigger: m_triggers) {
         trigger->update(event, sender);

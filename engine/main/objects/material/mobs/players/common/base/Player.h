@@ -21,7 +21,7 @@ namespace Mobs {
      * This class defines base Player interface and realization.
     */
     class Player : public Mobs::Mob,
-                   public WindowView::Observer<sf::RenderWindow, sf::Event> {
+                   public View::Observer<sf::Event, View::Window> {
     public:
         /**
          * @brief Base player constructor.

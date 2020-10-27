@@ -8,7 +8,7 @@
 #include "../../../../../view/windows/screen/states/TransitScreenState.h"
 
 Triggers::PlayerSceneTrigger::PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
-                                                 Handler<Mobs::Player> *handler, Screen::StateChangeable *context)
+                                                 Handler<Mobs::Player> *handler, View::StateChangeable *context)
         : SceneTrigger(filename, area, context), m_handler(handler) {}
 
 Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
@@ -22,7 +22,7 @@ Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier
                 new_unifier->addPlayer(plr);
             }
 
-            m_context->setScreenState(new Screen::TransitScreenState(m_scene_file, new_unifier));
+            m_context->setScreenState(new View::TransitScreenState(m_scene_file, new_unifier));
             return ResultCodes::STOP;
         }
     }

@@ -12,7 +12,7 @@
 Generate::DullBlockGenerator::DullBlockGenerator(Generate::Pools::SourcePool &pool) : Generator(pool) {}
 
 void Generate::DullBlockGenerator::
-load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, sf::RenderWindow &target) {
+load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addObstacle(new Obstacles::DullBlock(
             loadObstacleProperties(data),
             std::make_shared<Components::SpriteBox>(

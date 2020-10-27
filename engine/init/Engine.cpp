@@ -21,7 +21,7 @@ Program::Engine::Engine(const std::string &filename) {
 int Program::Engine::start() const {
     try {
         ViewCreate::WindowFactory factory;
-        std::shared_ptr<WindowView::Window> window = factory.create(m_WindowSettingsFile, m_manager);
+        std::shared_ptr<View::Window> window = factory.create(m_WindowSettingsFile, m_manager);
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
