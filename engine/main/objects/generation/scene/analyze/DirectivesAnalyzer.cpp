@@ -2,12 +2,12 @@
 // Created by roman on 02.10.2020.
 //
 
-#include "BlockAnalyzer.h"
+#include "DirectivesAnalyzer.h"
 #include "../generators/reduction/ElementaryReduction.h"
 
-Generate::BlockAnalyzer::BlockAnalyzer(Generate::Pools::SourcePool &sourcePool) : m_sourcePool(sourcePool) {}
+Generate::DirectivesAnalyzer::DirectivesAnalyzer(Generate::Pools::SourcePool &sourcePool) : m_sourcePool(sourcePool) {}
 
-void Generate::BlockAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &data, View::Window &window) {
+void Generate::DirectivesAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &data, View::Window &window) {
 
     for (const auto &line : data) {
         if (line.first == "SET_TITLE") {

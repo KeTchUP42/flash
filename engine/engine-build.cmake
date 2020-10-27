@@ -43,7 +43,7 @@ set(TEXT_GENERATORS engine/main/objects/generation/scene/generators/text/TextGen
 set(TRIGGERS_GENERATORS engine/main/objects/generation/scene/generators/triggers/MobsAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/PlayerAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
 set(REDUCTION engine/main/objects/generation/scene/generators/reduction/KeyMapBuilder.cpp engine/main/objects/generation/scene/generators/reduction/ElementaryReduction.cpp engine/main/objects/generation/scene/generators/reduction/PropertiesReduction.cpp engine/main/objects/generation/scene/generators/reduction/AreaReduction.cpp engine/main/objects/generation/scene/generators/reduction/CustomReduction.cpp)
 set(GENERATORS ${REDUCTION} ${EFFECTS_GENERATORS} ${MOBS_GENERATORS} ${OBSTACLES_GENERATORS} ${PLAYERS_GENERATORS} ${SPRITES_GENERATORS} ${TEXT_GENERATORS} ${TRIGGERS_GENERATORS})
-set(ANALYZE engine/main/objects/generation/scene/analyze/GeneratorSelector.cpp engine/main/objects/generation/scene/analyze/BlockAnalyzer.cpp)
+set(ANALYZE engine/main/objects/generation/scene/analyze/GeneratorSelector.cpp engine/main/objects/generation/scene/analyze/DirectivesAnalyzer.cpp)
 set(POOLS engine/main/objects/generation/scene/pools/SourcePool.cpp engine/main/objects/generation/scene/pools/GeneratorsPool.cpp engine/main/objects/generation/scene/pools/AlgorithmsPool.cpp)
 set(SCENE ${GENERATORS} ${ANALYZE} ${POOLS} engine/main/objects/generation/scene/SceneGenerator.cpp)
 set(GENERATION ${SCENE})

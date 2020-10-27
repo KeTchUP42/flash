@@ -8,7 +8,7 @@
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../../../data/manager/DataManager.h"
 #include "../../unifier/common/Unifier.h"
-#include "analyze/BlockAnalyzer.h"
+#include "analyze/DirectivesAnalyzer.h"
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"
 #include "pools/SourcePool.h"
@@ -40,9 +40,9 @@ namespace Generate {
         Pools::SourcePool m_sourcePool;
 
         /**
-         * @brief Block analyzer.
+         * @brief Directives analyzer.
          */
-        Generate::BlockAnalyzer m_analyzer;
+        Generate::DirectivesAnalyzer m_analyzer;
 
         /**
          * @brief Generators pool.
