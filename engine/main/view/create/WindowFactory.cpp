@@ -11,7 +11,7 @@
 #include <cstdlib>
 
 std::shared_ptr<View::Window>
-ViewCreate::WindowFactory::create(const std::string &filename, Managers::DataManager *manager) {
+View::WindowFactory::create(const std::string &filename, Managers::DataManager *manager) {
     IniUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
 
     //context settings

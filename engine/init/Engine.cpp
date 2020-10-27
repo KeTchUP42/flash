@@ -20,7 +20,7 @@ Program::Engine::Engine(const std::string &filename) {
 
 int Program::Engine::start() const {
     try {
-        ViewCreate::WindowFactory factory;
+        View::WindowFactory factory;
         std::shared_ptr<View::Window> window = factory.create(m_WindowSettingsFile, m_manager);
         window->start();
     }

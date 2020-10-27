@@ -10,7 +10,7 @@
 #include "../windows/base/window/Window.h"
 #include "../../data/manager/DataManager.h"
 
-namespace ViewCreate {
+namespace View {
 
     class WindowFactory {
     public:
