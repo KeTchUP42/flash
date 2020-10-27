@@ -28,6 +28,7 @@ void Generate::BlockAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &data, V
         }
         if (line.first == "SET_BACK_COLOR") {
             window.setBackColor(color(data, line.first));
+            continue;
         }
         //..
         m_sourcePool.setVariable(line.first, line.second);
