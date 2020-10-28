@@ -11,8 +11,11 @@ namespace Obstacles {
 
     class DullInvisibleBlock : public InvisibleBlock {
     public:
-        explicit DullInvisibleBlock(const ObstacleProperties &properties, const Components::Area &area,
-                                    const std::shared_ptr<Material::Algorithms> &algorithms);
+        explicit DullInvisibleBlock(
+                const ObstacleProperties &properties,
+                const Components::Area &area,
+                const std::shared_ptr<Material::Algorithms> &algorithms
+        );
 
         void selfAction(Unite::Unifier *unifier) override;
     };

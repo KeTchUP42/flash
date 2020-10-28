@@ -11,4 +11,3 @@ Obstacles::DullInvisibleBlock::DullInvisibleBlock(const Obstacles::ObstaclePrope
 void Obstacles::DullInvisibleBlock::selfAction(Unite::Unifier *unifier) {
     //..
 }
-

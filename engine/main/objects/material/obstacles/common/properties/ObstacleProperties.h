@@ -14,9 +14,15 @@ namespace Obstacles {
      */
     struct ObstacleProperties : public Material::MaterialObjectProperties {
 
-        explicit ObstacleProperties(const Components::Speed &speed, float elasticCoefficient, float frictionCoefficient, bool isFixed)
-                : MaterialObjectProperties(speed), elasticCoefficient(elasticCoefficient),
-                  frictionCoefficient(frictionCoefficient), isFixed(isFixed) {}
+        explicit ObstacleProperties(
+                const Components::Speed &speed,
+                float elasticCoefficient,
+                float frictionCoefficient,
+                bool isFixed
+        ) : MaterialObjectProperties(speed),
+            elasticCoefficient(elasticCoefficient),
+            frictionCoefficient(frictionCoefficient),
+            isFixed(isFixed) {}
 
         /**
          * @brief Elastic coefficient.

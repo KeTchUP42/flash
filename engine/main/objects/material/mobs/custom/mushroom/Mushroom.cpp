@@ -4,15 +4,18 @@
 
 #include "Mushroom.h"
 
-Mobs::Mushroom::Mushroom(const Mobs::MobProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                         const std::shared_ptr<Material::Algorithms> &algorithms, const Mobs::MushroomProperties &params)
-        : BaseMob(properties, area, sprite, algorithms), m_mushroom(params) {}
+Mobs::Mushroom::Mushroom(
+        const Mobs::MobProperties &properties,
+        const Components::Area &area,
+        const std::shared_ptr<Components::ISpriteBox> &sprite,
+        const std::shared_ptr<Material::Algorithms> &algorithms,
+        const Mobs::MushroomProperties &params
+) : BaseMob(properties, area, sprite, algorithms), m_mushroom(params) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     if (m_properties.healthPoints <= 0) {
         m_properties.isRemovable = true;
     } else {
-
         for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
             if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), this)) {
                 if (player->getPosition().y < this->getPosition().y) {
@@ -23,7 +26,6 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
                 }
             }
         }
-
         Mobs::Mob *mob;
         if ((mob = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getMobs())) != nullptr) {
             if (this->getSpeed().xSpeed * mob->getSpeed().xSpeed <= 0) {

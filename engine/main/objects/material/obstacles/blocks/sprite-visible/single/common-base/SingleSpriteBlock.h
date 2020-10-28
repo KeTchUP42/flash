@@ -13,8 +13,11 @@ namespace Obstacles {
 
     class SingleSpriteBlock : public Obstacles::Obstacle {
     public:
-        explicit SingleSpriteBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                   const std::shared_ptr<Material::Algorithms> &algorithms);
+        explicit SingleSpriteBlock(
+                const ObstacleProperties &properties,
+                const std::shared_ptr<Components::ISpriteBox> &sprite,
+                const std::shared_ptr<Material::Algorithms> &algorithms
+        );
 
         /**
          * @brief Method changes block's sprite texture.

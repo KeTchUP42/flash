@@ -13,8 +13,11 @@ namespace Obstacles {
 
     class InvisibleBlock : public Obstacle {
     public:
-        explicit InvisibleBlock(const ObstacleProperties &properties, const Components::Area &area,
-                                const std::shared_ptr<Material::Algorithms> &algorithms);
+        explicit InvisibleBlock(
+                const ObstacleProperties &properties,
+                const Components::Area &area,
+                const std::shared_ptr<Material::Algorithms> &algorithms
+        );
 
         void draw(sf::RenderTarget &target) const noexcept override;
 

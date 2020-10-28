@@ -4,9 +4,13 @@
 
 #include "BasicPlayer.h"
 
-Mobs::BasicPlayer::BasicPlayer(const Mobs::MobProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               const std::shared_ptr<Material::Algorithms> &algorithms, const Mobs::BasicPlayerProperties &params)
-        : BasePlayer(properties, area, sprite, algorithms), m_basic(params) {}
+Mobs::BasicPlayer::BasicPlayer(
+        const Mobs::MobProperties &properties,
+        const Components::Area &area,
+        const std::shared_ptr<Components::ISpriteBox> &sprite,
+        const std::shared_ptr<Material::Algorithms> &algorithms,
+        const Mobs::BasicPlayerProperties &params
+) : BasePlayer(properties, area, sprite, algorithms), m_basic(params) {}
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
     if (m_properties.healthPoints <= 0) {

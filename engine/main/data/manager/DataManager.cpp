@@ -4,11 +4,19 @@
 
 #include "DataManager.h"
 
-Managers::DataManager::DataManager(Managers::AudioManager *audioManager, Managers::ConfigManager *configManager,
-                                   Managers::FontManager *fontManager, Managers::LogManager *logManager,
-                                   SceneManager *sceneManager, Managers::TextureManager *textureManager)
-        : m_audioManager(audioManager), m_configManager(configManager), m_fontManager(fontManager),
-          m_logManager(logManager), m_sceneManager(sceneManager), m_textureManager(textureManager) {}
+Managers::DataManager::DataManager(
+        Managers::AudioManager *audioManager,
+        Managers::ConfigManager *configManager,
+        Managers::FontManager *fontManager,
+        Managers::LogManager *logManager,
+        Managers::SceneManager *sceneManager,
+        Managers::TextureManager *textureManager
+) : m_audioManager(audioManager),
+    m_configManager(configManager),
+    m_fontManager(fontManager),
+    m_logManager(logManager),
+    m_sceneManager(sceneManager),
+    m_textureManager(textureManager) {}
 
 const std::shared_ptr<Managers::AudioManager> &Managers::DataManager::getAudioManager() const noexcept {
     return m_audioManager;

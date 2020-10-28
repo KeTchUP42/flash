@@ -12,9 +12,12 @@ namespace Mobs {
 
     class BasePlayer : public Player {
     public:
-        explicit BasePlayer(const Mobs::MobProperties &properties, const Components::Area &area,
-                            const std::shared_ptr<Components::ISpriteBox> &sprite, const std::shared_ptr<Material::Algorithms> &algorithms)
-                : Player(properties, area, sprite), m_algorithms(algorithms) {}
+        explicit BasePlayer(
+                const Mobs::MobProperties &properties,
+                const Components::Area &area,
+                const std::shared_ptr<Components::ISpriteBox> &sprite,
+                const std::shared_ptr<Material::Algorithms> &algorithms
+        ) : Player(properties, area, sprite), m_algorithms(algorithms) {}
 
     protected:
         std::shared_ptr<Material::Algorithms> m_algorithms;

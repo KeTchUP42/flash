@@ -14,7 +14,8 @@ namespace Mobs {
     class BasicPlayer : public BasePlayer {
     public:
         explicit BasicPlayer(
-                const MobProperties &properties, const Components::Area &area,
+                const MobProperties &properties,
+                const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
                 const std::shared_ptr<Material::Algorithms> &algorithms,
                 const BasicPlayerProperties &params

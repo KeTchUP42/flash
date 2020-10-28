@@ -14,7 +14,9 @@ Generate::MushroomGenerator::MushroomGenerator(Generate::Pools::SourcePool &pool
 void Generate::MushroomGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     //mushroom properties
-    Mobs::MushroomProperties mushroomProperties(std::stof(data.at("PUNCH_POWER")), std::stof(data.at("ELASTICITY_LEVEL")));
+    Mobs::MushroomProperties mushroomProperties(
+            std::stof(data.at("PUNCH_POWER")),
+            std::stof(data.at("ELASTICITY_LEVEL")));
 
     unifier.addMob(new Mobs::Mushroom(
             loadMobProperties(data), commonArea(data),

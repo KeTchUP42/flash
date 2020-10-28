@@ -24,8 +24,14 @@ namespace Managers {
     */
     class DataManager {
     public:
-        explicit DataManager(AudioManager *audioManager, ConfigManager *configManager, FontManager *fontManager,
-                             LogManager *logManager, SceneManager *sceneManager, TextureManager *textureManager);
+        explicit DataManager(
+                AudioManager *audioManager,
+                ConfigManager *configManager,
+                FontManager *fontManager,
+                LogManager *logManager,
+                SceneManager *sceneManager,
+                TextureManager *textureManager
+        );
 
         /**
          * @brief Method returns AudioManager.

@@ -11,8 +11,11 @@ namespace Obstacles {
 
     class PlatformBlock : public SingleSpriteBlock {
     public:
-        explicit PlatformBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                               const std::shared_ptr<Material::Algorithms> &algorithms);
+        explicit PlatformBlock(
+                const ObstacleProperties &properties,
+                const std::shared_ptr<Components::ISpriteBox> &sprite,
+                const std::shared_ptr<Material::Algorithms> &algorithms
+        );
 
         void selfAction(Unite::Unifier *unifier) override;
     };
