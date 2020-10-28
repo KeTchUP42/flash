@@ -7,7 +7,6 @@
 
 #include "../../common/base/BaseMob.h"
 #include "properties/MushroomProperties.h"
-#include "mind/MushroomMind.h"
 
 namespace Mobs {
 
@@ -20,12 +19,9 @@ namespace Mobs {
                 const Mobs::MushroomProperties &params
         );
 
-        friend class MushroomMind;
-
         void selfAction(Unite::Unifier *unifier) override;
 
     protected:
-        MushroomMind m_mind;
         Mobs::MushroomProperties m_mushroom;
     };
 }

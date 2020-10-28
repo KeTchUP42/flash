@@ -52,7 +52,7 @@ set(PLAYER_CUSTOM engine/main/objects/material/mobs/players/custom/basic/BasicPl
 set(PLAYER_COMMON engine/main/objects/material/mobs/players/common/base/Player.cpp)
 set(PLAYER ${PLAYER_COMMON} ${PLAYER_CUSTOM})
 
-set(MUSHROOM engine/main/objects/material/mobs/custom/mushroom/Mushroom.cpp engine/main/objects/material/mobs/custom/mushroom/mind/MushroomMind.cpp)
+set(MUSHROOM engine/main/objects/material/mobs/custom/mushroom/Mushroom.cpp)
 set(MOBS_CUSTOM ${MUSHROOM})
 set(MOBS_COMMON engine/main/objects/material/mobs/common/base/Mob.cpp)
 set(MOBS ${MOBS_COMMON} ${MOBS_CUSTOM} ${PLAYER})

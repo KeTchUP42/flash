@@ -6,13 +6,38 @@
 
 Mobs::Mushroom::Mushroom(const Mobs::MobProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite,
                          const std::shared_ptr<Material::Algorithms> &algorithms, const Mobs::MushroomProperties &params)
-        : BaseMob(properties, area, sprite, algorithms), m_mind(this), m_mushroom(params) {}
+        : BaseMob(properties, area, sprite, algorithms), m_mushroom(params) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     if (m_properties.healthPoints <= 0) {
         m_properties.isRemovable = true;
     } else {
-        m_mind.analyze(unifier);
+
+        for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
+            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), this)) {
+                if (player->getPosition().y < this->getPosition().y) {
+                    player->setSpeed(Components::Speed(
+                            player->getSpeed().xSpeed,
+                            static_cast<int>(-1 * (player->getSpeed().ySpeed + player->getSpeed().ySpeed * m_mushroom.elasticityLevel))
+                    ));
+                }
+            }
+        }
+
+        Mobs::Mob *mob;
+        if ((mob = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getMobs())) != nullptr) {
+            if (this->getSpeed().xSpeed * mob->getSpeed().xSpeed <= 0) {
+                mob->setSpeed(Components::Speed((this->getSpeed().xSpeed > 0 ? 1 : -1) * m_mushroom.punchPower,
+                                                mob->getSpeed().ySpeed - m_mushroom.punchPower * 2));
+
+                if (std::abs(m_mushroom.punchPower) > std::abs(this->getSpeed().xSpeed)) {
+                    m_properties.speed.xSpeed = 0;
+                } else {
+                    m_properties.speed.xSpeed = -this->getSpeed().xSpeed + m_mushroom.punchPower *
+                            ((this->getSpeed().xSpeed > 0 ? -1 : 1) * (m_mushroom.punchPower > 0 ? -1 : 1));
+                }
+            }
+        }
 
         if (m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getObstacles()) != nullptr) {
             m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed);
