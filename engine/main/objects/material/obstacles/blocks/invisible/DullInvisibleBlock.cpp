@@ -12,7 +12,3 @@ void Obstacles::DullInvisibleBlock::selfAction(Unite::Unifier *unifier) {
     //..
 }
 
-void Obstacles::DullInvisibleBlock::selfMove(Unite::Unifier *unifier) {
-    //..
-}
-

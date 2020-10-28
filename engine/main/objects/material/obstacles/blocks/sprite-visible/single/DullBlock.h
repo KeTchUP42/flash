@@ -15,8 +15,6 @@ namespace Obstacles {
                            const std::shared_ptr<Material::Algorithms> &algorithms);
 
         void selfAction(Unite::Unifier *unifier) override;
-
-        void selfMove(Unite::Unifier *unifier) override;
     };
 }
 

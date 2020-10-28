@@ -33,6 +33,4 @@ void Mobs::MushroomMind::analyze(Unite::Unifier *unifier) noexcept {
             }
         }
     }
-
-    m_holder->selfMove(unifier);
 }

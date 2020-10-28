@@ -12,7 +12,3 @@ DullCompositeBlock(const ObstacleProperties &properties, const Components::Area 
 void Obstacles::DullCompositeBlock::selfAction(Unite::Unifier *unifier) {
     //..
 }
-
-void Obstacles::DullCompositeBlock::selfMove(Unite::Unifier *unifier) {
-    //..
-}

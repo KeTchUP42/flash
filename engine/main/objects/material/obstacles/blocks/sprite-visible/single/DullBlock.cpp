@@ -11,7 +11,3 @@ Obstacles::DullBlock::DullBlock(const ObstacleProperties &properties, const std:
 void Obstacles::DullBlock::selfAction(Unite::Unifier *unifier) {
     //..
 }
-
-void Obstacles::DullBlock::selfMove(Unite::Unifier *unifier) {
-    //..
-}

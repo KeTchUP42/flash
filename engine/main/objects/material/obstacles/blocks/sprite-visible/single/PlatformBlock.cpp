@@ -9,10 +9,6 @@ Obstacles::PlatformBlock::PlatformBlock(const Obstacles::ObstacleProperties &pro
         : SingleSpriteBlock(properties, sprite, algorithms) {}
 
 void Obstacles::PlatformBlock::selfAction(Unite::Unifier *unifier) {
-    this->selfMove(unifier);
-}
-
-void Obstacles::PlatformBlock::selfMove(Unite::Unifier *unifier) {
 
     if (m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getObstacles()) != nullptr) {
         m_properties.speed.xSpeed = -1 * m_properties.speed.xSpeed;

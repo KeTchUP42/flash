@@ -30,12 +30,12 @@ namespace Material {
     */
     class MaterialObject :
             public Possibilities::SelfActionable<Unite::Unifier>,
-            public Possibilities::SelfMovable<Unite::Unifier>,
+            public Possibilities::SelfMovable,
+            public Possibilities::RectangleSetters,
+            public Possibilities::RectangleInfo,
             public Possibilities::Movable,
             public Possibilities::CollisionProne,
             public Possibilities::Rotatable,
-            public Possibilities::RectangleInfo,
-            public Possibilities::RectangleSetters,
             public Possibilities::Drawable<sf::RenderTarget> {
     public:
         MaterialObject();

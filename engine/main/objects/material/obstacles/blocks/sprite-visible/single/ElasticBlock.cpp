@@ -9,10 +9,6 @@ Obstacles::ElasticBlock::ElasticBlock(const Obstacles::ObstacleProperties &prope
         : SingleSpriteBlock(properties, sprite, algorithms) {}
 
 void Obstacles::ElasticBlock::selfAction(Unite::Unifier *unifier) {
-    this->selfMove(unifier);
-}
-
-void Obstacles::ElasticBlock::selfMove(Unite::Unifier *unifier) {
 
     for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
 

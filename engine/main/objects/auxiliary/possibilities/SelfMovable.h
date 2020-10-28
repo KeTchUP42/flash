@@ -15,15 +15,9 @@ namespace Possibilities {
      *
      * This class defines base SelfMovable interface.
     */
-    template<class Unifier>
     class SelfMovable {
     public:
         SelfMovable() = default;
-
-        /**
-         * @brief Method do self move.
-         */
-        virtual void selfMove(Unifier *unifier) = 0;
 
         /**
          * @brief Method adds some moving speed.

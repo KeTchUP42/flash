@@ -1,4 +1,4 @@
- ## Scene directives description.
+ ## Scene directives description:
 
  This file contains a list of all available scenes directives and their descriptions.
 
