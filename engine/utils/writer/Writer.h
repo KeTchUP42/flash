@@ -21,14 +21,21 @@ namespace WriterUtil {
         Writer() = default;
 
         /**
-         * Writer main method which writes std::string to stream.
+         * @brief Method writes data to the stream.
+         * @param __s Input stream data.
+         * @param mode Stream open mode.
+         * @return Was success?
          */
-        virtual bool write(const std::string &__s, const std::ios::openmode &mode) const noexcept = 0;
+        virtual bool write(const std::string &__s, const std::ios::openmode &mode) const = 0;
+
 
         /**
-         * Writer main method which writes 'C' string to stream.
+         * @brief Method writes data to the stream.
+         * @param __s Input stream data.
+         * @param mode Stream open mode.
+         * @return Was success?
          */
-        virtual bool write(const char *__s, const std::ios::openmode &mode) const noexcept = 0;
+        virtual bool write(const char *__s, const std::ios::openmode &mode) const = 0;
 
         virtual ~Writer() noexcept = default;
     };

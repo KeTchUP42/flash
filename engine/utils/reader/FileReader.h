@@ -13,11 +13,9 @@ namespace ReaderUtil {
     public:
         FileReader(const std::string &filepath);
 
-        FileReader(const char *filepath);
+        std::string read() const override;
 
-        std::string read() const noexcept override;
-
-        std::vector<std::string> readlines() const noexcept override;
+        std::vector<std::string> readlines() const override;
 
     protected:
         std::string m_filepath;

@@ -28,9 +28,9 @@ namespace WriterUtil {
 
         void remove(const std::string &filepath) noexcept;
 
-        bool write(const std::string &message, const std::ios::openmode &mode) const noexcept override;
+        bool write(const std::string &message, const std::ios::openmode &mode) const override;
 
-        bool write(const char *message, const std::ios::openmode &mode) const noexcept override;
+        bool write(const char *message, const std::ios::openmode &mode) const override;
 
     protected:
         std::list<std::string> m_filenames;

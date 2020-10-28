@@ -7,17 +7,16 @@
 #include "FileReader.h"
 #include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
 
-static inline void checkFileToOpen(const std::string &path);
-
 ReaderUtil::FileReader::FileReader(const std::string &filepath) : m_filepath(filepath) {
-    checkFileToOpen(filepath);
+    std::ifstream in(filepath);
+    if (!in.is_open()) {
+        in.close();
+        throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
+    }
+    in.close();
 }
 
-ReaderUtil::FileReader::FileReader(const char *filepath) : m_filepath(filepath) {
-    checkFileToOpen(filepath);
-}
-
-std::string ReaderUtil::FileReader::read() const noexcept {
+std::string ReaderUtil::FileReader::read() const {
     std::string result;
     std::ifstream in(m_filepath.c_str());
     if (in.is_open()) {
@@ -28,7 +27,7 @@ std::string ReaderUtil::FileReader::read() const noexcept {
     return result;
 }
 
-std::vector<std::string> ReaderUtil::FileReader::readlines() const noexcept {
+std::vector<std::string> ReaderUtil::FileReader::readlines() const {
     std::vector<std::string> result;
     std::ifstream in(m_filepath.c_str());
     if (in.is_open()) {
@@ -39,13 +38,4 @@ std::vector<std::string> ReaderUtil::FileReader::readlines() const noexcept {
     }
     in.close();
     return result;
-}
-
-static inline void checkFileToOpen(const std::string &path) {
-    std::ifstream in(path);
-    if (!in.is_open()) {
-        in.close();
-        throw PreferredExceptions::FileCannotBeOpened("File " + path + " cannot be opened.");
-    }
-    in.close();
 }

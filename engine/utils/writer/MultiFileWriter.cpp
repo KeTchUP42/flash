@@ -7,8 +7,6 @@
 #include "MultiFileWriter.h"
 #include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
 
-static inline bool checkFileToOpen(const std::string &filepath);
-
 WriterUtil::MultiFileWriter::MultiFileWriter(const std::list<std::string> &filenames) {
     this->add(filenames);
 }
@@ -17,7 +15,7 @@ WriterUtil::MultiFileWriter::MultiFileWriter(const std::vector<std::string> &fil
     this->add(filenames);
 }
 
-bool WriterUtil::MultiFileWriter::write(const char *message, const std::ios::openmode &mode) const noexcept {
+bool WriterUtil::MultiFileWriter::write(const char *message, const std::ios::openmode &mode) const {
     bool result = true;
     for (const std::string &path : m_filenames) {
         std::ofstream out(path.c_str(), mode);
@@ -31,7 +29,7 @@ bool WriterUtil::MultiFileWriter::write(const char *message, const std::ios::ope
     return result;
 }
 
-bool WriterUtil::MultiFileWriter::write(const std::string &message, const std::ios::openmode &mode) const noexcept {
+bool WriterUtil::MultiFileWriter::write(const std::string &message, const std::ios::openmode &mode) const {
     return write(message.c_str(), mode);
 }
 
@@ -48,22 +46,18 @@ void WriterUtil::MultiFileWriter::add(const std::vector<std::string> &filenames)
 }
 
 void WriterUtil::MultiFileWriter::add(const std::string &filepath) {
-    if (checkFileToOpen(filepath)) {
+    std::ofstream out(filepath, std::ios::app);
+    if (out.is_open()) {
         m_filenames.push_back(filepath);
     } else {
+        out.close();
         throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
+    out.close();
 }
 
 void WriterUtil::MultiFileWriter::remove(const std::string &filepath) noexcept {
     m_filenames.remove(filepath);
-}
-
-static inline bool checkFileToOpen(const std::string &filepath) {
-    std::ofstream out(filepath, std::ios::app);
-    bool isOpen = out.is_open();
-    out.close();
-    return isOpen;
 }
 
 

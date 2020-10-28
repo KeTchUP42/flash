@@ -13,11 +13,9 @@ namespace WriterUtil {
     public:
         FileWriter(const std::string &filepath);
 
-        FileWriter(const char *filepath);
+        bool write(const char *message, const std::ios::openmode &mode) const override;
 
-        bool write(const char *message, const std::ios::openmode &mode) const noexcept override;
-
-        bool write(const std::string &message, const std::ios::openmode &mode) const noexcept override;
+        bool write(const std::string &message, const std::ios::openmode &mode) const override;
 
     protected:
         std::string m_filepath;

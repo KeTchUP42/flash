@@ -21,14 +21,16 @@ namespace ReaderUtil {
         Reader() = default;
 
         /**
-         * Reader method which returns std::string from stream.
+         * @brief Method reads data from stream.
+         * @return Line from stream.
          */
-        virtual std::string read() const noexcept = 0;
+        virtual std::string read() const = 0;
 
         /**
-         * Reader method which returns a std::vector<std::string> of lines from stream.
-          */
-        virtual std::vector<std::string> readlines() const noexcept = 0;
+         * @brief Method reads data from stream.
+         * @return Lines from stream.
+         */
+        virtual std::vector<std::string> readlines() const = 0;
 
         virtual ~Reader() noexcept = default;
     };
