@@ -4,7 +4,7 @@
 
 #include "Engine.h"
 #include "setup/EngineConfigurator.h"
-#include "../main/other/exceptions/Exception.h"
+#include "../main/support/exceptions/Exception.h"
 #include "../main/view/create/WindowFactory.h"
 #include "../utils/Ini/IniProcessor.h"
 

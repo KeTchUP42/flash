@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "FileWriter.h"
-#include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
+#include "../../main/support/exceptions/custom/FileCannotBeOpened.h"
 
 WriterUtil::FileWriter::FileWriter(const std::string &filepath) : m_filepath(filepath) {
     std::ofstream out(filepath, std::ios::app);

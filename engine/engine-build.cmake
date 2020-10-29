@@ -90,7 +90,7 @@ set(INI engine/utils/Ini/IniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.
 set(MATH engine/utils/math/RectangleMath.cpp engine/utils/math/algorithms.cpp)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 
-set(EXCEPTIONS engine/main/other/exceptions/Exception.cpp)
-set(OTHER ${EXCEPTIONS})
+set(EXCEPTIONS engine/main/support/exceptions/Exception.cpp)
+set(SUPPORT ${EXCEPTIONS})
 
-set(ENGINE ${ENTRY_POINT} ${DATA} ${OBJECTS} ${OTHER} ${VIEW} ${UTILS})
+set(ENGINE ${ENTRY_POINT} ${DATA} ${OBJECTS} ${SUPPORT} ${VIEW} ${UTILS})

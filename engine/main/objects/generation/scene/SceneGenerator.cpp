@@ -4,7 +4,7 @@
 
 #include "SceneGenerator.h"
 #include "../../../../utils/Ini/IniProcessor.h"
-#include "../../../other/exceptions/InvalidArgument.h"
+#include "../../../support/exceptions/InvalidArgument.h"
 
 #include <regex>
 

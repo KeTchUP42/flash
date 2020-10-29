@@ -3,7 +3,7 @@
 //
 
 #include "TextureManager.h"
-#include "../../../other/exceptions/custom/TextureCannotBeLoaded.h"
+#include "../../../support/exceptions/custom/TextureCannotBeLoaded.h"
 
 std::shared_ptr<sf::Texture>
 Managers::TextureManager::loadTexture(const std::string &filename, const sf::Rect<int> &area) const {

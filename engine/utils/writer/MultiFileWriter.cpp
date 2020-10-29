@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "MultiFileWriter.h"
-#include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
+#include "../../main/support/exceptions/custom/FileCannotBeOpened.h"
 
 WriterUtil::MultiFileWriter::MultiFileWriter(const std::list<std::string> &filenames) {
     this->add(filenames);

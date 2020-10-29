@@ -5,7 +5,7 @@
 #include <iterator>
 
 #include "FileReader.h"
-#include "../../main/other/exceptions/custom/FileCannotBeOpened.h"
+#include "../../main/support/exceptions/custom/FileCannotBeOpened.h"
 
 ReaderUtil::FileReader::FileReader(const std::string &filepath) : m_filepath(filepath) {
     std::ifstream in(filepath);

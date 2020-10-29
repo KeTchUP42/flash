@@ -2,4 +2,4 @@
 
  This file contains default exception codes.
 
- * [Exception codes.](../../../engine/main/other/exceptions/ExceptionCodes.h)
+ * [Exception codes.](../../../engine/main/support/exceptions/ExceptionCodes.h)
