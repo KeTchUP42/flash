@@ -25,7 +25,7 @@ int Program::Engine::start() const {
         window->start();
     }
     catch (PreferredExceptions::Exception &exception) {
-        std::shared_ptr<LoggerUtil::Logger> logger = m_manager->getLogManager()->createLoggerForFile("crash.log");
+        std::shared_ptr<LoggerUtil::Logger> logger = m_manager->getLogManager()->createLogger("crash.log");
         logger->critical("Exception code: " + std::to_string(exception.getCode()) + ". " + exception.getMessage());
         std::cout << exception.getMessage() << std::endl;
         return exception.getCode();

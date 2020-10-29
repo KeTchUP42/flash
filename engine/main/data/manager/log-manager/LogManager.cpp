@@ -7,12 +7,12 @@
 #include "../../../../utils/writer/MultiFileWriter.h"
 
 std::shared_ptr<LoggerUtil::Logger>
-Managers::LogManager::createLoggerForFile(const std::string &filename) const {
+Managers::LogManager::createLogger(const std::string &filename) const {
     return std::make_shared<LoggerUtil::Logger>(new WriterUtil::FileWriter(LOG_DIRECTORY + "/" + filename));
 }
 
 std::shared_ptr<LoggerUtil::Logger>
-Managers::LogManager::createLoggerForSomeFiles(const std::vector<std::string> &filenames) const {
+Managers::LogManager::createLogger(const std::vector<std::string> &filenames) const {
     std::vector<std::string> filepaths = filenames;
 
     for (std::string &path : filepaths) {
