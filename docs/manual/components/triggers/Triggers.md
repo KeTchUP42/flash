@@ -9,3 +9,5 @@
  * Audio triggers - designed to play audio in certain situations.
      * [MobsAudioTrigger](MobsAudioTrigger.md)
      * [PlayerAudioTrigger](PlayerAudioTrigger.md)
+     * [SingleMobsAudioTrigger](SingleMobsAudioTrigger.md)
+     * [SinglePlayerAudioTrigger](SinglePlayerAudioTrigger.md)

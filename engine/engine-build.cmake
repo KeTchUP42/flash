@@ -40,7 +40,7 @@ set(OBSTACLES_GENERATORS engine/main/objects/generation/scene/generators/obstacl
 set(PLAYERS_GENERATORS engine/main/objects/generation/scene/generators/players/BasicPlayerGenerator.cpp)
 set(SPRITES_GENERATORS engine/main/objects/generation/scene/generators/sprites/BackgroundSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/BackSpriteGenerator.cpp engine/main/objects/generation/scene/generators/sprites/FrontSpriteGenerator.cpp)
 set(TEXT_GENERATORS engine/main/objects/generation/scene/generators/text/TextGenerator.cpp)
-set(TRIGGERS_GENERATORS engine/main/objects/generation/scene/generators/triggers/MobsAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/PlayerAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
+set(TRIGGERS_GENERATORS engine/main/objects/generation/scene/generators/triggers/SingleMobsAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/SinglePlayerAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/MobsAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/PlayerAudioTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/generation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
 set(REDUCTION engine/main/objects/generation/scene/generators/reduction/KeyMapBuilder.cpp engine/main/objects/generation/scene/generators/reduction/ElementaryReduction.cpp engine/main/objects/generation/scene/generators/reduction/PropertiesReduction.cpp engine/main/objects/generation/scene/generators/reduction/AreaReduction.cpp engine/main/objects/generation/scene/generators/reduction/CustomReduction.cpp)
 set(GENERATORS ${REDUCTION} ${EFFECTS_GENERATORS} ${MOBS_GENERATORS} ${OBSTACLES_GENERATORS} ${PLAYERS_GENERATORS} ${SPRITES_GENERATORS} ${TEXT_GENERATORS} ${TRIGGERS_GENERATORS})
 set(ANALYZE engine/main/objects/generation/scene/analyze/GeneratorSelector.cpp engine/main/objects/generation/scene/analyze/DirectivesAnalyzer.cpp)
@@ -75,7 +75,7 @@ set(EFFECTS ${AUDIO_EFFECTS} ${GRAVITY_EFFECTS})
 
 set(HANDLERS engine/main/objects/static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.cpp)
 set(SCENE_TRIGGERS ${HANDLERS} engine/main/objects/static/triggers/scene/player/PlayerSceneTrigger.cpp)
-set(AUDIO_TRIGGERS engine/main/objects/static/triggers/audio/mobs/MobsAudioTrigger.cpp engine/main/objects/static/triggers/audio/player/PlayerAudioTrigger.cpp)
+set(AUDIO_TRIGGERS engine/main/objects/static/triggers/audio/mobs/MobsAudioTrigger.cpp engine/main/objects/static/triggers/audio/player/PlayerAudioTrigger.cpp engine/main/objects/static/triggers/audio/mobs/SingleMobsAudioTrigger.cpp engine/main/objects/static/triggers/audio/player/SinglePlayerAudioTrigger.cpp)
 set(TRIGGERS ${AUDIO_TRIGGERS} ${SCENE_TRIGGERS} engine/main/objects/static/triggers/common/AreaTrigger.cpp)
 set(STATIC ${EFFECTS} ${TRIGGERS})
 

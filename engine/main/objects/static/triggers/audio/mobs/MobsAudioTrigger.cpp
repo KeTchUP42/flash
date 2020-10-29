@@ -8,14 +8,14 @@ Triggers::MobsAudioTrigger::MobsAudioTrigger(const Components::Area &area, const
         : AudioTrigger(area, audio) {}
 
 Triggers::ResultCodes Triggers::MobsAudioTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
+    if (m_audio->getStatus() == sf::SoundSource::Playing) return ResultCodes::OK;
 
     for (const std::shared_ptr<Mobs::Mob> &mob: unifier->getMobs()) {
 
         if (MathUtils::collision(*this, *mob)) {
-            if (m_audio->getStatus() != sf::SoundSource::Playing) {
-                m_audio->setPlayingOffset(sf::Time());
-                m_audio->play();
-            }
+            m_audio->setPlayingOffset(sf::Time());
+            m_audio->play();
+            break;
         }
     }
     return ResultCodes::OK;
