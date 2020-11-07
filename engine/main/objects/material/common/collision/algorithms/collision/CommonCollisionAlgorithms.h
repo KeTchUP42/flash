@@ -38,7 +38,7 @@ namespace Material {
      * @return Result.
     */
     template<class RectangleType1, class RectangleType2>
-    bool RectangleCollision(const RectangleType1 &object1, const RectangleType2 &object2) noexcept {
+    bool OptimizedCollision(const RectangleType1 &object1, const RectangleType2 &object2) noexcept {
 
         float rectangle1Diagonal = std::sqrt(std::pow(object1.getSize().width, 2) + std::pow(object1.getSize().height, 2));
         float rectangle2Diagonal = std::sqrt(std::pow(object2.getSize().width, 2) + std::pow(object2.getSize().height, 2));

@@ -5,9 +5,8 @@
 #include "StaticCollisionAlgorithms.h"
 #include "../coordinates/CoordinatesCalculation.h"
 
-bool Material::
-staticAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                        const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
+bool Material::staticAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                       const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(object2);
     Components::Point processedMaxCoordinates = maxCoordinates(object2);
@@ -27,9 +26,8 @@ staticAbscissaCollision(const Components::Point &objectMinCoordinates, const Com
     return object1.collision(object2);
 }
 
-bool Material::
-staticOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                        const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
+bool Material::staticOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                       const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(object2);
     Components::Point processedMaxCoordinates = maxCoordinates(object2);
@@ -49,12 +47,10 @@ staticOrdinateCollision(const Components::Point &objectMinCoordinates, const Com
     return object1.collision(object2);
 }
 
-bool Material::
-staticAbscissaCollision(const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
+bool Material::staticAbscissaCollision(const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
     return staticAbscissaCollision(minCoordinates(object1), maxCoordinates(object1), object1, object2);
 }
 
-bool Material::
-staticOrdinateCollision(const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
+bool Material::staticOrdinateCollision(const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept {
     return staticOrdinateCollision(minCoordinates(object1), maxCoordinates(object1), object1, object2);
 }

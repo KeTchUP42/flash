@@ -17,7 +17,7 @@ namespace Material {
      * @return Vector of need points.
      */
     std::vector<Components::Point>
-    pickoutNodulesY(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept;
+    pickoutNodulesVertical(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept;
 
     /**
      * @brief Function returns vector of collision needed points.
@@ -27,7 +27,7 @@ namespace Material {
      * @return Vector of need points.
      */
     std::vector<Components::Point>
-    pickoutNodulesX(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept;
+    pickoutNodulesHorizontal(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept;
 }
 
 #endif //FLASH_MOVINGCOLLISIONFUNCTIONS_H

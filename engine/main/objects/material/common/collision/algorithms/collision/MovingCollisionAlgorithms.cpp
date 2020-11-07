@@ -7,9 +7,8 @@
 #include "../coordinates/MovingCollisionFunctions.h"
 #include <cmath>
 
-bool Material::
-movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                        Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
+bool Material::movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                       Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -28,8 +27,8 @@ movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Com
     if ((objectMoveXSpeed > 0) && (objectMaxCoordinates.x + objectMoveXSpeed < processedMinCoordinates.x)) return false;
     if ((objectMoveXSpeed < 0) && (objectMinCoordinates.x + objectMoveXSpeed > processedMaxCoordinates.x)) return false;
 
-    std::vector<Components::Point> pointsOffset = pickoutNodulesY(object, std::pair<float, float>(objectMinCoordinates.y,
-                                                                                                  objectMaxCoordinates.y), (objectMoveXSpeed > 0));
+    std::vector<Components::Point> pointsOffset = pickoutNodulesVertical(object, std::pair<float, float>(objectMinCoordinates.y,
+                                                                                                         objectMaxCoordinates.y), (objectMoveXSpeed > 0));
     for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
         float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
@@ -64,9 +63,8 @@ movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Com
     return false;
 }
 
-bool Material::
-movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                        Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
+bool Material::movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
+                                       Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -85,8 +83,8 @@ movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Com
     if ((objectMoveYSpeed > 0) && (objectMaxCoordinates.y + objectMoveYSpeed < processedMinCoordinates.y)) return false;
     if ((objectMoveYSpeed < 0) && (objectMinCoordinates.y + objectMoveYSpeed > processedMaxCoordinates.y)) return false;
 
-    std::vector<Components::Point> pointsOffset = pickoutNodulesX(object, std::pair<float, float>(objectMinCoordinates.x,
-                                                                                                  objectMaxCoordinates.x), (objectMoveYSpeed > 0));
+    std::vector<Components::Point> pointsOffset = pickoutNodulesHorizontal(object, std::pair<float, float>(objectMinCoordinates.x,
+                                                                                                           objectMaxCoordinates.x), (objectMoveYSpeed > 0));
     for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
         float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
@@ -121,13 +119,11 @@ movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Com
     return false;
 }
 
-bool Material::
-movingAbscissaCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
+bool Material::movingAbscissaCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
     return movingAbscissaCollision(minCoordinates(object), maxCoordinates(object), object, processed, step);
 }
 
-bool Material::
-movingOrdinateCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
+bool Material::movingOrdinateCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
     return movingOrdinateCollision(minCoordinates(object), maxCoordinates(object), object, processed, step);
 }
 

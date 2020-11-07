@@ -12,7 +12,7 @@ Triggers::ResultCodes Triggers::PlayerAudioTrigger::verifyTrigger(Unite::Unifier
 
     for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
 
-        if (Material::RectangleCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
+        if (Material::OptimizedCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
             m_audio->setPlayingOffset(sf::Time());
             m_audio->play();
             break;
