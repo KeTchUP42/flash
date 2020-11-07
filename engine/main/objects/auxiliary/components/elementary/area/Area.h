@@ -5,11 +5,8 @@
 #ifndef FLASH_AREA_H
 #define FLASH_AREA_H
 
-#include "../../../possibilities/RectangleGetters.h"
-#include "../../../possibilities/RectangleSetters.h"
-#include "../../../possibilities/CollisionProne.h"
-#include "../../../possibilities/Rotatable.h"
-#include "../../../possibilities/Movable.h"
+#include "../../../possibilities/rectangle/Rectangle.h"
+#include "../../../possibilities/Moving.h"
 #include "../point/Point.h"
 #include "../Size.h"
 
@@ -21,10 +18,7 @@ namespace Components {
      *
      * This struct is the base component.
     */
-    struct Area : public Possibilities::RectangleGetters,
-                  public Possibilities::RectangleSetters,
-                  public Possibilities::Rotatable,
-                  public Possibilities::Movable {
+    struct Area : public Possibilities::Rectangle, public Possibilities::Moving {
 
         /**
          * @brief Inits all fields by zero.

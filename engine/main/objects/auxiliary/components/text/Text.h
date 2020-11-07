@@ -10,7 +10,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "../../possibilities/Drawable.h"
-#include "../../possibilities/Movable.h"
+#include "../../possibilities/Moving.h"
 #include "../../possibilities/Rotatable.h"
 
 namespace Components {
@@ -21,7 +21,7 @@ namespace Components {
      *
      * This class is a wrap for sf::Text from SFML.
     */
-    class Text : public Possibilities::Movable,
+    class Text : public Possibilities::Moving,
                  public Possibilities::Drawable<sf::RenderTarget> {
     public:
         explicit Text(const std::string &string, sf::Font *font);

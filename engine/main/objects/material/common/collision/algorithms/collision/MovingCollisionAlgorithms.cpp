@@ -4,10 +4,12 @@
 
 #include "MovingCollisionAlgorithms.h"
 #include "../coordinates/CoordinatesCalculation.h"
+#include "../coordinates/MovingCollisionFunctions.h"
+#include <cmath>
 
 bool Material::
 movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                        Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept {
+                        Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -26,23 +28,37 @@ movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Com
     if ((objectMoveXSpeed > 0) && (objectMaxCoordinates.x + objectMoveXSpeed < processedMinCoordinates.x)) return false;
     if ((objectMoveXSpeed < 0) && (objectMinCoordinates.x + objectMoveXSpeed > processedMaxCoordinates.x)) return false;
 
-    for (float y = objectMinCoordinates.y + 1; y < objectMaxCoordinates.y;
-         y = (y + yStep >= objectMaxCoordinates.y) ? objectMaxCoordinates.y : y + yStep) {
+    std::vector<Components::Point> pointsOffset = pickoutNodulesY(object, std::pair<float, float>(objectMinCoordinates.y,
+                                                                                                  objectMaxCoordinates.y), (objectMoveXSpeed > 0));
+    for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
-        if (processed.collision((objectMoveXSpeed > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + objectMoveXSpeed, y)) {
+        float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
+        float yside = std::abs(pointsOffset[i].y - pointsOffset[i + 1].y);
+        float diag = std::sqrt(xside * xside + yside * yside);
 
-            int moveLength = static_cast<int>(objectMoveXSpeed / 2);
-            int movedDistance = 0;
-            while (moveLength != 0) {
-                if (processed.collision((moveLength > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + movedDistance + moveLength, y)) {
-                    moveLength /= 2;
-                    continue;
+        short pointXSide = ((pointsOffset[i].x > pointsOffset[i + 1].x) ? -1 : 1);
+        short pointYSide = ((pointsOffset[i].y > pointsOffset[i + 1].y) ? -1 : 1);
+
+        for (float stp = (i == 0) ? 1 : 0; stp < diag; stp = (stp + step >= diag) ? diag : stp + step) {
+
+            float x = pointXSide * ((stp * xside) / diag) + pointsOffset[i].x;
+            float y = pointYSide * ((stp * yside) / diag) + pointsOffset[i].y;
+
+            if (processed.collision(x + objectMoveXSpeed, y)) {
+
+                int length = static_cast<int>(objectMoveXSpeed / 2);
+                int distance = 0;
+                while (length != 0) {
+                    if (processed.collision((length > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + distance + length, y)) {
+                        length /= 2;
+                        continue;
+                    }
+                    object.move(length, 0);
+                    distance += length;
+                    length += length < 0 ? 1 : -1;
                 }
-                object.move(moveLength, 0);
-                movedDistance += moveLength;
-                moveLength += moveLength < 0 ? 1 : -1;
+                return true;
             }
-            return true;
         }
     }
     return false;
@@ -50,7 +66,7 @@ movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Com
 
 bool Material::
 movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
-                        Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept {
+                        Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
 
     Components::Point processedMinCoordinates = minCoordinates(processed);
     Components::Point processedMaxCoordinates = maxCoordinates(processed);
@@ -69,36 +85,50 @@ movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Com
     if ((objectMoveYSpeed > 0) && (objectMaxCoordinates.y + objectMoveYSpeed < processedMinCoordinates.y)) return false;
     if ((objectMoveYSpeed < 0) && (objectMinCoordinates.y + objectMoveYSpeed > processedMaxCoordinates.y)) return false;
 
-    for (float x = objectMinCoordinates.x + 1; x < objectMaxCoordinates.x;
-         x = (x + xStep >= objectMaxCoordinates.x) ? objectMaxCoordinates.x : x + xStep) {
+    std::vector<Components::Point> pointsOffset = pickoutNodulesX(object, std::pair<float, float>(objectMinCoordinates.x,
+                                                                                                  objectMaxCoordinates.x), (objectMoveYSpeed > 0));
+    for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
-        if (processed.collision(x, (objectMoveYSpeed > 0 ? objectMaxCoordinates.y : objectMinCoordinates.y) + objectMoveYSpeed)) {
+        float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
+        float yside = std::abs(pointsOffset[i].y - pointsOffset[i + 1].y);
+        float diag = std::sqrt(xside * xside + yside * yside);
 
-            int moveLength = static_cast<int>(objectMoveYSpeed / 2);
-            int movedDistance = 0;
-            while (moveLength != 0) {
-                if (processed.collision(x, (moveLength > 0 ? objectMaxCoordinates.y : objectMinCoordinates.y) + movedDistance + moveLength)) {
-                    moveLength /= 2;
-                    continue;
+        short pointXSide = ((pointsOffset[i].x > pointsOffset[i + 1].x) ? -1 : 1);
+        short pointYSide = ((pointsOffset[i].y > pointsOffset[i + 1].y) ? -1 : 1);
+
+        for (float stp = (i == 0) ? 1 : 0; stp < diag; stp = (stp + step >= diag) ? diag : stp + step) {
+
+            float x = pointXSide * ((stp * xside) / diag) + pointsOffset[i].x;
+            float y = pointYSide * ((stp * yside) / diag) + pointsOffset[i].y;
+
+            if (processed.collision(x, y + objectMoveYSpeed)) {
+
+                int length = static_cast<int>(objectMoveYSpeed / 2);
+                int distance = 0;
+                while (length != 0) {
+                    if (processed.collision(x, (length > 0 ? objectMaxCoordinates.y : objectMinCoordinates.y) + distance + length)) {
+                        length /= 2;
+                        continue;
+                    }
+                    object.move(0, length);
+                    distance += length;
+                    length += length < 0 ? 1 : -1;
                 }
-                object.move(0, moveLength);
-                movedDistance += moveLength;
-                moveLength += moveLength < 0 ? 1 : -1;
+                return true;
             }
-            return true;
         }
     }
     return false;
 }
 
 bool Material::
-movingAbscissaCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float yStep) noexcept {
-    return movingAbscissaCollision(minCoordinates(object), maxCoordinates(object), object, processed, yStep);
+movingAbscissaCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
+    return movingAbscissaCollision(minCoordinates(object), maxCoordinates(object), object, processed, step);
 }
 
 bool Material::
-movingOrdinateCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float xStep) noexcept {
-    return movingOrdinateCollision(minCoordinates(object), maxCoordinates(object), object, processed, xStep);
+movingOrdinateCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept {
+    return movingOrdinateCollision(minCoordinates(object), maxCoordinates(object), object, processed, step);
 }
 
 

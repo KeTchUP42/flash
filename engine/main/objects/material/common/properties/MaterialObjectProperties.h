@@ -5,7 +5,7 @@
 #ifndef FLASH_MATERIALOBJECTPROPERTIES_H
 #define FLASH_MATERIALOBJECTPROPERTIES_H
 
-#include "../../../auxiliary/components/elementary/Speed.h"
+#include "../../../auxiliary/components/elementary/speed/Speed.h"
 
 namespace Material {
 

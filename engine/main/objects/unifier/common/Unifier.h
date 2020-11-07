@@ -14,6 +14,8 @@
 
 namespace Obstacles {
     class Obstacle;
+
+    class Block;
 }
 
 namespace Mobs {
@@ -177,6 +179,37 @@ namespace Unite {
          * @return Const reference on obstacles collection.
          */
         const std::list<std::shared_ptr<Obstacles::Obstacle>> &getObstacles() const noexcept;
+        //..
+
+        /**
+         * @brief Method adds new block.
+         * @param block New block.
+         */
+        void addBlock(Obstacles::Block *block) noexcept;
+
+        /**
+         * @brief Method adds new block.
+         * @param block New block.
+         */
+        void addBlock(const std::shared_ptr<Obstacles::Block> &block) noexcept;
+
+        /**
+         * @brief Method removes block.
+         * @param block Existing block.
+         */
+        void removeBlock(Obstacles::Block *blck) noexcept;
+
+        /**
+         * @brief Method removes block.
+         * @param block Existing block.
+         */
+        void removeBlock(const std::shared_ptr<Obstacles::Block> &block) noexcept;
+
+        /**
+         * @brief Method returns const reference on blocks collection.
+         * @return Const reference on blocks collection.
+         */
+        const std::list<Obstacles::Block *> &getBlocks() const noexcept;
 
         //..
 
@@ -330,6 +363,11 @@ namespace Unite {
         std::list<std::shared_ptr<Obstacles::Obstacle>> m_obstacles;
 
         /**
+         * @brief Blocks.
+         */
+        std::list<Obstacles::Block *> m_blocks;
+
+        /**
          * @brief Players.
          */
         std::list<std::shared_ptr<Mobs::Player>> m_players;
@@ -353,6 +391,7 @@ namespace Unite {
 
 #include "../../material/mobs/players/common/base/Player.h"
 #include "../../material/obstacles/common/Obstacle.h"
+#include "../../material/obstacles/blocks/common/Block.h"
 #include "../../auxiliary/components/text/Text.h"
 #include "../../static/triggers/common/Trigger.h"
 #include "../../material/mobs/common/base/Mob.h"

@@ -5,13 +5,13 @@
 #ifndef FLASH_INVISIBLEBLOCK_H
 #define FLASH_INVISIBLEBLOCK_H
 
-#include "../../../common/Obstacle.h"
+#include "../../common/Block.h"
 #include "../../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 
-    class InvisibleBlock : public Obstacle {
+    class InvisibleBlock : public Block {
     public:
         explicit InvisibleBlock(
                 const ObstacleProperties &properties,

@@ -12,7 +12,7 @@ Triggers::ResultCodes Triggers::SinglePlayerAudioTrigger::verifyTrigger(Unite::U
 
     for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
 
-        if (MathUtils::collision(*this, *player)) {
+        if (Material::RectangleCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
             m_audio->play();
             WAS_PLAYED = true;
             break;

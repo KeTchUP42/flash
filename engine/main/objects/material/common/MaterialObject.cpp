@@ -3,16 +3,14 @@
 //
 
 #include "MaterialObject.h"
+#include "collision/algorithms/collision/CommonCollisionAlgorithms.h"
 
 Material::MaterialObject::MaterialObject() : m_coordinates() {}
 
+Material::MaterialObject::MaterialObject(const Components::Coordinates &coordinates) : m_coordinates(coordinates) {}
+
 void Material::MaterialObject::updateCoordinates() noexcept {
-    //Some optimization logic. Can be changed with general movement logic update.
-    if (!((this->getSpeed().xSpeed == 0) && (this->getSpeed().ySpeed == 0))) {
-        m_coordinates = MathUtils::coordinates(this);
-    } else if ((m_coordinates.point_1.x == m_coordinates.point_3.x) || (m_coordinates.point_1.y == m_coordinates.point_3.y)) {
-        m_coordinates = MathUtils::coordinates(this);
-    }
+    //..
 }
 
 void Material::MaterialObject::updateLocation() noexcept {
@@ -20,11 +18,24 @@ void Material::MaterialObject::updateLocation() noexcept {
     this->move(this->getSpeed().xSpeed, this->getSpeed().ySpeed);
 }
 
+bool Material::MaterialObject::collision(float x, float y) const noexcept {
+    return Material::collision(x, y, *this);
+}
+
+bool Material::MaterialObject::collision(const Possibilities::PhysicallySituated &object) const noexcept {
+    return Material::collision(*this, object);
+}
+
+void Material::MaterialObject::move(float offsetX, float offsetY) noexcept {
+    for (Components::Point &point : m_coordinates.list) {
+        point.x += offsetX;
+        point.y += offsetY;
+    }
+}
+
 const Components::Coordinates &Material::MaterialObject::getCoordinates() const noexcept {
     return m_coordinates;
 }
 
-bool Material::MaterialObject::collision(float x, float y) const noexcept {
-    return MathUtils::collision(x, y, *this);
-}
+
 

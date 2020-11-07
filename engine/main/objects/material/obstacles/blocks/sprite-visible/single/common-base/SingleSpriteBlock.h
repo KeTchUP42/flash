@@ -5,13 +5,13 @@
 #ifndef FLASH_SINGLESPRITEBLOCK_H
 #define FLASH_SINGLESPRITEBLOCK_H
 
-#include "../../../../common/Obstacle.h"
+#include "../../../common/Block.h"
 #include "../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 
-    class SingleSpriteBlock : public Obstacles::Obstacle {
+    class SingleSpriteBlock : public Block {
     public:
         explicit SingleSpriteBlock(
                 const ObstacleProperties &properties,

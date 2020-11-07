@@ -4,7 +4,6 @@
 
 #include "PlayerSceneTrigger.h"
 #include "../../../../unifier/SceneUnifier.h"
-#include "../../../../../../utils/math/RectangleMath.h"
 #include "../../../../../view/windows/screen/states/TransitScreenState.h"
 
 Triggers::PlayerSceneTrigger::PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
@@ -14,7 +13,7 @@ Triggers::PlayerSceneTrigger::PlayerSceneTrigger(const std::string &filename, co
 Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
     for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
 
-        if (MathUtils::collision(*this, *player)) {
+        if (Material::RectangleCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
 
             Unite::Unifier *new_unifier = new Unite::SceneUnifier();
             for (const std::shared_ptr<Mobs::Player> &plr: unifier->getPlayers()) {

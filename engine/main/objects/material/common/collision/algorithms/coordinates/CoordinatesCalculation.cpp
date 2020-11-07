@@ -6,12 +6,32 @@
 
 #include <algorithm>
 
-Components::Point Material::maxCoordinates(const Material::MaterialObject &object) noexcept {
-    return Components::Point(std::max(std::max(object.getCoordinates().point_2.x, object.getCoordinates().point_3.x), std::max(object.getCoordinates().point_4.x, object.getCoordinates().point_1.x)),
-                             std::max(std::max(object.getCoordinates().point_2.y, object.getCoordinates().point_3.y), std::max(object.getCoordinates().point_4.y, object.getCoordinates().point_1.y)));
+Components::Point Material::maxCoordinates(const Possibilities::PhysicallySituated &object) noexcept {
+    float maxX = std::max_element(
+            object.getCoordinates().list.begin(), object.getCoordinates().list.end(),
+            [](const Components::Point &point1, const Components::Point &point2) {
+                return point1.x < point2.x;
+            })->x;
+
+    float maxY = std::max_element(
+            object.getCoordinates().list.begin(), object.getCoordinates().list.end(),
+            [](const Components::Point &point1, const Components::Point &point2) {
+                return point1.y < point2.y;
+            })->y;
+    return Components::Point(maxX, maxY);
 }
 
-Components::Point Material::minCoordinates(const Material::MaterialObject &object) noexcept {
-    return Components::Point(std::min(std::min(object.getCoordinates().point_2.x, object.getCoordinates().point_3.x), std::min(object.getCoordinates().point_4.x, object.getCoordinates().point_1.x)),
-                             std::min(std::min(object.getCoordinates().point_2.y, object.getCoordinates().point_3.y), std::min(object.getCoordinates().point_4.y, object.getCoordinates().point_1.y)));
+Components::Point Material::minCoordinates(const Possibilities::PhysicallySituated &object) noexcept {
+    float minX = std::min_element(
+            object.getCoordinates().list.begin(), object.getCoordinates().list.end(),
+            [](const Components::Point &point1, const Components::Point &point2) {
+                return point1.x < point2.x;
+            })->x;
+
+    float minY = std::min_element(
+            object.getCoordinates().list.begin(), object.getCoordinates().list.end(),
+            [](const Components::Point &point1, const Components::Point &point2) {
+                return point1.y < point2.y;
+            })->y;
+    return Components::Point(minX, minY);
 }

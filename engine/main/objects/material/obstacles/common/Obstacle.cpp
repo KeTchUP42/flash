@@ -7,8 +7,7 @@
 Obstacles::Obstacle::Obstacle(const Obstacles::ObstacleProperties &properties) : m_properties(properties) {}
 
 void Obstacles::Obstacle::addSpeed(float offsetX, float offsetY) noexcept {
-    m_properties.speed.xSpeed += offsetX;
-    m_properties.speed.ySpeed += offsetY;
+    m_properties.speed.add(offsetX, offsetY);
 }
 
 void Obstacles::Obstacle::setSpeed(const Components::Speed &speed) noexcept {

@@ -3,7 +3,7 @@
 //
 
 #include "Area.h"
-#include "../../../../../../utils/math/RectangleMath.h"
+#include "../../math/RotatingMath.h"
 
 #include <cmath>
 
@@ -36,7 +36,7 @@ void Components::Area::rotate(float angle, float x, float y) noexcept {
 }
 
 void Components::Area::rotate(float angle, const Components::Point &point) noexcept {
-    m_point = MathUtils::pointToPointRotation(m_point, angle, point);
+    m_point = Math::pointToPointRotation(m_point, angle, point);
     this->rotate(angle);
 }
 

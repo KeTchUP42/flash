@@ -6,7 +6,7 @@
 
 Obstacles::SingleSpriteBlock::SingleSpriteBlock(const Obstacles::ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
                                                 const std::shared_ptr<Material::Algorithms> &algorithms)
-        : Obstacles::Obstacle(properties), m_sprite(sprite), m_algorithms(algorithms) {}
+        : Obstacles::Block(properties), m_sprite(sprite), m_algorithms(algorithms) {}
 
 void Obstacles::SingleSpriteBlock::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     m_sprite->setTexture(texture);

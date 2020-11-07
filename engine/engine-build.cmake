@@ -28,10 +28,11 @@ set(VIEWCREATE engine/main/view/create/WindowFactory.cpp)
 
 set(VIEW ${WINDOWVIEW} ${VIEWCREATE})
 
-set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/area/Area.cpp)
+set(ELEMENTARY engine/main/objects/auxiliary/components/elementary/speed/Speed.cpp engine/main/objects/auxiliary/components/elementary/point/Point.cpp engine/main/objects/auxiliary/components/elementary/area/Area.cpp)
+set(MATH_HELP engine/main/objects/auxiliary/components/math/RotatingMath.cpp)
 set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.cpp engine/main/objects/auxiliary/components/sprite/primitive/ISpriteBox.cpp engine/main/objects/auxiliary/components/sprite/primitive/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp)
 set(TEXT engine/main/objects/auxiliary/components/text/Text.cpp)
-set(COMPONENTS ${ELEMENTARY} ${SPRITES} ${TEXT})
+set(COMPONENTS ${ELEMENTARY} ${MATH_HELP} ${SPRITES} ${TEXT})
 set(AUXILIARY ${COMPONENTS})
 
 set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/BackAudioEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityPointEffectGenerator.cpp)
@@ -59,12 +60,12 @@ set(MOBS ${MOBS_COMMON} ${MOBS_CUSTOM} ${PLAYER})
 
 set(SPRITE-VISIBLE engine/main/objects/material/obstacles/blocks/sprite-visible/single/common-base/SingleSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/DullBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/DullCompositeBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/ElasticBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/PlatformBlock.cpp)
 set(INVISIBLE engine/main/objects/material/obstacles/blocks/invisible/common-base/InvisibleBlock.cpp engine/main/objects/material/obstacles/blocks/invisible/DullInvisibleBlock.cpp)
-set(BLOCKS ${INVISIBLE} ${SPRITE-VISIBLE})
+set(BLOCKS ${INVISIBLE} ${SPRITE-VISIBLE} engine/main/objects/material/obstacles/blocks/common/Block.cpp)
 set(OBSTACLES_COMMON engine/main/objects/material/obstacles/common/Obstacle.cpp)
 set(OBSTACLES ${BLOCKS} ${OBSTACLES_COMMON})
 
 set(ALGORITHMS engine/main/objects/material/common/algorithms/Algorithms.cpp)
-set(COLLISION_ALGORITHMS engine/main/objects/material/common/collision/algorithms/collision/StaticCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/collision/MovingCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/coordinates/CoordinatesCalculation.cpp engine/main/objects/material/common/collision/algorithms/coordinates/ExtremeCoordinates.cpp)
+set(COLLISION_ALGORITHMS engine/main/objects/material/common/collision/algorithms/collision/CommonCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/collision/StaticCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/collision/MovingCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/coordinates/MovingCollisionFunctions.cpp engine/main/objects/material/common/collision/algorithms/coordinates/CoordinatesCalculation.cpp)
 set(COLLISION ${COLLISION_ALGORITHMS} engine/main/objects/material/common/collision/Collision.cpp engine/main/objects/material/common/collision/moving-collision/MovingCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticCollision.cpp)
 set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION} engine/main/objects/material/common/MaterialObject.cpp)
 set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
@@ -87,7 +88,7 @@ set(LOGGER engine/utils/logger/Logger.cpp engine/utils/logger/formatter/LoggerFo
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
 set(INI engine/utils/Ini/IniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp)
-set(MATH engine/utils/math/RectangleMath.cpp engine/utils/math/algorithms.cpp)
+set(MATH engine/utils/math/rectangle.cpp engine/utils/math/algorithms.cpp)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 
 set(EXCEPTIONS engine/main/support/exceptions/Exception.cpp)

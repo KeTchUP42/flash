@@ -3,12 +3,23 @@
 //
 
 #include "Mob.h"
+#include "../../../../../../utils/math/rectangle.h"
 
 Mobs::Mob::Mob(const MobProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite)
         : m_area(area), m_properties(properties), m_sprite(sprite) {}
 
 void Mobs::Mob::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     m_sprite->setTexture(texture);
+}
+
+void Mobs::Mob::updateCoordinates() noexcept {
+    //TODO Coordinates are not updated if you turn the real estate object.
+    //Some optimization logic. Can be changed with general movement logic update.
+    if (!((this->getSpeed().xSpeed == 0) && (this->getSpeed().ySpeed == 0))) {
+        m_coordinates = MathUtils::coordinates(this);
+    } else if (m_coordinates.list.empty()) {
+        m_coordinates = MathUtils::coordinates(this);
+    }
 }
 
 void Mobs::Mob::draw(sf::RenderTarget &target) const noexcept {
@@ -26,9 +37,7 @@ void Mobs::Mob::rotate(float angle) noexcept {
 }
 
 void Mobs::Mob::rotate(float angle, float x, float y) noexcept {
-    Components::Point point(x, y);
-    m_area.rotate(angle, point);
-    m_sprite->rotate(angle, point);
+    this->rotate(angle, Components::Point(x, y));
 }
 
 void Mobs::Mob::rotate(float angle, const Components::Point &point) noexcept {
@@ -76,8 +85,7 @@ const std::shared_ptr<Components::ISpriteBox> &Mobs::Mob::getSprite() const noex
 }
 
 void Mobs::Mob::addSpeed(float offsetX, float offsetY) noexcept {
-    m_properties.speed.xSpeed += offsetX;
-    m_properties.speed.ySpeed += offsetY;
+    m_properties.speed.add(offsetX, offsetY);
 }
 
 void Mobs::Mob::setSpeed(const Components::Speed &speed) noexcept {

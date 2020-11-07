@@ -5,8 +5,8 @@
 #ifndef FLASH_RECTANGLEGETTERS_H
 #define FLASH_RECTANGLEGETTERS_H
 
-#include "../components/elementary/Size.h"
-#include "../components/elementary/point/Point.h"
+#include "../../components/elementary/Size.h"
+#include "../../components/elementary/point/Point.h"
 
 namespace Possibilities {
 

@@ -7,6 +7,9 @@
 
 #include "Trigger.h"
 #include "../../../auxiliary/components/elementary/area/Area.h"
+#include "../../../auxiliary/possibilities/rectangle/MaterialRectangle.h"
+#include "../../../material/common/collision/algorithms/collision/CommonCollisionAlgorithms.h"
+#include "../../../../../utils/math/rectangle.h"
 
 namespace Triggers {
 
@@ -16,7 +19,7 @@ namespace Triggers {
      *
      * This class defines base AreaTrigger interface and realization.
     */
-    class AreaTrigger : public Trigger, public Possibilities::RectangleInfo {
+    class AreaTrigger : public Trigger, public Possibilities::MaterialRectangle {
     public:
         AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(MathUtils::coordinates(this)) {}
 

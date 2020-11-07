@@ -5,16 +5,12 @@
 #ifndef FLASH_MATERIALOBJECT_H
 #define FLASH_MATERIALOBJECT_H
 
-#include "../../auxiliary/possibilities/Drawable.h"
-#include "../../auxiliary/possibilities/Movable.h"
-#include "../../auxiliary/possibilities/CollisionProne.h"
-#include "../../auxiliary/possibilities/Rotatable.h"
 #include "../../auxiliary/possibilities/SelfActionable.h"
-#include "../../auxiliary/possibilities/SelfMovable.h"
-#include "../../auxiliary/components/elementary/Size.h"
-#include "../../auxiliary/possibilities/RectangleInfo.h"
-#include "../../auxiliary/possibilities/RectangleSetters.h"
-#include "../../../../utils/math/RectangleMath.h"
+#include "../../auxiliary/possibilities/Movable.h"
+#include "../../auxiliary/possibilities/Moving.h"
+#include "../../auxiliary/possibilities/collision/CollisionProne.h"
+#include "../../auxiliary/possibilities/coordinates/PhysicallySituated.h"
+#include "../../auxiliary/possibilities/Drawable.h"
 
 namespace Unite {
     class Unifier;
@@ -30,20 +26,28 @@ namespace Material {
     */
     class MaterialObject :
             public Possibilities::SelfActionable<Unite::Unifier>,
-            public Possibilities::SelfMovable,
-            public Possibilities::RectangleSetters,
-            public Possibilities::RectangleInfo,
             public Possibilities::Movable,
+            public Possibilities::Moving,
             public Possibilities::CollisionProne,
-            public Possibilities::Rotatable,
+            public Possibilities::PhysicallySituated,
             public Possibilities::Drawable<sf::RenderTarget> {
     public:
+
+        /**
+         * @brief Default constructor.
+         */
         MaterialObject();
+
+        /**
+         * @brief Constructor that allows you to initiate an object of arbitrary shape.
+         * @param coordinates Object coordinates.
+         */
+        MaterialObject(const Components::Coordinates &coordinates);
 
         /**
          * @brief Method updated coordinates value.
          */
-        void updateCoordinates() noexcept;
+        virtual void updateCoordinates() noexcept;
 
         /**
          * @brief Method contains personal object update location logic.
@@ -53,7 +57,11 @@ namespace Material {
         /**
          * @brief Base collsion realization for material objects.
          */
-        virtual bool collision(float x, float y) const noexcept override;
+        bool collision(float x, float y) const noexcept override;
+
+        bool collision(const PhysicallySituated &object) const noexcept override;
+
+        void move(float offsetX, float offsetY) noexcept override;
 
         const Components::Coordinates &getCoordinates() const noexcept override;
 
@@ -65,9 +73,11 @@ namespace Material {
 }
 
 #ifndef FLASH_MOB_H
+#ifndef FLASH_OBSTACLE_H
 
 #include "../../unifier/common/Unifier.h"
 
-#endif //FLASH_MOB_H
+#endif
+#endif
 
 #endif //FLASH_MATERIALOBJECT_H

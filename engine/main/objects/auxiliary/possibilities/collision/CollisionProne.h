@@ -5,6 +5,8 @@
 #ifndef FLASH_COLLISIONPRONE_H
 #define FLASH_COLLISIONPRONE_H
 
+#include "../coordinates/PhysicallySituated.h"
+
 namespace Possibilities {
 
     /**
@@ -23,6 +25,12 @@ namespace Possibilities {
          * @param y coordinate.
          */
         virtual bool collision(float x, float y) const noexcept = 0;
+
+        /**
+         * @brief Method checks object collision to other object.
+         * @param object Other object.
+         */
+        virtual bool collision(const Possibilities::PhysicallySituated &object) const noexcept = 0;
 
         virtual ~CollisionProne() = default;
     };

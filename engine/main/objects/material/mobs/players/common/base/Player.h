@@ -8,7 +8,7 @@
 #include "../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 #include "../../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../../../view/windows/base/observer/Observer.h"
-#include "../../../../../auxiliary/possibilities/Physical.h"
+#include "../../../../../auxiliary/possibilities/Peculiar.h"
 #include "../../../common/base/Mob.h"
 #include "../../control/KeyAlias.h"
 

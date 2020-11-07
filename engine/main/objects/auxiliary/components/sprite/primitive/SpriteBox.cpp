@@ -3,7 +3,7 @@
 //
 
 #include "SpriteBox.h"
-#include "../../../../../../utils/math/RectangleMath.h"
+#include "../../math/RotatingMath.h"
 
 Components::SpriteBox::SpriteBox(const Components::Area &area, const std::shared_ptr<sf::Texture> &texture)
         : ISpriteBox(texture, new sf::Sprite()), m_area(area) {
@@ -34,7 +34,7 @@ void Components::SpriteBox::rotate(float angle, float x, float y) noexcept {
 }
 
 void Components::SpriteBox::rotate(float angle, const Components::Point &point) noexcept {
-    this->setPosition(MathUtils::pointToPointRotation(this->getPosition(), angle, point));
+    this->setPosition(Math::pointToPointRotation(this->getPosition(), angle, point));
     this->rotate(angle);
 }
 

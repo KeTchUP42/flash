@@ -43,21 +43,21 @@ void Effects::GravityPointEffect::applyEffect(Unite::Unifier *unifier) {
         }
     }
 
-    for (const std::shared_ptr<Obstacles::Obstacle> &obstacle : unifier->getObstacles()) {
-        if (!obstacle->getProperties().isFixed) {
+    for (Obstacles::Block *block : unifier->getBlocks()) {
+        if (!block->getProperties().isFixed) {
 
-            float obstacleX = obstacle->getPosition().x + obstacle->getSize().width;
+            float obstacleX = block->getPosition().x + block->getSize().width;
             if (obstacleX > m_point.x) {
-                obstacle->addSpeed(-ACCELERATION, 0);
+                block->addSpeed(-ACCELERATION, 0);
             } else if (obstacleX < m_point.x) {
-                obstacle->addSpeed(ACCELERATION, 0);
+                block->addSpeed(ACCELERATION, 0);
             }
 
-            float obstacleY = obstacle->getPosition().y + obstacle->getSize().height;
+            float obstacleY = block->getPosition().y + block->getSize().height;
             if (obstacleY > m_point.y) {
-                obstacle->addSpeed(0, -ACCELERATION);
+                block->addSpeed(0, -ACCELERATION);
             } else if (obstacleY < m_point.y) {
-                obstacle->addSpeed(0, ACCELERATION);
+                block->addSpeed(0, ACCELERATION);
             }
         }
     }

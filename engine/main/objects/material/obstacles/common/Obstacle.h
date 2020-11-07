@@ -5,7 +5,7 @@
 #ifndef FLASH_OBSTACLE_H
 #define FLASH_OBSTACLE_H
 
-#include "../../../auxiliary/possibilities/Physical.h"
+#include "../../../auxiliary/possibilities/Peculiar.h"
 #include "properties/ObstacleProperties.h"
 #include "../../common/MaterialObject.h"
 
@@ -18,7 +18,7 @@ namespace Obstacles {
      * This class defines base Obstacle interface and realization.
     */
     class Obstacle : public Material::MaterialObject,
-                     public Possibilities::Physical<Obstacles::ObstacleProperties> {
+                     public Possibilities::Peculiar<Obstacles::ObstacleProperties> {
     public:
         /**
          * @brief Base obstacle constructor.
@@ -40,5 +40,7 @@ namespace Obstacles {
         ObstacleProperties m_properties;
     };
 }
+
+#include "../../../unifier/common/Unifier.h"
 
 #endif //FLASH_OBSTACLE_H

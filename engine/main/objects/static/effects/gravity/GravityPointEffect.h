@@ -9,7 +9,7 @@
 
 namespace Effects {
 
-    class GravityPointEffect : public Effect, public Possibilities::Movable {
+    class GravityPointEffect : public Effect, public Possibilities::Moving {
     public:
         explicit GravityPointEffect(const Components::Point &point, float acceleration);
 

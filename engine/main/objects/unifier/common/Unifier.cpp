@@ -92,6 +92,34 @@ const std::list<std::shared_ptr<Obstacles::Obstacle>> &Unite::Unifier::getObstac
     return m_obstacles;
 }
 
+void Unite::Unifier::addBlock(Obstacles::Block *block) noexcept {
+    m_blocks.push_back(block);
+    this->addObstacle(block);
+}
+
+void Unite::Unifier::addBlock(const std::shared_ptr<Obstacles::Block> &block) noexcept {
+    m_blocks.push_back(block.get());
+    this->addObstacle(block);
+}
+
+void Unite::Unifier::removeBlock(Obstacles::Block *block) noexcept {
+    m_blocks.remove_if([block](Obstacles::Block *blck) -> bool {
+        return blck == block;
+    });
+    this->removeObstacle(block);
+}
+
+void Unite::Unifier::removeBlock(const std::shared_ptr<Obstacles::Block> &block) noexcept {
+    m_blocks.remove_if([block](Obstacles::Block *blck) -> bool {
+        return blck == block.get();
+    });
+    this->removeObstacle(block);
+}
+
+const std::list<Obstacles::Block *> &Unite::Unifier::getBlocks() const noexcept {
+    return m_blocks;
+}
+
 void Unite::Unifier::addPlayer(Mobs::Player *player) noexcept {
     m_players.push_back(std::shared_ptr<Mobs::Player>(player));
 }

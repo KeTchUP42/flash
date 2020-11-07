@@ -23,6 +23,12 @@ namespace Material {
         template<class Type>
         Type *ordinateMoveAble(Material::MaterialObject *object, const std::list<std::shared_ptr<Type>> &objects) const noexcept;
 
+        template<class Type>
+        Type *abscissaMoveAble(Material::MaterialObject *object, const std::list<Type *> &objects) const noexcept;
+
+        template<class Type>
+        Type *ordinateMoveAble(Material::MaterialObject *object, const std::list<Type *> &objects) const noexcept;
+
         bool abscissaMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept;
 
         bool ordinateMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept;
@@ -65,6 +71,42 @@ namespace Material {
 
             if (movingOrdinateCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed, ANALYSIS_STEP_X)) {
                 return processed.get();
+            }
+        }
+        return nullptr;
+    }
+
+    template<class Type>
+    Type *MovingCollision::abscissaMoveAble(Material::MaterialObject *object, const std::list<Type *> &objects) const noexcept {
+        if (object->getSpeed().xSpeed == 0) return nullptr;
+
+        Components::Point objectMinCoordinates = minCoordinates(*object);
+        Components::Point objectMaxCoordinates = maxCoordinates(*object);
+
+        for (Type *processed : objects) {
+
+            if (processed == object) continue;
+
+            if (movingAbscissaCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed, ANALYSIS_STEP_Y)) {
+                return processed;
+            }
+        }
+        return nullptr;
+    }
+
+    template<class Type>
+    Type *MovingCollision::ordinateMoveAble(Material::MaterialObject *object, const std::list<Type *> &objects) const noexcept {
+        if (object->getSpeed().ySpeed == 0) return nullptr;
+
+        Components::Point objectMinCoordinates = minCoordinates(*object);
+        Components::Point objectMaxCoordinates = maxCoordinates(*object);
+
+        for (Type *processed : objects) {
+
+            if (processed == object) continue;
+
+            if (movingOrdinateCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed, ANALYSIS_STEP_X)) {
+                return processed;
             }
         }
         return nullptr;

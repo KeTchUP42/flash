@@ -5,9 +5,10 @@
 #ifndef FLASH_MOB_H
 #define FLASH_MOB_H
 
-#include "../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../../../../auxiliary/possibilities/Physical.h"
+#include "../../../../auxiliary/possibilities/rectangle/Rectangle.h"
+#include "../../../../auxiliary/components/elementary/area/Area.h"
+#include "../../../../auxiliary/possibilities/Peculiar.h"
 #include "../../../common/MaterialObject.h"
 #include "../properties/MobProperties.h"
 
@@ -20,7 +21,8 @@ namespace Mobs {
      * This class defines base Mob interface and realization.
     */
     class Mob : public Material::MaterialObject,
-                public Possibilities::Physical<MobProperties> {
+                public Possibilities::Rectangle,
+                public Possibilities::Peculiar<MobProperties> {
     public:
         explicit Mob(const MobProperties &properties, const Components::Area &area,
                      const std::shared_ptr<Components::ISpriteBox> &sprite);
@@ -30,6 +32,8 @@ namespace Mobs {
          * @param texture New texture.
          */
         void loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept;
+
+        void updateCoordinates() noexcept override;
 
         void draw(sf::RenderTarget &target) const noexcept override;
 
