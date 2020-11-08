@@ -1,5 +1,5 @@
  # Flash ![mush](docs/images/mushroom.png)
- ![Read the Docs](https://img.shields.io/readthedocs/docs)
+ ![AppVeyor](https://img.shields.io/appveyor/build/bwormguy/flash)
  ![Lines of code](https://img.shields.io/tokei/lines/github/bwormguy/flash)
  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bwormguy/flash)  
 
