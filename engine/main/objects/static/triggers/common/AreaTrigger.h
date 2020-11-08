@@ -9,7 +9,7 @@
 #include "../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../auxiliary/possibilities/rectangle/MaterialRectangle.h"
 #include "../../../material/common/collision/algorithms/collision/CommonCollisionAlgorithms.h"
-#include "../../../../../utils/math/rectangle.h"
+#include "../../../auxiliary/computations/CoordinatesComputations.h"
 
 namespace Triggers {
 
@@ -21,7 +21,7 @@ namespace Triggers {
     */
     class AreaTrigger : public Trigger, public Possibilities::MaterialRectangle {
     public:
-        AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(MathUtils::coordinates(this)) {}
+        AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(Computations::coordinates(this)) {}
 
         void update(const sf::Event &event, View::Window &sender) override;
 

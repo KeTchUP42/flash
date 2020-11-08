@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 
-namespace MathUtils {
+namespace Computations {
 
     /**
      * @brief Realization of split function.

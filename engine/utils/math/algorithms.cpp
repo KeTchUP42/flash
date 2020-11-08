@@ -4,7 +4,7 @@
 
 #include "algorithms.h"
 
-std::vector<std::string> MathUtils::split(const std::string &data, const char delimiter) noexcept {
+std::vector<std::string> Computations::split(const std::string &data, const char delimiter) noexcept {
     size_t start = 0;
     size_t end = data.find_first_of(delimiter);
     std::vector<std::string> output;

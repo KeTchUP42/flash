@@ -1,7 +1,7 @@
 #----------------------------------------------------------------------------
 # Cmake file with all include source files.
 #
-# Main variables are - ENTRY_POINT, DATA, OBJECTS, OTHER, VIEW, UTILS.
+# Main variables are - ENTRY_POINT, DATA, OBJECTS, SUPPORT, VIEW, UTILS.
 # Global engine source files variable - ENGINE.
 #----------------------------------------------------------------------------
 set(SETUP engine/init/setup/EngineConfigurator.cpp)
@@ -33,7 +33,8 @@ set(MATH_HELP engine/main/objects/auxiliary/components/math/RotatingMath.cpp)
 set(SPRITES engine/main/objects/auxiliary/components/sprite/common-base/ISprite.cpp engine/main/objects/auxiliary/components/sprite/primitive/ISpriteBox.cpp engine/main/objects/auxiliary/components/sprite/primitive/SpriteBox.cpp engine/main/objects/auxiliary/components/sprite/composite/ICompositeSprite.cpp engine/main/objects/auxiliary/components/sprite/composite/CompositeSprite.cpp)
 set(TEXT engine/main/objects/auxiliary/components/text/Text.cpp)
 set(COMPONENTS ${ELEMENTARY} ${MATH_HELP} ${SPRITES} ${TEXT})
-set(AUXILIARY ${COMPONENTS})
+set(COMPUTATIONS engine/main/objects/auxiliary/computations/CoordinatesComputations.cpp)
+set(AUXILIARY ${COMPONENTS} ${COMPUTATIONS})
 
 set(EFFECTS_GENERATORS engine/main/objects/generation/scene/generators/effects/BackAudioEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/generation/scene/generators/effects/GravityPointEffectGenerator.cpp)
 set(MOBS_GENERATORS engine/main/objects/generation/scene/generators/mobs/MushroomGenerator.cpp)
@@ -88,7 +89,7 @@ set(LOGGER engine/utils/logger/Logger.cpp engine/utils/logger/formatter/LoggerFo
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
 set(INI engine/utils/Ini/IniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp)
-set(MATH engine/utils/math/rectangle.cpp engine/utils/math/algorithms.cpp)
+set(MATH engine/utils/math/algorithms.cpp)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 
 set(EXCEPTIONS engine/main/support/exceptions/Exception.cpp)

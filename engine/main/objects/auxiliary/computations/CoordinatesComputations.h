@@ -5,10 +5,10 @@
 #ifndef FLASH_RECTANGLEMATH_H
 #define FLASH_RECTANGLEMATH_H
 
-#include "../../main/objects/auxiliary/possibilities/rectangle/RectangleGetters.h"
-#include "../../main/objects/auxiliary/components/elementary/coordinates/Coordinates.h"
+#include "../possibilities/rectangle/RectangleGetters.h"
+#include "../components/elementary/coordinates/Coordinates.h"
 
-namespace MathUtils {
+namespace Computations {
 
     /**
      * @brief Function returns rectangle coordinates.

@@ -2,13 +2,13 @@
 // Created by roman on 16.09.2020.
 //
 
-#include "rectangle.h"
+#include "CoordinatesComputations.h"
 
 #define _USE_MATH_DEFINES
 
 #include <math.h>
 
-Components::Coordinates MathUtils::coordinates(Possibilities::RectangleGetters *rectangle) noexcept {
+Components::Coordinates Computations::coordinates(Possibilities::RectangleGetters *rectangle) noexcept {
     //Conditional expected for pre-rounded degrees.
     if (rectangle->getRotation() == 0) {
         return Components::Coordinates(

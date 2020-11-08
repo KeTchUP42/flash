@@ -3,7 +3,7 @@
 //
 
 #include "Mob.h"
-#include "../../../../../../utils/math/rectangle.h"
+#include "../../../../auxiliary/computations/CoordinatesComputations.h"
 
 Mobs::Mob::Mob(const MobProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite)
         : m_area(area), m_properties(properties), m_sprite(sprite) {}
@@ -16,9 +16,9 @@ void Mobs::Mob::updateCoordinates() noexcept {
     //TODO Coordinates are not updated if you turn the real estate object.
     //Some optimization logic. Can be changed with general movement logic update.
     if (!((this->getSpeed().xSpeed == 0) && (this->getSpeed().ySpeed == 0))) {
-        m_coordinates = MathUtils::coordinates(this);
+        m_coordinates = Computations::coordinates(this);
     } else if (m_coordinates.list.empty()) {
-        m_coordinates = MathUtils::coordinates(this);
+        m_coordinates = Computations::coordinates(this);
     }
 }
 
