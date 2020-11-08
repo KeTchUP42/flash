@@ -8,6 +8,7 @@
 #include "../common-base/ISprite.h"
 #include "../../../possibilities/rectangle/RectangleGetters.h"
 #include "../../../possibilities/rectangle/RectangleSetters.h"
+#include "../../elementary/area/Area.h"
 
 #include <memory>
 
@@ -51,6 +52,12 @@ namespace Components {
          * @return Texture rect.
          */
         const sf::IntRect &getTextureRect() const noexcept;
+
+        /**
+         * @brief Method returns sprite box area.
+         * @return Sprite box area.
+         */
+        virtual const Components::Area &getArea() const noexcept = 0;
 
         /**
          * @brief Method return sprite color.

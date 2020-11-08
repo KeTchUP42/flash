@@ -5,13 +5,11 @@
 #ifndef FLASH_INVISIBLEBLOCK_H
 #define FLASH_INVISIBLEBLOCK_H
 
-#include "../../common/Block.h"
-#include "../../../../../auxiliary/components/elementary/area/Area.h"
-#include "../../../../common/algorithms/Algorithms.h"
+#include "../../common/BaseBlock.h"
 
 namespace Obstacles {
 
-    class InvisibleBlock : public Block {
+    class InvisibleBlock : public BaseBlock {
     public:
         explicit InvisibleBlock(
                 const ObstacleProperties &properties,
@@ -20,32 +18,6 @@ namespace Obstacles {
         );
 
         void draw(sf::RenderTarget &target) const noexcept override;
-
-        void move(float offsetX, float offsetY) noexcept override;
-
-        const Components::Point &getPosition() const noexcept override;
-
-        const Components::Size &getSize() const noexcept override;
-
-        float getRotation() const noexcept override;
-
-        void setPosition(const Components::Point &point) noexcept override;
-
-        void setPosition(float x, float y) noexcept override;
-
-        void setSize(const Components::Size &size) noexcept override;
-
-        void setRotation(float angle) noexcept override;
-
-        void rotate(float angle) noexcept override;
-
-        void rotate(float angle, float x, float y) noexcept override;
-
-        void rotate(float angle, const Components::Point &point) noexcept override;
-
-    protected:
-        Components::Area m_area;
-        std::shared_ptr<Material::Algorithms> m_algorithms;
     };
 }
 

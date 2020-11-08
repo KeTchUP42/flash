@@ -5,14 +5,12 @@
 #ifndef FLASH_COMPOSITESPRITEBLOCK_H
 #define FLASH_COMPOSITESPRITEBLOCK_H
 
-#include "../../../common/Block.h"
-#include "../../../../../../auxiliary/components/elementary/area/Area.h"
+#include "../../../common/BaseBlock.h"
 #include "../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 
-    class CompositeSpriteBlock : public Block {
+    class CompositeSpriteBlock : public BaseBlock {
     public:
         explicit CompositeSpriteBlock(
                 const ObstacleProperties &properties,
@@ -37,26 +35,10 @@ namespace Obstacles {
 
         void rotate(float angle, const Components::Point &point) noexcept override;
 
-        const Components::Point &getPosition() const noexcept override;
-
-        const Components::Size &getSize() const noexcept override;
-
-        float getRotation() const noexcept override;
-
-        void setPosition(const Components::Point &point) noexcept override;
-
-        void setPosition(float x, float y) noexcept override;
-
-        void setSize(const Components::Size &size) noexcept override;
-
-        void setRotation(float angle) noexcept override;
-
         virtual ~CompositeSpriteBlock() = default;
 
     protected:
-        Components::Area m_area;
         std::shared_ptr<Components::ISprite> m_sprite;
-        std::shared_ptr<Material::Algorithms> m_algorithms;
     };
 }
 

@@ -58,8 +58,8 @@ void Components::SpriteBox::setRotation(float angle) noexcept {
     m_sprite->setRotation(angle);
 }
 
-float Components::SpriteBox::getRotation() const noexcept {
-    return m_sprite->getRotation();
+const Components::Area &Components::SpriteBox::getArea() const noexcept {
+    return m_area;
 }
 
 const Components::Point &Components::SpriteBox::getPosition() const noexcept {
@@ -68,4 +68,8 @@ const Components::Point &Components::SpriteBox::getPosition() const noexcept {
 
 const Components::Size &Components::SpriteBox::getSize() const noexcept {
     return m_area.m_size;
+}
+
+float Components::SpriteBox::getRotation() const noexcept {
+    return m_sprite->getRotation();
 }

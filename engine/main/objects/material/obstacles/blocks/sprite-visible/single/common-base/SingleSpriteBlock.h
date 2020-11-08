@@ -5,13 +5,12 @@
 #ifndef FLASH_SINGLESPRITEBLOCK_H
 #define FLASH_SINGLESPRITEBLOCK_H
 
-#include "../../../common/Block.h"
+#include "../../../common/BaseBlock.h"
 #include "../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../../../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 
-    class SingleSpriteBlock : public Block {
+    class SingleSpriteBlock : public BaseBlock {
     public:
         explicit SingleSpriteBlock(
                 const ObstacleProperties &properties,
@@ -35,12 +34,6 @@ namespace Obstacles {
 
         void rotate(float angle, const Components::Point &point) noexcept override;
 
-        const Components::Point &getPosition() const noexcept override;
-
-        const Components::Size &getSize() const noexcept override;
-
-        float getRotation() const noexcept override;
-
         void setPosition(const Components::Point &point) noexcept override;
 
         void setPosition(float x, float y) noexcept override;
@@ -53,7 +46,6 @@ namespace Obstacles {
 
     protected:
         std::shared_ptr<Components::ISpriteBox> m_sprite;
-        std::shared_ptr<Material::Algorithms> m_algorithms;
     };
 }
 

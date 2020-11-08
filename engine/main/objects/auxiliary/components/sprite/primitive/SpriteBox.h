@@ -32,11 +32,13 @@ namespace Components {
 
         void setRotation(float angle) noexcept override;
 
-        float getRotation() const noexcept override;
+        const Components::Area &getArea() const noexcept override;
 
         const Components::Point &getPosition() const noexcept override;
 
         const Components::Size &getSize() const noexcept override;
+
+        float getRotation() const noexcept override;
 
     protected:
         Components::Area m_area;
