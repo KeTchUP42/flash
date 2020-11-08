@@ -13,10 +13,10 @@ void Mobs::Mob::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noex
 }
 
 void Mobs::Mob::updateCoordinates() noexcept {
-    //TODO Coordinates are not updated if you turn the real estate object.
     //Some optimization logic. Can be changed with general movement logic update.
-    if (!((this->getSpeed().xSpeed == 0) && (this->getSpeed().ySpeed == 0))) {
+    if ((m_AreaDump.m_point != m_area.m_point) || (m_AreaDump.m_size != m_area.m_size) || (m_AreaDump.m_angle != m_area.m_angle)) {
         m_coordinates = Computations::coordinates(this);
+        m_AreaDump = m_area;
     } else if (m_coordinates.list.empty()) {
         m_coordinates = Computations::coordinates(this);
     }

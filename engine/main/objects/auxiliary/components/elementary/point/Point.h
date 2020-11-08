@@ -60,14 +60,14 @@ namespace Components {
     Point &operator-=(Point &left, const Point &right);
 
     /**
-     * @brief Method overload comparison operator.
+     * @brief Method overloads comparison operator.
      * @param left Left operand.
      * @param right Compared object.
      */
     bool operator==(const Point &left, const Point &right) noexcept;
 
     /**
-     * @brief Method overload comparison operator.
+     * @brief Method overloads comparison operator.
      * @param left Left operand.
      * @param right Compared object.
      */

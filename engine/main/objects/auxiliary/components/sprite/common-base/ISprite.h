@@ -11,7 +11,7 @@
 #include "../../../possibilities/Moving.h"
 #include "../../../possibilities/Rotatable.h"
 #include "../../elementary/point/Point.h"
-#include "../../elementary/Size.h"
+#include "../../elementary/size/Size.h"
 
 #include <SFML/Graphics.hpp>
 

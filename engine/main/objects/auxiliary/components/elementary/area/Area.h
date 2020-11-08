@@ -8,7 +8,7 @@
 #include "../../../possibilities/rectangle/Rectangle.h"
 #include "../../../possibilities/Moving.h"
 #include "../point/Point.h"
-#include "../Size.h"
+#include "../size/Size.h"
 
 namespace Components {
 

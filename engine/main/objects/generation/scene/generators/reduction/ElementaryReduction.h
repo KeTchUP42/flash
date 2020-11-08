@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics/Color.hpp>
 #include "../../../../auxiliary/components/elementary/speed/Speed.h"
-#include "../../../../auxiliary/components/elementary/Size.h"
+#include "../../../../auxiliary/components/elementary/size/Size.h"
 #include "../../../../auxiliary/components/elementary/point/Point.h"
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 #include "../../../../../../utils/math/algorithms.h"

@@ -69,6 +69,9 @@ namespace Mobs {
 
         const MobProperties &getProperties() const noexcept override;
 
+    private:
+        Components::Area m_AreaDump = m_area;
+
     protected:
         Components::Area m_area;
         MobProperties m_properties;
