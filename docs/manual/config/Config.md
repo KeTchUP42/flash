@@ -39,7 +39,7 @@
     height = 720
 
     ; Window icon image file:
-    icon = window/icons/icon_1.png
+    icon = window/icons/Flash.png
 
     ; Window vertical sync enabled:
     VerticalSync = 0
