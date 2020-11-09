@@ -26,18 +26,10 @@ namespace IniUtil {
          * Method returns full ini config data in IniData type.
          * Configs without block will be in NONAME_BLOCK section.
          *
-          * @param lines std::vector<std::string>
-          * @return Analyzer::IniData
+         * @param lines Collection with file lines.
+         * @return Processed config data.
          */
         virtual IniData fullparse(const std::vector<std::string> &lines) const noexcept = 0;
-
-        /**
-         * Method clears data from comments and other.
-         * Mostly used in other Analyzer methods.
-         *
-         * @param data
-         */
-        virtual void clear(std::string &data) const noexcept = 0;
 
         virtual ~Analyzer() = default;
     };

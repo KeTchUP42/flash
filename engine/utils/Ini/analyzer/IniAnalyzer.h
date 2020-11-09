@@ -12,8 +12,6 @@ namespace IniUtil {
     class IniAnalyzer : public Analyzer {
     public:
         IniData fullparse(const std::vector<std::string> &lines) const noexcept override;
-
-        void clear(std::string &data) const noexcept override;
     };
 }
 

@@ -5,10 +5,10 @@
 #ifndef FLASH_WINDOW_H
 #define FLASH_WINDOW_H
 
+#include <SFML/Graphics.hpp>
 #include <list>
 #include <memory>
 #include <thread>
-#include <SFML/Graphics.hpp>
 
 #include "../observer/Observer.h"
 

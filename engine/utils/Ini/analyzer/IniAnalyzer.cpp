@@ -8,6 +8,12 @@
 
 #include <regex>
 
+static inline void clear(std::string &data) noexcept {
+    data = std::regex_replace(data, std::regex{";.*\n"}, "");
+    data = std::regex_replace(data, std::regex{";.*"}, "");
+    Trim::trim(data);
+}
+
 IniUtil::Analyzer::IniData
 IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noexcept {
     std::string blockName = IniProcessor::NONAME_BLOCK;
@@ -15,7 +21,7 @@ IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noe
     result[blockName] = IniBlock();
 
     for (std::string line : lines) {
-        this->clear(line);
+        clear(line);
         if (line == "") continue;
 
         if (std::regex_match(line, std::regex{" *\\[[^\\]\\[]*\\] *"})) {
@@ -40,10 +46,4 @@ IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noe
         }
     }
     return result;
-}
-
-void IniUtil::IniAnalyzer::clear(std::string &data) const noexcept {
-    data = std::regex_replace(data, std::regex{";.*\n"}, "");
-    data = std::regex_replace(data, std::regex{";.*"}, "");
-    Trim::trim(data);
 }

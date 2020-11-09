@@ -6,7 +6,6 @@
 #define FLASH_BASICPLAYER_H
 
 #include "../../common/base/BasePlayer.h"
-#include "../../../../common/collision/Collision.h"
 #include "properties/BasicPlayerProperties.h"
 
 namespace Mobs {
