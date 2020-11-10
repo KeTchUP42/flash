@@ -69,6 +69,10 @@ namespace Mobs {
 
         const MobProperties &getProperties() const noexcept override;
 
+        void setHealthPoints(float healthPoints) noexcept;
+
+        void kill() noexcept;
+
     private:
         Components::Area m_AreaDump = m_area;
 

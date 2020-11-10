@@ -11,3 +11,5 @@
      * [PlayerAudioTrigger](PlayerAudioTrigger.md)
      * [SingleMobsAudioTrigger](SingleMobsAudioTrigger.md)
      * [SinglePlayerAudioTrigger](SinglePlayerAudioTrigger.md)
+ * Impact triggers - designed to change objects state.
+     * [PlayerDeathTrigger](PlayerDeathTrigger.md)

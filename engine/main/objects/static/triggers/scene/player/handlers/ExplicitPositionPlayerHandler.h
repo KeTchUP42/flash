@@ -5,7 +5,7 @@
 #ifndef FLASH_EXPLICITPOSITIONPLAYERHANDLER_H
 #define FLASH_EXPLICITPOSITIONPLAYERHANDLER_H
 
-#include "../../handler/Handler.h"
+#include "../../../common/handler/Handler.h"
 #include "../../../../../material/mobs/players/common/base/Player.h"
 
 namespace Triggers {

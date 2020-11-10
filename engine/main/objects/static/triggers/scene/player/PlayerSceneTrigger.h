@@ -6,14 +6,14 @@
 #define FLASH_PLAYERSCENETRIGGER_H
 
 #include "../SceneTrigger.h"
-#include "../handler/Handler.h"
+#include "../../common/handler/Handler.h"
 
 namespace Triggers {
 
     class PlayerSceneTrigger : public SceneTrigger {
     public:
-        PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
-                           Handler<Mobs::Player> *handler, View::StateChangeable *context);
+        explicit PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
+                                    Handler<Mobs::Player> *handler, View::StateChangeable *context);
 
         ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept override;
 

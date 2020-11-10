@@ -22,6 +22,7 @@
 #include "../generators/triggers/MobsAudioTriggerGenerator.h"
 #include "../generators/triggers/SinglePlayerAudioTriggerGenerator.h"
 #include "../generators/triggers/SingleMobsAudioTriggerGenerator.h"
+#include "../generators/triggers/PlayerDeathTriggerGenerator.h"
 
 Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, View::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
@@ -80,6 +81,8 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new SinglePlayerAudioTriggerGenerator(m_pool);
     if (alias == "SingleMobsAudioTrigger")
         return new SingleMobsAudioTriggerGenerator(m_pool);
+    if (alias == "PlayerDeathTrigger")
+        return new PlayerDeathTriggerGenerator(m_pool);
 
     return nullptr;
 }

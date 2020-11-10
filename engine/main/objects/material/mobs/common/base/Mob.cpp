@@ -99,3 +99,12 @@ const Components::Speed &Mobs::Mob::getSpeed() const noexcept {
 const Mobs::MobProperties &Mobs::Mob::getProperties() const noexcept {
     return m_properties;
 }
+
+void Mobs::Mob::setHealthPoints(float healthPoints) noexcept {
+    m_properties.healthPoints = healthPoints;
+}
+
+void Mobs::Mob::kill() noexcept {
+    this->setHealthPoints(0);
+}
+
