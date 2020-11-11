@@ -1,10 +1,10 @@
- ## PlayerDeathTrigger
+ ## MobsDeathTrigger
 
- This trigger sets players health points to zero.
+ This trigger sets mobs health points to zero.
 
  **Configuration block example:**
 
-    [PlayerDeathTrigger]
+    [MobsDeathTrigger]
     POSITION = 475:500
     SIZE = 100:100
     ANGLE = 0
