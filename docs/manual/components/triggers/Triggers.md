@@ -14,3 +14,4 @@
  * Impact triggers - designed to change objects state.
      * [MobsDeathTrigger](MobsDeathTrigger.md)
      * [PlayerDeathTrigger](PlayerDeathTrigger.md)
+     * [AccelerationPlayerTrigger](AccelerationPlayerTrigger.md)
