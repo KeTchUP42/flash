@@ -1,6 +1,6 @@
  ## AccelerationPlayerTrigger
 
- This trigger gives some acceleration for all players.
+ This trigger gives some acceleration for all players who enters the trigger area.
 
  **Configuration block example:**
 

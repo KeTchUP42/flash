@@ -1,6 +1,6 @@
  ## AccelerationMobsTrigger
 
- This trigger gives some acceleration for all players.
+ This trigger gives some acceleration for all mobs who enters the trigger area.
 
  **Configuration block example:**
 
