@@ -75,7 +75,7 @@ set(AUDIO_EFFECTS engine/main/objects/static/effects/audio/back/BackAudioEffect.
 set(GRAVITY_EFFECTS engine/main/objects/static/effects/gravity/GravityEffect.cpp engine/main/objects/static/effects/gravity/GravityPointEffect.cpp)
 set(EFFECTS ${AUDIO_EFFECTS} ${GRAVITY_EFFECTS})
 
-set(HANDLERS engine/main/objects/static/triggers/impact/mobs/handlers/AccelerationMobsHandler.cpp engine/main/objects/static/triggers/impact/player/handlers/AccelerationPlayerHandler.cpp engine/main/objects/static/triggers/impact/mobs/handlers/DeathMobsHandler.cpp engine/main/objects/static/triggers/impact/player/handlers/DeathPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.cpp)
+set(HANDLERS engine/main/objects/static/triggers/scene/player/handlers/ExplicitPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/AbscissaPositionPlayerHandler.cpp engine/main/objects/static/triggers/scene/player/handlers/OrdinatePositionPlayerHandler.cpp)
 set(SCENE_TRIGGERS engine/main/objects/static/triggers/scene/player/PlayerSceneTrigger.cpp)
 set(AUDIO_TRIGGERS engine/main/objects/static/triggers/audio/mobs/MobsAudioTrigger.cpp engine/main/objects/static/triggers/audio/player/PlayerAudioTrigger.cpp engine/main/objects/static/triggers/audio/mobs/SingleMobsAudioTrigger.cpp engine/main/objects/static/triggers/audio/player/SinglePlayerAudioTrigger.cpp)
 set(IMPACT_TRIGGERS engine/main/objects/static/triggers/impact/mobs/ImpactMobsTrigger.cpp engine/main/objects/static/triggers/impact/player/ImpactPlayerTrigger.cpp)

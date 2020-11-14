@@ -72,6 +72,10 @@ namespace Material {
     };
 }
 
+/**
+ * These preprocessor directives are necessary for successful compilation.
+ * When adding a new branch of material objects, additional directives should be added.
+ */
 #ifndef FLASH_MOB_H
 #ifndef FLASH_OBSTACLE_H
 
