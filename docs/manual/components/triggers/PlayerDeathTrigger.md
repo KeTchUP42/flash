@@ -1,6 +1,6 @@
  ## PlayerDeathTrigger
 
- This trigger sets players health points to zero.
+ This trigger sets health points to zero for all players who enters the trigger area.
 
  **Configuration block example:**
 

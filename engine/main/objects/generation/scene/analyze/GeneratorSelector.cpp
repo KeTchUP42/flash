@@ -24,8 +24,10 @@
 #include "../generators/triggers/SingleMobsAudioTriggerGenerator.h"
 #include "../generators/triggers/PlayerDeathTriggerGenerator.h"
 #include "../generators/triggers/MobsDeathTriggerGenerator.h"
+#include "../generators/triggers/DeathTriggerGenerator.h"
 #include "../generators/triggers/AccelerationPlayerTriggerGenerator.h"
 #include "../generators/triggers/AccelerationMobsTriggerGenerator.h"
+#include "../generators/triggers/AccelerationTriggerGenerator.h"
 
 Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, View::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
@@ -88,10 +90,14 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new PlayerDeathTriggerGenerator(m_pool);
     if (alias == "MobsDeathTrigger")
         return new MobsDeathTriggerGenerator(m_pool);
+    if (alias == "DeathTrigger")
+        return new DeathTriggerGenerator(m_pool);
     if (alias == "AccelerationPlayerTrigger")
         return new AccelerationPlayerTriggerGenerator(m_pool);
     if (alias == "AccelerationMobsTrigger")
         return new AccelerationMobsTriggerGenerator(m_pool);
+    if (alias == "AccelerationTrigger")
+        return new AccelerationTriggerGenerator(m_pool);
 
     return nullptr;
 }
