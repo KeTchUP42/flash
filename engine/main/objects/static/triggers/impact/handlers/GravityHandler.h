@@ -2,17 +2,17 @@
 // Created by roman on 14.11.2020.
 //
 
-#ifndef FLASH_ACCELERATIONHANDLER_H
-#define FLASH_ACCELERATIONHANDLER_H
+#ifndef FLASH_GRAVITYHANDLER_H
+#define FLASH_GRAVITYHANDLER_H
 
 #include "../../common/handler/Handler.h"
 
 namespace Triggers {
 
     template<class Type>
-    class AccelerationHandler : public Handler<Type> {
+    class GravityHandler : public Handler<Type> {
     public:
-        explicit AccelerationHandler(float accelerationX, float accelerationY)
+        explicit GravityHandler(float accelerationX, float accelerationY)
                 : X_ACCELERATION(accelerationX), Y_ACCELERATION(accelerationY) {}
 
         void handle(Type &object) const noexcept override {
@@ -25,4 +25,4 @@ namespace Triggers {
     };
 }
 
-#endif //FLASH_ACCELERATIONHANDLER_H
+#endif //FLASH_GRAVITYHANDLER_H

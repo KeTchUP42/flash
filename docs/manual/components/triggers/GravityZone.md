@@ -1,13 +1,16 @@
- ## PlayerDeathTrigger
+ ## GravityZone
 
- This trigger sets health points to zero for all players who enters the trigger area.
+ This trigger gives some acceleration for all mobs or players who enters the trigger area.  
+ It generates atomic triggers, each of which is responsible for processing its own objects.
 
  **Configuration block example:**
 
-    [PlayerDeathTrigger]
+    [GravityZone]
     POSITION = 475:500
     SIZE = 100:100
     ANGLE = 0
+    X_ACCELERATION = 0
+    Y_ACCELERATION = 0.8
 
  ### Explanation:
 

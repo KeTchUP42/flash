@@ -2,11 +2,11 @@
 // Created by roman on 11.11.2020.
 //
 
-#include "ImpactMobsTrigger.h"
+#include "ImpactMobsZone.h"
 
-Triggers::ImpactMobsTrigger::ImpactMobsTrigger(const Components::Area &area, Triggers::Handler<Mobs::Mob> *handler) : ImpactTrigger(area, handler) {}
+Triggers::ImpactMobsZone::ImpactMobsZone(const Components::Area &area, Triggers::Handler<Mobs::Mob> *handler) : ImpactZone(area, handler) {}
 
-Triggers::ResultCodes Triggers::ImpactMobsTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
+Triggers::ResultCodes Triggers::ImpactMobsZone::verifyTrigger(Unite::Unifier *unifier) noexcept {
     for (const std::shared_ptr<Mobs::Mob> &mob: unifier->getMobs()) {
 
         if (Material::OptimizedCollision<Possibilities::MaterialRectangle, Mobs::Mob>(*this, *mob)) {

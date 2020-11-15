@@ -22,12 +22,12 @@
 #include "../generators/triggers/MobsAudioTriggerGenerator.h"
 #include "../generators/triggers/SinglePlayerAudioTriggerGenerator.h"
 #include "../generators/triggers/SingleMobsAudioTriggerGenerator.h"
-#include "../generators/triggers/PlayerDeathTriggerGenerator.h"
-#include "../generators/triggers/MobsDeathTriggerGenerator.h"
-#include "../generators/triggers/DeathTriggerGenerator.h"
-#include "../generators/triggers/AccelerationPlayerTriggerGenerator.h"
-#include "../generators/triggers/AccelerationMobsTriggerGenerator.h"
-#include "../generators/triggers/AccelerationTriggerGenerator.h"
+#include "../generators/triggers/PlayerDeathZoneGenerator.h"
+#include "../generators/triggers/MobsDeathZoneGenerator.h"
+#include "../generators/triggers/DeathZoneGenerator.h"
+#include "../generators/triggers/GravityPlayerZoneGenerator.h"
+#include "../generators/triggers/GravityMobsZoneGenerator.h"
+#include "../generators/triggers/GravityZoneGenerator.h"
 
 Generate::GeneratorSelector::GeneratorSelector(Generate::Pools::SourcePool &pool, View::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
@@ -86,18 +86,18 @@ Generate::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new SinglePlayerAudioTriggerGenerator(m_pool);
     if (alias == "SingleMobsAudioTrigger")
         return new SingleMobsAudioTriggerGenerator(m_pool);
-    if (alias == "PlayerDeathTrigger")
-        return new PlayerDeathTriggerGenerator(m_pool);
-    if (alias == "MobsDeathTrigger")
-        return new MobsDeathTriggerGenerator(m_pool);
-    if (alias == "DeathTrigger")
-        return new DeathTriggerGenerator(m_pool);
-    if (alias == "AccelerationPlayerTrigger")
-        return new AccelerationPlayerTriggerGenerator(m_pool);
-    if (alias == "AccelerationMobsTrigger")
-        return new AccelerationMobsTriggerGenerator(m_pool);
-    if (alias == "AccelerationTrigger")
-        return new AccelerationTriggerGenerator(m_pool);
+    if (alias == "PlayerDeathZone")
+        return new PlayerDeathZoneGenerator(m_pool);
+    if (alias == "MobsDeathZone")
+        return new MobsDeathZoneGenerator(m_pool);
+    if (alias == "DeathZone")
+        return new DeathZoneGenerator(m_pool);
+    if (alias == "GravityPlayerZone")
+        return new GravityPlayerZoneGenerator(m_pool);
+    if (alias == "GravityMobsZone")
+        return new GravityMobsZoneGenerator(m_pool);
+    if (alias == "GravityZone")
+        return new GravityZoneGenerator(m_pool);
 
     return nullptr;
 }

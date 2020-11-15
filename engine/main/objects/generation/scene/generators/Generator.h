@@ -23,7 +23,7 @@ namespace Generate {
 
         /**
          * @brief Method generats new object from data and adds it to unifier.
-         * @param data Object data.
+         * @param data Data object.
          * @param unifier Target unifier.
          * @param window Target window.
          */

@@ -1,11 +1,10 @@
- ## DeathTrigger
+ ## PlayerDeathZone
 
- This trigger sets health points to zero for all mobs or players who enters the trigger area.  
- It generates atomic triggers, each of which is responsible for processing its own objects.
+ This trigger sets health points to zero for all players who enters the trigger area.
 
  **Configuration block example:**
 
-    [DeathTrigger]
+    [PlayerDeathZone]
     POSITION = 475:500
     SIZE = 100:100
     ANGLE = 0

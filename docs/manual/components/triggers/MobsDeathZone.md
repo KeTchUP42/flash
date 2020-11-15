@@ -1,15 +1,13 @@
- ## AccelerationPlayerTrigger
+ ## MobsDeathZone
 
- This trigger gives some acceleration for all players who enters the trigger area.
+ This trigger sets health points to zero for all mobs who enters the trigger area.
 
  **Configuration block example:**
 
-    [AccelerationPlayerTrigger]
+    [MobsDeathZone]
     POSITION = 475:500
     SIZE = 100:100
     ANGLE = 0
-    X_ACCELERATION = 0
-    Y_ACCELERATION = 0.8
 
  ### Explanation:
 

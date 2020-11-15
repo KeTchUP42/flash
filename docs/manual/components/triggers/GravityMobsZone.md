@@ -1,10 +1,10 @@
- ## AccelerationMobsTrigger
+ ## GravityMobsZone
 
  This trigger gives some acceleration for all mobs who enters the trigger area.
 
  **Configuration block example:**
 
-    [AccelerationMobsTrigger]
+    [GravityMobsZone]
     POSITION = 475:500
     SIZE = 100:100
     ANGLE = 0

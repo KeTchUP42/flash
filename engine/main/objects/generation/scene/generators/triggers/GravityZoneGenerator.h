@@ -2,19 +2,19 @@
 // Created by roman on 15.11.2020.
 //
 
-#ifndef FLASH_DEATHTRIGGERGENERATOR_H
-#define FLASH_DEATHTRIGGERGENERATOR_H
+#ifndef FLASH_GRAVITYZONEGENERATOR_H
+#define FLASH_GRAVITYZONEGENERATOR_H
 
 #include "../Generator.h"
 
 namespace Generate {
 
-    class DeathTriggerGenerator : public Generator {
+    class GravityZoneGenerator : public Generator {
     public:
-        DeathTriggerGenerator(Pools::SourcePool &pool);
+        GravityZoneGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };
 }
 
-#endif //FLASH_DEATHTRIGGERGENERATOR_H
+#endif //FLASH_GRAVITYZONEGENERATOR_H
