@@ -73,6 +73,10 @@ void Unite::SceneUnifier::refresh() {
         return player->getProperties().isRemovable;
     });
 
+    m_obstacles.remove_if([](const std::shared_ptr<Obstacles::Obstacle> &obstacle) -> bool {
+        return obstacle->getProperties().isRemovable;
+    });
+
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateLocation();
     }

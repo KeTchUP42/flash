@@ -18,11 +18,6 @@ namespace Mobs {
                 : Material::MaterialObjectProperties(speed), healthPoints(healthPoints) {}
 
         float healthPoints;
-
-        /**
-         * @brief If the flag is set, the object will be removed from the unifier when the frame is completed.
-         */
-        bool isRemovable = false;
     };
 }
 
