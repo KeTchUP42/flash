@@ -14,7 +14,9 @@ Mobs::Mushroom::Mushroom(
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     if (m_properties.healthPoints <= 0) {
-        m_properties.isRemovable = true;
+        unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
+            unifier1->removeMob(this);
+        });
     } else {
         for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
             if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), this)) {

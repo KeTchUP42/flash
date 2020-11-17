@@ -6,7 +6,7 @@
 
 void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: m_back) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: m_back_sprites) {
         sprite->draw(target);
     }
 
@@ -26,13 +26,12 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
         player->draw(target);
     }
 
-    for (const std::shared_ptr<Components::ISprite> &sprite: m_front) {
+    for (const std::shared_ptr<Components::ISprite> &sprite: m_front_sprites) {
         sprite->draw(target);
     }
 }
 
 void Unite::SceneUnifier::refresh() {
-
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateCoordinates();
     }
@@ -65,17 +64,12 @@ void Unite::SceneUnifier::refresh() {
         obstacle->selfAction(this);
     }
 
-    m_mobs.remove_if([](const std::shared_ptr<Mobs::Mob> &mob) -> bool {
-        return mob->getProperties().isRemovable;
-    });
-
-    m_players.remove_if([](const std::shared_ptr<Mobs::Player> &player) -> bool {
-        return player->getProperties().isRemovable;
-    });
-
-    m_obstacles.remove_if([](const std::shared_ptr<Obstacles::Obstacle> &obstacle) -> bool {
-        return obstacle->getProperties().isRemovable;
-    });
+    {
+        for (const std::function<void(Unite::Unifier *)> &action: m_frame_actions) {
+            action(this);
+        }
+        m_frame_actions.clear();
+    }
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateLocation();

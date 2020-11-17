@@ -11,6 +11,7 @@
 #include "../../../data/manager/DataManager.h"
 
 #include <list>
+#include <functional>
 
 namespace Obstacles {
     class Obstacle;
@@ -339,18 +340,32 @@ namespace Unite {
          */
         const std::list<std::shared_ptr<Triggers::Trigger>> &getTriggers() const noexcept;
 
+        //..
+
+        /**
+         * @brief Method adds new frame action. All frame events take place at the end of object interaction.
+         * @param action New frame action.
+         */
+        void addFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept;
+
+        /**
+         * @brief Method removes frame action.
+         * @param action Existing frame action.
+         */
+        void removeFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept;
+
         virtual ~Unifier() = default;
 
     protected:
         /**
          * @brief Back sprites.
          */
-        std::list<std::shared_ptr<Components::ISprite>> m_back;
+        std::list<std::shared_ptr<Components::ISprite>> m_back_sprites;
 
         /**
          * @brief Front sprites.
         */
-        std::list<std::shared_ptr<Components::ISprite>> m_front;
+        std::list<std::shared_ptr<Components::ISprite>> m_front_sprites;
 
         /**
          * @brief Screen text.
@@ -386,6 +401,11 @@ namespace Unite {
          * @brief Triggers.
          */
         std::list<std::shared_ptr<Triggers::Trigger>> m_triggers;
+
+        /**
+         * @brief Frame actions.
+         */
+        std::list<std::function<void(Unite::Unifier *)>> m_frame_actions;
     };
 }
 

@@ -5,47 +5,47 @@
 #include "Unifier.h"
 
 void Unite::Unifier::addBackSprite(Components::ISprite *sprite) noexcept {
-    m_back.push_back(std::shared_ptr<Components::ISprite>(sprite));
+    m_back_sprites.push_back(std::shared_ptr<Components::ISprite>(sprite));
 }
 
 void Unite::Unifier::addBackSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
-    m_back.push_back(sprite);
+    m_back_sprites.push_back(sprite);
 }
 
 void Unite::Unifier::removeBackSprite(Components::ISprite *sprite) noexcept {
-    m_back.remove_if([sprite](const std::shared_ptr<Components::ISprite> &sprt) -> bool {
+    m_back_sprites.remove_if([sprite](const std::shared_ptr<Components::ISprite> &sprt) -> bool {
         return sprt.get() == sprite;
     });
 }
 
 void Unite::Unifier::removeBackSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
-    m_back.remove(sprite);
+    m_back_sprites.remove(sprite);
 }
 
 const std::list<std::shared_ptr<Components::ISprite>> &Unite::Unifier::getBackSprites() const noexcept {
-    return m_back;
+    return m_back_sprites;
 }
 
 void Unite::Unifier::addFrontSprite(Components::ISprite *sprite) noexcept {
-    m_front.push_back(std::shared_ptr<Components::ISprite>(sprite));
+    m_front_sprites.push_back(std::shared_ptr<Components::ISprite>(sprite));
 }
 
 void Unite::Unifier::addFrontSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
-    m_front.push_back(sprite);
+    m_front_sprites.push_back(sprite);
 }
 
 void Unite::Unifier::removeFrontSprite(Components::ISprite *sprite) noexcept {
-    m_front.remove_if([sprite](const std::shared_ptr<Components::ISprite> &sprt) -> bool {
+    m_front_sprites.remove_if([sprite](const std::shared_ptr<Components::ISprite> &sprt) -> bool {
         return sprt.get() == sprite;
     });
 }
 
 void Unite::Unifier::removeFrontSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
-    m_front.remove(sprite);
+    m_front_sprites.remove(sprite);
 }
 
 const std::list<std::shared_ptr<Components::ISprite>> &Unite::Unifier::getFrontSprites() const noexcept {
-    return m_front;
+    return m_front_sprites;
 }
 
 void Unite::Unifier::addText(Components::Text *text) noexcept {
@@ -206,4 +206,12 @@ void Unite::Unifier::removeTrigger(const std::shared_ptr<Triggers::Trigger> &tri
 
 const std::list<std::shared_ptr<Triggers::Trigger>> &Unite::Unifier::getTriggers() const noexcept {
     return m_triggers;
+}
+
+void Unite::Unifier::addFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept {
+    m_frame_actions.push_back(action);
+}
+
+void Unite::Unifier::removeFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept {
+    m_frame_actions.remove(action);
 }

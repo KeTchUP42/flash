@@ -14,7 +14,9 @@ Mobs::BasicPlayer::BasicPlayer(
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
     if (m_properties.healthPoints <= 0) {
-        m_properties.isRemovable = true;
+        unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
+            unifier1->removePlayer(this);
+        });
     } else {
         Obstacles::Obstacle *obstacle;
         if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getObstacles())) != nullptr) {
