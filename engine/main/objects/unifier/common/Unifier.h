@@ -393,7 +393,7 @@ namespace Unite {
         std::list<std::shared_ptr<Components::Text>> m_texts;
 
         /**
-         * @brief Obstacles.
+         * @brief All obstacles.
          */
         std::list<std::shared_ptr<Obstacles::Obstacle>> m_obstacles;
 
@@ -403,7 +403,7 @@ namespace Unite {
         std::list<Obstacles::Block *> m_blocks;
 
         /**
-         * @brief Standalone mobs.
+         * @brief All mobs.
          */
         std::list<std::shared_ptr<Mobs::Mob>> m_mobs;
 

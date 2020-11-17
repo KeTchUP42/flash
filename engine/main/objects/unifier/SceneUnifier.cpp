@@ -28,6 +28,7 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
 }
 
 void Unite::SceneUnifier::refresh() {
+
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateCoordinates();
     }
@@ -52,12 +53,10 @@ void Unite::SceneUnifier::refresh() {
         obstacle->selfAction(this);
     }
 
-    {
-        for (const std::function<void(Unite::Unifier *)> &action: m_frame_actions) {
-            action(this);
-        }
-        m_frame_actions.clear();
+    for (const std::function<void(Unite::Unifier *)> &action: m_frame_actions) {
+        action(this);
     }
+    m_frame_actions.clear();
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateLocation();
