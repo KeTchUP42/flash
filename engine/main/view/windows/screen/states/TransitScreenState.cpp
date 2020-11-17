@@ -3,15 +3,15 @@
 //
 
 #include "TransitScreenState.h"
-#include "../../../../objects/generation/scene/SceneGenerator.h"
+#include "../../../../objects/creation/scene/SceneLoader.h"
 
 View::TransitScreenState::TransitScreenState(const std::string &filename, Unite::Unifier *unifier)
         : View::ScreenState(filename), m_unifier(unifier) {}
 
 void View::TransitScreenState::
 load(View::StateChangeable *context, Managers::DataManager *manager, View::Window &window) {
-    Generate::SceneGenerator generator(context, manager);
-    generator.loadScene(m_scene_file, *m_unifier, window);
+    Creation::SceneLoader loader(context, manager);
+    loader.loadScene(m_scene_file, *m_unifier, window);
 }
 
 void View::TransitScreenState::refresh() {
