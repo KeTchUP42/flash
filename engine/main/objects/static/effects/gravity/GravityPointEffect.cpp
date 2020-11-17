@@ -9,23 +9,6 @@ Effects::GravityPointEffect::GravityPointEffect(const Components::Point &point, 
 
 void Effects::GravityPointEffect::applyEffect(Unite::Unifier *unifier) {
 
-    for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
-
-        float playerX = player->getPosition().x + player->getSize().width;
-        if (playerX > m_point.x) {
-            player->addSpeed(-ACCELERATION, 0);
-        } else if (playerX < m_point.x) {
-            player->addSpeed(ACCELERATION, 0);
-        }
-
-        float playerY = player->getPosition().y + player->getSize().height;
-        if (playerY > m_point.y) {
-            player->addSpeed(0, -ACCELERATION);
-        } else if (playerY < m_point.y) {
-            player->addSpeed(0, ACCELERATION);
-        }
-    }
-
     for (const std::shared_ptr<Mobs::Mob> &mob : unifier->getMobs()) {
 
         float mobX = mob->getPosition().x + mob->getSize().width;

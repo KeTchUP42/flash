@@ -10,7 +10,7 @@ Triggers::PlayerAudioTrigger::PlayerAudioTrigger(const Components::Area &area, c
 Triggers::ResultCodes Triggers::PlayerAudioTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
     if (m_audio->getStatus() == sf::SoundSource::Playing) return ResultCodes::OK;
 
-    for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
+    for (Mobs::Player *player: unifier->getPlayers()) {
 
         if (Material::OptimizedCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
             m_audio->setPlayingOffset(sf::Time());

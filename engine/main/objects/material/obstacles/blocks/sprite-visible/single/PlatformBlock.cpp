@@ -52,14 +52,6 @@ void Obstacles::PlatformBlock::selfAction(Unite::Unifier *unifier) {
         player->setSpeed(Components::Speed(player->getProperties().speed.xSpeed, ySpeed));
     }
 
-    for (const std::shared_ptr<Mobs::Player> &plyr : unifier->getPlayers()) {
-        if (plyr->getSpeed().xSpeed == 0) {
-            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(plyr.get(), this)) {
-                plyr->setSpeed(Components::Speed(m_properties.speed.xSpeed, plyr->getSpeed().ySpeed));
-            }
-        }
-    }
-
     for (const std::shared_ptr<Mobs::Mob> &mb : unifier->getMobs()) {
         if (mb->getSpeed().xSpeed == 0) {
             if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(mb.get(), this)) {

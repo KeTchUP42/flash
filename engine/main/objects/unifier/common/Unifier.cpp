@@ -102,6 +102,11 @@ void Unite::Unifier::addBlock(const std::shared_ptr<Obstacles::Block> &block) no
     this->addObstacle(block);
 }
 
+void Unite::Unifier::addBlock(const std::shared_ptr<Obstacles::Obstacle> &block) {
+    m_blocks.push_back(dynamic_cast<Obstacles::Block *>(block.get())); //Exception leak place.
+    this->addObstacle(block);
+}
+
 void Unite::Unifier::removeBlock(Obstacles::Block *block) noexcept {
     m_blocks.remove_if([block](Obstacles::Block *blck) -> bool {
         return blck == block;
@@ -116,29 +121,52 @@ void Unite::Unifier::removeBlock(const std::shared_ptr<Obstacles::Block> &block)
     this->removeObstacle(block);
 }
 
+const std::shared_ptr<Obstacles::Obstacle> &Unite::Unifier::getBlock(Obstacles::Block *block) const {
+    return *std::find_if(m_obstacles.begin(), m_obstacles.end(), [block](const std::shared_ptr<Obstacles::Obstacle> &obstacle) -> bool {
+        return obstacle.get() == block;
+    });
+}
+
 const std::list<Obstacles::Block *> &Unite::Unifier::getBlocks() const noexcept {
     return m_blocks;
 }
 
 void Unite::Unifier::addPlayer(Mobs::Player *player) noexcept {
-    m_players.push_back(std::shared_ptr<Mobs::Player>(player));
+    m_players.push_back(player);
+    this->addMob(player);
 }
 
 void Unite::Unifier::addPlayer(const std::shared_ptr<Mobs::Player> &player) noexcept {
-    m_players.push_back(player);
+    m_players.push_back(player.get());
+    this->addMob(player);
+}
+
+void Unite::Unifier::addPlayer(const std::shared_ptr<Mobs::Mob> &player) {
+    m_players.push_back(dynamic_cast<Mobs::Player *>(player.get())); //Exception leak place.
+    this->addMob(player);
 }
 
 void Unite::Unifier::removePlayer(Mobs::Player *player) noexcept {
-    m_players.remove_if([player](const std::shared_ptr<Mobs::Player> &plr) -> bool {
-        return plr.get() == player;
+    m_players.remove_if([player](Mobs::Player *plr) -> bool {
+        return plr == player;
     });
+    this->removeMob(player);
 }
 
 void Unite::Unifier::removePlayer(const std::shared_ptr<Mobs::Player> &player) noexcept {
-    m_players.remove(player);
+    m_players.remove_if([player](Mobs::Player *plr) -> bool {
+        return plr == player.get();
+    });
+    this->removeMob(player);
 }
 
-const std::list<std::shared_ptr<Mobs::Player>> &Unite::Unifier::getPlayers() const noexcept {
+const std::shared_ptr<Mobs::Mob> &Unite::Unifier::getPlayer(Mobs::Player *player) const {
+    return *std::find_if(m_mobs.begin(), m_mobs.end(), [player](const std::shared_ptr<Mobs::Mob> &mob) -> bool {
+        return mob.get() == player;
+    });
+}
+
+const std::list<Mobs::Player *> &Unite::Unifier::getPlayers() const noexcept {
     return m_players;
 }
 
@@ -212,6 +240,3 @@ void Unite::Unifier::addFrameAction(const std::function<void(Unite::Unifier *)> 
     m_frame_actions.push_back(action);
 }
 
-void Unite::Unifier::removeFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept {
-    m_frame_actions.remove(action);
-}

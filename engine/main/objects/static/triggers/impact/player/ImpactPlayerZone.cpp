@@ -7,7 +7,7 @@
 Triggers::ImpactPlayerZone::ImpactPlayerZone(const Components::Area &area, Triggers::Handler<Mobs::Player> *handler) : ImpactZone(area, handler) {}
 
 Triggers::ResultCodes Triggers::ImpactPlayerZone::verifyTrigger(Unite::Unifier *unifier) noexcept {
-    for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
+    for (Mobs::Player *player: unifier->getPlayers()) {
 
         if (Material::OptimizedCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
             m_handler->handle(*player);

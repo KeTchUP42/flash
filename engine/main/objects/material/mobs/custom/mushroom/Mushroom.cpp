@@ -18,8 +18,8 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
             unifier1->removeMob(this);
         });
     } else {
-        for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
-            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player.get(), this)) {
+        for (Mobs::Player *player : unifier->getPlayers()) {
+            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
                 if (player->getPosition().y < this->getPosition().y) {
                     player->setSpeed(Components::Speed(
                             player->getSpeed().xSpeed,

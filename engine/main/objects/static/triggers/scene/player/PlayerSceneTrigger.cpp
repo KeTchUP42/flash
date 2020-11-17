@@ -11,14 +11,14 @@ Triggers::PlayerSceneTrigger::PlayerSceneTrigger(const std::string &filename, co
         : SceneTrigger(filename, area, context), m_handler(handler) {}
 
 Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
-    for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
+    for (Mobs::Player *player: unifier->getPlayers()) {
 
         if (Material::OptimizedCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
 
             Unite::Unifier *new_unifier = new Unite::SceneUnifier();
-            for (const std::shared_ptr<Mobs::Player> &plr: unifier->getPlayers()) {
+            for (Mobs::Player *plr: unifier->getPlayers()) {
                 m_handler->handle(*plr);
-                new_unifier->addPlayer(plr);
+                new_unifier->addPlayer(unifier->getPlayer(plr));
             }
 
             m_context->setScreenState(new View::TransitScreenState(m_scene_file, new_unifier));

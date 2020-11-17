@@ -10,7 +10,7 @@ Triggers::SinglePlayerAudioTrigger::SinglePlayerAudioTrigger(const Components::A
 Triggers::ResultCodes Triggers::SinglePlayerAudioTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
     if (WAS_PLAYED) return ResultCodes::OK;
 
-    for (const std::shared_ptr<Mobs::Player> &player: unifier->getPlayers()) {
+    for (Mobs::Player *player: unifier->getPlayers()) {
 
         if (Material::OptimizedCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {
             m_audio->play();

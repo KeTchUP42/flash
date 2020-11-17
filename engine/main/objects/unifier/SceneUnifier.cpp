@@ -22,10 +22,6 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
         mob->draw(target);
     }
 
-    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
-        player->draw(target);
-    }
-
     for (const std::shared_ptr<Components::ISprite> &sprite: m_front_sprites) {
         sprite->draw(target);
     }
@@ -34,10 +30,6 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
 void Unite::SceneUnifier::refresh() {
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->updateCoordinates();
-    }
-
-    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
-        player->updateCoordinates();
     }
 
     for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
@@ -56,10 +48,6 @@ void Unite::SceneUnifier::refresh() {
         mob->selfAction(this);
     }
 
-    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
-        player->selfAction(this);
-    }
-
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {
         obstacle->selfAction(this);
     }
@@ -75,10 +63,6 @@ void Unite::SceneUnifier::refresh() {
         obstacle->updateLocation();
     }
 
-    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
-        player->updateLocation();
-    }
-
     for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
         mob->updateLocation();
     }
@@ -90,7 +74,7 @@ void Unite::SceneUnifier::update(const sf::Event &event, View::Window &sender) {
         trigger->update(event, sender);
     }
 
-    for (const std::shared_ptr<Mobs::Player> &player: m_players) {
+    for (Mobs::Player *player: m_players) {
         player->update(event, sender);
     }
 }

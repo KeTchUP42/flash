@@ -13,10 +13,6 @@ void Effects::GravityEffect::applyEffect(Unite::Unifier *unifier) {
         mob->addSpeed(X_ACCELERATION, Y_ACCELERATION);
     }
 
-    for (const std::shared_ptr<Mobs::Player> &player : unifier->getPlayers()) {
-        player->addSpeed(X_ACCELERATION, Y_ACCELERATION);
-    }
-
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle : unifier->getObstacles()) {
         if (!obstacle->getProperties().isFixed) {
             obstacle->addSpeed(X_ACCELERATION, Y_ACCELERATION);

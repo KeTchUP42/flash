@@ -195,6 +195,12 @@ namespace Unite {
         void addBlock(const std::shared_ptr<Obstacles::Block> &block) noexcept;
 
         /**
+         * @brief Method adds new block.
+         * @param block New block.
+         */
+        void addBlock(const std::shared_ptr<Obstacles::Obstacle> &block);
+
+        /**
          * @brief Method removes block.
          * @param block Existing block.
          */
@@ -205,6 +211,13 @@ namespace Unite {
          * @param block Existing block.
          */
         void removeBlock(const std::shared_ptr<Obstacles::Block> &block) noexcept;
+
+        /**
+         * @brief Method searches block in obstacle collection.
+         * @param block Needed block's pointer.
+         * @return Block pointer.
+         */
+        const std::shared_ptr<Obstacles::Obstacle> &getBlock(Obstacles::Block *block) const;
 
         /**
          * @brief Method returns const reference on blocks collection.
@@ -227,6 +240,12 @@ namespace Unite {
         void addPlayer(const std::shared_ptr<Mobs::Player> &player) noexcept;
 
         /**
+         * @brief Method adds new player.
+         * @param player New player.
+         */
+        void addPlayer(const std::shared_ptr<Mobs::Mob> &player);
+
+        /**
          * @brief Method removes player.
          * @param player Existing player.
          */
@@ -239,10 +258,17 @@ namespace Unite {
         void removePlayer(const std::shared_ptr<Mobs::Player> &player) noexcept;
 
         /**
+         * @brief Method searches player in mob collection.
+         * @param player Needed player's pointer.
+         * @return Player pointer.
+         */
+        const std::shared_ptr<Mobs::Mob> &getPlayer(Mobs::Player *player) const;
+
+        /**
          * @brief Method returns const reference on players collection.
          * @return Const reference on players collection.
          */
-        const std::list<std::shared_ptr<Mobs::Player>> &getPlayers() const noexcept;
+        const std::list<Mobs::Player *> &getPlayers() const noexcept;
 
         //..
 
@@ -348,12 +374,6 @@ namespace Unite {
          */
         void addFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept;
 
-        /**
-         * @brief Method removes frame action.
-         * @param action Existing frame action.
-         */
-        void removeFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept;
-
         virtual ~Unifier() = default;
 
     protected:
@@ -383,14 +403,14 @@ namespace Unite {
         std::list<Obstacles::Block *> m_blocks;
 
         /**
-         * @brief Players.
-         */
-        std::list<std::shared_ptr<Mobs::Player>> m_players;
-
-        /**
          * @brief Standalone mobs.
          */
         std::list<std::shared_ptr<Mobs::Mob>> m_mobs;
+
+        /**
+        * @brief Players.
+         */
+        std::list<Mobs::Player *> m_players;
 
         /**
          * @brief Effects.
