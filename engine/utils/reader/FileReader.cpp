@@ -10,10 +10,8 @@
 ReaderUtil::FileReader::FileReader(const std::string &filepath) : m_filepath(filepath) {
     std::ifstream in(filepath);
     if (!in.is_open()) {
-        in.close();
         throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
-    in.close();
 }
 
 std::string ReaderUtil::FileReader::read() const {
@@ -22,8 +20,9 @@ std::string ReaderUtil::FileReader::read() const {
     if (in.is_open()) {
         in >> std::noskipws;
         std::copy(std::istream_iterator<char>(in), std::istream_iterator<char>(), std::back_inserter(result));
+    } else {
+        throw PreferredExceptions::FileCannotBeOpened("File " + m_filepath + " cannot be opened.");
     }
-    in.close();
     return result;
 }
 
@@ -35,7 +34,8 @@ std::vector<std::string> ReaderUtil::FileReader::readlines() const {
         while (std::getline(in, line)) {
             result.push_back(std::move(line));
         }
+    } else {
+        throw PreferredExceptions::FileCannotBeOpened("File " + m_filepath + " cannot be opened.");
     }
-    in.close();
     return result;
 }

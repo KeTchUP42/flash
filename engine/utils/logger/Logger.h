@@ -25,53 +25,60 @@ namespace LoggerUtil {
         explicit Logger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new LoggerFormatter())
                 : m_writer(writer), m_formatter(formatter) {}
 
-        explicit Logger(const std::shared_ptr<WriterUtil::Writer> &writer,
-                        const std::shared_ptr<Formatter<std::string>> &formatter)
+        explicit Logger(const std::shared_ptr<WriterUtil::Writer> &writer, const std::shared_ptr<Formatter<std::string>> &formatter)
                 : m_writer(writer), m_formatter(formatter) {}
 
         /**
-         * System is unusable.
+         * @brief System is unusable.
+         * @return Was success?
          */
-        void emergency(const std::string &message) const noexcept;
+        bool emergency(const std::string &message) const noexcept;
 
         /**
-         * Action must be taken immediately.
+         * @brief Action must be taken immediately.
+         * @return Was success?
          */
-        void alert(const std::string &message) const noexcept;
+        bool alert(const std::string &message) const noexcept;
 
         /**
-         * Critical conditions.
+         * @brief Critical conditions.
+         * @return Was success?
          */
-        void critical(const std::string &message) const noexcept;
+        bool critical(const std::string &message) const noexcept;
 
         /**
-         * Runtime errors that do not require immediate action but should typically be logged and monitored.
+         * @brief Runtime errors that do not require immediate action but should typically be logged and monitored.
+         * @return Was success?
          */
-        void error(const std::string &message) const noexcept;
+        bool error(const std::string &message) const noexcept;
 
         /**
-         * Exceptional occurrences that are not errors.
+         * @brief Exceptional occurrences that are not errors.
+         * @return Was success?
          */
-        void warning(const std::string &message) const noexcept;
+        bool warning(const std::string &message) const noexcept;
 
         /**
-         * Normal but significant events.
+         * @brief Normal but significant events.
+         * @return Was success?
          */
-        void notice(const std::string &message) const noexcept;
+        bool notice(const std::string &message) const noexcept;
 
         /**
-         * Interesting events.
+         * @brief Interesting events.
+         * @return Was success?
          */
-        void info(const std::string &message) const noexcept;
+        bool info(const std::string &message) const noexcept;
 
         /**
-         * Detailed debug information.
+         * @brief Detailed debug information.
+         * @return Was success?
          */
-        void debug(const std::string &message) const noexcept;
+        bool debug(const std::string &message) const noexcept;
 
         virtual ~Logger() noexcept = default;
 
-    protected:
+    private:
         std::shared_ptr<WriterUtil::Writer> m_writer;
         std::shared_ptr<Formatter<std::string>> m_formatter;
     };

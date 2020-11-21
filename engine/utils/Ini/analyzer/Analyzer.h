@@ -12,15 +12,24 @@
 namespace IniUtil {
 
     /**
-     * @brief The base class of the Analyzer strategy class hierarchy. Uses in IniProcessor hierarchy.
+     * @brief The base class of the Analyzer strategy class hierarchy. Uses in IniProcessor.
      * @namespace IniUtil
      *
      * This class defines base interface of Analyzer classes.
     */
     class Analyzer {
     public:
-        using IniBlock = std::map<std::string, std::string>;
-        using IniData = std::map<std::string, Analyzer::IniBlock>;
+        Analyzer() = default;
+
+        /**
+         * @brief Alias for IniBlock type.
+        */
+        typedef std::map<std::string, std::string> IniBlock;
+
+        /**
+         * @brief Alias for IniData type.
+         */
+        typedef std::map<std::string, Analyzer::IniBlock> IniData;
 
         /**
          * Method returns full ini config data in IniData type.

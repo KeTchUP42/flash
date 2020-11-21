@@ -28,7 +28,6 @@ namespace WriterUtil {
          */
         virtual bool write(const std::string &__s, const std::ios::openmode &mode) const = 0;
 
-
         /**
          * @brief Method writes data to the stream.
          * @param __s Input stream data.
@@ -39,6 +38,5 @@ namespace WriterUtil {
 
         virtual ~Writer() noexcept = default;
     };
-
 }
 #endif //FLASH_WRITER_H

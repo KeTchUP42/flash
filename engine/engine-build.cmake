@@ -89,7 +89,7 @@ set(OBJECTS ${AUXILIARY} ${GENERATION} ${MATERIAL} ${STATIC} ${UNIFIER})
 set(LOGGER engine/utils/logger/Logger.cpp engine/utils/logger/formatter/LoggerFormatter.cpp)
 set(WRITER engine/utils/writer/FileWriter.cpp engine/utils/writer/MultiFileWriter.cpp)
 set(READER engine/utils/reader/FileReader.cpp)
-set(INI engine/utils/Ini/IniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp)
+set(INI engine/utils/Ini/IniProcessor.cpp engine/utils/Ini/analyzer/IniAnalyzer.cpp engine/utils/Ini/creator/IniCreator.cpp)
 set(MATH engine/utils/math/algorithms.cpp)
 set(UTILS ${LOGGER} ${WRITER} ${READER} ${INI} ${MATH})
 

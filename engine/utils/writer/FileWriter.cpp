@@ -10,10 +10,8 @@
 WriterUtil::FileWriter::FileWriter(const std::string &filepath) : m_filepath(filepath) {
     std::ofstream out(filepath, std::ios::app);
     if (!out.is_open()) {
-        out.close();
         throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
-    out.close();
 }
 
 bool WriterUtil::FileWriter::write(const char *message, const std::ios::openmode &mode) const {
@@ -22,7 +20,6 @@ bool WriterUtil::FileWriter::write(const char *message, const std::ios::openmode
     if (isOpen) {
         out << message;
     }
-    out.close();
     return isOpen;
 }
 
