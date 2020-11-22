@@ -1,4 +1,4 @@
  ## Project information:
 
- * The project was developed on Linux Ubuntu 18.04.
+ * The project is designed to work in Linux operating systems.
  * The project was developed in CLion ide.

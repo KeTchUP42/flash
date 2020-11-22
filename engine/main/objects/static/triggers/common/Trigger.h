@@ -25,7 +25,7 @@ namespace Triggers {
          * @brief Method checks trigger's conditions.
          * @param unifier Level unifier.
          */
-        virtual ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept = 0;
+        virtual ResultCodes verifyTrigger(Unite::Unifier *unifier) = 0;
 
         virtual ~Trigger() = default;
     };

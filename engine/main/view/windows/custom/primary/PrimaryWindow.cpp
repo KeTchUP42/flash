@@ -29,7 +29,7 @@ void View::PrimaryWindow::update() {
     m_state->draw(*m_window);
 }
 
-void View::PrimaryWindow::setScreenState(View::ScreenState *state) noexcept {
+void View::PrimaryWindow::setScreenState(View::ScreenState *state) {
     this->removeObserver(m_state);
     m_state.reset(state); //Method calls "delete" for an old one ptr.
     m_state->load(this, m_manager, *this);

@@ -25,7 +25,7 @@ namespace View {
          * @brief ScreenState setter. Uses for dynamic content changing.
          * @param state New ScreenState.
          */
-        virtual void setScreenState(View::ScreenState *state) noexcept = 0;
+        virtual void setScreenState(View::ScreenState *state) = 0;
 
         virtual ~StateChangeable() = default;
     };

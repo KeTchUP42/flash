@@ -15,7 +15,7 @@ namespace Triggers {
         explicit PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
                                     Handler<Mobs::Player> *handler, View::StateChangeable *context);
 
-        ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept override;
+        ResultCodes verifyTrigger(Unite::Unifier *unifier) override;
 
     protected:
         std::shared_ptr<Handler<Mobs::Player>> m_handler;

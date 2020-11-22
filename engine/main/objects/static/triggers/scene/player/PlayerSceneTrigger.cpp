@@ -10,7 +10,7 @@ Triggers::PlayerSceneTrigger::PlayerSceneTrigger(const std::string &filename, co
                                                  Handler<Mobs::Player> *handler, View::StateChangeable *context)
         : SceneTrigger(filename, area, context), m_handler(handler) {}
 
-Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier *unifier) noexcept {
+Triggers::ResultCodes Triggers::PlayerSceneTrigger::verifyTrigger(Unite::Unifier *unifier) {
     for (Mobs::Player *player: unifier->getPlayers()) {
 
         if (Material::OptimizedCollision<Possibilities::MaterialRectangle, Mobs::Player>(*this, *player)) {

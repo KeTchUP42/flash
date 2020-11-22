@@ -23,7 +23,7 @@ namespace View {
     public:
         void configure();
 
-        void setScreenState(View::ScreenState *state) noexcept override;
+        void setScreenState(View::ScreenState *state) override;
 
     protected:
         void initialization() override;

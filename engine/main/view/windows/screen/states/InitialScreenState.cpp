@@ -8,7 +8,8 @@
 
 View::InitialScreenState::InitialScreenState(const std::string &filename) : ScreenState(filename) {}
 
-void View::InitialScreenState::load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) {
+void View::InitialScreenState::
+load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) {
     m_unifier = std::make_shared<Unite::SceneUnifier>();
     Creation::SceneLoader loader(context, manager);
     loader.loadScene(m_scene_file, *m_unifier, window);
