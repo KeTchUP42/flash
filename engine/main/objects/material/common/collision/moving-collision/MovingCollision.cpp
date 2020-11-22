@@ -20,3 +20,15 @@ bool Material::MovingCollision::ordinateMoveAble(Material::MaterialObject *objec
 
     return movingOrdinateCollision(*object, *processed, ANALYSIS_STEP_X);
 }
+
+std::pair<float, float> Material::MovingCollision::getAnalysisStep() const noexcept {
+    return std::pair<float, float>(ANALYSIS_STEP_X, ANALYSIS_STEP_Y);
+}
+
+float Material::MovingCollision::getAnalysisStepX() const noexcept {
+    return ANALYSIS_STEP_X;
+}
+
+float Material::MovingCollision::getAnalysisStepY() const noexcept {
+    return ANALYSIS_STEP_Y;
+}

@@ -33,6 +33,12 @@ namespace Material {
 
         bool ordinateMoveAble(Material::MaterialObject *object, Material::MaterialObject *processed) const noexcept;
 
+        std::pair<float, float> getAnalysisStep() const noexcept;
+
+        float getAnalysisStepX() const noexcept;
+
+        float getAnalysisStepY() const noexcept;
+
     private:
         const float ANALYSIS_STEP_X;
         const float ANALYSIS_STEP_Y;

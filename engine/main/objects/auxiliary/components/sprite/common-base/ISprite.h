@@ -5,15 +5,9 @@
 #ifndef FLASH_ISPRITE_H
 #define FLASH_ISPRITE_H
 
-#include "../../../../../view/windows/base/observer/Observer.h"
-#include "../../../possibilities/collision/CollisionProne.h"
-#include "../../../possibilities/Drawable.h"
 #include "../../../possibilities/Moving.h"
 #include "../../../possibilities/Rotatable.h"
-#include "../../elementary/point/Point.h"
-#include "../../elementary/size/Size.h"
-
-#include <SFML/Graphics.hpp>
+#include "../../../possibilities/Drawable.h"
 
 namespace Components {
 
@@ -23,7 +17,8 @@ namespace Components {
      *
      * This class is a base leaf component interface.
     */
-    class ISprite : public Possibilities::Moving, public Possibilities::Rotatable,
+    class ISprite : public Possibilities::Moving,
+                    public Possibilities::Rotatable,
                     public Possibilities::Drawable<sf::RenderTarget> {
     public:
 

@@ -40,7 +40,7 @@ namespace Components {
          * @brief Method returns sprite texture.
          * @return Texture pointer.
          */
-        const sf::Texture *getTexture() const noexcept;
+        const std::shared_ptr<sf::Texture> &getTexture() const noexcept;
 
         /**
          * @brief Method sets new sprite texture.

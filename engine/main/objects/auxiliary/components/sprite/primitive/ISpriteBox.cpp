@@ -15,8 +15,8 @@ const std::shared_ptr<sf::Sprite> &Components::ISpriteBox::getSprite() const noe
     return m_sprite;
 }
 
-const sf::Texture *Components::ISpriteBox::getTexture() const noexcept {
-    return m_sprite->getTexture();
+const std::shared_ptr<sf::Texture> &Components::ISpriteBox::getTexture() const noexcept {
+    return m_texture;
 }
 
 void Components::ISpriteBox::setTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
