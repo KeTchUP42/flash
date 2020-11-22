@@ -16,29 +16,27 @@ void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
     if (m_properties.healthPoints > m_properties.maxHealthPoints) {
         m_properties.healthPoints = m_properties.maxHealthPoints;
     }
-    if (m_properties.healthPoints <= 0) {
+    if (this->isDead()) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removePlayer(this);
         });
     } else {
-        Obstacles::Obstacle *obstacle;
-        if ((obstacle = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getObstacles())) != nullptr) {
-            bool sameSign = m_properties.speed.xSpeed * obstacle->getSpeed().xSpeed >= 0;
-            float xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * obstacle->getProperties().elasticCoefficient +
-                                            (sameSign ? 0 : obstacle->getSpeed().xSpeed));
+        Obstacles::Block *block;
+        if ((block = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getBlocks())) != nullptr) {
+            bool sameSign = m_properties.speed.xSpeed * block->getSpeed().xSpeed >= 0;
+            float xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().xSpeed));
             m_properties.speed.xSpeed = (std::abs(xSpeed) == 1) ? 0 : xSpeed;
-            if (m_properties.speed.ySpeed != obstacle->getSpeed().ySpeed) {
-                m_properties.speed.ySpeed = static_cast<int>(m_properties.speed.ySpeed * obstacle->getProperties().frictionCoefficient);
+            if (m_properties.speed.ySpeed != block->getSpeed().ySpeed) {
+                m_properties.speed.ySpeed = static_cast<int>(m_properties.speed.ySpeed * block->getProperties().frictionCoefficient);
             }
         }
 
-        if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getObstacles())) != nullptr) {
-            bool sameSign = m_properties.speed.ySpeed * obstacle->getSpeed().ySpeed >= 0;
-            float ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient +
-                                            (sameSign ? 0 : obstacle->getSpeed().ySpeed));
+        if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
+            bool sameSign = m_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
+            float ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().ySpeed));
             m_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
-            if (m_properties.speed.xSpeed != obstacle->getSpeed().xSpeed) {
-                m_properties.speed.xSpeed = static_cast<int>(m_properties.speed.xSpeed * obstacle->getProperties().frictionCoefficient);
+            if (m_properties.speed.xSpeed != block->getSpeed().xSpeed) {
+                m_properties.speed.xSpeed = static_cast<int>(m_properties.speed.xSpeed * block->getProperties().frictionCoefficient);
             }
         }
     }

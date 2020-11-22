@@ -69,8 +69,27 @@ namespace Mobs {
 
         const MobProperties &getProperties() const noexcept override;
 
+        /**
+         * @brief Method sets new health points value.
+         * @param healthPoints New health points value.
+         */
         void setHealthPoints(float healthPoints) noexcept;
 
+        /**
+         * @brief Method check is mob dead.
+         * @return Is dead?
+         */
+        bool isDead() const noexcept;
+
+        /**
+         * @brief Method hits the mob with damage.
+         * @param damage Damage value.
+         */
+        void prejudice(float damage) noexcept;
+
+        /**
+         * @brief Method kills the mob.
+         */
         void kill() noexcept;
 
     private:

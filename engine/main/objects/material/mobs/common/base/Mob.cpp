@@ -104,6 +104,14 @@ void Mobs::Mob::setHealthPoints(float healthPoints) noexcept {
     m_properties.healthPoints = healthPoints;
 }
 
+bool Mobs::Mob::isDead() const noexcept {
+    return m_properties.healthPoints <= 0;
+}
+
+void Mobs::Mob::prejudice(float damage) noexcept {
+    m_properties.healthPoints -= damage;
+}
+
 void Mobs::Mob::kill() noexcept {
     this->setHealthPoints(0);
 }

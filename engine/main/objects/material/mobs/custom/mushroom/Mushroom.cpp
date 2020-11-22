@@ -16,7 +16,7 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     if (m_properties.healthPoints > m_properties.maxHealthPoints) {
         m_properties.healthPoints = m_properties.maxHealthPoints;
     }
-    if (m_properties.healthPoints <= 0) {
+    if (this->isDead()) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removeMob(this);
         });
@@ -50,11 +50,10 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
             m_properties.speed.xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed);
         }
 
-        Obstacles::Obstacle *obstacle;
-        if ((obstacle = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getObstacles())) != nullptr) {
-            bool sameSign = m_properties.speed.ySpeed * obstacle->getSpeed().ySpeed >= 0;
-            float ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * obstacle->getProperties().elasticCoefficient +
-                                            (sameSign ? 0 : obstacle->getSpeed().ySpeed));
+        Obstacles::Block *block;
+        if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
+            bool sameSign = m_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
+            float ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().ySpeed));
             m_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
         }
     }
