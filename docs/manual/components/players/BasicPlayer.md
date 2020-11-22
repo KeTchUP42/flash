@@ -11,6 +11,7 @@
     SPRITE_POSITION = 600:370
     SPRITE_SIZE = 30:30
     SPRITE_ANGLE = 0
+    MAX_HEALTH_POINTS = 100
     HEALTH_POINTS = 100
     SPEED = 0:0
     MOVE_SPEED = 3
@@ -28,6 +29,7 @@
  * `SPRITE_POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
  * `SPRITE_SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `SPRITE_ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
+ * `MAX_HEALTH_POINTS` - The parameter of maximum health points.
  * `HEALTH_POINTS` - Health points. Necessary for the process of life activities.
  * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `MOVE_SPEED` - Speed increase at the push of a button.

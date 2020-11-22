@@ -12,11 +12,11 @@ namespace Mobs {
     /**
      * @brief Struct contains all mob numeric properties.
      */
-    struct MobProperties : Material::MaterialObjectProperties {
+    struct MobProperties : public Material::MaterialObjectProperties {
+        explicit MobProperties(const Components::Speed &speed, float maxHealthPoints, float healthPoints)
+                : Material::MaterialObjectProperties(speed), maxHealthPoints(maxHealthPoints), healthPoints(healthPoints) {}
 
-        explicit MobProperties(float healthPoints, const Components::Speed &speed)
-                : Material::MaterialObjectProperties(speed), healthPoints(healthPoints) {}
-
+        float maxHealthPoints;
         float healthPoints;
     };
 }

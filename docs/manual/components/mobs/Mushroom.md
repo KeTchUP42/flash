@@ -11,6 +11,7 @@
     SPRITE_POSITION = 100:100
     SPRITE_SIZE = 30:30
     SPRITE_ANGLE = 0
+    MAX_HEALTH_POINTS = 10
     HEALTH_POINTS = 10
     SPEED = 0:0
     PUNCH_POWER = 5
@@ -26,6 +27,7 @@
  * `SPRITE_POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
  * `SPRITE_SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `SPRITE_ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
+ * `MAX_HEALTH_POINTS` - The parameter of maximum health points.
  * `HEALTH_POINTS` - Health points. Necessary for the process of life activities.
  * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `PUNCH_POWER` - Mushroom's push power.

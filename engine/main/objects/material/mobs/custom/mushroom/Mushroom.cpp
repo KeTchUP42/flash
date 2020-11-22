@@ -13,6 +13,10 @@ Mobs::Mushroom::Mushroom(
 ) : BaseMob(properties, area, sprite, algorithms), m_mushroom(params) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
+    if (m_properties.healthPoints > m_properties.maxHealthPoints) {
+        m_properties.healthPoints = m_properties.maxHealthPoints;
+    }
+
     if (m_properties.healthPoints <= 0) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removeMob(this);
