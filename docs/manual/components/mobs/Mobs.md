@@ -3,3 +3,4 @@
  Mobs are interactive objects that interact with the environment.  
 
  * [Mushroom](Mushroom.md)
+ * [Slime](Slime.md)

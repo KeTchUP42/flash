@@ -7,6 +7,7 @@
 #include "../generators/effects/GravityPointEffectGenerator.h"
 #include "../generators/effects/BackAudioEffectGenerator.h"
 #include "../generators/mobs/MushroomGenerator.h"
+#include "../generators/mobs/SlimeGenerator.h"
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/obstacles/DullInvisibleBlockGenarator.h"
 #include "../generators/obstacles/PlatformBlockGenerator.h"
@@ -46,6 +47,8 @@ Creation::GeneratorSelector::select(const std::string &alias) const noexcept {
     //mobs
     if (alias == "Mushroom")
         return new MushroomGenerator(m_pool);
+    if (alias == "Slime")
+        return new SlimeGenerator(m_pool);
 
     //obstacles
     if (alias == "DullBlock")

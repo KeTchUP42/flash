@@ -37,7 +37,7 @@ set(COMPUTATIONS engine/main/objects/auxiliary/computations/CoordinatesComputati
 set(AUXILIARY ${COMPONENTS} ${COMPUTATIONS})
 
 set(EFFECTS_GENERATORS engine/main/objects/creation/scene/generators/effects/BackAudioEffectGenerator.cpp engine/main/objects/creation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/creation/scene/generators/effects/GravityPointEffectGenerator.cpp)
-set(MOBS_GENERATORS engine/main/objects/creation/scene/generators/mobs/MushroomGenerator.cpp)
+set(MOBS_GENERATORS engine/main/objects/creation/scene/generators/mobs/SlimeGenerator.cpp engine/main/objects/creation/scene/generators/mobs/MushroomGenerator.cpp)
 set(OBSTACLES_GENERATORS engine/main/objects/creation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/creation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/creation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
 set(PLAYERS_GENERATORS engine/main/objects/creation/scene/generators/players/BasicPlayerGenerator.cpp)
 set(SPRITES_GENERATORS engine/main/objects/creation/scene/generators/sprites/BackgroundSpriteGenerator.cpp engine/main/objects/creation/scene/generators/sprites/BackSpriteGenerator.cpp engine/main/objects/creation/scene/generators/sprites/FrontSpriteGenerator.cpp)
@@ -55,7 +55,8 @@ set(PLAYER_COMMON engine/main/objects/material/mobs/players/common/base/Player.c
 set(PLAYER ${PLAYER_COMMON} ${PLAYER_CUSTOM})
 
 set(MUSHROOM engine/main/objects/material/mobs/custom/mushroom/Mushroom.cpp)
-set(MOBS_CUSTOM ${MUSHROOM})
+set(SLIME engine/main/objects/material/mobs/custom/slime/Slime.cpp)
+set(MOBS_CUSTOM ${MUSHROOM} ${SLIME})
 set(MOBS_COMMON engine/main/objects/material/mobs/common/base/Mob.cpp)
 set(MOBS ${MOBS_COMMON} ${MOBS_CUSTOM} ${PLAYER})
 
