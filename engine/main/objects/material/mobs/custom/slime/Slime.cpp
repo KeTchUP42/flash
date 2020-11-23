@@ -4,6 +4,7 @@
 
 #include "Slime.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
+#include "../../common/reduction/MobsAnalysisReduction.h"
 #include "../../../../../../utils/math/algorithms.h"
 
 Mobs::Slime::Slime(
@@ -41,7 +42,7 @@ Mobs::Slime *Mobs::Slime::createSmallerSlime(const Mobs::MobProperties &properti
 }
 
 void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
-    this->staticPropertyAnalysis();
+    RD::healthAnalysis(*this);
     if (this->isDead()) {
         //Size checking.
         bool isValidSize = ((m_sprite->getArea().m_size.width / 2 >= m_slime.minSplitSize) &&

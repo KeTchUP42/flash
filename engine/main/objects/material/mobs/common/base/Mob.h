@@ -73,11 +73,6 @@ namespace Mobs {
         const MobProperties &getProperties() const noexcept override;
 
         /**
-         * @brief The method contains the logic of analysis and verification of object properties. It can correct them if necessary.
-         */
-        virtual void staticPropertyAnalysis() noexcept;
-
-        /**
          * @brief Method sets new health points value.
          * @param health Points New health points value.
          */

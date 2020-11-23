@@ -3,6 +3,7 @@
 //
 
 #include "BasicPlayer.h"
+#include "../../../common/reduction/MobsAnalysisReduction.h"
 
 Mobs::BasicPlayer::BasicPlayer(
         const Mobs::MobProperties &properties,
@@ -13,7 +14,7 @@ Mobs::BasicPlayer::BasicPlayer(
 ) : BasePlayer(properties, area, sprite, algorithms), m_basic(params) {}
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
-    this->staticPropertyAnalysis();
+    RD::healthAnalysis(*this);
     if (this->isDead()) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removePlayer(this);

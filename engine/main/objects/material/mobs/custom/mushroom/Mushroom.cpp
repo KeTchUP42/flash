@@ -3,6 +3,7 @@
 //
 
 #include "Mushroom.h"
+#include "../../common/reduction/MobsAnalysisReduction.h"
 
 Mobs::Mushroom::Mushroom(
         const Mobs::MobProperties &properties,
@@ -13,7 +14,7 @@ Mobs::Mushroom::Mushroom(
 ) : BaseMob(properties, area, sprite, algorithms), m_mushroom(params) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
-    this->staticPropertyAnalysis();
+    RD::healthAnalysis(*this);
     if (this->isDead()) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removeSelfReliantMob(this);
