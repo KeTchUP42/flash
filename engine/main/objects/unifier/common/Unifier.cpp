@@ -153,32 +153,32 @@ const std::list<std::shared_ptr<Mobs::Mob>> &Unite::Unifier::getMobs() const noe
     return m_mobs;
 }
 
-void Unite::Unifier::addSelfReliantMob(Mobs::Mob *mob) noexcept {
-    m_self_reliant_mobs.push_back(mob);
+void Unite::Unifier::addStandAloneMob(Mobs::Mob *mob) noexcept {
+    m_stand_alone_mobs.push_back(mob);
     this->addMob(mob);
 }
 
-void Unite::Unifier::addSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
-    m_self_reliant_mobs.push_back(mob.get());
+void Unite::Unifier::addStandAloneMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_stand_alone_mobs.push_back(mob.get());
     this->addMob(mob);
 }
 
-void Unite::Unifier::removeSelfReliantMob(Mobs::Mob *mob) noexcept {
-    m_self_reliant_mobs.remove_if([mob](Mobs::Mob *mb) -> bool {
+void Unite::Unifier::removeStandAloneMob(Mobs::Mob *mob) noexcept {
+    m_stand_alone_mobs.remove_if([mob](Mobs::Mob *mb) -> bool {
         return mb == mob;
     });
     this->removeMob(mob);
 }
 
-void Unite::Unifier::removeSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
-    m_self_reliant_mobs.remove_if([mob](Mobs::Mob *mb) -> bool {
+void Unite::Unifier::removeStandAloneMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_stand_alone_mobs.remove_if([mob](Mobs::Mob *mb) -> bool {
         return mb == mob.get();
     });
     this->removeMob(mob);
 }
 
-const std::list<Mobs::Mob *> &Unite::Unifier::getSelfReliantMobs() const noexcept {
-    return m_self_reliant_mobs;
+const std::list<Mobs::Mob *> &Unite::Unifier::getStandAloneMobs() const noexcept {
+    return m_stand_alone_mobs;
 }
 
 void Unite::Unifier::addPlayer(Mobs::Player *player) noexcept {

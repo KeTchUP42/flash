@@ -17,7 +17,7 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     RD::healthAnalysis(*this);
     if (this->isDead()) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
-            unifier1->removeSelfReliantMob(this);
+            unifier1->removeStandAloneMob(this);
         });
     } else {
         for (Mobs::Player *player : unifier->getPlayers()) {

@@ -14,7 +14,14 @@ namespace Mobs {
         explicit MushroomProperties(float punchPower, float elasticityLevel)
                 : punchPower(punchPower), elasticityLevel(elasticityLevel) {}
 
+        /**
+         * @brief Mushroom's push power.
+         */
         float punchPower;
+
+        /**
+         * @brief The percentage of vertical speed that the player will return to when he jumps a mushroom.
+         */
         float elasticityLevel;
     };
 }
