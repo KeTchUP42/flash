@@ -64,6 +64,8 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                         m_slime.jumpRate,
                         (m_slime.punchPower / 2 > MIN_PUNCH_POWER) ? m_slime.punchPower / 2 : MIN_PUNCH_POWER,
                         (m_slime.punchDamage / 2 > MIN_PUNCH_DAMAGE) ? m_slime.punchPower / 2 : MIN_PUNCH_DAMAGE,
+                        m_slime.elasticCoefficient,
+                        m_slime.frictionCoefficient,
                         m_slime.minSplitSize);
 
                 int healthPoints = (m_properties.maxHealthPoints / 2 > MIN_HEALTH_POINTS) ? m_properties.maxHealthPoints / 2 : MIN_HEALTH_POINTS;
@@ -82,23 +84,23 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                         healthPoints, healthPoints), slimeProperties));
             });
         }
-
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removeSelfReliantMob(this);
         });
 
     } else {
 
-        //Slime killing
+        //Slime moving
         for (Mobs::Player *player : unifier->getPlayers()) {
-            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
-                if (player->getPosition().y < this->getPosition().y) {
+            if (player->getPosition().y < this->getPosition().y) {
+                if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
                     this->prejudice(static_cast<int>(player->getSpeed().ySpeed / 4)); //Calculating damage from speed.
-                    //Swinging on rebound
-                    player->setSpeed(Components::Speed(
-                            player->getSpeed().xSpeed + (Computations::random(-1, 1) * m_slime.moveSpeed / 2),
-                            -1 * m_slime.jumpSpeed
-                    ));
+                    bool sameSign = player->getSpeed().ySpeed * this->getSpeed().ySpeed >= 0;
+                    float ySpeed = static_cast<int>(-1 * player->getSpeed().ySpeed * m_slime.elasticCoefficient + (sameSign ? 0 : this->getSpeed().ySpeed));
+                    player->setYSpeed((std::abs(ySpeed) == 1) ? 0 : ySpeed);
+                    if (player->getSpeed().xSpeed != this->getSpeed().xSpeed) {
+                        player->setXSpeed(static_cast<int>(player->getSpeed().xSpeed * m_slime.frictionCoefficient));
+                    }
                 }
             }
         }

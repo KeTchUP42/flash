@@ -28,6 +28,10 @@ namespace Obstacles {
 
         void addSpeed(float offsetX, float offsetY) noexcept override;
 
+        void setXSpeed(float xSpeed) noexcept override;
+
+        void setYSpeed(float ySpeed) noexcept override;
+
         void setSpeed(const Components::Speed &speed) noexcept override;
 
         const Components::Speed &getSpeed() const noexcept override;

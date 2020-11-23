@@ -18,8 +18,12 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
         obstacle->draw(target);
     }
 
-    for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
+    for (Mobs::Mob *mob: m_self_reliant_mobs) {
         mob->draw(target);
+    }
+
+    for (Mobs::Player *player: m_players) {
+        player->draw(target);
     }
 
     for (const std::shared_ptr<Components::ISprite> &sprite: m_front_sprites) {

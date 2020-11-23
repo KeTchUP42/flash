@@ -22,10 +22,7 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
         for (Mobs::Player *player : unifier->getPlayers()) {
             if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
                 if (player->getPosition().y < this->getPosition().y) {
-                    player->setSpeed(Components::Speed(
-                            player->getSpeed().xSpeed,
-                            static_cast<int>(-1 * (player->getSpeed().ySpeed + player->getSpeed().ySpeed * m_mushroom.elasticityLevel))
-                    ));
+                    player->setYSpeed(static_cast<int>(-1 * (player->getSpeed().ySpeed + player->getSpeed().ySpeed * m_mushroom.elasticityLevel)));
                 }
             }
         }

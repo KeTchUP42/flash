@@ -24,7 +24,7 @@ void Obstacles::PlatformBlock::selfAction(Unite::Unifier *unifier) {
         float xSpeed = sameSign ? m_properties.speed.xSpeed :
                        (-1 * mob->getSpeed().xSpeed * m_properties.elasticCoefficient) + m_properties.speed.xSpeed;
 
-        mob->setSpeed(Components::Speed(xSpeed, mob->getProperties().speed.ySpeed));
+        mob->setXSpeed(xSpeed);
     }
 
     if ((mob = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getMobs())) != nullptr) {
@@ -32,13 +32,13 @@ void Obstacles::PlatformBlock::selfAction(Unite::Unifier *unifier) {
         float ySpeed = sameSign ? m_properties.speed.ySpeed :
                        (-1 * mob->getSpeed().ySpeed * m_properties.elasticCoefficient) + m_properties.speed.ySpeed;
 
-        mob->setSpeed(Components::Speed(mob->getProperties().speed.xSpeed, ySpeed));
+        mob->setYSpeed(ySpeed);
     }
 
     for (const std::shared_ptr<Mobs::Mob> &mb : unifier->getMobs()) {
         if (mb->getSpeed().xSpeed == 0) {
             if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(mb.get(), this)) {
-                mb->setSpeed(Components::Speed(m_properties.speed.xSpeed, mb->getSpeed().ySpeed));
+                mb->setXSpeed(m_properties.speed.xSpeed);
             }
         }
     }

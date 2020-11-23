@@ -88,6 +88,14 @@ void Mobs::Mob::addSpeed(float offsetX, float offsetY) noexcept {
     m_properties.speed.add(offsetX, offsetY);
 }
 
+void Mobs::Mob::setXSpeed(float xSpeed) noexcept {
+    m_properties.speed.xSpeed = xSpeed;
+}
+
+void Mobs::Mob::setYSpeed(float ySpeed) noexcept {
+    m_properties.speed.ySpeed = ySpeed;
+}
+
 void Mobs::Mob::setSpeed(const Components::Speed &speed) noexcept {
     m_properties.speed = speed;
 }

@@ -20,6 +20,8 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             std::stoi(data.at("JUMP_RATE")),
             std::stof(data.at("PUNCH_POWER")),
             std::stof(data.at("PUNCH_DAMAGE")),
+            std::stof(data.at("ELASTIC_COEFFICIENT")),
+            std::stof(data.at("FRICTION_COEFFICIENT")),
             std::stoi(data.at("MIN_SPLIT_SIZE")));
 
     unifier.addSelfReliantMob(new Mobs::Slime(

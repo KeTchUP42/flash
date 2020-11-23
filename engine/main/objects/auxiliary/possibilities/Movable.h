@@ -33,6 +33,18 @@ namespace Possibilities {
         virtual void setSpeed(const Components::Speed &speed) noexcept = 0;
 
         /**
+         * @brief Method sets "X" speed value.
+         * @param xSpeed "X" speed value.
+         */
+        virtual void setXSpeed(float xSpeed) noexcept = 0;
+
+        /**
+         * @brief Method sets "Y" speed value.
+         * @param ySpeed "Y" speed value.
+         */
+        virtual void setYSpeed(float ySpeed) noexcept = 0;
+
+        /**
          * @brief Method retuens object move speed.
          * @return Move speed.
          */

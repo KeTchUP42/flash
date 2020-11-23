@@ -18,6 +18,8 @@
     MOVE_SPEED = 3
     JUMP_SPEED = 10
     JUMP_RATE = 50
+    ELASTIC_COEFFICIENT = 0.5
+    FRICTION_COEFFICIENT = 0.85
     MIN_SPLIT_SIZE = 10
     PUNCH_POWER = 5
     PUNCH_DAMAGE = 10
@@ -38,6 +40,8 @@
  * `MOVE_SPEED` - The parameter of speed obtained when moving horizontally by jump.
  * `JUMP_SPEED` - The parameter of speed obtained horizontally at each jump.
  * `JUMP_RATE` - The value determines the frequency of slime's jumps. The higher the value is, the jumps are less frequent.
+ * `ELASTIC_COEFFICIENT` - This coefficient uses in calculations after players jump on slime.
+ * `FRICTION_COEFFICIENT` - This coefficient uses in calculations during players moving on slime.
  * `MIN_SPLIT_SIZE` - The minimum size to which the slime can be divided. Slime could not have any side less than 10 px.
  * `PUNCH_POWER` - Parameter sets slime's punch power.
  * `PUNCH_DAMAGE` - Parameter sets slime's punch damage.

@@ -13,16 +13,11 @@ void Obstacles::ElasticBlock::selfAction(Unite::Unifier *unifier) {
     for (const std::shared_ptr<Mobs::Mob> &mob : unifier->getMobs()) {
 
         if (m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(mob.get(), this)) {
-            mob->setSpeed(Components::Speed(
-                    static_cast<int>(-1 * mob->getSpeed().xSpeed * m_properties.elasticCoefficient),
-                    mob->getSpeed().ySpeed));
+            mob->setXSpeed(static_cast<int>(-1 * mob->getSpeed().xSpeed * m_properties.elasticCoefficient));
         }
 
         if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(mob.get(), this)) {
-            mob->setSpeed(Components::Speed(
-                    mob->getSpeed().xSpeed,
-                    static_cast<int>(-1 * mob->getSpeed().ySpeed * m_properties.elasticCoefficient)
-            ));
+            mob->setYSpeed(static_cast<int>(-1 * mob->getSpeed().ySpeed * m_properties.elasticCoefficient));
         }
     }
 }
