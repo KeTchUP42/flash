@@ -4,22 +4,22 @@
 
 #include "ElementaryReduction.h"
 
-Components::Point Creation::position(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
+Components::Point Creation::RD::position(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
     std::vector<std::string> position = Computations::split(data.at(field), ':');
     return Components::Point(std::stof(position.at(0)), std::stof(position.at(1)));
 }
 
-Components::Size Creation::size(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
+Components::Size Creation::RD::size(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
     std::vector<std::string> size = Computations::split(data.at(field), ':');
     return Components::Size(std::stof(size.at(0)), std::stof(size.at(1)));
 }
 
-Components::Speed Creation::speed(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
+Components::Speed Creation::RD::speed(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
     std::vector<std::string> speed = Computations::split(data.at(field), ':');
     return Components::Speed(std::stof(speed.at(0)), std::stof(speed.at(1)));
 }
 
-sf::Color Creation::color(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
+sf::Color Creation::RD::color(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
     std::vector<std::string> color = Computations::split(data.at(field), ':');
     sf::Uint8 r = std::atoi(color.at(0).c_str());
     sf::Uint8 g = std::atoi(color.at(1).c_str());

@@ -11,5 +11,5 @@ Creation::PlayerDeathZoneGenerator::PlayerDeathZoneGenerator(Creation::Pools::So
 
 void Creation::PlayerDeathZoneGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    unifier.addTrigger(new Triggers::ImpactPlayerZone(commonArea(data), new Triggers::DeathHandler<Mobs::Player>()));
+    unifier.addTrigger(new Triggers::ImpactPlayerZone(RD::commonArea(data), new Triggers::DeathHandler<Mobs::Player>()));
 }

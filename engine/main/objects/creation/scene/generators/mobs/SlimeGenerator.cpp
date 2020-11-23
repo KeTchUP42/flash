@@ -25,8 +25,8 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             std::stoi(data.at("MIN_SPLIT_SIZE")));
 
     unifier.addSelfReliantMob(new Mobs::Slime(
-            loadMobProperties(data), commonArea(data),
+            RD::loadMobProperties(data), RD::commonArea(data),
             std::shared_ptr<Components::ISpriteBox>(
-                    new Components::SpriteBox(spriteArea(data), m_source.getTexture(data.at("TEXTURE")))),
-            loadAlgorithms(data, m_source), slimeProperties));
+                    new Components::SpriteBox(RD::spriteArea(data), m_source.getTexture(data.at("TEXTURE")))),
+            RD::loadAlgorithms(data, m_source), slimeProperties));
 }

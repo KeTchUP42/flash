@@ -10,5 +10,5 @@ Creation::BackAudioEffectGenerator::BackAudioEffectGenerator(Creation::Pools::So
 
 void Creation::BackAudioEffectGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    unifier.addEffect(new Effects::BackAudioEffect(loadMusic(data, m_source)));
+    unifier.addEffect(new Effects::BackAudioEffect(RD::loadMusic(data, m_source)));
 }

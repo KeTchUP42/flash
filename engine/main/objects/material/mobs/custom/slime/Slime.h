@@ -22,7 +22,7 @@ namespace Mobs {
 
         void selfAction(Unite::Unifier *unifier) override;
 
-    private:
+    protected:
         Mobs::Slime *createSmallerSlime(
                 const Mobs::MobProperties &properties,
                 const Mobs::SlimeProperties &slimeProperties) const;

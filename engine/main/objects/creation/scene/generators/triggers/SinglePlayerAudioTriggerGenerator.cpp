@@ -11,5 +11,5 @@ Creation::SinglePlayerAudioTriggerGenerator::SinglePlayerAudioTriggerGenerator(C
 
 void Creation::SinglePlayerAudioTriggerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    unifier.addTrigger(new Triggers::SinglePlayerAudioTrigger(commonArea(data), loadMusic(data, m_source)));
+    unifier.addTrigger(new Triggers::SinglePlayerAudioTrigger(RD::commonArea(data), RD::loadMusic(data, m_source)));
 }

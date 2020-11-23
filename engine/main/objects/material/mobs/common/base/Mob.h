@@ -6,7 +6,6 @@
 #define FLASH_MOB_H
 
 #include "../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
-#include "../../../../auxiliary/possibilities/rectangle/Rectangle.h"
 #include "../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../auxiliary/possibilities/Peculiar.h"
 #include "../../../common/MaterialObject.h"
@@ -80,12 +79,12 @@ namespace Mobs {
 
         /**
          * @brief Method sets new health points value.
-         * @param healthPoints New health points value.
+         * @param health Points New health points value.
          */
         void setHealthPoints(float healthPoints) noexcept;
 
         /**
-         * @brief Method check is mob dead.
+         * @brief Method checks is mob dead.
          * @return Is dead?
          */
         bool isDead() const noexcept;

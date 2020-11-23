@@ -15,8 +15,8 @@ Creation::PlatformBlockGenerator::PlatformBlockGenerator(Creation::Pools::Source
 void Creation::PlatformBlockGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addBlock(new Obstacles::PlatformBlock(
-            loadObstacleProperties(data),
+            RD::loadObstacleProperties(data),
             std::make_shared<Components::SpriteBox>(
-                    commonArea(data), m_source.getTexture(data.at("TEXTURE"))),
-            loadAlgorithms(data, m_source)));
+                    RD::commonArea(data), m_source.getTexture(data.at("TEXTURE"))),
+            RD::loadAlgorithms(data, m_source)));
 }

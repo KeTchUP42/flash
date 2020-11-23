@@ -14,5 +14,5 @@ Creation::DullInvisibleBlockGenarator::DullInvisibleBlockGenarator(Creation::Poo
 void Creation::DullInvisibleBlockGenarator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addBlock(new Obstacles::DullInvisibleBlock(
-            loadObstacleProperties(data), commonArea(data), loadAlgorithms(data, m_source)));
+            RD::loadObstacleProperties(data), RD::commonArea(data), RD::loadAlgorithms(data, m_source)));
 }

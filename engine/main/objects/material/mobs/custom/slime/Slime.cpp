@@ -21,7 +21,6 @@ Mobs::Slime *Mobs::Slime::createSmallerSlime(const Mobs::MobProperties &properti
             Components::Point(m_area.m_point.x + areaSize.width / 2,
                               m_area.m_point.y + areaSize.height / 2),
             areaSize, m_area.m_angle);
-
     //sprite
     Components::Size spriteSize(m_sprite->getArea().m_size.width / 2, m_sprite->getArea().m_size.height / 2);
     Components::Area spriteArea(
@@ -30,7 +29,6 @@ Mobs::Slime *Mobs::Slime::createSmallerSlime(const Mobs::MobProperties &properti
             spriteSize, m_sprite->getArea().m_angle);
 
     std::shared_ptr<Components::ISpriteBox> spriteBox = std::make_shared<Components::SpriteBox>(spriteArea, m_sprite->getTexture());
-
     //algo
     std::pair<float, float> step = m_algorithms->getCollision().getMovingCollision().getAnalysisStep();
     float stepX = step.first / 2 > 1 ? step.first / 2 : 1;
@@ -90,17 +88,15 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
 
     } else {
 
-        //Slime moving
+        //Players jumping
         for (Mobs::Player *player : unifier->getPlayers()) {
-            if (player->getPosition().y < this->getPosition().y) {
-                if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
-                    this->prejudice(static_cast<int>(player->getSpeed().ySpeed / 4)); //Calculating damage from speed.
-                    bool sameSign = player->getSpeed().ySpeed * this->getSpeed().ySpeed >= 0;
-                    float ySpeed = static_cast<int>(-1 * player->getSpeed().ySpeed * m_slime.elasticCoefficient + (sameSign ? 0 : this->getSpeed().ySpeed));
-                    player->setYSpeed((std::abs(ySpeed) == 1) ? 0 : ySpeed);
-                    if (player->getSpeed().xSpeed != this->getSpeed().xSpeed) {
-                        player->setXSpeed(static_cast<int>(player->getSpeed().xSpeed * m_slime.frictionCoefficient));
-                    }
+            if ((player->getPosition().y < this->getPosition().y) && m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
+                this->prejudice(static_cast<int>(player->getSpeed().ySpeed / 4)); //Calculating damage from speed.
+                bool sameSign = player->getSpeed().ySpeed * this->getSpeed().ySpeed >= 0;
+                float ySpeed = static_cast<int>(-1 * player->getSpeed().ySpeed * m_slime.elasticCoefficient + (sameSign ? 0 : this->getSpeed().ySpeed));
+                player->setYSpeed((std::abs(ySpeed) == 1) ? 0 : ySpeed);
+                if (player->getSpeed().xSpeed != this->getSpeed().xSpeed) {
+                    player->setXSpeed(static_cast<int>(player->getSpeed().xSpeed * m_slime.frictionCoefficient));
                 }
             }
         }
@@ -117,8 +113,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         Obstacles::Block *block;
         if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
             //Slime moving
-            if ((Computations::random(0, m_slime.jumpRate) == 0) && (this->getPosition().y < block->getPosition().y) &&
-                (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
+            if ((Computations::random(0, m_slime.jumpRate) == 0) && (this->getPosition().y < block->getPosition().y) && (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
                 this->addSpeed(((Computations::random(0, 1) == 1) ? 1 : -1) * m_slime.moveSpeed, -1 * m_slime.jumpSpeed);
             } else {
                 bool sameSign = m_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;

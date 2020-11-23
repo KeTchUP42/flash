@@ -36,10 +36,8 @@ void Obstacles::PlatformBlock::selfAction(Unite::Unifier *unifier) {
     }
 
     for (const std::shared_ptr<Mobs::Mob> &mb : unifier->getMobs()) {
-        if (mb->getSpeed().xSpeed == 0) {
-            if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(mb.get(), this)) {
-                mb->setXSpeed(m_properties.speed.xSpeed);
-            }
+        if ((mb->getSpeed().xSpeed == 0) && m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(mb.get(), this)) {
+            mb->setXSpeed(m_properties.speed.xSpeed);
         }
     }
 }

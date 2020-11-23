@@ -15,6 +15,6 @@ ExplicitPlayerSceneTriggerGenerator(Creation::Pools::SourcePool &pool, View::Sta
 void Creation::ExplicitPlayerSceneTriggerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addTrigger(new Triggers::PlayerSceneTrigger(
-            data.at("NEXT_SCENE"), commonArea(data),
-            new Triggers::ExplicitPositionPlayerHandler(position(data, "TARGET")), m_context));
+            data.at("NEXT_SCENE"), RD::commonArea(data),
+            new Triggers::ExplicitPositionPlayerHandler(RD::position(data, "TARGET")), m_context));
 }

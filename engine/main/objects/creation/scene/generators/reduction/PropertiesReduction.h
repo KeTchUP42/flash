@@ -10,20 +10,21 @@
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 
 namespace Creation {
+    namespace RD {
+        /**
+         * @brief Function creates MobProperties object from given data.
+         * @param data Ini data.
+         * @return New MobProperties object.
+         */
+        Mobs::MobProperties loadMobProperties(const IniUtil::Analyzer::IniBlock &data);
 
-    /**
-     * @brief Function creates MobProperties object from given data.
-     * @param data Ini data.
-     * @return New MobProperties object.
-     */
-    Mobs::MobProperties loadMobProperties(const IniUtil::Analyzer::IniBlock &data);
-
-    /**
-     * @brief Function creates ObstacleProperties object from given data.
-     * @param data Ini data.
-     * @return New ObstacleProperties object.
-     */
-    Obstacles::ObstacleProperties loadObstacleProperties(const IniUtil::Analyzer::IniBlock &data);
+        /**
+         * @brief Function creates ObstacleProperties object from given data.
+         * @param data Ini data.
+         * @return New ObstacleProperties object.
+         */
+        Obstacles::ObstacleProperties loadObstacleProperties(const IniUtil::Analyzer::IniBlock &data);
+    }
 }
 
 #endif //FLASH_PROPERTIES_REDUCTION_H

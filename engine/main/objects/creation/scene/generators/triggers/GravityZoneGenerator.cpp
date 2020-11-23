@@ -12,7 +12,7 @@ Creation::GravityZoneGenerator::GravityZoneGenerator(Creation::Pools::SourcePool
 
 void Creation::GravityZoneGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    Components::Area area = commonArea(data);
+    Components::Area area = RD::commonArea(data);
     float xAcceleration = std::stof(data.at("X_ACCELERATION"));
     float yAcceleration = std::stof(data.at("Y_ACCELERATION"));
 

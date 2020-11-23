@@ -12,7 +12,7 @@ Creation::DeathZoneGenerator::DeathZoneGenerator(Creation::Pools::SourcePool &po
 
 void Creation::DeathZoneGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    Components::Area area = commonArea(data);
+    Components::Area area = RD::commonArea(data);
     unifier.addTrigger(new Triggers::ImpactMobsZone(area, new Triggers::DeathHandler<Mobs::Mob>()));
     unifier.addTrigger(new Triggers::ImpactPlayerZone(area, new Triggers::DeathHandler<Mobs::Player>()));
 }

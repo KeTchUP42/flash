@@ -10,5 +10,5 @@ Creation::FrontSpriteGenerator::FrontSpriteGenerator(Creation::Pools::SourcePool
 
 void Creation::FrontSpriteGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    unifier.addFrontSprite(new Components::SpriteBox(commonArea(data), m_source.getTexture(data.at("TEXTURE"))));
+    unifier.addFrontSprite(new Components::SpriteBox(RD::commonArea(data), m_source.getTexture(data.at("TEXTURE"))));
 }

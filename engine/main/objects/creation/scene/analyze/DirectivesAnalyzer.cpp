@@ -27,7 +27,7 @@ void Creation::DirectivesAnalyzer::analyze(const IniUtil::Analyzer::IniBlock &da
             continue;
         }
         if (line.first == "SET_BACK_COLOR") {
-            window.setBackColor(color(data, line.first));
+            window.setBackColor(RD::color(data, line.first));
             continue;
         }
         //..

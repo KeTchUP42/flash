@@ -9,19 +9,20 @@
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 
 namespace Creation {
+    namespace RD {
+        /**
+         * @brief Function generates general objects area.
+         * @param data Ini data.
+         * @return Common area.
+         */
+        Components::Area commonArea(const IniUtil::Analyzer::IniBlock &data);
 
-    /**
-     * @brief Function generates general objects area.
-     * @param data Ini data.
-     * @return Common area.
-     */
-    Components::Area commonArea(const IniUtil::Analyzer::IniBlock &data);
-
-    /**
-     * @brief Function generates sprite area.
-     * @param data Ini data.
-     * @return Sprite area.
-     */
-    Components::Area spriteArea(const IniUtil::Analyzer::IniBlock &data);
+        /**
+         * @brief Function generates sprite area.
+         * @param data Ini data.
+         * @return Sprite area.
+         */
+        Components::Area spriteArea(const IniUtil::Analyzer::IniBlock &data);
+    }
 }
 #endif //FLASH_AREA_REDUCTION_H

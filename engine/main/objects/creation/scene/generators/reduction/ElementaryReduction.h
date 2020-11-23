@@ -13,38 +13,39 @@
 #include "../../../../../../utils/math/algorithms.h"
 
 namespace Creation {
+    namespace RD {
+        /**
+         * @brief Function created Point struct object from given data.
+         * @param data Ini data.
+         * @param field Field name.
+         * @return New Point object.
+         */
+        Components::Point position(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
 
-    /**
-     * @brief Function created Point struct object from given data.
-     * @param data Ini data.
-     * @param field Field name.
-     * @return New Point object.
-     */
-    Components::Point position(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
+        /**
+         * @brief Function created Size struct object from given data.
+         * @param data Ini data.
+         * @param field Field name.
+         * @return New Size object.
+         */
+        Components::Size size(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
 
-    /**
-     * @brief Function created Size struct object from given data.
-     * @param data Ini data.
-     * @param field Field name.
-     * @return New Size object.
-     */
-    Components::Size size(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
+        /**
+         * @brief Function created Speed struct object from given data.
+         * @param data Ini data.
+         * @param field Field name.
+         * @return New Speed object.
+         */
+        Components::Speed speed(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
 
-    /**
-     * @brief Function created Speed struct object from given data.
-     * @param data Ini data.
-     * @param field Field name.
-     * @return New Speed object.
-     */
-    Components::Speed speed(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
-
-    /**
-     * @brief Function created sf::Color struct object from given data.
-     * @param data Ini data.
-     * @param field Field name.
-     * @return New sf::Color object.
-     */
-    sf::Color color(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
+        /**
+         * @brief Function created sf::Color struct object from given data.
+         * @param data Ini data.
+         * @param field Field name.
+         * @return New sf::Color object.
+         */
+        sf::Color color(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
+    }
 }
 
 #endif //FLASH_ELEMENTARYREDUCTION_H

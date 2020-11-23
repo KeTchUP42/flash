@@ -21,12 +21,12 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             std::stof(data.at("JUMP_SPEED")));
 
     Mobs::Player *player = new Mobs::BasicPlayer(
-            loadMobProperties(data), commonArea(data),
+            RD::loadMobProperties(data), RD::commonArea(data),
             std::make_shared<Components::SpriteBox>(
-                    spriteArea(data), m_source.getTexture(data.at("TEXTURE"))),
-            loadAlgorithms(data, m_source), playerProperties);
+                    RD::spriteArea(data), m_source.getTexture(data.at("TEXTURE"))),
+            RD::loadAlgorithms(data, m_source), playerProperties);
 
-    KeyMapBuilder builder(data.at("KEYMAP"), m_source);
+    RD::KeyMapBuilder builder(data.at("KEYMAP"), m_source);
     builder.setKey(Mobs::KeyAlias::Right, "MAP", "Right")
             .setKey(Mobs::KeyAlias::Left, "MAP", "Left")
             .setKey(Mobs::KeyAlias::Jump, "MAP", "Jump")

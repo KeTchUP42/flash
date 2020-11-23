@@ -11,5 +11,5 @@ Creation::PlayerAudioTriggerGenerator::PlayerAudioTriggerGenerator(Creation::Poo
 
 void Creation::PlayerAudioTriggerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    unifier.addTrigger(new Triggers::PlayerAudioTrigger(commonArea(data), loadMusic(data, m_source)));
+    unifier.addTrigger(new Triggers::PlayerAudioTrigger(RD::commonArea(data), RD::loadMusic(data, m_source)));
 }

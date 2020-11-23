@@ -10,5 +10,5 @@ Creation::GravityPointEffectGenerator::GravityPointEffectGenerator(Creation::Poo
 
 void Creation::GravityPointEffectGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    unifier.addEffect(new Effects::GravityPointEffect(position(data, "POSITION"), std::stof(data.at("ACCELERATION"))));
+    unifier.addEffect(new Effects::GravityPointEffect(RD::position(data, "POSITION"), std::stof(data.at("ACCELERATION"))));
 }
