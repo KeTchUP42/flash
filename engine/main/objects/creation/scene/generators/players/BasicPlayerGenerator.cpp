@@ -14,7 +14,7 @@ Creation::BasicPlayerGenerator::BasicPlayerGenerator(Creation::Pools::SourcePool
 
 void Creation::BasicPlayerGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    //player properties
+    //Player properties.
     Mobs::BasicPlayerProperties playerProperties(
             std::stof(data.at("MOVE_SPEED")),
             std::stof(data.at("MAX_MOVE_SPEED")),

@@ -16,7 +16,14 @@ namespace Mobs {
         explicit MobProperties(const Components::Speed &speed, float maxHealthPoints, float healthPoints)
                 : Material::MaterialObjectProperties(speed), maxHealthPoints(maxHealthPoints), healthPoints(healthPoints) {}
 
+        /**
+         * @brief The parameter of maximum health points.
+         */
         float maxHealthPoints;
+
+        /**
+         * @brief Health points. Necessary for the process of life activities.
+         */
         float healthPoints;
     };
 }

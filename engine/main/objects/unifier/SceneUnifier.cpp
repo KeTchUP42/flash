@@ -18,7 +18,7 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
         obstacle->draw(target);
     }
 
-    for (Mobs::Mob *mob: m_self_reliant_mobs) {
+    for (Mobs::Mob *mob: m_stand_alone_mobs) {
         mob->draw(target);
     }
 
@@ -49,7 +49,7 @@ void Unite::SceneUnifier::refresh() {
         effect->applyEffect(this);
     }
 
-    for (Mobs::Mob *mob: m_self_reliant_mobs) {
+    for (Mobs::Mob *mob: m_stand_alone_mobs) {
         mob->selfAction(this);
     }
 

@@ -15,7 +15,7 @@
 namespace Creation {
     namespace RD {
         /**
-         * @brief Function created Point struct object from given data.
+         * @brief Function creates Point struct object from given data.
          * @param data Ini data.
          * @param field Field name.
          * @return New Point object.
@@ -23,7 +23,7 @@ namespace Creation {
         Components::Point position(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
 
         /**
-         * @brief Function created Size struct object from given data.
+         * @brief Function creates Size struct object from given data.
          * @param data Ini data.
          * @param field Field name.
          * @return New Size object.
@@ -31,7 +31,7 @@ namespace Creation {
         Components::Size size(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
 
         /**
-         * @brief Function created Speed struct object from given data.
+         * @brief Function creates Speed struct object from given data.
          * @param data Ini data.
          * @param field Field name.
          * @return New Speed object.
@@ -39,12 +39,20 @@ namespace Creation {
         Components::Speed speed(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
 
         /**
-         * @brief Function created sf::Color struct object from given data.
+         * @brief Function creates sf::Color struct object from given data.
          * @param data Ini data.
          * @param field Field name.
          * @return New sf::Color object.
          */
         sf::Color color(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
+
+        /**
+         * @brief Function creates std::pair<unsigned int, unsigned int> struct object from given data.
+         * @param data Ini data.
+         * @param field Field name.
+         * @return std::pair<unsigned int, unsigned int> object.
+         */
+        std::pair<unsigned int, unsigned int> upair(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
     }
 }
 

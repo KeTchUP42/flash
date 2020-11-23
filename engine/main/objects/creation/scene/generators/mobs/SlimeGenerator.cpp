@@ -13,18 +13,20 @@ Creation::SlimeGenerator::SlimeGenerator(Creation::Pools::SourcePool &pool) : Ge
 
 void Creation::SlimeGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    //slime properties
+    //Slime properties.
     Mobs::SlimeProperties slimeProperties(
             std::stof(data.at("MOVE_SPEED")),
             std::stof(data.at("JUMP_SPEED")),
-            std::stoi(data.at("JUMP_RATE")),
+            std::stoi(data.at("JUMP_RATE_COEFFICIENT")),
             std::stof(data.at("PUNCH_POWER")),
             std::stof(data.at("PUNCH_DAMAGE")),
             std::stof(data.at("ELASTIC_COEFFICIENT")),
             std::stof(data.at("FRICTION_COEFFICIENT")),
-            std::stoi(data.at("MIN_SPLIT_SIZE")));
+            std::stoi(data.at("MIN_SPLIT_SIZE")),
+            std::stof(data.at("SPLITTING_COEFFICIENT")),
+            std::stoi(data.at("SPLIT_SLIMES_NUMBER")));
 
-    unifier.addSelfReliantMob(new Mobs::Slime(
+    unifier.addStandAloneMob(new Mobs::Slime(
             RD::loadMobProperties(data), RD::commonArea(data),
             std::shared_ptr<Components::ISpriteBox>(
                     new Components::SpriteBox(RD::spriteArea(data), m_source.getTexture(data.at("TEXTURE")))),

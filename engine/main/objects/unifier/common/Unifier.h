@@ -259,34 +259,34 @@ namespace Unite {
         //..
 
         /**
-         * @brief Method adds new self-reliant mob.
-         * @param mob New self-reliant mob.
+         * @brief Method adds new stand-alone mob.
+         * @param mob New stand-alone mob.
          */
-        void addSelfReliantMob(Mobs::Mob *mob) noexcept;
+        void addStandAloneMob(Mobs::Mob *mob) noexcept;
 
         /**
-         * @brief Method adds new self-reliant mob.
-         * @param mob New self-reliant mob.
+         * @brief Method adds new stand-alone mob.
+         * @param mob New stand-alone mob.
          */
-        void addSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
+        void addStandAloneMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
 
         /**
-         * @brief Method removes self-reliant mob.
-         * @param mob Existing self-reliant mob.
+         * @brief Method removes stand-alone mob.
+         * @param mob Existing stand-alone mob.
          */
-        void removeSelfReliantMob(Mobs::Mob *mob) noexcept;
+        void removeStandAloneMob(Mobs::Mob *mob) noexcept;
 
         /**
-         * @brief Method removes self-reliant mob.
-         * @param mob Existing self-reliant mob.
+         * @brief Method removes stand-alone mob.
+         * @param mob Existing stand-alone mob.
          */
-        void removeSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
+        void removeStandAloneMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
 
         /**
-         * @brief Method returns const reference on self-reliant mobs collection.
-         * @return Const reference on self-reliant mobs collection.
+         * @brief Method returns const reference on stand-alone mobs collection.
+         * @return Const reference on stand-alone mobs collection.
          */
-        const std::list<Mobs::Mob *> &getSelfReliantMobs() const noexcept;
+        const std::list<Mobs::Mob *> &getStandAloneMobs() const noexcept;
 
         //..
 
@@ -439,9 +439,9 @@ namespace Unite {
         std::list<std::shared_ptr<Mobs::Mob>> m_mobs;
 
         /**
-         * @brief Self-reliant mobs.
+         * @brief Stand-alone  mobs.
          */
-        std::list<Mobs::Mob *> m_self_reliant_mobs;
+        std::list<Mobs::Mob *> m_stand_alone_mobs;
 
         /**
         * @brief Players.

@@ -14,8 +14,19 @@ namespace Mobs {
         explicit BasicPlayerProperties(float moveSpeed, float maxMoveSpeed, float jumpSpeed)
                 : moveSpeed(moveSpeed), maxMoveSpeed(maxMoveSpeed), jumpSpeed(jumpSpeed) {}
 
+        /**
+         * @brief Speed increase at the push of a button.
+         */
         float moveSpeed;
+
+        /**
+         * @brief Maximum speed that a player can achieve when moving independently.
+         */
         float maxMoveSpeed;
+
+        /**
+         * @brief Speed obtained by jumping.
+         */
         float jumpSpeed;
     };
 }
