@@ -19,7 +19,8 @@ Mobs::Slime *Mobs::Slime::createSmallerSlime(const Mobs::MobProperties &properti
     Components::Size areaSize(m_area.m_size.width / 2, m_area.m_size.height / 2);
     Components::Area area(
             Components::Point(m_area.m_point.x + areaSize.width / 2,
-                              m_area.m_point.y + areaSize.height / 2), areaSize, m_area.m_angle);
+                              m_area.m_point.y + areaSize.height / 2),
+            areaSize, m_area.m_angle);
 
     //sprite
     Components::Size spriteSize(m_sprite->getArea().m_size.width / 2, m_sprite->getArea().m_size.height / 2);
@@ -42,11 +43,11 @@ Mobs::Slime *Mobs::Slime::createSmallerSlime(const Mobs::MobProperties &properti
 }
 
 void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
-    if (m_properties.healthPoints > m_properties.maxHealthPoints) {
-        m_properties.healthPoints = m_properties.maxHealthPoints;
-    }
+    this->staticPropertyAnalysis();
     if (this->isDead()) {
-        bool isValidSize = ((m_sprite->getArea().m_size.width / 2 >= m_slime.minSplitSize) && (m_sprite->getArea().m_size.height / 2 >= m_slime.minSplitSize));
+        //Size checking.
+        bool isValidSize = ((m_sprite->getArea().m_size.width / 2 >= m_slime.minSplitSize) &&
+                            (m_sprite->getArea().m_size.height / 2 >= m_slime.minSplitSize));
 
         if (isValidSize && ((m_sprite->getArea().m_size.width / 2 >= Components::SpriteBox::MIN_SPRITE_SIDE_SIZE) &&
                             (m_sprite->getArea().m_size.height / 2 >= Components::SpriteBox::MIN_SPRITE_SIDE_SIZE))) {
@@ -67,8 +68,8 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
 
                 int healthPoints = (m_properties.maxHealthPoints / 2 > MIN_HEALTH_POINTS) ? m_properties.maxHealthPoints / 2 : MIN_HEALTH_POINTS;
 
-                float xSpeedOffset = m_area.m_size.width / 10;
-                float ySpeedOffset = m_area.m_size.height / 10;
+                float xSpeedOffset = m_area.m_size.width / Components::SpriteBox::MIN_SPRITE_SIDE_SIZE;
+                float ySpeedOffset = m_area.m_size.height / Components::SpriteBox::MIN_SPRITE_SIDE_SIZE;
 
                 unifier1->addMob(this->createSmallerSlime(MobProperties(
                         Components::Speed(m_properties.speed.xSpeed - xSpeedOffset,
@@ -92,7 +93,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         for (Mobs::Player *player : unifier->getPlayers()) {
             if (m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
                 if (player->getPosition().y < this->getPosition().y) {
-                    this->prejudice(static_cast<int>(player->getSpeed().ySpeed / 3)); //Calculating damage from speed.
+                    this->prejudice(static_cast<int>(player->getSpeed().ySpeed / 4)); //Calculating damage from speed.
                     //Swinging on rebound
                     player->setSpeed(Components::Speed(
                             player->getSpeed().xSpeed + (Computations::random(-1, 1) * m_slime.moveSpeed / 2),
@@ -112,18 +113,10 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         }
 
         Obstacles::Block *block;
-        if ((block = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getBlocks())) != nullptr) {
-            bool sameSign = m_properties.speed.xSpeed * block->getSpeed().xSpeed >= 0;
-            float xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().xSpeed));
-            m_properties.speed.xSpeed = (std::abs(xSpeed) == 1) ? 0 : xSpeed;
-            if (m_properties.speed.ySpeed != block->getSpeed().ySpeed) {
-                m_properties.speed.ySpeed = static_cast<int>(m_properties.speed.ySpeed * block->getProperties().frictionCoefficient);
-            }
-        }
-
         if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
             //Slime moving
-            if ((Computations::random(0, m_slime.jumpRate) == 0) && (this->getPosition().y < block->getPosition().y) && (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
+            if ((Computations::random(0, m_slime.jumpRate) == 0) && (this->getPosition().y < block->getPosition().y) &&
+                (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
                 this->addSpeed(((Computations::random(0, 1) == 1) ? 1 : -1) * m_slime.moveSpeed, -1 * m_slime.jumpSpeed);
             } else {
                 bool sameSign = m_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
@@ -132,6 +125,15 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 if (m_properties.speed.xSpeed != block->getSpeed().xSpeed) {
                     m_properties.speed.xSpeed = static_cast<int>(m_properties.speed.xSpeed * block->getProperties().frictionCoefficient);
                 }
+            }
+        }
+
+        if ((block = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getBlocks())) != nullptr) {
+            bool sameSign = m_properties.speed.xSpeed * block->getSpeed().xSpeed >= 0;
+            float xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().xSpeed));
+            m_properties.speed.xSpeed = (std::abs(xSpeed) == 1) ? 0 : xSpeed;
+            if (m_properties.speed.ySpeed != block->getSpeed().ySpeed) {
+                m_properties.speed.ySpeed = static_cast<int>(m_properties.speed.ySpeed * block->getProperties().frictionCoefficient);
             }
         }
     }

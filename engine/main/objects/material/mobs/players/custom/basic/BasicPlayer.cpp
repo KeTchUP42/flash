@@ -13,9 +13,7 @@ Mobs::BasicPlayer::BasicPlayer(
 ) : BasePlayer(properties, area, sprite, algorithms), m_basic(params) {}
 
 void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
-    if (m_properties.healthPoints > m_properties.maxHealthPoints) {
-        m_properties.healthPoints = m_properties.maxHealthPoints;
-    }
+    this->staticPropertyAnalysis();
     if (this->isDead()) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removePlayer(this);

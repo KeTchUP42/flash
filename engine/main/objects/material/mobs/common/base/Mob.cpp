@@ -100,6 +100,13 @@ const Mobs::MobProperties &Mobs::Mob::getProperties() const noexcept {
     return m_properties;
 }
 
+void Mobs::Mob::staticPropertyAnalysis() noexcept {
+    //Checking the correctness of the health glasses value.
+    if (m_properties.healthPoints > m_properties.maxHealthPoints) {
+        m_properties.healthPoints = m_properties.maxHealthPoints;
+    }
+}
+
 void Mobs::Mob::setHealthPoints(float healthPoints) noexcept {
     m_properties.healthPoints = healthPoints;
 }
