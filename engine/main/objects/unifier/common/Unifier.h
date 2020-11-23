@@ -228,6 +228,69 @@ namespace Unite {
         //..
 
         /**
+         * @brief Method adds new mob.
+         * @param mob New mob.
+         */
+        void addMob(Mobs::Mob *mob) noexcept;
+
+        /**
+         * @brief Method adds new mob.
+         * @param mob New mob.
+         */
+        void addMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
+
+        /**
+         * @brief Method removes mob.
+         * @param mob Existing mob.
+         */
+        void removeMob(Mobs::Mob *mb) noexcept;
+
+        /**
+         * @brief Method removes mob.
+         * @param mob Existing mob.
+         */
+        void removeMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
+
+        /**
+         * @brief Method returns const reference on mobs collection.
+         * @return Const reference on mobs collection.
+         */
+        const std::list<std::shared_ptr<Mobs::Mob>> &getMobs() const noexcept;
+        //..
+
+        /**
+         * @brief Method adds new self-reliant mob.
+         * @param mob New self-reliant mob.
+         */
+        void addSelfReliantMob(Mobs::Mob *mob) noexcept;
+
+        /**
+         * @brief Method adds new self-reliant mob.
+         * @param mob New self-reliant mob.
+         */
+        void addSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
+
+        /**
+         * @brief Method removes self-reliant mob.
+         * @param mob Existing self-reliant mob.
+         */
+        void removeSelfReliantMob(Mobs::Mob *mob) noexcept;
+
+        /**
+         * @brief Method removes self-reliant mob.
+         * @param mob Existing self-reliant mob.
+         */
+        void removeSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
+
+        /**
+         * @brief Method returns const reference on self-reliant mobs collection.
+         * @return Const reference on self-reliant mobs collection.
+         */
+        const std::list<Mobs::Mob *> &getSelfReliantMobs() const noexcept;
+
+        //..
+
+        /**
          * @brief Method adds new player.
          * @param player New player.
          */
@@ -269,38 +332,6 @@ namespace Unite {
          * @return Const reference on players collection.
          */
         const std::list<Mobs::Player *> &getPlayers() const noexcept;
-
-        //..
-
-        /**
-         * @brief Method adds new standalone mob.
-         * @param mob New standalone mob.
-         */
-        void addMob(Mobs::Mob *mob) noexcept;
-
-        /**
-         * @brief Method adds new standalone mob.
-         * @param mob New standalone mob.
-         */
-        void addMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
-
-        /**
-         * @brief Method removes standalone mob.
-         * @param mob Existing standalone mob.
-         */
-        void removeMob(Mobs::Mob *mb) noexcept;
-
-        /**
-         * @brief Method removes standalone mob.
-         * @param mob Existing standalone mob.
-         */
-        void removeMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept;
-
-        /**
-         * @brief Method returns const reference on standalone mobs collection.
-         * @return Const reference on standalone mobs collection.
-         */
-        const std::list<std::shared_ptr<Mobs::Mob>> &getMobs() const noexcept;
 
         //..
 
@@ -390,7 +421,7 @@ namespace Unite {
         /**
          * @brief Screen text.
          */
-        std::list<std::shared_ptr<Components::Text>> m_texts;
+        std::list<std::shared_ptr<Components::Text>> m_screen_text;
 
         /**
          * @brief All obstacles.
@@ -406,6 +437,11 @@ namespace Unite {
          * @brief All mobs.
          */
         std::list<std::shared_ptr<Mobs::Mob>> m_mobs;
+
+        /**
+         * @brief Self-reliant mobs.
+         */
+        std::list<Mobs::Mob *> m_self_reliant_mobs;
 
         /**
         * @brief Players.
@@ -429,12 +465,12 @@ namespace Unite {
     };
 }
 
+#include "../../material/mobs/common/base/Mob.h"
 #include "../../material/mobs/players/common/base/Player.h"
 #include "../../material/obstacles/common/Obstacle.h"
 #include "../../material/obstacles/blocks/common/Block.h"
 #include "../../auxiliary/components/text/Text.h"
 #include "../../static/triggers/common/Trigger.h"
-#include "../../material/mobs/common/base/Mob.h"
 #include "../../static/effects/Effect.h"
 
 #endif //FLASH_UNIFIER_H

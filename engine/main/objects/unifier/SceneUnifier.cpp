@@ -10,7 +10,7 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
         sprite->draw(target);
     }
 
-    for (const std::shared_ptr<Components::Text> &text: m_texts) {
+    for (const std::shared_ptr<Components::Text> &text: m_screen_text) {
         text->draw(target);
     }
 
@@ -45,8 +45,12 @@ void Unite::SceneUnifier::refresh() {
         effect->applyEffect(this);
     }
 
-    for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
+    for (Mobs::Mob *mob: m_self_reliant_mobs) {
         mob->selfAction(this);
+    }
+
+    for (Mobs::Player *player: m_players) {
+        player->selfAction(this);
     }
 
     for (const std::shared_ptr<Obstacles::Obstacle> &obstacle: m_obstacles) {

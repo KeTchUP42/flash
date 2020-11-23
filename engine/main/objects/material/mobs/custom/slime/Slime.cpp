@@ -71,12 +71,12 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 float xSpeedOffset = m_area.m_size.width / Components::SpriteBox::MIN_SPRITE_SIDE_SIZE;
                 float ySpeedOffset = m_area.m_size.height / Components::SpriteBox::MIN_SPRITE_SIDE_SIZE;
 
-                unifier1->addMob(this->createSmallerSlime(MobProperties(
+                unifier1->addSelfReliantMob(this->createSmallerSlime(MobProperties(
                         Components::Speed(m_properties.speed.xSpeed - xSpeedOffset,
                                           m_properties.speed.ySpeed - ySpeedOffset),
                         healthPoints, healthPoints), slimeProperties));
 
-                unifier1->addMob(this->createSmallerSlime(MobProperties(
+                unifier1->addSelfReliantMob(this->createSmallerSlime(MobProperties(
                         Components::Speed(m_properties.speed.xSpeed + xSpeedOffset,
                                           m_properties.speed.ySpeed - ySpeedOffset),
                         healthPoints, healthPoints), slimeProperties));
@@ -84,7 +84,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         }
 
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
-            unifier1->removeMob(this);
+            unifier1->removeSelfReliantMob(this);
         });
 
     } else {

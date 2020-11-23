@@ -22,7 +22,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             std::stof(data.at("PUNCH_DAMAGE")),
             std::stoi(data.at("MIN_SPLIT_SIZE")));
 
-    unifier.addMob(new Mobs::Slime(
+    unifier.addSelfReliantMob(new Mobs::Slime(
             loadMobProperties(data), commonArea(data),
             std::shared_ptr<Components::ISpriteBox>(
                     new Components::SpriteBox(spriteArea(data), m_source.getTexture(data.at("TEXTURE")))),

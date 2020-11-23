@@ -16,7 +16,7 @@ void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     this->staticPropertyAnalysis();
     if (this->isDead()) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
-            unifier1->removeMob(this);
+            unifier1->removeSelfReliantMob(this);
         });
     } else {
         for (Mobs::Player *player : unifier->getPlayers()) {

@@ -49,25 +49,25 @@ const std::list<std::shared_ptr<Components::ISprite>> &Unite::Unifier::getFrontS
 }
 
 void Unite::Unifier::addText(Components::Text *text) noexcept {
-    m_texts.push_back(std::shared_ptr<Components::Text>(text));
+    m_screen_text.push_back(std::shared_ptr<Components::Text>(text));
 }
 
 void Unite::Unifier::addText(const std::shared_ptr<Components::Text> &text) noexcept {
-    m_texts.push_back(text);
+    m_screen_text.push_back(text);
 }
 
 void Unite::Unifier::removeText(Components::Text *text) noexcept {
-    m_texts.remove_if([text](const std::shared_ptr<Components::Text> &txt) -> bool {
+    m_screen_text.remove_if([text](const std::shared_ptr<Components::Text> &txt) -> bool {
         return txt.get() == text;
     });
 }
 
 void Unite::Unifier::removeText(const std::shared_ptr<Components::Text> &text) noexcept {
-    m_texts.remove(text);
+    m_screen_text.remove(text);
 }
 
 const std::list<std::shared_ptr<Components::Text>> &Unite::Unifier::getTextAreas() const noexcept {
-    return m_texts;
+    return m_screen_text;
 }
 
 void Unite::Unifier::addObstacle(Obstacles::Obstacle *obstacle) noexcept {
@@ -131,6 +131,56 @@ const std::list<Obstacles::Block *> &Unite::Unifier::getBlocks() const noexcept 
     return m_blocks;
 }
 
+void Unite::Unifier::addMob(Mobs::Mob *mob) noexcept {
+    m_mobs.push_back(std::shared_ptr<Mobs::Mob>(mob));
+}
+
+void Unite::Unifier::addMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_mobs.push_back(mob);
+}
+
+void Unite::Unifier::removeMob(Mobs::Mob *mob) noexcept {
+    m_mobs.remove_if([mob](const std::shared_ptr<Mobs::Mob> &mb) -> bool {
+        return mb.get() == mob;
+    });
+}
+
+void Unite::Unifier::removeMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_mobs.remove(mob);
+}
+
+const std::list<std::shared_ptr<Mobs::Mob>> &Unite::Unifier::getMobs() const noexcept {
+    return m_mobs;
+}
+
+void Unite::Unifier::addSelfReliantMob(Mobs::Mob *mob) noexcept {
+    m_self_reliant_mobs.push_back(mob);
+    this->addMob(mob);
+}
+
+void Unite::Unifier::addSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_self_reliant_mobs.push_back(mob.get());
+    this->addMob(mob);
+}
+
+void Unite::Unifier::removeSelfReliantMob(Mobs::Mob *mob) noexcept {
+    m_self_reliant_mobs.remove_if([mob](Mobs::Mob *mb) -> bool {
+        return mb == mob;
+    });
+    this->removeMob(mob);
+}
+
+void Unite::Unifier::removeSelfReliantMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
+    m_self_reliant_mobs.remove_if([mob](Mobs::Mob *mb) -> bool {
+        return mb == mob.get();
+    });
+    this->removeMob(mob);
+}
+
+const std::list<Mobs::Mob *> &Unite::Unifier::getSelfReliantMobs() const noexcept {
+    return m_self_reliant_mobs;
+}
+
 void Unite::Unifier::addPlayer(Mobs::Player *player) noexcept {
     m_players.push_back(player);
     this->addMob(player);
@@ -168,28 +218,6 @@ const std::shared_ptr<Mobs::Mob> &Unite::Unifier::getPlayer(Mobs::Player *player
 
 const std::list<Mobs::Player *> &Unite::Unifier::getPlayers() const noexcept {
     return m_players;
-}
-
-void Unite::Unifier::addMob(Mobs::Mob *mob) noexcept {
-    m_mobs.push_back(std::shared_ptr<Mobs::Mob>(mob));
-}
-
-void Unite::Unifier::addMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
-    m_mobs.push_back(mob);
-}
-
-void Unite::Unifier::removeMob(Mobs::Mob *mob) noexcept {
-    m_mobs.remove_if([mob](const std::shared_ptr<Mobs::Mob> &mb) -> bool {
-        return mb.get() == mob;
-    });
-}
-
-void Unite::Unifier::removeMob(const std::shared_ptr<Mobs::Mob> &mob) noexcept {
-    m_mobs.remove(mob);
-}
-
-const std::list<std::shared_ptr<Mobs::Mob>> &Unite::Unifier::getMobs() const noexcept {
-    return m_mobs;
 }
 
 void Unite::Unifier::addEffect(Effects::Effect *effect) noexcept {
