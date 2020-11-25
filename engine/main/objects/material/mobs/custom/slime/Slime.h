@@ -23,11 +23,6 @@ namespace Mobs {
         void selfAction(Unite::Unifier *unifier) override;
 
     protected:
-        Mobs::Slime *createSmallerSlime(
-                const Mobs::MobProperties &properties,
-                const Mobs::SlimeProperties &slimeProperties) const;
-
-    protected:
         SlimeProperties m_slime;
     };
 }

@@ -52,14 +52,14 @@ set(GENERATION ${SCENE})
 
 set(PLAYER_CUSTOM engine/main/objects/material/mobs/players/custom/basic/BasicPlayer.cpp)
 set(PLAYER_COMMON engine/main/objects/material/mobs/players/common/base/Player.cpp)
-set(PLAYER ${PLAYER_COMMON} ${PLAYER_CUSTOM})
+set(PLAYERS ${PLAYER_COMMON} ${PLAYER_CUSTOM})
 
 set(MUSHROOM engine/main/objects/material/mobs/custom/mushroom/Mushroom.cpp)
-set(SLIME engine/main/objects/material/mobs/custom/slime/Slime.cpp)
+set(SLIME engine/main/objects/material/mobs/custom/slime/Slime.cpp engine/main/objects/material/mobs/custom/slime/splitter/SlimeSplitter.cpp)
 set(MOBS_CUSTOM ${MUSHROOM} ${SLIME})
 set(LOGIC_REDUCTION engine/main/objects/material/mobs/common/reduction/MobsCollisionReduction.cpp engine/main/objects/material/mobs/common/reduction/MobsAnalysisReduction.cpp)
 set(MOBS_COMMON ${LOGIC_REDUCTION} engine/main/objects/material/mobs/common/base/Mob.cpp)
-set(MOBS ${MOBS_COMMON} ${MOBS_CUSTOM} ${PLAYER})
+set(MOBS ${MOBS_COMMON} ${MOBS_CUSTOM} ${PLAYERS})
 
 set(SPRITE-VISIBLE engine/main/objects/material/obstacles/blocks/sprite-visible/single/common-base/SingleSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/DullBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/DullCompositeBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/ElasticBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/PlatformBlock.cpp)
 set(INVISIBLE engine/main/objects/material/obstacles/blocks/invisible/common-base/InvisibleBlock.cpp engine/main/objects/material/obstacles/blocks/invisible/DullInvisibleBlock.cpp)
