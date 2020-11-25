@@ -4,6 +4,7 @@
 
 #include "BasicPlayer.h"
 #include "../../../common/reduction/MobsAnalysisReduction.h"
+#include "../../../common/reduction/MobsCollisionReduction.h"
 
 Mobs::BasicPlayer::BasicPlayer(
         const Mobs::MobProperties &properties,
@@ -20,24 +21,8 @@ void Mobs::BasicPlayer::selfAction(Unite::Unifier *unifier) {
             unifier1->removePlayer(this);
         });
     } else {
-        Obstacles::Block *block;
-        if ((block = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getBlocks())) != nullptr) {
-            bool sameSign = m_properties.speed.xSpeed * block->getSpeed().xSpeed >= 0;
-            float xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().xSpeed));
-            m_properties.speed.xSpeed = (std::abs(xSpeed) == 1) ? 0 : xSpeed;
-            if (m_properties.speed.ySpeed != block->getSpeed().ySpeed) {
-                m_properties.speed.ySpeed = static_cast<int>(m_properties.speed.ySpeed * block->getProperties().frictionCoefficient);
-            }
-        }
-
-        if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
-            bool sameSign = m_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
-            float ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().ySpeed));
-            m_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
-            if (m_properties.speed.xSpeed != block->getSpeed().xSpeed) {
-                m_properties.speed.xSpeed = static_cast<int>(m_properties.speed.xSpeed * block->getProperties().frictionCoefficient);
-            }
-        }
+        RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
+        RD::ordinateBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
     }
 }
 

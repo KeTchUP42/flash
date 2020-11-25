@@ -104,6 +104,10 @@ const Components::Speed &Mobs::Mob::getSpeed() const noexcept {
     return m_properties.speed;
 }
 
+const Components::Area &Mobs::Mob::getPhysicalArea() const noexcept {
+    return m_area;
+}
+
 const Mobs::MobProperties &Mobs::Mob::getProperties() const noexcept {
     return m_properties;
 }

@@ -57,7 +57,7 @@ set(PLAYER ${PLAYER_COMMON} ${PLAYER_CUSTOM})
 set(MUSHROOM engine/main/objects/material/mobs/custom/mushroom/Mushroom.cpp)
 set(SLIME engine/main/objects/material/mobs/custom/slime/Slime.cpp)
 set(MOBS_CUSTOM ${MUSHROOM} ${SLIME})
-set(LOGIC_REDUCTION engine/main/objects/material/mobs/common/reduction/MobsAnalysisReduction.cpp)
+set(LOGIC_REDUCTION engine/main/objects/material/mobs/common/reduction/MobsCollisionReduction.cpp engine/main/objects/material/mobs/common/reduction/MobsAnalysisReduction.cpp)
 set(MOBS_COMMON ${LOGIC_REDUCTION} engine/main/objects/material/mobs/common/base/Mob.cpp)
 set(MOBS ${MOBS_COMMON} ${MOBS_CUSTOM} ${PLAYER})
 

@@ -19,6 +19,10 @@ namespace Mobs {
                 const std::shared_ptr<::Material::Algorithms> &algorithms
         ) : Mob(properties, area, sprite), m_algorithms(algorithms) {}
 
+        const std::shared_ptr<::Material::Algorithms> &getAlgorithms() const {
+            return m_algorithms;
+        }
+
     protected:
         std::shared_ptr<::Material::Algorithms> m_algorithms;
     };

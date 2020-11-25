@@ -5,6 +5,7 @@
 #include "Slime.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../../common/reduction/MobsAnalysisReduction.h"
+#include "../../common/reduction/MobsCollisionReduction.h"
 #include "../../../../../../utils/math/algorithms.h"
 
 Mobs::Slime::Slime(
@@ -129,13 +130,6 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
             }
         }
 
-        if ((block = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getBlocks())) != nullptr) {
-            bool sameSign = m_properties.speed.xSpeed * block->getSpeed().xSpeed >= 0;
-            float xSpeed = static_cast<int>(-1 * m_properties.speed.xSpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().xSpeed));
-            m_properties.speed.xSpeed = (std::abs(xSpeed) == 1) ? 0 : xSpeed;
-            if (m_properties.speed.ySpeed != block->getSpeed().ySpeed) {
-                m_properties.speed.ySpeed = static_cast<int>(m_properties.speed.ySpeed * block->getProperties().frictionCoefficient);
-            }
-        }
+        RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
     }
 }

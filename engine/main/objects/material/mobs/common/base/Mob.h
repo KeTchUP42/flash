@@ -70,6 +70,8 @@ namespace Mobs {
 
         const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
 
+        const Components::Area &getPhysicalArea() const noexcept;
+
         const MobProperties &getProperties() const noexcept override;
 
         /**
