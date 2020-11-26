@@ -32,8 +32,3 @@ Mobs::Slime *Mobs::SlimeSplitter::split(Mobs::Slime &slime, const Mobs::MobPrope
 
     return new Slime(properties, area, spriteBox, algo, slimeProperties);
 }
-
-Mobs::Slime *Mobs::SlimeSplitter::split(Mobs::Slime &slime, const std::function<Mobs::MobProperties()> &properties,
-                                        const std::function<Mobs::SlimeProperties()> &slimeProperties) const {
-    return this->split(slime, properties(), slimeProperties());
-}

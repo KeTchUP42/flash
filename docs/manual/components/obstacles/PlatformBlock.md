@@ -1,7 +1,7 @@
  ## Platform block
 
  This facility is conceived as a platform for transporting mobs and players.  
- The platform changes the direction of movement when faced with any other obstacles.
+ The platform changes the direction of movement when faced with any other blocks.
 
  **Configuration block example:**
 

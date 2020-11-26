@@ -47,12 +47,12 @@ namespace Creation {
         sf::Color color(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
 
         /**
-         * @brief Function creates std::pair<unsigned int, unsigned int> struct object from given data.
+         * @brief Function creates std::pair<float, float> struct object from given data.
          * @param data Ini data.
          * @param field Field name.
-         * @return std::pair<unsigned int, unsigned int> object.
+         * @return std::pair<float, float> object.
          */
-        std::pair<unsigned int, unsigned int> upair(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
+        std::pair<float, float> fpair(const IniUtil::Analyzer::IniBlock &data, const std::string &field);
     }
 }
 

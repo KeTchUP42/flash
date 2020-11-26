@@ -6,6 +6,7 @@
 #include "../../../../material/mobs/custom/slime/Slime.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../reduction/PropertiesReduction.h"
+#include "../reduction/ElementaryReduction.h"
 #include "../reduction/CustomReduction.h"
 #include "../reduction/AreaReduction.h"
 
@@ -23,8 +24,9 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             std::stof(data.at("ELASTIC_COEFFICIENT")),
             std::stof(data.at("FRICTION_COEFFICIENT")),
             std::stoi(data.at("MIN_SPLIT_SIZE")),
-            std::stof(data.at("SPLITTING_COEFFICIENT")),
-            std::stoi(data.at("SPLIT_SLIMES_NUMBER")));
+            std::stof(data.at("SPLIT_COEFFICIENT")),
+            std::stoi(data.at("SPLIT_SLIMES_NUMBER")),
+            RD::fpair(data, "SPLIT_POWER"));
 
     unifier.addStandAloneMob(new Mobs::Slime(
             RD::loadMobProperties(data), RD::commonArea(data),

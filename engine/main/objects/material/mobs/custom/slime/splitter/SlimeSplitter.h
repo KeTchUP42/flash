@@ -29,15 +29,6 @@ namespace Mobs {
           */
         Slime *split(Mobs::Slime &slime, const Mobs::MobProperties &properties, const Mobs::SlimeProperties &slimeProperties) const;
 
-        /**
-         * @brief Method creates a smaller slime uses splitting coefficient.
-         * @param slime Base parent slime.
-         * @param properties Factory function for MobProperties.
-         * @param slimeProperties Factory function for SlimeProperties.
-         * @return New Slime.
-         */
-        Slime *split(Mobs::Slime &slime, const std::function<Mobs::MobProperties()> &properties, const std::function<Mobs::SlimeProperties()> &slimeProperties) const;
-
         virtual ~SlimeSplitter() = default;
 
     private:
