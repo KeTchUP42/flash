@@ -21,7 +21,7 @@ namespace Obstacles {
                      public Possibilities::Peculiar<Obstacles::ObstacleProperties> {
     public:
         /**
-         * @brief Base obstacle constructor.
+         * @brief Main obstacle constructor.
          * @param properties Object with obstacle properties.
          */
         Obstacle(const ObstacleProperties &properties);

@@ -23,6 +23,12 @@ namespace Mobs {
                 public Possibilities::Rectangle,
                 public Possibilities::Peculiar<MobProperties> {
     public:
+        /**
+         * @brief Main mob constructor.
+         * @param properties Mob properties object.
+         * @param area Mob physical area.
+         * @param sprite Mob sprite.
+         */
         explicit Mob(const MobProperties &properties, const Components::Area &area,
                      const std::shared_ptr<Components::ISpriteBox> &sprite);
 

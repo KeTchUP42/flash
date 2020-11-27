@@ -24,7 +24,9 @@ namespace Mobs {
                    public View::Observer<sf::Event, View::Window> {
     public:
         /**
-         * @brief Base player constructor.
+         * @brief Main player constructor.
+         * @param properties Mob properties object.
+         * @param area Mob physical area.
          * @param sprite Player's sprite.
          */
         explicit Player(const Mobs::MobProperties &properties, const Components::Area &area,
