@@ -8,7 +8,7 @@
 #include "Exception.h"
 #include "ExceptionCodes.h"
 
-namespace PreferredExceptions {
+namespace Exceptions {
 
     class RuntimeException : public Exception {
     public:

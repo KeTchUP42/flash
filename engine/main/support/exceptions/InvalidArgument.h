@@ -7,7 +7,7 @@
 
 #include "LogicError.h"
 
-namespace PreferredExceptions {
+namespace Exceptions {
 
     class InvalidArgument : public LogicError {
     public:

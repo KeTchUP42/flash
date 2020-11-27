@@ -4,14 +4,14 @@
 
 #include "Exception.h"
 
-const char *PreferredExceptions::Exception::what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT {
+const char *Exceptions::Exception::what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT {
     return m_message.c_str();
 }
 
-const std::string &PreferredExceptions::Exception::getMessage() const noexcept {
+const std::string &Exceptions::Exception::getMessage() const noexcept {
     return m_message;
 }
 
-int PreferredExceptions::Exception::getCode() const noexcept {
+int Exceptions::Exception::getCode() const noexcept {
     return m_code;
 }

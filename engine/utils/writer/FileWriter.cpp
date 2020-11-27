@@ -10,7 +10,7 @@
 WriterUtil::FileWriter::FileWriter(const std::string &filepath) : m_filepath(filepath) {
     std::ofstream out(filepath, std::ios::app);
     if (!out.is_open()) {
-        throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
+        throw Exceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
 }
 

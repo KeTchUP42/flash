@@ -8,7 +8,7 @@ std::shared_ptr<sf::Font> Managers::FontManager::loadFont(const std::string &fil
     std::shared_ptr<sf::Font> font(new sf::Font());
 
     if (!font->loadFromFile(FONTS_DIRECTORY + "/" + filename))
-        throw PreferredExceptions::FontCannotBeLoaded("Font " + filename + " cannot be loaded.");
+        throw Exceptions::FontCannotBeLoaded("Font " + filename + " cannot be loaded.");
 
     return font;
 }

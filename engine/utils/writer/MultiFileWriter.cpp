@@ -50,12 +50,10 @@ void WriterUtil::MultiFileWriter::add(const std::string &filepath) {
     if (out.is_open()) {
         m_filenames.push_back(filepath);
     } else {
-        throw PreferredExceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
+        throw Exceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
     }
 }
 
 void WriterUtil::MultiFileWriter::remove(const std::string &filepath) noexcept {
     m_filenames.remove(filepath);
 }
-
-

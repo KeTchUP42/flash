@@ -7,7 +7,7 @@
 
 #include "../RuntimeException.h"
 
-namespace PreferredExceptions {
+namespace Exceptions {
 
     class TextureCannotBeLoaded : public RuntimeException {
     public:

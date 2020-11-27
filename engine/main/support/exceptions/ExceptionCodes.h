@@ -5,7 +5,7 @@
 #ifndef FLASH_EXCEPTIONCODES_H
 #define FLASH_EXCEPTIONCODES_H
 
-namespace PreferredExceptions {
+namespace Exceptions {
 
     /**
      * Enum with program default exceptions codes.

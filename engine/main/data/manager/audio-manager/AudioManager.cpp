@@ -8,7 +8,7 @@ std::shared_ptr<sf::Music> Managers::AudioManager::loadMusic(const std::string &
     std::shared_ptr<sf::Music> music(new sf::Music());
 
     if (!music->openFromFile(AUDIO_DIRECTORY + "/" + filename)) {
-        throw PreferredExceptions::AudioFileCannotBeOpened("File " + filename + " cannot be opened.");
+        throw Exceptions::AudioFileCannotBeOpened("File " + filename + " cannot be opened.");
     }
     return music;
 }
