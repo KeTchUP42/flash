@@ -28,7 +28,7 @@ sf::Color Creation::RD::color(const IniUtil::Analyzer::IniBlock &data, const std
     return sf::Color(r, g, b, alpha);
 }
 
-std::pair<unsigned int, unsigned int> Creation::RD::upair(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
+std::pair<float, float> Creation::RD::fpair(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
     std::vector<std::string> values = Computations::split(data.at(field), ':');
-    return std::pair<unsigned int, unsigned int>(std::stoi(values.at(0)), std::stoi(values.at(1)));
+    return std::pair<float, float>(std::stof(values.at(0)), std::stof(values.at(1)));
 }

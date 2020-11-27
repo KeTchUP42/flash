@@ -13,7 +13,7 @@ Creation::MushroomGenerator::MushroomGenerator(Creation::Pools::SourcePool &pool
 
 void Creation::MushroomGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
-    //mushroom properties
+    //Mushroom properties.
     Mobs::MushroomProperties mushroomProperties(
             std::stof(data.at("PUNCH_POWER")),
             std::stof(data.at("ELASTICITY_LEVEL")));
