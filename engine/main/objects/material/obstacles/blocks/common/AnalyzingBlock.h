@@ -2,17 +2,17 @@
 // Created by roman on 08.11.2020.
 //
 
-#ifndef FLASH_BASEBLOCK_H
-#define FLASH_BASEBLOCK_H
+#ifndef FLASH_ANALYZINGBLOCK_H
+#define FLASH_ANALYZINGBLOCK_H
 
 #include "Block.h"
 #include "../../../common/algorithms/Algorithms.h"
 
 namespace Obstacles {
 
-    class BaseBlock : public Block {
+    class AnalyzingBlock : public Block {
     public:
-        explicit BaseBlock(const ObstacleProperties &properties, const Components::Area &area, const std::shared_ptr<Material::Algorithms> &algorithms)
+        explicit AnalyzingBlock(const ObstacleProperties &properties, const Components::Area &area, const std::shared_ptr<Material::Algorithms> &algorithms)
                 : Block(properties, area), m_algorithms(algorithms) {}
 
     protected:
@@ -20,4 +20,4 @@ namespace Obstacles {
     };
 }
 
-#endif //FLASH_BASEBLOCK_H
+#endif //FLASH_ANALYZINGBLOCK_H

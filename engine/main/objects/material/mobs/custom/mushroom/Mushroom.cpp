@@ -11,7 +11,7 @@ Mobs::Mushroom::Mushroom(
         const std::shared_ptr<Components::ISpriteBox> &sprite,
         const std::shared_ptr<Material::Algorithms> &algorithms,
         const Mobs::MushroomProperties &params
-) : BaseMob(properties, area, sprite, algorithms), m_mushroom(params) {}
+) : AnalyzingMob(properties, area, sprite, algorithms), m_mushroom(params) {}
 
 void Mobs::Mushroom::selfAction(Unite::Unifier *unifier) {
     RD::healthAnalysis(*this);

@@ -39,7 +39,7 @@ set(AUXILIARY ${COMPONENTS} ${COMPUTATIONS})
 set(EFFECTS_GENERATORS engine/main/objects/creation/scene/generators/effects/BackAudioEffectGenerator.cpp engine/main/objects/creation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/creation/scene/generators/effects/GravityPointEffectGenerator.cpp)
 set(MOBS_GENERATORS engine/main/objects/creation/scene/generators/mobs/SlimeGenerator.cpp engine/main/objects/creation/scene/generators/mobs/MushroomGenerator.cpp)
 set(OBSTACLES_GENERATORS engine/main/objects/creation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/creation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/creation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
-set(PLAYERS_GENERATORS engine/main/objects/creation/scene/generators/players/BasicPlayerGenerator.cpp)
+set(PLAYERS_GENERATORS engine/main/objects/creation/scene/generators/players/JumpingPlayerGenerator.cpp)
 set(SPRITES_GENERATORS engine/main/objects/creation/scene/generators/sprites/BackgroundSpriteGenerator.cpp engine/main/objects/creation/scene/generators/sprites/BackSpriteGenerator.cpp engine/main/objects/creation/scene/generators/sprites/FrontSpriteGenerator.cpp)
 set(TEXT_GENERATORS engine/main/objects/creation/scene/generators/text/TextGenerator.cpp)
 set(TRIGGERS_GENERATORS engine/main/objects/creation/scene/generators/triggers/DeathZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/GravityZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/GravityMobsZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/GravityPlayerZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/MobsDeathZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/PlayerDeathZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/SingleMobsAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/SinglePlayerAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/MobsAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/PlayerAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
@@ -50,7 +50,7 @@ set(POOLS engine/main/objects/creation/scene/pools/SourcePool.cpp engine/main/ob
 set(SCENE ${GENERATORS} ${ANALYZE} ${POOLS} engine/main/objects/creation/scene/SceneLoader.cpp)
 set(GENERATION ${SCENE})
 
-set(PLAYER_CUSTOM engine/main/objects/material/mobs/players/custom/basic/BasicPlayer.cpp)
+set(PLAYER_CUSTOM engine/main/objects/material/mobs/players/custom/jumping/JumpingPlayer.cpp)
 set(PLAYER_COMMON engine/main/objects/material/mobs/players/common/base/Player.cpp)
 set(PLAYERS ${PLAYER_COMMON} ${PLAYER_CUSTOM})
 

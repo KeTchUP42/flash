@@ -11,7 +11,7 @@
 #include "../generators/obstacles/DullBlockGenerator.h"
 #include "../generators/obstacles/DullInvisibleBlockGenarator.h"
 #include "../generators/obstacles/PlatformBlockGenerator.h"
-#include "../generators/players/BasicPlayerGenerator.h"
+#include "../generators/players/JumpingPlayerGenerator.h"
 #include "../generators/sprites/BackgroundSpriteGenerator.h"
 #include "../generators/sprites/BackSpriteGenerator.h"
 #include "../generators/sprites/FrontSpriteGenerator.h"
@@ -59,8 +59,8 @@ Creation::GeneratorSelector::select(const std::string &alias) const noexcept {
         return new PlatformBlockGenerator(m_pool);
 
     //players
-    if (alias == "BasicPlayer")
-        return new BasicPlayerGenerator(m_pool);
+    if (alias == "JumpingPlayer")
+        return new JumpingPlayerGenerator(m_pool);
 
     //sprites
     if (alias == "BackGroundSprite")

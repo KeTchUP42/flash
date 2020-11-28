@@ -2,19 +2,19 @@
 // Created by roman on 01.10.2020.
 //
 
-#ifndef FLASH_BASICPLAYERGENERATOR_H
-#define FLASH_BASICPLAYERGENERATOR_H
+#ifndef FLASH_JUMPINGPLAYERGENERATOR_H
+#define FLASH_JUMPINGPLAYERGENERATOR_H
 
 #include "../Generator.h"
 
 namespace Creation {
 
-    class BasicPlayerGenerator : public Generator {
+    class JumpingPlayerGenerator : public Generator {
     public:
-        BasicPlayerGenerator(Pools::SourcePool &pool);
+        JumpingPlayerGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };
 }
 
-#endif //FLASH_BASICPLAYERGENERATOR_H
+#endif //FLASH_JUMPINGPLAYERGENERATOR_H

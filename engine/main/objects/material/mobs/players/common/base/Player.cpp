@@ -14,3 +14,14 @@ void Mobs::Player::loadKeyMap(const std::map<Mobs::KeyAlias, sf::Keyboard::Key> 
 const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &Mobs::Player::getKeyMap() const noexcept {
     return m_keyMap;
 }
+
+void Mobs::Player::handleEventsList(Unite::Unifier *unifier) {
+    for (const sf::Event &event : m_events) {
+        this->handleEvent(event, unifier);
+    }
+    m_events.clear();
+}
+
+void Mobs::Player::update(const sf::Event &event, View::Window &sender) {
+    m_events.push_back(event);
+}

@@ -2,16 +2,16 @@
 // Created by roman on 10.10.2020.
 //
 
-#ifndef FLASH_BASICPLAYERPROPERTIES_H
-#define FLASH_BASICPLAYERPROPERTIES_H
+#ifndef FLASH_JUMPINGPLAYERPROPERTIES_H
+#define FLASH_JUMPINGPLAYERPROPERTIES_H
 
 namespace Mobs {
 
     /**
      * @brief Struct contains all basic player numeric properties.
      */
-    struct BasicPlayerProperties {
-        explicit BasicPlayerProperties(float moveSpeed, float maxMoveSpeed, float jumpSpeed)
+    struct JumpingPlayerProperties {
+        explicit JumpingPlayerProperties(float moveSpeed, float maxMoveSpeed, float jumpSpeed)
                 : moveSpeed(moveSpeed), maxMoveSpeed(maxMoveSpeed), jumpSpeed(jumpSpeed) {}
 
         /**
@@ -31,4 +31,4 @@ namespace Mobs {
     };
 }
 
-#endif //FLASH_BASICPLAYERPROPERTIES_H
+#endif //FLASH_JUMPINGPLAYERPROPERTIES_H

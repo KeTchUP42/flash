@@ -5,12 +5,12 @@
 #ifndef FLASH_SLIME_H
 #define FLASH_SLIME_H
 
-#include "../../common/base/BaseMob.h"
+#include "../../common/base/AnalyzingMob.h"
 #include "properties/SlimeProperties.h"
 
 namespace Mobs {
 
-    class Slime : public BaseMob {
+    class Slime : public AnalyzingMob {
     public:
         explicit Slime(
                 const MobProperties &properties,

@@ -15,7 +15,7 @@ Mobs::Slime::Slime(
         const std::shared_ptr<Components::ISpriteBox> &sprite,
         const std::shared_ptr<::Material::Algorithms> &algorithms,
         const SlimeProperties &params
-) : BaseMob(properties, area, sprite, algorithms), m_slime(params) {}
+) : AnalyzingMob(properties, area, sprite, algorithms), m_slime(params) {}
 
 void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
     RD::healthAnalysis(*this);

@@ -2,17 +2,17 @@
 // Created by roman on 19.09.2020.
 //
 
-#ifndef FLASH_BASEPLAYER_H
-#define FLASH_BASEPLAYER_H
+#ifndef FLASH_ANALYZINGPLAYER_H
+#define FLASH_ANALYZINGPLAYER_H
 
 #include "Player.h"
 #include "../../../../common/algorithms/Algorithms.h"
 
 namespace Mobs {
 
-    class BasePlayer : public Player {
+    class AnalyzingPlayer : public Player {
     public:
-        explicit BasePlayer(
+        explicit AnalyzingPlayer(
                 const Mobs::MobProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
@@ -24,4 +24,4 @@ namespace Mobs {
     };
 }
 
-#endif //FLASH_BASEPLAYER_H
+#endif //FLASH_ANALYZINGPLAYER_H

@@ -5,12 +5,12 @@
 #ifndef FLASH_MUSHROOM_H
 #define FLASH_MUSHROOM_H
 
-#include "../../common/base/BaseMob.h"
+#include "../../common/base/AnalyzingMob.h"
 #include "properties/MushroomProperties.h"
 
 namespace Mobs {
 
-    class Mushroom : public BaseMob {
+    class Mushroom : public AnalyzingMob {
     public:
         explicit Mushroom(
                 const Mobs::MobProperties &properties,

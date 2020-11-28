@@ -5,7 +5,7 @@
 #ifndef FLASH_KEYMAPBUILDER_H
 #define FLASH_KEYMAPBUILDER_H
 
-#include "../../../../material/mobs/players/control/KeyAlias.h"
+#include "../../../../material/mobs/players/common/control/KeyAlias.h"
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"
 #include "../../pools/SourcePool.h"
 

@@ -5,12 +5,12 @@
 #ifndef FLASH_SINGLESPRITEBLOCK_H
 #define FLASH_SINGLESPRITEBLOCK_H
 
-#include "../../../common/BaseBlock.h"
+#include "../../../common/AnalyzingBlock.h"
 #include "../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 
 namespace Obstacles {
 
-    class SingleSpriteBlock : public BaseBlock {
+    class SingleSpriteBlock : public AnalyzingBlock {
     public:
         explicit SingleSpriteBlock(
                 const ObstacleProperties &properties,

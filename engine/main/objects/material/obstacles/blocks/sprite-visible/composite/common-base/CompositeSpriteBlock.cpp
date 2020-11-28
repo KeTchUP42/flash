@@ -9,7 +9,7 @@ Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(
         const Components::Area &area,
         const std::shared_ptr<Components::ISprite> &sprite,
         const std::shared_ptr<Material::Algorithms> &algorithms
-) : Obstacles::BaseBlock(properties, area, algorithms), m_sprite(sprite) {}
+) : Obstacles::AnalyzingBlock(properties, area, algorithms), m_sprite(sprite) {}
 
 void Obstacles::CompositeSpriteBlock::loadNewSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
     m_sprite.reset(); //Safe delete.

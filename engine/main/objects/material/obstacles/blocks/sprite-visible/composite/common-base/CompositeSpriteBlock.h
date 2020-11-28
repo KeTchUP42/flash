@@ -5,12 +5,12 @@
 #ifndef FLASH_COMPOSITESPRITEBLOCK_H
 #define FLASH_COMPOSITESPRITEBLOCK_H
 
-#include "../../../common/BaseBlock.h"
+#include "../../../common/AnalyzingBlock.h"
 #include "../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 
 namespace Obstacles {
 
-    class CompositeSpriteBlock : public BaseBlock {
+    class CompositeSpriteBlock : public AnalyzingBlock {
     public:
         explicit CompositeSpriteBlock(
                 const ObstacleProperties &properties,

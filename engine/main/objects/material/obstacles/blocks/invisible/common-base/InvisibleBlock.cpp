@@ -6,7 +6,7 @@
 
 Obstacles::InvisibleBlock::InvisibleBlock(const Obstacles::ObstacleProperties &properties, const Components::Area &area,
                                           const std::shared_ptr<Material::Algorithms> &algorithms)
-        : Obstacles::BaseBlock(properties, area, algorithms) {}
+        : Obstacles::AnalyzingBlock(properties, area, algorithms) {}
 
 void Obstacles::InvisibleBlock::draw(sf::RenderTarget &target) const noexcept {
     //..

@@ -9,8 +9,8 @@
 #include "../../../../../auxiliary/components/elementary/area/Area.h"
 #include "../../../../../../view/windows/base/observer/Observer.h"
 #include "../../../../../auxiliary/possibilities/Peculiar.h"
+#include "../../common/control/KeyAlias.h"
 #include "../../../common/base/Mob.h"
-#include "../../control/KeyAlias.h"
 
 namespace Mobs {
 
@@ -44,10 +44,31 @@ namespace Mobs {
          */
         const std::map<KeyAlias, sf::Keyboard::Key> &getKeyMap() const noexcept;
 
+        /**
+         * @brief Method contains event handling player logic.
+         * @param event Event object.
+         * @param unifier Scene unifier.
+         */
+        virtual void handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept = 0;
+
+        /**
+         * @brief Method calls "handleEvent" method for all caught events.
+         * @param unifier Scene unifier.
+         */
+        void handleEventsList(Unite::Unifier *unifier);
+
+        /**
+         * @brief Method catches all window events and puts them to m_events list.
+         * @param event Window event.
+         * @param sender Window object.
+         */
+        void update(const sf::Event &event, View::Window &sender) override;
+
         virtual ~Player() = default;
 
     protected:
         std::map<KeyAlias, sf::Keyboard::Key> m_keyMap;
+        std::list<sf::Event> m_events;
     };
 }
 
