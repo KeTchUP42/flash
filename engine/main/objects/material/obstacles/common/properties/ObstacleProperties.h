@@ -13,7 +13,6 @@ namespace Obstacles {
      * @brief Struct contains all obstacle numeric properties.
      */
     struct ObstacleProperties : public Material::MaterialObjectProperties {
-
         explicit ObstacleProperties(
                 const Components::Speed &speed,
                 float elasticCoefficient,

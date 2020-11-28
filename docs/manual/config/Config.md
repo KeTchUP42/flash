@@ -20,7 +20,7 @@
 
     [WINDOW]
     ; Window config file path:
-    WindowSettingsFile = win/primary.ini
+    WindowSettingsFile = [window-config-path]
 
  **An example of a window configuration file:**
 
@@ -39,7 +39,7 @@
     height = 720
 
     ; Window icon image file:
-    icon = window/icons/Flash.png
+    icon = [image-path]
 
     ; Window vertical sync enabled:
     VerticalSync = 0
@@ -49,7 +49,7 @@
 
     [SCENE]
     ; File with init scene:
-    launch = levels/level_1.ini
+    launch = [scene-path]
 
     [CONTEXT_SETTINGS]
     ; Bits of the depth buffer:

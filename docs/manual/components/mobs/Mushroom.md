@@ -16,7 +16,7 @@
     SPEED = 0:0
     PUNCH_POWER = 5
     ELASTICITY_LEVEL = 0.25
-    TEXTURE = mushroom.png
+    TEXTURE = [image-path]
     COLLISION_ANALYSIS_STEP = 5
 
  ### Explanation:

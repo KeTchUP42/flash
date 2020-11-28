@@ -8,7 +8,7 @@
     POSITION = 400:500
     SIZE = 100:100
     ANGLE = 0
-    AUDIO = ding.flac
+    AUDIO = [audio-path]
     AUDIO_VOLUME = 10
     AUDIO_LOOP = 0
 

@@ -5,7 +5,7 @@
  **Configuration block example:**
 
     [BackGroundSprite]
-    TEXTURE = back.jpg
+    TEXTURE = [image-path]
 
  ### Explanation:
 

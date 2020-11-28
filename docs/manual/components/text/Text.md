@@ -15,7 +15,7 @@
     LINE_SPACING = 1
     OUTLINE_THICKNESS = 0
     STYLE = Regular
-    FONT = font.ttf
+    FONT = [font-path]
 
  ### Explanation:
 

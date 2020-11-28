@@ -9,7 +9,7 @@
     SIZE = 100:100
     ANGLE = 0
     TARGET = 500:500
-    NEXT_SCENE = levels/level_1.ini
+    NEXT_SCENE = [scene-path]
 
  ### Explanation:
 

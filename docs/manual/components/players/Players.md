@@ -2,7 +2,7 @@
 
  Players - are mobs that are controlled by a human.
 
- * [BasicPlayer](BasicPlayer.md)
+ * [JumpingPlayer](JumpingPlayer.md)
 
  ### Notes:
 

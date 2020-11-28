@@ -13,7 +13,7 @@
     ELASTIC_COEFFICIENT = 0.2
     FRICTION_COEFFICIENT = 0.4
     IS_FIXED = 1
-    TEXTURE = wall.jpg
+    TEXTURE = [image-path]
     COLLISION_ANALYSIS_STEP = 5
 
  ### Explanation:

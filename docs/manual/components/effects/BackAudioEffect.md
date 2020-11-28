@@ -5,7 +5,7 @@
   **Configuration block example:**
   
     [BackAudioEffect]
-    AUDIO = back.ogg
+    AUDIO = [audio-path]
     AUDIO_VOLUME = 10
     AUDIO_LOOP = 1
 

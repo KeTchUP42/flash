@@ -8,7 +8,7 @@
     POSITION = 100:100
     SIZE = 100:100
     ANGLE = 0
-    TEXTURE = sprite.jpg
+    TEXTURE = [image-path]
 
  ### Explanation:
 

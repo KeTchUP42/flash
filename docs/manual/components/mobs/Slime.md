@@ -26,7 +26,7 @@
     SPLIT_COEFFICIENT = 2
     SPLIT_SLIMES_NUMBER = 2
     SPLIT_POWER = 5:10
-    TEXTURE = mobs/monsters/slime/slime.png
+    TEXTURE = [image-path]
     COLLISION_ANALYSIS_STEP = 5
 
  ### Explanation:

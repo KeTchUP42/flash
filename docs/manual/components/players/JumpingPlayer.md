@@ -1,10 +1,10 @@
- ## Basic player
+ ## Jumping player
 
- This is the basic and easiest implementation of a player.
+ This realization of the player can only jump and has one possible sprite state.
 
  **Configuration block example:**
 
-    [BasicPlayer]
+    [JumpingPlayer]
     POSITION = 600:370
     SIZE = 30:30
     ANGLE = 0
@@ -17,8 +17,8 @@
     MOVE_SPEED = 3
     MAX_MOVE_SPEED = 20
     JUMP_SPEED = 15
-    TEXTURE = player.png
-    KEYMAP = keys/keymap.ini
+    TEXTURE = [image-path]
+    KEYMAP = [config-path]
     COLLISION_ANALYSIS_STEP = 5
 
  ### Explanation:
