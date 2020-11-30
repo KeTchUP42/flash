@@ -18,7 +18,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
     Mobs::JumpingPlayerProperties playerProperties(
             std::stof(data.at("MOVE_SPEED")),
             std::stof(data.at("MAX_MOVE_SPEED")),
-            std::stof(data.at("JUMP_SPEED")));
+            std::stof(data.at("JUMP_DASH_SPEED")));
 
     Mobs::Player *player = new Mobs::JumpingPlayer(
             RD::loadMobProperties(data), RD::commonArea(data),
@@ -29,8 +29,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
     RD::KeyMapBuilder builder(data.at("KEYMAP"), m_source);
     builder.setKey(Mobs::KeyAlias::Right, "MAP", "Right")
             .setKey(Mobs::KeyAlias::Left, "MAP", "Left")
-            .setKey(Mobs::KeyAlias::Jump, "MAP", "Jump")
-            .setKey(Mobs::KeyAlias::Use, "MAP", "Use");
+            .setKey(Mobs::KeyAlias::Jump, "MAP", "Jump");
 
     player->loadKeyMap(builder.getKeyMap());
     unifier.addPlayer(player);

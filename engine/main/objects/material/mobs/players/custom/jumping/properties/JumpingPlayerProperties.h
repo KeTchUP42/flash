@@ -8,11 +8,16 @@
 namespace Mobs {
 
     /**
-     * @brief Struct contains all basic player numeric properties.
+     * @brief Struct contains all jumping player numeric properties.
      */
     struct JumpingPlayerProperties {
-        explicit JumpingPlayerProperties(float moveSpeed, float maxMoveSpeed, float jumpSpeed)
-                : moveSpeed(moveSpeed), maxMoveSpeed(maxMoveSpeed), jumpSpeed(jumpSpeed) {}
+        explicit JumpingPlayerProperties(
+                float moveSpeed,
+                float maxMoveSpeed,
+                float jumpSpeed
+        ) : moveSpeed(moveSpeed),
+            maxMoveSpeed(maxMoveSpeed),
+            jumpSpeed(jumpSpeed) {}
 
         /**
          * @brief Speed increase at the push of a button.

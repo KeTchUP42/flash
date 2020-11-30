@@ -5,8 +5,8 @@
 #ifndef FLASH_RECTANGLEMATH_H
 #define FLASH_RECTANGLEMATH_H
 
-#include "../possibilities/rectangle/RectangleGetters.h"
 #include "../components/elementary/coordinates/Coordinates.h"
+#include "../components/elementary/area/Area.h"
 
 namespace Computations {
 
@@ -15,6 +15,6 @@ namespace Computations {
      * @param rectangle Rectangle rectangle.
      * @return Coordinates.
      */
-    Components::Coordinates coordinates(Possibilities::RectangleGetters *rectangle) noexcept;
+    Components::Coordinates coordinates(Possibilities::RectangleGetters &rectangle) noexcept;
 }
 #endif //FLASH_RECTANGLE_H

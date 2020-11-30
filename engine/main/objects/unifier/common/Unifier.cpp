@@ -70,6 +70,67 @@ const std::list<std::shared_ptr<Components::Text>> &Unite::Unifier::getTextAreas
     return m_screen_text;
 }
 
+void Unite::Unifier::addParticle(Particles::Particle *particle) noexcept {
+    m_particles.push_back(std::shared_ptr<Particles::Particle>(particle));
+}
+
+void Unite::Unifier::addParticle(const std::shared_ptr<Particles::Particle> &particle) noexcept {
+    m_particles.push_back(particle);
+}
+
+void Unite::Unifier::removeParticle(Particles::Particle *particle) noexcept {
+    m_particles.remove_if([particle](const std::shared_ptr<Particles::Particle> &partcl) -> bool {
+        return partcl.get() == particle;
+    });
+}
+
+void Unite::Unifier::removeParticle(const std::shared_ptr<Particles::Particle> &particle) noexcept {
+    m_particles.remove(particle);
+}
+
+const std::list<std::shared_ptr<Particles::Particle>> &Unite::Unifier::getParticles() const noexcept {
+    return m_particles;
+}
+
+void Unite::Unifier::addBullet(Particles::Bullet *bullet) noexcept {
+    m_bullets.push_back(bullet);
+    this->addParticle(bullet);
+}
+
+void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Bullet> &bullet) noexcept {
+    m_bullets.push_back(bullet.get());
+    this->addParticle(bullet);
+}
+
+void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Particle> &bullet) noexcept {
+    m_bullets.push_back(dynamic_cast<Particles::Bullet *>(bullet.get())); //Exception leak place.
+    this->addParticle(bullet);
+}
+
+void Unite::Unifier::removeBullet(Particles::Bullet *bullet) noexcept {
+    m_bullets.remove_if([bullet](Particles::Bullet *bllt) -> bool {
+        return bllt == bullet;
+    });
+    this->removeParticle(bullet);
+}
+
+void Unite::Unifier::removeBullet(const std::shared_ptr<Particles::Bullet> &bullet) noexcept {
+    m_bullets.remove_if([bullet](Particles::Bullet *bllt) -> bool {
+        return bllt == bullet.get();
+    });
+    this->removeParticle(bullet);
+}
+
+const std::shared_ptr<Particles::Particle> &Unite::Unifier::getBullet(Particles::Bullet *bullet) const {
+    return *std::find_if(m_particles.begin(), m_particles.end(), [bullet](const std::shared_ptr<Particles::Particle> &particle) -> bool {
+        return particle.get() == bullet;
+    });
+}
+
+const std::list<Particles::Bullet *> &Unite::Unifier::getBullets() const noexcept {
+    return m_bullets;
+}
+
 void Unite::Unifier::addObstacle(Obstacles::Obstacle *obstacle) noexcept {
     m_obstacles.push_back(std::shared_ptr<Obstacles::Obstacle>(obstacle));
 }
@@ -267,4 +328,3 @@ const std::list<std::shared_ptr<Triggers::Trigger>> &Unite::Unifier::getTriggers
 void Unite::Unifier::addFrameAction(const std::function<void(Unite::Unifier *)> &action) noexcept {
     m_frame_actions.push_back(action);
 }
-

@@ -4,8 +4,8 @@
 
 #include "Slime.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
-#include "../../common/reduction/MobsAnalysisReduction.h"
-#include "../../common/reduction/MobsCollisionReduction.h"
+#include "../../../reduction/collision/CollisionReduction.h"
+#include "../../../reduction/mobs/MobsAnalysisReduction.h"
 #include "../../../../../../utils/math/algorithms.h"
 #include "splitter/SlimeSplitter.h"
 

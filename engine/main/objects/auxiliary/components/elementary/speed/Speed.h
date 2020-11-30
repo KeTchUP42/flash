@@ -31,6 +31,12 @@ namespace Components {
          */
         void add(float offsetX, float offsetY) noexcept;
 
+        /**
+         * @brief Method checks are xSpeed and ySpeed zero.
+         * @return Is zero?
+         */
+        bool isZero() const noexcept;
+
         float xSpeed;
         float ySpeed;
     };

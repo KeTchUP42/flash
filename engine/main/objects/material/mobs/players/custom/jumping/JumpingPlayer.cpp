@@ -3,16 +3,16 @@
 //
 
 #include "JumpingPlayer.h"
-#include "../../../common/reduction/MobsAnalysisReduction.h"
-#include "../../../common/reduction/MobsCollisionReduction.h"
+#include "../../../../reduction/mobs/MobsAnalysisReduction.h"
+#include "../../../../reduction/collision/CollisionReduction.h"
 
 Mobs::JumpingPlayer::JumpingPlayer(
         const Mobs::MobProperties &properties,
         const Components::Area &area,
         const std::shared_ptr<Components::ISpriteBox> &sprite,
         const std::shared_ptr<Material::Algorithms> &algorithms,
-        const Mobs::JumpingPlayerProperties &params
-) : AnalyzingPlayer(properties, area, sprite, algorithms), m_player(params) {}
+        const Mobs::JumpingPlayerProperties &jumping
+) : AnalyzingPlayer(properties, area, sprite, algorithms), m_jumping(jumping) {}
 
 void Mobs::JumpingPlayer::selfAction(Unite::Unifier *unifier) {
     RD::healthAnalysis(*this);
@@ -31,17 +31,17 @@ void Mobs::JumpingPlayer::selfAction(Unite::Unifier *unifier) {
 void Mobs::JumpingPlayer::handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept {
     if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == m_keyMap[KeyAlias::Right]) {
-            if ((std::abs(m_properties.speed.xSpeed) < m_player.maxMoveSpeed) && (m_properties.speed.xSpeed + m_player.moveSpeed <= m_player.maxMoveSpeed)) {
-                this->addSpeed(m_player.moveSpeed, 0);
+            if ((std::abs(m_properties.speed.xSpeed) < m_jumping.maxMoveSpeed) && (m_properties.speed.xSpeed + m_jumping.moveSpeed <= m_jumping.maxMoveSpeed)) {
+                this->addSpeed(m_jumping.moveSpeed, 0);
             }
         }
         if (event.key.code == m_keyMap[KeyAlias::Left]) {
-            if ((std::abs(m_properties.speed.xSpeed) < m_player.maxMoveSpeed) && (m_properties.speed.xSpeed - m_player.moveSpeed >= -m_player.maxMoveSpeed)) {
-                this->addSpeed(-m_player.moveSpeed, 0);
+            if ((std::abs(m_properties.speed.xSpeed) < m_jumping.maxMoveSpeed) && (m_properties.speed.xSpeed - m_jumping.moveSpeed >= -m_jumping.maxMoveSpeed)) {
+                this->addSpeed(-m_jumping.moveSpeed, 0);
             }
         }
         if (event.key.code == m_keyMap[KeyAlias::Jump]) {
-            if (m_properties.speed.ySpeed == 0) { this->addSpeed(0, -m_player.jumpSpeed); }
+            if (m_properties.speed.ySpeed == 0) { this->addSpeed(0, -m_jumping.jumpSpeed); }
         }
     }
 }

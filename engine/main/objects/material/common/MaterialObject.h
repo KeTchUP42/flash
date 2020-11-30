@@ -78,9 +78,11 @@ namespace Material {
  */
 #ifndef FLASH_MOB_H
 #ifndef FLASH_OBSTACLE_H
+#ifndef FLASH_PARTICLE_H
 
 #include "../../unifier/common/Unifier.h"
 
+#endif
 #endif
 #endif
 

@@ -4,6 +4,9 @@
 
 #include "Obstacle.h"
 
+Obstacles::Obstacle::Obstacle(const Obstacles::ObstacleProperties &properties, const Components::Coordinates &coordinates)
+        : Material::MaterialObject(coordinates), m_properties(properties) {}
+
 Obstacles::Obstacle::Obstacle(const Obstacles::ObstacleProperties &properties) : m_properties(properties) {}
 
 void Obstacles::Obstacle::addSpeed(float offsetX, float offsetY) noexcept {
@@ -29,4 +32,3 @@ const Components::Speed &Obstacles::Obstacle::getSpeed() const noexcept {
 const Obstacles::ObstacleProperties &Obstacles::Obstacle::getProperties() const noexcept {
     return m_properties;
 }
-

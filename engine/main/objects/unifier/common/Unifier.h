@@ -13,6 +13,12 @@
 #include <list>
 #include <functional>
 
+namespace Particles {
+    class Particle;
+
+    class Bullet;
+}
+
 namespace Obstacles {
     class Obstacle;
 
@@ -152,6 +158,83 @@ namespace Unite {
         //..
 
         /**
+         * @brief Method adds new particle.
+         * @param particle New particle.
+         */
+        void addParticle(Particles::Particle *particle) noexcept;
+
+        /**
+         * @brief Method adds new particle.
+         * @param particle New particle.
+         */
+        void addParticle(const std::shared_ptr<Particles::Particle> &particle) noexcept;
+
+        /**
+         * @brief Method removes particle.
+         * @param particle Existing particle.
+         */
+        void removeParticle(Particles::Particle *particle) noexcept;
+
+        /**
+         * @brief Method removes particle.
+         * @param particle Existing particle.
+         */
+        void removeParticle(const std::shared_ptr<Particles::Particle> &particle) noexcept;
+
+        /**
+         * @brief Method returns const reference on particles collection.
+         * @return Const reference on particles collection.
+         */
+        const std::list<std::shared_ptr<Particles::Particle>> &getParticles() const noexcept;
+
+        //..
+
+        /**
+         * @brief Method adds new bullet.
+         * @param bullet New bullet.
+         */
+        void addBullet(Particles::Bullet *bullet) noexcept;
+
+        /**
+         * @brief Method adds new bullet.
+         * @param bullet New bullet.
+         */
+        void addBullet(const std::shared_ptr<Particles::Bullet> &bullet) noexcept;
+
+        /**
+         * @brief Method adds new bullet.
+         * @param bullet New bullet.
+         */
+        void addBullet(const std::shared_ptr<Particles::Particle> &bullet) noexcept;
+
+        /**
+         * @brief Method removes bullet.
+         * @param bullet Existing bullet.
+         */
+        void removeBullet(Particles::Bullet *bullet) noexcept;
+
+        /**
+         * @brief Method removes bullet.
+         * @param bullet Existing bullet.
+         */
+        void removeBullet(const std::shared_ptr<Particles::Bullet> &bullet) noexcept;
+
+        /**
+         * @brief Method searches bullet in particles collection.
+         * @param block Needed bullet's pointer.
+         * @return Bullet pointer.
+         */
+        const std::shared_ptr<Particles::Particle> &getBullet(Particles::Bullet *bullet) const;
+
+        /**
+         * @brief Method returns const reference on bullets collection.
+         * @return Const reference on bullets collection.
+         */
+        const std::list<Particles::Bullet *> &getBullets() const noexcept;
+
+        //..
+
+        /**
          * @brief Method adds new obstacle.
          * @param obstacle New obstacle.
          */
@@ -180,6 +263,7 @@ namespace Unite {
          * @return Const reference on obstacles collection.
          */
         const std::list<std::shared_ptr<Obstacles::Obstacle>> &getObstacles() const noexcept;
+
         //..
 
         /**
@@ -256,6 +340,7 @@ namespace Unite {
          * @return Const reference on mobs collection.
          */
         const std::list<std::shared_ptr<Mobs::Mob>> &getMobs() const noexcept;
+
         //..
 
         /**
@@ -424,6 +509,16 @@ namespace Unite {
         std::list<std::shared_ptr<Components::Text>> m_screen_text;
 
         /**
+         * @brief All particles;
+         */
+        std::list<std::shared_ptr<Particles::Particle>> m_particles;
+
+        /**
+         * @brief Bullets.
+         */
+        std::list<Particles::Bullet *> m_bullets;
+
+        /**
          * @brief All obstacles.
          */
         std::list<std::shared_ptr<Obstacles::Obstacle>> m_obstacles;
@@ -465,6 +560,8 @@ namespace Unite {
     };
 }
 
+#include "../../material/particles/common/Particle.h"
+#include "../../material/particles/bullets/common/base/Bullet.h"
 #include "../../material/mobs/common/base/Mob.h"
 #include "../../material/mobs/players/common/base/Player.h"
 #include "../../material/obstacles/common/Obstacle.h"

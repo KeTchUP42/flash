@@ -3,7 +3,7 @@
 //
 
 #include "Mushroom.h"
-#include "../../common/reduction/MobsAnalysisReduction.h"
+#include "../../../reduction/mobs/MobsAnalysisReduction.h"
 
 Mobs::Mushroom::Mushroom(
         const Mobs::MobProperties &properties,

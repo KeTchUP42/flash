@@ -39,7 +39,7 @@ set(AUXILIARY ${COMPONENTS} ${COMPUTATIONS})
 set(EFFECTS_GENERATORS engine/main/objects/creation/scene/generators/effects/BackAudioEffectGenerator.cpp engine/main/objects/creation/scene/generators/effects/GravityEffectGenerator.cpp engine/main/objects/creation/scene/generators/effects/GravityPointEffectGenerator.cpp)
 set(MOBS_GENERATORS engine/main/objects/creation/scene/generators/mobs/SlimeGenerator.cpp engine/main/objects/creation/scene/generators/mobs/MushroomGenerator.cpp)
 set(OBSTACLES_GENERATORS engine/main/objects/creation/scene/generators/obstacles/DullBlockGenerator.cpp engine/main/objects/creation/scene/generators/obstacles/DullInvisibleBlockGenarator.cpp engine/main/objects/creation/scene/generators/obstacles/PlatformBlockGenerator.cpp)
-set(PLAYERS_GENERATORS engine/main/objects/creation/scene/generators/players/JumpingPlayerGenerator.cpp)
+set(PLAYERS_GENERATORS engine/main/objects/creation/scene/generators/players/ShootingPlayerGenerator.cpp engine/main/objects/creation/scene/generators/players/JumpingPlayerGenerator.cpp)
 set(SPRITES_GENERATORS engine/main/objects/creation/scene/generators/sprites/BackgroundSpriteGenerator.cpp engine/main/objects/creation/scene/generators/sprites/BackSpriteGenerator.cpp engine/main/objects/creation/scene/generators/sprites/FrontSpriteGenerator.cpp)
 set(TEXT_GENERATORS engine/main/objects/creation/scene/generators/text/TextGenerator.cpp)
 set(TRIGGERS_GENERATORS engine/main/objects/creation/scene/generators/triggers/DeathZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/GravityZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/GravityMobsZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/GravityPlayerZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/MobsDeathZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/PlayerDeathZoneGenerator.cpp engine/main/objects/creation/scene/generators/triggers/SingleMobsAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/SinglePlayerAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/MobsAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/PlayerAudioTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/ExplicitPlayerSceneTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/AbscissaPlayerSceneTriggerGenerator.cpp engine/main/objects/creation/scene/generators/triggers/OrdinatePlayerSceneTriggerGenerator.cpp)
@@ -50,15 +50,14 @@ set(POOLS engine/main/objects/creation/scene/pools/SourcePool.cpp engine/main/ob
 set(SCENE ${GENERATORS} ${ANALYZE} ${POOLS} engine/main/objects/creation/scene/SceneLoader.cpp)
 set(GENERATION ${SCENE})
 
-set(PLAYER_CUSTOM engine/main/objects/material/mobs/players/custom/jumping/JumpingPlayer.cpp)
+set(PLAYER_CUSTOM engine/main/objects/material/mobs/players/custom/jumping/JumpingPlayer.cpp engine/main/objects/material/mobs/players/custom/shooting/ShootingPlayer.cpp)
 set(PLAYER_COMMON engine/main/objects/material/mobs/players/common/base/Player.cpp)
 set(PLAYERS ${PLAYER_COMMON} ${PLAYER_CUSTOM})
 
 set(MUSHROOM engine/main/objects/material/mobs/custom/mushroom/Mushroom.cpp)
 set(SLIME engine/main/objects/material/mobs/custom/slime/Slime.cpp engine/main/objects/material/mobs/custom/slime/splitter/SlimeSplitter.cpp)
 set(MOBS_CUSTOM ${MUSHROOM} ${SLIME})
-set(LOGIC_REDUCTION engine/main/objects/material/mobs/common/reduction/MobsCollisionReduction.cpp engine/main/objects/material/mobs/common/reduction/MobsAnalysisReduction.cpp)
-set(MOBS_COMMON ${LOGIC_REDUCTION} engine/main/objects/material/mobs/common/base/Mob.cpp)
+set(MOBS_COMMON engine/main/objects/material/mobs/common/base/Mob.cpp)
 set(MOBS ${MOBS_COMMON} ${MOBS_CUSTOM} ${PLAYERS})
 
 set(SPRITE-VISIBLE engine/main/objects/material/obstacles/blocks/sprite-visible/single/common-base/SingleSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/DullBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/common-base/CompositeSpriteBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/composite/DullCompositeBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/ElasticBlock.cpp engine/main/objects/material/obstacles/blocks/sprite-visible/single/PlatformBlock.cpp)
@@ -67,11 +66,20 @@ set(BLOCKS ${INVISIBLE} ${SPRITE-VISIBLE} engine/main/objects/material/obstacles
 set(OBSTACLES_COMMON engine/main/objects/material/obstacles/common/Obstacle.cpp)
 set(OBSTACLES ${BLOCKS} ${OBSTACLES_COMMON})
 
+set(BULLETS_CUSTOM engine/main/objects/material/particles/bullets/custom/sprite-visible/common/TexturedBullet.cpp engine/main/objects/material/particles/bullets/custom/sprite-visible/player/PlayerTexturedBullet.cpp)
+set(BULLETS_COMMON engine/main/objects/material/particles/bullets/common/base/Bullet.cpp)
+set(BULLETS ${BULLETS_COMMON} ${BULLETS_CUSTOM})
+set(PARTICLES_OPTIMIZER engine/main/objects/material/particles/optimizer/bullets/BulletsOptimizer.cpp)
+set(PARTICLES_COMMON ${PARTICLES_OPTIMIZER} engine/main/objects/material/particles/common/Particle.cpp)
+set(PARTICLES ${BULLETS} ${PARTICLES_COMMON})
+
+set(REDUCTION engine/main/objects/material/reduction/mobs/MobsAnalysisReduction.cpp)
+
 set(ALGORITHMS engine/main/objects/material/common/algorithms/Algorithms.cpp)
 set(COLLISION_ALGORITHMS engine/main/objects/material/common/collision/algorithms/collision/CommonCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/collision/StaticCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/collision/MovingCollisionAlgorithms.cpp engine/main/objects/material/common/collision/algorithms/coordinates/MovingCollisionFunctions.cpp engine/main/objects/material/common/collision/algorithms/coordinates/CoordinatesCalculation.cpp)
 set(COLLISION ${COLLISION_ALGORITHMS} engine/main/objects/material/common/collision/Collision.cpp engine/main/objects/material/common/collision/moving-collision/MovingCollision.cpp engine/main/objects/material/common/collision/static-collision/StaticCollision.cpp)
 set(MATERIAL_COMMON ${ALGORITHMS} ${COLLISION} engine/main/objects/material/common/MaterialObject.cpp)
-set(MATERIAL ${MOBS} ${OBSTACLES} ${MATERIAL_COMMON})
+set(MATERIAL ${MOBS} ${OBSTACLES} ${PARTICLES} ${REDUCTION} ${MATERIAL_COMMON})
 
 set(AUDIO_EFFECTS engine/main/objects/static/effects/audio/back/BackAudioEffect.cpp)
 set(GRAVITY_EFFECTS engine/main/objects/static/effects/gravity/GravityEffect.cpp engine/main/objects/static/effects/gravity/GravityPointEffect.cpp)

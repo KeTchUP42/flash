@@ -17,14 +17,15 @@ namespace Obstacles {
      *
      * This class defines base Obstacle interface and realization.
     */
-    class Obstacle : public Material::MaterialObject,
-                     public Possibilities::Peculiar<Obstacles::ObstacleProperties> {
+    class Obstacle : public Material::MaterialObject, public Possibilities::Peculiar<Obstacles::ObstacleProperties> {
     public:
         /**
          * @brief Main obstacle constructor.
          * @param properties Object with obstacle properties.
          */
         Obstacle(const ObstacleProperties &properties);
+
+        explicit Obstacle(const ObstacleProperties &properties, const Components::Coordinates &coordinates);
 
         void addSpeed(float offsetX, float offsetY) noexcept override;
 

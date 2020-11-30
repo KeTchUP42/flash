@@ -18,6 +18,10 @@ void Unite::SceneUnifier::draw(sf::RenderWindow &target) const noexcept {
         obstacle->draw(target);
     }
 
+    for (const std::shared_ptr<Particles::Particle> &particle : m_particles) {
+        particle->draw(target);
+    }
+
     for (Mobs::Mob *mob: m_stand_alone_mobs) {
         mob->draw(target);
     }
@@ -41,12 +45,20 @@ void Unite::SceneUnifier::refresh() {
         mob->updateCoordinates();
     }
 
+    for (const std::shared_ptr<Particles::Particle> &particle : m_particles) {
+        particle->updateCoordinates();
+    }
+
     for (const std::shared_ptr<Triggers::Trigger> &trigger: m_triggers) {
         if (trigger->verifyTrigger(this) == Triggers::ResultCodes::STOP) return;
     }
 
     for (const std::shared_ptr<Effects::Effect> &effect: m_effects) {
         effect->applyEffect(this);
+    }
+
+    for (const std::shared_ptr<Particles::Particle> &particle : m_particles) {
+        particle->selfAction(this);
     }
 
     for (Mobs::Mob *mob: m_stand_alone_mobs) {
@@ -72,6 +84,10 @@ void Unite::SceneUnifier::refresh() {
 
     for (const std::shared_ptr<Mobs::Mob> &mob: m_mobs) {
         mob->updateLocation();
+    }
+
+    for (const std::shared_ptr<Particles::Particle> &particle : m_particles) {
+        particle->updateLocation();
     }
 }
 

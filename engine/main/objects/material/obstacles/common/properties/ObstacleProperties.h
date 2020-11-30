@@ -34,7 +34,7 @@ namespace Obstacles {
         float frictionCoefficient;
 
         /**
-         * @brief Whether the obstacle is motionless.
+         * @brief If this flag is not set, the obstacle will be affected by static effects.
          */
         bool isFixed;
     };

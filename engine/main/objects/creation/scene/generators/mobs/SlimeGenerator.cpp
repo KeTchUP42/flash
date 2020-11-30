@@ -17,7 +17,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
     //Slime properties.
     Mobs::SlimeProperties slimeProperties(
             std::stof(data.at("MOVE_SPEED")),
-            std::stof(data.at("JUMP_SPEED")),
+            std::stof(data.at("JUMP_DASH_SPEED")),
             std::stoi(data.at("JUMP_RATE_COEFFICIENT")),
             std::stof(data.at("PUNCH_POWER")),
             std::stof(data.at("PUNCH_DAMAGE")),

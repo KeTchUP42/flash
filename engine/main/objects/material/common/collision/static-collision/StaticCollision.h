@@ -28,6 +28,12 @@ namespace Material {
         template<class Type>
         Type *ordinateMoveAble(MaterialObject *object, const std::list<Type *> &objects) const noexcept;
 
+        template<class Type>
+        Type *staticMoveAble(MaterialObject *object, const std::list<std::shared_ptr<Type>> &objects) const noexcept;
+
+        template<class Type>
+        Type *staticMoveAble(MaterialObject *object, const std::list<Type *> &objects) const noexcept;
+
         bool abscissaMoveAble(Material::MaterialObject *object1, Material::MaterialObject *object2) const noexcept;
 
         bool ordinateMoveAble(Material::MaterialObject *object1, Material::MaterialObject *object2) const noexcept;
@@ -95,6 +101,40 @@ namespace Material {
             if (processed == object) continue;
 
             if (staticOrdinateCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed)) {
+                return processed;
+            }
+        }
+        return nullptr;
+    }
+
+    template<class Type>
+    Type *StaticCollision::staticMoveAble(MaterialObject *object, const std::list<std::shared_ptr<Type>> &objects) const noexcept {
+        Components::Point objectMinCoordinates = minCoordinates(*object);
+        Components::Point objectMaxCoordinates = maxCoordinates(*object);
+
+        for (const std::shared_ptr<Type> &processed : objects) {
+
+            if (processed.get() == object) continue;
+
+            if (staticAbscissaCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed) ||
+                staticOrdinateCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed)) {
+                return processed.get();
+            }
+        }
+        return nullptr;
+    }
+
+    template<class Type>
+    Type *StaticCollision::staticMoveAble(MaterialObject *object, const std::list<Type *> &objects) const noexcept {
+        Components::Point objectMinCoordinates = minCoordinates(*object);
+        Components::Point objectMaxCoordinates = maxCoordinates(*object);
+
+        for (Type *processed : objects) {
+
+            if (processed == object) continue;
+
+            if (staticAbscissaCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed) ||
+                staticOrdinateCollision(objectMinCoordinates, objectMaxCoordinates, *object, *processed)) {
                 return processed;
             }
         }

@@ -8,3 +8,7 @@ void Components::Speed::add(float offsetX, float offsetY) noexcept {
     xSpeed += offsetX;
     ySpeed += offsetY;
 }
+
+bool Components::Speed::isZero() const noexcept {
+    return (xSpeed == 0) && (ySpeed == 0);
+}

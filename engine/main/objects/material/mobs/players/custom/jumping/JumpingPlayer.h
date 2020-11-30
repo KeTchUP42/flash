@@ -17,7 +17,7 @@ namespace Mobs {
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
                 const std::shared_ptr<Material::Algorithms> &algorithms,
-                const JumpingPlayerProperties &params
+                const JumpingPlayerProperties &jumping
         );
 
         void selfAction(Unite::Unifier *unifier) override;
@@ -25,7 +25,7 @@ namespace Mobs {
         void handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept override;
 
     protected:
-        Mobs::JumpingPlayerProperties m_player;
+        Mobs::JumpingPlayerProperties m_jumping;
     };
 }
 

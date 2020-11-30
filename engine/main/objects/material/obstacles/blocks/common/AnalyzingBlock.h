@@ -12,8 +12,11 @@ namespace Obstacles {
 
     class AnalyzingBlock : public Block {
     public:
-        explicit AnalyzingBlock(const ObstacleProperties &properties, const Components::Area &area, const std::shared_ptr<Material::Algorithms> &algorithms)
-                : Block(properties, area), m_algorithms(algorithms) {}
+        explicit AnalyzingBlock(
+                const ObstacleProperties &properties,
+                const Components::Area &area,
+                const std::shared_ptr<Material::Algorithms> &algorithms
+        ) : Block(properties, area), m_algorithms(algorithms) {}
 
     protected:
         std::shared_ptr<Material::Algorithms> m_algorithms;

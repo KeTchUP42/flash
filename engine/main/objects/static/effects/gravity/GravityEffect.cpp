@@ -18,4 +18,10 @@ void Effects::GravityEffect::applyEffect(Unite::Unifier *unifier) {
             obstacle->addSpeed(X_ACCELERATION, Y_ACCELERATION);
         }
     }
+
+    for (const std::shared_ptr<Particles::Particle> &particle : unifier->getParticles()) {
+        if (particle->getProperties().isUnderEffects) {
+            particle->addSpeed(X_ACCELERATION, Y_ACCELERATION);
+        }
+    }
 }

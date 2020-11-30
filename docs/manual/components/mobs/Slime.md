@@ -16,7 +16,7 @@
     HEALTH_POINTS = 10
     SPEED = 0:0
     MOVE_SPEED = 3
-    JUMP_SPEED = 10
+    JUMP_DASH_SPEED = 10
     JUMP_RATE_COEFFICIENT = 50
     PUNCH_POWER = 5
     PUNCH_DAMAGE = 10
@@ -40,8 +40,8 @@
  * `MAX_HEALTH_POINTS` - The parameter of maximum health points.
  * `HEALTH_POINTS` - Health points. Necessary for the process of life activities.
  * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
- * `MOVE_SPEED` - The parameter of speed obtained when moving horizontally by jump.
- * `JUMP_SPEED` - The parameter of speed obtained horizontally at each jump.
+ * `MOVE_SPEED` - The parameter sets speed received when moving horizontally by jump.
+ * `JUMP_DASH_SPEED` - The parameter sets speed received vertical at each jump.
  * `JUMP_RATE_COEFFICIENT` - The value determines the frequency of slime's jumps. The higher the value is, the jumps are less frequent.
  * `PUNCH_POWER` - The parameter sets slime's punch power and uses to calculate the acceleration given by the slime.
  * `PUNCH_DAMAGE` - The parameter sets slime's punch damage.
