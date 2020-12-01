@@ -7,7 +7,7 @@
 static inline std::string dateTimeNow() noexcept;
 
 std::string LoggerUtil::LoggerFormatter::format(const std::string &data) const noexcept {
-    return dateTimeNow() + data + '\n';
+    return dateTimeNow() + data + "\n";
 }
 
 static inline std::string dateTimeNow() noexcept {

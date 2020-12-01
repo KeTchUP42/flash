@@ -4,8 +4,6 @@
 
 #include "algorithms.h"
 
-#include <stdlib.h>
-
 std::vector<std::string> Computations::split(const std::string &data, const char delimiter) noexcept {
     size_t start = 0;
     size_t end = data.find_first_of(delimiter);
@@ -22,5 +20,5 @@ std::vector<std::string> Computations::split(const std::string &data, const char
 }
 
 int Computations::random(int min, int max) noexcept {
-    return min + (rand() % static_cast<int>(max - min + 1));
+    return min + (rand() % (max - min + 1));
 }

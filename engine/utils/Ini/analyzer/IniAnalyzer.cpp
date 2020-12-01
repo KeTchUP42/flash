@@ -34,7 +34,7 @@ IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noe
         }
 
         if (std::regex_match(line, std::regex("[^\\ \\=\n][^\\=\n]*\\= *.*"))) {
-            long pos = line.find('=');
+            unsigned long pos = line.find('=');
 
             std::string key = line.substr(0, pos);
             Trim::trim(key);
