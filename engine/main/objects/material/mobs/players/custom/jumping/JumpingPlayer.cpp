@@ -22,10 +22,9 @@ void Mobs::JumpingPlayer::selfAction(Unite::Unifier *unifier) {
             unifier1->removePlayer(this);
         });
     } else {
-        RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
         RD::ordinateBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
-
         this->handleEventsList(unifier);
+        RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
     }
 }
 
