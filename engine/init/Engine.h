@@ -7,8 +7,6 @@
 
 #include "../main/data/manager/DataManager.h"
 
-#include <string>
-
 namespace Program {
 
     /**
@@ -17,7 +15,7 @@ namespace Program {
      *
      * This class has app entry point method.
     */
-    class Engine {
+    class Engine final {
     public:
         /**
          * @brief Main app constructor.
@@ -31,7 +29,7 @@ namespace Program {
          */
         int start() const;
 
-        virtual ~Engine();
+        ~Engine();
 
     private:
         /**

@@ -35,7 +35,7 @@ namespace IniUtil {
         /**
          * Default configs without block IniData section name.
          */
-        static constexpr const char *NONAME_BLOCK = "";
+        static const std::string NONAME_BLOCK;
 
         /**
          * Method returns full ini config data in IniData type.

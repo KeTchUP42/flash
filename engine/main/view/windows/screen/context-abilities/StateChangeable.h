@@ -12,7 +12,7 @@ namespace View {
     class ScreenState;
 
     /**
-     * @brief The class is of interest to rearrange methods for changing the state of the window.
+     * @brief This class is an interface for dynamic change of scene state by context.
      * @namespace View
      *
      * This class defines base StateChangeable interface.

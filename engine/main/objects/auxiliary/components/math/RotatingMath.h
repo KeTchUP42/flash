@@ -19,7 +19,7 @@ namespace Components {
 
         /**
          * @brief Function returns position offset after rotation base point around target point.
-         * @return Speed.
+         * @return Speed offset.
          */
         std::pair<float, float>
         pointToPointRotationOffset(const Point &base, float angle, const Point &target) noexcept;

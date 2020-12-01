@@ -15,10 +15,10 @@
 namespace View {
 
     /**
-     * @brief The class is a convenient wrapper above the library window.
+     * @brief The class is a wrapper over the library window.
      * @namespace View
      *
-     * This class provides convenient opportunities to listen to the window events.
+     * This class gives easy possibilities to listen window events.
     */
     class Window {
     public:
@@ -28,18 +28,18 @@ namespace View {
         using Observer = View::Observer<sf::Event, View::Window>;
 
         /**
-         * @brief Constructor.
-         * @param mode sf::VideoMode
-         * @param title const sf::String&
-         * @param style sf::Uint32
-         * @param settings const sf::ContextSettings&
+         * @brief Window constructor.
+         * @param mode Window video mode.
+         * @param title Window title.
+         * @param style Window style.
+         * @param settings Window contex setting.
          */
         explicit Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings);
 
         /**
-         * @brief Constructor.
-         * @param handle sf::WindowHandle
-         * @param settings const sf::ContextSettings&
+         * @brief Window constructor.
+         * @param handle Window handle.
+         * @param settings Window contex setting.
          */
         explicit Window(sf::WindowHandle handle, const sf::ContextSettings &settings);
 
@@ -81,7 +81,7 @@ namespace View {
 
         /**
          * @brief Method sets vertical Sync enabled value.
-         * @param enabled
+         * @param enabled is enabled?
          */
         void setVerticalSyncEnabled(bool enabled) noexcept;
 

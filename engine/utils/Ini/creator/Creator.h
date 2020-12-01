@@ -10,7 +10,7 @@
 namespace IniUtil {
 
     /**
-     * @brief The base class of the Creator strategy class hierarchy. Uses in IniProcessor.
+     * @brief The interface of the Creator strategy class hierarchy. Uses in IniProcessor.
      * @namespace IniUtil
      *
      * This class defines base interface of Creator classes.

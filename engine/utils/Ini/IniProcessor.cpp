@@ -4,6 +4,8 @@
 
 #include "IniProcessor.h"
 
+const std::string IniUtil::IniProcessor::NONAME_BLOCK = "";
+
 IniUtil::Analyzer::IniData IniUtil::IniProcessor::fullparse() const {
     return m_analyzer->fullparse(m_reader->readlines());
 }

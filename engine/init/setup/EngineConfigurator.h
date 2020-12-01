@@ -5,8 +5,6 @@
 #ifndef FLASH_ENGINECONFIGURATOR_H
 #define FLASH_ENGINECONFIGURATOR_H
 
-#include <string>
-
 #include "../../main/data/manager/DataManager.h"
 
 namespace Setup {

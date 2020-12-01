@@ -10,7 +10,7 @@
 namespace LoggerUtil {
 
     /**
-    * @brief The base class of the Formatter strategy class hierarchy. Uses in Logger hierarchy.
+    * @brief The interface of the Formatter strategy class hierarchy. Uses in Logger hierarchy.
     * @namespace LoggerUtil
     *
     * This class defines base interface of Formatter classes.

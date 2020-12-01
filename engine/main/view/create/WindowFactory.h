@@ -15,7 +15,7 @@ namespace View {
         WindowFactory() = default;
 
         /**
-         * @brief Base factory method. You can add any additional logic to it.
+         * @brief Window factory method. You can add any additional logic to it.
          * @param filename Window config filename.
          * @param manager Resource data manager.
          * @return New Window.

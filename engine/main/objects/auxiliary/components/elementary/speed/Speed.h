@@ -10,7 +10,7 @@
 namespace Components {
 
     /**
-     * @brief The structure is used to represent the object velocity on the coordinate plane.
+     * @brief The structure is used to represent the object speed on the coordinate plane.
      * @namespace Components
      *
      * This struct is the base component.

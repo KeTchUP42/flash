@@ -12,7 +12,7 @@
 namespace IniUtil {
 
     /**
-     * @brief The base class of the Analyzer strategy class hierarchy. Uses in IniProcessor.
+     * @brief The interface of the Analyzer strategy class hierarchy. Uses in IniProcessor.
      * @namespace IniUtil
      *
      * This class defines base interface of Analyzer classes.

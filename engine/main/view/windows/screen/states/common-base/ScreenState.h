@@ -16,7 +16,7 @@ namespace View {
     class StateChangeable;
 
     /**
-     * @brief This class is an interest of the state from the state pattern.
+     * @brief This class is an interface of the state from the state pattern.
      * @namespace View
      *
      * This class defines base ScreenState interface and fields.

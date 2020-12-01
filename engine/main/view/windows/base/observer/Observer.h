@@ -8,7 +8,7 @@
 namespace View {
 
     /**
-     * @brief A class is a class interface that can listen to events, mainly keystroke events.
+     * @brief It is a class interface that can listen window events, mainly keypress events.
      * @namespace View
      *
      * This class defines base Observer interface.
