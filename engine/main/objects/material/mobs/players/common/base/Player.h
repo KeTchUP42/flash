@@ -25,11 +25,14 @@ namespace Mobs {
     public:
         /**
          * @brief Main player constructor.
+         * @param material_properties Material properties.
          * @param properties Mob properties object.
          * @param area Mob physical area.
          * @param sprite Player's sprite.
          */
-        explicit Player(const Mobs::MobProperties &properties, const Components::Area &area,
+        explicit Player(const Material::MaterialProperties &material_properties,
+                        const Mobs::MobProperties &properties,
+                        const Components::Area &area,
                         const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**

@@ -14,7 +14,7 @@ bool Particles::BulletsOptimizer::optimize(Particles::Bullet *particle, Unite::U
         });
         return true;
     }
-
+    //todo: Think to move upper code back to bullet code.
     Components::Point min = Material::minCoordinates(*particle);
     Components::Point max = Material::maxCoordinates(*particle);
 

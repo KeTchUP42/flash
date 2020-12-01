@@ -12,6 +12,7 @@ namespace Obstacles {
     class DullBlock : public Obstacles::SingleSpriteBlock {
     public:
         explicit DullBlock(
+                const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
                 const std::shared_ptr<Material::Algorithms> &algorithms

@@ -14,6 +14,7 @@ namespace Mobs {
     class ShootingPlayer : public JumpingPlayer {
     public:
         explicit ShootingPlayer(
+                const Material::MaterialProperties &material_properties,
                 const MobProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,

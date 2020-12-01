@@ -13,6 +13,7 @@ namespace Mobs {
     class Mushroom : public AnalyzingMob {
     public:
         explicit Mushroom(
+                const Material::MaterialProperties &material_properties,
                 const Mobs::MobProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,

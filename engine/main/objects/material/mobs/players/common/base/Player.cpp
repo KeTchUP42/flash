@@ -4,8 +4,12 @@
 
 #include "Player.h"
 
-Mobs::Player::Player(const Mobs::MobProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : Mobs::Mob(properties, area, sprite) {}
+Mobs::Player::Player(
+        const Material::MaterialProperties &material_properties,
+        const Mobs::MobProperties &properties,
+        const Components::Area &area,
+        const std::shared_ptr<Components::ISpriteBox> &sprite
+) : Mobs::Mob(material_properties, properties, area, sprite) {}
 
 void Mobs::Player::loadKeyMap(const std::map<Mobs::KeyAlias, sf::Keyboard::Key> &keyMap) noexcept {
     m_keyMap = keyMap;

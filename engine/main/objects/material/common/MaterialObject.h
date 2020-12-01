@@ -11,6 +11,7 @@
 #include "../../auxiliary/possibilities/collision/CollisionProne.h"
 #include "../../auxiliary/possibilities/coordinates/PhysicallySituated.h"
 #include "../../auxiliary/possibilities/Drawable.h"
+#include "properties/MaterialProperties.h"
 
 namespace Unite {
     class Unifier;
@@ -36,13 +37,14 @@ namespace Material {
         /**
          * @brief Default constructor.
          */
-        MaterialObject();
+        MaterialObject(const MaterialProperties &material_properties);
 
         /**
          * @brief Constructor that allows you to initiate an object of arbitrary shape.
+         * @param material_properties Material properties.
          * @param coordinates Object coordinates.
          */
-        MaterialObject(const Components::Coordinates &coordinates);
+        explicit MaterialObject(const MaterialProperties &material_properties, const Components::Coordinates &coordinates);
 
         /**
          * @brief Method updated coordinates value.
@@ -63,12 +65,25 @@ namespace Material {
 
         void move(float offsetX, float offsetY) noexcept override;
 
+        void addSpeed(float offsetX, float offsetY) noexcept override;
+
+        void setSpeed(const Components::Speed &speed) noexcept override;
+
+        void setXSpeed(float xSpeed) noexcept override;
+
+        void setYSpeed(float ySpeed) noexcept override;
+
+        const Components::Speed &getSpeed() const noexcept override;
+
         const Components::Coordinates &getCoordinates() const noexcept override;
+
+        const MaterialProperties &getMaterialProperties() const;
 
         virtual ~MaterialObject() = default;
 
     protected:
         Components::Coordinates m_coordinates;
+        MaterialProperties m_material_properties;
     };
 }
 

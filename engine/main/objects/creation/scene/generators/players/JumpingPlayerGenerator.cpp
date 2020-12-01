@@ -21,6 +21,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             std::stof(data.at("JUMP_DASH_SPEED")));
 
     Mobs::Player *player = new Mobs::JumpingPlayer(
+            RD::loadMaterialProperties(data),
             RD::loadMobProperties(data), RD::commonArea(data),
             std::make_shared<Components::SpriteBox>(
                     RD::spriteArea(data), m_source.getTexture(data.at("TEXTURE"))),

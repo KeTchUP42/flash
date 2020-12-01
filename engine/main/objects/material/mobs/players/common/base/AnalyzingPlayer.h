@@ -13,11 +13,12 @@ namespace Mobs {
     class AnalyzingPlayer : public Player {
     public:
         explicit AnalyzingPlayer(
+                const Material::MaterialProperties &material_properties,
                 const Mobs::MobProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
                 const std::shared_ptr<Material::Algorithms> &algorithms
-        ) : Player(properties, area, sprite), m_algorithms(algorithms) {}
+        ) : Player(material_properties, properties, area, sprite), m_algorithms(algorithms) {}
 
     protected:
         std::shared_ptr<Material::Algorithms> m_algorithms;

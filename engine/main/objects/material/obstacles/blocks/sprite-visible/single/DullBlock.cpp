@@ -4,9 +4,12 @@
 
 #include "DullBlock.h"
 
-Obstacles::DullBlock::DullBlock(const ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                const std::shared_ptr<Material::Algorithms> &algorithms)
-        : SingleSpriteBlock(properties, sprite, algorithms) {}
+Obstacles::DullBlock::DullBlock(
+        const Material::MaterialProperties &material_properties,
+        const ObstacleProperties &properties,
+        const std::shared_ptr<Components::ISpriteBox> &sprite,
+        const std::shared_ptr<Material::Algorithms> &algorithms
+) : SingleSpriteBlock(material_properties, properties, sprite, algorithms) {}
 
 void Obstacles::DullBlock::selfAction(Unite::Unifier *unifier) {
     //..

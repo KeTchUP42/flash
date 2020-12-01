@@ -5,16 +5,16 @@
 #ifndef FLASH_PARTICLEPROPERTIES_H
 #define FLASH_PARTICLEPROPERTIES_H
 
-#include "../../../common/properties/MaterialObjectProperties.h"
+#include "../../../common/properties/MaterialProperties.h"
 
 namespace Particles {
 
     /**
      * @brief Struct contains all particle numeric properties.
      */
-    struct ParticleProperties : public Material::MaterialObjectProperties {
-        explicit ParticleProperties(const Components::Speed &speed, bool isUnderEffect)
-                : MaterialObjectProperties(speed), isUnderEffects(isUnderEffect) {}
+    struct ParticleProperties {
+        ParticleProperties(bool isUnderEffect)
+                : isUnderEffects(isUnderEffect) {}
 
         /**
          * @brief If this flag is not set, the particle will be affected by static effects.

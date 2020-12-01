@@ -21,21 +21,12 @@ namespace Obstacles {
     public:
         /**
          * @brief Main obstacle constructor.
+         * @param material_properties Material properties.
          * @param properties Object with obstacle properties.
          */
-        Obstacle(const ObstacleProperties &properties);
+        explicit Obstacle(const Material::MaterialProperties &material_properties, const ObstacleProperties &properties);
 
-        explicit Obstacle(const ObstacleProperties &properties, const Components::Coordinates &coordinates);
-
-        void addSpeed(float offsetX, float offsetY) noexcept override;
-
-        void setXSpeed(float xSpeed) noexcept override;
-
-        void setYSpeed(float ySpeed) noexcept override;
-
-        void setSpeed(const Components::Speed &speed) noexcept override;
-
-        const Components::Speed &getSpeed() const noexcept override;
+        explicit Obstacle(const Material::MaterialProperties &material_properties, const ObstacleProperties &properties, const Components::Coordinates &coordinates);
 
         const ObstacleProperties &getProperties() const noexcept override;
 

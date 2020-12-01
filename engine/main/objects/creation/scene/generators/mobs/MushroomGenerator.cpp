@@ -19,6 +19,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             std::stof(data.at("ELASTICITY_LEVEL")));
 
     unifier.addStandAloneMob(new Mobs::Mushroom(
+            RD::loadMaterialProperties(data),
             RD::loadMobProperties(data), RD::commonArea(data),
             std::shared_ptr<Components::ISpriteBox>(
                     new Components::SpriteBox(RD::spriteArea(data), m_source.getTexture(data.at("TEXTURE")))),

@@ -8,8 +8,6 @@
 #include "moving-collision/MovingCollision.h"
 #include "static-collision/StaticCollision.h"
 
-#include <memory>
-
 namespace Unite {
     class Unifier;
 }

@@ -4,9 +4,12 @@
 
 #include "SingleSpriteBlock.h"
 
-Obstacles::SingleSpriteBlock::SingleSpriteBlock(const Obstacles::ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                                const std::shared_ptr<Material::Algorithms> &algorithms)
-        : Obstacles::AnalyzingBlock(properties, sprite->getArea(), algorithms), m_sprite(sprite) {}
+Obstacles::SingleSpriteBlock::SingleSpriteBlock(
+        const Material::MaterialProperties &material_properties,
+        const Obstacles::ObstacleProperties &properties,
+        const std::shared_ptr<Components::ISpriteBox> &sprite,
+        const std::shared_ptr<Material::Algorithms> &algorithms
+) : Obstacles::AnalyzingBlock(material_properties, properties, sprite->getArea(), algorithms), m_sprite(sprite) {}
 
 void Obstacles::SingleSpriteBlock::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     m_sprite->setTexture(texture);

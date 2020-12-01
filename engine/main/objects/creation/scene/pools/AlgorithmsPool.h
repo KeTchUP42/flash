@@ -5,10 +5,6 @@
 #ifndef FLASH_ALGORITHMSPOOL_H
 #define FLASH_ALGORITHMSPOOL_H
 
-#include <string>
-#include <memory>
-#include <map>
-
 #include "../../../material/common/collision/Collision.h"
 
 namespace Creation {

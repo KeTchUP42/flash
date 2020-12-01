@@ -5,11 +5,12 @@
 #include "CompositeSpriteBlock.h"
 
 Obstacles::CompositeSpriteBlock::CompositeSpriteBlock(
+        const Material::MaterialProperties &material_properties,
         const ObstacleProperties &properties,
         const Components::Area &area,
         const std::shared_ptr<Components::ISprite> &sprite,
         const std::shared_ptr<Material::Algorithms> &algorithms
-) : Obstacles::AnalyzingBlock(properties, area, algorithms), m_sprite(sprite) {}
+) : Obstacles::AnalyzingBlock(material_properties, properties, area, algorithms), m_sprite(sprite) {}
 
 void Obstacles::CompositeSpriteBlock::loadNewSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept {
     m_sprite.reset(); //Safe delete.

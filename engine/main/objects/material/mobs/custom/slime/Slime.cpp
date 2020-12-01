@@ -10,12 +10,13 @@
 #include "splitter/SlimeSplitter.h"
 
 Mobs::Slime::Slime(
+        const Material::MaterialProperties &material_properties,
         const Mobs::MobProperties &properties,
         const Components::Area &area,
         const std::shared_ptr<Components::ISpriteBox> &sprite,
         const std::shared_ptr<::Material::Algorithms> &algorithms,
         const SlimeProperties &params
-) : AnalyzingMob(properties, area, sprite, algorithms), m_slime(params) {}
+) : AnalyzingMob(material_properties, properties, area, sprite, algorithms), m_slime(params) {}
 
 void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
     RD::healthAnalysis(*this);
@@ -57,12 +58,11 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 SlimeSplitter splitter(m_slime.splitCoefficient);
                 for (size_t i = 0; i < m_slime.splitSlimesNumber; ++i) {
                     short dest = ((i % 2 == 0) ? -1 : 1);
-                    unifier1->addStandAloneMob(
-                            splitter.split(*this, MobProperties(
-                                    Components::Speed(
-                                            m_properties.speed.xSpeed + dest * (xSpeedOffset + Computations::random(-xSpeedRandomOffset, xSpeedRandomOffset)),
-                                            m_properties.speed.ySpeed - (ySpeedOffset + Computations::random(-ySpeedRandomOffset, ySpeedRandomOffset))),
-                                    healthPoints, healthPoints), slimeProperties));
+                    float xSpeed = m_material_properties.speed.xSpeed + dest * (xSpeedOffset + Computations::random(-xSpeedRandomOffset, xSpeedRandomOffset));
+                    float ySpeed = m_material_properties.speed.ySpeed - (ySpeedOffset + Computations::random(-ySpeedRandomOffset, ySpeedRandomOffset));
+                    unifier1->addStandAloneMob(splitter.split(*this, {
+                            Material::MaterialProperties(Components::Speed(xSpeed, ySpeed)),
+                            MobProperties(healthPoints, healthPoints), slimeProperties}));
                 }
             });
         }
@@ -75,7 +75,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         //Players jumping.
         for (Mobs::Player *player : unifier->getPlayers()) {
             if ((player->getPosition().y < this->getPosition().y) && m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
-                this->prejudice(static_cast<int>(player->getSpeed().ySpeed)); //Calculating damage from player speed.
+                this->dealDamage(static_cast<int>(player->getSpeed().ySpeed)); //Calculating damage from player speed.
                 bool sameSign = player->getSpeed().ySpeed * this->getSpeed().ySpeed >= 0;
                 float ySpeed = static_cast<int>(-1 * player->getSpeed().ySpeed * m_slime.elasticCoefficient + (sameSign ? 0 : this->getSpeed().ySpeed));
                 player->setYSpeed((std::abs(ySpeed) == 1) ? 0 : ySpeed);
@@ -88,7 +88,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         //Slime punch.
         Mobs::Player *player;
         if ((player = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getPlayers())) != nullptr) {
-            player->prejudice(m_slime.punchDamage);
+            player->dealDamage(m_slime.punchDamage);
             if (this->getSpeed().xSpeed * player->getSpeed().xSpeed <= 0) {
                 player->setSpeed(Components::Speed((this->getSpeed().xSpeed > 0 ? 1 : -1) * m_slime.punchPower, -1 * m_slime.punchPower * 2));
             }
@@ -101,11 +101,12 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
                 this->addSpeed(((Computations::random(0, 1) == 1) ? 1 : -1) * m_slime.moveSpeed, -1 * m_slime.jumpSpeed);
             } else {
-                bool sameSign = m_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
-                float ySpeed = static_cast<int>(-1 * m_properties.speed.ySpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().ySpeed));
-                m_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
-                if (m_properties.speed.xSpeed != block->getSpeed().xSpeed) {
-                    m_properties.speed.xSpeed = static_cast<int>(m_properties.speed.xSpeed * block->getProperties().frictionCoefficient);
+                bool sameSign = m_material_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
+                float ySpeed = static_cast<int>(-1 * m_material_properties.speed.ySpeed * block->getProperties().elasticCoefficient +
+                                                (sameSign ? 0 : block->getSpeed().ySpeed));
+                m_material_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
+                if (m_material_properties.speed.xSpeed != block->getSpeed().xSpeed) {
+                    m_material_properties.speed.xSpeed = static_cast<int>(m_material_properties.speed.xSpeed * block->getProperties().frictionCoefficient);
                 }
             }
         }

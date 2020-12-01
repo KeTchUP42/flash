@@ -5,8 +5,6 @@
 #ifndef FLASH_WINDOWFACTORY_H
 #define FLASH_WINDOWFACTORY_H
 
-#include <memory>
-
 #include "../windows/base/window/Window.h"
 #include "../../data/manager/DataManager.h"
 
@@ -22,8 +20,7 @@ namespace View {
          * @param manager Resource data manager.
          * @return New Window.
          */
-        std::shared_ptr<View::Window>
-        create(const std::string &filename, Managers::DataManager *manager);
+        std::shared_ptr<View::Window> create(const std::string &filename, Managers::DataManager *manager);
 
         virtual ~WindowFactory() = default;
     };

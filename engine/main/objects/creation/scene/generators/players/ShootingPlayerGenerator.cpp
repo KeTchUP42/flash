@@ -35,6 +35,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             m_source.getTexture(data.at("BULLETS_LEFT_TEXTURE")));
 
     Mobs::Player *player = new Mobs::ShootingPlayer(
+            RD::loadMaterialProperties(data),
             RD::loadMobProperties(data), RD::commonArea(data),
             std::make_shared<Components::SpriteBox>(
                     RD::spriteArea(data), m_source.getTexture(data.at("TEXTURE"))),

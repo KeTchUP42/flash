@@ -17,7 +17,7 @@ bool Material::movingAbscissaCollision(const Components::Point &objectMinCoordin
            ((objectMaxCoordinates.y >= processedMinCoordinates.y) && (objectMaxCoordinates.y <= processedMaxCoordinates.y))) ||
           (((processedMinCoordinates.y >= objectMinCoordinates.y) && (processedMinCoordinates.y <= objectMaxCoordinates.y)) ||
            ((processedMaxCoordinates.y >= objectMinCoordinates.y) && (processedMaxCoordinates.y <= objectMaxCoordinates.y)))))
-        return false; //Takes only processed with valid position.
+        return false; //Takes only processed object with valid position.
 
     const float objectMoveXSpeed = object.getSpeed().xSpeed;
 
@@ -73,7 +73,7 @@ bool Material::movingOrdinateCollision(const Components::Point &objectMinCoordin
            ((objectMaxCoordinates.x >= processedMinCoordinates.x) && (objectMaxCoordinates.x <= processedMaxCoordinates.x))) ||
           (((processedMinCoordinates.x >= objectMinCoordinates.x) && (processedMinCoordinates.x <= objectMaxCoordinates.x)) ||
            ((processedMaxCoordinates.x >= objectMinCoordinates.x) && (processedMaxCoordinates.x <= objectMaxCoordinates.x)))))
-        return false; //Takes only processed with valid position.
+        return false; //Takes only processed object with valid position.
 
     const float objectMoveYSpeed = object.getSpeed().ySpeed;
 

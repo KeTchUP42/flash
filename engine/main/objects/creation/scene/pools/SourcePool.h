@@ -8,8 +8,6 @@
 #include "../../../../data/manager/DataManager.h"
 #include "AlgorithmsPool.h"
 
-#include <map>
-
 namespace Creation {
 
     namespace Pools {

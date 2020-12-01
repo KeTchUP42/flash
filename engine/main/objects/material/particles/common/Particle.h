@@ -19,19 +19,9 @@ namespace Particles {
     */
     class Particle : public Material::MaterialObject, public Possibilities::Peculiar<Particles::ParticleProperties> {
     public:
-        explicit Particle(const ParticleProperties &properties, const Components::Coordinates &coordinates);
+        explicit Particle(const Material::MaterialProperties &material_properties, const ParticleProperties &properties, const Components::Coordinates &coordinates);
 
-        Particle(const ParticleProperties &properties);
-
-        void addSpeed(float offsetX, float offsetY) noexcept override;
-
-        void setXSpeed(float xSpeed) noexcept override;
-
-        void setYSpeed(float ySpeed) noexcept override;
-
-        void setSpeed(const Components::Speed &speed) noexcept override;
-
-        const Components::Speed &getSpeed() const noexcept override;
+        explicit Particle(const Material::MaterialProperties &material_properties, const ParticleProperties &properties);
 
         const ParticleProperties &getProperties() const noexcept override;
 

@@ -29,6 +29,7 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
             RD::fpair(data, "SPLIT_POWER"));
 
     unifier.addStandAloneMob(new Mobs::Slime(
+            RD::loadMaterialProperties(data),
             RD::loadMobProperties(data), RD::commonArea(data),
             std::shared_ptr<Components::ISpriteBox>(
                     new Components::SpriteBox(RD::spriteArea(data), m_source.getTexture(data.at("TEXTURE")))),

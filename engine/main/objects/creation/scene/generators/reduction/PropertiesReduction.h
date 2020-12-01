@@ -12,6 +12,13 @@
 namespace Creation {
     namespace RD {
         /**
+         * @brief  Function creates MaterialProperties object from given data.
+         * @param data Ini data.
+         * @return New MaterialProperties object.
+         */
+        Material::MaterialProperties loadMaterialProperties(const IniUtil::Analyzer::IniBlock &data);
+
+        /**
          * @brief Function creates MobProperties object from given data.
          * @param data Ini data.
          * @return New MobProperties object.

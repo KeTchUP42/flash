@@ -6,8 +6,8 @@
 #define FLASH_SCENELOADER_H
 
 #include "../../../view/windows/screen/context-abilities/StateChangeable.h"
-#include "../../../data/manager/DataManager.h"
 #include "../../unifier/common/Unifier.h"
+#include "../../../data/manager/DataManager.h"
 #include "analyze/DirectivesAnalyzer.h"
 #include "generators/Generator.h"
 #include "pools/GeneratorsPool.h"

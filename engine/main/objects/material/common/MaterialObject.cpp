@@ -5,9 +5,11 @@
 #include "MaterialObject.h"
 #include "collision/algorithms/collision/CommonCollisionAlgorithms.h"
 
-Material::MaterialObject::MaterialObject() : m_coordinates() {}
+Material::MaterialObject::MaterialObject(const MaterialProperties &material_properties)
+        : m_coordinates(), m_material_properties(material_properties) {}
 
-Material::MaterialObject::MaterialObject(const Components::Coordinates &coordinates) : m_coordinates(coordinates) {}
+Material::MaterialObject::MaterialObject(const MaterialProperties &material_properties, const Components::Coordinates &coordinates)
+        : m_coordinates(coordinates), m_material_properties(material_properties) {}
 
 void Material::MaterialObject::updateCoordinates() noexcept {
     //..
@@ -33,9 +35,30 @@ void Material::MaterialObject::move(float offsetX, float offsetY) noexcept {
     }
 }
 
+void Material::MaterialObject::addSpeed(float offsetX, float offsetY) noexcept {
+    m_material_properties.speed.add(offsetX, offsetY);
+}
+
+void Material::MaterialObject::setSpeed(const Components::Speed &speed) noexcept {
+    m_material_properties.speed = speed;
+}
+
+void Material::MaterialObject::setXSpeed(float xSpeed) noexcept {
+    m_material_properties.speed.xSpeed = xSpeed;
+}
+
+void Material::MaterialObject::setYSpeed(float ySpeed) noexcept {
+    m_material_properties.speed.ySpeed = ySpeed;
+}
+
+const Components::Speed &Material::MaterialObject::getSpeed() const noexcept {
+    return m_material_properties.speed;
+}
+
 const Components::Coordinates &Material::MaterialObject::getCoordinates() const noexcept {
     return m_coordinates;
 }
 
-
-
+const Material::MaterialProperties &Material::MaterialObject::getMaterialProperties() const {
+    return m_material_properties;
+}

@@ -11,7 +11,7 @@ Components::Point Creation::RD::position(const IniUtil::Analyzer::IniBlock &data
 
 Components::Size Creation::RD::size(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
     std::vector<std::string> size = Computations::split(data.at(field), ':');
-    return Components::Size(std::stof(size.at(0)), std::stof(size.at(1)));
+    return Components::Size(std::stoi(size.at(0)), std::stoi(size.at(1)));
 }
 
 Components::Speed Creation::RD::speed(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
@@ -30,5 +30,5 @@ sf::Color Creation::RD::color(const IniUtil::Analyzer::IniBlock &data, const std
 
 std::pair<float, float> Creation::RD::fpair(const IniUtil::Analyzer::IniBlock &data, const std::string &field) {
     std::vector<std::string> values = Computations::split(data.at(field), ':');
-    return std::pair<float, float>(std::stof(values.at(0)), std::stof(values.at(1)));
+    return std::make_pair(std::stof(values.at(0)), std::stof(values.at(1)));
 }

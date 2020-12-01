@@ -13,11 +13,12 @@ namespace Particles {
     class AnalyzingBullet : public Bullet {
     public:
         explicit AnalyzingBullet(
+                const Material::MaterialProperties &material_properties,
                 const ParticleProperties &properties,
                 const BulletProperties &bullet,
                 const Components::Area &area,
                 const std::shared_ptr<Material::Algorithms> &algorithms
-        ) : Bullet(properties, bullet, area), m_algorithms(algorithms) {}
+        ) : Bullet(material_properties, properties, bullet, area), m_algorithms(algorithms) {}
 
     protected:
         std::shared_ptr<Material::Algorithms> m_algorithms;

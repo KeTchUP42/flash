@@ -4,9 +4,12 @@
 
 #include "ElasticBlock.h"
 
-Obstacles::ElasticBlock::ElasticBlock(const Obstacles::ObstacleProperties &properties, const std::shared_ptr<Components::ISpriteBox> &sprite,
-                                      const std::shared_ptr<Material::Algorithms> &algorithms)
-        : SingleSpriteBlock(properties, sprite, algorithms) {}
+Obstacles::ElasticBlock::ElasticBlock(
+        const Material::MaterialProperties &material_properties,
+        const Obstacles::ObstacleProperties &properties,
+        const std::shared_ptr<Components::ISpriteBox> &sprite,
+        const std::shared_ptr<Material::Algorithms> &algorithms
+) : SingleSpriteBlock(material_properties, properties, sprite, algorithms) {}
 
 void Obstacles::ElasticBlock::selfAction(Unite::Unifier *unifier) {
 

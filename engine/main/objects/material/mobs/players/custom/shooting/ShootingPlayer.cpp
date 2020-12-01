@@ -7,6 +7,7 @@
 #include "../../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
 Mobs::ShootingPlayer::ShootingPlayer(
+        const Material::MaterialProperties &material_properties,
         const Mobs::MobProperties &properties,
         const Components::Area &area,
         const std::shared_ptr<Components::ISpriteBox> &sprite,
@@ -14,7 +15,7 @@ Mobs::ShootingPlayer::ShootingPlayer(
         const Mobs::JumpingPlayerProperties &jumping,
         const Mobs::ShootingPlayerProperties &shooting,
         Particles::ParticleOptimizer<Particles::Bullet> *optimizer
-) : JumpingPlayer(properties, area, sprite, algorithms, jumping), m_shooting(shooting), m_optimizer(optimizer) {}
+) : JumpingPlayer(material_properties, properties, area, sprite, algorithms, jumping), m_shooting(shooting), m_optimizer(optimizer) {}
 
 static Components::Point bulletPointCalculating(const Mobs::Player &player, const Components::Size &bulletSize, bool right) noexcept {
     Components::Point min = Material::minCoordinates(player);
@@ -38,7 +39,8 @@ void Mobs::ShootingPlayer::handleEvent(const sf::Event &event, Unite::Unifier *u
             );
 
             unifier->addBullet(new Particles::PlayerTexturedBullet(
-                    Particles::ParticleProperties(Components::Speed(m_shooting.bulletsFlightSpeed, 0), m_shooting.bulletsUnderEffects),
+                    Material::MaterialProperties(Components::Speed(m_shooting.bulletsFlightSpeed, 0)),
+                    Particles::ParticleProperties(m_shooting.bulletsUnderEffects),
                     Particles::BulletProperties(m_shooting.bulletsDamage),
                     Components::Area(point, m_shooting.bulletsData.size, m_shooting.bulletsData.angle),
                     std::make_shared<Material::Algorithms>(std::make_shared<Material::Collision>(1, 1)),
@@ -56,7 +58,8 @@ void Mobs::ShootingPlayer::handleEvent(const sf::Event &event, Unite::Unifier *u
             );
 
             unifier->addBullet(new Particles::PlayerTexturedBullet(
-                    Particles::ParticleProperties(Components::Speed(-m_shooting.bulletsFlightSpeed, 0), m_shooting.bulletsUnderEffects),
+                    Material::MaterialProperties(Components::Speed(-m_shooting.bulletsFlightSpeed, 0)),
+                    Particles::ParticleProperties(m_shooting.bulletsUnderEffects),
                     Particles::BulletProperties(m_shooting.bulletsDamage),
                     Components::Area(point, m_shooting.bulletsData.size, m_shooting.bulletsData.angle),
                     std::make_shared<Material::Algorithms>(std::make_shared<Material::Collision>(1, 1)),

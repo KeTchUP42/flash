@@ -13,6 +13,7 @@ namespace Particles {
     class TexturedBullet : public AnalyzingBullet {
     public:
         explicit TexturedBullet(
+                const Material::MaterialProperties &material_properties,
                 const ParticleProperties &properties,
                 const BulletProperties &bullet,
                 const Components::Area &area,

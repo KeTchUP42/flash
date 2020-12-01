@@ -3,7 +3,6 @@
 //
 
 #include "TextGenerator.h"
-#include "../../../../../../utils/math/algorithms.h"
 #include "../reduction/ElementaryReduction.h"
 
 Creation::TextGenerator::TextGenerator(Creation::Pools::SourcePool &pool) : Generator(pool) {}
@@ -16,13 +15,13 @@ load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Win
     Text *text = new Text(data.at("STRING"), m_source.getFont(data.at("FONT")));
     Point point = RD::position(data, "POSITION");
     text->getText().setPosition(point.x, point.y);
-    text->getText().rotate(std::atof(data.at("ANGLE").c_str()));
+    text->getText().rotate(std::stof(data.at("ANGLE").c_str()));
     text->getText().setCharacterSize(std::atoi(data.at("CHARACTER_SIZE").c_str()));
     text->getText().setOutlineColor(RD::color(data, "OUTLINE_COLOR"));
     text->getText().setFillColor(RD::color(data, "FILL_COLOR"));
-    text->getText().setLetterSpacing(std::atof(data.at("LETTER_SPACING").c_str()));
-    text->getText().setLineSpacing(std::atof(data.at("LINE_SPACING").c_str()));
-    text->getText().setOutlineThickness(std::atof(data.at("OUTLINE_THICKNESS").c_str()));
+    text->getText().setLetterSpacing(std::stof(data.at("LETTER_SPACING").c_str()));
+    text->getText().setLineSpacing(std::stof(data.at("LINE_SPACING").c_str()));
+    text->getText().setOutlineThickness(std::stof(data.at("OUTLINE_THICKNESS").c_str()));
     text->getText().setStyle(style(data.at("STYLE")));
     unifier.addText(text);
 }

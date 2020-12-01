@@ -5,8 +5,11 @@
 #include "Mob.h"
 #include "../../../../auxiliary/computations/CoordinatesComputations.h"
 
-Mobs::Mob::Mob(const MobProperties &properties, const Components::Area &area, const std::shared_ptr<Components::ISpriteBox> &sprite)
-        : m_area(area), m_properties(properties), m_sprite(sprite) {}
+Mobs::Mob::Mob(const Material::MaterialProperties &material_properties,
+               const Mobs::MobProperties &properties,
+               const Components::Area &area,
+               const std::shared_ptr<Components::ISpriteBox> &sprite)
+        : MaterialObject(material_properties), m_area(area), m_properties(properties), m_sprite(sprite) {}
 
 void Mobs::Mob::loadNewTexture(const std::shared_ptr<sf::Texture> &texture) noexcept {
     m_sprite->setTexture(texture);
@@ -84,26 +87,6 @@ const std::shared_ptr<Components::ISpriteBox> &Mobs::Mob::getSprite() const noex
     return m_sprite;
 }
 
-void Mobs::Mob::addSpeed(float offsetX, float offsetY) noexcept {
-    m_properties.speed.add(offsetX, offsetY);
-}
-
-void Mobs::Mob::setXSpeed(float xSpeed) noexcept {
-    m_properties.speed.xSpeed = xSpeed;
-}
-
-void Mobs::Mob::setYSpeed(float ySpeed) noexcept {
-    m_properties.speed.ySpeed = ySpeed;
-}
-
-void Mobs::Mob::setSpeed(const Components::Speed &speed) noexcept {
-    m_properties.speed = speed;
-}
-
-const Components::Speed &Mobs::Mob::getSpeed() const noexcept {
-    return m_properties.speed;
-}
-
 const Components::Area &Mobs::Mob::getPhysicalArea() const noexcept {
     return m_area;
 }
@@ -120,11 +103,10 @@ bool Mobs::Mob::isDead() const noexcept {
     return m_properties.healthPoints <= 0;
 }
 
-void Mobs::Mob::prejudice(float damage) noexcept {
+void Mobs::Mob::dealDamage(float damage) noexcept {
     m_properties.healthPoints -= damage;
 }
 
 void Mobs::Mob::kill() noexcept {
     this->setHealthPoints(0);
 }
-

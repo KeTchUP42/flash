@@ -12,6 +12,7 @@ namespace Obstacles {
     class InvisibleBlock : public AnalyzingBlock {
     public:
         explicit InvisibleBlock(
+                const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Material::Algorithms> &algorithms

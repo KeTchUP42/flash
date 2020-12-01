@@ -12,7 +12,15 @@ namespace Obstacles {
 
     class Block : public Obstacle, public Possibilities::Rectangle {
     public:
-        explicit Block(const ObstacleProperties &properties, const Components::Area &area);
+        /**
+         * @brief Main block constructor.
+         * @param material_properties Material properties.
+         * @param properties Mob properties object.
+         * @param area Mob physical area.
+         */
+        explicit Block(const Material::MaterialProperties &material_properties,
+                       const ObstacleProperties &properties,
+                       const Components::Area &area);
 
         void updateCoordinates() noexcept override;
 

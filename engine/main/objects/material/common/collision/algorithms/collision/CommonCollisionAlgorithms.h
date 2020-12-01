@@ -6,8 +6,6 @@
 #ifndef FLASH_COMMONCOLLISIONALGORITHMS_H
 #define FLASH_COMMONCOLLISIONALGORITHMS_H
 
-#define _USE_MATH_DEFINES
-
 #include <math.h>
 
 #include "../../../../../auxiliary/possibilities/coordinates/PhysicallySituated.h"

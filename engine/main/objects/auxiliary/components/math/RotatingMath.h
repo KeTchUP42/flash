@@ -9,7 +9,6 @@
 #include <utility>
 
 namespace Components {
-
     namespace Math {
 
         /**

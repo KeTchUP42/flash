@@ -13,11 +13,12 @@ namespace Mobs {
     class AnalyzingMob : public Mob {
     public:
         explicit AnalyzingMob(
+                const Material::MaterialProperties &material_properties,
                 const Mobs::MobProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
                 const std::shared_ptr<::Material::Algorithms> &algorithms
-        ) : Mob(properties, area, sprite), m_algorithms(algorithms) {}
+        ) : Mob(material_properties, properties, area, sprite), m_algorithms(algorithms) {}
 
         const std::shared_ptr<::Material::Algorithms> &getAlgorithms() const {
             return m_algorithms;

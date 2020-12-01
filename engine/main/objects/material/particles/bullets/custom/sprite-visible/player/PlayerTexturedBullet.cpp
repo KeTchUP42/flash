@@ -6,13 +6,14 @@
 #include "../../../../../reduction/collision/CollisionReduction.h"
 
 Particles::PlayerTexturedBullet::PlayerTexturedBullet(
+        const Material::MaterialProperties &material_properties,
         const Particles::ParticleProperties &properties,
         const Particles::BulletProperties &bullet,
         const Components::Area &area,
         const std::shared_ptr<Material::Algorithms> &algorithms,
         const std::shared_ptr<Components::ISpriteBox> &sprite,
         const std::shared_ptr<ParticleOptimizer<Bullet>> &optimizer
-) : TexturedBullet(properties, bullet, area, algorithms, sprite, optimizer) {}
+) : TexturedBullet(material_properties, properties, bullet, area, algorithms, sprite, optimizer) {}
 
 void Particles::PlayerTexturedBullet::selfAction(Unite::Unifier *unifier) {
     RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
@@ -21,7 +22,7 @@ void Particles::PlayerTexturedBullet::selfAction(Unite::Unifier *unifier) {
 
     Mobs::Mob *mob;
     if ((mob = m_algorithms->getCollision().getStaticCollision().staticMoveAble(this, unifier->getStandAloneMobs())) != nullptr) {
-        mob->prejudice(m_bullet.damage);
+        mob->dealDamage(m_bullet.damage);
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removeBullet(this);
         });

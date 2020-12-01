@@ -4,9 +4,12 @@
 
 #include "DullInvisibleBlock.h"
 
-Obstacles::DullInvisibleBlock::DullInvisibleBlock(const Obstacles::ObstacleProperties &properties, const Components::Area &area,
-                                                  const std::shared_ptr<Material::Algorithms> &algorithms)
-        : InvisibleBlock(properties, area, algorithms) {}
+Obstacles::DullInvisibleBlock::DullInvisibleBlock(
+        const Material::MaterialProperties &material_properties,
+        const Obstacles::ObstacleProperties &properties,
+        const Components::Area &area,
+        const std::shared_ptr<Material::Algorithms> &algorithms
+) : InvisibleBlock(material_properties, properties, area, algorithms) {}
 
 void Obstacles::DullInvisibleBlock::selfAction(Unite::Unifier *unifier) {
     //..

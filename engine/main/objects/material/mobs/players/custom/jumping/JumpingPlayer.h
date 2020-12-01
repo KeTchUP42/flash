@@ -13,6 +13,7 @@ namespace Mobs {
     class JumpingPlayer : public AnalyzingPlayer {
     public:
         explicit JumpingPlayer(
+                const Material::MaterialProperties &material_properties,
                 const MobProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,

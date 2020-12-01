@@ -25,11 +25,14 @@ namespace Mobs {
     public:
         /**
          * @brief Main mob constructor.
+         * @param material_properties Material properties.
          * @param properties Mob properties object.
          * @param area Mob physical area.
          * @param sprite Mob sprite.
          */
-        explicit Mob(const MobProperties &properties, const Components::Area &area,
+        explicit Mob(const Material::MaterialProperties &material_properties,
+                     const Mobs::MobProperties &properties,
+                     const Components::Area &area,
                      const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
@@ -64,16 +67,6 @@ namespace Mobs {
 
         void rotate(float angle, const Components::Point &point) noexcept override;
 
-        void addSpeed(float offsetX, float offsetY) noexcept override;
-
-        void setXSpeed(float xSpeed) noexcept override;
-
-        void setYSpeed(float ySpeed) noexcept override;
-
-        void setSpeed(const Components::Speed &speed) noexcept override;
-
-        const Components::Speed &getSpeed() const noexcept override;
-
         const std::shared_ptr<Components::ISpriteBox> &getSprite() const noexcept;
 
         const Components::Area &getPhysicalArea() const noexcept;
@@ -96,7 +89,7 @@ namespace Mobs {
          * @brief Method hits the mob with damage.
          * @param damage Damage value.
          */
-        void prejudice(float damage) noexcept;
+        void dealDamage(float damage) noexcept;
 
         /**
          * @brief Method kills the mob.

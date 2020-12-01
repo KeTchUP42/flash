@@ -7,7 +7,7 @@
 
 Mobs::SlimeSplitter::SlimeSplitter(float splittingCoefficient) : m_splittingCoefficient(splittingCoefficient) {}
 
-Mobs::Slime *Mobs::SlimeSplitter::split(Mobs::Slime &slime, const Mobs::MobProperties &properties, const Mobs::SlimeProperties &slimeProperties) const {
+Mobs::Slime *Mobs::SlimeSplitter::split(Mobs::Slime &slime, const SlimeProperties &properties) const {
     //area
     Components::Size areaSize(slime.getSize().width / m_splittingCoefficient, slime.getSize().height / m_splittingCoefficient);
     Components::Area area(
@@ -30,5 +30,5 @@ Mobs::Slime *Mobs::SlimeSplitter::split(Mobs::Slime &slime, const Mobs::MobPrope
     std::shared_ptr<Material::Algorithms> algo = std::make_shared<Material::Algorithms>(
             std::make_shared<Material::Collision>(stepX, stepY));
 
-    return new Slime(properties, area, spriteBox, algo, slimeProperties);
+    return new Slime(properties.material_properties, properties.mob_properties, area, spriteBox, algo, properties.slime_properties);
 }

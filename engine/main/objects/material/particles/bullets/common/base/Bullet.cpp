@@ -6,7 +6,8 @@
 #include "../../../../../auxiliary/computations/CoordinatesComputations.h"
 
 Particles::Bullet::Bullet(
+        const Material::MaterialProperties &material_properties,
         const Particles::ParticleProperties &properties,
         const Particles::BulletProperties &bullet,
         const Components::Area &area
-) : Particle(properties, Computations::coordinates(const_cast<Components::Area &>(area))), m_bullet(bullet) {}
+) : Particle(material_properties, properties, Computations::coordinates(const_cast<Components::Area &>(area))), m_bullet(bullet) {}

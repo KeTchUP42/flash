@@ -9,10 +9,6 @@
 #include "../../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../analyze/GeneratorSelector.h"
 
-#include <map>
-#include <memory>
-#include <string>
-
 namespace Creation {
 
     namespace Pools {

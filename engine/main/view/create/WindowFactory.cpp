@@ -7,9 +7,6 @@
 #include "../windows/base/observers/WindowCloseObserver.h"
 #include "../windows/screen/states/InitialScreenState.h"
 
-#include <algorithm>
-#include <cstdlib>
-
 std::shared_ptr<View::Window>
 View::WindowFactory::create(const std::string &filename, Managers::DataManager *manager) {
     IniUtil::Analyzer::IniData iniData = manager->getConfigManager()->loadIni(filename);
@@ -42,7 +39,7 @@ View::WindowFactory::create(const std::string &filename, Managers::DataManager *
     //fps
     window->setFramerateLimit(std::atoi(iniData["WINDOW"]["fps"].c_str()));
     //sync
-    window->setVerticalSyncEnabled(std::atoi(iniData["WINDOW"]["VerticalSync"].c_str()));
+    window->setVerticalSyncEnabled(static_cast<bool>(std::atoi(iniData["WINDOW"]["VerticalSync"].c_str())));
 
     //icon
     if (iniData["WINDOW"]["icon"] != "") {

@@ -14,6 +14,7 @@ Creation::DullBlockGenerator::DullBlockGenerator(Creation::Pools::SourcePool &po
 void Creation::DullBlockGenerator::
 load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) {
     unifier.addBlock(new Obstacles::DullBlock(
+            RD::loadMaterialProperties(data),
             RD::loadObstacleProperties(data),
             std::make_shared<Components::SpriteBox>(
                     RD::commonArea(data), m_source.getTexture(data.at("TEXTURE"))),

@@ -5,8 +5,11 @@
 #include "Block.h"
 #include "../../../../auxiliary/computations/CoordinatesComputations.h"
 
-Obstacles::Block::Block(const Obstacles::ObstacleProperties &properties, const Components::Area &area)
-        : Obstacle(properties), m_area(area) {}
+Obstacles::Block::Block(
+        const Material::MaterialProperties &material_properties,
+        const Obstacles::ObstacleProperties &properties,
+        const Components::Area &area
+) : Obstacle(material_properties, properties), m_area(area) {}
 
 void Obstacles::Block::updateCoordinates() noexcept {
     //Some optimization logic. Can be changed with general movement logic update.

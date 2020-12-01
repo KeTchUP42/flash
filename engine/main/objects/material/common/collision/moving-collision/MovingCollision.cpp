@@ -22,7 +22,7 @@ bool Material::MovingCollision::ordinateMoveAble(Material::MaterialObject *objec
 }
 
 std::pair<float, float> Material::MovingCollision::getAnalysisStep() const noexcept {
-    return std::pair<float, float>(ANALYSIS_STEP_X, ANALYSIS_STEP_Y);
+    return std::make_pair(ANALYSIS_STEP_X, ANALYSIS_STEP_Y);
 }
 
 float Material::MovingCollision::getAnalysisStepX() const noexcept {

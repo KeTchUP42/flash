@@ -15,9 +15,10 @@ namespace RD {
      * @param mob Target object that is being processed.
      * @param algorithms Configured facade of necessary algorithms.
      * @param unifier Scene unifier.
+     * @return Was the collision?
      */
     template<class Type>
-    void ordinateBlocksNaturalCollision(Type *object, Material::Algorithms &algorithms, Unite::Unifier *unifier) noexcept {
+    bool ordinateBlocksNaturalCollision(Type *object, Material::Algorithms &algorithms, Unite::Unifier *unifier) noexcept {
         Obstacles::Block *block;
         if ((block = algorithms.getCollision().getMovingCollision().ordinateMoveAble(object, unifier->getBlocks())) != nullptr) {
             bool sameSign = object->getSpeed().ySpeed * block->getSpeed().ySpeed >= 0;
@@ -26,7 +27,9 @@ namespace RD {
             if (object->getSpeed().xSpeed != block->getSpeed().xSpeed) {
                 object->setXSpeed(static_cast<int>(object->getSpeed().xSpeed * block->getProperties().frictionCoefficient));
             }
+            return true;
         }
+        return false;
     }
 
     /**
@@ -34,9 +37,10 @@ namespace RD {
      * @param mob Target object that is being processed.
      * @param algorithms Configured facade of necessary algorithms.
      * @param unifier Scene unifier.
+     * @return Was the collision?
      */
     template<class Type>
-    void abscissaBlocksNaturalCollision(Type *object, Material::Algorithms &algorithms, Unite::Unifier *unifier) noexcept {
+    bool abscissaBlocksNaturalCollision(Type *object, Material::Algorithms &algorithms, Unite::Unifier *unifier) noexcept {
         Obstacles::Block *block;
         if ((block = algorithms.getCollision().getMovingCollision().abscissaMoveAble(object, unifier->getBlocks())) != nullptr) {
             bool sameSign = object->getSpeed().xSpeed * block->getSpeed().xSpeed >= 0;
@@ -45,7 +49,9 @@ namespace RD {
             if (object->getSpeed().ySpeed != block->getSpeed().ySpeed) {
                 object->setYSpeed(static_cast<int>(object->getSpeed().ySpeed * block->getProperties().frictionCoefficient));
             }
+            return true;
         }
+        return false;
     }
 }
 #endif //FLASH_COLLISIONREDUCTION_H

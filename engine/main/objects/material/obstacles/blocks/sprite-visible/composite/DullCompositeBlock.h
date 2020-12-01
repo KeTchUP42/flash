@@ -12,6 +12,7 @@ namespace Obstacles {
     class DullCompositeBlock : public CompositeSpriteBlock {
     public:
         explicit DullCompositeBlock(
+                const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Components::ISprite> &sprite,
