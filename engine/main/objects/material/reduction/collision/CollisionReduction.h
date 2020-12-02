@@ -15,7 +15,7 @@ namespace RD {
      * @param mob Target object that is being processed.
      * @param algorithms Configured facade of necessary algorithms.
      * @param unifier Scene unifier.
-     * @return Was the collision?
+     * @return Was there a collision?
      */
     template<class Type>
     bool ordinateBlocksNaturalCollision(Type *object, Material::Algorithms &algorithms, Unite::Unifier *unifier) noexcept {
@@ -37,7 +37,7 @@ namespace RD {
      * @param mob Target object that is being processed.
      * @param algorithms Configured facade of necessary algorithms.
      * @param unifier Scene unifier.
-     * @return Was the collision?
+     * @return Was there a collision?
      */
     template<class Type>
     bool abscissaBlocksNaturalCollision(Type *object, Material::Algorithms &algorithms, Unite::Unifier *unifier) noexcept {

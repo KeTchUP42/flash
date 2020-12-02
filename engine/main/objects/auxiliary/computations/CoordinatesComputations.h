@@ -8,7 +8,7 @@
 #include "../components/elementary/coordinates/Coordinates.h"
 #include "../components/elementary/area/Area.h"
 
-namespace Computations {
+namespace Calculations {
 
     /**
      * @brief Function returns rectangle coordinates.

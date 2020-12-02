@@ -17,7 +17,7 @@ namespace Managers {
      * @brief The class provides a convenient way to create loggers.
      * @namespace Managers
      *
-     * This class defines LogManager interface and realization.
+     * This class defines LogManager realization.
      */
     class LogManager {
     public:

@@ -15,7 +15,7 @@ namespace Creation {
         DirectivesAnalyzer(Pools::SourcePool &sourcePool);
 
         /**
-         * @brief Method read ini data and configures render window and source pool.
+         * @brief Method reads ini-data and configures render window and source pool.
          * @param data Ini data.
          */
         void analyze(const IniUtil::Analyzer::IniBlock &data, View::Window &window);

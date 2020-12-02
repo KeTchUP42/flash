@@ -32,7 +32,7 @@ ordinateVergeIndex(const Possibilities::PhysicallySituated &object, const std::p
 }
 
 std::vector<Components::Point>
-Material::pickoutNodulesVertical(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept {
+Material::pickoutNodesVertical(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept {
     std::vector<Components::Point> pointsOffset;
     std::pair<float, float> ordinateVergePoints = ordinateVergeIndex(object, ordinateVerge, moveSide);
     pointsOffset.push_back(object.getCoordinates().list[ordinateVergePoints.first]);
@@ -77,7 +77,7 @@ abscissaVergeIndex(const Possibilities::PhysicallySituated &object, const std::p
 }
 
 std::vector<Components::Point>
-Material::pickoutNodulesHorizontal(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept {
+Material::pickoutNodesHorizontal(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept {
     std::vector<Components::Point> pointsOffset;
     std::pair<float, float> abscissaVergePoints = abscissaVergeIndex(object, abscissaVerge, moveSide);
     pointsOffset.push_back(object.getCoordinates().list[abscissaVergePoints.first]);

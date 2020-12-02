@@ -23,6 +23,12 @@ namespace Components {
          */
         Area();
 
+        /**
+         * @brief Inits all fields by given values.
+         * @param point Area point.
+         * @param size Area size.
+         * @param angle Area turning angle.
+         */
         explicit Area(const Point &point, const Size &size, float angle);
 
         void move(float offsetX, float offsetY) noexcept override;

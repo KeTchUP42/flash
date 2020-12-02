@@ -17,10 +17,10 @@
 namespace Managers {
 
     /**
-     * @brief The class provides easy access to multiple data managers.
+     * @brief The class provides easy access to several data managers.
      * @namespace Managers
      *
-     * This class defines base DataManager interface and realization.
+     * This class defines DataManager realization.
     */
     class DataManager {
     public:

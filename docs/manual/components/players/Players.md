@@ -7,5 +7,5 @@
 
  ### Notes:
 
- * To control the player, aliases are set on the keys using a configuration file.
+ * To control the player you need to write a configuration file with aliases on specific keys.
  * [A file with key codes](../../config/KeyCodes.md), that can be used to write a configuration keymap files for players.

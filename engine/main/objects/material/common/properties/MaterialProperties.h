@@ -10,7 +10,7 @@
 namespace Material {
 
     /**
-     * @brief Struct contains all obstacle numeric properties.
+     * @brief Struct contains all material numeric properties.
      */
     struct MaterialProperties {
         /**

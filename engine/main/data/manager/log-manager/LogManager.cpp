@@ -13,10 +13,10 @@ Managers::LogManager::createLogger(const std::string &filename) const {
 
 std::shared_ptr<LoggerUtil::Logger>
 Managers::LogManager::createLogger(const std::vector<std::string> &filenames) const {
-    std::vector<std::string> filepaths = filenames;
+    std::vector<std::string> files = filenames;
 
-    for (std::string &path : filepaths) {
+    for (std::string &path : files) {
         path = LOG_DIRECTORY + "/" + path;
     }
-    return std::make_shared<LoggerUtil::Logger>(new WriterUtil::MultiFileWriter(filepaths));
+    return std::make_shared<LoggerUtil::Logger>(new WriterUtil::MultiFileWriter(files));
 }

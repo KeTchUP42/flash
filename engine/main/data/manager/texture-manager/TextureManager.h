@@ -15,7 +15,7 @@ namespace Managers {
      * @brief The class provides easy access to visual data such as textures and images.
      * @namespace Managers
      *
-     * This class defines TextureManager interface and realization.
+     * This class defines TextureManager realization.
      */
     class TextureManager {
     public:

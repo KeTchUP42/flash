@@ -14,20 +14,20 @@ namespace Material {
      * @param object Target object.
      * @param ordinateVerge Min and max ordinate values.
      * @param moveSide True - right, false - left.
-     * @return Vector of need points.
+     * @return Vector of needed points.
      */
     std::vector<Components::Point>
-    pickoutNodulesVertical(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept;
+    pickoutNodesVertical(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept;
 
     /**
      * @brief Function returns vector of collision needed points.
      * @param object Target object.
      * @param abscissaVerge Min and max abscissa values.
      * @param moveSide True - down, false - up.
-     * @return Vector of need points.
+     * @return Vector of needed points.
      */
     std::vector<Components::Point>
-    pickoutNodulesHorizontal(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept;
+    pickoutNodesHorizontal(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept;
 }
 
 #endif //FLASH_MOVINGCOLLISIONFUNCTIONS_H

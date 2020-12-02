@@ -20,13 +20,13 @@ namespace WriterUtil {
 
         MultiFileWriter(const std::vector<std::string> &filenames);
 
-        void add(const std::string &filepath);
+        void add(const std::string &filename);
 
         void add(const std::list<std::string> &filenames);
 
         void add(const std::vector<std::string> &filenames);
 
-        void remove(const std::string &filepath) noexcept;
+        void remove(const std::string &filename) noexcept;
 
         bool write(const std::string &message, const std::ios::openmode &mode) const override;
 

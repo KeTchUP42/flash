@@ -8,8 +8,8 @@
 
 #include <math.h>
 
-Components::Coordinates Computations::coordinates(Possibilities::RectangleGetters &rectangle) noexcept {
-    //Conditional expected for pre-rounded degrees.
+Components::Coordinates Calculations::coordinates(Possibilities::RectangleGetters &rectangle) noexcept {
+    //The angle is expected to be with a pre-rounded degree.
     if (rectangle.getRotation() == 0) {
         return Components::Coordinates(
                 std::vector<Components::Point>{

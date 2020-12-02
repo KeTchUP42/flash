@@ -15,7 +15,7 @@ namespace Managers {
      * @brief The class provides convenient access to audio data.
      * @namespace Managers
      *
-     * This class defines AudioManager interface and realization.
+     * This class defines AudioManager realization.
      */
     class AudioManager {
     public:
@@ -28,7 +28,7 @@ namespace Managers {
         /**
          * @brief Method loads file from audio directory.
          * @param filename File in audio directory.
-         * @return New audio sf::Music.
+         * @return New sf::Music.
          */
         std::shared_ptr<sf::Music> loadMusic(const std::string &filename) const;
 

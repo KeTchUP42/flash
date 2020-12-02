@@ -5,7 +5,7 @@
 #include "MobsAnalysisReduction.h"
 
 void RD::healthAnalysis(Mobs::Mob &mob) noexcept {
-    //Checking the correctness of the health glasses value.
+    //Validation of the health points value.
     if (mob.getProperties().healthPoints > mob.getProperties().maxHealthPoints) {
         mob.setHealthPoints(mob.getProperties().maxHealthPoints);
     }

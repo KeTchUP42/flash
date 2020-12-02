@@ -10,4 +10,4 @@ Particles::Bullet::Bullet(
         const Particles::ParticleProperties &properties,
         const Particles::BulletProperties &bullet,
         const Components::Area &area
-) : Particle(material_properties, properties, Computations::coordinates(const_cast<Components::Area &>(area))), m_bullet(bullet) {}
+) : Particle(material_properties, properties, Calculations::coordinates(const_cast<Components::Area &>(area))), m_bullet(bullet) {}

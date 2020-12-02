@@ -3,8 +3,8 @@
 //
 
 #include "MovingCollisionAlgorithms.h"
-#include "../coordinates/CoordinatesCalculation.h"
 #include "../coordinates/MovingCollisionFunctions.h"
+#include "../coordinates/CoordinatesCalculation.h"
 #include <cmath>
 
 bool Material::movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
@@ -27,21 +27,21 @@ bool Material::movingAbscissaCollision(const Components::Point &objectMinCoordin
     if ((objectMoveXSpeed > 0) && (objectMaxCoordinates.x + objectMoveXSpeed < processedMinCoordinates.x)) return false;
     if ((objectMoveXSpeed < 0) && (objectMinCoordinates.x + objectMoveXSpeed > processedMaxCoordinates.x)) return false;
 
-    std::vector<Components::Point> pointsOffset = pickoutNodulesVertical(object, std::pair<float, float>(objectMinCoordinates.y,
-                                                                                                         objectMaxCoordinates.y), (objectMoveXSpeed > 0));
+    std::vector<Components::Point> pointsOffset = pickoutNodesVertical(object, std::pair<float, float>(objectMinCoordinates.y,
+                                                                                                       objectMaxCoordinates.y), (objectMoveXSpeed > 0));
     for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
         float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
         float yside = std::abs(pointsOffset[i].y - pointsOffset[i + 1].y);
-        float diag = std::sqrt(xside * xside + yside * yside);
+        float dignl = std::sqrt(xside * xside + yside * yside);
 
         short pointXSide = ((pointsOffset[i].x > pointsOffset[i + 1].x) ? -1 : 1);
         short pointYSide = ((pointsOffset[i].y > pointsOffset[i + 1].y) ? -1 : 1);
 
-        for (float stp = (i == 0) ? 1 : 0; stp < diag; stp = (stp + step >= diag) ? diag : stp + step) {
+        for (float stp = (i == 0) ? 1 : 0; stp < dignl; stp = (stp + step >= dignl) ? dignl : stp + step) {
 
-            float x = pointXSide * ((stp * xside) / diag) + pointsOffset[i].x;
-            float y = pointYSide * ((stp * yside) / diag) + pointsOffset[i].y;
+            float x = pointXSide * ((stp * xside) / dignl) + pointsOffset[i].x;
+            float y = pointYSide * ((stp * yside) / dignl) + pointsOffset[i].y;
 
             if (processed.collision(x + objectMoveXSpeed, y)) {
 
@@ -83,21 +83,21 @@ bool Material::movingOrdinateCollision(const Components::Point &objectMinCoordin
     if ((objectMoveYSpeed > 0) && (objectMaxCoordinates.y + objectMoveYSpeed < processedMinCoordinates.y)) return false;
     if ((objectMoveYSpeed < 0) && (objectMinCoordinates.y + objectMoveYSpeed > processedMaxCoordinates.y)) return false;
 
-    std::vector<Components::Point> pointsOffset = pickoutNodulesHorizontal(object, std::pair<float, float>(objectMinCoordinates.x,
-                                                                                                           objectMaxCoordinates.x), (objectMoveYSpeed > 0));
+    std::vector<Components::Point> pointsOffset = pickoutNodesHorizontal(object, std::pair<float, float>(objectMinCoordinates.x,
+                                                                                                         objectMaxCoordinates.x), (objectMoveYSpeed > 0));
     for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
         float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
         float yside = std::abs(pointsOffset[i].y - pointsOffset[i + 1].y);
-        float diag = std::sqrt(xside * xside + yside * yside);
+        float dignl = std::sqrt(xside * xside + yside * yside);
 
         short pointXSide = ((pointsOffset[i].x > pointsOffset[i + 1].x) ? -1 : 1);
         short pointYSide = ((pointsOffset[i].y > pointsOffset[i + 1].y) ? -1 : 1);
 
-        for (float stp = (i == 0) ? 1 : 0; stp < diag; stp = (stp + step >= diag) ? diag : stp + step) {
+        for (float stp = (i == 0) ? 1 : 0; stp < dignl; stp = (stp + step >= dignl) ? dignl : stp + step) {
 
-            float x = pointXSide * ((stp * xside) / diag) + pointsOffset[i].x;
-            float y = pointYSide * ((stp * yside) / diag) + pointsOffset[i].y;
+            float x = pointXSide * ((stp * xside) / dignl) + pointsOffset[i].x;
+            float y = pointYSide * ((stp * yside) / dignl) + pointsOffset[i].y;
 
             if (processed.collision(x, y + objectMoveYSpeed)) {
 

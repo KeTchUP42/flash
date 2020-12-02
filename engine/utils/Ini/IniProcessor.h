@@ -26,8 +26,8 @@ namespace IniUtil {
     */
     class IniProcessor {
     public:
-        explicit IniProcessor(const std::string &filepath, Analyzer *analyzer = new IniAnalyzer(), Creator *creator = new IniCreator())
-                : m_reader(new ReaderUtil::FileReader(filepath)), m_writer(new WriterUtil::FileWriter(filepath)), m_analyzer(analyzer), m_creator(creator) {}
+        explicit IniProcessor(const std::string &filename, Analyzer *analyzer = new IniAnalyzer(), Creator *creator = new IniCreator())
+                : m_reader(new ReaderUtil::FileReader(filename)), m_writer(new WriterUtil::FileWriter(filename)), m_analyzer(analyzer), m_creator(creator) {}
 
         explicit IniProcessor(ReaderUtil::Reader *reader, WriterUtil::Writer *writer, Analyzer *analyzer = new IniAnalyzer(), Creator *creator = new IniCreator())
                 : m_reader(reader), m_writer(writer), m_analyzer(analyzer), m_creator(creator) {}

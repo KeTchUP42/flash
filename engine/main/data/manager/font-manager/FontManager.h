@@ -15,7 +15,7 @@ namespace Managers {
      * @brief The class provides easy access to font data.
      * @namespace Managers
      *
-     * This class defines base FontManager interface and realization.
+     * This class defines FontManager realization.
      */
     class FontManager {
     public:

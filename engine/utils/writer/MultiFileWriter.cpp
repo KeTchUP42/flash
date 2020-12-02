@@ -45,15 +45,15 @@ void WriterUtil::MultiFileWriter::add(const std::vector<std::string> &filenames)
     }
 }
 
-void WriterUtil::MultiFileWriter::add(const std::string &filepath) {
-    std::ofstream out(filepath, std::ios::app);
+void WriterUtil::MultiFileWriter::add(const std::string &filename) {
+    std::ofstream out(filename, std::ios::app);
     if (out.is_open()) {
-        m_filenames.push_back(filepath);
+        m_filenames.push_back(filename);
     } else {
-        throw Exceptions::FileCannotBeOpened("File " + filepath + " cannot be opened.");
+        throw Exceptions::FileCannotBeOpened("File " + filename + " cannot be opened.");
     }
 }
 
-void WriterUtil::MultiFileWriter::remove(const std::string &filepath) noexcept {
-    m_filenames.remove(filepath);
+void WriterUtil::MultiFileWriter::remove(const std::string &filename) noexcept {
+    m_filenames.remove(filename);
 }

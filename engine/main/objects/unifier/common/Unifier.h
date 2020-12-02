@@ -74,20 +74,20 @@ namespace Unite {
         void addBackSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept;
 
         /**
-         * @brief Method removes sprite.
-         * @param sprite Existing sprite.
+         * @brief Method removes back sprite.
+         * @param sprite Existing back sprite.
          */
         void removeBackSprite(Components::ISprite *sprite) noexcept;
 
         /**
          * @brief Method removes back sprite.
-         * @param sprite Existing sprite.
+         * @param sprite Existing back sprite.
          */
         void removeBackSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept;
 
         /**
-         * @brief Method returns const reference on sprites collection.
-         * @return Const reference on sprites collection.
+         * @brief Method returns const reference on back sprites collection.
+         * @return Const reference on back sprites collection.
          */
         const std::list<std::shared_ptr<Components::ISprite>> &getBackSprites() const noexcept;
 
@@ -107,19 +107,19 @@ namespace Unite {
 
         /**
          * @brief Method removes sprite.
-         * @param sprite Existing sprite.
+         * @param sprite Existing front sprite.
          */
         void removeFrontSprite(Components::ISprite *sprite) noexcept;
 
         /**
          * @brief Method removes front sprite.
-         * @param sprite Existing sprite.
+         * @param sprite Existing front sprite.
          */
         void removeFrontSprite(const std::shared_ptr<Components::ISprite> &sprite) noexcept;
 
         /**
-         * @brief Method returns const reference on sprites collection.
-         * @return Const reference on sprites collection.
+         * @brief Method returns const reference on front sprites collection.
+         * @return Const reference on front sprites collection.
          */
         const std::list<std::shared_ptr<Components::ISprite>> &getFrontSprites() const noexcept;
 

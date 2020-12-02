@@ -23,7 +23,7 @@ namespace Material {
      * @brief The base class of the MaterialObject class hierarchy. Interface describes all material objects possibilities.
      * @namespace Material
      *
-     * This class defines base MaterialObject interface.
+     * This class defines base MaterialObject interface and realization.
     */
     class MaterialObject :
             public Possibilities::SelfActionable<Unite::Unifier>,

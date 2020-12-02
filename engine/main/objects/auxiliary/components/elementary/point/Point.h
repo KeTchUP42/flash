@@ -15,7 +15,7 @@ namespace Components {
     */
     struct Point {
         /**
-         * @brief Base constructor. Inits "x" and "y" by zero.
+         * @brief Inits "x" and "y" by zero.
          */
         Point();
 

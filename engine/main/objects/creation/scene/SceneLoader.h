@@ -16,7 +16,7 @@
 namespace Creation {
 
     /**
-     * @brief The SceneLoader class. The class is responsible for uploading scenes to the unifier.
+     * @brief This class is responsible for uploading scenes to the unifier.
      * @namespace Creation
      *
      * This class defines SceneLoader realization.

@@ -15,7 +15,7 @@
 namespace Mobs {
 
     /**
-     * @brief The class represents the base class of all managed mobiles - players.
+     * @brief The class represents the base class of all controlled mobs - players.
      * @namespace Mobs
      *
      * This class defines base Player interface and realization.

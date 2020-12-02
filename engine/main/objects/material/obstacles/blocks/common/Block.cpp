@@ -14,10 +14,10 @@ Obstacles::Block::Block(
 void Obstacles::Block::updateCoordinates() noexcept {
     //Some optimization logic. Can be changed with general movement logic update.
     if ((m_AreaDump.m_point != m_area.m_point) || (m_AreaDump.m_size != m_area.m_size) || (m_AreaDump.m_angle != m_area.m_angle)) {
-        m_coordinates = Computations::coordinates(*this);
+        m_coordinates = Calculations::coordinates(*this);
         m_AreaDump = m_area;
     } else if (m_coordinates.list.empty()) {
-        m_coordinates = Computations::coordinates(*this);
+        m_coordinates = Calculations::coordinates(*this);
     }
 }
 

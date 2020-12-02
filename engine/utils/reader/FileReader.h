@@ -11,14 +11,14 @@ namespace ReaderUtil {
 
     class FileReader : public Reader {
     public:
-        FileReader(const std::string &filepath);
+        FileReader(const std::string &filename);
 
         std::string read() const override;
 
         std::vector<std::string> readlines() const override;
 
     protected:
-        std::string m_filepath;
+        std::string m_filename;
     };
 }
 

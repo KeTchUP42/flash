@@ -14,7 +14,7 @@ namespace Managers {
      * @brief The class provides easy access to scene configuration data.
      * @namespace Managers
      *
-     * This class defines base SceneManager interface and realization.
+     * This class defines SceneManager realization.
      */
     class SceneManager {
     public:
