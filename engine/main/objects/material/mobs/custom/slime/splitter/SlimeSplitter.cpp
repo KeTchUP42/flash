@@ -3,32 +3,64 @@
 //
 
 #include "SlimeSplitter.h"
-#include "../../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 
 Mobs::SlimeSplitter::SlimeSplitter(float splittingCoefficient) : m_splittingCoefficient(splittingCoefficient) {}
 
 Mobs::Slime *Mobs::SlimeSplitter::split(Mobs::Slime &slime, const SlimeProperties &properties) const {
-    //area
-    Components::Size areaSize(slime.getSize().width / m_splittingCoefficient, slime.getSize().height / m_splittingCoefficient);
-    Components::Area area(
-            Components::Point(slime.getPosition().x + (slime.getSize().width - areaSize.width) / 2,
-                              slime.getPosition().y + (slime.getSize().height - areaSize.height) / 2),
-            areaSize, slime.getRotation());
-    //sprite
-    Components::Size spriteSize(slime.getSprite()->getArea().m_size.width / m_splittingCoefficient, slime.getSprite()->getArea().m_size.height / m_splittingCoefficient);
-    Components::Area spriteArea(
-            Components::Point(slime.getSprite()->getArea().m_point.x + (slime.getSprite()->getArea().m_size.width - spriteSize.width) / 2,
-                              slime.getSprite()->getArea().m_point.y + (slime.getSprite()->getArea().m_size.height - spriteSize.height) / 2),
-            spriteSize, slime.getSprite()->getArea().m_angle);
+    return new Slime(
+            properties.material_properties,
+            properties.mob_properties,
+            this->splitSlimeArea(slime),
+            this->splitSlimeSprite(slime),
+            this->splitSlimeAlgorithms(slime),
+            properties.slime_properties
+    );
+}
 
-    std::shared_ptr<Components::ISpriteBox> spriteBox = std::make_shared<Components::SpriteBox>(spriteArea, slime.getSprite()->getTexture());
-    //algo
+Components::Area Mobs::SlimeSplitter::splitSlimeArea(Mobs::Slime &slime) const noexcept {
+    unsigned int area_width = slime.getSize().width;
+    unsigned int area_height = slime.getSize().height;
+
+    Components::Size size(area_width / m_splittingCoefficient, area_height / m_splittingCoefficient);
+    Components::Point point(slime.getPosition().x + (area_width - size.width) / 2,
+                            slime.getPosition().y + (area_height - size.height) / 2);
+    return Components::Area(point, size, slime.getRotation());
+}
+
+std::shared_ptr<Components::ISpriteBox> Mobs::SlimeSplitter::splitSlimeSprite(Mobs::Slime &slime) const noexcept {
+    unsigned int sprite_width = slime.getSprite()->getArea().m_size.width;
+    unsigned int sprite_height = slime.getSprite()->getArea().m_size.height;
+
+    Components::Size size(sprite_width / m_splittingCoefficient, sprite_height / m_splittingCoefficient);
+    Components::Point point(slime.getSprite()->getArea().m_point.x + (sprite_width - size.width) / 2,
+                            slime.getSprite()->getArea().m_point.y + (sprite_height - size.height) / 2);
+    Components::Area area(point, size, slime.getSprite()->getArea().m_angle);
+    return std::make_shared<Components::SpriteBox>(area, slime.getSprite()->getTexture());
+}
+
+std::shared_ptr<Material::Algorithms> Mobs::SlimeSplitter::splitSlimeAlgorithms(Mobs::Slime &slime) const noexcept {
     std::pair<float, float> step = slime.getAlgorithms()->getCollision().getMovingCollision().getAnalysisStep();
-    float stepX = step.first / m_splittingCoefficient > 1 ? step.first / m_splittingCoefficient : 1;
-    float stepY = step.second / m_splittingCoefficient > 1 ? step.second / m_splittingCoefficient : 1;
+    float stepX = step.first / m_splittingCoefficient;
+    if (stepX < 1) stepX = 1;
+    float stepY = step.second / m_splittingCoefficient;
+    if (stepY < 1) stepY = 1;
+    return std::make_shared<Material::Algorithms>(std::make_shared<Material::Collision>(stepX, stepY));
+}
 
-    std::shared_ptr<Material::Algorithms> algo = std::make_shared<Material::Algorithms>(
-            std::make_shared<Material::Collision>(stepX, stepY));
-
-    return new Slime(properties.material_properties, properties.mob_properties, area, spriteBox, algo, properties.slime_properties);
+Mobs::SlimeProperties Mobs::SlimeSplitter::splitSlimeProperties(const Mobs::SlimeProperties &properties) const noexcept {
+    return Mobs::SlimeProperties(
+            properties.moveSpeed,
+            properties.jumpSpeed,
+            properties.jumpRateCoefficient,
+            std::round(properties.punchPower / m_splittingCoefficient),
+            std::round(properties.punchDamage / m_splittingCoefficient),
+            properties.elasticCoefficient,
+            properties.frictionCoefficient,
+            properties.minSplitSize,
+            m_splittingCoefficient,
+            properties.splitSlimesNumber,
+            std::pair<float, float>(
+                    properties.splitPower.first / m_splittingCoefficient,
+                    properties.splitPower.second / m_splittingCoefficient
+            ));
 }

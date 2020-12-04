@@ -28,22 +28,10 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
              (m_sprite->getArea().m_size.height / m_slime.splitCoefficient >= Components::SpriteBox::MIN_SPRITE_SIDE_SIZE))) {
 
             unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
+                SlimeSplitter splitter(m_slime.splitCoefficient);
+
                 //Slime properties.
-                SlimeProperties slimeProperties(
-                        m_slime.moveSpeed,
-                        m_slime.jumpSpeed,
-                        m_slime.jumpRateCoefficient,
-                        std::round(m_slime.punchPower / m_slime.splitCoefficient),
-                        std::round(m_slime.punchDamage / m_slime.splitCoefficient),
-                        m_slime.elasticCoefficient,
-                        m_slime.frictionCoefficient,
-                        m_slime.minSplitSize,
-                        m_slime.splitCoefficient,
-                        m_slime.splitSlimesNumber,
-                        std::pair<float, float>(
-                                m_slime.splitPower.first / m_slime.splitCoefficient,
-                                m_slime.splitPower.second / m_slime.splitCoefficient
-                        ));
+                SlimeProperties slimeProperties = splitter.splitSlimeProperties(m_slime);
 
                 //Calculating slimes spawn speed offset.
                 float xSpeedOffset = m_slime.splitPower.first;
@@ -55,7 +43,6 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 int healthPoints = m_properties.maxHealthPoints / m_slime.splitCoefficient;
                 if (healthPoints == 0) healthPoints = 1;
 
-                SlimeSplitter splitter(m_slime.splitCoefficient);
                 for (size_t i = 0; i < m_slime.splitSlimesNumber; ++i) {
                     short dest = ((i % 2 == 0) ? -1 : 1);
                     float xSpeed = m_material_properties.speed.xSpeed + dest * (xSpeedOffset + Calculations::random(-xSpeedRandomOffset, xSpeedRandomOffset));
@@ -69,9 +56,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removeStandAloneMob(this);
         });
-
     } else {
-
         //Players jumping.
         for (Mobs::Player *player : unifier->getPlayers()) {
             if ((player->getPosition().y < this->getPosition().y) && m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
@@ -109,7 +94,6 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 }
             }
         }
-
         RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
     }
 }
