@@ -1,21 +1,20 @@
 //
-// Created by roman on 11.09.2020.
+// Created by roman on 06.10.2020.
 //
 
-#ifndef FLASH_DULLCOMPOSITEBLOCK_H
-#define FLASH_DULLCOMPOSITEBLOCK_H
+#ifndef FLASH_DULLINVISIBLEBLOCK_H
+#define FLASH_DULLINVISIBLEBLOCK_H
 
-#include "common-base/CompositeSpriteBlock.h"
+#include "../common/InvisibleBlock.h"
 
 namespace Obstacles {
 
-    class DullCompositeBlock : public CompositeSpriteBlock {
+    class DullInvisibleBlock : public InvisibleBlock {
     public:
-        explicit DullCompositeBlock(
+        explicit DullInvisibleBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const Components::Area &area,
-                const std::shared_ptr<Components::ISprite> &sprite,
                 const std::shared_ptr<Material::Algorithms> &algorithms
         );
 
@@ -23,4 +22,4 @@ namespace Obstacles {
     };
 }
 
-#endif //FLASH_DULLCOMPOSITEBLOCK_H
+#endif //FLASH_DULLINVISIBLEBLOCK_H

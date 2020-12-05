@@ -3,7 +3,7 @@
 //
 
 #include "DullBlockGenerator.h"
-#include "../../../../material/obstacles/blocks/sprite-visible/single/DullBlock.h"
+#include "../../../../material/obstacles/blocks/custom/sprite-visible/single/dull-block/DullBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../reduction/PropertiesReduction.h"
 #include "../reduction/CustomReduction.h"

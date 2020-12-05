@@ -1,17 +1,17 @@
 //
-// Created by roman on 06.10.2020.
+// Created by roman on 25.09.2020.
 //
 
-#ifndef FLASH_PLATFORMBLOCK_H
-#define FLASH_PLATFORMBLOCK_H
+#ifndef FLASH_ELASTICBLOCK_H
+#define FLASH_ELASTICBLOCK_H
 
-#include "common-base/SingleSpriteBlock.h"
+#include "../common/SingleSpriteBlock.h"
 
 namespace Obstacles {
 
-    class PlatformBlock : public SingleSpriteBlock {
+    class ElasticBlock : public Obstacles::SingleSpriteBlock {
     public:
-        explicit PlatformBlock(
+        explicit ElasticBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
@@ -22,4 +22,4 @@ namespace Obstacles {
     };
 }
 
-#endif //FLASH_PLATFORMBLOCK_H
+#endif //FLASH_ELASTICBLOCK_H

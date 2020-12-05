@@ -2,24 +2,24 @@
 // Created by roman on 06.10.2020.
 //
 
-#ifndef FLASH_DULLINVISIBLEBLOCK_H
-#define FLASH_DULLINVISIBLEBLOCK_H
+#ifndef FLASH_INVISIBLEBLOCK_H
+#define FLASH_INVISIBLEBLOCK_H
 
-#include "common-base/InvisibleBlock.h"
+#include "../../../common/AnalyzingBlock.h"
 
 namespace Obstacles {
 
-    class DullInvisibleBlock : public InvisibleBlock {
+    class InvisibleBlock : public AnalyzingBlock {
     public:
-        explicit DullInvisibleBlock(
+        explicit InvisibleBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const Components::Area &area,
                 const std::shared_ptr<Material::Algorithms> &algorithms
         );
 
-        void selfAction(Unite::Unifier *unifier) override;
+        void draw(sf::RenderTarget &target) const noexcept override;
     };
 }
 
-#endif //FLASH_DULLINVISIBLEBLOCK_H
+#endif //FLASH_INVISIBLEBLOCK_H

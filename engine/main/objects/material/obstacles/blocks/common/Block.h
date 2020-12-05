@@ -18,9 +18,7 @@ namespace Obstacles {
          * @param properties Mob properties object.
          * @param area Mob physical area.
          */
-        explicit Block(const Material::MaterialProperties &material_properties,
-                       const ObstacleProperties &properties,
-                       const Components::Area &area);
+        explicit Block(const Material::MaterialProperties &material_properties, const ObstacleProperties &properties, const Components::Area &area);
 
         void updateCoordinates() noexcept override;
 

@@ -3,8 +3,7 @@
 //
 
 #include "DullInvisibleBlockGenarator.h"
-#include "../../../../material/common/algorithms/Algorithms.h"
-#include "../../../../material/obstacles/blocks/invisible/DullInvisibleBlock.h"
+#include "../../../../material/obstacles/blocks/custom/invisible/dull-block/DullInvisibleBlock.h"
 #include "../reduction/PropertiesReduction.h"
 #include "../reduction/CustomReduction.h"
 #include "../reduction/AreaReduction.h"

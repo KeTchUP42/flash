@@ -3,8 +3,7 @@
 //
 
 #include "PlatformBlockGenerator.h"
-#include "../../../../material/common/algorithms/Algorithms.h"
-#include "../../../../material/obstacles/blocks/sprite-visible/single/PlatformBlock.h"
+#include "../../../../material/obstacles/blocks/custom/sprite-visible/single/platform/PlatformBlock.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../reduction/PropertiesReduction.h"
 #include "../reduction/CustomReduction.h"

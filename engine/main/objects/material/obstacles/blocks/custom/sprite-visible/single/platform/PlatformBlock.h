@@ -1,17 +1,17 @@
 //
-// Created by roman on 11.09.2020.
+// Created by roman on 06.10.2020.
 //
 
-#ifndef FLASH_DULLBLOCK_H
-#define FLASH_DULLBLOCK_H
+#ifndef FLASH_PLATFORMBLOCK_H
+#define FLASH_PLATFORMBLOCK_H
 
-#include "common-base/SingleSpriteBlock.h"
+#include "../common/SingleSpriteBlock.h"
 
 namespace Obstacles {
 
-    class DullBlock : public Obstacles::SingleSpriteBlock {
+    class PlatformBlock : public SingleSpriteBlock {
     public:
-        explicit DullBlock(
+        explicit PlatformBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,
@@ -22,4 +22,4 @@ namespace Obstacles {
     };
 }
 
-#endif //FLASH_DULLBLOCK_H
+#endif //FLASH_PLATFORMBLOCK_H

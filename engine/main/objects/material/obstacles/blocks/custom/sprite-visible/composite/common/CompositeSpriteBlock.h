@@ -5,8 +5,8 @@
 #ifndef FLASH_COMPOSITESPRITEBLOCK_H
 #define FLASH_COMPOSITESPRITEBLOCK_H
 
-#include "../../../common/AnalyzingBlock.h"
-#include "../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
+#include "../../../../common/AnalyzingBlock.h"
+#include "../../../../../../../auxiliary/components/sprite/primitive/ISpriteBox.h"
 
 namespace Obstacles {
 
