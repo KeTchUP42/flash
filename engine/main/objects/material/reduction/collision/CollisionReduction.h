@@ -12,7 +12,7 @@ namespace RD {
 
     /**
      * @brief The function contains the basic implementation of the collision analysis with blocks from the unifier.
-     * @param mob Target object that is being processed.
+     * @param object Target object that is being processed.
      * @param algorithms Configured facade of necessary algorithms.
      * @param unifier Scene unifier.
      * @return Was there a collision?
@@ -34,7 +34,7 @@ namespace RD {
 
     /**
      * @brief The function contains the basic implementation of the collision analysis with blocks from the unifier.
-     * @param mob Target object that is being processed.
+     * @param object Target object that is being processed.
      * @param algorithms Configured facade of necessary algorithms.
      * @param unifier Scene unifier.
      * @return Was there a collision?

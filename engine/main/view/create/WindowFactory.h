@@ -5,7 +5,7 @@
 #ifndef FLASH_WINDOWFACTORY_H
 #define FLASH_WINDOWFACTORY_H
 
-#include "../windows/base/window/Window.h"
+#include "../windows/common/window/Window.h"
 #include "../../data/manager/DataManager.h"
 
 namespace View {

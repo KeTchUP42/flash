@@ -5,7 +5,7 @@
 #ifndef FLASH_PRIMARYWINDOW_H
 #define FLASH_PRIMARYWINDOW_H
 
-#include "../../base/window/Window.h"
+#include "../../common/window/Window.h"
 #include "../../../../data/manager/DataManager.h"
 #include "../../screen/states/common-base/ScreenState.h"
 #include "../../screen/context-abilities/StateChangeable.h"

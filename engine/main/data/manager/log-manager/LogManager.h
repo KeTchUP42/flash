@@ -14,7 +14,7 @@
 namespace Managers {
 
     /**
-     * @brief The class provides a convenient way to create loggers.
+     * @brief The class provides easy way to create loggers.
      * @namespace Managers
      *
      * This class defines LogManager realization.

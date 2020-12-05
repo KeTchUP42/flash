@@ -12,7 +12,7 @@
 namespace Managers {
 
     /**
-     * @brief The class provides convenient access to audio data.
+     * @brief The class provides easy access to audio data.
      * @namespace Managers
      *
      * This class defines AudioManager realization.

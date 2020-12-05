@@ -3,7 +3,7 @@
 //
 
 #include "PrimaryWindow.h"
-#include "../../base/observers/WindowCloseObserver.h"
+#include "../../common/observers/WindowCloseObserver.h"
 
 View::PrimaryWindow::PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
                                    const sf::ContextSettings &settings, View::ScreenState *screenState, Managers::DataManager *manager)

@@ -6,7 +6,6 @@
 #define FLASH_GENERATORSPOOL_H
 
 #include "../generators/Generator.h"
-#include "../../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../analyze/GeneratorSelector.h"
 
 namespace Creation {

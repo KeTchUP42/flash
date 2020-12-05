@@ -5,7 +5,6 @@
 #ifndef FLASH_SCENELOADER_H
 #define FLASH_SCENELOADER_H
 
-#include "../../../view/windows/screen/context-abilities/StateChangeable.h"
 #include "../../unifier/common/Unifier.h"
 #include "../../../data/manager/DataManager.h"
 #include "analyze/DirectivesAnalyzer.h"

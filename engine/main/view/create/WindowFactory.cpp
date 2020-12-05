@@ -4,7 +4,7 @@
 
 #include "WindowFactory.h"
 #include "../windows/custom/primary/PrimaryWindow.h"
-#include "../windows/base/observers/WindowCloseObserver.h"
+#include "../windows/common/observers/WindowCloseObserver.h"
 #include "../windows/screen/states/InitialScreenState.h"
 
 std::shared_ptr<View::Window>

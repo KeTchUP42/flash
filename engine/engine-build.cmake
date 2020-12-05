@@ -7,9 +7,6 @@
 set(SETUP engine/init/setup/EngineConfigurator.cpp)
 set(ENTRY_POINT ${SETUP} engine/init/Engine.cpp)
 
-set(AUDIOPLAYBACK engine/main/data/audio/simple-audio/AudioPlayback.cpp)
-set(AUDIO ${AUDIOPLAYBACK})
-
 set(AUDIO_MANAGER engine/main/data/manager/audio-manager/AudioManager.cpp)
 set(CONFIG_MANAGER engine/main/data/manager/config-manager/ConfigManager.cpp)
 set(FONT_MANAGER engine/main/data/manager/font-manager/FontManager.cpp)
@@ -18,10 +15,10 @@ set(SCENE_MANAGER engine/main/data/manager/scene-manager/SceneManager.cpp)
 set(TEXTURE_MANAGER engine/main/data/manager/texture-manager/TextureManager.cpp)
 set(DATA_MANAGER engine/main/data/manager/DataManager.cpp)
 set(MANAGERS ${AUDIO_MANAGER} ${CONFIG_MANAGER} ${FONT_MANAGER} ${LOG_MANAGER} ${SCENE_MANAGER} ${TEXTURE_MANAGER} ${DATA_MANAGER})
-set(DATA ${AUDIO} ${MANAGERS})
+set(DATA ${MANAGERS})
 
-set(OBSERVERS engine/main/view/windows/base/observers/WindowCloseObserver.cpp engine/main/view/windows/base/observers/WindowResizeObserver.cpp)
-set(WINDOWS engine/main/view/windows/base/window/Window.cpp engine/main/view/windows/custom/primary/PrimaryWindow.cpp)
+set(OBSERVERS engine/main/view/windows/common/observers/WindowCloseObserver.cpp engine/main/view/windows/common/observers/WindowResizeObserver.cpp)
+set(WINDOWS engine/main/view/windows/common/window/Window.cpp engine/main/view/windows/custom/primary/PrimaryWindow.cpp)
 set(SCREEN engine/main/view/windows/screen/states/InitialScreenState.cpp engine/main/view/windows/screen/states/TransitScreenState.cpp)
 set(WINDOW_VIEW ${WINDOWS} ${OBSERVERS} ${SCREEN})
 set(VIEW_CREATE engine/main/view/create/WindowFactory.cpp)

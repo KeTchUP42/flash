@@ -6,8 +6,8 @@
 #define FLASH_UNIFIER_H
 
 #include "../../auxiliary/possibilities/Drawable.h"
-#include "../../../view/windows/base/observer/Observer.h"
-#include "../../../view/windows/base/window/Window.h"
+#include "../../../view/windows/common/observer/Observer.h"
+#include "../../../view/windows/common/window/Window.h"
 #include "../../../data/manager/DataManager.h"
 
 #include <list>

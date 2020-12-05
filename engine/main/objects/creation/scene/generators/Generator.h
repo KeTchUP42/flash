@@ -7,7 +7,7 @@
 
 #include "../pools/SourcePool.h"
 #include "../../../unifier/common/Unifier.h"
-#include "../../../../view/windows/base/window/Window.h"
+#include "../../../../view/windows/common/window/Window.h"
 
 namespace Creation {
 

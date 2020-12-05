@@ -12,7 +12,7 @@
 namespace Managers {
 
     /**
-     * @brief The class provides simple access to the configuration data of the program.
+     * @brief The class provides easy access to the configuration data of the program.
      * @namespace Managers
      *
      * This class defines ConfigManager realization.

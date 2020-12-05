@@ -8,8 +8,8 @@
 #include "../../../../../objects/auxiliary/possibilities/Drawable.h"
 #include "../../context-abilities/StateChangeable.h"
 #include "../../../../../data/manager/DataManager.h"
-#include "../../../base/observer/Observer.h"
-#include "../../../base/window/Window.h"
+#include "../../../common/observer/Observer.h"
+#include "../../../common/window/Window.h"
 
 namespace View {
 

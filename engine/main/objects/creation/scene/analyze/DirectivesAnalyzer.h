@@ -6,7 +6,7 @@
 #define FLASH_DIRECTIVESANALYZER_H
 
 #include "../pools/SourcePool.h"
-#include "../../../../view/windows/base/window/Window.h"
+#include "../../../../view/windows/common/window/Window.h"
 
 namespace Creation {
 
