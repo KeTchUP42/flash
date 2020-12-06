@@ -36,7 +36,7 @@ namespace Creation {
         /**
          * @brief Source pool.
          */
-        Pools::SourcePool m_sourcePool;
+        Pools::SourcePool m_source_pool;
 
         /**
          * @brief Directives analyzer.
@@ -46,7 +46,7 @@ namespace Creation {
         /**
          * @brief Generators pool.
          */
-        Pools::GeneratorsPool m_generatorsPool;
+        Pools::GeneratorsPool m_generators_pool;
 
         /**
          * @brief Do not call "delete" for this ptr.
