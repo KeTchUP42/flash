@@ -95,8 +95,8 @@ const Mobs::MobProperties &Mobs::Mob::getProperties() const noexcept {
     return m_properties;
 }
 
-void Mobs::Mob::setHealthPoints(float healthPoints) noexcept {
-    m_properties.healthPoints = healthPoints;
+void Mobs::Mob::setMaxHealthPoints(float healthPoints) noexcept {
+    m_properties.maxHealthPoints = healthPoints;
 }
 
 bool Mobs::Mob::isDead() const noexcept {
@@ -109,4 +109,8 @@ void Mobs::Mob::dealDamage(float damage) noexcept {
 
 void Mobs::Mob::kill() noexcept {
     this->setHealthPoints(0);
+}
+
+void Mobs::Mob::setHealthPoints(float healthPoints) noexcept {
+    m_properties.healthPoints = healthPoints;
 }

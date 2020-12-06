@@ -21,7 +21,7 @@ static Components::Point bulletPointCalculating(const Mobs::Player &player, cons
     Components::Point min = Material::minCoordinates(player);
     Components::Point max = Material::maxCoordinates(player);
     return Components::Point(
-            (((min.x + max.x) / 2) + ((right ? 1 : -1) * ((max.x - min.x) / 2))) - bulletSize.width / 2,
+            ((min.x + max.x) / 2) + (right ? 1 : -1) * ((max.x - min.x) / 2) - bulletSize.width / 2,
             ((min.y + max.y) / 2) - bulletSize.height / 2
     );
 }

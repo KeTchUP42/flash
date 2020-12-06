@@ -74,10 +74,10 @@ namespace Mobs {
         const MobProperties &getProperties() const noexcept override;
 
         /**
-         * @brief Method sets new health points value.
-         * @param health Points New health points value.
+         * @brief Method sets new max health points value.
+         * @param healthPoints New max health points value.
          */
-        void setHealthPoints(float healthPoints) noexcept;
+        void setMaxHealthPoints(float healthPoints) noexcept;
 
         /**
          * @brief Method checks is mob dead.
@@ -95,6 +95,12 @@ namespace Mobs {
          * @brief Method kills the mob.
          */
         void kill() noexcept;
+
+        /**
+         * @brief Method sets new health points value.
+         * @param healthPoints New health points value.
+         */
+        void setHealthPoints(float healthPoints) noexcept;
 
     private:
         Components::Area m_AreaDump = m_area;

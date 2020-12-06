@@ -56,44 +56,44 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         unifier->addFrameAction([this](Unite::Unifier *unifier1) -> void {
             unifier1->removeStandAloneMob(this);
         });
-    } else {
-        //Players jumping.
-        for (Mobs::Player *player : unifier->getPlayers()) {
-            if ((player->getPosition().y < this->getPosition().y) && m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
-                this->dealDamage(static_cast<int>(player->getSpeed().ySpeed)); //Calculating damage with player's speed.
-                bool sameSign = player->getSpeed().ySpeed * this->getSpeed().ySpeed >= 0;
-                float ySpeed = static_cast<int>(-1 * player->getSpeed().ySpeed * m_slime.elasticCoefficient + (sameSign ? 0 : this->getSpeed().ySpeed));
-                player->setYSpeed((std::abs(ySpeed) == 1) ? 0 : ySpeed);
-                if (player->getSpeed().xSpeed != this->getSpeed().xSpeed) {
-                    player->setXSpeed(static_cast<int>(player->getSpeed().xSpeed * m_slime.frictionCoefficient));
-                }
-            }
-        }
-
-        //Slime punch.
-        Mobs::Player *player;
-        if ((player = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getPlayers())) != nullptr) {
-            player->dealDamage(m_slime.punchDamage);
-            if (this->getSpeed().xSpeed * player->getSpeed().xSpeed <= 0) {
-                player->setSpeed(Components::Speed((this->getSpeed().xSpeed > 0 ? 1 : -1) * m_slime.punchPower, -1 * m_slime.punchPower * 2));
-            }
-        }
-
-        Obstacles::Block *block;
-        if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
-            //Slime moving.
-            if ((Calculations::random(0, m_slime.jumpRateCoefficient) == 0) && (this->getPosition().y < block->getPosition().y) &&
-                (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
-                this->addSpeed(((Calculations::random(0, 1) == 1) ? 1 : -1) * m_slime.moveSpeed, -1 * m_slime.jumpSpeed);
-            } else {
-                bool sameSign = m_material_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
-                float ySpeed = static_cast<int>(-1 * m_material_properties.speed.ySpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().ySpeed));
-                m_material_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
-                if (m_material_properties.speed.xSpeed != block->getSpeed().xSpeed) {
-                    m_material_properties.speed.xSpeed = static_cast<int>(m_material_properties.speed.xSpeed * block->getProperties().frictionCoefficient);
-                }
-            }
-        }
-        RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
+        return;
     }
+    //Players jumping.
+    for (Mobs::Player *player : unifier->getPlayers()) {
+        if ((player->getPosition().y < this->getPosition().y) && m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(player, this)) {
+            this->dealDamage(static_cast<int>(player->getSpeed().ySpeed)); //Calculating damage with player's speed.
+            bool sameSign = player->getSpeed().ySpeed * this->getSpeed().ySpeed >= 0;
+            float ySpeed = static_cast<int>(-1 * player->getSpeed().ySpeed * m_slime.elasticCoefficient + (sameSign ? 0 : this->getSpeed().ySpeed));
+            player->setYSpeed((std::abs(ySpeed) == 1) ? 0 : ySpeed);
+            if (player->getSpeed().xSpeed != this->getSpeed().xSpeed) {
+                player->setXSpeed(static_cast<int>(player->getSpeed().xSpeed * m_slime.frictionCoefficient));
+            }
+        }
+    }
+
+    //Slime punch.
+    Mobs::Player *player;
+    if ((player = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getPlayers())) != nullptr) {
+        player->dealDamage(m_slime.punchDamage);
+        if (this->getSpeed().xSpeed * player->getSpeed().xSpeed <= 0) {
+            player->setSpeed(Components::Speed((this->getSpeed().xSpeed > 0 ? 1 : -1) * m_slime.punchPower, -1 * m_slime.punchPower * 2));
+        }
+    }
+
+    Obstacles::Block *block;
+    if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
+        //Slime moving.
+        if ((Calculations::random(0, m_slime.jumpRateCoefficient) == 0) && (this->getPosition().y < block->getPosition().y) &&
+            (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
+            this->addSpeed(((Calculations::random(0, 1) == 1) ? 1 : -1) * m_slime.moveSpeed, -1 * m_slime.jumpSpeed);
+        } else {
+            bool sameSign = m_material_properties.speed.ySpeed * block->getSpeed().ySpeed >= 0;
+            float ySpeed = static_cast<int>(-1 * m_material_properties.speed.ySpeed * block->getProperties().elasticCoefficient + (sameSign ? 0 : block->getSpeed().ySpeed));
+            m_material_properties.speed.ySpeed = (std::abs(ySpeed) == 1) ? 0 : ySpeed;
+            if (m_material_properties.speed.xSpeed != block->getSpeed().xSpeed) {
+                m_material_properties.speed.xSpeed = static_cast<int>(m_material_properties.speed.xSpeed * block->getProperties().frictionCoefficient);
+            }
+        }
+    }
+    RD::abscissaBlocksNaturalCollision(this, *m_algorithms.get(), unifier);
 }
