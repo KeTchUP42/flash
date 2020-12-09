@@ -69,7 +69,7 @@ namespace Creation {
              * @brief Method returns algorithms pool.
              * @return Algorithms pool.
              */
-            Creation::Pools::AlgorithmsPool *getAlgpool() noexcept;
+            Creation::Pools::AlgorithmsPool *getAlgPool() noexcept;
 
             /**
              * @brief Method returns data manager.

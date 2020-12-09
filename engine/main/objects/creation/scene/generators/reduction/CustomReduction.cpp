@@ -6,10 +6,10 @@
 
 std::shared_ptr<Material::Algorithms>
 Creation::RD::loadAlgorithms(const IniUtil::Analyzer::IniBlock &data, Creation::Pools::SourcePool &pool) {
-    //collision
-    std::pair<float, float> collisionParams(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
-                                            std::stof(data.at("COLLISION_ANALYSIS_STEP")));
-    return std::make_shared<Material::Algorithms>(pool.getAlgpool()->loadCollision(collisionParams));
+    return std::make_shared<Material::Algorithms>(pool.getAlgPool()->loadCollision(
+            std::make_pair<float, float>(std::stof(data.at("COLLISION_ANALYSIS_STEP")),
+                                         std::stof(data.at("COLLISION_ANALYSIS_STEP")))
+    ));
 }
 
 std::shared_ptr<sf::Music>

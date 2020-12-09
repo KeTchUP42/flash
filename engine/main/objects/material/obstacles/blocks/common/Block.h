@@ -13,7 +13,7 @@ namespace Obstacles {
     class Block : public Obstacle, public Possibilities::Rectangle {
     public:
         /**
-         * @brief Main block constructor.
+         * @brief Default block constructor.
          * @param material_properties Material properties.
          * @param properties Mob properties object.
          * @param area Mob physical area.

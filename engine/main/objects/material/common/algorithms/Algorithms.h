@@ -5,6 +5,7 @@
 #ifndef FLASH_ALGORITHMS_H
 #define FLASH_ALGORITHMS_H
 
+#include "params/AlgorithmsParams.h"
 #include "../collision/Collision.h"
 
 namespace Material {
@@ -15,8 +16,18 @@ namespace Material {
      *
      * This class defines Algorithms realization.
     */
-    class Algorithms {
+    class Algorithms final {
     public:
+        /**
+         * @brief Special constructor.
+         * @param params General algorithms params.
+         */
+        explicit Algorithms(const AlgorithmsParams &params);
+
+        /**
+         * @brief Default constructor.
+         * @param collision Collision algorithms facade.
+         */
         explicit Algorithms(const std::shared_ptr<Material::Collision> &collision);
 
         /**

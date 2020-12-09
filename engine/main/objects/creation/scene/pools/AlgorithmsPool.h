@@ -20,7 +20,7 @@ namespace Creation {
         class AlgorithmsPool {
         public:
             /**
-             * @brief Method loads collsion.
+             * @brief Method loads collision.
              * @return Collision.
              */
             std::shared_ptr<Material::Collision> loadCollision(const std::pair<float, float> &params) noexcept;

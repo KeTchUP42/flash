@@ -41,10 +41,8 @@ std::shared_ptr<Components::ISpriteBox> Mobs::SlimeSplitter::splitSlimeSprite(Mo
 std::shared_ptr<Material::Algorithms> Mobs::SlimeSplitter::splitSlimeAlgorithms(Mobs::Slime &slime) const noexcept {
     std::pair<float, float> step = slime.getAlgorithms()->getCollision().getMovingCollision().getAnalysisStep();
     float stepX = step.first / m_splittingCoefficient;
-    if (stepX < 1) stepX = 1;
     float stepY = step.second / m_splittingCoefficient;
-    if (stepY < 1) stepY = 1;
-    return std::make_shared<Material::Algorithms>(std::make_shared<Material::Collision>(stepX, stepY));
+    return std::make_shared<Material::Algorithms>(Material::AlgorithmsParams((stepX < 1) ? 1 : stepX, (stepY < 1) ? 1 : stepY));
 }
 
 Mobs::SlimeProperties Mobs::SlimeSplitter::splitSlimeProperties(const Mobs::SlimeProperties &properties) const noexcept {

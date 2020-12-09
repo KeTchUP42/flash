@@ -24,7 +24,7 @@ namespace Mobs {
                    public View::Observer<sf::Event, View::Window> {
     public:
         /**
-         * @brief Main player constructor.
+         * @brief Default player constructor.
          * @param material_properties Material properties.
          * @param properties Mob properties object.
          * @param area Mob physical area.

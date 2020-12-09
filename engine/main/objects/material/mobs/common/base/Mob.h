@@ -24,7 +24,7 @@ namespace Mobs {
                 public Possibilities::Peculiar<MobProperties> {
     public:
         /**
-         * @brief Main mob constructor.
+         * @brief Default mob constructor.
          * @param material_properties Material properties.
          * @param properties Mob properties object.
          * @param area Mob physical area.

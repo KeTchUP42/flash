@@ -20,6 +20,10 @@ namespace Mobs {
 
     class SlimeSplitter {
     public:
+        /**
+         * @brief Default constructor.
+         * @param splittingCoefficient Splitting coefficient.
+         */
         SlimeSplitter(float splittingCoefficient);
 
         /**

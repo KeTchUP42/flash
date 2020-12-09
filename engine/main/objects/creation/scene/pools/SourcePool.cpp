@@ -46,7 +46,7 @@ void Creation::Pools::SourcePool::setVariable(const std::string &name, const std
     m_variables[name] = value;
 }
 
-Creation::Pools::AlgorithmsPool *Creation::Pools::SourcePool::getAlgpool() noexcept {
+Creation::Pools::AlgorithmsPool *Creation::Pools::SourcePool::getAlgPool() noexcept {
     return &m_algpool;
 }
 

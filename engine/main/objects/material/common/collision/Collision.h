@@ -8,10 +8,6 @@
 #include "moving-collision/MovingCollision.h"
 #include "static-collision/StaticCollision.h"
 
-namespace Unite {
-    class Unifier;
-}
-
 namespace Material {
 
     /**
@@ -35,7 +31,5 @@ namespace Material {
         const Material::StaticCollision m_staticCollision;
     };
 }
-
-#include "../../../unifier/common/Unifier.h"
 
 #endif //FLASH_COLLISION_H
