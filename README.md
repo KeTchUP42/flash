@@ -1,7 +1,7 @@
  # Flash ![mush](docs/images/mushroom.png)
 
  ![AppVeyor](https://img.shields.io/appveyor/build/bwormguy/flash)
- ![Lines of code](https://img.shields.io/tokei/lines/github/bwormguy/flash)
+ ![GitHub](https://img.shields.io/github/license/bwormguy/flash)
  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bwormguy/flash)
 
  This project is an implementation of a small platformer engine. All its essence is that you can quickly and easily create game scenes from a set of ready-made components.
