@@ -9,7 +9,7 @@
 #include <math.h>
 
 Components::Coordinates Calculations::coordinates(Possibilities::RectangleGetters &rectangle) noexcept {
-    //The angle is expected to be with a pre-rounded degree.
+    //The angle is expected to be pre-rounded.
     if (rectangle.getRotation() == 0) {
         return Components::Coordinates(
                 std::vector<Components::Point>{

@@ -48,13 +48,13 @@ bool Material::movingAbscissaCollision(const Components::Point &objectMinCoordin
                 int length = static_cast<int>(objectMoveXSpeed / 2);
                 int distance = 0;
                 while (length != 0) {
-                    if (processed.collision((length > 0 ? objectMaxCoordinates.x : objectMinCoordinates.x) + distance + length, y)) {
+                    if (processed.collision(((length > 0) ? objectMaxCoordinates.x : objectMinCoordinates.x) + distance + length, y)) {
                         length /= 2;
                         continue;
                     }
                     object.move(length, 0);
                     distance += length;
-                    length += length < 0 ? 1 : -1;
+                    length += (length < 0) ? 1 : -1;
                 }
                 return true;
             }
@@ -104,13 +104,13 @@ bool Material::movingOrdinateCollision(const Components::Point &objectMinCoordin
                 int length = static_cast<int>(objectMoveYSpeed / 2);
                 int distance = 0;
                 while (length != 0) {
-                    if (processed.collision(x, (length > 0 ? objectMaxCoordinates.y : objectMinCoordinates.y) + distance + length)) {
+                    if (processed.collision(x, ((length > 0) ? objectMaxCoordinates.y : objectMinCoordinates.y) + distance + length)) {
                         length /= 2;
                         continue;
                     }
                     object.move(0, length);
                     distance += length;
-                    length += length < 0 ? 1 : -1;
+                    length += (length < 0) ? 1 : -1;
                 }
                 return true;
             }

@@ -34,7 +34,7 @@
 
  * `POSITION` - Parameter sets the position of the player's physical area on the screen. It has the following format - `X:Y`.
  * `SIZE` - Parameter sets the size of the player's physical area on the screen. It has the following format - `WIDTH:HEIGHT`.
- * `ANGLE` - Parameter sets the angle of the player's physical area on the screen. 
+ * `ANGLE` - Parameter sets the angle of the player's physical area on the screen.
  * `SPRITE_POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
  * `SPRITE_SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
  * `SPRITE_ANGLE` - Parameter sets the angle of the sprite's area on the screen.

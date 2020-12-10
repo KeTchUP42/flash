@@ -2,16 +2,16 @@
 // Created by roman on 09.12.2020.
 //
 
-#ifndef PRIMARYWINDOW_H_ALGORITHMSPARAMS_H
-#define PRIMARYWINDOW_H_ALGORITHMSPARAMS_H
+#ifndef PRIMARYWINDOW_H_ALGORITHMSPARAMETERS_H
+#define PRIMARYWINDOW_H_ALGORITHMSPARAMETERS_H
 
 namespace Material {
 
     /**
-     * @brief Struct contains all algorithms numeric params.
+     * @brief Struct contains all algorithms numeric parameters.
      */
-    struct AlgorithmsParams {
-        explicit AlgorithmsParams(float analysisStepX, float analysisStepY)
+    struct AlgorithmsParameters {
+        explicit AlgorithmsParameters(float analysisStepX, float analysisStepY)
                 : analysisStepX(analysisStepX), analysisStepY(analysisStepY) {}
 
         /**
@@ -26,4 +26,4 @@ namespace Material {
     };
 }
 
-#endif //PRIMARYWINDOW_H_ALGORITHMSPARAMS_H
+#endif //PRIMARYWINDOW_H_ALGORITHMSPARAMETERS_H

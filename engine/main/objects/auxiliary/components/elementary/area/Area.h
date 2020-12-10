@@ -17,7 +17,6 @@ namespace Components {
      * This struct is the base component.
     */
     struct Area : public Possibilities::Rectangle, public Possibilities::Moving {
-
         /**
          * @brief Inits all fields by zero.
          */

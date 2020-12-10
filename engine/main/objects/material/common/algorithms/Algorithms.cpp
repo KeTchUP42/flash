@@ -4,7 +4,7 @@
 
 #include "Algorithms.h"
 
-Material::Algorithms::Algorithms(const Material::AlgorithmsParams &params)
+Material::Algorithms::Algorithms(const Material::AlgorithmsParameters &params)
         : m_collision(std::make_shared<Material::Collision>(params.analysisStepX, params.analysisStepY)) {}
 
 Material::Algorithms::Algorithms(const std::shared_ptr<Material::Collision> &collision) : m_collision(collision) {}

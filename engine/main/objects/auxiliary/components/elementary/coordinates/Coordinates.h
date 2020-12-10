@@ -14,10 +14,20 @@ namespace Components {
      * @brief Struct with coordinates.
      */
     struct Coordinates {
-        Coordinates(const std::vector<Components::Point> &coordinates) : list(coordinates) {}
-
+        /**
+         * @brief Default constructor.
+         */
         Coordinates() = default;
 
+        /**
+         * @brief Constructor inits points list.
+         * @param coordinates Points list.
+         */
+        Coordinates(const std::vector<Components::Point> &coordinates) : list(coordinates) {}
+
+        /**
+         * @brief Points list.
+         */
         std::vector<Components::Point> list;
     };
 }

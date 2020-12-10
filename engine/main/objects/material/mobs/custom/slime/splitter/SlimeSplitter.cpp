@@ -42,7 +42,7 @@ std::shared_ptr<Material::Algorithms> Mobs::SlimeSplitter::splitSlimeAlgorithms(
     std::pair<float, float> step = slime.getAlgorithms()->getCollision().getMovingCollision().getAnalysisStep();
     float stepX = step.first / m_splittingCoefficient;
     float stepY = step.second / m_splittingCoefficient;
-    return std::make_shared<Material::Algorithms>(Material::AlgorithmsParams((stepX < 1) ? 1 : stepX, (stepY < 1) ? 1 : stepY));
+    return std::make_shared<Material::Algorithms>(Material::AlgorithmsParameters((stepX < 1) ? 1 : stepX, (stepY < 1) ? 1 : stepY));
 }
 
 Mobs::SlimeProperties Mobs::SlimeSplitter::splitSlimeProperties(const Mobs::SlimeProperties &properties) const noexcept {

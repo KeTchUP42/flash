@@ -5,7 +5,7 @@
 #ifndef FLASH_ALGORITHMS_H
 #define FLASH_ALGORITHMS_H
 
-#include "params/AlgorithmsParams.h"
+#include "parameters/AlgorithmsParameters.h"
 #include "../collision/Collision.h"
 
 namespace Material {
@@ -20,9 +20,9 @@ namespace Material {
     public:
         /**
          * @brief Special constructor.
-         * @param params General algorithms params.
+         * @param params General algorithms parameters.
          */
-        explicit Algorithms(const AlgorithmsParams &params);
+        explicit Algorithms(const AlgorithmsParameters &params);
 
         /**
          * @brief Default constructor.

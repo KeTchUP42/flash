@@ -5,11 +5,10 @@
 #ifndef FLASH_LOGGER_H
 #define FLASH_LOGGER_H
 
-#include "formatter/Formatter.h"
 #include "../writer/Writer.h"
+#include "formatter/Formatter.h"
 #include "formatter/LoggerFormatter.h"
 
-#include <string>
 #include <memory>
 
 namespace LoggerUtil {

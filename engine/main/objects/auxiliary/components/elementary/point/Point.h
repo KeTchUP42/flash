@@ -35,28 +35,28 @@ namespace Components {
      * @param left Left operand.
      * @param right Right operand.
      */
-    Point operator+(const Point &left, const Point &right);
+    Point operator+(const Point &left, const Point &right) noexcept;
 
     /**
      * @brief Method overloads operator "-".
      * @param left Left operand.
      * @param right Right operand.
      */
-    Point operator-(const Point &left, const Point &right);
+    Point operator-(const Point &left, const Point &right) noexcept;
 
     /**
      * @brief Method overloads operator "+=".
      * @param left Left operand.
      * @param right Right operand.
      */
-    Point &operator+=(Point &left, const Point &right);
+    Point &operator+=(Point &left, const Point &right) noexcept;
 
     /**
      * @brief Method overloads operator "-=".
      * @param left Left operand.
      * @param right Right operand.
      */
-    Point &operator-=(Point &left, const Point &right);
+    Point &operator-=(Point &left, const Point &right) noexcept;
 
     /**
      * @brief Method overloads comparison operator.
