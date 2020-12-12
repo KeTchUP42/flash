@@ -40,12 +40,13 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 int xSpeedRandomOffset = m_slime.splitPower.first / m_slime.splitCoefficient / 2;
                 int ySpeedRandomOffset = m_slime.splitPower.second / m_slime.splitCoefficient / 2;
 
-                int healthPoints = m_properties.maxHealthPoints / m_slime.splitCoefficient;
-                if (healthPoints == 0) healthPoints = 1;
+                //Health points calculations.
+                int healthPointsDiv = m_properties.maxHealthPoints / m_slime.splitCoefficient;
+                int healthPoints = (healthPointsDiv == 0) ? 1 : healthPointsDiv;
 
                 for (size_t i = 0; i < m_slime.splitSlimesNumber; ++i) {
-                    short dest = ((i % 2 == 0) ? -1 : 1);
-                    float xSpeed = m_material_properties.speed.xSpeed + dest * (xSpeedOffset + Calculations::random(-xSpeedRandomOffset, xSpeedRandomOffset));
+                    char flight_dest = ((i % 2 == 0) ? -1 : 1);
+                    float xSpeed = m_material_properties.speed.xSpeed + (xSpeedOffset + Calculations::random(-xSpeedRandomOffset, xSpeedRandomOffset)) * flight_dest;
                     float ySpeed = m_material_properties.speed.ySpeed - (ySpeedOffset + Calculations::random(-ySpeedRandomOffset, ySpeedRandomOffset));
                     unifier1->addStandAloneMob(splitter.split(*this, {
                             Material::MaterialProperties(Components::Speed(xSpeed, ySpeed)),

@@ -16,7 +16,6 @@ namespace Components {
 
     class ISpriteBox : public ISprite, public Possibilities::RectangleGetters, public Possibilities::RectangleSetters {
     public:
-
         /**
          * @brief Minimal sprite side size.
          */

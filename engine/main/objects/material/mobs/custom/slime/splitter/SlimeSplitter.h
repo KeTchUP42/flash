@@ -5,8 +5,6 @@
 #ifndef FLASH_SLIMESPLITTER_H
 #define FLASH_SLIMESPLITTER_H
 
-#include <functional>
-
 #include "../../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../../../common/base/AnalyzingMob.h"
 #include "../../../common/properties/MobProperties.h"
@@ -74,7 +72,7 @@ namespace Mobs {
         virtual ~SlimeSplitter() = default;
 
     private:
-        const float m_splittingCoefficient;
+        const float SPLITTING_COEFFICIENT;
     };
 }
 
