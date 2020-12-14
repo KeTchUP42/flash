@@ -7,24 +7,24 @@
 static std::pair<float, float>
 ordinateVergeIndex(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept {
     std::pair<float, float> result(0, 0);
-    Components::Point curentMinY = object.getCoordinates().list.at(0);
-    Components::Point curentMaxY = object.getCoordinates().list.at(0);
+    Components::Point currentMinY = object.getCoordinates().list.at(0);
+    Components::Point currentMaxY = object.getCoordinates().list.at(0);
 
     for (size_t i = 0; i < object.getCoordinates().list.size(); ++i) {
 
-        if (((curentMinY.y != ordinateVerge.first) && (object.getCoordinates().list[i].y == ordinateVerge.first)) ||
+        if (((currentMinY.y != ordinateVerge.first) && (object.getCoordinates().list[i].y == ordinateVerge.first)) ||
             ((object.getCoordinates().list[i].y == ordinateVerge.first) &&
-             ((moveSide) ? object.getCoordinates().list[i].x > curentMinY.x : object.getCoordinates().list[i].x < curentMinY.x))) {
+             ((moveSide) ? object.getCoordinates().list[i].x > currentMinY.x : object.getCoordinates().list[i].x < currentMinY.x))) {
             result.first = i;
-            curentMinY = object.getCoordinates().list[i];
+            currentMinY = object.getCoordinates().list[i];
             continue;
         }
 
-        if (((curentMaxY.y != ordinateVerge.second) && (object.getCoordinates().list[i].y == ordinateVerge.second)) ||
+        if (((currentMaxY.y != ordinateVerge.second) && (object.getCoordinates().list[i].y == ordinateVerge.second)) ||
             ((object.getCoordinates().list[i].y == ordinateVerge.second) &&
-             ((moveSide) ? object.getCoordinates().list[i].x > curentMaxY.x : object.getCoordinates().list[i].x < curentMaxY.x))) {
+             ((moveSide) ? object.getCoordinates().list[i].x > currentMaxY.x : object.getCoordinates().list[i].x < currentMaxY.x))) {
             result.second = i;
-            curentMaxY = object.getCoordinates().list[i];
+            currentMaxY = object.getCoordinates().list[i];
             continue;
         }
     }
@@ -38,7 +38,7 @@ Material::pickoutNodesVertical(const Possibilities::PhysicallySituated &object, 
     pointsOffset.push_back(object.getCoordinates().list[ordinateVergePoints.first]);
 
     int index = ordinateVergePoints.first;
-    short indexStep = moveSide ? 1 : -1; //If the points are set in a clockwise direction.
+    short indexStep = moveSide ? 1 : -1; //Makes sense if the coordinates go around in a clockwise direction.
 
     while (index != ordinateVergePoints.second) {
         index += indexStep;
@@ -52,24 +52,24 @@ Material::pickoutNodesVertical(const Possibilities::PhysicallySituated &object, 
 static std::pair<float, float>
 abscissaVergeIndex(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept {
     std::pair<float, float> result(0, 0);
-    Components::Point curentMinX = object.getCoordinates().list.at(0);
-    Components::Point curentMaxX = object.getCoordinates().list.at(0);
+    Components::Point currentMinX = object.getCoordinates().list.at(0);
+    Components::Point currentMaxX = object.getCoordinates().list.at(0);
 
     for (size_t i = 0; i < object.getCoordinates().list.size(); ++i) {
 
-        if (((curentMinX.x != abscissaVerge.first) && (object.getCoordinates().list[i].x == abscissaVerge.first)) ||
+        if (((currentMinX.x != abscissaVerge.first) && (object.getCoordinates().list[i].x == abscissaVerge.first)) ||
             ((object.getCoordinates().list[i].x == abscissaVerge.first) &&
-             ((moveSide) ? object.getCoordinates().list[i].y > curentMinX.y : object.getCoordinates().list[i].y < curentMinX.y))) {
+             ((moveSide) ? object.getCoordinates().list[i].y > currentMinX.y : object.getCoordinates().list[i].y < currentMinX.y))) {
             result.first = i;
-            curentMinX = object.getCoordinates().list[i];
+            currentMinX = object.getCoordinates().list[i];
             continue;
         }
 
-        if (((curentMaxX.x != abscissaVerge.second) && (object.getCoordinates().list[i].x == abscissaVerge.second)) ||
+        if (((currentMaxX.x != abscissaVerge.second) && (object.getCoordinates().list[i].x == abscissaVerge.second)) ||
             ((object.getCoordinates().list[i].x == abscissaVerge.second) &&
-             ((moveSide) ? object.getCoordinates().list[i].y > curentMaxX.y : object.getCoordinates().list[i].y < curentMaxX.y))) {
+             ((moveSide) ? object.getCoordinates().list[i].y > currentMaxX.y : object.getCoordinates().list[i].y < currentMaxX.y))) {
             result.second = i;
-            curentMaxX = object.getCoordinates().list[i];
+            currentMaxX = object.getCoordinates().list[i];
             continue;
         }
     }
@@ -83,7 +83,7 @@ Material::pickoutNodesHorizontal(const Possibilities::PhysicallySituated &object
     pointsOffset.push_back(object.getCoordinates().list[abscissaVergePoints.first]);
 
     int index = abscissaVergePoints.first;
-    short indexStep = moveSide ? -1 : 1; //If the points are set in a clockwise direction.
+    short indexStep = moveSide ? -1 : 1; //Makes sense if the coordinates go around in a clockwise direction.
 
     while (index != abscissaVergePoints.second) {
         index += indexStep;

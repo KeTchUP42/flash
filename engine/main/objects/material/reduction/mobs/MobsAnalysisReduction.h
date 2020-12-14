@@ -9,7 +9,7 @@
 
 namespace RD {
     /**
-     * @brief The function contains the logic of analysis and verification of object health. It can correct it if necessary.
+     * @brief The function contains the logic of analysis and verification of object health.
     */
     void healthAnalysis(Mobs::Mob &mob) noexcept;
 }

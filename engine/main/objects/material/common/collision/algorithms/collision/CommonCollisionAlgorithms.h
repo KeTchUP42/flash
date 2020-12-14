@@ -17,7 +17,7 @@ namespace Material {
     /**
      * @brief Function checks point being inside the object.
      * @param object Object with object properties.
-     * @return Result.
+     * @return Was the collision?
     */
     bool collision(float x, float y, const Possibilities::PhysicallySituated &object) noexcept;
 
@@ -25,7 +25,7 @@ namespace Material {
      * @brief Function checks objects static collision.
      * @param object1 Object with сoordinates properties.
      * @param object2 Object with сoordinates properties.
-     * @return Result.
+     * @return Was the collision?
     */
     bool collision(const Possibilities::PhysicallySituated &object1, const Possibilities::PhysicallySituated &object2) noexcept;
 
@@ -33,7 +33,7 @@ namespace Material {
      * @brief Function checks objects static collision. It was optimized for rectangle like objects.
      * @param object1 Object with сoordinates properties.
      * @param object2 Object with сoordinates properties.
-     * @return Result.
+     * @return Was the collision?
     */
     template<class RectangleType1, class RectangleType2>
     bool OptimizedCollision(const RectangleType1 &object1, const RectangleType2 &object2) noexcept {

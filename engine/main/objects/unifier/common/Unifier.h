@@ -47,8 +47,13 @@ namespace Triggers {
 
 namespace Unite {
 
-    class Unifier : public Possibilities::Drawable<sf::RenderWindow>,
-                    public View::Observer<sf::Event, View::Window> {
+    /**
+     * @brief This class contains all scene objects collections and needed methods for scene state changing.
+     * @namespace Unite
+     *
+     * This class defines base Unifier interface and realization.
+    */
+    class Unifier : public Possibilities::Drawable<sf::RenderWindow>, public View::Observer<sf::Event, View::Window> {
     public:
         /**
          * @brief Method deletes operator= method.

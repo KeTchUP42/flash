@@ -11,47 +11,47 @@
 namespace Material {
 
     /**
-     * Function contains moving collision algorithm.
-     * After collision event, the main object moves as close as possible to the processed object.
+     * Function contains moving collision algorithm. Algorithm checks main and processed objects collision, in view of main object's current speed.
+     * After collision, the main object moves as close as possible to the processed object.
      *
      * @param object Main object.
      * @param processed Processed object.
-     * @return True or false.
+     * @return Was the collision?
     */
     bool movingAbscissaCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept;
 
     /**
-     * Function contains moving collision algorithm.
-     * After collision event, the main object moves as close as possible to the processed object.
+     * Function contains moving collision algorithm. Algorithm checks main and processed objects collision, in view of main object's current speed.
+     * After collision, the main object moves as close as possible to the processed object.
      *
      * @param object Main object.
      * @param processed Processed object.
-     * @return True or false.
+     * @return Was the collision?
      */
     bool movingOrdinateCollision(Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept;
 
     /**
-     * Function contains moving collision algorithm.
-     * After collision event, the main object moves as close as possible to the processed object.
+     * Function contains moving collision algorithm. Algorithm checks main and processed objects collision, in view of main object's current speed.
+     * After collision, the main object moves as close as possible to the processed object.
      *
      * @param object Main object.
      * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
      * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
-     * @return True or false.
+     * @return Was the collision?
     */
     bool movingAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
                                  Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept;
 
     /**
-     * Function contains moving collision algorithm.
-     * After collision event, the main object moves as close as possible to the processed object.
+     * Function contains moving collision algorithm. Algorithm checks main and processed objects collision, in view of main object's current speed.
+     * After collision, the main object moves as close as possible to the processed object.
      *
      * @param object Main object.
      * @param objectMinCoordinates Object's min coordinates. Uses for time optimization.
      * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param processed Processed object.
-     * @return True or false.
+     * @return Was the collision?
      */
     bool movingOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
                                  Material::MaterialObject &object, const Material::MaterialObject &processed, float step) noexcept;

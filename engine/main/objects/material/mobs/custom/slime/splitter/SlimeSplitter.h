@@ -69,7 +69,7 @@ namespace Mobs {
          */
         Mobs::SlimeProperties splitSlimeProperties(const Mobs::SlimeProperties &properties) const noexcept;
 
-        virtual ~SlimeSplitter() = default;
+        ~SlimeSplitter() = default;
 
     private:
         const float SPLITTING_COEFFICIENT;

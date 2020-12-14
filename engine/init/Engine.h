@@ -19,7 +19,7 @@ namespace Program {
     public:
         /**
          * @brief Main app constructor.
-         * @param filename - path to main ini config.
+         * @param filename Path to main ini config.
          */
         Engine(const std::string &filename);
 

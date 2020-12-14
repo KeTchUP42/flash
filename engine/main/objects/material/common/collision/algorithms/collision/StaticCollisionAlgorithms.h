@@ -13,7 +13,7 @@ namespace Material {
      * @brief Function contains static collision algorithm.
      * @param object1 First processed object.
      * @param object2 Second processed object.
-     * @return True or false.
+     * @return Was the collision?
      */
     bool staticAbscissaCollision(const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept;
 
@@ -21,7 +21,7 @@ namespace Material {
      * @brief Function contains static collision algorithm.
      * @param object1 First processed object.
      * @param object2 Second processed object.
-     * @return True or false.
+     * @return Was the collision?
      */
     bool staticOrdinateCollision(const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept;
 
@@ -31,7 +31,7 @@ namespace Material {
      * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param object1 First processed object.
      * @param object2 Second processed object.
-     * @return True or false.
+     * @return Was the collision?
      */
     bool staticAbscissaCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
                                  const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept;
@@ -42,7 +42,7 @@ namespace Material {
      * @param objectMaxCoordinates Object's max coordinates. Uses for time optimization.
      * @param object1 First processed object.
      * @param object2 Second processed object.
-     * @return True or false.
+     * @return Was the collision?
      */
     bool staticOrdinateCollision(const Components::Point &objectMinCoordinates, const Components::Point &objectMaxCoordinates,
                                  const Material::MaterialObject &object1, const Material::MaterialObject &object2) noexcept;
