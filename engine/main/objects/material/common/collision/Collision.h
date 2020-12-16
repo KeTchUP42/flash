@@ -24,7 +24,7 @@ namespace Material {
 
         const Material::StaticCollision &getStaticCollision() const noexcept;
 
-        virtual ~Collision() = default;
+        ~Collision() = default;
 
     private:
         const Material::MovingCollision m_movingCollision;

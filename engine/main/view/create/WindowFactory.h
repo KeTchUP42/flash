@@ -22,7 +22,7 @@ namespace View {
          */
         std::shared_ptr<View::Window> create(const std::string &filename, Managers::DataManager *manager);
 
-        virtual ~WindowFactory() = default;
+        ~WindowFactory() = default;
     };
 }
 #endif //FLASH_WINDOWFACTORY_H

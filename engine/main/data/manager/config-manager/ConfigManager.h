@@ -32,7 +32,7 @@ namespace Managers {
          */
         IniUtil::Analyzer::IniData loadIni(const std::string &filename) const;
 
-        virtual ~ConfigManager() = default;
+        ~ConfigManager() = default;
 
     private:
         const std::string CONFIG_DIRECTORY;

@@ -36,7 +36,7 @@ namespace WriterUtil {
          */
         virtual bool write(const char *__s, const std::ios::openmode &mode) const = 0;
 
-        virtual ~Writer() noexcept = default;
+        virtual ~Writer() = default;
     };
 }
 #endif //FLASH_WRITER_H

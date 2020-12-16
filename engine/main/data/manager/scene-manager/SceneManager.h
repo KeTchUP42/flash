@@ -31,7 +31,7 @@ namespace Managers {
          */
         IniUtil::Analyzer::IniData load(const std::string &filename) const;
 
-        virtual ~SceneManager() = default;
+        ~SceneManager() = default;
 
     private:
         const std::string SCENE_DIRECTORY;

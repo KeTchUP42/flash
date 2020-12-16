@@ -20,7 +20,7 @@ namespace Creation {
          */
         void analyze(const IniUtil::Analyzer::IniBlock &data, View::Window &window);
 
-        virtual ~DirectivesAnalyzer() = default;
+        ~DirectivesAnalyzer() = default;
 
     private:
         Pools::SourcePool &m_sourcePool;

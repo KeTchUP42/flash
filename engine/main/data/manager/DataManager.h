@@ -69,7 +69,7 @@ namespace Managers {
          */
         const std::shared_ptr<TextureManager> &getTextureManager() const noexcept;
 
-        virtual ~DataManager() = default;
+        ~DataManager() = default;
 
     private:
         std::shared_ptr<AudioManager> m_audioManager;

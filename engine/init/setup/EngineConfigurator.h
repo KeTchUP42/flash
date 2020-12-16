@@ -25,7 +25,7 @@ namespace Setup {
          */
         Managers::DataManager *loadDataManager(const IniUtil::Analyzer::IniBlock &block) const;
 
-        virtual ~EngineConfigurator() = default;
+        ~EngineConfigurator() = default;
     };
 }
 

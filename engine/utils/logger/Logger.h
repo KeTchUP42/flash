@@ -75,7 +75,7 @@ namespace LoggerUtil {
          */
         bool debug(const std::string &message) const noexcept;
 
-        virtual ~Logger() noexcept = default;
+        ~Logger() = default;
 
     private:
         std::shared_ptr<WriterUtil::Writer> m_writer;

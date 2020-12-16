@@ -35,7 +35,7 @@ namespace Material {
          */
         const Material::Collision &getCollision() const;
 
-        virtual ~Algorithms() = default;
+        ~Algorithms() = default;
 
     private:
         std::shared_ptr<Material::Collision> m_collision;

@@ -32,7 +32,7 @@ namespace ReaderUtil {
          */
         virtual std::vector<std::string> readlines() const = 0;
 
-        virtual ~Reader() noexcept = default;
+        virtual ~Reader() = default;
     };
 }
 

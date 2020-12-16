@@ -32,7 +32,7 @@ namespace Managers {
          */
         std::shared_ptr<sf::Music> loadMusic(const std::string &filename) const;
 
-        virtual ~AudioManager() = default;
+        ~AudioManager() = default;
 
     private:
         const std::string AUDIO_DIRECTORY;

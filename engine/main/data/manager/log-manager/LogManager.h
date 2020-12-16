@@ -41,7 +41,7 @@ namespace Managers {
          */
         std::shared_ptr<LoggerUtil::Logger> createLogger(const std::vector<std::string> &filenames) const;
 
-        virtual ~LogManager() = default;
+        ~LogManager() = default;
 
     private:
         const std::string LOG_DIRECTORY;

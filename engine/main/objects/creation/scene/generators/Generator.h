@@ -12,7 +12,7 @@
 namespace Creation {
 
     /**
-     * @brief The base class of the Generator class hierarchy.
+     * @brief The base class of the Generators class hierarchy which use for scene objects creation.
      * @namespace Creation
      *
      * This class defines base Generator interface.
@@ -23,11 +23,13 @@ namespace Creation {
 
         /**
          * @brief Method generats new object from data and adds it to unifier.
-         * @param data Data object.
-         * @param unifier Target unifier.
+         * @param data Ini data block.
+         * @param unifier Target scene unifier.
          * @param window Target window.
          */
         virtual void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) = 0;
+
+        virtual ~Generator() = default;
 
     protected:
         Pools::SourcePool &m_source;

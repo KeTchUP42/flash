@@ -48,7 +48,7 @@ namespace IniUtil {
          */
         bool createIni(const Analyzer::IniData &data, const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const;
 
-        virtual ~IniProcessor() = default;
+        ~IniProcessor() = default;
 
     private:
         std::shared_ptr<ReaderUtil::Reader> m_reader;

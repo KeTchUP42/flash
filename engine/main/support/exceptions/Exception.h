@@ -24,7 +24,7 @@ namespace Exceptions {
 
         int getCode() const noexcept;
 
-        virtual ~Exception() noexcept = default;
+        virtual ~Exception() = default;
 
     protected:
         std::string m_message;

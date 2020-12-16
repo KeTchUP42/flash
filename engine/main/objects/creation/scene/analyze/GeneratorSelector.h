@@ -21,7 +21,7 @@ namespace Creation {
          */
         Generator *select(const std::string &alias) const noexcept;
 
-        virtual ~GeneratorSelector() = default;
+        ~GeneratorSelector() = default;
 
     private:
         Pools::SourcePool &m_pool;

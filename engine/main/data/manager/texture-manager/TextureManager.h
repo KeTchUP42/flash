@@ -40,7 +40,7 @@ namespace Managers {
          */
         std::shared_ptr<sf::Image> loadImage(const std::string &filename) const;
 
-        virtual ~TextureManager() = default;
+        ~TextureManager() = default;
 
     private:
         const std::string TEXTURES_DIRECTORY;

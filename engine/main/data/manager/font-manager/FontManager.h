@@ -32,7 +32,7 @@ namespace Managers {
          */
         std::shared_ptr<sf::Font> loadFont(const std::string &filename) const;
 
-        virtual ~FontManager() = default;
+        ~FontManager() = default;
 
     private:
         const std::string FONTS_DIRECTORY;

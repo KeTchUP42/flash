@@ -29,7 +29,7 @@ namespace LoggerUtil {
          */
         virtual T format(const T &) const noexcept = 0;
 
-        virtual ~Formatter() noexcept = default;
+        virtual ~Formatter() = default;
     };
 }
 #endif //FLASH_FORMATTER_H
