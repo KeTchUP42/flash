@@ -14,7 +14,7 @@
 namespace Mobs {
 
     /**
-     * @brief The class represents the base class of all Mobs.
+     * @brief This class is the base class for all kinds of mobs. It contains all needed basic realization.
      * @namespace Mobs
      *
      * This class defines base Mob interface and realization.

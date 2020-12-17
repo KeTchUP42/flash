@@ -15,7 +15,7 @@ namespace Particles {
      * @brief The base class of the ParticleOptimizer class hierarchy.
      * @namespace Particles
      *
-     * This class defines base ParticleOptimizer interface.
+     * Particle-optimizers used to optimize particles "life" time.
     */
     template<class Type>
     class ParticleOptimizer {
@@ -26,7 +26,7 @@ namespace Particles {
          * @brief The method checks the particle state and make optimization whether it needs.
          * @param particle Checking particle.
          * @param unifier Scene unifier.
-         * @return Need optimization? OR Optimizated.
+         * @return Need optimization or optimizated.
          */
         virtual bool optimize(Type *particle, Unite::Unifier &unifier) = 0;
 

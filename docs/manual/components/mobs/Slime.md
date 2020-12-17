@@ -31,15 +31,15 @@
 
  ### Explanation:
 
- * `POSITION` - Parameter sets the position of the mobs's physical area on the screen. It has the following format - `X:Y`.
- * `SIZE` - Parameter sets the size of the mobs's physical area on the screen. It has the following format - `WIDTH:HEIGHT`.
- * `ANGLE` - Parameter sets the angle of the mobs's physical area on the screen.
- * `SPRITE_POSITION` - Parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
- * `SPRITE_SIZE` - Parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
- * `SPRITE_ANGLE` - Parameter sets the angle of the sprite's area on the screen. 
+ * `POSITION` - The parameter sets the position of the mobs physical area on the screen. It has the following format - `X:Y`.
+ * `SIZE` - The parameter sets the size of the mobs physical area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `ANGLE` - The parameter sets the angle of the mobs physical area on the screen.
+ * `SPRITE_POSITION` - The parameter sets the position of the sprite's area on the screen. It has the following format - `X:Y`.
+ * `SPRITE_SIZE` - The parameter sets the size of the sprite's area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `SPRITE_ANGLE` - The parameter sets the angle of the sprite's area on the screen.
  * `MAX_HEALTH_POINTS` - The parameter of maximum health points.
- * `HEALTH_POINTS` - Health points. Necessary for the process of life activities.
- * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
+ * `HEALTH_POINTS` - The parameter sets health points which are necessary for the process of life activities.
+ * `SPEED` - The parameter sets material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `MOVE_SPEED` - The parameter sets speed received when moving horizontally by jump.
  * `JUMP_DASH_SPEED` - The parameter sets speed received vertical at each jump.
  * `JUMP_RATE_COEFFICIENT` - The value determines the frequency of slime's jumps. The higher the value is, the jumps are less frequent.

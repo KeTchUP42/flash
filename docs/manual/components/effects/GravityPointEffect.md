@@ -10,4 +10,4 @@
 
  ### Explanation:
 
- * `POSITION` - Parameter sets the position of the effects's point on the screen. It has the following format - `X:Y`.
+ * `POSITION` - The parameter sets the position of the effects's point on the screen. It has the following format - `X:Y`.

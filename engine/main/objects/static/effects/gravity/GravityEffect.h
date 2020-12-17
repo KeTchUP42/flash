@@ -12,7 +12,7 @@ namespace Effects {
     class GravityEffect : public Effect {
     public:
         /**
-         * @brief Configures gravity power.
+         * @brief Constructor configures gravity power.
          */
         explicit GravityEffect(float accelerationX, float accelerationY);
 

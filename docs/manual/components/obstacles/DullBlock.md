@@ -17,10 +17,10 @@
 
  ### Explanation:
 
- * `POSITION` - Parameter sets the position of the block's physical area on the screen. It has the following format - `X:Y`.
- * `SIZE` - Parameter sets the size of the block's physical area on the screen. It has the following format - `WIDTH:HEIGHT`.
- * `ANGLE` - Parameter sets the angle of the block's physical area on the screen. 
- * `SPEED` - Material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
+ * `POSITION` - The parameter sets the position of the block's physical area on the screen. It has the following format - `X:Y`.
+ * `SIZE` - The parameter sets the size of the block's physical area on the screen. It has the following format - `WIDTH:HEIGHT`.
+ * `ANGLE` - The parameter sets the angle of the block's physical area on the screen.
+ * `SPEED` - The parameter sets material object's speed. It has the following format - `X_SPEED:Y_SPEED`.
  * `ELASTIC_COEFFICIENT` - This coefficient uses in jumps calculations.
  * `FRICTION_COEFFICIENT` - This coefficient uses in movement calculations.
  * `IS_FIXED` - If this flag is not set, the obstacle will be affected by static effects.

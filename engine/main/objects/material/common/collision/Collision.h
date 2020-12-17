@@ -14,7 +14,7 @@ namespace Material {
      * @brief The facade Collision class. This classes contains collision algorithms.
      * @namespace Material
      *
-     * This class defines Collision filling.
+     * This class defines Collision realization.
     */
     class Collision final {
     public:

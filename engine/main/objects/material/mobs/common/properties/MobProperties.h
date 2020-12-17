@@ -22,7 +22,7 @@ namespace Mobs {
         float maxHealthPoints;
 
         /**
-         * @brief Health points. Necessary for the process of life activities.
+         * @brief The parameter sets health points which are necessary for the process of life activities.
          */
         float healthPoints;
     };
