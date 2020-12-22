@@ -2,7 +2,7 @@
 // Created by roman on 29.09.2020.
 //
 
-#include "GeneratorSelector.h"
+#include "GeneratorsSelector.h"
 #include "../generators/effects/GravityEffectGenerator.h"
 #include "../generators/effects/GravityPointEffectGenerator.h"
 #include "../generators/effects/BackAudioEffectGenerator.h"
@@ -31,11 +31,11 @@
 #include "../generators/triggers/GravityMobsZoneGenerator.h"
 #include "../generators/triggers/GravityZoneGenerator.h"
 
-Creation::GeneratorSelector::GeneratorSelector(Creation::Pools::SourcePool &pool, View::StateChangeable *context)
+Creation::GeneratorsSelector::GeneratorsSelector(Creation::Pools::SourcePool &pool, View::StateChangeable *context)
         : m_pool(pool), m_context(context) {}
 
 Creation::Generator *
-Creation::GeneratorSelector::select(const std::string &alias) const noexcept {
+Creation::GeneratorsSelector::select(const std::string &alias) const noexcept {
     using namespace Creation;
     //effects
     if (alias == "GravityEffect")

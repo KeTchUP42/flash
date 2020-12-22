@@ -10,9 +10,9 @@
 
 namespace Creation {
 
-    class GeneratorSelector {
+    class GeneratorsSelector {
     public:
-        explicit GeneratorSelector(Pools::SourcePool &pool, View::StateChangeable *context);
+        explicit GeneratorsSelector(Pools::SourcePool &pool, View::StateChangeable *context);
 
         /**
          * @brief Function contains selecting and creating logic.
@@ -21,7 +21,7 @@ namespace Creation {
          */
         Generator *select(const std::string &alias) const noexcept;
 
-        ~GeneratorSelector() = default;
+        ~GeneratorsSelector() = default;
 
     private:
         Pools::SourcePool &m_pool;

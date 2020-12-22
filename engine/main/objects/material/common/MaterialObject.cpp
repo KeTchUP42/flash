@@ -59,6 +59,6 @@ const Components::Coordinates &Material::MaterialObject::getCoordinates() const 
     return m_coordinates;
 }
 
-const Material::MaterialProperties &Material::MaterialObject::getMaterialProperties() const {
+const Material::MaterialProperties &Material::MaterialObject::getMaterialProperties() const noexcept {
     return m_material_properties;
 }

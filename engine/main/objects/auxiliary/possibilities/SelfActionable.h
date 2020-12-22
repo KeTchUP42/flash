@@ -19,7 +19,7 @@ namespace Possibilities {
         SelfActionable() = default;
 
         /**
-         * @brief Method delegating all work to other "self" methods.
+         * @brief Method contains the logic of the component's existence.
          */
         virtual void selfAction(Unifier *unifier) = 0;
 

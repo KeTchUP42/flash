@@ -33,7 +33,6 @@ namespace Material {
             public Possibilities::PhysicallySituated,
             public Possibilities::Drawable<sf::RenderTarget> {
     public:
-
         /**
          * @brief Default constructor.
          */
@@ -77,7 +76,7 @@ namespace Material {
 
         const Components::Coordinates &getCoordinates() const noexcept override;
 
-        const MaterialProperties &getMaterialProperties() const;
+        const MaterialProperties &getMaterialProperties() const noexcept;
 
         virtual ~MaterialObject() = default;
 

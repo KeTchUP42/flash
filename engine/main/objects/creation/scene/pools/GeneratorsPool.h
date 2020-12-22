@@ -6,7 +6,7 @@
 #define FLASH_GENERATORSPOOL_H
 
 #include "../generators/Generator.h"
-#include "../analyze/GeneratorSelector.h"
+#include "../analyze/GeneratorsSelector.h"
 
 namespace Creation {
 
@@ -33,7 +33,7 @@ namespace Creation {
             /**
              * @brief Generators selector.
              */
-            Creation::GeneratorSelector m_selector;
+            Creation::GeneratorsSelector m_selector;
 
             /**
              * @brief Cache with generators.

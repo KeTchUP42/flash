@@ -4,7 +4,6 @@
 
 #include "AlgorithmsPool.h"
 
-
 std::shared_ptr<Material::Collision>
 Creation::Pools::AlgorithmsPool::loadCollision(const std::pair<float, float> &params) noexcept {
     if (m_collision[params].get() == nullptr) {
