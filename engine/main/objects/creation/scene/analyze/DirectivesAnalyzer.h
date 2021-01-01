@@ -12,7 +12,7 @@ namespace Creation {
 
     class DirectivesAnalyzer {
     public:
-        DirectivesAnalyzer(Pools::SourcePool &sourcePool);
+        explicit DirectivesAnalyzer(Pools::SourcePool &sourcePool);
 
         /**
          * @brief Method reads ini-data and configures render window and source pool.

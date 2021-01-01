@@ -12,7 +12,7 @@ namespace Obstacles {
 
     class CompositeSpriteBlock : public AnalyzingBlock {
     public:
-        explicit CompositeSpriteBlock(
+        CompositeSpriteBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const Components::Area &area,

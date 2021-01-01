@@ -11,7 +11,7 @@ namespace Obstacles {
 
     class DullInvisibleBlock : public InvisibleBlock {
     public:
-        explicit DullInvisibleBlock(
+        DullInvisibleBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const Components::Area &area,

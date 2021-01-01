@@ -24,7 +24,7 @@ namespace Mobs {
      * @brief Struct contains all shooting player numeric properties.
      */
     struct ShootingPlayerProperties {
-        explicit ShootingPlayerProperties(
+        ShootingPlayerProperties(
                 float bulletsFlightSpeed,
                 float bulletsDamage,
                 bool bulletsUnderEffects,

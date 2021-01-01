@@ -22,7 +22,7 @@ namespace Mobs {
          * @brief Default constructor.
          * @param splittingCoefficient Splitting coefficient.
          */
-        SlimeSplitter(float splittingCoefficient);
+        explicit SlimeSplitter(float splittingCoefficient);
 
         /**
          * @brief All slime properties.
@@ -68,8 +68,6 @@ namespace Mobs {
          * @return New slime properties.
          */
         Mobs::SlimeProperties splitSlimeProperties(const Mobs::SlimeProperties &properties) const noexcept;
-
-        ~SlimeSplitter() = default;
 
     private:
         const float SPLITTING_COEFFICIENT;

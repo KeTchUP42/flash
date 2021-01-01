@@ -12,7 +12,7 @@ namespace Mobs {
 
     class Slime : public AnalyzingMob {
     public:
-        explicit Slime(
+        Slime(
                 const Material::MaterialProperties &material_properties,
                 const MobProperties &properties,
                 const Components::Area &area,

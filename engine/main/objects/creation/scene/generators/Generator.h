@@ -19,7 +19,7 @@ namespace Creation {
     */
     class Generator {
     public:
-        Generator(Pools::SourcePool &pool) : m_source(pool) {}
+        explicit Generator(Pools::SourcePool &pool) : m_source(pool) {}
 
         /**
          * @brief Method generats new object from data and adds it to unifier.

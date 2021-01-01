@@ -11,8 +11,7 @@ namespace Triggers {
 
     class AudioTrigger : public AreaTrigger {
     public:
-        explicit AudioTrigger(const Components::Area &area, const std::shared_ptr<sf::Music> &audio)
-                : AreaTrigger(area), m_audio(audio) {}
+        AudioTrigger(const Components::Area &area, const std::shared_ptr<sf::Music> &audio) : AreaTrigger(area), m_audio(audio) {}
 
     protected:
         std::shared_ptr<sf::Music> m_audio;

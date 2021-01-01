@@ -12,7 +12,7 @@ namespace Triggers {
 
     class ExplicitPositionPlayerHandler : public Handler<Mobs::Player> {
     public:
-        ExplicitPositionPlayerHandler(const Components::Point &target);
+        explicit ExplicitPositionPlayerHandler(const Components::Point &target);
 
         void handle(Mobs::Player &object) const noexcept override;
 

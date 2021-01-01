@@ -11,7 +11,7 @@ namespace Creation {
 
     class GravityEffectGenerator : public Generator {
     public:
-        GravityEffectGenerator(Pools::SourcePool &pool);
+        explicit GravityEffectGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

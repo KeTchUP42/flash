@@ -15,7 +15,7 @@ namespace Material {
 
     class MovingCollision {
     public:
-        explicit MovingCollision(float analysisStepX, float analysisStepY);
+        MovingCollision(float analysisStepX, float analysisStepY);
 
         template<class Type>
         Type *abscissaMoveAble(Material::MaterialObject *object, const std::list<std::shared_ptr<Type>> &objects) const noexcept;

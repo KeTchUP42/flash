@@ -12,7 +12,7 @@ namespace Obstacles {
 
     class AnalyzingBlock : public Block {
     public:
-        explicit AnalyzingBlock(
+        AnalyzingBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const Components::Area &area,

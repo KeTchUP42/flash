@@ -19,8 +19,7 @@ namespace Components {
          * @param "width" value.
          * @param "height" value.
          */
-        explicit Size(unsigned int width, unsigned int height)
-                : width(width), height(height) {}
+        Size(unsigned int width, unsigned int height);
 
         /**
          * @brief Base constructor. Inits "width" and "height" by zero.

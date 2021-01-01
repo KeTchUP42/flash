@@ -15,16 +15,16 @@ namespace Components {
     */
     struct Point {
         /**
-         * @brief Inits "x" and "y" by zero.
-         */
-        Point();
-
-        /**
          * @brief Inits "x" and "y".
          * @param x coordinate.
          * @param y coordinate.
          */
         Point(float x, float y);
+
+        /**
+         * @brief Inits "x" and "y" by zero.
+         */
+        Point() : x(), y() {}
 
         float x;
         float y;

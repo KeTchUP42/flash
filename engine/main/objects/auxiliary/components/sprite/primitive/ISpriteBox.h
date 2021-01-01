@@ -26,14 +26,14 @@ namespace Components {
          * @param texture Sprite texture.
          * @param sprite Base sprite.
          */
-        explicit ISpriteBox(const std::shared_ptr<sf::Texture> &texture, sf::Sprite *sprite);
+        ISpriteBox(const std::shared_ptr<sf::Texture> &texture, sf::Sprite *sprite);
 
         /**
          * @brief Base custom sprite constructor.
          * @param texture Sprite texture.
          * @param sprite Base sprite.
          */
-        explicit ISpriteBox(const std::shared_ptr<sf::Texture> &texture, const std::shared_ptr<sf::Sprite> &sprite);
+        ISpriteBox(const std::shared_ptr<sf::Texture> &texture, const std::shared_ptr<sf::Sprite> &sprite);
 
         /**
          * @brief Method returns origin sprite.

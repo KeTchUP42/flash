@@ -21,7 +21,7 @@ namespace Triggers {
     */
     class AreaTrigger : public Trigger, public Possibilities::MaterialRectangle {
     public:
-        AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(Calculations::coordinates(*this)) {}
+        explicit AreaTrigger(const Components::Area &area) : m_area(area), m_coordinates(Calculations::coordinates(*this)) {}
 
         void update(const sf::Event &event, View::Window &sender) override;
 

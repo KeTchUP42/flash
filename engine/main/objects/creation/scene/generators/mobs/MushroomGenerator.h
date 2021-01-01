@@ -11,7 +11,7 @@ namespace Creation {
 
     class MushroomGenerator : public Generator {
     public:
-        MushroomGenerator(Pools::SourcePool &pool);
+        explicit MushroomGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

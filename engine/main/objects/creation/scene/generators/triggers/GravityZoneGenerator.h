@@ -11,7 +11,7 @@ namespace Creation {
 
     class GravityZoneGenerator : public Generator {
     public:
-        GravityZoneGenerator(Pools::SourcePool &pool);
+        explicit GravityZoneGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

@@ -11,7 +11,7 @@ namespace Obstacles {
 
     class PlatformBlock : public SingleSpriteBlock {
     public:
-        explicit PlatformBlock(
+        PlatformBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,

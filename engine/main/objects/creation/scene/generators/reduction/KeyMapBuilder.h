@@ -22,7 +22,7 @@ namespace Creation {
         */
         class KeyMapBuilder {
         public:
-            explicit KeyMapBuilder(const std::string &filename, Pools::SourcePool &source);
+            KeyMapBuilder(const std::string &filename, Pools::SourcePool &source);
 
             /**
              * @brief Method sets keymap field.
@@ -44,8 +44,6 @@ namespace Creation {
              * @return This reference.
              */
             KeyMapBuilder &resetKeyMap() noexcept;
-
-            ~KeyMapBuilder() = default;
 
         private:
             IniUtil::Analyzer::IniData m_keydata;

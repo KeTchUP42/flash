@@ -11,7 +11,7 @@ namespace Triggers {
 
     class SingleMobsAudioTrigger : public AudioTrigger {
     public:
-        explicit SingleMobsAudioTrigger(const Components::Area &area, const std::shared_ptr<sf::Music> &audio);
+        SingleMobsAudioTrigger(const Components::Area &area, const std::shared_ptr<sf::Music> &audio);
 
         ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept override;
 

@@ -11,7 +11,7 @@ namespace Creation {
 
     class TextGenerator : public Generator {
     public:
-        TextGenerator(Pools::SourcePool &pool);
+        explicit TextGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

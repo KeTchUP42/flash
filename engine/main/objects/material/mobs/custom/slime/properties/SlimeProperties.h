@@ -11,7 +11,7 @@ namespace Mobs {
      * @brief Struct contains slime numeric properties.
      */
     struct SlimeProperties {
-        explicit SlimeProperties(
+        SlimeProperties(
                 float moveSpeed,
                 float jumpSpeed,
                 unsigned int jumpRateCoefficient,

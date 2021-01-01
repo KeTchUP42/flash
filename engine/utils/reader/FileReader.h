@@ -11,7 +11,7 @@ namespace ReaderUtil {
 
     class FileReader : public Reader {
     public:
-        FileReader(const std::string &filename);
+        explicit FileReader(const std::string &filename);
 
         std::string read() const override;
 

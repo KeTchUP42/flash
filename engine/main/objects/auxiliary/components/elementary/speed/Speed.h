@@ -16,12 +16,22 @@ namespace Components {
      * This struct is the base component.
     */
     struct Speed {
-        explicit Speed(float xSpeed, float ySpeed)
-                : xSpeed(xSpeed), ySpeed(ySpeed) {}
+        /**
+         * @brief Constructor converts std::pair<float, float> to Speed.
+         * @param speed Speed values.
+         */
+        explicit Speed(const std::pair<float, float> &speed);
 
-        Speed(const std::pair<float, float> &speed)
-                : xSpeed(speed.first), ySpeed(speed.second) {}
+        /**
+         * @brief Standard Speed constructor.
+         * @param xSpeed Abscissa speed value.
+         * @param ySpeed Ordinate speed value.
+         */
+        Speed(float xSpeed, float ySpeed);
 
+        /**
+        * @brief Default constructor.
+        */
         Speed() : xSpeed(), ySpeed() {};
 
         /**

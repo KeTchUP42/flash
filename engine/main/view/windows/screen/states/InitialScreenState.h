@@ -13,7 +13,7 @@ namespace View {
 
     class InitialScreenState : public ScreenState {
     public:
-        InitialScreenState(const std::string &filename);
+        explicit InitialScreenState(const std::string &filename);
 
         void load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) override;
 

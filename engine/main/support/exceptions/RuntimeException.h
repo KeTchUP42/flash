@@ -12,11 +12,9 @@ namespace Exceptions {
 
     class RuntimeException : public Exception {
     public:
-        explicit RuntimeException(const char *message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
-                : Exception(message, code) {}
+        explicit RuntimeException(const char *message, int code = ExceptionCodes::RUNTIME_EXCEPTION) : Exception(message, code) {}
 
-        explicit RuntimeException(const std::string &message, const int &code = ExceptionCodes::RUNTIME_EXCEPTION) noexcept
-                : Exception(message, code) {}
+        explicit RuntimeException(const std::string &message, int code = ExceptionCodes::RUNTIME_EXCEPTION) : Exception(message, code) {}
     };
 
 }

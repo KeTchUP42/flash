@@ -18,7 +18,7 @@ namespace Material {
     */
     class Collision final {
     public:
-        explicit Collision(float analysisStepX, float analysisStepY);
+        Collision(float analysisStepX, float analysisStepY);
 
         const Material::MovingCollision &getMovingCollision() const noexcept;
 

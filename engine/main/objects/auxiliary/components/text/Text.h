@@ -23,9 +23,9 @@ namespace Components {
     */
     class Text : public Possibilities::Moving, public Possibilities::Drawable<sf::RenderTarget> {
     public:
-        explicit Text(const std::string &string, sf::Font *font);
+        Text(const std::string &string, sf::Font *font);
 
-        explicit Text(const std::string &string, const std::shared_ptr<sf::Font> &font);
+        Text(const std::string &string, const std::shared_ptr<sf::Font> &font);
 
         void draw(sf::RenderTarget &target) const noexcept override;
 

@@ -21,13 +21,12 @@ namespace View {
      *
      * This class defines base ScreenState interface and fields.
     */
-    class ScreenState : public Possibilities::Drawable<sf::RenderWindow>,
-                        public View::Observer<sf::Event, View::Window> {
+    class ScreenState : public Possibilities::Drawable<sf::RenderWindow>, public View::Observer<sf::Event, View::Window> {
     public:
         /**
          * @brief Constructors may have transit data.
          */
-        ScreenState(const std::string &filename) : m_scene_file(filename) {};
+        explicit ScreenState(const std::string &filename) : m_scene_file(filename) {};
 
         /**
          * @brief Method inits all screen components.

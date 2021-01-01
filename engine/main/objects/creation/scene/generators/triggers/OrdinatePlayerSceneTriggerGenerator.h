@@ -11,7 +11,7 @@ namespace Creation {
 
     class OrdinatePlayerSceneTriggerGenerator : public SceneTriggerGenerator {
     public:
-        explicit OrdinatePlayerSceneTriggerGenerator(Pools::SourcePool &pool, View::StateChangeable *context);
+        OrdinatePlayerSceneTriggerGenerator(Pools::SourcePool &pool, View::StateChangeable *context);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

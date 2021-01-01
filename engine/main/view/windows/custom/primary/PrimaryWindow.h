@@ -14,11 +14,11 @@ namespace View {
 
     class PrimaryWindow : public Window, public View::StateChangeable {
     public:
-        explicit PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
-                               const sf::ContextSettings &settings, View::ScreenState *screenState, Managers::DataManager *manager);
+        PrimaryWindow(const sf::VideoMode &mode, const sf::String &title, sf::Uint32 style,
+                      const sf::ContextSettings &settings, View::ScreenState *screenState, Managers::DataManager *manager);
 
-        explicit PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
-                               View::ScreenState *screenState, Managers::DataManager *manager);
+        PrimaryWindow(sf::WindowHandle handle, const sf::ContextSettings &settings,
+                      View::ScreenState *screenState, Managers::DataManager *manager);
 
     public:
         void configure();

@@ -13,7 +13,7 @@ namespace Mobs {
      * @brief Struct contains all mob numeric properties.
      */
     struct MobProperties {
-        explicit MobProperties(float maxHealthPoints, float healthPoints)
+        MobProperties(float maxHealthPoints, float healthPoints)
                 : maxHealthPoints(maxHealthPoints), healthPoints(healthPoints) {}
 
         /**

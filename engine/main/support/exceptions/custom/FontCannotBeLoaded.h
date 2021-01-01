@@ -11,11 +11,9 @@ namespace Exceptions {
 
     class FontCannotBeLoaded : public RuntimeException {
     public:
-        explicit FontCannotBeLoaded(const char *message)
-                : RuntimeException(message) {}
+        explicit FontCannotBeLoaded(const char *message) : RuntimeException(message) {}
 
-        explicit FontCannotBeLoaded(const std::string &message)
-                : RuntimeException(message) {}
+        explicit FontCannotBeLoaded(const std::string &message) : RuntimeException(message) {}
     };
 }
 

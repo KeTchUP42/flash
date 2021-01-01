@@ -11,7 +11,7 @@ namespace Creation {
 
     class BackgroundSpriteGenerator : public Generator {
     public:
-        BackgroundSpriteGenerator(Pools::SourcePool &pool);
+        explicit BackgroundSpriteGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

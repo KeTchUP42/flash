@@ -11,7 +11,7 @@ namespace Creation {
 
     class BackSpriteGenerator : public Generator {
     public:
-        BackSpriteGenerator(Pools::SourcePool &pool);
+        explicit BackSpriteGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

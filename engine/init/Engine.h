@@ -21,7 +21,7 @@ namespace Program {
          * @brief Main app constructor.
          * @param filename Path to main ini config.
          */
-        Engine(const std::string &filename);
+        explicit Engine(const std::string &filename);
 
         /**
          * @brief Main program entry point method.

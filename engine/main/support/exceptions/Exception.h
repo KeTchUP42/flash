@@ -12,10 +12,10 @@ namespace Exceptions {
 
     class Exception : public std::exception {
     public:
-        explicit Exception(const char *message, const int &code) noexcept
+        Exception(const char *message, int code) noexcept
                 : std::exception(), m_message(message), m_code(code) {}
 
-        explicit Exception(const std::string &message, const int &code) noexcept
+        Exception(const std::string &message, int code) noexcept
                 : std::exception(), m_message(message), m_code(code) {}
 
         const char *what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;

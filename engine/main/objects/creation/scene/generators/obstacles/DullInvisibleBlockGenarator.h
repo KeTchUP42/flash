@@ -11,7 +11,7 @@ namespace Creation {
 
     class DullInvisibleBlockGenarator : public Creation::Generator {
     public:
-        DullInvisibleBlockGenarator(Pools::SourcePool &pool);
+        explicit DullInvisibleBlockGenarator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

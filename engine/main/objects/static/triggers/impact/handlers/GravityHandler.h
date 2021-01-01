@@ -12,7 +12,7 @@ namespace Triggers {
     template<class Type>
     class GravityHandler : public Handler<Type> {
     public:
-        explicit GravityHandler(float accelerationX, float accelerationY)
+        GravityHandler(float accelerationX, float accelerationY)
                 : X_ACCELERATION(accelerationX), Y_ACCELERATION(accelerationY) {}
 
         void handle(Type &object) const noexcept override {

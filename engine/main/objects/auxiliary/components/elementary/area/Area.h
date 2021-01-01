@@ -18,17 +18,17 @@ namespace Components {
     */
     struct Area : public Possibilities::Rectangle, public Possibilities::Moving {
         /**
-         * @brief Inits all fields by zero.
-         */
-        Area();
-
-        /**
          * @brief Inits all fields by given values.
          * @param point Area point.
          * @param size Area size.
          * @param angle Area turning angle.
          */
-        explicit Area(const Point &point, const Size &size, float angle);
+        Area(const Point &point, const Size &size, float angle);
+
+        /**
+         * @brief Inits all fields by zero.
+         */
+        Area() : m_angle(), m_point(), m_size() {}
 
         void move(float offsetX, float offsetY) noexcept override;
 

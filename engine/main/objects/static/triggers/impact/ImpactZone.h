@@ -13,7 +13,7 @@ namespace Triggers {
     template<class Type>
     class ImpactZone : public AreaTrigger {
     public:
-        explicit ImpactZone(const Components::Area &area, Handler<Type> *handler) : AreaTrigger(area), m_handler(handler) {}
+        ImpactZone(const Components::Area &area, Handler<Type> *handler) : AreaTrigger(area), m_handler(handler) {}
 
     protected:
         std::shared_ptr<Handler<Type>> m_handler;

@@ -11,7 +11,7 @@ namespace Particles {
      * @brief Struct contains all bullet numeric properties.
      */
     struct BulletProperties {
-        BulletProperties(float damage) : damage(damage) {}
+        explicit BulletProperties(float damage) : damage(damage) {}
 
         /**
          * @brief Bullet's damage.

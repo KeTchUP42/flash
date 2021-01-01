@@ -19,8 +19,7 @@ namespace Mobs {
      *
      * This class defines base Mob interface and realization.
     */
-    class Mob : public Material::MaterialObject,
-                public Possibilities::Rectangle,
+    class Mob : public Material::MaterialObject, public Possibilities::Rectangle,
                 public Possibilities::Peculiar<MobProperties> {
     public:
         /**
@@ -30,10 +29,10 @@ namespace Mobs {
          * @param area Mob physical area.
          * @param sprite Mob sprite.
          */
-        explicit Mob(const Material::MaterialProperties &material_properties,
-                     const Mobs::MobProperties &properties,
-                     const Components::Area &area,
-                     const std::shared_ptr<Components::ISpriteBox> &sprite);
+        Mob(const Material::MaterialProperties &material_properties,
+            const Mobs::MobProperties &properties,
+            const Components::Area &area,
+            const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
          * @brief Method changes mob's sprite texture.

@@ -12,7 +12,7 @@ namespace Particles {
 
     class BulletsOptimizer : public ParticleOptimizer<Particles::Bullet> {
     public:
-        BulletsOptimizer(const sf::Vector2<unsigned int> &windowSize);
+        explicit BulletsOptimizer(const sf::Vector2<unsigned int> &windowSize);
 
         bool optimize(Bullet *particle, Unite::Unifier &unifier) override;
 

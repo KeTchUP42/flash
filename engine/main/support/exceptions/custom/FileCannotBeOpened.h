@@ -11,11 +11,9 @@ namespace Exceptions {
 
     class FileCannotBeOpened : public RuntimeException {
     public:
-        explicit FileCannotBeOpened(const char *message)
-                : RuntimeException(message) {}
+        explicit FileCannotBeOpened(const char *message) : RuntimeException(message) {}
 
-        explicit FileCannotBeOpened(const std::string &message)
-                : RuntimeException(message) {}
+        explicit FileCannotBeOpened(const std::string &message) : RuntimeException(message) {}
     };
 }
 #endif //FLASH_FILECANNOTBEOPENED_H

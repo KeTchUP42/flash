@@ -12,7 +12,7 @@ namespace Triggers {
 
     class OrdinatePositionPlayerHandler : public Handler<Mobs::Player> {
     public:
-        OrdinatePositionPlayerHandler(float ordinate);
+        explicit OrdinatePositionPlayerHandler(float ordinate);
 
         void handle(Mobs::Player &object) const noexcept override;
 

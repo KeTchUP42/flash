@@ -13,7 +13,7 @@ namespace Particles {
      * @brief Struct contains all particle numeric properties.
      */
     struct ParticleProperties {
-        ParticleProperties(bool isUnderEffect)
+        explicit ParticleProperties(bool isUnderEffect)
                 : isUnderEffects(isUnderEffect) {}
 
         /**

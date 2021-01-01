@@ -12,8 +12,8 @@ namespace Triggers {
 
     class PlayerSceneTrigger : public SceneTrigger {
     public:
-        explicit PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
-                                    Handler<Mobs::Player> *handler, View::StateChangeable *context);
+        PlayerSceneTrigger(const std::string &filename, const Components::Area &area,
+                           Handler<Mobs::Player> *handler, View::StateChangeable *context);
 
         ResultCodes verifyTrigger(Unite::Unifier *unifier) override;
 

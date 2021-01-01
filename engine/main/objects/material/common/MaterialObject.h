@@ -36,14 +36,14 @@ namespace Material {
         /**
          * @brief Default constructor.
          */
-        MaterialObject(const MaterialProperties &material_properties);
+        explicit MaterialObject(const MaterialProperties &material_properties);
 
         /**
          * @brief Constructor that allows you to initiate an object of arbitrary shape.
          * @param material_properties Material properties.
          * @param coordinates Object coordinates.
          */
-        explicit MaterialObject(const MaterialProperties &material_properties, const Components::Coordinates &coordinates);
+        MaterialObject(const MaterialProperties &material_properties, const Components::Coordinates &coordinates);
 
         /**
          * @brief Method updated coordinates value.

@@ -17,7 +17,7 @@ namespace Effects {
     */
     class AudioEffect : public Effect {
     public:
-        AudioEffect(const std::shared_ptr<sf::Music> &audio) : m_audio(audio) {}
+        explicit AudioEffect(const std::shared_ptr<sf::Music> &audio) : m_audio(audio) {}
 
     protected:
         std::shared_ptr<sf::Music> m_audio;

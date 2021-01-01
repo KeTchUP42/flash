@@ -11,7 +11,7 @@ namespace Triggers {
 
     class ImpactMobsZone : public ImpactZone<Mobs::Mob> {
     public:
-        explicit ImpactMobsZone(const Components::Area &area, Handler<Mobs::Mob> *handler);
+        ImpactMobsZone(const Components::Area &area, Handler<Mobs::Mob> *handler);
 
         ResultCodes verifyTrigger(Unite::Unifier *unifier) noexcept override;
     };

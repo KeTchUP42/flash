@@ -24,12 +24,12 @@ namespace IniUtil {
         /**
          * @brief Alias for IniBlock type.
         */
-        typedef std::map<std::string, std::string> IniBlock;
+        using IniBlock = std::map<std::string, std::string>;
 
         /**
          * @brief Alias for IniData type.
          */
-        typedef std::map<std::string, Analyzer::IniBlock> IniData;
+        using IniData = std::map<std::string, Analyzer::IniBlock>;
 
         /**
          * Method returns full ini config data in IniData type.

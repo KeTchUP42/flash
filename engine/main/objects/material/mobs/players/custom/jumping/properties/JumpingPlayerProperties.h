@@ -11,7 +11,7 @@ namespace Mobs {
      * @brief Struct contains all jumping player numeric properties.
      */
     struct JumpingPlayerProperties {
-        explicit JumpingPlayerProperties(
+        JumpingPlayerProperties(
                 float moveSpeed,
                 float maxMoveSpeed,
                 float jumpSpeed

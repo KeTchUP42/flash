@@ -10,8 +10,6 @@
 Components::Area::Area(const Components::Point &point, const Components::Size &size, float angle)
         : m_angle(angle), m_point(point), m_size(size) {}
 
-Components::Area::Area() : m_angle(), m_point(), m_size() {}
-
 void Components::Area::move(float offsetX, float offsetY) noexcept {
     m_point.x += offsetX;
     m_point.y += offsetY;

@@ -11,7 +11,7 @@ namespace Effects {
 
     class GravityPointEffect : public Effect, public Possibilities::Moving {
     public:
-        explicit GravityPointEffect(const Components::Point &point, float acceleration);
+        GravityPointEffect(const Components::Point &point, float acceleration);
 
         void applyEffect(Unite::Unifier *unifier) override;
 

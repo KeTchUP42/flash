@@ -11,7 +11,7 @@ namespace Creation {
 
     class BackAudioEffectGenerator : public Generator {
     public:
-        BackAudioEffectGenerator(Pools::SourcePool &pool);
+        explicit BackAudioEffectGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

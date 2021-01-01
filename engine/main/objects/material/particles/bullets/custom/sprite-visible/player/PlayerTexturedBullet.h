@@ -11,7 +11,7 @@ namespace Particles {
 
     class PlayerTexturedBullet : public TexturedBullet {
     public:
-        explicit PlayerTexturedBullet(
+        PlayerTexturedBullet(
                 const Material::MaterialProperties &material_properties,
                 const ParticleProperties &properties,
                 const BulletProperties &bullet,

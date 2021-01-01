@@ -11,7 +11,7 @@ namespace Effects {
 
     class BackAudioEffect : public AudioEffect {
     public:
-        BackAudioEffect(const std::shared_ptr<sf::Music> &audio);
+        explicit BackAudioEffect(const std::shared_ptr<sf::Music> &audio);
 
         void applyEffect(Unite::Unifier *unifier) override;
     };

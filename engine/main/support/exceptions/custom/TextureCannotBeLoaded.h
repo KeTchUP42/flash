@@ -11,11 +11,9 @@ namespace Exceptions {
 
     class TextureCannotBeLoaded : public RuntimeException {
     public:
-        explicit TextureCannotBeLoaded(const char *message)
-                : RuntimeException(message) {}
+        explicit TextureCannotBeLoaded(const char *message) : RuntimeException(message) {}
 
-        explicit TextureCannotBeLoaded(const std::string &message)
-                : RuntimeException(message) {}
+        explicit TextureCannotBeLoaded(const std::string &message) : RuntimeException(message) {}
     };
 }
 

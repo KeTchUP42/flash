@@ -12,7 +12,7 @@ namespace Components {
 
     class SpriteBox : public ISpriteBox {
     public:
-        explicit SpriteBox(const Components::Area &area, const std::shared_ptr<sf::Texture> &texture);
+        SpriteBox(const Components::Area &area, const std::shared_ptr<sf::Texture> &texture);
 
         void draw(sf::RenderTarget &target) const noexcept override;
 

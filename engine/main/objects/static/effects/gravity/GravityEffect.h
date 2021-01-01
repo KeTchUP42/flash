@@ -14,7 +14,7 @@ namespace Effects {
         /**
          * @brief Constructor configures gravity power.
          */
-        explicit GravityEffect(float accelerationX, float accelerationY);
+        GravityEffect(float accelerationX, float accelerationY);
 
         void applyEffect(Unite::Unifier *unifier) override;
 

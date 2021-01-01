@@ -11,7 +11,7 @@ namespace Obstacles {
 
     class ElasticBlock : public Obstacles::SingleSpriteBlock {
     public:
-        explicit ElasticBlock(
+        ElasticBlock(
                 const Material::MaterialProperties &material_properties,
                 const ObstacleProperties &properties,
                 const std::shared_ptr<Components::ISpriteBox> &sprite,

@@ -24,7 +24,7 @@ namespace LoggerUtil {
         explicit Logger(WriterUtil::Writer *writer, Formatter<std::string> *formatter = new LoggerFormatter())
                 : m_writer(writer), m_formatter(formatter) {}
 
-        explicit Logger(const std::shared_ptr<WriterUtil::Writer> &writer, const std::shared_ptr<Formatter<std::string>> &formatter)
+        Logger(const std::shared_ptr<WriterUtil::Writer> &writer, const std::shared_ptr<Formatter<std::string>> &formatter)
                 : m_writer(writer), m_formatter(formatter) {}
 
         /**
@@ -74,8 +74,6 @@ namespace LoggerUtil {
          * @return Was success?
          */
         bool debug(const std::string &message) const noexcept;
-
-        ~Logger() = default;
 
     private:
         std::shared_ptr<WriterUtil::Writer> m_writer;

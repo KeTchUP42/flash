@@ -20,7 +20,7 @@ namespace Creation {
         */
         class GeneratorsPool {
         public:
-            explicit GeneratorsPool(SourcePool &pool, View::StateChangeable *context);
+            GeneratorsPool(SourcePool &pool, View::StateChangeable *context);
 
             /**
              * @brief Method returns generator with alias.

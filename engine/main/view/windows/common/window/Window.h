@@ -34,14 +34,14 @@ namespace View {
          * @param style Window style.
          * @param settings Window contex setting.
          */
-        explicit Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings);
+        Window(sf::VideoMode mode, const sf::String &title, sf::Uint32 style, const sf::ContextSettings &settings);
 
         /**
          * @brief Window constructor.
          * @param handle Window handle.
          * @param settings Window contex setting.
          */
-        explicit Window(sf::WindowHandle handle, const sf::ContextSettings &settings);
+        Window(sf::WindowHandle handle, const sf::ContextSettings &settings);
 
         /**
          * @brief Method deletes operator= method.

@@ -13,7 +13,7 @@ namespace Particles {
 
     class Bullet : public Particle {
     public:
-        explicit Bullet(
+        Bullet(
                 const Material::MaterialProperties &material_properties,
                 const ParticleProperties &properties,
                 const BulletProperties &bullet,

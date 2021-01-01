@@ -11,11 +11,9 @@ namespace Exceptions {
 
     class AudioFileCannotBeOpened : public RuntimeException {
     public:
-        explicit AudioFileCannotBeOpened(const char *message)
-                : RuntimeException(message) {}
+        explicit AudioFileCannotBeOpened(const char *message) : RuntimeException(message) {}
 
-        explicit AudioFileCannotBeOpened(const std::string &message)
-                : RuntimeException(message) {}
+        explicit AudioFileCannotBeOpened(const std::string &message) : RuntimeException(message) {}
     };
 }
 

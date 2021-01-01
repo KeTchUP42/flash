@@ -12,7 +12,7 @@ namespace Particles {
 
     class AnalyzingBullet : public Bullet {
     public:
-        explicit AnalyzingBullet(
+        AnalyzingBullet(
                 const Material::MaterialProperties &material_properties,
                 const ParticleProperties &properties,
                 const BulletProperties &bullet,

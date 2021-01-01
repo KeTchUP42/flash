@@ -12,7 +12,7 @@ namespace Mobs {
 
     class JumpingPlayer : public AnalyzingPlayer {
     public:
-        explicit JumpingPlayer(
+        JumpingPlayer(
                 const Material::MaterialProperties &material_properties,
                 const MobProperties &properties,
                 const Components::Area &area,

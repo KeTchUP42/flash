@@ -11,7 +11,7 @@ namespace Creation {
 
     class SlimeGenerator : public Generator {
     public:
-        SlimeGenerator(Pools::SourcePool &pool);
+        explicit SlimeGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

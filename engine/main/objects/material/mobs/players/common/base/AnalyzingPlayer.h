@@ -12,7 +12,7 @@ namespace Mobs {
 
     class AnalyzingPlayer : public Player {
     public:
-        explicit AnalyzingPlayer(
+        AnalyzingPlayer(
                 const Material::MaterialProperties &material_properties,
                 const Mobs::MobProperties &properties,
                 const Components::Area &area,

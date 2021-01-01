@@ -11,7 +11,7 @@ namespace Creation {
 
     class AbscissaPlayerSceneTriggerGenerator : public SceneTriggerGenerator {
     public:
-        explicit AbscissaPlayerSceneTriggerGenerator(Pools::SourcePool &pool, View::StateChangeable *context);
+        AbscissaPlayerSceneTriggerGenerator(Pools::SourcePool &pool, View::StateChangeable *context);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

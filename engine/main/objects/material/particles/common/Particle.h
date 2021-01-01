@@ -19,9 +19,9 @@ namespace Particles {
     */
     class Particle : public Material::MaterialObject, public Possibilities::Peculiar<Particles::ParticleProperties> {
     public:
-        explicit Particle(const Material::MaterialProperties &material_properties, const ParticleProperties &properties, const Components::Coordinates &coordinates);
+        Particle(const Material::MaterialProperties &material_properties, const ParticleProperties &properties, const Components::Coordinates &coordinates);
 
-        explicit Particle(const Material::MaterialProperties &material_properties, const ParticleProperties &properties);
+        Particle(const Material::MaterialProperties &material_properties, const ParticleProperties &properties);
 
         const ParticleProperties &getProperties() const noexcept override;
 

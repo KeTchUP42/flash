@@ -11,7 +11,7 @@ namespace Creation {
 
     class PlatformBlockGenerator : public Creation::Generator {
     public:
-        PlatformBlockGenerator(Pools::SourcePool &pool);
+        explicit PlatformBlockGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

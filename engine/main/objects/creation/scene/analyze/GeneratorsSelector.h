@@ -12,7 +12,7 @@ namespace Creation {
 
     class GeneratorsSelector {
     public:
-        explicit GeneratorsSelector(Pools::SourcePool &pool, View::StateChangeable *context);
+        GeneratorsSelector(Pools::SourcePool &pool, View::StateChangeable *context);
 
         /**
          * @brief Function contains selecting and creating logic.

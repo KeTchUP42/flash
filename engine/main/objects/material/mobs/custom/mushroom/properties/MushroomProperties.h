@@ -11,7 +11,7 @@ namespace Mobs {
      * @brief Struct contains mushroom numeric properties.
      */
     struct MushroomProperties {
-        explicit MushroomProperties(float punchPower, float elasticityLevel)
+        MushroomProperties(float punchPower, float elasticityLevel)
                 : punchPower(punchPower), elasticityLevel(elasticityLevel) {}
 
         /**

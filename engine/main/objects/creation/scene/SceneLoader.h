@@ -22,7 +22,7 @@ namespace Creation {
     */
     class SceneLoader {
     public:
-        explicit SceneLoader(View::StateChangeable *context, Managers::DataManager *manager);
+        SceneLoader(View::StateChangeable *context, Managers::DataManager *manager);
 
         /**
          * @brief Method fills Unifier with objects.

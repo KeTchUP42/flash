@@ -24,7 +24,7 @@ namespace Managers {
     */
     class DataManager {
     public:
-        explicit DataManager(
+        DataManager(
                 AudioManager *audioManager,
                 ConfigManager *configManager,
                 FontManager *fontManager,

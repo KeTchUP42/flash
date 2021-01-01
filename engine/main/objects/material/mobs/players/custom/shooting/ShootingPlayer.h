@@ -13,7 +13,7 @@ namespace Mobs {
 
     class ShootingPlayer : public JumpingPlayer {
     public:
-        explicit ShootingPlayer(
+        ShootingPlayer(
                 const Material::MaterialProperties &material_properties,
                 const MobProperties &properties,
                 const Components::Area &area,

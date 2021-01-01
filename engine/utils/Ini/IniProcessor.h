@@ -25,7 +25,7 @@ namespace IniUtil {
         explicit IniProcessor(const std::string &filename, Analyzer *analyzer = new IniAnalyzer(), Creator *creator = new IniCreator())
                 : m_reader(new ReaderUtil::FileReader(filename)), m_writer(new WriterUtil::FileWriter(filename)), m_analyzer(analyzer), m_creator(creator) {}
 
-        explicit IniProcessor(ReaderUtil::Reader *reader, WriterUtil::Writer *writer, Analyzer *analyzer = new IniAnalyzer(), Creator *creator = new IniCreator())
+        IniProcessor(ReaderUtil::Reader *reader, WriterUtil::Writer *writer, Analyzer *analyzer = new IniAnalyzer(), Creator *creator = new IniCreator())
                 : m_reader(reader), m_writer(writer), m_analyzer(analyzer), m_creator(creator) {}
 
         /**
@@ -47,8 +47,6 @@ namespace IniUtil {
          * @return Was success?
          */
         bool createIni(const Analyzer::IniData &data, const std::ios::openmode &mode = std::ios_base::out | std::ios_base::trunc) const;
-
-        ~IniProcessor() = default;
 
     private:
         std::shared_ptr<ReaderUtil::Reader> m_reader;

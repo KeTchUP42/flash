@@ -12,7 +12,7 @@ namespace View {
 
     class TransitScreenState : public ScreenState {
     public:
-        explicit TransitScreenState(const std::string &filename, Unite::Unifier *unifier);
+        TransitScreenState(const std::string &filename, Unite::Unifier *unifier);
 
         void load(StateChangeable *context, Managers::DataManager *manager, View::Window &window) override;
 

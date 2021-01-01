@@ -16,9 +16,9 @@ namespace WriterUtil {
     public:
         MultiFileWriter() = default;
 
-        MultiFileWriter(const std::list<std::string> &filenames);
+        explicit MultiFileWriter(const std::list<std::string> &filenames);
 
-        MultiFileWriter(const std::vector<std::string> &filenames);
+        explicit MultiFileWriter(const std::vector<std::string> &filenames);
 
         void add(const std::string &filename);
 

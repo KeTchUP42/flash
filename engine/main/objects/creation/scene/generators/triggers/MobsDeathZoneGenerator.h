@@ -11,7 +11,7 @@ namespace Creation {
 
     class MobsDeathZoneGenerator : public Generator {
     public:
-        MobsDeathZoneGenerator(Pools::SourcePool &pool);
+        explicit MobsDeathZoneGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

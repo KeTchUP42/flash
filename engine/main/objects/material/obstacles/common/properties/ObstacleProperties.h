@@ -13,7 +13,7 @@ namespace Obstacles {
      * @brief Struct contains all obstacle numeric properties.
      */
     struct ObstacleProperties {
-        explicit ObstacleProperties(
+        ObstacleProperties(
                 float elasticCoefficient,
                 float frictionCoefficient,
                 bool isFixed

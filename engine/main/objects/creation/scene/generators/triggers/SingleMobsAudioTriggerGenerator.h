@@ -11,7 +11,7 @@ namespace Creation {
 
     class SingleMobsAudioTriggerGenerator : public Generator {
     public:
-        SingleMobsAudioTriggerGenerator(Pools::SourcePool &pool);
+        explicit SingleMobsAudioTriggerGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

@@ -11,7 +11,7 @@ namespace Material {
      * @brief Struct contains all algorithms numeric parameters.
      */
     struct AlgorithmsParameters {
-        explicit AlgorithmsParameters(float analysisStepX, float analysisStepY)
+        AlgorithmsParameters(float analysisStepX, float analysisStepY)
                 : analysisStepX(analysisStepX), analysisStepY(analysisStepY) {}
 
         /**

@@ -20,7 +20,7 @@ namespace Creation {
         */
         class SourcePool {
         public:
-            SourcePool(Managers::DataManager *manager);
+            explicit SourcePool(Managers::DataManager *manager);
 
             /**
              * @brief Method returns new Texture or Texture from cache. Do not call any setters, it will change state all used textures.

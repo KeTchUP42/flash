@@ -11,7 +11,7 @@ namespace WriterUtil {
 
     class FileWriter : public Writer {
     public:
-        FileWriter(const std::string &filename);
+        explicit FileWriter(const std::string &filename);
 
         bool write(const char *message, const std::ios::openmode &mode) const override;
 

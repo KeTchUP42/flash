@@ -20,8 +20,7 @@ namespace Mobs {
      *
      * This class defines base Player interface and realization.
     */
-    class Player : public Mobs::Mob,
-                   public View::Observer<sf::Event, View::Window> {
+    class Player : public Mobs::Mob, public View::Observer<sf::Event, View::Window> {
     public:
         /**
          * @brief Default player constructor.
@@ -30,10 +29,10 @@ namespace Mobs {
          * @param area Mob physical area.
          * @param sprite Player's sprite.
          */
-        explicit Player(const Material::MaterialProperties &material_properties,
-                        const Mobs::MobProperties &properties,
-                        const Components::Area &area,
-                        const std::shared_ptr<Components::ISpriteBox> &sprite);
+        Player(const Material::MaterialProperties &material_properties,
+               const Mobs::MobProperties &properties,
+               const Components::Area &area,
+               const std::shared_ptr<Components::ISpriteBox> &sprite);
 
         /**
          * @brief Method loads new player's key map. Keys under special names used in player's controlling.

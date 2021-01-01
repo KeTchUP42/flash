@@ -17,11 +17,9 @@ namespace Components {
      *
      * This class is a base leaf component interface.
     */
-    class ISprite : public Possibilities::Moving,
-                    public Possibilities::Rotatable,
+    class ISprite : public Possibilities::Moving, public Possibilities::Rotatable,
                     public Possibilities::Drawable<sf::RenderTarget> {
     public:
-
         /**
          * @brief Method sets new tree parent for sprite.
          * @param sprite New parent.

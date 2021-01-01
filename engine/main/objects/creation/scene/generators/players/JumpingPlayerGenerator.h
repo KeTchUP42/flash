@@ -11,7 +11,7 @@ namespace Creation {
 
     class JumpingPlayerGenerator : public Generator {
     public:
-        JumpingPlayerGenerator(Pools::SourcePool &pool);
+        explicit JumpingPlayerGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

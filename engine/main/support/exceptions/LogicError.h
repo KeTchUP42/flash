@@ -12,11 +12,9 @@ namespace Exceptions {
 
     class LogicError : public Exception {
     public:
-        explicit LogicError(const char *message, const int &code = ExceptionCodes::LOGIC_ERROR) noexcept
-                : Exception(message, code) {}
+        explicit LogicError(const char *message, int code = ExceptionCodes::LOGIC_ERROR) : Exception(message, code) {}
 
-        explicit LogicError(const std::string &message, const int &code = ExceptionCodes::LOGIC_ERROR) noexcept
-                : Exception(message, code) {}
+        explicit LogicError(const std::string &message, int code = ExceptionCodes::LOGIC_ERROR) : Exception(message, code) {}
     };
 
 }

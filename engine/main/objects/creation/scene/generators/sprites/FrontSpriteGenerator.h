@@ -11,7 +11,7 @@ namespace Creation {
 
     class FrontSpriteGenerator : public Generator {
     public:
-        FrontSpriteGenerator(Pools::SourcePool &pool);
+        explicit FrontSpriteGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };

@@ -12,7 +12,7 @@ namespace Triggers {
 
     class AbscissaPositionPlayerHandler : public Handler<Mobs::Player> {
     public:
-        AbscissaPositionPlayerHandler(float abscissa);
+        explicit AbscissaPositionPlayerHandler(float abscissa);
 
         void handle(Mobs::Player &object) const noexcept override;
 

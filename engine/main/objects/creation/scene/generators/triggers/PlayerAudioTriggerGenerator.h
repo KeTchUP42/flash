@@ -11,7 +11,7 @@ namespace Creation {
 
     class PlayerAudioTriggerGenerator : public Generator {
     public:
-        PlayerAudioTriggerGenerator(Pools::SourcePool &pool);
+        explicit PlayerAudioTriggerGenerator(Pools::SourcePool &pool);
 
         void load(const IniUtil::Analyzer::IniBlock &data, Unite::Unifier &unifier, View::Window &window) override;
     };
