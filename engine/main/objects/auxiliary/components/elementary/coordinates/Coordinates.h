@@ -11,8 +11,11 @@
 namespace Components {
 
     /**
-     * @brief Struct with coordinates.
-     */
+     * @brief The structure is used to represent the object coordinates on the coordinate plane.
+     * @namespace Components
+     *
+     * This struct is the base component.
+    */
     struct Coordinates {
         /**
          * @brief Default constructor.

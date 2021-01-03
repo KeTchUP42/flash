@@ -23,14 +23,14 @@ namespace Components {
         explicit Speed(const std::pair<float, float> &speed);
 
         /**
-         * @brief Standard Speed constructor.
+         * @brief Default constructor.
          * @param xSpeed Abscissa speed value.
          * @param ySpeed Ordinate speed value.
          */
         Speed(float xSpeed, float ySpeed);
 
         /**
-        * @brief Default constructor.
+        * @brief Сonstructor inits speed values by zero.
         */
         Speed() : xSpeed(), ySpeed() {};
 

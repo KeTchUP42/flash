@@ -56,6 +56,16 @@ namespace Unite {
     class Unifier : public Possibilities::Drawable<sf::RenderWindow>, public View::Observer<sf::Event, View::Window> {
     public:
         /**
+         * @brief Default constructor.
+         */
+        Unifier() = default;
+
+        /**
+         * @brief Deleting the copy constructor.
+         */
+        Unifier(const Unifier &) = delete;
+
+        /**
          * @brief Method deletes operator= method.
          * @return Unifier&
          */

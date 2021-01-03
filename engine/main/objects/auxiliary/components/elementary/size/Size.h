@@ -22,7 +22,7 @@ namespace Components {
         Size(unsigned int width, unsigned int height);
 
         /**
-         * @brief Base constructor. Inits "width" and "height" by zero.
+         * @brief Сonstructor inits "width" and "height" by zero.
          */
         Size() : width(), height() {}
 

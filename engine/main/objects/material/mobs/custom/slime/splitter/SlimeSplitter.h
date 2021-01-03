@@ -16,6 +16,12 @@ namespace Mobs {
 
 namespace Mobs {
 
+    /**
+     * @brief The class is responsible for encapsulating the code associated with slime splitting.
+     * @namespace Mobs
+     *
+     * This class defines SlimeSplitter realization.
+    */
     class SlimeSplitter {
     public:
         /**

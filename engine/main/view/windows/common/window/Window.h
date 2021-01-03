@@ -44,6 +44,11 @@ namespace View {
         Window(sf::WindowHandle handle, const sf::ContextSettings &settings);
 
         /**
+         * @brief Deleting the copy constructor.
+         */
+        Window(const Window &) = delete;
+
+        /**
          * @brief Method deletes operator= method.
          * @return Window&
          */
