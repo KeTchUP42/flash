@@ -4,13 +4,13 @@
 
 #include "MovingCollisionFunctions.h"
 
-static std::pair<float, float>
+static std::pair<std::size_t, std::size_t>
 ordinateVergeIndex(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept {
-    std::pair<float, float> result(0, 0);
+    std::pair<std::size_t, std::size_t> result(0, 0);
     Components::Point currentMinY = object.getCoordinates().list.at(0);
     Components::Point currentMaxY = object.getCoordinates().list.at(0);
 
-    for (size_t i = 0; i < object.getCoordinates().list.size(); ++i) {
+    for (std::size_t i = 0; i < object.getCoordinates().list.size(); ++i) {
 
         if (((currentMinY.y != ordinateVerge.first) && (object.getCoordinates().list[i].y == ordinateVerge.first)) ||
             ((object.getCoordinates().list[i].y == ordinateVerge.first) &&
@@ -34,28 +34,27 @@ ordinateVergeIndex(const Possibilities::PhysicallySituated &object, const std::p
 std::vector<Components::Point>
 Material::pickoutNodesVertical(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &ordinateVerge, bool moveSide) noexcept {
     std::vector<Components::Point> pointsOffset;
-    std::pair<float, float> ordinateVergePoints = ordinateVergeIndex(object, ordinateVerge, moveSide);
+    std::pair<std::size_t, std::size_t> ordinateVergePoints = ordinateVergeIndex(object, ordinateVerge, moveSide);
     pointsOffset.push_back(object.getCoordinates().list[ordinateVergePoints.first]);
 
-    int index = ordinateVergePoints.first;
+    std::size_t index = ordinateVergePoints.first;
     short indexStep = moveSide ? 1 : -1; //Makes sense if the coordinates go around in a clockwise direction.
 
     while (index != ordinateVergePoints.second) {
-        index += indexStep;
-        if (index == -1) index = object.getCoordinates().list.size() - 1;
-        if (index == object.getCoordinates().list.size()) index = 0;
+        if (!moveSide && (index == 0)) index = object.getCoordinates().list.size() - 1; else index += indexStep;
+        if (moveSide && (index == object.getCoordinates().list.size())) index = 0;
         pointsOffset.push_back(object.getCoordinates().list[index]);
     }
     return pointsOffset;
 }
 
-static std::pair<float, float>
+static std::pair<std::size_t, std::size_t>
 abscissaVergeIndex(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept {
-    std::pair<float, float> result(0, 0);
+    std::pair<std::size_t, std::size_t> result(0, 0);
     Components::Point currentMinX = object.getCoordinates().list.at(0);
     Components::Point currentMaxX = object.getCoordinates().list.at(0);
 
-    for (size_t i = 0; i < object.getCoordinates().list.size(); ++i) {
+    for (std::size_t i = 0; i < object.getCoordinates().list.size(); ++i) {
 
         if (((currentMinX.x != abscissaVerge.first) && (object.getCoordinates().list[i].x == abscissaVerge.first)) ||
             ((object.getCoordinates().list[i].x == abscissaVerge.first) &&
@@ -79,16 +78,15 @@ abscissaVergeIndex(const Possibilities::PhysicallySituated &object, const std::p
 std::vector<Components::Point>
 Material::pickoutNodesHorizontal(const Possibilities::PhysicallySituated &object, const std::pair<float, float> &abscissaVerge, bool moveSide) noexcept {
     std::vector<Components::Point> pointsOffset;
-    std::pair<float, float> abscissaVergePoints = abscissaVergeIndex(object, abscissaVerge, moveSide);
+    std::pair<std::size_t, std::size_t> abscissaVergePoints = abscissaVergeIndex(object, abscissaVerge, moveSide);
     pointsOffset.push_back(object.getCoordinates().list[abscissaVergePoints.first]);
 
-    int index = abscissaVergePoints.first;
+    std::size_t index = abscissaVergePoints.first;
     short indexStep = moveSide ? -1 : 1; //Makes sense if the coordinates go around in a clockwise direction.
 
     while (index != abscissaVergePoints.second) {
-        index += indexStep;
-        if (index == -1) index = object.getCoordinates().list.size() - 1;
-        if (index == object.getCoordinates().list.size()) index = 0;
+        if (moveSide && (index == 0)) index = object.getCoordinates().list.size() - 1; else index += indexStep;
+        if (!moveSide && (index == object.getCoordinates().list.size())) index = 0;
         pointsOffset.push_back(object.getCoordinates().list[index]);
     }
     return pointsOffset;

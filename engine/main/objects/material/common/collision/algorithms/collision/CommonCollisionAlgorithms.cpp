@@ -16,7 +16,7 @@ bool Material::collision(float x, float y, const Possibilities::PhysicallySituat
     if (object.getCoordinates().list.size() < 3) return false;
 
     bool result = true;
-    for (size_t i = 0; i < object.getCoordinates().list.size() - 1; ++i) {
+    for (std::size_t i = 0; i < object.getCoordinates().list.size() - 1; ++i) {
         result = result && product(x, y, object.getCoordinates().list[i], object.getCoordinates().list[i + 1]);
     }
 

@@ -44,7 +44,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 int healthPointsDiv = m_properties.maxHealthPoints / m_slime.splitCoefficient;
                 int healthPoints = (healthPointsDiv == 0) ? 1 : healthPointsDiv;
 
-                for (size_t i = 0; i < m_slime.splitSlimesNumber; ++i) {
+                for (std::size_t i = 0; i < m_slime.splitSlimesNumber; ++i) {
                     char flight_dest = ((i % 2 == 0) ? -1 : 1);
                     float xSpeed = m_material_properties.speed.xSpeed + (xSpeedOffset + Calculations::random(-xSpeedRandomOffset, xSpeedRandomOffset)) * flight_dest;
                     float ySpeed = m_material_properties.speed.ySpeed - (ySpeedOffset + Calculations::random(-ySpeedRandomOffset, ySpeedRandomOffset));

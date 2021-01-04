@@ -29,7 +29,7 @@ bool Material::movingAbscissaCollision(const Components::Point &objectMinCoordin
 
     std::vector<Components::Point> pointsOffset = pickoutNodesVertical(object, std::pair<float, float>(objectMinCoordinates.y,
                                                                                                        objectMaxCoordinates.y), (objectMoveXSpeed > 0));
-    for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
+    for (std::size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
         float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
         float yside = std::abs(pointsOffset[i].y - pointsOffset[i + 1].y);
@@ -85,7 +85,7 @@ bool Material::movingOrdinateCollision(const Components::Point &objectMinCoordin
 
     std::vector<Components::Point> pointsOffset = pickoutNodesHorizontal(object, std::pair<float, float>(objectMinCoordinates.x,
                                                                                                          objectMaxCoordinates.x), (objectMoveYSpeed > 0));
-    for (size_t i = 0; i < pointsOffset.size() - 1; ++i) {
+    for (std::size_t i = 0; i < pointsOffset.size() - 1; ++i) {
 
         float xside = std::abs(pointsOffset[i].x - pointsOffset[i + 1].x);
         float yside = std::abs(pointsOffset[i].y - pointsOffset[i + 1].y);
