@@ -6,15 +6,15 @@
 #define FLASH_SLIMESPLITTER_H
 
 #include "../../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
+#include "../properties/SlimeMobProperties.h"
 #include "../../../common/base/AnalyzingMob.h"
-#include "../../../common/properties/MobProperties.h"
-#include "../properties/SlimeProperties.h"
 
 namespace Mobs {
+
+    /**
+     * @brief Pre-announcement of an incomplete Slime type to prevent cyclic dependence.
+     */
     class Slime;
-}
-
-namespace Mobs {
 
     /**
      * @brief The class is responsible for encapsulating the code associated with slime splitting.
@@ -31,53 +31,45 @@ namespace Mobs {
         explicit SlimeSplitter(float splittingCoefficient);
 
         /**
-         * @brief All slime properties.
-         */
-        struct SlimeProperties {
-            Material::MaterialProperties material_properties;
-            Mobs::MobProperties mob_properties;
-            Mobs::SlimeProperties slime_properties;
-        };
-
-        /**
-          * @brief Method creates a smaller slime uses splitting coefficient.
-          * @param slime Main parent slime.
-          * @param properties All slime properties data.
-          * @return New Slime.
-          */
-        Slime *split(Mobs::Slime &slime, const SlimeProperties &properties) const;
-
-        /**
          * @brief Method returns split slime area.
          * @param slime Main parent slime.
          * @return New slime area.
          */
-        Components::Area splitSlimeArea(Mobs::Slime &slime) const noexcept;
+        Components::Area splitArea(const Mobs::Slime &slime) const noexcept;
 
         /**
          * @brief Method returns split slime sprite.
          * @param slime Main parent slime.
          * @return New slime sprite.
          */
-        std::shared_ptr<Components::ISpriteBox> splitSlimeSprite(Mobs::Slime &slime) const noexcept;
+        std::shared_ptr<Components::ISpriteBox> splitSprite(const Mobs::Slime &slime) const noexcept;
 
         /**
          * @brief Method returns split slime algorithms.
          * @param slime Main parent slime.
          * @return New algorithms.
          */
-        std::shared_ptr<Material::Algorithms> splitSlimeAlgorithms(Mobs::Slime &slime) const noexcept;
+        std::shared_ptr<Material::Algorithms> splitAlgorithms(const Mobs::Slime &slime) const noexcept;
 
         /**
          * @brief Method returns split slime properties.
          * @param properties Main slime properties.
          * @return New slime properties.
          */
-        Mobs::SlimeProperties splitSlimeProperties(const Mobs::SlimeProperties &properties) const noexcept;
+        Mobs::SlimeProperties splitProperties(const Mobs::SlimeProperties &properties) const noexcept;
 
     private:
         const float SPLITTING_COEFFICIENT;
     };
+
+    /**
+     * @brief Function creates a smaller slime uses splitting coefficient.
+     * @param splitter Slime configured splitter.
+     * @param slime Parent slime.
+     * @param properties All slime properties data.
+     * @return New Slime.
+     */
+    std::shared_ptr<Slime> split(const Mobs::SlimeSplitter &splitter, const Mobs::Slime &slime, const Mobs::SlimeMobProperties &properties);
 }
 
 #include "../Slime.h"

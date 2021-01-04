@@ -31,7 +31,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                 SlimeSplitter splitter(m_slime.splitCoefficient);
 
                 //Slime properties.
-                SlimeProperties slimeProperties = splitter.splitSlimeProperties(m_slime);
+                SlimeProperties slimeProperties = splitter.splitProperties(m_slime);
 
                 //Spawn start speed calculating.
                 float xSpeedOffset = m_slime.splitPower.first;
@@ -48,7 +48,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
                     char flight_dest = ((i % 2 == 0) ? -1 : 1);
                     float xSpeed = m_material_properties.speed.xSpeed + (xSpeedOffset + Calculations::random(-xSpeedRandomOffset, xSpeedRandomOffset)) * flight_dest;
                     float ySpeed = m_material_properties.speed.ySpeed - (ySpeedOffset + Calculations::random(-ySpeedRandomOffset, ySpeedRandomOffset));
-                    unifier1->addStandAloneMob(splitter.split(*this, {
+                    unifier1->addStandAloneMob(Mobs::split(splitter, *this, {
                             Material::MaterialProperties(Components::Speed(xSpeed, ySpeed)),
                             MobProperties(healthPoints, healthPoints), slimeProperties}));
                 }
