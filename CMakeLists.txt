@@ -17,7 +17,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++${CMAKE_CXX_STANDARD} -pthread")
 #######################################
 # Source files import:
-set(MAIN init/main.cpp)
+set(MAIN entry/main.cpp)
 
 # Including engine files:
 include(engine/engine-build.cmake)

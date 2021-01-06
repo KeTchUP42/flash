@@ -65,7 +65,7 @@ namespace Mobs {
     /**
      * @brief Function creates a smaller slime uses splitting coefficient.
      * @param splitter Slime configured splitter.
-     * @param slime Parent slime.
+     * @param slime Original slime.
      * @param properties All slime properties data.
      * @return New Slime.
      */

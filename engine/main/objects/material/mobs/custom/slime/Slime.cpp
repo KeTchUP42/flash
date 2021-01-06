@@ -21,7 +21,7 @@ Mobs::Slime::Slime(
 void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
     RD::healthAnalysis(*this);
     if (this->isDead()) {
-        //Size check.
+        //Verification of the possibility of splitting.
         if (((m_sprite->getArea().m_size.width / m_slime.splitCoefficient >= m_slime.minSplitSize) &&
              (m_sprite->getArea().m_size.height / m_slime.splitCoefficient >= m_slime.minSplitSize)) &&
             ((m_sprite->getArea().m_size.width / m_slime.splitCoefficient >= Components::SpriteBox::MIN_SPRITE_SIDE_SIZE) &&
@@ -72,7 +72,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
         }
     }
 
-    //Slime punching.
+    //Slime punching logic.
     Mobs::Player *player;
     if ((player = m_algorithms->getCollision().getMovingCollision().abscissaMoveAble(this, unifier->getPlayers())) != nullptr) {
         player->dealDamage(m_slime.punchDamage);
@@ -83,7 +83,7 @@ void Mobs::Slime::selfAction(Unite::Unifier *unifier) {
 
     Obstacles::Block *block;
     if ((block = m_algorithms->getCollision().getMovingCollision().ordinateMoveAble(this, unifier->getBlocks())) != nullptr) {
-        //Slime moving code.
+        //Slime moving logic.
         if ((Calculations::random(0, m_slime.jumpRateCoefficient) == 0) && (this->getPosition().y < block->getPosition().y) &&
             (static_cast<int>(this->getSpeed().ySpeed) == 0)) {
             this->addSpeed(((Calculations::random(0, 1) == 1) ? 1 : -1) * m_slime.moveSpeed, -1 * m_slime.jumpSpeed);

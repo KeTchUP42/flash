@@ -1,11 +1,11 @@
 #----------------------------------------------------------------------------
-# Cmake file with all include source files.
+# CMake file with all included source files.
 #
-# Main variables are - ENTRY_POINT, DATA, OBJECTS, SUPPORT, VIEW, UTILS.
+# Main variables - ENTRY_POINT, DATA, OBJECTS, SUPPORT, VIEW, UTILS.
 # Global engine source files variable - ENGINE.
 #----------------------------------------------------------------------------
-set(SETUP engine/init/setup/EngineConfigurator.cpp)
-set(ENTRY_POINT ${SETUP} engine/init/Engine.cpp)
+set(SETUP engine/entry/setup/EngineConfigurator.cpp)
+set(ENTRY_POINT ${SETUP} engine/entry/Engine.cpp)
 
 set(AUDIO_MANAGER engine/main/data/manager/audio-manager/AudioManager.cpp)
 set(CONFIG_MANAGER engine/main/data/manager/config-manager/ConfigManager.cpp)
