@@ -8,10 +8,8 @@
 
 #include <regex>
 
-static inline void clear(std::string &data) noexcept {
-    data = std::regex_replace(data, std::regex{";.*\n"}, "");
-    data = std::regex_replace(data, std::regex{";.*"}, "");
-    Trim::trim(data);
+namespace IniUtil {
+    static inline void clear_string(std::string &data) noexcept;
 }
 
 IniUtil::Analyzer::IniData
@@ -21,7 +19,7 @@ IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noe
     result[blockName] = IniBlock();
 
     for (std::string line : lines) {
-        clear(line);
+        IniUtil::clear_string(line);
         if (line == "") continue;
 
         if (std::regex_match(line, std::regex{" *\\[[^\\]\\[]*\\] *"})) {
@@ -34,7 +32,7 @@ IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noe
         }
 
         if (std::regex_match(line, std::regex("[^\\ \\=\n][^\\=\n]*\\= *.*"))) {
-            unsigned long pos = line.find('=');
+            std::size_t pos = line.find('=');
 
             std::string key = line.substr(0, pos);
             Trim::trim(key);
@@ -46,4 +44,10 @@ IniUtil::IniAnalyzer::fullparse(const std::vector<std::string> &lines) const noe
         }
     }
     return result;
+}
+
+static inline void IniUtil::clear_string(std::string &data) noexcept {
+    data = std::regex_replace(data, std::regex{";.*\n"}, "");
+    data = std::regex_replace(data, std::regex{";.*"}, "");
+    Trim::trim(data);
 }

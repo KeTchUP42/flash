@@ -8,7 +8,7 @@
  * @brief This is help function for collision function.
  * @return The value responsible for the position of the point relative to the vector.
  */
-static inline bool product(float x, float y, const Components::Point &current, const Components::Point &next) {
+static inline bool point_status(float x, float y, const Components::Point &current, const Components::Point &next) {
     return ((next.x - current.x) * (y - current.y) - (next.y - current.y) * (x - current.x)) >= 0;
 }
 
@@ -17,10 +17,10 @@ bool Material::collision(float x, float y, const Possibilities::PhysicallySituat
 
     bool result = true;
     for (std::size_t i = 0; i < object.getCoordinates().list.size() - 1; ++i) {
-        result = result && product(x, y, object.getCoordinates().list[i], object.getCoordinates().list[i + 1]);
+        result = result && point_status(x, y, object.getCoordinates().list[i], object.getCoordinates().list[i + 1]);
     }
 
-    result = result && product(x, y, object.getCoordinates().list[object.getCoordinates().list.size() - 1], object.getCoordinates().list[0]);
+    result = result && point_status(x, y, object.getCoordinates().list[object.getCoordinates().list.size() - 1], object.getCoordinates().list[0]);
     return result;
 }
 
