@@ -9,6 +9,7 @@
 #include <SFML/Graphics/Texture.hpp>
 
 #include "../../../../../../auxiliary/components/elementary/size/Size.h"
+#include "../../../../../common/properties/ParamsTypes.h"
 
 namespace Mobs {
 
@@ -25,9 +26,9 @@ namespace Mobs {
      */
     struct ShootingPlayerProperties {
         ShootingPlayerProperties(
-                float bulletsFlightSpeed,
-                float bulletsDamage,
-                bool bulletsUnderEffects,
+                Material::FRAC_PARAM bulletsFlightSpeed,
+                Material::FRAC_PARAM bulletsDamage,
+                Material::BOOL_PARAM bulletsUnderEffects,
                 const NotFullAreaData &bulletData,
                 const NotFullAreaData &bulletSpriteData,
                 const std::shared_ptr<sf::Texture> &rightBulletsTexture,
@@ -43,17 +44,17 @@ namespace Mobs {
         /**
          * @brief Bullets flight speed.
          */
-        float bulletsFlightSpeed;
+        Material::FRAC_PARAM bulletsFlightSpeed;
 
         /**
          * @brief Bullets damage.
          */
-        float bulletsDamage;
+        Material::FRAC_PARAM bulletsDamage;
 
         /**
          * @brief The flag controls the effect of static effects on bullets.
          */
-        bool bulletsUnderEffects;
+        Material::BOOL_PARAM bulletsUnderEffects;
 
         /**
          * @brief Bullets data.

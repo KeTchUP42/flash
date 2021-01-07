@@ -5,6 +5,7 @@
 #ifndef FLASH_PROPERTIES_REDUCTION_H
 #define FLASH_PROPERTIES_REDUCTION_H
 
+#include "../../../../material/common/properties/MaterialProperties.h"
 #include "../../../../material/mobs/common/properties/MobProperties.h"
 #include "../../../../material/obstacles/common/properties/ObstacleProperties.h"
 #include "../../../../../../utils/Ini/analyzer/Analyzer.h"

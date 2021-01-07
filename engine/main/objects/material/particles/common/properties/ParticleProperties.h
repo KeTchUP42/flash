@@ -5,7 +5,7 @@
 #ifndef FLASH_PARTICLEPROPERTIES_H
 #define FLASH_PARTICLEPROPERTIES_H
 
-#include "../../../common/properties/MaterialProperties.h"
+#include "../../../common/properties/ParamsTypes.h"
 
 namespace Particles {
 
@@ -13,13 +13,14 @@ namespace Particles {
      * @brief Struct contains all particle numeric properties.
      */
     struct ParticleProperties {
-        explicit ParticleProperties(bool isUnderEffect)
-                : isUnderEffects(isUnderEffect) {}
+        explicit ParticleProperties(
+                Material::BOOL_PARAM isUnderEffect
+        ) : isUnderEffects(isUnderEffect) {}
 
         /**
          * @brief If this flag is not set, the particle will be affected by static effects.
          */
-        bool isUnderEffects;
+        Material::BOOL_PARAM isUnderEffects;
     };
 }
 

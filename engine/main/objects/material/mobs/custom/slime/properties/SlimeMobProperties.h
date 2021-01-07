@@ -2,8 +2,8 @@
 // Created by roman on 04.01.2021.
 //
 
-#ifndef PRIMARYWINDOW_H_SLIMEMOBPROPERTIES_H
-#define PRIMARYWINDOW_H_SLIMEMOBPROPERTIES_H
+#ifndef FLASH_SLIMEMOBPROPERTIES_H
+#define FLASH_SLIMEMOBPROPERTIES_H
 
 #include "../../../../common/properties/MaterialProperties.h"
 #include "../../../common/properties/MobProperties.h"
@@ -21,4 +21,4 @@ namespace Mobs {
     };
 }
 
-#endif //PRIMARYWINDOW_H_SLIMEMOBPROPERTIES_H
+#endif //FLASH_SLIMEMOBPROPERTIES_H

@@ -5,6 +5,8 @@
 #ifndef FLASH_JUMPINGPLAYERPROPERTIES_H
 #define FLASH_JUMPINGPLAYERPROPERTIES_H
 
+#include "../../../../../common/properties/ParamsTypes.h"
+
 namespace Mobs {
 
     /**
@@ -12,9 +14,9 @@ namespace Mobs {
      */
     struct JumpingPlayerProperties {
         JumpingPlayerProperties(
-                float moveSpeed,
-                float maxMoveSpeed,
-                float jumpSpeed
+                Material::FRAC_PARAM moveSpeed,
+                Material::FRAC_PARAM maxMoveSpeed,
+                Material::FRAC_PARAM jumpSpeed
         ) : moveSpeed(moveSpeed),
             maxMoveSpeed(maxMoveSpeed),
             jumpSpeed(jumpSpeed) {}
@@ -22,17 +24,17 @@ namespace Mobs {
         /**
          * @brief Speed increase at the push of a button.
          */
-        float moveSpeed;
+        Material::FRAC_PARAM moveSpeed;
 
         /**
          * @brief Maximum speed that a player can achieve when moving independently.
          */
-        float maxMoveSpeed;
+        Material::FRAC_PARAM maxMoveSpeed;
 
         /**
          * @brief Speed obtained by jumping.
          */
-        float jumpSpeed;
+        Material::FRAC_PARAM jumpSpeed;
     };
 }
 

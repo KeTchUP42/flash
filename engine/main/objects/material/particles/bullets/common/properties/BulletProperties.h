@@ -5,18 +5,22 @@
 #ifndef FLASH_BULLETPROPERTIES_H
 #define FLASH_BULLETPROPERTIES_H
 
+#include "../../../../common/properties/ParamsTypes.h"
+
 namespace Particles {
 
     /**
      * @brief Struct contains all bullet numeric properties.
      */
     struct BulletProperties {
-        explicit BulletProperties(float damage) : damage(damage) {}
+        explicit BulletProperties(
+                Material::FRAC_PARAM damage
+        ) : damage(damage) {}
 
         /**
          * @brief Bullet's damage.
          */
-        float damage;
+        Material::FRAC_PARAM damage;
     };
 }
 

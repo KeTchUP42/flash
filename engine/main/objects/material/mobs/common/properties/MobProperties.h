@@ -5,7 +5,7 @@
 #ifndef FLASH_MOBPROPERTIES_H
 #define FLASH_MOBPROPERTIES_H
 
-#include "../../../common/properties/MaterialProperties.h"
+#include "../../../common/properties/ParamsTypes.h"
 
 namespace Mobs {
 
@@ -13,18 +13,21 @@ namespace Mobs {
      * @brief Struct contains all mob numeric properties.
      */
     struct MobProperties {
-        MobProperties(float maxHealthPoints, float healthPoints)
-                : maxHealthPoints(maxHealthPoints), healthPoints(healthPoints) {}
+        MobProperties(
+                Material::FRAC_PARAM maxHealthPoints,
+                Material::FRAC_PARAM healthPoints
+        ) : maxHealthPoints(maxHealthPoints),
+            healthPoints(healthPoints) {}
 
         /**
          * @brief The parameter of maximum health points.
          */
-        float maxHealthPoints;
+        Material::FRAC_PARAM maxHealthPoints;
 
         /**
          * @brief The parameter sets health points which are necessary for the process of life activities.
          */
-        float healthPoints;
+        Material::FRAC_PARAM healthPoints;
     };
 }
 

@@ -2,8 +2,10 @@
 // Created by roman on 09.12.2020.
 //
 
-#ifndef PRIMARYWINDOW_H_ALGORITHMSPARAMETERS_H
-#define PRIMARYWINDOW_H_ALGORITHMSPARAMETERS_H
+#ifndef FLASH_ALGORITHMSPARAMETERS_H
+#define FLASH_ALGORITHMSPARAMETERS_H
+
+#include "../../properties/ParamsTypes.h"
 
 namespace Material {
 
@@ -11,8 +13,11 @@ namespace Material {
      * @brief Struct contains all algorithms numeric parameters.
      */
     struct AlgorithmsParameters {
-        AlgorithmsParameters(float analysisStepX, float analysisStepY)
-                : analysisStepX(analysisStepX), analysisStepY(analysisStepY) {}
+        AlgorithmsParameters(
+                float analysisStepX,
+                float analysisStepY
+        ) : analysisStepX(analysisStepX),
+            analysisStepY(analysisStepY) {}
 
         /**
          * @brief Collision "X" analysis step.
@@ -26,4 +31,4 @@ namespace Material {
     };
 }
 
-#endif //PRIMARYWINDOW_H_ALGORITHMSPARAMETERS_H
+#endif //FLASH_ALGORITHMSPARAMETERS_H

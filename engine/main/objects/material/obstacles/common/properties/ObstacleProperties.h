@@ -5,7 +5,7 @@
 #ifndef FLASH_OBSTACLEPROPERTIES_H
 #define FLASH_OBSTACLEPROPERTIES_H
 
-#include "../../../common/properties/MaterialProperties.h"
+#include "../../../common/properties/ParamsTypes.h"
 
 namespace Obstacles {
 
@@ -14,9 +14,9 @@ namespace Obstacles {
      */
     struct ObstacleProperties {
         ObstacleProperties(
-                float elasticCoefficient,
-                float frictionCoefficient,
-                bool isFixed
+                Material::FRAC_PARAM elasticCoefficient,
+                Material::FRAC_PARAM frictionCoefficient,
+                Material::BOOL_PARAM isFixed
         ) : elasticCoefficient(elasticCoefficient),
             frictionCoefficient(frictionCoefficient),
             isFixed(isFixed) {}
@@ -24,17 +24,17 @@ namespace Obstacles {
         /**
          * @brief Elastic coefficient.
          */
-        float elasticCoefficient;
+        Material::FRAC_PARAM elasticCoefficient;
 
         /**
          * @brief Coefficient of friction.
          */
-        float frictionCoefficient;
+        Material::FRAC_PARAM frictionCoefficient;
 
         /**
          * @brief If this flag is not set, the obstacle will be affected by static effects.
          */
-        bool isFixed;
+        Material::BOOL_PARAM isFixed;
     };
 }
 
