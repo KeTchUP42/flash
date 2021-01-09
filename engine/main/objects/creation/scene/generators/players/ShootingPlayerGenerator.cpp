@@ -4,8 +4,9 @@
 
 #include "ShootingPlayerGenerator.h"
 #include "../../../../material/mobs/players/custom/jumping/properties/JumpingPlayerProperties.h"
-#include "../../../../material/particles/optimizer/bullets/BulletsOptimizer.h"
+#include "../../../../material/mobs/players/custom/shooting/properties/ShootingPlayerProperties.h"
 #include "../../../../material/mobs/players/custom/shooting/ShootingPlayer.h"
+#include "../../../../material/particles/optimizer/bullets/BulletsOptimizer.h"
 #include "../../../../auxiliary/components/sprite/primitive/SpriteBox.h"
 #include "../reduction/PropertiesReduction.h"
 #include "../reduction/ElementaryReduction.h"

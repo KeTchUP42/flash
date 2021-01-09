@@ -102,7 +102,7 @@ void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Bullet> &bullet)
     this->addParticle(bullet);
 }
 
-void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Particle> &bullet) noexcept {
+void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Particle> &bullet) {
     m_bullets.push_back(dynamic_cast<Particles::Bullet *>(bullet.get())); //Exception leak place.
     this->addParticle(bullet);
 }

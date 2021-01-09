@@ -220,7 +220,7 @@ namespace Unite {
          * @brief Method adds new bullet.
          * @param bullet New bullet.
          */
-        void addBullet(const std::shared_ptr<Particles::Particle> &bullet) noexcept;
+        void addBullet(const std::shared_ptr<Particles::Particle> &bullet);
 
         /**
          * @brief Method removes bullet.
