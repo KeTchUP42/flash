@@ -26,7 +26,7 @@ static Components::Point bulletPointCalculating(const Mobs::Player &player, cons
     );
 }
 
-void Mobs::ShootingPlayer::handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept {
+void Mobs::ShootingPlayer::handleEvent(const sf::Event &event, Unite::Unifier *unifier) {
     JumpingPlayer::handleEvent(event, unifier);
 
     if (event.type == sf::Event::KeyReleased) {

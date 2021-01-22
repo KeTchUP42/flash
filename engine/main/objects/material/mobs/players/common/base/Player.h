@@ -51,7 +51,7 @@ namespace Mobs {
          * @param event Event object.
          * @param unifier Scene unifier.
          */
-        virtual void handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept = 0;
+        virtual void handleEvent(const sf::Event &event, Unite::Unifier *unifier) = 0;
 
         /**
          * @brief Method calls "handleEvent" method for all caught events.

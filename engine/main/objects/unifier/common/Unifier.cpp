@@ -102,9 +102,11 @@ void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Bullet> &bullet)
     this->addParticle(bullet);
 }
 
-void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Particle> &bullet) {
-    m_bullets.push_back(dynamic_cast<Particles::Bullet *>(bullet.get())); //Exception leak place.
-    this->addParticle(bullet);
+void Unite::Unifier::addBullet(const std::shared_ptr<Particles::Particle> &bullet) noexcept {
+    if (Particles::Bullet *blt = dynamic_cast<Particles::Bullet *>(bullet.get())) {
+        m_bullets.push_back(blt);
+        this->addParticle(bullet);
+    }
 }
 
 void Unite::Unifier::removeBullet(Particles::Bullet *bullet) noexcept {
@@ -163,9 +165,11 @@ void Unite::Unifier::addBlock(const std::shared_ptr<Obstacles::Block> &block) no
     this->addObstacle(block);
 }
 
-void Unite::Unifier::addBlock(const std::shared_ptr<Obstacles::Obstacle> &block) {
-    m_blocks.push_back(dynamic_cast<Obstacles::Block *>(block.get())); //Exception leak place.
-    this->addObstacle(block);
+void Unite::Unifier::addBlock(const std::shared_ptr<Obstacles::Obstacle> &block) noexcept {
+    if (Obstacles::Block *blk = dynamic_cast<Obstacles::Block *>(block.get())) {
+        m_blocks.push_back(blk);
+        this->addObstacle(block);
+    }
 }
 
 void Unite::Unifier::removeBlock(Obstacles::Block *block) noexcept {
@@ -252,9 +256,11 @@ void Unite::Unifier::addPlayer(const std::shared_ptr<Mobs::Player> &player) noex
     this->addMob(player);
 }
 
-void Unite::Unifier::addPlayer(const std::shared_ptr<Mobs::Mob> &player) {
-    m_players.push_back(dynamic_cast<Mobs::Player *>(player.get())); //Exception leak place.
-    this->addMob(player);
+void Unite::Unifier::addPlayer(const std::shared_ptr<Mobs::Mob> &player) noexcept {
+    if (Mobs::Player *plr = dynamic_cast<Mobs::Player *>(player.get())) {
+        m_players.push_back(plr);
+        this->addMob(player);
+    }
 }
 
 void Unite::Unifier::removePlayer(Mobs::Player *player) noexcept {

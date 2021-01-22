@@ -23,7 +23,7 @@ namespace Mobs {
 
         void selfAction(Unite::Unifier *unifier) override;
 
-        void handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept override;
+        void handleEvent(const sf::Event &event, Unite::Unifier *unifier) override;
 
     protected:
         Mobs::JumpingPlayerProperties m_jumping;

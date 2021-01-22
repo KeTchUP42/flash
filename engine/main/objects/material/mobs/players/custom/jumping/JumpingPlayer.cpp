@@ -28,7 +28,7 @@ void Mobs::JumpingPlayer::selfAction(Unite::Unifier *unifier) {
     }
 }
 
-void Mobs::JumpingPlayer::handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept {
+void Mobs::JumpingPlayer::handleEvent(const sf::Event &event, Unite::Unifier *unifier) {
     if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == m_keyMap[KeyAlias::Right]) {
             if ((std::abs(m_material_properties.speed.xSpeed) < m_jumping.maxMoveSpeed) &&

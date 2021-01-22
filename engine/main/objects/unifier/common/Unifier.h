@@ -220,7 +220,7 @@ namespace Unite {
          * @brief Method adds new bullet.
          * @param bullet New bullet.
          */
-        void addBullet(const std::shared_ptr<Particles::Particle> &bullet);
+        void addBullet(const std::shared_ptr<Particles::Particle> &bullet) noexcept;
 
         /**
          * @brief Method removes bullet.
@@ -297,7 +297,7 @@ namespace Unite {
          * @brief Method adds new block.
          * @param block New block.
          */
-        void addBlock(const std::shared_ptr<Obstacles::Obstacle> &block);
+        void addBlock(const std::shared_ptr<Obstacles::Obstacle> &block) noexcept;
 
         /**
          * @brief Method removes block.
@@ -406,7 +406,7 @@ namespace Unite {
          * @brief Method adds new player.
          * @param player New player.
          */
-        void addPlayer(const std::shared_ptr<Mobs::Mob> &player);
+        void addPlayer(const std::shared_ptr<Mobs::Mob> &player) noexcept;
 
         /**
          * @brief Method removes player.

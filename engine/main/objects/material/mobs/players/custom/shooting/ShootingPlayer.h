@@ -24,7 +24,7 @@ namespace Mobs {
                 Particles::ParticleOptimizer<Particles::Bullet> *optimizer
         );
 
-        void handleEvent(const sf::Event &event, Unite::Unifier *unifier) noexcept override;
+        void handleEvent(const sf::Event &event, Unite::Unifier *unifier) override;
 
     protected:
         Mobs::ShootingPlayerProperties m_shooting;
